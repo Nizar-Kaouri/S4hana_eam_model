@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the basic view; the authorization-relevant elements are
+// projected with unchanged names (see GEN-D02).
+@EndUserText.label: 'Equipment - Cube'
+@MappingRole: true
+define role ZEAM_R_Equipment {
+  grant
+    select
+      on
+        ZEAM_R_Equipment
+          where
+            inheriting conditions from entity ZEAM_I_Equipment;
+}
