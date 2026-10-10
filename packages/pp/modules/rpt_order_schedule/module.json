@@ -1,0 +1,37 @@
+{
+  "name": "rpt_order_schedule",
+  "title": "Report: Production Order Schedule Adherence",
+  "description": "Open production orders with days late against the planned end date and the open quantity. Needs production_order.",
+  "batch": 3,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "production-order",
+    "schedule",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "production_order"
+  ],
+  "objects": {
+    "basic": [],
+    "composite": [
+      "ZPPV_R_OrderSchedule"
+    ],
+    "consumption": [
+      "ZPPV_C_OrderScheduleQ"
+    ],
+    "access_controls": [
+      "ZPPV_R_OrderSchedule"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPPV_C_OrderScheduleQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_R_OrderSchedule (see GEN-Q01)."
+  },
+  "link_views": []
+}

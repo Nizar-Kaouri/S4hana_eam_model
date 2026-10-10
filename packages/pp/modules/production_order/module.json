@@ -1,0 +1,48 @@
+{
+  "name": "production_order",
+  "title": "Production Order",
+  "description": "Production (manufacturing) orders with type, material, plant, dates, quantities and completion; value help, cube and query.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "transactional",
+    "production-order",
+    "manufacturing",
+    "analytics",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_ManufacturingOrder",
+    "I_Plant"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZPPV_I_ProductionOrder",
+      "ZPPV_I_ProductionOrderVH"
+    ],
+    "composite": [
+      "ZPPV_R_ProductionOrder"
+    ],
+    "consumption": [
+      "ZPPV_C_ProductionOrderQ"
+    ],
+    "access_controls": [
+      "ZPPV_I_ProductionOrder",
+      "ZPPV_I_ProductionOrderVH",
+      "ZPPV_R_ProductionOrder"
+    ],
+    "metadata_extensions": [
+      "ZPPV_R_ProductionOrder"
+    ],
+    "tests": [
+      "ZPPV_CL_PRODORDER_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZPPV_C_ProductionOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_R_ProductionOrder (see GEN-Q01)."
+  },
+  "link_views": []
+}

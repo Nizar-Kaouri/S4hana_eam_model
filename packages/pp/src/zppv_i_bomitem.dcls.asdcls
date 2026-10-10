@@ -1,0 +1,13 @@
+// ZPPV PP VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_BillOfMaterialItemBasic.
+// TODO-VERIFY[H] PP-D04: I_BillOfMaterialItemBasic has an access control role and every element it references is projected by ZPPV_I_BOMItem
+@EndUserText.label: 'Bill of Material Item'
+@MappingRole: true
+define role ZPPV_I_BOMItem {
+  grant
+    select
+      on
+        ZPPV_I_BOMItem
+          where
+            inheriting conditions from entity I_BillOfMaterialItemBasic;
+}

@@ -1,0 +1,13 @@
+// ZPPV PP VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_MaterialBOMLink.
+// TODO-VERIFY[H] PP-D03: I_MaterialBOMLink has an access control role and every element it references is projected by ZPPV_I_MaterialBOMLink
+@EndUserText.label: 'Material BOM Assignment'
+@MappingRole: true
+define role ZPPV_I_MaterialBOMLink {
+  grant
+    select
+      on
+        ZPPV_I_MaterialBOMLink
+          where
+            inheriting conditions from entity I_MaterialBOMLink;
+}

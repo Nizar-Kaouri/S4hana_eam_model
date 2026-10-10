@@ -1,0 +1,43 @@
+{
+  "name": "production_order_operation",
+  "title": "Production Order Operation",
+  "description": "Operations of production orders with work center and quantities. Needs production_order.",
+  "batch": 2,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "transactional",
+    "production-order",
+    "operation",
+    "work-center",
+    "analytics"
+  ],
+  "sap_released_views": [
+    "I_ManufacturingOrderOperation"
+  ],
+  "hard_dependencies": [
+    "production_order"
+  ],
+  "objects": {
+    "basic": [
+      "ZPPV_I_ProductionOrderOp"
+    ],
+    "composite": [
+      "ZPPV_R_ProductionOrderOp"
+    ],
+    "consumption": [
+      "ZPPV_C_ProductionOrderOpQ"
+    ],
+    "access_controls": [
+      "ZPPV_I_ProductionOrderOp",
+      "ZPPV_R_ProductionOrderOp"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPPV_C_ProductionOrderOpQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_R_ProductionOrderOp (see GEN-Q01)."
+  },
+  "link_views": []
+}

@@ -1,0 +1,13 @@
+// ZPPV PP VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_ManufacturingOrderOperation.
+// TODO-VERIFY[H] PP-D02: I_ManufacturingOrderOperation has an access control role and every element it references is projected by ZPPV_I_ProductionOrderOp
+@EndUserText.label: 'Production Order Operation'
+@MappingRole: true
+define role ZPPV_I_ProductionOrderOp {
+  grant
+    select
+      on
+        ZPPV_I_ProductionOrderOp
+          where
+            inheriting conditions from entity I_ManufacturingOrderOperation;
+}
