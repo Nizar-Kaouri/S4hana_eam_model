@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_MaintenanceNotification.
+// TODO-VERIFY[H] NT-D01: I_MaintenanceNotification has an access control role and every element it references is projected by ZEAM_I_MaintNotif
+@EndUserText.label: 'Maintenance Notification'
+@MappingRole: true
+define role ZEAM_I_MaintNotif {
+  grant
+    select
+      on
+        ZEAM_I_MaintNotif
+          where
+            inheriting conditions from entity I_MaintenanceNotification;
+}

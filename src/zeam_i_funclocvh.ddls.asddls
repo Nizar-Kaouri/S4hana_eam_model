@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Searchable value help; external label and description are the primary search elements.
+// Example: Value help for FunctionalLocation elements in order or notification projections.
 // Value help for Functional Location. The external label is the primary search element.
 // Authorization-relevant elements are kept so the DCL can inherit from ZEAM_I_FuncLoc.
 // TODO-VERIFY[M] FL-V01: path filter syntax _Text[1: Language = $session.system_language] accepted in a view entity

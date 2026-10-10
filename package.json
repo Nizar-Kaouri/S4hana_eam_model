@@ -5,7 +5,7 @@
   "description": "ZEAM EAM/PM CDS VDM - offline quality gates (draft-unverified)",
   "scripts": {
     "lint": "abaplint",
-    "check": "abaplint && python3 tools/sync_xml.py --check && python3 tools/validate_repo.py && python3 tools/todo_verify_report.py --check && python3 -m unittest discover -s tests/build"
+    "check": "abaplint && python3 tools/sync_xml.py --check && python3 tools/gen_docs.py --check && python3 tools/gen_checklist.py --check && python3 tools/validate_repo.py && python3 tools/todo_verify_report.py --check && python3 -m unittest discover -s tests/build"
   },
   "devDependencies": {
     "@abaplint/cli": "2.120.71"

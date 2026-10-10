@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Searchable value help for equipment with the description in the logon language.
+// Example: @Consumption.valueHelpDefinition: [{ entity: { name: 'ZEAM_I_EquipmentVH', element: 'Equipment' } }] on an Equipment element.
 // Value help for Equipment. Authorization-relevant elements are kept so the DCL can
 // inherit the conditions of ZEAM_I_Equipment.
 // TODO-VERIFY[M] EQ-V01: path filter syntax _Text[1: Language = $session.system_language] accepted in a view entity

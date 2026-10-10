@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Cube over the equipment population with measures NumberOfEquipments and AcquisitionValue (per currency).
+// Example: Installed base per plant and equipment category; acquisition value by manufacturer.
 // Composite view / analytical cube for Equipment (one row per current equipment).
 // TODO-VERIFY[L] EQ-R01: literal measure cast( 1 as abap.int4 ) with @Aggregation.default: #SUM in a #CUBE view entity
 // TODO-VERIFY[M] EQ-R02: amount measure AcquisitionValue aggregates per Currency (depends on EQ-017)

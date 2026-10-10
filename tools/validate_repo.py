@@ -8,13 +8,14 @@ module rules of this library, so this script enforces:
   M2  every object listed in a module.json exists; every /src object belongs to a module
   M3  layer naming: basic=<P>I_*, composite=<P>R_*, consumption=<P>C_*Q, and the matching @VDM.viewType
   M4  every DDLS has @AccessControl, @Analytics*, @VDM.viewType, @ObjectModel and @EndUserText.label
-  M5  every DDLS has a DCL (unless listed in no_dcl_by_design) and a doc page docs/views/<Name>.md
+  M5  every DDLS has a DCL (unless listed in no_dcl_by_design / no_dcl_reason), '// Purpose:' and
+      '// Example:' header comments and a doc page docs/views/<Name>.md
   M6  base views reference only objects of their own module or of declared hard dependencies;
       link views only objects of the modules they require
   M7  DCLS: role name = file name, grants select on itself, inherited ZEAM entity exists
   M8  DDLX: annotates an existing view that has @Metadata.allowExtensions: true
-  M9  object names within length limits for the library prefix
-  M10 abapGit XML in sync with sources (tools/sync_xml.py --check)
+  M9  object names within length limits minus reserve_prefix_chars (library.json)
+  M10 abapGit XML and docs/views in sync with sources (tools/sync_xml.py, tools/gen_docs.py)
   M11 TODO-VERIFY markers well-formed with unique IDs
 
 Usage: python3 tools/validate_repo.py      (exit code 1 on any error)
@@ -30,6 +31,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 import build_package as bp  # noqa: E402
 import sync_xml  # noqa: E402
+import gen_docs  # noqa: E402
 
 REQUIRED_KEYS = ["name", "title", "status", "tested_release", "tags", "hard_dependencies", "objects", "link_views"]
 STATUSES = {"draft-unverified", "activated", "tested"}
@@ -112,6 +114,7 @@ def main():
                 ddls_text[n_upper] = p.read_text(encoding="utf-8")
 
     # M3 / M4 / M5
+    no_dcl_links = set()
     for m in modules.values():
         for layer, (layer_prefix, vdm) in LAYER_RULES.items():
             for n in m["objects"].get(layer, []):
@@ -124,12 +127,22 @@ def main():
                     err(f"M3 {n}: expected @VDM.viewType: {vdm}")
     for link in links.values():
         text = ddls_text.get(link["name"].upper(), "")
-        if not link["name"].upper().startswith((prefix + "I_").upper()) or "@VDM.viewType: #BASIC" not in text:
-            err(f"M3 link view {link['name']}: must be {prefix}I_* with @VDM.viewType: #BASIC")
+        ok = False
+        for layer_prefix, vdm in LAYER_RULES.values():
+            if link["name"].upper().startswith((prefix + layer_prefix).upper()) and f"@VDM.viewType: {vdm}" in text:
+                ok = True
+        if not ok:
+            err(f"M3 link view {link['name']}: layer prefix and @VDM.viewType do not match")
+        if link["name"].upper().startswith((prefix + "C_").upper()) and not link["name"].endswith("Q"):
+            err(f"M3 link view {link['name']}: consumption views must end with 'Q'")
         if "LINK VIEW" not in text:
             err(f"M3 link view {link['name']}: header comment must say 'LINK VIEW'")
+        if not link.get("access_control") and not link.get("no_dcl_reason"):
+            err(f"M5 link view {link['name']}: needs access_control or no_dcl_reason")
+        if link.get("no_dcl_reason"):
+            no_dcl_links.add(link["name"].upper())
 
-    no_dcl = {}
+    no_dcl = {n: "link" for n in no_dcl_links}
     for m in modules.values():
         for n in m.get("no_dcl_by_design", {}):
             no_dcl[n.upper()] = m["name"]
@@ -146,6 +159,9 @@ def main():
             err(f"M5 {name}: no DCL and not listed in no_dcl_by_design")
         if not (ROOT / "docs" / "views" / f"{name}.md").exists():
             err(f"M5 {name}: missing docs/views/{name}.md")
+        for field in ("Purpose", "Example"):
+            if not re.search(r"^// " + field + r": \S", text, re.MULTILINE):
+                err(f"M5 {name}: header comment '// {field}: ...' missing")
 
     # M6 - module isolation
     def allowed_modules(mod_name):
@@ -222,14 +238,20 @@ def main():
 
     # M9 - name lengths
     limits = library.get("max_object_name_length", {})
+    reserve = library.get("reserve_prefix_chars", 0)
     for (t, n_upper) in owner:
-        if len(n_upper) > limits.get(t, 30):
-            err(f"M9 {t} {n_upper}: {len(n_upper)} characters > {limits.get(t, 30)}")
+        if len(n_upper) > limits.get(t, 30) - reserve:
+            err(f"M9 {t} {n_upper}: {len(n_upper)} characters > {limits.get(t, 30)} - {reserve} "
+                f"(reserved so that a customer prefix of {len(prefix) + reserve} characters fits)")
 
     # M10 - XML sync
     for path, content in sync_xml.expected_files().items():
         if not path.exists() or path.read_text(encoding="utf-8") != content:
             err(f"M10 {path.relative_to(ROOT)} out of date - run python3 tools/sync_xml.py")
+
+    for path, content in gen_docs.expected().items():
+        if not path.exists() or path.read_text(encoding="utf-8") != content:
+            err(f"M10 {path.relative_to(ROOT)} out of date - run python3 tools/gen_docs.py")
 
     # M11 - markers
     seen = {}

@@ -11,5 +11,6 @@
     "DDLX": 30,
     "CLAS": 30,
     "DEVC": 30
-  }
+  },
+  "reserve_prefix_chars": 1
 }

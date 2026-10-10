@@ -4,31 +4,35 @@
 
 | | |
 |---|---|
+| Description | Functional Location - Value Help |
 | Module | `functional_location` |
-| Layer | Basic (value help) |
+| Batch | 1 |
+| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Kind | view entity |
+| Data category | #VALUE_HELP |
 | Data source | `ZEAM_I_FuncLoc` |
 | Source file | `src/zeam_i_funclocvh.ddls.asddls` |
 
 ## Purpose
 
-Searchable value help. The external label (`FunctionalLocationLabelName`) and description are the primary search elements; the internal key is still the value-help key.
+Searchable value help; external label and description are the primary search elements.
 
 ## Keys
 
 - `FunctionalLocation`
 
-## Associations
+## Associations defined here
 
 - none
 
 ## Access control
 
-Inherits from `ZEAM_I_FuncLoc` (GEN-D02).
+Role inherits the conditions of `ZEAM_I_FuncLoc`.
 
 ## Example use case
 
-Value help for `FunctionalLocation` elements in later order/notification projections.
+Value help for FunctionalLocation elements in order or notification projections.
 
 ## Open verification items
 
-`FL-V01`, `GEN-D02` - see `BATCH_REPORT.md`.
+`FL-V01` - see `BATCH_REPORT.md`.

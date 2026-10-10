@@ -4,26 +4,30 @@
 
 | | |
 |---|---|
+| Description | Functional Location Analysis |
 | Module | `functional_location` |
-| Layer | Consumption (transient analytical query) |
+| Batch | 1 |
+| Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
+| Kind | transient view entity |
+| Data category | analytical query |
 | Data source | `ZEAM_R_FuncLoc` |
 | Source file | `src/zeam_c_funclocq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query: rows MaintenancePlant × FunctionalLocationCategory, column NumberOfFunctionalLocations.
+Analytical query on the functional location cube.
 
 ## Keys
 
-- (none - transient)
+- none (transient / aggregated)
 
-## Associations
+## Associations defined here
 
 - none
 
 ## Access control
 
-No DCL by design (GEN-Q01); provider DCL applies.
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_FuncLoc (see GEN-Q01).
 
 ## Example use case
 
@@ -31,4 +35,4 @@ Structure overview per plant in an analytical list page.
 
 ## Open verification items
 
-`GEN-Q01`, `GEN-Q02`, `GEN-Q03`, `GEN-A01` - see `BATCH_REPORT.md`.
+`GEN-Q01`, `GEN-Q03` - see `BATCH_REPORT.md`.

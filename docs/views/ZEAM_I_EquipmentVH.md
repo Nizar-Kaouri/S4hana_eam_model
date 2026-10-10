@@ -4,30 +4,34 @@
 
 | | |
 |---|---|
+| Description | Equipment - Value Help |
 | Module | `equipment` |
-| Layer | Basic (value help, `@ObjectModel.dataCategory: #VALUE_HELP`) |
+| Batch | 1 |
+| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Kind | view entity |
+| Data category | #VALUE_HELP |
 | Data source | `ZEAM_I_Equipment` |
 | Source file | `src/zeam_i_equipmentvh.ddls.asddls` |
 
 ## Purpose
 
-Searchable value help for equipment with the description in the logon language. Fuzzy search on number and name, low-ranked search on functional location and serial number.
+Searchable value help for equipment with the description in the logon language.
 
 ## Keys
 
 - `Equipment`
 
-## Associations
+## Associations defined here
 
 - none
 
 ## Access control
 
-Inherits from `ZEAM_I_Equipment` (GEN-D02).
+Role inherits the conditions of `ZEAM_I_Equipment`.
 
 ## Example use case
 
-`@Consumption.valueHelpDefinition: [{ entity: { name: 'ZEAM_I_EquipmentVH', element: 'Equipment' } }]` on any `Equipment` element of a consumption view or RAP projection.
+@Consumption.valueHelpDefinition: [{ entity: { name: 'ZEAM_I_EquipmentVH', element: 'Equipment' } }] on an Equipment element.
 
 ## Open verification items
 

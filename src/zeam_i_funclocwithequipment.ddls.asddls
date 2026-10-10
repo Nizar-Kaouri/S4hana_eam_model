@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Functional location with a to-many association to the equipment installed at it.
+// Example: From a functional location navigate to all currently installed equipment (e.g. in an object page).
 // LINK VIEW (ships only when modules "equipment" AND "functional_location" are selected).
 // One row per functional location, with a to-many association to the equipment
 // currently installed at it.

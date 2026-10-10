@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Language-dependent functional location description; text provider for ZEAM_I_FuncLoc.
+// Example: Show functional location descriptions in reports.
 // TODO-VERIFY[M] FL-T01: I_FunctionalLocationText exists and is released (C1) in S/4HANA 2025
 // TODO-VERIFY[M] FL-T02: I_FunctionalLocationText element names FunctionalLocation / Language / FunctionalLocationName
 @AbapCatalog.viewEnhancementCategory: [#NONE]

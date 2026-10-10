@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Analytical query on the functional location cube.
+// Example: Structure overview per plant in an analytical list page.
 // Analytical query on the Functional Location cube.
 // DESIGN NOTE: transient view entities are not SQL-readable; no DCL role is defined for
 // this entity. Authorizations are enforced by the DCL of ZEAM_R_FuncLoc (the provider).

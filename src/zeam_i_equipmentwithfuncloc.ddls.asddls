@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Installed equipment with attributes and association of its functional location.
+// Example: List all installed equipment with the external label of their functional location.
 // LINK VIEW (ships only when modules "equipment" AND "functional_location" are selected).
 // One row per current equipment that is installed at a functional location, with an
 // association to the functional location.

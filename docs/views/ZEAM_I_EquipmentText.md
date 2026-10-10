@@ -4,31 +4,35 @@
 
 | | |
 |---|---|
+| Description | Equipment - Text |
 | Module | `equipment` |
-| Layer | Basic (text, `@ObjectModel.dataCategory: #TEXT`) |
+| Batch | 1 |
+| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Kind | view entity |
+| Data category | #TEXT |
 | Data source | `I_EquipmentText` |
 | Source file | `src/zeam_i_equipmenttext.ddls.asddls` |
 
 ## Purpose
 
-Language-dependent equipment description. Text provider for `ZEAM_I_Equipment`.
+Language-dependent equipment description; text provider for ZEAM_I_Equipment.
 
 ## Keys
 
 - `Equipment`
 - `Language`
 
-## Associations
+## Associations defined here
 
 - none
 
 ## Access control
 
-Unrestricted read (texts are not authorization-relevant, see GEN-D01).
+Role grants unrestricted read access (explicit `grant select on ...;`).
 
 ## Example use case
 
-Show the equipment description in the user's logon language in any list or analytical report.
+Show the equipment description in the logon language in any list or analytical report.
 
 ## Open verification items
 

@@ -6,7 +6,13 @@
   "version": "0.1.0",
   "status": "draft-unverified",
   "tested_release": "none (draft, 2025 assumed)",
-  "tags": ["master-data", "technical-object", "equipment", "analytics", "value-help"],
+  "tags": [
+    "master-data",
+    "technical-object",
+    "equipment",
+    "analytics",
+    "value-help"
+  ],
   "sap_released_views": [
     "I_Equipment",
     "I_EquipmentText",
@@ -17,12 +23,29 @@
   ],
   "hard_dependencies": [],
   "objects": {
-    "basic": ["ZEAM_I_EquipmentText", "ZEAM_I_Equipment", "ZEAM_I_EquipmentVH"],
-    "composite": ["ZEAM_R_Equipment"],
-    "consumption": ["ZEAM_C_EquipmentQ"],
-    "access_controls": ["ZEAM_I_EquipmentText", "ZEAM_I_Equipment", "ZEAM_I_EquipmentVH", "ZEAM_R_Equipment"],
-    "metadata_extensions": ["ZEAM_R_Equipment"],
-    "tests": ["ZEAM_CL_EQUIPMENT_TEST"]
+    "basic": [
+      "ZEAM_I_EquipmentText",
+      "ZEAM_I_Equipment",
+      "ZEAM_I_EquipmentVH"
+    ],
+    "composite": [
+      "ZEAM_R_Equipment"
+    ],
+    "consumption": [
+      "ZEAM_C_EquipmentQ"
+    ],
+    "access_controls": [
+      "ZEAM_I_EquipmentText",
+      "ZEAM_I_Equipment",
+      "ZEAM_I_EquipmentVH",
+      "ZEAM_R_Equipment"
+    ],
+    "metadata_extensions": [
+      "ZEAM_R_Equipment"
+    ],
+    "tests": [
+      "ZEAM_CL_EQUIPMENT_TEST"
+    ]
   },
   "no_dcl_by_design": {
     "ZEAM_C_EquipmentQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_Equipment (see GEN-Q01)."
@@ -30,13 +53,35 @@
   "link_views": [
     {
       "name": "ZEAM_I_EquipmentWithFuncLoc",
-      "requires_modules": ["equipment", "functional_location"],
+      "requires_modules": [
+        "equipment",
+        "functional_location"
+      ],
       "access_control": "ZEAM_I_EquipmentWithFuncLoc"
     },
     {
       "name": "ZEAM_I_FuncLocWithEquipment",
-      "requires_modules": ["equipment", "functional_location"],
+      "requires_modules": [
+        "equipment",
+        "functional_location"
+      ],
       "access_control": "ZEAM_I_FuncLocWithEquipment"
+    },
+    {
+      "name": "ZEAM_I_EquipmentWithNotif",
+      "requires_modules": [
+        "equipment",
+        "maintenance_notification"
+      ],
+      "access_control": "ZEAM_I_EquipmentWithNotif"
+    },
+    {
+      "name": "ZEAM_I_EquipmentWithOrder",
+      "requires_modules": [
+        "equipment",
+        "maintenance_order"
+      ],
+      "access_control": "ZEAM_I_EquipmentWithOrder"
     }
   ]
 }

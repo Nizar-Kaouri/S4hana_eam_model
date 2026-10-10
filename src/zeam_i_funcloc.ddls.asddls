@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: One row per functional location with external label, category, structure indicator, superior location and organizational assignment; dimension for cubes referencing a functional location.
+// Example: Navigate up the structure via _SuperiorFunctionalLocation; report on locations per plant section.
 // Basic interface view / analytical dimension for Functional Location.
 // Cross-module associations (e.g. to Equipment) are NOT allowed here;
 // they live in link views (see ZEAM_I_FuncLocWithEquipment).

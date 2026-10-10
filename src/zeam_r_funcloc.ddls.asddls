@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Cube with measure NumberOfFunctionalLocations.
+// Example: Number of functional locations per plant and category.
 // Composite view / analytical cube for Functional Location (one row per functional location).
 // TODO-VERIFY[L] FL-R01: literal measure cast( 1 as abap.int4 ) with @Aggregation.default: #SUM in a #CUBE view entity
 @AbapCatalog.viewEnhancementCategory: [#NONE]

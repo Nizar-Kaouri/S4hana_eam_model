@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for the operation view.
+// TODO-VERIFY[H] MO-D02: the SAP operation view has a role; if its conditions use paths (e.g. via the order header) our association names must match
+@EndUserText.label: 'Maintenance Order Operation'
+@MappingRole: true
+define role ZEAM_I_MaintOrderOperation {
+  grant
+    select
+      on
+        ZEAM_I_MaintOrderOperation
+          where
+            inheriting conditions from entity I_MaintenanceOrderOperation;
+}

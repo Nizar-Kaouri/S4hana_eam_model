@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Analytical query on the equipment cube (rows plant x category, columns count and acquisition value).
+// Example: Expose in a service definition, bind as OData V4 and open in an analytical list page or SAP Analytics Cloud.
 // Analytical query on the Equipment cube.
 // DESIGN NOTE: transient view entities are not SQL-readable; no DCL role is defined for
 // this entity. Authorizations are enforced by the DCL of ZEAM_R_Equipment (the provider).

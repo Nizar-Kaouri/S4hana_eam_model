@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Language-dependent equipment description; text provider for ZEAM_I_Equipment.
+// Example: Show the equipment description in the logon language in any list or analytical report.
 // TODO-VERIFY[M] EQ-T01: I_EquipmentText exists and is released (C1) in S/4HANA 2025
 // TODO-VERIFY[M] EQ-T02: I_EquipmentText element names Equipment / Language / EquipmentName
 @AbapCatalog.viewEnhancementCategory: [#NONE]

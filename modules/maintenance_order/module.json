@@ -1,0 +1,89 @@
+{
+  "name": "maintenance_order",
+  "title": "Maintenance Order",
+  "description": "Maintenance order header, operations and material components: basic views, value help, three cubes and three queries.",
+  "batch": 2,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "transactional",
+    "order",
+    "operation",
+    "component",
+    "analytics",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_MaintenanceOrder",
+    "I_MaintenanceOrderOperation",
+    "I_MaintenanceOrderComponent",
+    "I_Plant",
+    "I_CompanyCode"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZEAM_I_MaintOrder",
+      "ZEAM_I_MaintOrderVH",
+      "ZEAM_I_MaintOrderOperation",
+      "ZEAM_I_MaintOrderComponent"
+    ],
+    "composite": [
+      "ZEAM_R_MaintOrder",
+      "ZEAM_R_MaintOrderOperation",
+      "ZEAM_R_MaintOrderComponent"
+    ],
+    "consumption": [
+      "ZEAM_C_MaintOrderQ",
+      "ZEAM_C_MaintOrderOperationQ",
+      "ZEAM_C_MaintOrderComponentQ"
+    ],
+    "access_controls": [
+      "ZEAM_I_MaintOrder",
+      "ZEAM_I_MaintOrderVH",
+      "ZEAM_I_MaintOrderOperation",
+      "ZEAM_I_MaintOrderComponent",
+      "ZEAM_R_MaintOrder",
+      "ZEAM_R_MaintOrderOperation",
+      "ZEAM_R_MaintOrderComponent"
+    ],
+    "metadata_extensions": [
+      "ZEAM_R_MaintOrder"
+    ],
+    "tests": [
+      "ZEAM_CL_MAINTORDER_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZEAM_C_MaintOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintOrder (see GEN-Q01).",
+    "ZEAM_C_MaintOrderOperationQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintOrderOperation (see GEN-Q01).",
+    "ZEAM_C_MaintOrderComponentQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintOrderComponent (see GEN-Q01)."
+  },
+  "link_views": [
+    {
+      "name": "ZEAM_I_EquipmentWithOrder",
+      "requires_modules": [
+        "equipment",
+        "maintenance_order"
+      ],
+      "access_control": "ZEAM_I_EquipmentWithOrder"
+    },
+    {
+      "name": "ZEAM_I_FuncLocWithOrder",
+      "requires_modules": [
+        "functional_location",
+        "maintenance_order"
+      ],
+      "access_control": "ZEAM_I_FuncLocWithOrder"
+    },
+    {
+      "name": "ZEAM_I_NotifWithOrder",
+      "requires_modules": [
+        "maintenance_notification",
+        "maintenance_order"
+      ],
+      "access_control": "ZEAM_I_NotifWithOrder"
+    }
+  ]
+}

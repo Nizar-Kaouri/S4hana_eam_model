@@ -17,6 +17,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+import build_package as bp  # noqa: E402
+
 REPORT = ROOT / "BATCH_REPORT.md"
 MARKER_RE = re.compile(r"TODO-VERIFY\[(?P<risk>[HML])\]\s+(?P<id>[A-Z]+-[A-Z0-9]+):\s*(?P<text>.*?)\s*$")
 BEGIN, END = "<!-- TODO-VERIFY:BEGIN -->", "<!-- TODO-VERIFY:END -->"
@@ -24,7 +27,23 @@ RISK_ORDER = {"H": 0, "M": 1, "L": 2}
 RISK_LABEL = {"H": "HIGH", "M": "MEDIUM", "L": "LOW"}
 
 
+def batch_map():
+    """object file base name -> batch number (link views: highest batch of their modules)."""
+    modules = bp.load_modules()
+    out = {}
+    for m in modules.values():
+        for _, n, _ in bp.module_objects(m, with_tests=True):
+            out[bp.file_base(n)] = m.get("batch", "?")
+    for link in bp.collect_link_views(modules).values():
+        b = max(modules[r].get("batch", 0) for r in link["requires_modules"])
+        out[bp.file_base(link["name"])] = b
+        if link.get("access_control"):
+            out[bp.file_base(link["access_control"])] = b
+    return out
+
+
 def collect():
+    batches = batch_map()
     items = []
     for folder in ("src", "tests", "tools"):
         for path in sorted((ROOT / folder).rglob("*")):
@@ -33,8 +52,9 @@ def collect():
             for i, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
                 m = MARKER_RE.search(line)
                 if m:
+                    batch = batches.get(path.name.split(".")[0], "tooling")
                     items.append((m.group("risk"), m.group("id"), m.group("text").replace("|", "\\|"),
-                                  f"{path.relative_to(ROOT)}:{i}"))
+                                  f"{path.relative_to(ROOT)}:{i}", batch))
     items.sort(key=lambda it: (RISK_ORDER[it[0]], it[1]))
     return items
 
@@ -48,8 +68,8 @@ def render(items):
         group = [it for it in items if it[0] == risk]
         if not group:
             continue
-        lines += [f"#### {RISK_LABEL[risk]}", "", "| ID | What to verify | Location |", "|---|---|---|"]
-        lines += [f"| {it[1]} | {it[2]} | `{it[3]}` |" for it in group]
+        lines += [f"### {RISK_LABEL[risk]}", "", "| ID | Batch | What to verify | Location |", "|---|---|---|---|"]
+        lines += [f"| {it[1]} | {it[4]} | {it[2]} | `{it[3]}` |" for it in group]
         lines.append("")
     lines.append(END)
     return "\n".join(lines)

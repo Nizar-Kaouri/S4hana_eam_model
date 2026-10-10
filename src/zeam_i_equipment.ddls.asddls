@@ -1,4 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: One row per equipment (current time segment) with installation location, organizational assignment, manufacturer data and acquisition value; dimension for every cube that references an equipment.
+// Example: Read equipment attributes such as plant section or ABC indicator without touching SAP tables.
 // Basic interface view / analytical dimension for Equipment (current time segment only).
 // Cross-module associations (e.g. to Functional Location) are NOT allowed here;
 // they live in link views (see ZEAM_I_EquipmentWithFuncLoc).

@@ -4,20 +4,24 @@
 
 | | |
 |---|---|
+| Description | Functional Location |
 | Module | `functional_location` |
-| Layer | Basic (analytical dimension) |
+| Batch | 1 |
+| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Kind | view entity |
+| Data category | #DIMENSION |
 | Data source | `I_FunctionalLocation` |
 | Source file | `src/zeam_i_funcloc.ddls.asddls` |
 
 ## Purpose
 
-One row per functional location with external label, category, structure indicator, superior location and organizational assignment. Dimension for any cube referencing a functional location.
+One row per functional location with external label, category, structure indicator, superior location and organizational assignment; dimension for cubes referencing a functional location.
 
 ## Keys
 
-- `FunctionalLocation (internal key)`
+- `FunctionalLocation`
 
-## Associations
+## Associations defined here
 
 - `_Text` → `ZEAM_I_FuncLocText` [0..*]
 - `_SuperiorFunctionalLocation` → `ZEAM_I_FuncLoc` [0..1]
@@ -29,12 +33,12 @@ One row per functional location with external label, category, structure indicat
 
 ## Access control
 
-Inherits the conditions of SAP's `I_FunctionalLocation` role (FL-D01).
+Role inherits the conditions of `I_FunctionalLocation`.
 
 ## Example use case
 
-Navigate up the structure via `_SuperiorFunctionalLocation`; report on locations per plant section.
+Navigate up the structure via _SuperiorFunctionalLocation; report on locations per plant section.
 
 ## Open verification items
 
-`FL-001…FL-009`, `FL-D01` - see `BATCH_REPORT.md`.
+`FL-001`, `FL-002`, `FL-003`, `FL-004`, `FL-005`, `FL-006`, `FL-007`, `FL-008`, `FL-009`, `FL-010`, `FL-D01` - see `BATCH_REPORT.md`.
