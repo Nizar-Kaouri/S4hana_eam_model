@@ -1,0 +1,52 @@
+{
+  "name": "product",
+  "title": "Product (Material)",
+  "description": "Material master: product, descriptions, plant data, value help, cube and query.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "master-data",
+    "material",
+    "product",
+    "analytics",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_Product",
+    "I_ProductDescription",
+    "I_ProductPlantBasic",
+    "I_Plant"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZMMV_I_ProductText",
+      "ZMMV_I_Product",
+      "ZMMV_I_ProductPlant",
+      "ZMMV_I_ProductVH"
+    ],
+    "composite": [
+      "ZMMV_R_Product"
+    ],
+    "consumption": [
+      "ZMMV_C_ProductQ"
+    ],
+    "access_controls": [
+      "ZMMV_I_ProductText",
+      "ZMMV_I_Product",
+      "ZMMV_I_ProductPlant",
+      "ZMMV_I_ProductVH",
+      "ZMMV_R_Product"
+    ],
+    "metadata_extensions": [
+      "ZMMV_R_Product"
+    ],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMV_C_ProductQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_Product (see GEN-Q01)."
+  },
+  "link_views": []
+}

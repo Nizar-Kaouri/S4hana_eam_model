@@ -1,0 +1,40 @@
+{
+  "name": "purchase_requisition",
+  "title": "Purchase Requisition",
+  "description": "Purchase requisition items with requested quantity, status and dates, cube and query.",
+  "batch": 3,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "purchasing",
+    "purchase-requisition",
+    "analytics"
+  ],
+  "sap_released_views": [
+    "I_PurchaseRequisitionItemAPI01",
+    "I_Plant"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZMMV_I_PurchaseReqnItem"
+    ],
+    "composite": [
+      "ZMMV_R_PurchaseReqnItem"
+    ],
+    "consumption": [
+      "ZMMV_C_PurchaseReqnQ"
+    ],
+    "access_controls": [
+      "ZMMV_I_PurchaseReqnItem",
+      "ZMMV_R_PurchaseReqnItem"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMV_C_PurchaseReqnQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_PurchaseReqnItem (see GEN-Q01)."
+  },
+  "link_views": []
+}

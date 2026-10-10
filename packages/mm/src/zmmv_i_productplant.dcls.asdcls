@@ -1,0 +1,13 @@
+// ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_ProductPlantBasic.
+// TODO-VERIFY[H] MM-D02: I_ProductPlantBasic has an access control role and every element it references is projected by ZMMV_I_ProductPlant
+@EndUserText.label: 'Product Plant Data'
+@MappingRole: true
+define role ZMMV_I_ProductPlant {
+  grant
+    select
+      on
+        ZMMV_I_ProductPlant
+          where
+            inheriting conditions from entity I_ProductPlantBasic;
+}

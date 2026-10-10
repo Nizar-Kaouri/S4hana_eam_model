@@ -1,0 +1,43 @@
+{
+  "name": "goods_movement",
+  "title": "Goods Movement",
+  "description": "Material document items (goods receipts, issues, transfers) with signed quantities and values, cube and query.",
+  "batch": 2,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "inventory",
+    "goods-movement",
+    "material-document",
+    "analytics"
+  ],
+  "sap_released_views": [
+    "I_MaterialDocumentItem_2",
+    "I_Plant"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZMMV_I_GoodsMovement"
+    ],
+    "composite": [
+      "ZMMV_R_GoodsMovement"
+    ],
+    "consumption": [
+      "ZMMV_C_GoodsMovementQ"
+    ],
+    "access_controls": [
+      "ZMMV_I_GoodsMovement",
+      "ZMMV_R_GoodsMovement"
+    ],
+    "metadata_extensions": [],
+    "tests": [
+      "ZMMV_CL_GOODSMVT_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZMMV_C_GoodsMovementQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_GoodsMovement (see GEN-Q01)."
+  },
+  "link_views": []
+}

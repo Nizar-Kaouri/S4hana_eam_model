@@ -1,0 +1,12 @@
+// ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Material Stock - Cube'
+@MappingRole: true
+define role ZMMV_R_MaterialStock {
+  grant
+    select
+      on
+        ZMMV_R_MaterialStock
+          where
+            inheriting conditions from entity ZMMV_I_MaterialStock;
+}

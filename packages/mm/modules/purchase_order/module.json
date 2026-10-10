@@ -1,0 +1,51 @@
+{
+  "name": "purchase_order",
+  "title": "Purchase Order",
+  "description": "Purchase order header and items: dimension, value help, item cube and query.",
+  "batch": 3,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "purchasing",
+    "purchase-order",
+    "supplier",
+    "analytics",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_PurchaseOrderAPI01",
+    "I_PurchaseOrderItemAPI01",
+    "I_Supplier",
+    "I_CompanyCode",
+    "I_Plant"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZMMV_I_PurchaseOrder",
+      "ZMMV_I_PurchaseOrderItem",
+      "ZMMV_I_PurchaseOrderVH"
+    ],
+    "composite": [
+      "ZMMV_R_PurchaseOrderItem"
+    ],
+    "consumption": [
+      "ZMMV_C_PurchaseOrderQ"
+    ],
+    "access_controls": [
+      "ZMMV_I_PurchaseOrder",
+      "ZMMV_I_PurchaseOrderItem",
+      "ZMMV_I_PurchaseOrderVH",
+      "ZMMV_R_PurchaseOrderItem"
+    ],
+    "metadata_extensions": [
+      "ZMMV_R_PurchaseOrderItem"
+    ],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMV_C_PurchaseOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_PurchaseOrderItem (see GEN-Q01)."
+  },
+  "link_views": []
+}

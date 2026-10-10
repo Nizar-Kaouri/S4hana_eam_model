@@ -1,0 +1,37 @@
+{
+  "name": "rpt_open_purchase_order",
+  "title": "Report: Open Purchase Orders",
+  "description": "Open purchase order items (not completely delivered, not deleted) with order age and age bucket. Needs purchase_order.",
+  "batch": 4,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "purchasing",
+    "open-items",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "purchase_order"
+  ],
+  "objects": {
+    "basic": [],
+    "composite": [
+      "ZMMV_R_OpenPurchaseOrder"
+    ],
+    "consumption": [
+      "ZMMV_C_OpenPurchaseOrderQ"
+    ],
+    "access_controls": [
+      "ZMMV_R_OpenPurchaseOrder"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMV_C_OpenPurchaseOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_OpenPurchaseOrder (see GEN-Q01)."
+  },
+  "link_views": []
+}
