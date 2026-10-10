@@ -8,6 +8,7 @@ Once: unit tests of the shared build script (tools/tests).
 abaplint is taken from node_modules/.bin/abaplint (run `npm install` once) or from $ABAPLINT.
 Use --fix to regenerate the generated files instead of only checking them.
 """
+import json
 import os
 import shutil
 import subprocess
@@ -55,7 +56,9 @@ def main():
         for gen in GENERATORS:
             cmd = [sys.executable, str(REPO / "tools" / f"{gen}.py")] + ([] if fix else ["--check"])
             ok &= run(cmd, REPO, env, gen + ("" if fix else " --check"))
-        ok &= run([sys.executable, str(REPO / "tools" / "validate_repo.py")], REPO, env, "validate_repo")
+        lib = json.loads((root / "library.json").read_text(encoding="utf-8"))
+        validator = "validate_bridge" if lib.get("kind") == "bridge" else "validate_repo"
+        ok &= run([sys.executable, str(REPO / "tools" / f"{validator}.py")], REPO, env, validator)
         if lint:
             ok &= run(lint, root, env, "abaplint")
         else:

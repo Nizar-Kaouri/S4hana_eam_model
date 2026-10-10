@@ -16,13 +16,14 @@ stands is tracked in **[`PRODUCT_CHECKLIST.md`](PRODUCT_CHECKLIST.md)**.
 |---|---|---|---|
 | Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
 | Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 14 views |
-| Materials Management (MM) | [`packages/mm`](packages/mm/README.md) | `ZMMV_` | drafted: 7 modules, 24 views |
-| Quality Management (QM) | [`packages/qm`](packages/qm/README.md) | `ZQMV_` | drafted: 4 modules, 13 views |
-| Project System (PS) | [`packages/ps`](packages/ps/README.md) | `ZPSV_` | drafted: 4 modules, 13 views |
-| Production Planning (PP) | [`packages/pp`](packages/pp/README.md) | `ZPPV_` | drafted: 4 modules, 13 views |
-| Controlling (CO) | [`packages/co`](packages/co/README.md) | `ZCOV_` | drafted: 5 modules, 17 views |
-| Financial Accounting (FI) | [`packages/fi`](packages/fi/README.md) | `ZFIV_` | drafted: 5 modules, 13 views |
-| Sales and Distribution (SD) | [`packages/sd`](packages/sd/README.md) | `ZSDV_` | drafted: 4 modules, 15 views |
+| Materials Management (MM) | [`packages/mm`](packages/mm/README.md) | `ZMMV_` | drafted: 7 modules, 24 views + 9 link objects |
+| Quality Management (QM) | [`packages/qm`](packages/qm/README.md) | `ZQMV_` | drafted: 4 modules, 13 views + 2 link objects |
+| Project System (PS) | [`packages/ps`](packages/ps/README.md) | `ZPSV_` | drafted: 4 modules, 13 views + 3 link objects |
+| Production Planning (PP) | [`packages/pp`](packages/pp/README.md) | `ZPPV_` | drafted: 4 modules, 13 views + 1 link object |
+| Controlling (CO) | [`packages/co`](packages/co/README.md) | `ZCOV_` | drafted: 5 modules, 17 views + 5 link objects |
+| Financial Accounting (FI) | [`packages/fi`](packages/fi/README.md) | `ZFIV_` | drafted: 5 modules, 13 views + 6 link objects |
+| Sales and Distribution (SD) | [`packages/sd`](packages/sd/README.md) | `ZSDV_` | drafted: 4 modules, 15 views + 2 link objects |
+| Cross-product bridge links | [`packages/bridge`](packages/bridge/README.md) | `ZBRG_` | drafted: 18 link objects across 7 products (bundle build only) |
 
 ## Repository layout
 
@@ -30,11 +31,13 @@ stands is tracked in **[`PRODUCT_CHECKLIST.md`](PRODUCT_CHECKLIST.md)**.
 PRODUCT_CHECKLIST.md         which areas get a package, fit, status per product
 ADT_SETUP.md                 push / activate / fix loop against a real system (abap-adt-api)
 build_package.py             customer build: --product <name> <modules> → abapGit ZIP in dist/<product>/
+build_bundle.py              multi-product build: product:module ... → ONE prefix/package ZIP incl. bridge links
 tools/                       shared tooling (every tool takes --product <name>)
   check_all.py               all quality gates for all products (or --only <name>; --fix regenerates)
   new_product.py             scaffold a new product folder
   sync_xml.py, gen_docs.py, gen_checklist.py, gen_model_map.py, todo_verify_report.py, validate_repo.py
-  tests/                     unit tests of the build script
+  catalog.py, validate_bridge.py   cross-product name index and bridge rules (B1-B7)
+  tests/                     unit tests of build_package.py and build_bundle.py
 packages/<product>/          one product
   src/                       abapGit objects (DDLS, DCLS, DDLX + XML), flat, one ABAP package
   modules/<module>/module.json
@@ -50,6 +53,11 @@ Inside a product, the architecture is the same everywhere (see `packages/eam/REA
 object is a self-contained module. Cross-object associations live in link views that ship only when
 all their modules are selected. Hard dependencies are added automatically by the build.
 
+Links between products (e.g. EAM equipment ↔ FI-AA fixed asset) live in `packages/bridge`. Each bridge
+link declares qualified modules (`eam:equipment` + `fi_aa:fixed_asset`) and ships only through
+`build_bundle.py`, only when all of them are selected. A bundle rewrites every product prefix and package
+to one target prefix and one target package.
+
 ## Commands
 
 ```bash
@@ -58,6 +66,8 @@ python3 tools/check_all.py                          # all gates, all products
 python3 tools/check_all.py --only eam --fix         # regenerate generated files of one product
 python3 build_package.py --product eam --list
 python3 build_package.py --product eam equipment maintenance_order --prefix ZACME_ --package ZACME_EAM
+python3 build_bundle.py eam:equipment fi_aa:rpt_asset_balance --prefix ZACME_ --package ZACME_VDM
+python3 build_bundle.py --all --with-tests --prefix ZACME_ --package ZACME_VDM
 python3 tools/new_product.py ehs --prefix ZEHS_ --package ZEHS_VDM --title "Environment, Health and Safety" --area EHS
 ```
 

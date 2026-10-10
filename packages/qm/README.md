@@ -13,8 +13,15 @@
 
 Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZQMV_I_*`,
 composite `ZQMV_R_*` (cubes), consumption `ZQMV_C_*Q` (analytical queries); one self-contained module
-per business object; hard dependencies added by the build. **Link views are not built yet** (planned for
-the end, together with the cross-product links).
+per business object; hard dependencies added by the build. **2 intra-product link object(s)** ship
+only when all their modules are selected; links to other products live in `packages/bridge`.
+
+## Link views (ship only when all listed modules are selected)
+
+| Link object | Requires modules |
+|---|---|
+| `ZQMV_I_InspLotWithQualNotif` | inspection_lot, quality_notification |
+| `ZQMV_I_QualNotifWithLot` | inspection_lot, quality_notification |
 
 ## Data model in one paragraph
 

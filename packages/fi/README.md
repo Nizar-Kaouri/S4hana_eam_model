@@ -13,8 +13,19 @@
 
 Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZFIV_I_*`,
 composite `ZFIV_R_*` (cubes), consumption `ZFIV_C_*Q` (analytical queries); one self-contained module
-per business object; hard dependencies added by the build. **Link views are not built yet** (planned for
-the end, together with the cross-product links).
+per business object; hard dependencies added by the build. **6 intra-product link object(s)** ship
+only when all their modules are selected; links to other products live in `packages/bridge`.
+
+## Link views (ship only when all listed modules are selected)
+
+| Link object | Requires modules |
+|---|---|
+| `ZFIV_C_GLBalanceAccountQ` | gl_account, gl_line_item |
+| `ZFIV_C_PayablesAgingQ` | open_items, supplier |
+| `ZFIV_C_ReceivablesAgingQ` | customer, open_items |
+| `ZFIV_R_GLItemWithAccount` | gl_account, gl_line_item |
+| `ZFIV_R_OpenItemWithCustomer` | customer, open_items |
+| `ZFIV_R_OpenItemWithSupplier` | open_items, supplier |
 
 ## Data model in one paragraph
 

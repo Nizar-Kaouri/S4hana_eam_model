@@ -1,0 +1,12 @@
+// ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Purchase Order Item with Supplier'
+@MappingRole: true
+define role ZBRG_R_POItemWithSupplier {
+  grant
+    select
+      on
+        ZBRG_R_POItemWithSupplier
+          where
+            inheriting conditions from entity ZMMV_R_PurchaseOrderItem;
+}

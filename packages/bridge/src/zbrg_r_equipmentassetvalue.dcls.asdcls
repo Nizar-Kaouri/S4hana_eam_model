@@ -1,0 +1,14 @@
+// ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - equipment conditions AND asset journal conditions.
+// TODO-VERIFY[H] BRG-D01: two inherited roles on a join view; the journal role's elements (CompanyCode, Ledger, ...) must be projected under the same names
+@EndUserText.label: 'Equipment with Asset Net Book Value'
+@MappingRole: true
+define role ZBRG_R_EquipmentAssetValue {
+  grant
+    select
+      on
+        ZBRG_R_EquipmentAssetValue
+          where
+            ( inheriting conditions from entity ZEAM_I_Equipment ) and
+            ( inheriting conditions from entity ZFAA_R_AssetBalance );
+}

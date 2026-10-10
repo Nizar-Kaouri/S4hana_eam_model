@@ -28,10 +28,17 @@ def render():
     modules = bp.load_modules()
     links = bp.collect_link_views(modules)
     _, objects, _, _ = bp.select_objects(sorted(modules), modules, with_tests=True)
+    bridges = {b["name"]: b for b in bp.load_bridge_links()}
+    for b in bridges.values():
+        objects.append(("DDLS", b["name"], "bridge"))
+        if b.get("access_control"):
+            objects.append(("DCLS", b["access_control"], "bridge"))
     order = bp.activation_order(objects, prefix)
     pos = {(t, n.upper()): i for i, (t, n, _) in enumerate(order, 1)}
 
     def batch_of(owner, name):
+        if owner == "bridge":
+            return 1
         if owner == "link":
             req = links[name]["requires_modules"]
             return max(modules[m].get("batch", 0) for m in req)
@@ -53,6 +60,7 @@ def render():
     for m in modules.values():
         no_dcl += list(m.get("no_dcl_by_design", {}))
         no_dcl += [lk["name"] for lk in m.get("link_views", []) if lk.get("no_dcl_reason")]
+    no_dcl += [b["name"] for b in bridges.values() if b.get("no_dcl_reason")]
 
     batches = sorted({batch_of(o, n) for _, n, o in order})
     for b in batches:

@@ -20,7 +20,7 @@ Recommended build order: **FI-AA → MM → QM → PS**, because those link to E
 | # | Product | Folder | Prefix / package | Fit | Modules | SAP released views used (unverified) | Links to EAM |
 |---|---|---|---|---|---|---|---|
 | - | **Enterprise Asset Management** (PM) | `packages/eam` | `ZEAM_` / `ZEAM_VDM` | Strong | 16 modules, 86 views (see `packages/eam/README.md`) | confirmed list in `packages/eam/ACTIVATION_CHECKLIST.md` | - |
-| 1 | **Asset Accounting** (FI-AA) | `packages/fi_aa` | `ZFAA_` / `ZFAA_VDM` | Strong | **drafted:** fixed_asset, asset_transaction, rpt_asset_balance (14 views) | `I_JournalEntryItem`, `I_GLAccountInChartOfAccounts`, `I_FixedAsset`, `I_CompanyCode`, `I_AssetClass`, `I_Plant` (all to confirm) | equipment ↔ fixed asset (needs cross-product bridge) |
+| 1 | **Asset Accounting** (FI-AA) | `packages/fi_aa` | `ZFAA_` / `ZFAA_VDM` | Strong | **drafted:** fixed_asset, asset_transaction, rpt_asset_balance (14 views) | `I_JournalEntryItem`, `I_GLAccountInChartOfAccounts`, `I_FixedAsset`, `I_CompanyCode`, `I_AssetClass`, `I_Plant` (all to confirm) | equipment ↔ fixed asset (bridge: `ZBRG_I_EquipmentWithAsset`, `ZBRG_R_EquipmentAssetValue`) |
 | 2 | **Materials Management** (MM) | `packages/mm` | `ZMMV_` / `ZMMV_VDM` | Strong | **drafted:** product, material_stock, goods_movement, purchase_requisition, purchase_order, rpt_open_purchase_order, rpt_material_consumption (24 views) | `I_MaterialDocumentItem_2`, `I_Plant`, `I_MaterialStock_2`, `I_Product`, `I_ProductDescription`, `I_ProductPlantBasic`, `I_PurchaseOrderAPI01`, `I_PurchaseOrderItemAPI01`, `I_Supplier`, `I_CompanyCode`, `I_PurchaseRequisitionItemAPI01` (all to confirm) | order component ↔ material, stock, purchase order |
 | 3 | **Quality Management** (QM) | `packages/qm` | `ZQMV_` / `ZQMV_VDM` | Good | **drafted:** inspection_lot, inspection_result, quality_notification, rpt_supplier_quality (13 views) | `I_InspectionLot`, `I_Plant`, `I_InspectionCharacteristic`, `I_QualityNotification` (all to confirm) | notification / equipment ↔ quality notification |
 | 4 | **Project System** (PS) | `packages/ps` | `ZPSV_` / `ZPSV_VDM` | Good | **drafted:** project, wbs_element, project_cost, rpt_project_cost_to_date (13 views) | `I_EnterpriseProject`, `I_CompanyCode`, `I_JournalEntryItem`, `I_WBSElement` (all to confirm) | maintenance order ↔ WBS element (shutdowns, investments) |
@@ -44,6 +44,7 @@ Tick a box only when it is really done; "activated" and "tested" need a real SAP
 | Released SAP views confirmed on a system | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
 | Batch 1 drafted | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] |
 | All batches drafted (without link views) | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] |
+| Link views drafted (intra-product + bridge) | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] |
 | Offline checks clean (`tools/check_all.py`) | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] |
 | Activated on S/4HANA 2025 | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
 | ABAP Unit + smoke checks passed | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
@@ -73,10 +74,20 @@ Create a folder only after the check: `python3 tools/new_product.py <name> --pre
 | **Ariba, SuccessFactors, Concur, Fieldglass** | Separate cloud products, not ABAP CDS in S/4; they would need API-based integration instead |
 | **SAP Analytics Cloud** | A front end, not a data model; it can *consume* these packages' queries |
 
-## Open design item: links across products
+## Links across products (implemented, draft)
 
-Link views between products (e.g. EAM equipment ↔ FI-AA fixed asset) need modules from two
-products at once. Today `build_package.py` builds one product at a time, so cross-product links are
-**not supported yet**. Planned approach: a bridge product (e.g. `packages/bridge_eam_fi_aa`) whose
-link views declare `requires_modules` as `eam:equipment` + `fi_aa:fixed_asset`, plus a build option that
-takes several products in one ZIP. This is to be designed before the first cross-product link is written.
+Cross-product link views live in the bridge product `packages/bridge` (prefix `ZBRG_`). Each entry in
+`packages/bridge/bridges.json` declares qualified `requires_modules` (e.g. `eam:equipment` + `fi_aa:fixed_asset`).
+`build_bundle.py` builds several products into ONE ZIP with one target prefix and package and adds a bridge
+link only when all its modules (after hard dependencies) are selected. `build_package.py` refuses the bridge.
+`tools/validate_bridge.py` (B1-B7) checks that a bridge only references module objects of its required modules.
+
+| Link status | EAM | FI-AA | MM | QM | PS | PP | CO | FI | SD |
+|---|---|---|---|---|---|---|---|---|---|
+| Intra-product link objects | 19 | 5 | 9 | 2 | 3 | 1 | 5 | 6 | 2 |
+| Used by bridge links | [x] | [x] | [x] | [x] | [ ] | [x] | [x] | [x] | [x] |
+
+Bridge links (18 objects): equipment ↔ fixed asset (+ asset value cube/query), maintenance order component ↔
+product (I/R/Q), maintenance order ↔ goods movements, maintenance cost ↔ cost center (R/Q), production
+operation ↔ work center, PO item ↔ supplier (R/Q), revenue ↔ customer (R/Q), inspection lot ↔ product (R/Q),
+production order ↔ product (R/Q). Not yet bridged: PS (maintenance order ↔ WBS element), QM ↔ EAM notifications.

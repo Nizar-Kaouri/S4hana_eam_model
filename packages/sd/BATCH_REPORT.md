@@ -14,7 +14,7 @@ real SAP S/4HANA 2025 system.
 | 2 | Billing Document | `billing_document` | draft-unverified |
 | 3 | Report: Open Sales Orders | `rpt_open_sales_orders` | draft-unverified |
 
-**Product totals:** 4 modules, 15 DDLS, no link views yet (planned for the end).
+**Product totals:** 4 modules, 15 DDLS, 2 intra-product link object(s) (added in the link batch).
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
 
@@ -67,7 +67,7 @@ _Empty._
 **Date:** 2026-10-10 · **Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
 
 Built in one pass on request ("do all the other modules, refine after"), with the same architecture,
-tooling and rules as the EAM product. Link views are deferred to the end.
+tooling and rules as the EAM product. Link views were added afterwards (see 'Link batch' below).
 
 ### Offline checks run
 
@@ -94,3 +94,13 @@ tooling and rules as the EAM product. Link views are deferred to the end.
 | Status and category element names (SD-002, SD-020, SD-021) | Open flags and revenue signs wrong | Check 3-5 sample documents per category |
 | Path expressions in WHERE / case in revenue cube (SD-R01) | Revenue cube fails activation | Fallback: join the header explicitly |
 | Billing volume (`sizeCategory: #XL`) | Slow queries | Filter on sales organization and billing date |
+
+---
+
+## Link batch
+
+**Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
+
+Added 2 intra-product link object(s): `ZSDV_I_SOItemWithBilling`, `ZSDV_I_SOItemWithDelivery`. Each ships only when all its required modules are selected (`build_package.py`); cross-product links are in `packages/bridge` and ship only through `build_bundle.py`.
+
+Offline checks: `tools/check_all.py` (validator M1-M11, abaplint 2.120.71) passed. Nothing activated.

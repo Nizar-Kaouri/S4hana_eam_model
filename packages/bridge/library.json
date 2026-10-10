@@ -1,0 +1,23 @@
+{
+  "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
+  "phase": "no-system",
+  "prefix": "ZBRG_",
+  "package": "ZBRG_VDM",
+  "package_description": "Cross-Product Bridge CDS Virtual Data Model",
+  "product_title": "Cross-Product Bridge",
+  "sap_area": "Bridge",
+  "target_release": "SAP S/4HANA 2025 (on-premise / Private Cloud Edition)",
+  "max_object_name_length": {
+    "DDLS": 30,
+    "DCLS": 30,
+    "DDLX": 30,
+    "CLAS": 30,
+    "DEVC": 30
+  },
+  "reserve_prefix_chars": 1,
+  "kind": "bridge",
+  "map_title": "ZBRG Cross-Product Bridge Map",
+  "map_area": "Links between products",
+  "map_initial": "ZBRG_I_EquipmentWithAsset",
+  "map_external_title": "Views of other products"
+}

@@ -13,8 +13,22 @@
 
 Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZMMV_I_*`,
 composite `ZMMV_R_*` (cubes), consumption `ZMMV_C_*Q` (analytical queries); one self-contained module
-per business object; hard dependencies added by the build. **Link views are not built yet** (planned for
-the end, together with the cross-product links).
+per business object; hard dependencies added by the build. **9 intra-product link object(s)** ship
+only when all their modules are selected; links to other products live in `packages/bridge`.
+
+## Link views (ship only when all listed modules are selected)
+
+| Link object | Requires modules |
+|---|---|
+| `ZMMV_C_ConsumptionProductQ` | product, rpt_material_consumption |
+| `ZMMV_C_GoodsMvtProductQ` | goods_movement, product |
+| `ZMMV_C_POItemProductQ` | product, purchase_order |
+| `ZMMV_C_StockProductQ` | material_stock, product |
+| `ZMMV_I_ProductWithStock` | material_stock, product |
+| `ZMMV_R_ConsumptionWithProduct` | product, rpt_material_consumption |
+| `ZMMV_R_GoodsMvtWithProduct` | goods_movement, product |
+| `ZMMV_R_POItemWithProduct` | product, purchase_order |
+| `ZMMV_R_StockWithProduct` | material_stock, product |
 
 ## Data model in one paragraph
 

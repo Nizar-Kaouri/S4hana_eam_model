@@ -13,8 +13,18 @@
 
 Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZCOV_I_*`,
 composite `ZCOV_R_*` (cubes), consumption `ZCOV_C_*Q` (analytical queries); one self-contained module
-per business object; hard dependencies added by the build. **Link views are not built yet** (planned for
-the end, together with the cross-product links).
+per business object; hard dependencies added by the build. **5 intra-product link object(s)** ship
+only when all their modules are selected; links to other products live in `packages/bridge`.
+
+## Link views (ship only when all listed modules are selected)
+
+| Link object | Requires modules |
+|---|---|
+| `ZCOV_C_COCostCostCenterQ` | cost_actuals, cost_center |
+| `ZCOV_C_COCostProfitCtrQ` | cost_actuals, profit_center |
+| `ZCOV_I_CostCenterWithOrders` | cost_center, internal_order |
+| `ZCOV_R_COCostWithCostCenter` | cost_actuals, cost_center |
+| `ZCOV_R_COCostWithProfitCtr` | cost_actuals, profit_center |
 
 ## Data model in one paragraph
 

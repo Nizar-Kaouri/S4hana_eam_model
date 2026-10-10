@@ -17,7 +17,7 @@ real SAP S/4HANA 2025 system.
 | 4 | Report: Open Purchase Orders | `rpt_open_purchase_order` | draft-unverified |
 | 4 | Report: Material Consumption | `rpt_material_consumption` | draft-unverified |
 
-**Product totals:** 7 modules, 24 DDLS, no link views yet (planned for the end).
+**Product totals:** 7 modules, 24 DDLS, 9 intra-product link object(s) (added in the link batch).
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
 
@@ -83,7 +83,7 @@ _Empty._
 **Date:** 2026-10-10 · **Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
 
 Built in one pass on request ("do all the other modules, refine after"), with the same architecture,
-tooling and rules as the EAM product. Link views are deferred to the end.
+tooling and rules as the EAM product. Link views were added afterwards (see 'Link batch' below).
 
 ### Offline checks run
 
@@ -112,3 +112,13 @@ tooling and rules as the EAM product. Link views are deferred to the end.
 | `I_MaterialStock_2` granularity (MM-010..012) | Stock figures double-counted or view not usable | Check whether the view has parameters or must be aggregated |
 | Material document volume (`sizeCategory: #XXL`) | Slow queries | Filter on plant and posting month |
 | DCL inheritance from the SAP purchasing and stock views (MM-D01..D07) | Roles fail activation | Same pattern as in EAM; check element lists of the SAP roles |
+
+---
+
+## Link batch
+
+**Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
+
+Added 9 intra-product link object(s): `ZMMV_C_ConsumptionProductQ`, `ZMMV_C_GoodsMvtProductQ`, `ZMMV_C_POItemProductQ`, `ZMMV_C_StockProductQ`, `ZMMV_I_ProductWithStock`, `ZMMV_R_ConsumptionWithProduct`, `ZMMV_R_GoodsMvtWithProduct`, `ZMMV_R_POItemWithProduct`, `ZMMV_R_StockWithProduct`. Each ships only when all its required modules are selected (`build_package.py`); cross-product links are in `packages/bridge` and ship only through `build_bundle.py`.
+
+Offline checks: `tools/check_all.py` (validator M1-M11, abaplint 2.120.71) passed. Nothing activated.

@@ -13,8 +13,14 @@
 
 Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZPPV_I_*`,
 composite `ZPPV_R_*` (cubes), consumption `ZPPV_C_*Q` (analytical queries); one self-contained module
-per business object; hard dependencies added by the build. **Link views are not built yet** (planned for
-the end, together with the cross-product links).
+per business object; hard dependencies added by the build. **1 intra-product link object(s)** ship
+only when all their modules are selected; links to other products live in `packages/bridge`.
+
+## Link views (ship only when all listed modules are selected)
+
+| Link object | Requires modules |
+|---|---|
+| `ZPPV_I_ProdOrderWithBOM` | bill_of_material, production_order |
 
 ## Data model in one paragraph
 

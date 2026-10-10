@@ -231,6 +231,7 @@ document.getElementById("stats").innerHTML = statItems.map(([v, l]) => `<li><b>$
 
 /* ---------- module map ---------- */
 (function moduleMap() {
+  if (!D.modules.length) { document.getElementById("mod-h").closest("section").hidden = true; return; }
   const svg = document.getElementById("modmap");
   const W = 232, H = 52, CG = 96, RG = 14, TOP = 44, LEFT = 16;
   // columns = dependency depth, so every "needs" arrow spans exactly one gap
@@ -317,9 +318,9 @@ document.getElementById("stats").innerHTML = statItems.map(([v, l]) => `<li><b>$
 
 /* ---------- entity map ---------- */
 const COLS = ["sap", "basic", "composite", "consumption"];
-const COL_HEAD = { sap: ["SAP released views", "I_* (consumed, never copied)"], basic: ["Basic", D.meta.prefix + "I_*"], composite: ["Composite", D.meta.prefix + "R_* (cubes)"], consumption: ["Consumption", D.meta.prefix + "C_*Q (queries)"] };
-const KIND_ORDER = ["text", "dimension", "view", "value help", "hierarchy", "cube", "query", "SAP view"];
-const TAG = { text: "TXT", dimension: "DIM", view: "VIEW", "value help": "VH", hierarchy: "HIER", cube: "CUBE", query: "Q", "SAP view": "SAP" };
+const COL_HEAD = { sap: [D.meta.ext_title, D.meta.ext_title === "SAP released views" ? "I_* (consumed, never copied)" : "other products (not shipped here)"], basic: ["Basic", D.meta.prefix + "I_*"], composite: ["Composite", D.meta.prefix + "R_* (cubes)"], consumption: ["Consumption", D.meta.prefix + "C_*Q (queries)"] };
+const KIND_ORDER = ["text", "dimension", "view", "value help", "hierarchy", "cube", "query", "SAP view", "product view"];
+const TAG = { text: "TXT", dimension: "DIM", view: "VIEW", "value help": "VH", hierarchy: "HIER", cube: "CUBE", query: "Q", "SAP view": "SAP", "product view": "EXT" };
 const G = { left: 176, colW: 228, colGap: 92, nodeH: 24, rowGap: 8, bandPad: 14, top: 58 };
 const colX = c => G.left + COLS.indexOf(c) * (G.colW + G.colGap);
 const state = { sel: null, assoc: false };
@@ -329,8 +330,8 @@ const bandTop = {};
 (function buildBands() {
   const sapUse = {};
   sapNodes.forEach(s => { sapUse[s.name] = new Set([...s.usedBy].map(u => byName[u].module)); });
-  const shared = sapNodes.filter(s => sapUse[s.name].size > 1).map(s => s.name);
-  const bands = [{ id: "shared", title: "Shared SAP views", sub: "used by several modules" }];
+  const shared = sapNodes.filter(s => sapUse[s.name].size > 1 || !D.modules.length).map(s => s.name);
+  const bands = [{ id: "shared", title: D.modules.length ? "Shared SAP views" : "Other products", sub: D.modules.length ? "used by several modules" : "views the bridge links" }];
   D.modules.forEach(m => bands.push({ id: m.name, title: m.title, sub: `batch ${m.batch}` + (m.deps.length ? ` · needs ${m.deps.join(", ")}` : "") }));
   bands.push({ id: "link", title: "Link views", sub: "ship only with all their modules" });
   const placed = new Set(shared);

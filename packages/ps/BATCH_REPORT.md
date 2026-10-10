@@ -14,7 +14,7 @@ real SAP S/4HANA 2025 system.
 | 2 | Project Cost | `project_cost` | draft-unverified |
 | 3 | Report: Project Cost to Date | `rpt_project_cost_to_date` | draft-unverified |
 
-**Product totals:** 4 modules, 13 DDLS, no link views yet (planned for the end).
+**Product totals:** 4 modules, 13 DDLS, 3 intra-product link object(s) (added in the link batch).
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
 
@@ -62,7 +62,7 @@ _Empty._
 **Date:** 2026-10-10 · **Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
 
 Built in one pass on request ("do all the other modules, refine after"), with the same architecture,
-tooling and rules as the EAM product. Link views are deferred to the end.
+tooling and rules as the EAM product. Link views were added afterwards (see 'Link batch' below).
 
 ### Offline checks run
 
@@ -89,3 +89,13 @@ tooling and rules as the EAM product. Link views are deferred to the end.
 | Released view names and keys for projects / WBS elements (PS-001, PS-002, PS-010) | Master data modules fail activation | Check I_EnterpriseProject vs. classic PS views in ADT first |
 | WBS element fields in `I_JournalEntryItem` (PS-020) | Cost module empty or fails | Verify the element names and the initial value of WBSElementInternalID |
 | DCL inheritance on the aggregated cost-to-date view (PS-D04) | Role fails activation | Same pattern as EAM RPT-D03 / FI-AA AB-D01 |
+
+---
+
+## Link batch
+
+**Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
+
+Added 3 intra-product link object(s): `ZPSV_C_ProjectCostMasterQ`, `ZPSV_I_ProjectWithWBSElement`, `ZPSV_R_ProjectCostWithMaster`. Each ships only when all its required modules are selected (`build_package.py`); cross-product links are in `packages/bridge` and ship only through `build_bundle.py`.
+
+Offline checks: `tools/check_all.py` (validator M1-M11, abaplint 2.120.71) passed. Nothing activated.

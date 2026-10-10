@@ -13,8 +13,16 @@
 
 Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZPSV_I_*`,
 composite `ZPSV_R_*` (cubes), consumption `ZPSV_C_*Q` (analytical queries); one self-contained module
-per business object; hard dependencies added by the build. **Link views are not built yet** (planned for
-the end, together with the cross-product links).
+per business object; hard dependencies added by the build. **3 intra-product link object(s)** ship
+only when all their modules are selected; links to other products live in `packages/bridge`.
+
+## Link views (ship only when all listed modules are selected)
+
+| Link object | Requires modules |
+|---|---|
+| `ZPSV_C_ProjectCostMasterQ` | project, project_cost, wbs_element |
+| `ZPSV_I_ProjectWithWBSElement` | project, wbs_element |
+| `ZPSV_R_ProjectCostWithMaster` | project, project_cost, wbs_element |
 
 ## Data model in one paragraph
 

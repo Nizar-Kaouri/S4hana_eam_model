@@ -15,7 +15,7 @@ real SAP S/4HANA 2025 system.
 | 2 | CO Actual Costs | `cost_actuals` | draft-unverified |
 | 3 | Report: Cost Center Year to Date | `rpt_cost_center_ytd` | draft-unverified |
 
-**Product totals:** 5 modules, 17 DDLS, no link views yet (planned for the end).
+**Product totals:** 5 modules, 17 DDLS, 5 intra-product link object(s) (added in the link batch).
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
 
@@ -64,7 +64,7 @@ _Empty._
 **Date:** 2026-10-10 · **Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
 
 Built in one pass on request ("do all the other modules, refine after"), with the same architecture,
-tooling and rules as the EAM product. Link views are deferred to the end.
+tooling and rules as the EAM product. Link views were added afterwards (see 'Link batch' below).
 
 ### Offline checks run
 
@@ -91,3 +91,13 @@ tooling and rules as the EAM product. Link views are deferred to the end.
 | `I_InternalOrder` name and elements (CO-010, CO-011) | Internal order module fails | Look up the released internal order view in ADT; module is isolated |
 | Text views with validity in the key (CO-T01, CO-T02) | Duplicate texts in value helps | Restrict to the interval valid today once the key is confirmed |
 | Universal Journal volume | Slow queries | Filter on controlling area, ledger and fiscal year |
+
+---
+
+## Link batch
+
+**Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
+
+Added 5 intra-product link object(s): `ZCOV_C_COCostCostCenterQ`, `ZCOV_C_COCostProfitCtrQ`, `ZCOV_I_CostCenterWithOrders`, `ZCOV_R_COCostWithCostCenter`, `ZCOV_R_COCostWithProfitCtr`. Each ships only when all its required modules are selected (`build_package.py`); cross-product links are in `packages/bridge` and ship only through `build_bundle.py`.
+
+Offline checks: `tools/check_all.py` (validator M1-M11, abaplint 2.120.71) passed. Nothing activated.

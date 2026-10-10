@@ -42,6 +42,12 @@ def collect():
     modules = bp.load_modules()
     links = bp.collect_link_views(modules)
     prefix = bp.load_library()["prefix"]
+    bridges = {b["name"]: b["requires_modules"] for b in bp.load_bridge_links()}
+    other = {}
+    for prod in vdm_paths.products():
+        lib_o = json.loads((vdm_paths.PACKAGES / prod / "library.json").read_text())
+        if lib_o["prefix"] != prefix:
+            other[lib_o["prefix"].upper()] = prod
     nodes, sap = {}, {}
     for p in sorted((ROOT / "src").glob("*.ddls.asddls")):
         text = p.read_text(encoding="utf-8")
@@ -61,7 +67,7 @@ def collect():
         nodes[name] = {
             "name": name, "label": info["label"], "module": module, "layer": layer, "kind": kind_of(info, name),
             "batch": batch, "link": is_link,
-            "requires": links[name]["requires_modules"] if is_link else [],
+            "requires": (links[name]["requires_modules"] if name in links else bridges.get(name, [])) if is_link else [],
             "purpose": gen_docs.header_field(text, "Purpose"),
             "example": gen_docs.header_field(text, "Example"),
             "keys": info["keys"], "params": [p_[0] for p_ in info["params"]],
@@ -74,10 +80,13 @@ def collect():
     for n in list(nodes.values()):
         for ref in n["sources"] + [a["target"] for a in n["assocs"]]:
             if not ref.upper().startswith(prefix.upper()) and ref not in nodes:
-                sap.setdefault(ref, {"name": ref, "label": "SAP released view", "module": "sap", "layer": "sap",
-                                     "kind": "SAP view", "batch": "-", "link": False, "requires": [], "purpose": "",
-                                     "example": "", "keys": [], "params": [], "sources": [], "assocs": [],
-                                     "dcl": "Shipped by SAP (C1-released view assumed; see ACTIVATION_CHECKLIST.md).",
+                ext = next((pr for pf, pr in other.items() if ref.upper().startswith(pf)), None)
+                sap.setdefault(ref, {"name": ref, "label": f"View of product {ext}" if ext else "SAP released view",
+                                     "module": "sap", "layer": "sap", "kind": "product view" if ext else "SAP view",
+                                     "batch": "-", "link": False, "requires": [], "purpose": "", "example": "", "keys": [],
+                                     "params": [], "sources": [], "assocs": [],
+                                     "dcl": (f"Shipped with product {ext} (packages/{ext})." if ext else
+                                             "Shipped by SAP (C1-released view assumed; see ACTIVATION_CHECKLIST.md)."),
                                      "risk": {"H": 0, "M": 0, "L": 0}, "file": "", "usedBy": []})
                 sap[ref]["usedBy"].append(n["name"])
     mods = []
@@ -91,7 +100,8 @@ def collect():
             "meta": {"prefix": lib["prefix"], "package": lib["package"], "release": lib.get("target_release", ""),
                      "title": lib.get("map_title", f"{lib['prefix'].rstrip('_')} Model Map"),
                      "area": lib.get("map_area", lib.get("product_title", "")),
-                     "initial": lib.get("map_initial", "")}}
+                     "initial": lib.get("map_initial", ""),
+                     "ext_title": lib.get("map_external_title", "SAP released views")}}
 
 
 def render():
@@ -107,7 +117,7 @@ def render():
 
 
 def main():
-    if not bp.load_modules():
+    if not bp.load_modules() and not bp.load_bridge_links():
         # empty product: no map (the page needs at least one entity)
         if "--check" in sys.argv:
             if OUT.exists():

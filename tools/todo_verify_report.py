@@ -42,6 +42,8 @@ def batch_map():
         out[bp.file_base(link["name"])] = b
         if link.get("access_control"):
             out[bp.file_base(link["access_control"])] = b
+    for b in bp.load_bridge_links():
+        out[bp.file_base(b["name"])] = "bridge"
     return out
 
 

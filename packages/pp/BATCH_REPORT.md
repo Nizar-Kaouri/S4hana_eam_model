@@ -14,7 +14,7 @@ real SAP S/4HANA 2025 system.
 | 2 | Bill of Material | `bill_of_material` | draft-unverified |
 | 3 | Report: Production Order Schedule Adherence | `rpt_order_schedule` | draft-unverified |
 
-**Product totals:** 4 modules, 13 DDLS, no link views yet (planned for the end).
+**Product totals:** 4 modules, 13 DDLS, 1 intra-product link object(s) (added in the link batch).
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
 
@@ -65,7 +65,7 @@ _Empty._
 **Date:** 2026-10-10 · **Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
 
 Built in one pass on request ("do all the other modules, refine after"), with the same architecture,
-tooling and rules as the EAM product. Link views are deferred to the end.
+tooling and rules as the EAM product. Link views were added afterwards (see 'Link batch' below).
 
 ### Offline checks run
 
@@ -92,3 +92,13 @@ tooling and rules as the EAM product. Link views are deferred to the end.
 | Released view names and keys for operations and BOM items (PP-010, PP-020, PP-021) | Modules fail activation | Look up the released PP views in ADT first; modules are isolated |
 | Quantity element names on the order and operation views (PP-002, PP-011) | Quantities empty or activation errors | Verify on a few sample orders (CO03) |
 | Formula over quantities (PP-Q01) | Scrap rate column fails | Compute the rate in the front end as a fallback |
+
+---
+
+## Link batch
+
+**Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
+
+Added 1 intra-product link object(s): `ZPPV_I_ProdOrderWithBOM`. Each ships only when all its required modules are selected (`build_package.py`); cross-product links are in `packages/bridge` and ship only through `build_bundle.py`.
+
+Offline checks: `tools/check_all.py` (validator M1-M11, abaplint 2.120.71) passed. Nothing activated.

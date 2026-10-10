@@ -15,7 +15,7 @@ real SAP S/4HANA 2025 system.
 | 2 | G/L Line Item | `gl_line_item` | draft-unverified |
 | 2 | Open Items (Payables and Receivables) | `open_items` | draft-unverified |
 
-**Product totals:** 5 modules, 13 DDLS, no link views yet (planned for the end).
+**Product totals:** 5 modules, 13 DDLS, 6 intra-product link object(s) (added in the link batch).
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
 
@@ -64,7 +64,7 @@ _Empty._
 **Date:** 2026-10-10 · **Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
 
 Built in one pass on request ("do all the other modules, refine after"), with the same architecture,
-tooling and rules as the EAM product. Link views are deferred to the end.
+tooling and rules as the EAM product. Link views were added afterwards (see 'Link batch' below).
 
 ### Offline checks run
 
@@ -91,3 +91,13 @@ tooling and rules as the EAM product. Link views are deferred to the end.
 | `I_OperationalAcctgDocItem` element names (FI-040, FI-041) | Aging module fails | Verify the element list in ADT; compare one customer with FBL5H |
 | Universal Journal volume | Slow queries | Filter on company code, ledger and fiscal year |
 | DCL inheritance from `I_JournalEntryItem` / `I_OperationalAcctgDocItem` (FI-D02, FI-D05) | Roles fail activation | Same pattern as the other products |
+
+---
+
+## Link batch
+
+**Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
+
+Added 6 intra-product link object(s): `ZFIV_C_GLBalanceAccountQ`, `ZFIV_C_PayablesAgingQ`, `ZFIV_C_ReceivablesAgingQ`, `ZFIV_R_GLItemWithAccount`, `ZFIV_R_OpenItemWithCustomer`, `ZFIV_R_OpenItemWithSupplier`. Each ships only when all its required modules are selected (`build_package.py`); cross-product links are in `packages/bridge` and ship only through `build_bundle.py`.
+
+Offline checks: `tools/check_all.py` (validator M1-M11, abaplint 2.120.71) passed. Nothing activated.

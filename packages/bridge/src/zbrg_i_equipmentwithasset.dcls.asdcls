@@ -1,0 +1,12 @@
+// ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Equipment with Fixed Asset'
+@MappingRole: true
+define role ZBRG_I_EquipmentWithAsset {
+  grant
+    select
+      on
+        ZBRG_I_EquipmentWithAsset
+          where
+            inheriting conditions from entity ZEAM_I_Equipment;
+}

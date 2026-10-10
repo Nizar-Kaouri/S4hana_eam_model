@@ -66,6 +66,16 @@ def load_modules(root=ROOT):
     return modules
 
 
+def load_bridge_links(root=ROOT):
+    """Cross-product link views of a bridge product (packages/bridge/bridges.json); [] for normal products."""
+    f = root / "bridges.json"
+    return json.loads(f.read_text(encoding="utf-8"))["bridge_links"] if f.exists() else []
+
+
+def is_bridge(root=ROOT):
+    return load_library(root).get("kind") == "bridge"
+
+
 def collect_link_views(modules):
     """Union of link views declared by all modules; declarations must agree."""
     links = {}
@@ -344,6 +354,8 @@ def main(argv=None):
     args = ap.parse_args(argv)
 
     try:
+        if is_bridge():
+            raise BuildError("the bridge product only ships through build_bundle.py (it needs several products)")
         modules = load_modules()
         if args.list:
             for m in modules.values():

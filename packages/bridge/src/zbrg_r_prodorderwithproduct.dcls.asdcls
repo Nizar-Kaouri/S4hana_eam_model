@@ -1,0 +1,12 @@
+// ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Production Order with Product'
+@MappingRole: true
+define role ZBRG_R_ProdOrderWithProduct {
+  grant
+    select
+      on
+        ZBRG_R_ProdOrderWithProduct
+          where
+            inheriting conditions from entity ZPPV_R_ProductionOrder;
+}

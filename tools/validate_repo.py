@@ -259,7 +259,7 @@ def main():
     seen = {}
     for base in (ROOT / "src", ROOT / "tests", vdm_paths.TOOLS):
         for path in sorted(base.rglob("*")):
-            if not path.is_file() or path.suffix == ".pyc" or path.name in ("validate_repo.py", "todo_verify_report.py"):
+            if not path.is_file() or path.suffix == ".pyc" or path.name in ("validate_repo.py", "validate_bridge.py", "todo_verify_report.py"):
                 continue
             for i, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
                 if LOOSE_MARKER_RE.search(line):

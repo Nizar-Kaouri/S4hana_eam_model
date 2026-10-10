@@ -14,7 +14,7 @@ real SAP S/4HANA 2025 system.
 | 3 | Quality Notification | `quality_notification` | draft-unverified |
 | 4 | Report: Supplier Quality | `rpt_supplier_quality` | draft-unverified |
 
-**Product totals:** 4 modules, 13 DDLS, no link views yet (planned for the end).
+**Product totals:** 4 modules, 13 DDLS, 2 intra-product link object(s) (added in the link batch).
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
 
@@ -64,7 +64,7 @@ _Empty._
 **Date:** 2026-10-10 · **Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
 
 Built in one pass on request ("do all the other modules, refine after"), with the same architecture,
-tooling and rules as the EAM product. Link views are deferred to the end.
+tooling and rules as the EAM product. Link views were added afterwards (see 'Link batch' below).
 
 ### Offline checks run
 
@@ -91,3 +91,13 @@ tooling and rules as the EAM product. Link views are deferred to the end.
 | Released view names for characteristic results and quality notifications (QM-010, QM-020) | Modules fail activation | Look up the released QM views in ADT first; modules are isolated |
 | Usage decision element names (QM-002) | Rejection figures empty or wrong | Verify on 3-5 sample lots in QA32 |
 | Formula support in transient queries (QM-Q01) | Rate columns fail | Compute the rate in the front end as a fallback |
+
+---
+
+## Link batch
+
+**Status:** draft-unverified · **Tested release:** none (draft, 2025 assumed)
+
+Added 2 intra-product link object(s): `ZQMV_I_InspLotWithQualNotif`, `ZQMV_I_QualNotifWithLot`. Each ships only when all its required modules are selected (`build_package.py`); cross-product links are in `packages/bridge` and ship only through `build_bundle.py`.
+
+Offline checks: `tools/check_all.py` (validator M1-M11, abaplint 2.120.71) passed. Nothing activated.

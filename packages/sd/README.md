@@ -13,8 +13,15 @@
 
 Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZSDV_I_*`,
 composite `ZSDV_R_*` (cubes), consumption `ZSDV_C_*Q` (analytical queries); one self-contained module
-per business object; hard dependencies added by the build. **Link views are not built yet** (planned for
-the end, together with the cross-product links).
+per business object; hard dependencies added by the build. **2 intra-product link object(s)** ship
+only when all their modules are selected; links to other products live in `packages/bridge`.
+
+## Link views (ship only when all listed modules are selected)
+
+| Link object | Requires modules |
+|---|---|
+| `ZSDV_I_SOItemWithBilling` | billing_document, sales_order |
+| `ZSDV_I_SOItemWithDelivery` | outbound_delivery, sales_order |
 
 ## Data model in one paragraph
 

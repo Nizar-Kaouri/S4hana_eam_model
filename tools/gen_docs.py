@@ -77,6 +77,9 @@ def dcl_info(name, modules):
             for link in m.get("link_views", []):
                 if link["name"] == name and link.get("no_dcl_reason"):
                     return "No DCL by design: " + link["no_dcl_reason"], ""
+        for b in bp.load_bridge_links():
+            if b["name"] == name and b.get("no_dcl_reason"):
+                return "No DCL by design: " + b["no_dcl_reason"], ""
         return "**missing**", ""
     text = p.read_text(encoding="utf-8")
     inh = re.findall(r"inheriting\s+conditions\s+from\s+entity\s+([\w/]+)", bp.strip_comments(text, "DCLS"), re.I)
@@ -95,6 +98,9 @@ def owner_of(name, modules):
         for link in m.get("link_views", []):
             if link["name"] == name:
                 return "link: " + " + ".join(f"`{r}`" for r in link["requires_modules"]), "link", m.get("batch", "?")
+    for b in bp.load_bridge_links():
+        if b["name"] == name:
+            return "bridge: " + " + ".join(f"`{r}`" for r in b["requires_modules"]), "link", 1
     return "?", "?", "?"
 
 
