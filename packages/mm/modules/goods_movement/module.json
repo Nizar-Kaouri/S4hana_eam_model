@@ -39,5 +39,22 @@
   "no_dcl_by_design": {
     "ZMMV_C_GoodsMovementQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_GoodsMovement (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZMMV_R_GoodsMvtWithProduct",
+      "requires_modules": [
+        "goods_movement",
+        "product"
+      ],
+      "access_control": "ZMMV_R_GoodsMvtWithProduct"
+    },
+    {
+      "name": "ZMMV_C_GoodsMvtProductQ",
+      "requires_modules": [
+        "goods_movement",
+        "product"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_GoodsMvtWithProduct (see GEN-Q01)."
+    }
+  ]
 }

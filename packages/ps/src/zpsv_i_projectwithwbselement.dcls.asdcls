@@ -1,0 +1,12 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Project with WBS Elements'
+@MappingRole: true
+define role ZPSV_I_ProjectWithWBSElement {
+  grant
+    select
+      on
+        ZPSV_I_ProjectWithWBSElement
+          where
+            inheriting conditions from entity ZPSV_I_Project;
+}

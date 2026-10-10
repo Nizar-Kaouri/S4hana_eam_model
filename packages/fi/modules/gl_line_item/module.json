@@ -36,5 +36,22 @@
   "no_dcl_by_design": {
     "ZFIV_C_GLBalanceQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_R_GLJournalItem (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZFIV_R_GLItemWithAccount",
+      "requires_modules": [
+        "gl_account",
+        "gl_line_item"
+      ],
+      "access_control": "ZFIV_R_GLItemWithAccount"
+    },
+    {
+      "name": "ZFIV_C_GLBalanceAccountQ",
+      "requires_modules": [
+        "gl_account",
+        "gl_line_item"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_R_GLItemWithAccount (see GEN-Q01)."
+    }
+  ]
 }

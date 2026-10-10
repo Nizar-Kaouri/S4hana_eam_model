@@ -1,0 +1,12 @@
+// ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Quality Notification with Inspection Lot'
+@MappingRole: true
+define role ZQMV_I_QualNotifWithLot {
+  grant
+    select
+      on
+        ZQMV_I_QualNotifWithLot
+          where
+            inheriting conditions from entity ZQMV_I_QualityNotif;
+}

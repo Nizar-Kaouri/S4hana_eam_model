@@ -31,5 +31,22 @@
     "tests": []
   },
   "no_dcl_by_design": {},
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZFIV_R_OpenItemWithSupplier",
+      "requires_modules": [
+        "open_items",
+        "supplier"
+      ],
+      "access_control": "ZFIV_R_OpenItemWithSupplier"
+    },
+    {
+      "name": "ZFIV_C_PayablesAgingQ",
+      "requires_modules": [
+        "open_items",
+        "supplier"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_R_OpenItemWithSupplier (see GEN-Q01)."
+    }
+  ]
 }

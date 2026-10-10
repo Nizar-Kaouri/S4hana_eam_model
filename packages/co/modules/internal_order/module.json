@@ -40,5 +40,14 @@
   "no_dcl_by_design": {
     "ZCOV_C_InternalOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_R_InternalOrder (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZCOV_I_CostCenterWithOrders",
+      "requires_modules": [
+        "cost_center",
+        "internal_order"
+      ],
+      "access_control": "ZCOV_I_CostCenterWithOrders"
+    }
+  ]
 }

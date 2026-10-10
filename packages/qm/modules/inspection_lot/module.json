@@ -44,5 +44,22 @@
   "no_dcl_by_design": {
     "ZQMV_C_InspectionLotQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_R_InspectionLot (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZQMV_I_InspLotWithQualNotif",
+      "requires_modules": [
+        "inspection_lot",
+        "quality_notification"
+      ],
+      "access_control": "ZQMV_I_InspLotWithQualNotif"
+    },
+    {
+      "name": "ZQMV_I_QualNotifWithLot",
+      "requires_modules": [
+        "inspection_lot",
+        "quality_notification"
+      ],
+      "access_control": "ZQMV_I_QualNotifWithLot"
+    }
+  ]
 }

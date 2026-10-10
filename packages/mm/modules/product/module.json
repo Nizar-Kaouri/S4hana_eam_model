@@ -48,5 +48,78 @@
   "no_dcl_by_design": {
     "ZMMV_C_ProductQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_Product (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZMMV_I_ProductWithStock",
+      "requires_modules": [
+        "material_stock",
+        "product"
+      ],
+      "access_control": "ZMMV_I_ProductWithStock"
+    },
+    {
+      "name": "ZMMV_R_StockWithProduct",
+      "requires_modules": [
+        "material_stock",
+        "product"
+      ],
+      "access_control": "ZMMV_R_StockWithProduct"
+    },
+    {
+      "name": "ZMMV_C_StockProductQ",
+      "requires_modules": [
+        "material_stock",
+        "product"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_StockWithProduct (see GEN-Q01)."
+    },
+    {
+      "name": "ZMMV_R_GoodsMvtWithProduct",
+      "requires_modules": [
+        "goods_movement",
+        "product"
+      ],
+      "access_control": "ZMMV_R_GoodsMvtWithProduct"
+    },
+    {
+      "name": "ZMMV_C_GoodsMvtProductQ",
+      "requires_modules": [
+        "goods_movement",
+        "product"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_GoodsMvtWithProduct (see GEN-Q01)."
+    },
+    {
+      "name": "ZMMV_R_ConsumptionWithProduct",
+      "requires_modules": [
+        "product",
+        "rpt_material_consumption"
+      ],
+      "access_control": "ZMMV_R_ConsumptionWithProduct"
+    },
+    {
+      "name": "ZMMV_C_ConsumptionProductQ",
+      "requires_modules": [
+        "product",
+        "rpt_material_consumption"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_ConsumptionWithProduct (see GEN-Q01)."
+    },
+    {
+      "name": "ZMMV_R_POItemWithProduct",
+      "requires_modules": [
+        "product",
+        "purchase_order"
+      ],
+      "access_control": "ZMMV_R_POItemWithProduct"
+    },
+    {
+      "name": "ZMMV_C_POItemProductQ",
+      "requires_modules": [
+        "product",
+        "purchase_order"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_POItemWithProduct (see GEN-Q01)."
+    }
+  ]
 }

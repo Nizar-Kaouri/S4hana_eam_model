@@ -1,0 +1,12 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'CO Actual Cost with Profit Center'
+@MappingRole: true
+define role ZCOV_R_COCostWithProfitCtr {
+  grant
+    select
+      on
+        ZCOV_R_COCostWithProfitCtr
+          where
+            inheriting conditions from entity ZCOV_R_COActualCost;
+}

@@ -36,5 +36,30 @@
   "no_dcl_by_design": {
     "ZMMV_C_MaterialStockQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_MaterialStock (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZMMV_I_ProductWithStock",
+      "requires_modules": [
+        "material_stock",
+        "product"
+      ],
+      "access_control": "ZMMV_I_ProductWithStock"
+    },
+    {
+      "name": "ZMMV_R_StockWithProduct",
+      "requires_modules": [
+        "material_stock",
+        "product"
+      ],
+      "access_control": "ZMMV_R_StockWithProduct"
+    },
+    {
+      "name": "ZMMV_C_StockProductQ",
+      "requires_modules": [
+        "material_stock",
+        "product"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_StockWithProduct (see GEN-Q01)."
+    }
+  ]
 }

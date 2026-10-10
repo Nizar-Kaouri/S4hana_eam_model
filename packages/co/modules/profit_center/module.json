@@ -34,5 +34,22 @@
     "tests": []
   },
   "no_dcl_by_design": {},
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZCOV_R_COCostWithProfitCtr",
+      "requires_modules": [
+        "cost_actuals",
+        "profit_center"
+      ],
+      "access_control": "ZCOV_R_COCostWithProfitCtr"
+    },
+    {
+      "name": "ZCOV_C_COCostProfitCtrQ",
+      "requires_modules": [
+        "cost_actuals",
+        "profit_center"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_R_COCostWithProfitCtr (see GEN-Q01)."
+    }
+  ]
 }

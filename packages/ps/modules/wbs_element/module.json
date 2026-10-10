@@ -40,5 +40,32 @@
   "no_dcl_by_design": {
     "ZPSV_C_WBSElementQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_WBSElement (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZPSV_I_ProjectWithWBSElement",
+      "requires_modules": [
+        "project",
+        "wbs_element"
+      ],
+      "access_control": "ZPSV_I_ProjectWithWBSElement"
+    },
+    {
+      "name": "ZPSV_R_ProjectCostWithMaster",
+      "requires_modules": [
+        "project",
+        "project_cost",
+        "wbs_element"
+      ],
+      "access_control": "ZPSV_R_ProjectCostWithMaster"
+    },
+    {
+      "name": "ZPSV_C_ProjectCostMasterQ",
+      "requires_modules": [
+        "project",
+        "project_cost",
+        "wbs_element"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZPSV_R_ProjectCostWithMaster (see GEN-Q01)."
+    }
+  ]
 }

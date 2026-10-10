@@ -1,0 +1,12 @@
+// ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Material Stock with Product'
+@MappingRole: true
+define role ZMMV_R_StockWithProduct {
+  grant
+    select
+      on
+        ZMMV_R_StockWithProduct
+          where
+            inheriting conditions from entity ZMMV_R_MaterialStock;
+}

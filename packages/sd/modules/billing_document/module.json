@@ -40,5 +40,14 @@
   "no_dcl_by_design": {
     "ZSDV_C_RevenueQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_Revenue (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZSDV_I_SOItemWithBilling",
+      "requires_modules": [
+        "billing_document",
+        "sales_order"
+      ],
+      "access_control": "ZSDV_I_SOItemWithBilling"
+    }
+  ]
 }

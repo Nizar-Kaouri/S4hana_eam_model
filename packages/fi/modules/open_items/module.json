@@ -39,5 +39,38 @@
   "no_dcl_by_design": {
     "ZFIV_C_OpenItemAgingQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_R_OpenItemAging (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZFIV_R_OpenItemWithSupplier",
+      "requires_modules": [
+        "open_items",
+        "supplier"
+      ],
+      "access_control": "ZFIV_R_OpenItemWithSupplier"
+    },
+    {
+      "name": "ZFIV_C_PayablesAgingQ",
+      "requires_modules": [
+        "open_items",
+        "supplier"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_R_OpenItemWithSupplier (see GEN-Q01)."
+    },
+    {
+      "name": "ZFIV_R_OpenItemWithCustomer",
+      "requires_modules": [
+        "customer",
+        "open_items"
+      ],
+      "access_control": "ZFIV_R_OpenItemWithCustomer"
+    },
+    {
+      "name": "ZFIV_C_ReceivablesAgingQ",
+      "requires_modules": [
+        "customer",
+        "open_items"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_R_OpenItemWithCustomer (see GEN-Q01)."
+    }
+  ]
 }

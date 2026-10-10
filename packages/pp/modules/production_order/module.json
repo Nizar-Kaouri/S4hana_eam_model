@@ -44,5 +44,14 @@
   "no_dcl_by_design": {
     "ZPPV_C_ProductionOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_R_ProductionOrder (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZPPV_I_ProdOrderWithBOM",
+      "requires_modules": [
+        "bill_of_material",
+        "production_order"
+      ],
+      "access_control": "ZPPV_I_ProdOrderWithBOM"
+    }
+  ]
 }

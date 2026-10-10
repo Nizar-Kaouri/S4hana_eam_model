@@ -34,5 +34,22 @@
   "no_dcl_by_design": {
     "ZMMV_C_MaterialConsumptionQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_MaterialConsumption (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZMMV_R_ConsumptionWithProduct",
+      "requires_modules": [
+        "product",
+        "rpt_material_consumption"
+      ],
+      "access_control": "ZMMV_R_ConsumptionWithProduct"
+    },
+    {
+      "name": "ZMMV_C_ConsumptionProductQ",
+      "requires_modules": [
+        "product",
+        "rpt_material_consumption"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_ConsumptionWithProduct (see GEN-Q01)."
+    }
+  ]
 }
