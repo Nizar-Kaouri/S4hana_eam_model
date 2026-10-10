@@ -14,7 +14,7 @@ real SAP S/4HANA 2025 system.
 | 3 | Net book value report | `rpt_asset_balance` | draft-unverified |
 | - | Link views | 3 link views + 2 link queries | draft-unverified |
 
-**Product totals:** 3 modules, 12 DDLS (5 of them link views / queries), 9 DCLS, 1 DDLX, 1 ABAP Unit class.
+**Product totals:** 3 modules, 14 DDLS (5 of them link views / queries), 9 DCLS, 1 DDLX, 1 ABAP Unit class.
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
 
