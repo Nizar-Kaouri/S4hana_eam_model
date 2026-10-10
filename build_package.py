@@ -71,11 +71,12 @@ def collect_link_views(modules):
             req = sorted(link["requires_modules"])
             if mod["name"] not in req:
                 raise BuildError(f"module {mod['name']} declares link view {link['name']} it is not part of")
+            entry = {"name": link["name"], "requires_modules": req,
+                     "access_control": link.get("access_control"), "no_dcl_reason": link.get("no_dcl_reason")}
             known = links.get(link["name"])
-            if known and (known["requires_modules"] != req or known.get("access_control") != link.get("access_control")):
+            if known and known != entry:
                 raise BuildError(f"link view {link['name']} declared inconsistently across modules")
-            links[link["name"]] = {"name": link["name"], "requires_modules": req,
-                                   "access_control": link.get("access_control")}
+            links[link["name"]] = entry
     for link in links.values():
         for req in link["requires_modules"]:
             if req not in modules:

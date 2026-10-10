@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the functional location conditions (see GEN-D02).
+@EndUserText.label: 'Functional Location Hierarchy Node'
+@MappingRole: true
+define role ZEAM_I_FuncLocHierNode {
+  grant
+    select
+      on
+        ZEAM_I_FuncLocHierNode
+          where
+            inheriting conditions from entity ZEAM_I_FuncLoc;
+}

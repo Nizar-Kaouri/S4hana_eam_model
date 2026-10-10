@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the hierarchy source.
+// TODO-VERIFY[H] FH-D01: access control on a CDS hierarchy (define hierarchy) and the behaviour of the hierarchy when parent nodes are not authorized
+@EndUserText.label: 'Functional Location Hierarchy'
+@MappingRole: true
+define role ZEAM_I_FuncLocHier {
+  grant
+    select
+      on
+        ZEAM_I_FuncLocHier
+          where
+            inheriting conditions from entity ZEAM_I_FuncLocHierNode;
+}

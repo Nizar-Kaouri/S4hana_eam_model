@@ -97,6 +97,26 @@ class BuildPackageTest(unittest.TestCase):
         self.assertLess(pos[("DCLS", "ZEAM_I_Equipment")], pos[("DCLS", "ZEAM_R_Equipment")])
         self.assertLess(pos[("DDLS", "ZEAM_R_Equipment")], pos[("DDLX", "ZEAM_R_Equipment")])
 
+    def test_three_module_link_needs_all_three(self):
+        _, two = bp.build(["maintenance_order", "equipment"], out=self.tmp / "i.zip")
+        self.assertNotIn("ZEAM_R_MaintOrderWithTechObj", self.names(two))
+        self.assertIn("ZEAM_I_EquipmentWithOrder", self.names(two))
+        _, three = bp.build(["maintenance_order", "equipment", "functional_location"], out=self.tmp / "j.zip")
+        self.assertIn("ZEAM_R_MaintOrderWithTechObj", self.names(three))
+        self.assertIn("ZEAM_C_MaintOrderTechObjQ", self.names(three))
+        types = {(o["type"], o["name"]) for o in three["objects"]}
+        self.assertNotIn(("DCLS", "ZEAM_C_MaintOrderTechObjQ"), types)
+
+    def test_transitive_hard_dependency_enables_link(self):
+        _, manifest = bp.build(["rpt_reliability", "equipment"], out=self.tmp / "k.zip")
+        self.assertEqual(sorted(manifest["auto_included_dependencies"]), ["maintenance_notification", "rpt_downtime"])
+        self.assertIn("ZEAM_R_EquipmentReliability", self.names(manifest))
+        self.assertIn("ZEAM_I_EquipmentWithNotif", self.names(manifest))
+
+    def test_full_library_fits_six_character_prefix(self):
+        _, manifest = bp.build(sorted(bp.load_modules()), prefix="ZACME_", out=self.tmp / "l.zip", with_tests=True)
+        self.assertTrue(all(len(o["name"]) <= 30 for o in manifest["objects"]))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,10 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Work center descriptions are not treated as authorization-relevant (see GEN-D01).
+@EndUserText.label: 'Work Center - Text'
+@MappingRole: true
+define role ZEAM_I_WorkCenterText {
+  grant
+    select
+      on
+        ZEAM_I_WorkCenterText;
+}

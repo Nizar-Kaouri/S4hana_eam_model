@@ -92,6 +92,32 @@
         "maintenance_plan"
       ],
       "access_control": "ZEAM_I_MaintPlanWithOrder"
+    },
+    {
+      "name": "ZEAM_I_MaintOpWithWorkCenter",
+      "requires_modules": [
+        "maintenance_order",
+        "work_center"
+      ],
+      "access_control": "ZEAM_I_MaintOpWithWorkCenter"
+    },
+    {
+      "name": "ZEAM_R_MaintOrderWithTechObj",
+      "requires_modules": [
+        "equipment",
+        "functional_location",
+        "maintenance_order"
+      ],
+      "access_control": "ZEAM_R_MaintOrderWithTechObj"
+    },
+    {
+      "name": "ZEAM_C_MaintOrderTechObjQ",
+      "requires_modules": [
+        "equipment",
+        "functional_location",
+        "maintenance_order"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider cube (see GEN-Q01)."
     }
   ]
 }

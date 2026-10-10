@@ -1,0 +1,34 @@
+{
+  "name": "functional_location_hierarchy",
+  "title": "Functional Location Hierarchy",
+  "description": "Parent-child CDS hierarchy of functional locations. Needs functional_location.",
+  "batch": 5,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "master-data",
+    "functional-location",
+    "hierarchy"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "functional_location"
+  ],
+  "objects": {
+    "basic": [
+      "ZEAM_I_FuncLocHierNode",
+      "ZEAM_I_FuncLocHier"
+    ],
+    "composite": [],
+    "consumption": [],
+    "access_controls": [
+      "ZEAM_I_FuncLocHierNode",
+      "ZEAM_I_FuncLocHier"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {},
+  "link_views": []
+}

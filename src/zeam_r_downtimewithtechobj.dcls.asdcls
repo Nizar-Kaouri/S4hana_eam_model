@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - notification conditions (see GEN-D02).
+@EndUserText.label: 'Downtime with Technical Object'
+@MappingRole: true
+define role ZEAM_R_DowntimeWithTechObj {
+  grant
+    select
+      on
+        ZEAM_R_DowntimeWithTechObj
+          where
+            inheriting conditions from entity ZEAM_R_NotifDowntime;
+}

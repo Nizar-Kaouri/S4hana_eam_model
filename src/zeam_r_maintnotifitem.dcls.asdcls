@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the basic view (see GEN-D02).
+@EndUserText.label: 'Notification Item (Damage) - Cube'
+@MappingRole: true
+define role ZEAM_R_MaintNotifItem {
+  grant
+    select
+      on
+        ZEAM_R_MaintNotifItem
+          where
+            inheriting conditions from entity ZEAM_I_MaintNotifItem;
+}

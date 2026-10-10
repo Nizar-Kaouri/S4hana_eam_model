@@ -34,5 +34,22 @@
   "no_dcl_by_design": {
     "ZEAM_C_ReliabilityQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_ReliabilityKPI (see GEN-Q01)."
   },
-  "link_views": []
+  "link_views": [
+    {
+      "name": "ZEAM_R_EquipmentReliability",
+      "requires_modules": [
+        "equipment",
+        "rpt_reliability"
+      ],
+      "access_control": "ZEAM_R_EquipmentReliability"
+    },
+    {
+      "name": "ZEAM_C_EquipReliabilityQ",
+      "requires_modules": [
+        "equipment",
+        "rpt_reliability"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider cube (see GEN-Q01)."
+    }
+  ]
 }
