@@ -98,6 +98,7 @@ can tighten it in one place.
 /src/                     abapGit objects (.ddls.asddls/.xml, .dcls.asdcls/.xml, .ddlx.asddlx/.xml)
 /modules/<name>/module.json
 /docs/views/<View>.md     one page per view (purpose, keys, associations, example use)
+/docs/model_map.html      interactive map of all entities, modules and SAP views (generated)
 /tests/abap/              ABAP Unit / CDS test double classes (shipped with --with-tests)
 /tests/build/             Python unit tests for the build script
 /tools/                   sync_xml.py, gen_docs.py, gen_checklist.py, todo_verify_report.py, validate_repo.py
@@ -186,6 +187,7 @@ npx @abaplint/cli@2.120.71                 # DDLS parser + naming + ABAP rules (
 python3 tools/sync_xml.py                  # abapGit XML derived from sources
 python3 tools/gen_docs.py                  # docs/views/*.md from the // Purpose: / // Example: headers
 python3 tools/gen_checklist.py             # activation tables in ACTIVATION_CHECKLIST.md
+python3 tools/gen_model_map.py             # interactive entity map docs/model_map.html
 python3 tools/todo_verify_report.py        # ranked TODO-VERIFY table in BATCH_REPORT.md
 python3 tools/validate_repo.py             # module rules M1-M11 (layering, DCL, docs, isolation …)
 python3 -m unittest discover -s tests/build
