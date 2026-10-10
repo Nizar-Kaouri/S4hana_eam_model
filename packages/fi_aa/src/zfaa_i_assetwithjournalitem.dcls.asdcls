@@ -1,0 +1,12 @@
+// ZFAA FI-AA VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - asset master conditions (see GEN-D02).
+@EndUserText.label: 'Fixed Asset with Journal Items'
+@MappingRole: true
+define role ZFAA_I_AssetWithJournalItem {
+  grant
+    select
+      on
+        ZFAA_I_AssetWithJournalItem
+          where
+            inheriting conditions from entity ZFAA_I_FixedAsset;
+}

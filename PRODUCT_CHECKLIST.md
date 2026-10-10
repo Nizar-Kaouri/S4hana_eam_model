@@ -3,8 +3,8 @@
 Which SAP S/4HANA areas can get a CDS VDM package built like the EAM package, and where each one stands.
 One product = one folder under `packages/` with its own prefix, ABAP package, modules and reports.
 
-> **No product has been activated or tested.** EAM is drafted (`draft-unverified`); all others are
-> empty skeletons. SAP view names in the "candidate SAP views" column are **unverified candidates**
+> **No product has been activated or tested.** EAM and FI-AA are drafted (`draft-unverified`); all others
+> are empty skeletons. SAP view names in the "candidate SAP views" column are **unverified candidates**
 > from memory. Confirming them on an S/4HANA 2025 system is the first task for every product.
 
 ## How feasibility was rated
@@ -20,7 +20,7 @@ Recommended build order: **FI-AA → MM → QM → PS**, because those link to E
 | # | Product | Folder | Prefix / package | Fit | Candidate modules | Candidate SAP views (to confirm) | Links to EAM |
 |---|---|---|---|---|---|---|---|
 | - | **Enterprise Asset Management** (PM) | `packages/eam` | `ZEAM_` / `ZEAM_VDM` | Strong | 16 modules, 86 views (see `packages/eam/README.md`) | confirmed list in `packages/eam/ACTIVATION_CHECKLIST.md` | - |
-| 1 | **Asset Accounting** (FI-AA) | `packages/fi_aa` | `ZFAA_` / `ZFAA_VDM` | Strong | fixed asset, asset values / depreciation, asset transactions, asset reports | e.g. `I_FixedAsset`, asset valuation and Universal Journal views | equipment ↔ fixed asset |
+| 1 | **Asset Accounting** (FI-AA) | `packages/fi_aa` | `ZFAA_` / `ZFAA_VDM` | Strong | **drafted:** fixed_asset, asset_transaction, rpt_asset_balance (12 views) | `I_FixedAsset`, `I_JournalEntryItem`, `I_GLAccountInChartOfAccounts`, `I_AssetClass` (to confirm) | equipment ↔ fixed asset (needs cross-product bridge) |
 | 2 | **Materials Management** (MM) | `packages/mm` | `ZMMV_` / `ZMMV_VDM` | Strong | material, stock, goods movements, purchase requisition, purchase order, spare-parts reports | e.g. `I_Product`, `I_MaterialStock_2`, `I_MaterialDocumentItem_2`, `I_PurchaseOrderItemAPI01` | order component ↔ material, stock, purchase order |
 | 3 | **Quality Management** (QM) | `packages/qm` | `ZQMV_` / `ZQMV_VDM` | Good | inspection lot, inspection results, quality notification, defect reports | e.g. `I_InspectionLot`, quality notification views | notification / equipment ↔ quality notification |
 | 4 | **Project System** (PS) | `packages/ps` | `ZPSV_` / `ZPSV_VDM` | Good | project, WBS element, project costs, project reports | e.g. `I_EnterpriseProject`, WBS element views, Universal Journal | maintenance order ↔ WBS element (shutdowns, investments) |
@@ -40,17 +40,18 @@ Tick a box only when it is really done; "activated" and "tested" need a real SAP
 | Step | EAM | FI-AA | MM | QM | PS | PP | CO | FI | SD |
 |---|---|---|---|---|---|---|---|---|---|
 | Product folder created | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] |
-| Module scope agreed | [x] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Module scope agreed | [x] | [x] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
 | Released SAP views confirmed on a system | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
-| Batch 1 drafted | [x] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
-| All batches drafted | [x] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| Batch 1 drafted | [x] | [x] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
+| All batches drafted | [x] | [x] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
 | Offline checks clean (`tools/check_all.py`) | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] | [x] |
 | Activated on S/4HANA 2025 | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
 | ABAP Unit + smoke checks passed | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
 | Customer build tested (prefix rewrite, abapGit import) | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
 | Ready to sell | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |
 
-For the skeletons, "offline checks clean" only means the empty folder passes the tools.
+For the skeletons, "offline checks clean" only means the empty folder passes the tools. FI-AA's module
+scope was set in the first draft and is open for refinement.
 
 ## Candidates that need a feasibility check first (no folder yet)
 

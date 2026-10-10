@@ -14,5 +14,8 @@
     "CLAS": 30,
     "DEVC": 30
   },
-  "reserve_prefix_chars": 1
+  "reserve_prefix_chars": 1,
+  "map_title": "ZFAA Asset Accounting Model Map",
+  "map_area": "Asset Accounting (FI-AA)",
+  "map_initial": "ZFAA_I_AssetJournalItem"
 }

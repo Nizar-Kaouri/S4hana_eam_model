@@ -1,4 +1,4 @@
-<title>ZEAM EAM Model Map</title>
+<title>__TITLE__</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
@@ -138,11 +138,11 @@ svg text { font-family: var(--font-mono); }
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">SAP S/4HANA 2025 · EAM / Plant Maintenance · CDS virtual data model</div>
-    <h1>ZEAM EAM Model Map</h1>
+    <div class="eyebrow">SAP S/4HANA 2025 · __AREA__ · CDS virtual data model</div>
+    <h1>__TITLE__</h1>
     <p class="lede">Every CDS entity in the library and every SAP released view it builds on, generated from the repository sources.
-      Data flows left to right: SAP released views feed the basic layer (<span class="mono">ZEAM_I_</span>), which feeds cubes
-      (<span class="mono">ZEAM_R_</span>) and analytical queries (<span class="mono">ZEAM_C_…Q</span>).</p>
+      Data flows left to right: SAP released views feed the basic layer (<span class="mono">__PREFIX__I_</span>), which feeds cubes
+      (<span class="mono">__PREFIX__R_</span>) and analytical queries (<span class="mono">__PREFIX__C_…Q</span>).</p>
     <div class="status">draft-unverified · nothing has been activated on an SAP system</div>
     <ul class="stats" id="stats"></ul>
   </header>
@@ -153,7 +153,7 @@ svg text { font-family: var(--font-mono); }
       <p>Hover a module to see its link views; click it to jump to its band below.</p>
     </div>
     <figure>
-      <div class="scroller" id="modmap-scroller"><svg id="modmap" role="img" aria-label="Module map: 16 modules arranged by dependency depth; arrows show which modules need which, link views appear on hover."></svg></div>
+      <div class="scroller" id="modmap-scroller"><svg id="modmap" role="img" aria-label="Module map: all modules arranged by dependency depth; arrows show which modules need which, link views appear on hover."></svg></div>
       <figcaption>Arrows point from a module to the modules that need it; selecting the right-hand module makes the build add the
         left-hand one automatically. Hover a module to draw its link views, which ship only when every module they connect is
         selected. Report modules have dashed borders.</figcaption>
@@ -167,7 +167,7 @@ svg text { font-family: var(--font-mono); }
     </div>
     <div class="controls">
       <label for="find">Find
-        <input type="search" id="find" list="names" placeholder="e.g. ZEAM_R_MaintOrderCost" autocomplete="off">
+        <input type="search" id="find" list="names" placeholder="e.g. __EXAMPLE__" autocomplete="off">
         <datalist id="names"></datalist>
       </label>
       <label for="assoc"><input type="checkbox" id="assoc"> Show all associations</label>
@@ -284,7 +284,7 @@ document.getElementById("stats").innerHTML = statItems.map(([v, l]) => `<li><b>$
     }
     const p = el("path", { d, class: "lk" }, gLinks); p.style.display = "none";
     const t = el("text", { x: tx, y: ty, class: "lk-label", "text-anchor": "middle" }, gLinks);
-    t.textContent = names.length > 1 ? `${names.length} links` : names[0].replace(/^ZEAM_/, "");
+    t.textContent = names.length > 1 ? `${names.length} links` : names[0].slice(D.meta.prefix.length);
     t.style.display = "none";
     lkEls.push({ a, b, p, t });
   });
@@ -317,7 +317,7 @@ document.getElementById("stats").innerHTML = statItems.map(([v, l]) => `<li><b>$
 
 /* ---------- entity map ---------- */
 const COLS = ["sap", "basic", "composite", "consumption"];
-const COL_HEAD = { sap: ["SAP released views", "I_* (consumed, never copied)"], basic: ["Basic", "ZEAM_I_*"], composite: ["Composite", "ZEAM_R_* (cubes)"], consumption: ["Consumption", "ZEAM_C_*Q (queries)"] };
+const COL_HEAD = { sap: ["SAP released views", "I_* (consumed, never copied)"], basic: ["Basic", D.meta.prefix + "I_*"], composite: ["Composite", D.meta.prefix + "R_* (cubes)"], consumption: ["Consumption", D.meta.prefix + "C_*Q (queries)"] };
 const KIND_ORDER = ["text", "dimension", "view", "value help", "hierarchy", "cube", "query", "SAP view"];
 const TAG = { text: "TXT", dimension: "DIM", view: "VIEW", "value help": "VH", hierarchy: "HIER", cube: "CUBE", query: "Q", "SAP view": "SAP" };
 const G = { left: 176, colW: 228, colGap: 92, nodeH: 24, rowGap: 8, bandPad: 14, top: 58 };
@@ -495,5 +495,5 @@ document.getElementById("assoc").addEventListener("change", e => { state.assoc =
 document.getElementById("clear").addEventListener("click", () => select(null));
 
 const initial = decodeURIComponent((location.hash || "").slice(1));
-select(byName[initial] ? initial : "ZEAM_I_MaintOrder", !!byName[initial]);
+select(byName[initial] ? initial : (byName[D.meta.initial] ? D.meta.initial : zeam[0].name), !!byName[initial]);
 </script>

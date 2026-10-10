@@ -1,0 +1,13 @@
+// ZFAA FI-AA VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the journal conditions.
+// TODO-VERIFY[H] AB-D01: the aggregated view keeps only company code, asset, ledger, depreciation area and currency; if the inherited journal role uses other elements (e.g. G/L account, profit center) the role fails
+@EndUserText.label: 'Asset Net Book Value at Key Date'
+@MappingRole: true
+define role ZFAA_R_AssetBalance {
+  grant
+    select
+      on
+        ZFAA_R_AssetBalance
+          where
+            inheriting conditions from entity ZFAA_I_AssetJournalItem;
+}

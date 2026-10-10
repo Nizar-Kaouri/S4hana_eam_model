@@ -15,7 +15,7 @@ stands is tracked in **[`PRODUCT_CHECKLIST.md`](PRODUCT_CHECKLIST.md)**.
 | Product | Folder | Prefix | State |
 |---|---|---|---|
 | Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
-| Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | skeleton |
+| Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 12 views |
 | Materials Management (MM) | [`packages/mm`](packages/mm/README.md) | `ZMMV_` | skeleton |
 | Quality Management (QM) | [`packages/qm`](packages/qm/README.md) | `ZQMV_` | skeleton |
 | Project System (PS) | [`packages/ps`](packages/ps/README.md) | `ZPSV_` | skeleton |

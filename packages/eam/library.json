@@ -12,5 +12,8 @@
     "CLAS": 30,
     "DEVC": 30
   },
-  "reserve_prefix_chars": 1
+  "reserve_prefix_chars": 1,
+  "map_title": "ZEAM EAM Model Map",
+  "map_area": "EAM / Plant Maintenance",
+  "map_initial": "ZEAM_I_MaintOrder"
 }

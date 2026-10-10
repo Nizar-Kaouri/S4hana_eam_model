@@ -1,0 +1,70 @@
+{
+  "name": "asset_transaction",
+  "title": "Asset Transaction",
+  "description": "Asset postings from the Universal Journal with value categories (acquisition, retirement, transfer, depreciation), cube and query.",
+  "batch": 2,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "transactional",
+    "fixed-asset",
+    "depreciation",
+    "capex",
+    "universal-journal",
+    "analytics"
+  ],
+  "sap_released_views": [
+    "I_JournalEntryItem",
+    "I_GLAccountInChartOfAccounts"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZFAA_I_AssetJournalItem"
+    ],
+    "composite": [
+      "ZFAA_R_AssetTransaction"
+    ],
+    "consumption": [
+      "ZFAA_C_AssetTransactionQ"
+    ],
+    "access_controls": [
+      "ZFAA_I_AssetJournalItem",
+      "ZFAA_R_AssetTransaction"
+    ],
+    "metadata_extensions": [],
+    "tests": [
+      "ZFAA_CL_ASSETJOURNAL_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZFAA_C_AssetTransactionQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_R_AssetTransaction (see GEN-Q01)."
+  },
+  "link_views": [
+    {
+      "name": "ZFAA_I_AssetWithJournalItem",
+      "requires_modules": [
+        "asset_transaction",
+        "fixed_asset"
+      ],
+      "access_control": "ZFAA_I_AssetWithJournalItem"
+    },
+    {
+      "name": "ZFAA_R_AssetTransWithAsset",
+      "requires_modules": [
+        "asset_transaction",
+        "fixed_asset"
+      ],
+      "access_control": "ZFAA_R_AssetTransWithAsset"
+    },
+    {
+      "name": "ZFAA_C_AssetTransAssetQ",
+      "requires_modules": [
+        "asset_transaction",
+        "fixed_asset"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider cube (see GEN-Q01)."
+    }
+  ]
+}

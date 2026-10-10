@@ -1,0 +1,54 @@
+{
+  "name": "rpt_asset_balance",
+  "title": "Report: Asset Net Book Value",
+  "description": "Net book value, acquisitions and depreciation to date per asset at a key date. Needs asset_transaction.",
+  "batch": 3,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "fixed-asset",
+    "net-book-value",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "asset_transaction"
+  ],
+  "objects": {
+    "basic": [],
+    "composite": [
+      "ZFAA_R_AssetBalance"
+    ],
+    "consumption": [
+      "ZFAA_C_AssetBalanceQ"
+    ],
+    "access_controls": [
+      "ZFAA_R_AssetBalance"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFAA_C_AssetBalanceQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_R_AssetBalance (see GEN-Q01)."
+  },
+  "link_views": [
+    {
+      "name": "ZFAA_R_AssetBalanceWithAsset",
+      "requires_modules": [
+        "fixed_asset",
+        "rpt_asset_balance"
+      ],
+      "access_control": "ZFAA_R_AssetBalanceWithAsset"
+    },
+    {
+      "name": "ZFAA_C_AssetBalanceAssetQ",
+      "requires_modules": [
+        "fixed_asset",
+        "rpt_asset_balance"
+      ],
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider cube (see GEN-Q01)."
+    }
+  ]
+}

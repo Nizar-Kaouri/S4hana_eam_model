@@ -41,6 +41,7 @@ def kind_of(info, name):
 def collect():
     modules = bp.load_modules()
     links = bp.collect_link_views(modules)
+    prefix = bp.load_library()["prefix"]
     nodes, sap = {}, {}
     for p in sorted((ROOT / "src").glob("*.ddls.asddls")):
         text = p.read_text(encoding="utf-8")
@@ -72,7 +73,7 @@ def collect():
         }
     for n in list(nodes.values()):
         for ref in n["sources"] + [a["target"] for a in n["assocs"]]:
-            if not ref.upper().startswith("ZEAM_") and ref not in nodes:
+            if not ref.upper().startswith(prefix.upper()) and ref not in nodes:
                 sap.setdefault(ref, {"name": ref, "label": "SAP released view", "module": "sap", "layer": "sap",
                                      "kind": "SAP view", "batch": "-", "link": False, "requires": [], "purpose": "",
                                      "example": "", "keys": [], "params": [], "sources": [], "assocs": [],
@@ -87,12 +88,22 @@ def collect():
     lib = bp.load_library()
     return {"nodes": list(nodes.values()) + sorted(sap.values(), key=lambda s: s["name"]),
             "modules": mods, "links": link_list,
-            "meta": {"prefix": lib["prefix"], "package": lib["package"], "release": lib.get("target_release", "")}}
+            "meta": {"prefix": lib["prefix"], "package": lib["package"], "release": lib.get("target_release", ""),
+                     "title": lib.get("map_title", f"{lib['prefix'].rstrip('_')} Model Map"),
+                     "area": lib.get("map_area", lib.get("product_title", "")),
+                     "initial": lib.get("map_initial", "")}}
 
 
 def render():
-    data = json.dumps(collect(), separators=(",", ":")).replace("</", "<\\/")
-    return TEMPLATE.read_text(encoding="utf-8").replace("/*__DATA__*/null", data)
+    model = collect()
+    meta = model["meta"]
+    data = json.dumps(model, separators=(",", ":")).replace("</", "<\\/")
+    example = next((n["name"] for n in model["nodes"] if n["kind"] == "cube"), model["nodes"][0]["name"])
+    html = TEMPLATE.read_text(encoding="utf-8")
+    for key, value in (("__TITLE__", meta["title"]), ("__AREA__", meta["area"]), ("__PREFIX__", meta["prefix"]),
+                       ("__EXAMPLE__", example)):
+        html = html.replace(key, value)
+    return html.replace("/*__DATA__*/null", data)
 
 
 def main():

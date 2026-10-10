@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Structural checks for the ZEAM VDM repository (complements abaplint).
+"""Structural checks for one product of the VDM repository (complements abaplint).
 
 abaplint parses DDLS sources but not DCLS / DDLX content and knows nothing about the
 module rules of this library, so this script enforces:
@@ -12,7 +12,7 @@ module rules of this library, so this script enforces:
       '// Example:' header comments and a doc page docs/views/<Name>.md
   M6  base views reference only objects of their own module or of declared hard dependencies;
       link views only objects of the modules they require
-  M7  DCLS: role name = file name, grants select on itself, inherited ZEAM entity exists
+  M7  DCLS: role name = file name, grants select on itself, inherited entity with the product prefix exists
   M8  DDLX: annotates an existing view that has @Metadata.allowExtensions: true
   M9  object names within length limits minus reserve_prefix_chars (library.json)
   M10 abapGit XML and docs/views in sync with sources (tools/sync_xml.py, tools/gen_docs.py)

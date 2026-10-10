@@ -24,7 +24,7 @@ DOCS = ROOT / "docs" / "views"
 STATUS = ("> Status: **draft-unverified** · tested release: none (draft, 2025 assumed). "
           "Nothing below has been activated on a system.")
 MARKER_RE = re.compile(r"TODO-VERIFY\[[HML]\]\s+([A-Z]+-[A-Z0-9]+):")
-REF_RE = re.compile(r"\b((?:EQ|FL|LNK|GEN|NT|MO|MP|MD|PL|TL|RPT|WC|NI|EH|FH|TST)-[A-Z0-9]+)\b")
+REF_RE = re.compile(r"\b([A-Z]{2,4}-[A-Z]?[0-9]{2,3})\b")
 
 
 def header_field(text, field):

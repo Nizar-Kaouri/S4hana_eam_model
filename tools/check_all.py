@@ -28,7 +28,7 @@ def abaplint_cmd():
 
 def run(cmd, cwd, env, label):
     res = subprocess.run(cmd, cwd=cwd, env=env, capture_output=True, text=True)
-    out = (res.stdout + res.stderr).strip().splitlines()
+    out = [l for l in (res.stdout + res.stderr).splitlines() if l.strip()]
     status = "ok " if res.returncode == 0 else "FAIL"
     print(f"  [{status}] {label}" + (f": {out[-1]}" if out else ""))
     if res.returncode != 0:

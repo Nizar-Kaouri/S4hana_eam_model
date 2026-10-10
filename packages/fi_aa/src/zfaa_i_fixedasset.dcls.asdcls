@@ -1,0 +1,13 @@
+// ZFAA FI-AA VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_FixedAsset (asset class, company code, cost center, plant).
+// TODO-VERIFY[H] FA-D01: I_FixedAsset has an access control role and every element it references is projected by ZFAA_I_FixedAsset
+@EndUserText.label: 'Fixed Asset'
+@MappingRole: true
+define role ZFAA_I_FixedAsset {
+  grant
+    select
+      on
+        ZFAA_I_FixedAsset
+          where
+            inheriting conditions from entity I_FixedAsset;
+}
