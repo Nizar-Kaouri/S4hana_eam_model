@@ -16,12 +16,20 @@ define view ZEMX_I_MaintNotifItem
   as select from ZEMX_I_NotificationItemData as itm
     inner join ZEMX_I_NotificationMaintData as pm on pm.MaintenanceNotification = itm.MaintenanceNotification
 {
+      @EndUserText.label: 'Maintenance Notification'
   key itm.MaintenanceNotification as MaintenanceNotification,
+      @EndUserText.label: 'Maint Notification Item'
   key itm.MaintNotificationItem   as MaintNotificationItem,
+      @EndUserText.label: 'Object Part Code Group'
       itm.ObjectPartCodeGroup     as ObjectPartCodeGroup,
+      @EndUserText.label: 'Object Part Code'
       itm.ObjectPartCode          as ObjectPartCode,
+      @EndUserText.label: 'Damage Code Group'
       itm.DamageCodeGroup         as DamageCodeGroup,
+      @EndUserText.label: 'Damage Code'
       itm.DamageCode              as DamageCode,
+      @EndUserText.label: 'Maint Notif Item Text'
       itm.MaintNotifItemText      as MaintNotifItemText,
+      @EndUserText.label: 'Is Marked For Deletion'
       itm.IsMarkedForDeletion     as IsMarkedForDeletion
 }

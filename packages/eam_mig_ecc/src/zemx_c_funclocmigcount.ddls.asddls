@@ -13,8 +13,11 @@
 define view ZEMX_C_FuncLocMigCount
   as select from ZEMX_C_FuncLocMig
 {
+      @EndUserText.label: 'Maintenance Planning Plant'
   key MaintenancePlanningPlant   as MaintenancePlanningPlant,
+      @EndUserText.label: 'Functional Location Category'
   key FunctionalLocationCategory as FunctionalLocationCategory,
+      @EndUserText.label: 'Record Count'
       count( * )                 as RecordCount
 }
 group by MaintenancePlanningPlant, FunctionalLocationCategory

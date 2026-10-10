@@ -15,10 +15,15 @@
 define view ZEMX_I_TaskListObjectAssgmt
   as select from eapl
 {
+      @EndUserText.label: 'Task List Type'
   key eapl.plnty as TaskListType,
+      @EndUserText.label: 'Task List Group'
   key eapl.plnnr as TaskListGroup,
+      @EndUserText.label: 'Task List Group Counter'
   key eapl.plnal as TaskListGroupCounter,
       // TODO-VERIFY[H] XTL-005: EAPL structure (PLNTY, PLNNR, PLNAL, EQUNR, TPLNR) and key
+      @EndUserText.label: 'Equipment'
       eapl.equnr as Equipment,
+      @EndUserText.label: 'Functional Location'
       eapl.tplnr as FunctionalLocation
 }

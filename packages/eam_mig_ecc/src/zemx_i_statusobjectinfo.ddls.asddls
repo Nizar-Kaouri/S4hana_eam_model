@@ -15,7 +15,9 @@
 define view ZEMX_I_StatusObjectInfo
   as select from jsto
 {
+      @EndUserText.label: 'Object Number'
   key jsto.objnr as ObjectNumber,
       // TODO-VERIFY[M] XST-001: JSTO-STSMA is the status profile of the object
+      @EndUserText.label: 'Status Profile'
       jsto.stsma as StatusProfile
 }

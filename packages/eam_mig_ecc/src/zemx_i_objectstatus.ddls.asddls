@@ -15,11 +15,18 @@
 define view ZEMX_I_ObjectStatus
   as select from ZEMX_I_ObjectStatusEntry as st
 {
+      @EndUserText.label: 'Object Number'
   key st.ObjectNumber                as ObjectNumber,
+      @EndUserText.label: 'Status Code'
   key st.StatusCode                  as StatusCode,
+      @EndUserText.label: 'Status Object Type'
       st.StatusObjectType            as StatusObjectType,
+      @EndUserText.label: 'Status Object Key'
       st.StatusObjectKey             as StatusObjectKey,
+      @EndUserText.label: 'Status Kind'
       st.StatusKind                  as StatusKind,
+      @EndUserText.label: 'Status Profile'
       st._StatusObject.StatusProfile as StatusProfile,
+      @EndUserText.label: 'Status Change Number'
       st.StatusChangeNumber          as StatusChangeNumber
 }

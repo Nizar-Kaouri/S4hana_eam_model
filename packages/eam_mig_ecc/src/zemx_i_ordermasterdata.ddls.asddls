@@ -19,17 +19,29 @@ define view ZEMX_I_OrderMasterData
   association [0..1] to ZEMX_I_StatusClosed as _ClosedFlag on $projection.ObjectNumber = _ClosedFlag.ObjectNumber
   association [0..1] to ZEMX_I_StatusDeletionFlag as _DeletionFlag on $projection.ObjectNumber = _DeletionFlag.ObjectNumber
 {
+      @EndUserText.label: 'Maintenance Order'
   key aufk.aufnr as MaintenanceOrder,
+      @EndUserText.label: 'Maintenance Order Type'
       aufk.auart as MaintenanceOrderType,
+      @EndUserText.label: 'Maintenance Order Desc'
       aufk.ktext as MaintenanceOrderDesc,
+      @EndUserText.label: 'Company Code'
       aufk.bukrs as CompanyCode,
+      @EndUserText.label: 'Business Area'
       aufk.gsber as BusinessArea,
+      @EndUserText.label: 'Controlling Area'
       aufk.kokrs as ControllingArea,
+      @EndUserText.label: 'Responsible Cost Center'
       aufk.kostv as ResponsibleCostCenter,
+      @EndUserText.label: 'Currency'
       aufk.waers as Currency,
+      @EndUserText.label: 'Object Number'
       aufk.objnr as ObjectNumber,
+      @EndUserText.label: 'Creation Date'
       aufk.erdat as CreationDate,
+      @EndUserText.label: 'Created By User'
       aufk.ernam as CreatedByUser,
+      @EndUserText.label: 'Last Change Date'
       aufk.aedat as LastChangeDate,
       _TechCompletedFlag,
       _ClosedFlag,

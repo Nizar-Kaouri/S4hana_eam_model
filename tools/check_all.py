@@ -24,7 +24,7 @@ GENERATORS = ["sync_xml", "gen_docs", "gen_checklist", "gen_model_map", "todo_ve
 def abaplint_cmd():
     for cand in (os.environ.get("ABAPLINT"), str(REPO / "node_modules" / ".bin" / "abaplint"), shutil.which("abaplint")):
         if cand and Path(cand).exists():
-            return [cand]
+            return ['node', str(REPO / 'node_modules' / '@abaplint' / 'cli' / 'abaplint')] if str(cand) == str(REPO / 'node_modules' / '.bin' / 'abaplint') else [cand]
     return None
 
 

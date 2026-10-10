@@ -16,10 +16,13 @@ define view ZEMX_I_WorkCenterDesc
   as select from crtx
   association [0..1] to ZEMX_I_WorkCenterHeader as _WorkCenter on $projection.WorkCenterInternalID = _WorkCenter.WorkCenterInternalID
 {
+      @EndUserText.label: 'Work Center Internal ID'
   key crtx.objid as WorkCenterInternalID,
       @Semantics.language: true
+      @EndUserText.label: 'Language'
   key crtx.spras as Language,
       @Semantics.text: true
+      @EndUserText.label: 'Work Center Text'
       crtx.ktext as WorkCenterText,
       _WorkCenter
 }

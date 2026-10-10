@@ -13,8 +13,11 @@
 define view ZEMX_C_LongTextMigCount
   as select from ZEMX_C_LongTextIndexMig
 {
+      @EndUserText.label: 'Text Object'
   key TextObject as TextObject,
+      @EndUserText.label: 'Text ID'
   key TextID     as TextID,
+      @EndUserText.label: 'Record Count'
       count( * ) as RecordCount
 }
 group by TextObject, TextID

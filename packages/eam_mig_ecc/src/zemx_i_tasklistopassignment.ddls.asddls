@@ -15,13 +15,20 @@
 define view ZEMX_I_TaskListOpAssignment
   as select from plas
 {
+      @EndUserText.label: 'Task List Type'
   key plas.plnty as TaskListType,
+      @EndUserText.label: 'Task List Group'
   key plas.plnnr as TaskListGroup,
+      @EndUserText.label: 'Task List Group Counter'
   key plas.plnal as TaskListGroupCounter,
+      @EndUserText.label: 'Task List Sequence'
   key plas.plnfl as TaskListSequence,
+      @EndUserText.label: 'Task List Operation Internal Id'
   key plas.plnkn as TaskListOperationInternalId,
-      // TODO-VERIFY[H] XTL-004: PLAS and PLPO both carry change-number versions (ZAEHL); the join returns one row per combination, only the latest non-deleted versions are migrated
+      // TODO-VERIFY[H] XTL-004: PLAS and PLPO both carry change-number versions (ZAEHL); the highest recorded counter is selected independently per assignment/detail identity before deletion filtering; confirm validity-date and change-number semantics for the cutover snapshot
+      @EndUserText.label: 'Task List Op Assgmt Version'
   key plas.zaehl as TaskListOpAssgmtVersion,
+      @EndUserText.label: 'Is Marked For Deletion'
       plas.loekz as IsMarkedForDeletion
 }
 where plas.plnty = 'A' or plas.plnty = 'E' or plas.plnty = 'T'

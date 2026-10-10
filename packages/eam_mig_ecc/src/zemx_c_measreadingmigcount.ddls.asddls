@@ -13,7 +13,9 @@
 define view ZEMX_C_MeasReadingMigCount
   as select from ZEMX_C_MeasReadingMig
 {
+      @EndUserText.label: 'Msmt Entry Unit'
   key MsmtEntryUnit as MsmtEntryUnit,
+      @EndUserText.label: 'Record Count'
       count( * )    as RecordCount
 }
 group by MsmtEntryUnit

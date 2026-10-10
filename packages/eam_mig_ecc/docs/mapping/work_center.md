@@ -55,6 +55,39 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ControllingArea` | CRCO-KOKRS | CRCO-KOKRS | copy |  |
 | `CostCenter` | CRCO-KOSTL | CRCO-KOSTL | copy |  |
 
+## `ZEMX_C_WorkCenterCapacityMig`
+
+- Source: `ZEMX_I_WorkCenterCapacity`
+- Keys: `ObjectType`, `WorkCenterInternalID`, `CapacityAssignment`
+- Scope: `src.ObjectType = 'A' and _Parent.IsMarkedForDeletion = ''`
+- Delivery mode: **reference**
+- Before posting: Reference context only; select referenced identities and implement customer-specific target posting and prerequisites.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ObjectType` | CRCA-OBJTY | CRCA-OBJTY | copy |  |
+| `WorkCenterInternalID` | CRCA-OBJID | CRCA-OBJID | copy |  |
+| `CapacityAssignment` | CRCA-CANUM | CRCA-CANUM | copy |  |
+| `CapacityInternalID` | CRCA-KAPID | CRCA-KAPID | copy |  |
+| `ValidityStartDate` | CRCA-BEGDA | CRCA-BEGDA | copy |  |
+| `ValidityEndDate` | CRCA-ENDDA | CRCA-ENDDA | copy |  |
+| `CapacityFormula` | CRCA-FORK2 | CRCA-FORK2 | copy |  |
+| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
+
+## `ZEMX_C_CapacityHeaderMig`
+
+- Source: `ZEMX_I_CapacityHeader`
+- Keys: `CapacityInternalID`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Reference context only; select referenced identities and implement customer-specific target posting and prerequisites.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `CapacityInternalID` | KAKO-KAPID | KAKO-KAPID | copy |  |
+| `CapacityCategory` | KAKO-KAPAR | KAKO-KAPAR | copy |  |
+| `CapacityName` | KAKO-NAME | KAKO-NAME | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |
@@ -81,4 +114,4 @@ python3 tools/mig_reconcile.py records --module work_center --source ecc_extract
 
 ## Open gaps
 
-- TODO-VERIFY[M] XWC-G01: capacities (KAKO/CRCA), scheduling formulas and default values are not extracted in the pilot
+- TODO-VERIFY[H] XWC-G01: CRCA allocation, FORK2 formula and KAKO header are delivered as reference data; available-capacity intervals, shift calendars, additional formulas and defaults require release-specific extension.

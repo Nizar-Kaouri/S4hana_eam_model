@@ -262,6 +262,45 @@
           "compare": false
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocLabelMig",
+      "source_view": "ZEMX_I_FuncLocLabel",
+      "scope_filter": "_Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "FunctionalLocation",
+        "LabelingSystem"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOS-TPLNR",
+          "target": "IFLOS-TPLNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "LabelingSystem",
+          "source": "IFLOS-ALTNR",
+          "target": "IFLOS-ALTNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AlternativeLabel",
+          "source": "IFLOS-STRNO",
+          "target": "IFLOS-STRNO",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsActiveLabel",
+          "source": "IFLOS-ACTVS",
+          "target": "IFLOS-ACTVS",
+          "rule": "copy",
+          "compare": false
+        }
+      ]
     }
   ],
   "not_migrated": [
@@ -328,7 +367,7 @@
     }
   },
   "gaps": [
-    "TODO-VERIFY[H] XFL-G01: alternative labeling (IFLOS) and structure indicator edit masks must match on S/4HANA before the load"
+    "TODO-VERIFY[H] XFL-G01: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks."
   ],
   "main_structure": "ZEMX_C_FuncLocMig"
 }

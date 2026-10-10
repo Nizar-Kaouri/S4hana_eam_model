@@ -13,10 +13,15 @@
 define view ZEMX_C_ObjectPartnerMig
   as select from ZEMX_I_ObjectPartner as src
 {
+      @EndUserText.label: 'Partner Object Key'
   key src.PartnerObjectKey  as PartnerObjectKey,
+      @EndUserText.label: 'Partner Function'
   key src.PartnerFunction   as PartnerFunction,
+      @EndUserText.label: 'Partner Counter'
   key src.PartnerCounter    as PartnerCounter,
+      @EndUserText.label: 'Partner Object Type'
       src.PartnerObjectType as PartnerObjectType,
+      @EndUserText.label: 'Partner'
       src.Partner           as Partner
 }
 where src.IsMarkedForDeletion = ''

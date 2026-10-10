@@ -13,8 +13,11 @@
 define view ZEMX_C_MaintOrderMigCount
   as select from ZEMX_C_MaintOrderMig
 {
+      @EndUserText.label: 'Maintenance Order Type'
   key MaintenanceOrderType     as MaintenanceOrderType,
+      @EndUserText.label: 'Maintenance Planning Plant'
   key MaintenancePlanningPlant as MaintenancePlanningPlant,
+      @EndUserText.label: 'Record Count'
       count( * )               as RecordCount
 }
 group by MaintenanceOrderType, MaintenancePlanningPlant

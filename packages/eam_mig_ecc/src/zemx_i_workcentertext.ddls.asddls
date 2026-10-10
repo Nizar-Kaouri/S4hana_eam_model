@@ -14,12 +14,18 @@
 define view ZEMX_I_WorkCenterText
   as select from ZEMX_I_WorkCenterDesc as txt
 {
+      @EndUserText.label: 'Work Center Internal ID'
   key txt.WorkCenterInternalID       as WorkCenterInternalID,
       @Semantics.language: true
+      @EndUserText.label: 'Language'
   key txt.Language                   as Language,
+      @EndUserText.label: 'Work Center'
       txt._WorkCenter.WorkCenter     as WorkCenter,
+      @EndUserText.label: 'Plant'
       txt._WorkCenter.Plant          as Plant,
       @Semantics.text: true
+      @EndUserText.label: 'Work Center Text'
       txt.WorkCenterText             as WorkCenterText,
+      @EndUserText.label: 'Is Marked For Deletion'
       txt._WorkCenter.IsMarkedForDeletion as IsMarkedForDeletion
 }

@@ -13,8 +13,11 @@
 define view ZEMX_C_WorkCenterMigCount
   as select from ZEMX_C_WorkCenterMig
 {
+      @EndUserText.label: 'Plant'
   key Plant                  as Plant,
+      @EndUserText.label: 'Work Center Category Code'
   key WorkCenterCategoryCode as WorkCenterCategoryCode,
+      @EndUserText.label: 'Record Count'
       count( * )             as RecordCount
 }
 group by Plant, WorkCenterCategoryCode

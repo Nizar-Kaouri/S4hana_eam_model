@@ -16,15 +16,26 @@ define view ZEMX_I_MeasPointLastReading
   as select from ZEMX_I_MeasPointLastDoc as lastdoc
     inner join ZEMX_I_MeasurementDocument as doc on doc.MeasurementDocument = lastdoc.LastMeasurementDocument
 {
+      @EndUserText.label: 'Measuring Point'
   key lastdoc.MeasuringPoint        as MeasuringPoint,
+      @EndUserText.label: 'Measurement Document'
       doc.MeasurementDocument       as MeasurementDocument,
+      @EndUserText.label: 'Msmt Rdng Date'
       doc.MsmtRdngDate              as MsmtRdngDate,
+      @EndUserText.label: 'Msmt Rdng Time'
       doc.MsmtRdngTime              as MsmtRdngTime,
+      @EndUserText.label: 'Msmt Rdng By User'
       doc.MsmtRdngByUser            as MsmtRdngByUser,
+      @EndUserText.label: 'Measurement Reading'
       doc.MeasurementReading        as MeasurementReading,
+      @EndUserText.label: 'Measurement Counter Reading'
       doc.MeasurementCounterReading as MeasurementCounterReading,
+      @EndUserText.label: 'Msmt Reading In Entry Unit'
       doc.MsmtReadingInEntryUnit    as MsmtReadingInEntryUnit,
+      @EndUserText.label: 'Msmt Entry Unit'
       doc.MsmtEntryUnit             as MsmtEntryUnit,
+      @EndUserText.label: 'Msmt Valuation Code'
       doc.MsmtValuationCode         as MsmtValuationCode,
+      @EndUserText.label: 'Measurement Document Text'
       doc.MeasurementDocumentText   as MeasurementDocumentText
 }

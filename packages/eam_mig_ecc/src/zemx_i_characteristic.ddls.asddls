@@ -16,7 +16,9 @@
 define view ZEMX_I_Characteristic
   as select from cabn
 {
+      @EndUserText.label: 'Charc Internal ID'
   key cabn.atinn as CharcInternalID,
+      @EndUserText.label: 'Characteristic'
       cabn.atnam as Characteristic
 }
 where cabn.adzhl = '0000'

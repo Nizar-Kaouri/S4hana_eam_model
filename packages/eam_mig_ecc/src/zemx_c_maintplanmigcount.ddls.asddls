@@ -13,8 +13,11 @@
 define view ZEMX_C_MaintPlanMigCount
   as select from ZEMX_C_MaintenancePlanMig
 {
+      @EndUserText.label: 'Maintenance Plan Category'
   key MaintenancePlanCategory as MaintenancePlanCategory,
+      @EndUserText.label: 'Maintenance Strategy'
   key MaintenanceStrategy     as MaintenanceStrategy,
+      @EndUserText.label: 'Record Count'
       count( * )              as RecordCount
 }
 group by MaintenancePlanCategory, MaintenanceStrategy

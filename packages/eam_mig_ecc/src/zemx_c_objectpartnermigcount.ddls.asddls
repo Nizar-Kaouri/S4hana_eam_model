@@ -13,8 +13,11 @@
 define view ZEMX_C_ObjectPartnerMigCount
   as select from ZEMX_C_ObjectPartnerMig
 {
+      @EndUserText.label: 'Partner Object Type'
   key PartnerObjectType as PartnerObjectType,
+      @EndUserText.label: 'Partner Function'
   key PartnerFunction   as PartnerFunction,
+      @EndUserText.label: 'Record Count'
       count( * )        as RecordCount
 }
 group by PartnerObjectType, PartnerFunction

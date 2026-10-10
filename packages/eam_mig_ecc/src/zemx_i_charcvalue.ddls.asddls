@@ -15,15 +15,26 @@
 define view ZEMX_I_CharcValue
   as select from ZEMX_I_ObjectCharcValue as val
 {
+      @EndUserText.label: 'Classified Object'
   key val.ClassifiedObject           as ClassifiedObject,
+      @EndUserText.label: 'Charc Internal ID'
   key val.CharcInternalID            as CharcInternalID,
+      @EndUserText.label: 'Charc Value Position Number'
   key val.CharcValuePositionNumber   as CharcValuePositionNumber,
+      @EndUserText.label: 'Class Type'
   key val.ClassType                  as ClassType,
+      @EndUserText.label: 'Change Counter'
   key val.ChangeCounter              as ChangeCounter,
+      @EndUserText.label: 'Characteristic'
       val._Characteristic.Characteristic as Characteristic,
+      @EndUserText.label: 'Charc Value'
       val.CharcValue                 as CharcValue,
+      @EndUserText.label: 'Charc From Numeric Value'
       val.CharcFromNumericValue      as CharcFromNumericValue,
+      @EndUserText.label: 'Charc To Numeric Value'
       val.CharcToNumericValue        as CharcToNumericValue,
+      @EndUserText.label: 'Charc Value Dependency'
       val.CharcValueDependency       as CharcValueDependency,
+      @EndUserText.label: 'Is Marked For Deletion'
       val.IsMarkedForDeletion        as IsMarkedForDeletion
 }

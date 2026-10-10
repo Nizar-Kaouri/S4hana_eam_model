@@ -15,12 +15,17 @@
 define view ZEMX_I_UserStatusDesc
   as select from tj30t
 {
+      @EndUserText.label: 'Status Profile'
   key tj30t.stsma as StatusProfile,
+      @EndUserText.label: 'Status Code'
   key tj30t.estat as StatusCode,
       @Semantics.language: true
+      @EndUserText.label: 'Language'
   key tj30t.spras as Language,
       // TODO-VERIFY[L] XST-003: TJ30T field names TXT04, TXT30
+      @EndUserText.label: 'Status Short Name'
       tj30t.txt04 as StatusShortName,
       @Semantics.text: true
+      @EndUserText.label: 'Status Name'
       tj30t.txt30 as StatusName
 }

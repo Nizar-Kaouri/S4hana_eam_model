@@ -1,9 +1,9 @@
 {
   "name": "functional_location",
   "title": "Functional location",
-  "description": "Functional locations with location data and texts.",
+  "description": "Functional locations, texts and alternative labels.",
   "batch": 2,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft-unverified",
   "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
   "tags": [
@@ -13,6 +13,7 @@
     "migration"
   ],
   "sap_tables": [
+    "IFLOS",
     "IFLOT",
     "IFLOTX"
   ],
@@ -24,15 +25,18 @@
     "tables": [],
     "basic": [
       "ZEMX_I_FuncLocHeader",
-      "ZEMX_I_FuncLocDesc"
+      "ZEMX_I_FuncLocDesc",
+      "ZEMX_I_FuncLocLabelData"
     ],
     "composite": [
-      "ZEMX_I_FuncLoc"
+      "ZEMX_I_FuncLoc",
+      "ZEMX_I_FuncLocLabel"
     ],
     "consumption": [
       "ZEMX_C_FuncLocMig",
       "ZEMX_C_FuncLocTextMig",
-      "ZEMX_C_FuncLocMigCount"
+      "ZEMX_C_FuncLocMigCount",
+      "ZEMX_C_FuncLocLabelMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -44,7 +48,10 @@
     "ZEMX_I_FuncLoc": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
     "ZEMX_C_FuncLocMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
     "ZEMX_C_FuncLocTextMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
-    "ZEMX_C_FuncLocMigCount": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline)."
+    "ZEMX_C_FuncLocMigCount": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_FuncLocLabelData": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_FuncLocLabel": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_FuncLocLabelMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline)."
   },
   "link_views": []
 }

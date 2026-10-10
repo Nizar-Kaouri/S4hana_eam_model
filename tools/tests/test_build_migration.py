@@ -65,6 +65,46 @@ class BuildMigrationTest(unittest.TestCase):
                 text = (ECC / "src" / f"{name.lower()}.ddls.asddls").read_text()
                 self.assertNotIn("left outer join", text, f"{name}: use an association instead of a left outer join")
 
+    def test_bom_build_is_dependency_complete_and_ships_selected_catalogue(self):
+        import csv
+        import io
+        out, manifest = bp.build(["equipment_bom"], prefix="/ACME/", package="/ACME/MIG",
+                                 out=self.tmp / "bom.zip", root=ECC)
+        self.assertEqual(set(manifest["resolved_modules"]), {"equipment_bom", "equipment", "core", "work_center"})
+        with zipfile.ZipFile(out) as zf:
+            self.assertIn("docs/INSTALLATION.md", zf.namelist())
+            rows = list(csv.DictReader(io.StringIO(zf.read("FIELD_CATALOG.csv").decode())))
+            self.assertEqual({r["module"] for r in rows}, {"equipment_bom", "equipment", "work_center"})
+            self.assertTrue(all(r["view"].startswith("/ACME/") for r in rows))
+            self.assertNotIn("mapping/task_list/mapping.json", zf.namelist())
+
+    def test_latest_operation_counters_do_not_resurrect_deleted_states(self):
+        # Execute the current counter-selection joins from the production CDS on a small relational fixture.
+        import sqlite3
+        import re
+        text = (ECC / "src/zemx_i_tasklistoperation.ddls.asddls").read_text()
+        from_clause = text[text.index("as select from") + len("as select from"):text.index("{")].strip()
+        db = sqlite3.connect(":memory:")
+        db.executescript("""
+            create table ZEMX_I_TaskListOpAssignment(TaskListType,TaskListGroup,TaskListGroupCounter,TaskListSequence,TaskListOperationInternalId,TaskListOpAssgmtVersion,IsMarkedForDeletion);
+            create table ZEMX_I_TaskListOpDetail(TaskListType,TaskListGroup,TaskListOperationInternalId,TaskListOpVersionCounter,IsMarkedForDeletion);
+            insert into ZEMX_I_TaskListOpAssignment values ('A','G','1','0','N',1,''),('A','G','1','0','N',2,'');
+            insert into ZEMX_I_TaskListOpDetail values ('A','G','N',1,''),('A','G','N',2,'');
+        """)
+        for name in ["ZEMX_I_TaskListAsgLatest", "ZEMX_I_TaskListOpLatest"]:
+            ddl = (ECC / "src" / (name.lower() + ".ddls.asddls")).read_text()
+            body = ddl[ddl.index("{") + 1:ddl.index("}")]
+            body = re.sub(r"^\s*@[^\n]+\n", "", body, flags=re.M)
+            body = re.sub(r"\bkey\s+", "", body)
+            table = re.search(r"as select from (\w+) as src", ddl).group(1)
+            group = ddl[ddl.index("group by"):]
+            db.execute("create view " + name + " as select " + body + " from " + table + " as src " + group)
+        query = "select asg.TaskListOpAssgmtVersion,op.TaskListOpVersionCounter from " + from_clause
+        self.assertEqual(db.execute(query).fetchall(), [(2, 2)])
+        db.execute("update ZEMX_I_TaskListOpDetail set IsMarkedForDeletion='X' where TaskListOpVersionCounter=2")
+        self.assertEqual(db.execute(query + " where op.IsMarkedForDeletion=''").fetchall(), [])
+        db.close()
+
     def test_sql_view_name_too_long_for_prefix(self):
         with self.assertRaises(bp.BuildError) as ctx:
             bp.check_lengths([("DDLS", "ZEMX_I_Equipment", "equipment")], "ZEMX_", "ZABCDEFGHIJKLM_",

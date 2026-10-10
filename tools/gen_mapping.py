@@ -47,7 +47,8 @@ def module_doc(m, lib, status):
         lines += [f"## `{st['consumption_view']}`", "",
                   f"- Source: `{st['source_view']}`",
                   f"- Keys: {', '.join(f'`{k}`' for k in st['keys'])}",
-                  f"- Scope: `{st['scope_filter'] or 'all rows'}`", "",
+                  f"- Scope: `{st['scope_filter'] or 'all rows'}`",
+                  *([f"- Delivery mode: **{st['delivery_mode']}**", f"- Before posting: {st.get('preprocessing', '')}"] if st.get('delivery_mode') else []), "",
                   "| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |", "|---|---|---|---|---|"]
         for f in st["fields"]:
             lines.append(f"| `{f['element']}` | {cell(f['source'])} | {cell(f['target']) or '-'} | {cell(rule_text(f['rule']))} | "

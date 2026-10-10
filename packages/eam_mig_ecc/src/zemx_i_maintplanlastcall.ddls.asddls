@@ -13,8 +13,11 @@
 define view ZEMX_I_MaintPlanLastCall
   as select from ZEMX_I_MaintPlanCallHistory as cal
 {
+      @EndUserText.label: 'Maintenance Plan'
   key cal.MaintenancePlan            as MaintenancePlan,
+      @EndUserText.label: 'Last Call Number'
       max( cal.MaintPlanCallNumber ) as LastCallNumber,
+      @EndUserText.label: 'Last Completion Date'
       max( cal.CompletionDate )      as LastCompletionDate
 }
 group by cal.MaintenancePlan

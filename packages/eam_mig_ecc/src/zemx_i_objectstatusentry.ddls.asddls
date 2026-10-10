@@ -16,12 +16,18 @@ define view ZEMX_I_ObjectStatusEntry
   as select from jest
   association [0..1] to ZEMX_I_StatusObjectInfo as _StatusObject on $projection.ObjectNumber = _StatusObject.ObjectNumber
 {
+      @EndUserText.label: 'Object Number'
   key jest.objnr                     as ObjectNumber,
+      @EndUserText.label: 'Status Code'
   key jest.stat                      as StatusCode,
       // TODO-VERIFY[H] XST-002: object number prefixes IE (equipment), IF (functional location), QM (notification), OR (order), OV (operation), maintenance plan prefix to check
+      @EndUserText.label: 'Status Object Type'
       substring( jest.objnr, 1, 2 )  as StatusObjectType,
+      @EndUserText.label: 'Status Object Key'
       substring( jest.objnr, 3, 30 ) as StatusObjectKey,
+      @EndUserText.label: 'Status Kind'
       substring( jest.stat, 1, 1 )   as StatusKind,
+      @EndUserText.label: 'Status Change Number'
       jest.chgnr                     as StatusChangeNumber,
       _StatusObject
 }

@@ -13,11 +13,17 @@
 define view ZEMX_C_WorkCenterCostCtrMig
   as select from ZEMX_I_WorkCenterCostCenter as src
 {
+      @EndUserText.label: 'Work Center'
   key src.WorkCenter        as WorkCenter,
+      @EndUserText.label: 'Plant'
   key src.Plant             as Plant,
+      @EndUserText.label: 'Validity End Date'
   key src.ValidityEndDate   as ValidityEndDate,
+      @EndUserText.label: 'Validity Start Date'
       src.ValidityStartDate as ValidityStartDate,
+      @EndUserText.label: 'Controlling Area'
       src.ControllingArea   as ControllingArea,
+      @EndUserText.label: 'Cost Center'
       src.CostCenter        as CostCenter
 }
 where src.IsMarkedForDeletion = ''

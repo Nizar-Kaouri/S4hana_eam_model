@@ -17,19 +17,30 @@ define view ZEMX_I_EquipmentTimeSegment
   association [0..1] to ZEMX_I_LocAcctAssignment as _LocAcctAssignment on $projection.LocAcctAssignment = _LocAcctAssignment.LocAcctAssignment
   association [0..1] to ZEMX_I_WorkCenterHeader as _MainWorkCenter on $projection.MainWorkCenterInternalID = _MainWorkCenter.WorkCenterInternalID
 {
+      @EndUserText.label: 'Equipment'
   key equz.equnr as Equipment,
+      @EndUserText.label: 'Validity End Date'
   key equz.datbi as ValidityEndDate,
       // TODO-VERIFY[M] XEQ-006: EQUZ key EQUNR, DATBI, EQLFN
+      @EndUserText.label: 'Time Segment Counter'
   key equz.eqlfn as TimeSegmentCounter,
+      @EndUserText.label: 'Validity Start Date'
       equz.datab as ValidityStartDate,
+      @EndUserText.label: 'Maintenance Planning Plant'
       equz.iwerk as MaintenancePlanningPlant,
+      @EndUserText.label: 'Maintenance Planner Group'
       equz.ingrp as MaintenancePlannerGroup,
       // TODO-VERIFY[H] XEQ-002: EQUZ-GEWRK holds the CRHD object ID (OBJTY 'A') of the main work center
+      @EndUserText.label: 'Main Work Center Internal ID'
       equz.gewrk as MainWorkCenterInternalID,
+      @EndUserText.label: 'Superordinate Equipment'
       equz.hequi as SuperordinateEquipment,
+      @EndUserText.label: 'Equip Installation Position Nmbr'
       equz.heqnr as EquipInstallationPositionNmbr,
       // TODO-VERIFY[M] XEQ-003: EQUZ-TIDNR is the technical identification number
+      @EndUserText.label: 'Technical Identification Number'
       equz.tidnr as TechnicalIdentificationNumber,
+      @EndUserText.label: 'Loc Acct Assignment'
       equz.iloan as LocAcctAssignment,
       _LocAcctAssignment,
       _MainWorkCenter

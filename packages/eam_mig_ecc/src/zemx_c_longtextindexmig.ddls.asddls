@@ -13,9 +13,13 @@
 define view ZEMX_C_LongTextIndexMig
   as select from ZEMX_I_LongTextHeader as src
 {
+      @EndUserText.label: 'Text Object'
   key src.TextObject as TextObject,
+      @EndUserText.label: 'Text Name'
   key src.TextName   as TextName,
+      @EndUserText.label: 'Text ID'
   key src.TextID     as TextID,
       @Semantics.language: true
+      @EndUserText.label: 'Language'
   key src.Language   as Language
 }

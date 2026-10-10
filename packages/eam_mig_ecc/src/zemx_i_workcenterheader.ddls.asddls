@@ -15,18 +15,28 @@
 define view ZEMX_I_WorkCenterHeader
   as select from crhd
 {
+      @EndUserText.label: 'Work Center Internal ID'
   key crhd.objid      as WorkCenterInternalID,
+      @EndUserText.label: 'Work Center'
       crhd.arbpl      as WorkCenter,
+      @EndUserText.label: 'Plant'
       crhd.werks      as Plant,
       // TODO-VERIFY[M] XWC-001: CRHD-VERWE is the work center category (e.g. 0005 plant maintenance)
+      @EndUserText.label: 'Work Center Category Code'
       crhd.verwe      as WorkCenterCategoryCode,
+      @EndUserText.label: 'Work Center Responsible'
       crhd.veran      as WorkCenterResponsible,
       // TODO-VERIFY[M] XWC-002: CRHD-PLANV is the task list usage of the work center
+      @EndUserText.label: 'Task List Usage'
       crhd.planv      as TaskListUsage,
+      @EndUserText.label: 'Validity Start Date'
       crhd.begda      as ValidityStartDate,
+      @EndUserText.label: 'Validity End Date'
       crhd.endda      as ValidityEndDate,
+      @EndUserText.label: 'Is Marked For Deletion'
       crhd.lvorm      as IsMarkedForDeletion,
       // TODO-VERIFY[M] XWC-003: the change date of the work center basic data is CRHD-AEDAT_GRND
+      @EndUserText.label: 'Last Change Date'
       crhd.aedat_grnd as LastChangeDate
 }
 where crhd.objty = 'A'

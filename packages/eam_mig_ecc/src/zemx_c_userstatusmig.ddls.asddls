@@ -13,9 +13,13 @@
 define view ZEMX_C_UserStatusMig
   as select from ZEMX_I_ObjectStatus as src
 {
+      @EndUserText.label: 'Status Object Key'
   key src.StatusObjectKey  as StatusObjectKey,
+      @EndUserText.label: 'Status Code'
   key src.StatusCode       as StatusCode,
+      @EndUserText.label: 'Status Object Type'
       src.StatusObjectType as StatusObjectType,
+      @EndUserText.label: 'Status Profile'
       src.StatusProfile    as StatusProfile
 }
 where src.StatusKind = 'E'

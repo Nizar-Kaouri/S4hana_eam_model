@@ -15,7 +15,10 @@
 define view ZEMX_I_ClassHeader
   as select from klah
 {
+      @EndUserText.label: 'Class Internal ID'
   key klah.clint as ClassInternalID,
+      @EndUserText.label: 'Class Type'
       klah.klart as ClassType,
+      @EndUserText.label: 'Class'
       klah.class as Class
 }

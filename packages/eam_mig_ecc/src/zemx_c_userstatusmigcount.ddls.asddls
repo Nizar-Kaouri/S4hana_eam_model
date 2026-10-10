@@ -13,8 +13,11 @@
 define view ZEMX_C_UserStatusMigCount
   as select from ZEMX_C_UserStatusMig
 {
+      @EndUserText.label: 'Status Object Type'
   key StatusObjectType as StatusObjectType,
+      @EndUserText.label: 'Status Code'
   key StatusCode       as StatusCode,
+      @EndUserText.label: 'Record Count'
       count( * )       as RecordCount
 }
 group by StatusObjectType, StatusCode

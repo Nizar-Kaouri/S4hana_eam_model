@@ -15,14 +15,20 @@
 define view ZEMX_I_OrderOperationValues
   as select from afvv
 {
+      @EndUserText.label: 'Order Routing Number'
   key afvv.aufpl as OrderRoutingNumber,
+      @EndUserText.label: 'Order Operation Internal ID'
   key afvv.aplzl as OrderOperationInternalID,
       @Semantics.quantity.unitOfMeasure: 'PlannedWorkQuantityUnit'
+      @EndUserText.label: 'Planned Work Quantity'
       afvv.arbei as PlannedWorkQuantity,
       @Semantics.unitOfMeasure: true
+      @EndUserText.label: 'Planned Work Quantity Unit'
       afvv.arbeh as PlannedWorkQuantityUnit,
       @Semantics.quantity.unitOfMeasure: 'OperationDurationUnit'
+      @EndUserText.label: 'Operation Duration'
       afvv.dauno as OperationDuration,
       @Semantics.unitOfMeasure: true
+      @EndUserText.label: 'Operation Duration Unit'
       afvv.daune as OperationDurationUnit
 }

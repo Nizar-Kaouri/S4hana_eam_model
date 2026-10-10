@@ -17,15 +17,25 @@ define view ZEMX_I_NotificationMaintData
   as select from qmih
   association [0..1] to ZEMX_I_LocAcctAssignment as _LocAcctAssignment on $projection.LocAcctAssignment = _LocAcctAssignment.LocAcctAssignment
 {
+      @EndUserText.label: 'Maintenance Notification'
   key qmih.qmnum as MaintenanceNotification,
+      @EndUserText.label: 'Equipment'
       qmih.equnr as Equipment,
+      @EndUserText.label: 'Loc Acct Assignment'
       qmih.iloan as LocAcctAssignment,
+      @EndUserText.label: 'Maintenance Planning Plant'
       qmih.iwerk as MaintenancePlanningPlant,
+      @EndUserText.label: 'Maintenance Planner Group'
       qmih.ingrp as MaintenancePlannerGroup,
+      @EndUserText.label: 'Maintenance Object Is Down'
       qmih.msaus as MaintenanceObjectIsDown,
+      @EndUserText.label: 'Malfunction Start Date'
       qmih.ausvn as MalfunctionStartDate,
+      @EndUserText.label: 'Malfunction Start Time'
       qmih.auztv as MalfunctionStartTime,
+      @EndUserText.label: 'Malfunction End Date'
       qmih.ausbs as MalfunctionEndDate,
+      @EndUserText.label: 'Malfunction End Time'
       qmih.auztb as MalfunctionEndTime,
       _LocAcctAssignment
 }

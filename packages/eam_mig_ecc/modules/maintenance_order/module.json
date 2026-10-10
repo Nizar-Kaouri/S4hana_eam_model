@@ -1,9 +1,9 @@
 {
   "name": "maintenance_order",
   "title": "Maintenance order",
-  "description": "Open maintenance orders with operations and components.",
+  "description": "Open maintenance orders with operations, components, settlement rows and permit assignments.",
   "batch": 2,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft-unverified",
   "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
   "tags": [
@@ -12,11 +12,13 @@
     "migration"
   ],
   "sap_tables": [
-    "AUFK",
     "AFIH",
     "AFKO",
     "AFVC",
     "AFVV",
+    "AUFK",
+    "COBRB",
+    "IHSG",
     "RESB"
   ],
   "sap_released_views": [],
@@ -32,18 +34,24 @@
       "ZEMX_I_OrderHeaderPlanning",
       "ZEMX_I_OrderOperationData",
       "ZEMX_I_OrderOperationValues",
-      "ZEMX_I_ReservationItem"
+      "ZEMX_I_ReservationItem",
+      "ZEMX_I_OrderSettlementData",
+      "ZEMX_I_OrderPermitData"
     ],
     "composite": [
       "ZEMX_I_MaintOrder",
       "ZEMX_I_MaintOrderOperation",
-      "ZEMX_I_MaintOrderComponent"
+      "ZEMX_I_MaintOrderComponent",
+      "ZEMX_I_OrderSettlement",
+      "ZEMX_I_OrderPermit"
     ],
     "consumption": [
       "ZEMX_C_MaintOrderMig",
       "ZEMX_C_MaintOrderOperationMig",
       "ZEMX_C_MaintOrderComponentMig",
-      "ZEMX_C_MaintOrderMigCount"
+      "ZEMX_C_MaintOrderMigCount",
+      "ZEMX_C_OrderSettlementMig",
+      "ZEMX_C_OrderPermitMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -62,7 +70,13 @@
     "ZEMX_C_MaintOrderMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
     "ZEMX_C_MaintOrderOperationMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
     "ZEMX_C_MaintOrderComponentMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
-    "ZEMX_C_MaintOrderMigCount": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline)."
+    "ZEMX_C_MaintOrderMigCount": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_OrderSettlementData": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_OrderSettlement": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_OrderSettlementMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_OrderPermitData": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_OrderPermit": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_OrderPermitMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline)."
   },
   "link_views": []
 }

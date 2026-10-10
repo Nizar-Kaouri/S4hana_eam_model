@@ -91,6 +91,50 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `WithdrawnQuantity` | RESB-ENMNG | RESB-ENMNG | copy |  |
 | `BaseUnit` | RESB-MEINS | RESB-MEINS | copy: reference unit of a quantity - unit of measure customizing is transported, not mapped |  |
 
+## `ZEMX_C_OrderSettlementMig`
+
+- Source: `ZEMX_I_OrderSettlement`
+- Keys: `ObjectNumber`, `DistributionRuleNumber`
+- Scope: `_Parent.IsClosed = '' and _Parent.IsTechnicallyCompleted = '' and _Parent.IsMarkedForDeletion = ''`
+- Delivery mode: **scoped_extract**
+- Before posting: Verify fields/keys on the real release; resolve receiver/permit identities and posting requirements in the customer loader.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ObjectNumber` | COBRB-OBJNR | COBRB-OBJNR | copy |  |
+| `DistributionRuleNumber` | COBRB-LFDNR | COBRB-LFDNR | copy |  |
+| `SettlementType` | COBRB-PERBZ | COBRB-PERBZ | copy |  |
+| `ReceiverCategory` | COBRB-KONTY | COBRB-KONTY | copy |  |
+| `SettlementPercentage` | COBRB-PROZS | COBRB-PROZS | copy |  |
+| `SettlementAmount` | COBRB-BETRR | COBRB-BETRR | copy |  |
+| `Currency` | COBRB-BWAER | COBRB-BWAER | copy |  |
+| `ControllingArea` | COBRB-KOKRS | COBRB-KOKRS | copy |  |
+| `CompanyCode` | COBRB-BUKRS | COBRB-BUKRS | copy |  |
+| `ReceiverCostCenter` | COBRB-KOSTL | COBRB-KOSTL | copy |  |
+| `ReceiverOrder` | COBRB-AUFNR | COBRB-AUFNR | copy |  |
+| `ReceiverAsset` | COBRB-ANLN1 | COBRB-ANLN1 | copy |  |
+| `ReceiverAssetSubnumber` | COBRB-ANLN2 | COBRB-ANLN2 | copy |  |
+| `ReceiverWBSInternalID` | COBRB-PSPNR | COBRB-PSPNR | copy |  |
+| `ValidFromYear` | COBRB-GABJA | COBRB-GABJA | copy |  |
+| `ValidFromPeriod` | COBRB-GABPE | COBRB-GABPE | copy |  |
+| `ValidToYear` | COBRB-GBISJ | COBRB-GBISJ | copy |  |
+| `ValidToPeriod` | COBRB-GBISP | COBRB-GBISP | copy |  |
+| `MaintenanceOrder` | AUFK-AUFNR | AUFK-AUFNR | copy |  |
+
+## `ZEMX_C_OrderPermitMig`
+
+- Source: `ZEMX_I_OrderPermit`
+- Keys: `ObjectNumber`, `Permit`
+- Scope: `_Parent.IsClosed = '' and _Parent.IsTechnicallyCompleted = '' and _Parent.IsMarkedForDeletion = ''`
+- Delivery mode: **scoped_extract**
+- Before posting: Verify fields/keys on the real release; resolve receiver/permit identities and posting requirements in the customer loader.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ObjectNumber` | IHSG-OBJNR | IHSG-OBJNR | copy |  |
+| `Permit` | IHSG-PMPS | IHSG-PMPS | copy |  |
+| `MaintenanceOrder` | AUFK-AUFNR | AUFK-AUFNR | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |
@@ -125,5 +169,5 @@ python3 tools/mig_reconcile.py records --module maintenance_order --source ecc_e
 
 ## Open gaps
 
-- TODO-VERIFY[H] XOR-G01: settlement rules (COBRA/COBRB), partner and permit data are not extracted in the pilot
+- TODO-VERIFY[H] XOR-G01: settlement rules and permit assignments are delivered; verify IHSG identity, permit issue/status fields and settlement-profile requirements. Partners use object_partner.
 - TODO-VERIFY[H] XOR-G02: open orders with partial confirmations or goods issues need a cut-off decision (complete in ECC or migrate remaining work only)

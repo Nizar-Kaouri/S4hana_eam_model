@@ -13,8 +13,11 @@
 define view ZEMX_C_EquipmentMigCount
   as select from ZEMX_C_EquipmentMig
 {
+      @EndUserText.label: 'Maintenance Planning Plant'
   key MaintenancePlanningPlant as MaintenancePlanningPlant,
+      @EndUserText.label: 'Equipment Category'
   key EquipmentCategory        as EquipmentCategory,
+      @EndUserText.label: 'Record Count'
       count( * )               as RecordCount
 }
 group by MaintenancePlanningPlant, EquipmentCategory

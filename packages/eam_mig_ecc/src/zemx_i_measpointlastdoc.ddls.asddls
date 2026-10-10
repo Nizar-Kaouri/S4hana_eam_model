@@ -14,7 +14,9 @@
 define view ZEMX_I_MeasPointLastDoc
   as select from ZEMX_I_MeasurementDocument as doc
 {
+      @EndUserText.label: 'Measuring Point'
   key doc.MeasuringPoint             as MeasuringPoint,
+      @EndUserText.label: 'Last Measurement Document'
       max( doc.MeasurementDocument ) as LastMeasurementDocument
 }
 where doc.MsmtDocumentIsCancelled = ''

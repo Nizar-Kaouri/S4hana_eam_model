@@ -74,6 +74,64 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `Equipment` | EAPL-EQUNR | EAPL-EQUNR | copy |  |
 | `FunctionalLocation` | EAPL-TPLNR | EAPL-TPLNR | copy |  |
 
+## `ZEMX_C_TaskListCompMig`
+
+- Source: `ZEMX_I_TaskListComp`
+- Keys: `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`, `OperationInternalID`, `AllocationNumber`, `VersionCounter`
+- Scope: `src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''`
+- Delivery mode: **reference**
+- Before posting: Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TaskListType` | PLMZ-PLNTY | PLMZ-PLNTY | copy |  |
+| `TaskListGroup` | PLMZ-PLNNR | PLMZ-PLNNR | copy |  |
+| `TaskListGroupCounter` | PLMZ-PLNAL | PLMZ-PLNAL | copy |  |
+| `OperationInternalID` | PLMZ-PLNKN | PLMZ-PLNKN | copy |  |
+| `VersionCounter` | PLMZ-ZAEHL | PLMZ-ZAEHL | copy |  |
+| `AllocationNumber` | PLMZ-ZUONR | PLMZ-ZUONR | copy |  |
+| `BOMCategory` | PLMZ-STLTY | PLMZ-STLTY | copy |  |
+| `BillOfMaterial` | PLMZ-STLNR | PLMZ-STLNR | copy |  |
+| `BOMAlternative` | PLMZ-STLAL | PLMZ-STLAL | copy |  |
+| `BOMItemNode` | PLMZ-STLKN | PLMZ-STLKN | copy |  |
+
+## `ZEMX_C_TaskListPRTMig`
+
+- Source: `ZEMX_I_TaskListPRT`
+- Keys: `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`, `OperationInternalID`, `PRTItem`, `VersionCounter`
+- Scope: `src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''`
+- Delivery mode: **reference**
+- Before posting: Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TaskListType` | PLFH-PLNTY | PLFH-PLNTY | copy |  |
+| `TaskListGroup` | PLFH-PLNNR | PLFH-PLNNR | copy |  |
+| `TaskListGroupCounter` | PLFH-PLNAL | PLFH-PLNAL | copy |  |
+| `OperationInternalID` | PLFH-PLNKN | PLFH-PLNKN | copy |  |
+| `VersionCounter` | PLFH-ZAEHL | PLFH-ZAEHL | copy |  |
+| `PRTItem` | PLFH-PSNFH | PLFH-PSNFH | copy |  |
+| `PRTObjectType` | PLFH-OBJTY | PLFH-OBJTY | copy |  |
+| `PRTInternalID` | PLFH-OBJID | PLFH-OBJID | copy |  |
+| `PRTControlKey` | PLFH-STEUF | PLFH-STEUF | copy |  |
+
+## `ZEMX_C_TaskListPackageMig`
+
+- Source: `ZEMX_I_TaskListPackage`
+- Keys: `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`, `OperationInternalID`, `MaintenancePackage`, `VersionCounter`
+- Scope: `src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''`
+- Delivery mode: **reference**
+- Before posting: Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TaskListType` | PLWP-PLNTY | PLWP-PLNTY | copy |  |
+| `TaskListGroup` | PLWP-PLNNR | PLWP-PLNNR | copy |  |
+| `TaskListGroupCounter` | PLWP-PLNAL | PLWP-PLNAL | copy |  |
+| `OperationInternalID` | PLWP-PLNKN | PLWP-PLNKN | copy |  |
+| `VersionCounter` | PLWP-ZAEHL | PLWP-ZAEHL | copy |  |
+| `MaintenancePackage` | PLWP-PAKET | PLWP-PAKET | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |
@@ -88,6 +146,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_TaskListOperation` | `WorkCenterInternalID` | PLPO-ARBID | not migrated: internal object ID - replaced by WorkCenter |
 | `ZEMX_I_TaskListOperation` | `OpAssignmentIsDeleted` | PLAS-LOEKZ | scope flag |
 | `ZEMX_I_TaskListOperation` | `IsMarkedForDeletion` | PLPO-LOEKZ | scope flag |
+| `ZEMX_I_TaskListComp` | `IsMarkedForDeletion` | PLMZ-LOEKZ | scope flag |
+| `ZEMX_I_TaskListPRT` | `IsMarkedForDeletion` | PLFH-LOEKZ | scope flag |
+| `ZEMX_I_TaskListPackage` | `IsMarkedForDeletion` | PLWP-LOEKZ | scope flag |
 
 ## Reconciliation
 
@@ -101,4 +162,4 @@ python3 tools/mig_reconcile.py records --module task_list --source ecc_extract.c
 
 ## Open gaps
 
-- TODO-VERIFY[M] XTL-G01: component allocation (PLMZ), production resources/tools (PLFH) and maintenance packages per operation (PLWP) are not extracted in the pilot
+- TODO-VERIFY[H] XTL-G02: highest recorded counters are provisional; resolve engineering-change effectivity and operation references at the customer cutover date before loading components, PRTs or packages.

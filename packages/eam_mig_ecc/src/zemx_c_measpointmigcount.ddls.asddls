@@ -13,8 +13,11 @@
 define view ZEMX_C_MeasPointMigCount
   as select from ZEMX_C_MeasuringPointMig
 {
+      @EndUserText.label: 'Measuring Point Category'
   key MeasuringPointCategory  as MeasuringPointCategory,
+      @EndUserText.label: 'Measuring Point Is Counter'
   key MeasuringPointIsCounter as MeasuringPointIsCounter,
+      @EndUserText.label: 'Record Count'
       count( * )              as RecordCount
 }
 group by MeasuringPointCategory, MeasuringPointIsCounter

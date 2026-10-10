@@ -14,11 +14,17 @@ define view ZEMX_C_MaintPlanCycleMig
   as select from ZEMX_I_MaintPlanCycle as src
   association [0..1] to ZEMX_I_MaintenancePlan as _MaintenancePlan on _MaintenancePlan.MaintenancePlan = $projection.MaintenancePlan
 {
+      @EndUserText.label: 'Maintenance Plan'
   key src.MaintenancePlan      as MaintenancePlan,
+      @EndUserText.label: 'Maintenance Plan Cycle'
   key src.MaintenancePlanCycle as MaintenancePlanCycle,
+      @EndUserText.label: 'Cycle Value'
       src.CycleValue           as CycleValue,
+      @EndUserText.label: 'Cycle Unit'
       src.CycleUnit            as CycleUnit,
+      @EndUserText.label: 'Cycle Text'
       src.CycleText            as CycleText,
+      @EndUserText.label: 'Measuring Point'
       src.MeasuringPoint       as MeasuringPoint
 }
 where _MaintenancePlan.IsMarkedForDeletion = ''

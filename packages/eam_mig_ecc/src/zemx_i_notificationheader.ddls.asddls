@@ -18,26 +18,45 @@ define view ZEMX_I_NotificationHeader
   association [0..1] to ZEMX_I_StatusNotifCompleted as _CompletedFlag on $projection.ObjectNumber = _CompletedFlag.ObjectNumber
   association [0..1] to ZEMX_I_StatusDeletionFlag as _DeletionFlag on $projection.ObjectNumber = _DeletionFlag.ObjectNumber
 {
+      @EndUserText.label: 'Maintenance Notification'
   key qmel.qmnum as MaintenanceNotification,
+      @EndUserText.label: 'Notification Type'
       qmel.qmart as NotificationType,
+      @EndUserText.label: 'Notification Text'
       qmel.qmtxt as NotificationText,
+      @EndUserText.label: 'Maint Priority'
       qmel.priok as MaintPriority,
+      @EndUserText.label: 'Maint Priority Type'
       qmel.artpr as MaintPriorityType,
+      @EndUserText.label: 'Notification Date'
       qmel.qmdat as NotificationDate,
+      @EndUserText.label: 'Notification Time'
       qmel.mzeit as NotificationTime,
+      @EndUserText.label: 'Reported By User'
       qmel.qmnam as ReportedByUser,
+      @EndUserText.label: 'Required Start Date'
       qmel.strmn as RequiredStartDate,
+      @EndUserText.label: 'Required End Date'
       qmel.ltrmn as RequiredEndDate,
       // TODO-VERIFY[M] XNO-001: QMEL field names ARTPR, QMKAT, QMGRP, QMCOD, STRMN, LTRMN, QMNAM, ARBPL
+      @EndUserText.label: 'Notification Catalog'
       qmel.qmkat as NotificationCatalog,
+      @EndUserText.label: 'Notification Code Group'
       qmel.qmgrp as NotificationCodeGroup,
+      @EndUserText.label: 'Notification Code'
       qmel.qmcod as NotificationCode,
+      @EndUserText.label: 'Maintenance Order'
       qmel.aufnr as MaintenanceOrder,
       // TODO-VERIFY[H] XNO-002: QMEL-ARBPL holds the CRHD object ID of the main work center
+      @EndUserText.label: 'Main Work Center Internal ID'
       qmel.arbpl as MainWorkCenterInternalID,
+      @EndUserText.label: 'Object Number'
       qmel.objnr as ObjectNumber,
+      @EndUserText.label: 'Creation Date'
       qmel.erdat as CreationDate,
+      @EndUserText.label: 'Created By User'
       qmel.ernam as CreatedByUser,
+      @EndUserText.label: 'Last Change Date'
       qmel.aedat as LastChangeDate,
       _MainWorkCenter,
       _CompletedFlag,

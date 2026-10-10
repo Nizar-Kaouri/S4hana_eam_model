@@ -13,11 +13,15 @@
 define view ZEMX_C_WorkCenterTextMig
   as select from ZEMX_I_WorkCenterText as src
 {
+      @EndUserText.label: 'Work Center'
   key src.WorkCenter     as WorkCenter,
+      @EndUserText.label: 'Plant'
   key src.Plant          as Plant,
       @Semantics.language: true
+      @EndUserText.label: 'Language'
   key src.Language       as Language,
       @Semantics.text: true
+      @EndUserText.label: 'Work Center Text'
       src.WorkCenterText as WorkCenterText
 }
 where src.IsMarkedForDeletion = ''

@@ -14,20 +14,32 @@ define view ZEMX_C_MaintOrderComponentMig
   as select from ZEMX_I_MaintOrderComponent as src
   association [0..1] to ZEMX_I_MaintOrder as _MaintOrder on _MaintOrder.MaintenanceOrder = $projection.MaintenanceOrder
 {
+      @EndUserText.label: 'Maintenance Order'
   key src.MaintenanceOrder           as MaintenanceOrder,
+      @EndUserText.label: 'Reservation Item'
   key src.ReservationItem            as ReservationItem,
+      @EndUserText.label: 'Maintenance Order Operation'
       src.MaintenanceOrderOperation  as MaintenanceOrderOperation,
+      @EndUserText.label: 'BOMItem Number'
       src.BOMItemNumber              as BOMItemNumber,
+      @EndUserText.label: 'BOMItem Category'
       src.BOMItemCategory            as BOMItemCategory,
+      @EndUserText.label: 'Material'
       src.Material                   as Material,
+      @EndUserText.label: 'Plant'
       src.Plant                      as Plant,
+      @EndUserText.label: 'Storage Location'
       src.StorageLocation            as StorageLocation,
+      @EndUserText.label: 'Matl Comp Requirement Date'
       src.MatlCompRequirementDate    as MatlCompRequirementDate,
       @Semantics.quantity.unitOfMeasure: 'BaseUnit'
+      @EndUserText.label: 'Requirement Quantity In Base Unit'
       src.RequirementQuantityInBaseUnit as RequirementQuantityInBaseUnit,
       @Semantics.quantity.unitOfMeasure: 'BaseUnit'
+      @EndUserText.label: 'Withdrawn Quantity'
       src.WithdrawnQuantity          as WithdrawnQuantity,
       @Semantics.unitOfMeasure: true
+      @EndUserText.label: 'Base Unit'
       src.BaseUnit                   as BaseUnit
 }
 where src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and _MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''

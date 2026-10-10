@@ -190,14 +190,12 @@ def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_ze
             notes.append(f"scope filter `{scope}` kept {len(source_rows)} of {before} source rows")
 
     def index(rows, use, label):
-        out, dupes = {}, 0
+        out = {}
         for r in rows:
             k = tuple(normalize(maps.translate(e, r[e]) if use and do_map else r[e], strip_zeros) for e in keys)
             if k in out:
-                dupes += 1
+                raise InputError(f"{label}: duplicate business key {k!r}; reconciliation requires unique keys after translation and normalization")
             out[k] = r
-        if dupes:
-            notes.append(f"{label}: {dupes} duplicate key(s) - the last row wins")
         return out
 
     src, tgt = index(source_rows, True, "source"), index(target_rows, False, "target")

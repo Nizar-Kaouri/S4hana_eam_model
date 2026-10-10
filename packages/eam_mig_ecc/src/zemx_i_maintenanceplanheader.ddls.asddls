@@ -16,26 +16,45 @@ define view ZEMX_I_MaintenancePlanHeader
   as select from mpla
   association [0..1] to ZEMX_I_StatusDeletionFlag as _DeletionFlag on $projection.ObjectNumber = _DeletionFlag.ObjectNumber
 {
+      @EndUserText.label: 'Maintenance Plan'
   key mpla.warpl as MaintenancePlan,
+      @EndUserText.label: 'Maintenance Plan Desc'
       mpla.wptxt as MaintenancePlanDesc,
+      @EndUserText.label: 'Maintenance Plan Category'
       mpla.mptyp as MaintenancePlanCategory,
+      @EndUserText.label: 'Maintenance Strategy'
       mpla.strat as MaintenanceStrategy,
       // TODO-VERIFY[M] XPL-002: MPLA field names BEGRU, ERSDT, ERNAM, AEDAT
+      @EndUserText.label: 'Authorization Group'
       mpla.begru as AuthorizationGroup,
       // TODO-VERIFY[M] XPL-001: MPLA scheduling fields ABRHO, HUNIT, HORIZ, SFAKT, STICH, VSPOS, TOPOS, VSNEG, TONEG, FABKL
+      @EndUserText.label: 'Scheduling Period'
       mpla.abrho as SchedulingPeriod,
+      @EndUserText.label: 'Scheduling Period Unit'
       mpla.hunit as SchedulingPeriodUnit,
+      @EndUserText.label: 'Call Horizon Percent'
       mpla.horiz as CallHorizonPercent,
+      @EndUserText.label: 'Cycle Modification Factor'
       mpla.sfakt as CycleModificationFactor,
+      @EndUserText.label: 'Scheduling Indicator'
       mpla.stich as SchedulingIndicator,
+      @EndUserText.label: 'Late Completion Shift Factor'
       mpla.vspos as LateCompletionShiftFactor,
+      @EndUserText.label: 'Late Completion Tolerance'
       mpla.topos as LateCompletionTolerance,
+      @EndUserText.label: 'Early Completion Shift Factor'
       mpla.vsneg as EarlyCompletionShiftFactor,
+      @EndUserText.label: 'Early Completion Tolerance'
       mpla.toneg as EarlyCompletionTolerance,
+      @EndUserText.label: 'Factory Calendar'
       mpla.fabkl as FactoryCalendar,
+      @EndUserText.label: 'Object Number'
       mpla.objnr as ObjectNumber,
+      @EndUserText.label: 'Creation Date'
       mpla.ersdt as CreationDate,
+      @EndUserText.label: 'Created By User'
       mpla.ernam as CreatedByUser,
+      @EndUserText.label: 'Last Change Date'
       mpla.aedat as LastChangeDate,
       _DeletionFlag
 }

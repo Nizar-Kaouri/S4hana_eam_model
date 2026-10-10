@@ -13,9 +13,13 @@
 define view ZEMX_C_ClassAssignmentMig
   as select from ZEMX_I_ClassAssignment as src
 {
+      @EndUserText.label: 'Classified Object'
   key src.ClassifiedObject     as ClassifiedObject,
+      @EndUserText.label: 'Class Type'
   key src.ClassType            as ClassType,
+      @EndUserText.label: 'Class'
   key src.Class                as Class,
+      @EndUserText.label: 'Classification Status'
       src.ClassificationStatus as ClassificationStatus
 }
 where src.IsMarkedForDeletion = '' and ( src.ClassType = '002' or src.ClassType = '003' )

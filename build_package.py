@@ -339,6 +339,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
         "link_views_skipped": links_out,
         "with_tests": with_tests,
         "module_status": {m: modules[m]["status"] for m in resolved},
+        "module_versions": {m: modules[m].get("version") for m in resolved},
         "tested_release": {m: modules[m]["tested_release"] for m in resolved},
         "objects": [{"type": t, "name": target_name(n, old_prefix, new_prefix), "module": o} for t, n, o in order],
         "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -361,6 +362,27 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
         seq = root / "docs" / "MIGRATION_SEQUENCE.md"
         if seq.exists():
             zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite(seq.read_text(encoding="utf-8")))
+        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md"):
+            extra = root / "docs" / doc
+            if extra.exists():
+                zf.writestr("docs/" + doc, rewrite(extra.read_text(encoding="utf-8")))
+        if library.get("kind") == "migration-source":
+            import csv
+            import io
+            buf = io.StringIO(newline="")
+            writer = csv.writer(buf)
+            writer.writerow(["module", "view", "element", "key", "ecc_source", "provisional_target", "rule", "scope", "delivery_mode", "status"])
+            for mod in resolved:
+                mp = root / "modules" / mod / "mapping.json"
+                if not mp.exists():
+                    continue
+                mapping = json.loads(mp.read_text(encoding="utf-8"))
+                for structure in mapping.get("structures", []):
+                    for field in structure["fields"]:
+                        writer.writerow([mod, rewrite(structure["consumption_view"]), field["element"],
+                            field["element"] in structure["keys"], field["source"], field["target"],
+                            field["rule"], rewrite(structure.get("scope_filter", "")), structure.get("delivery_mode", "scoped_extract"), modules[mod]["status"]])
+            zf.writestr("FIELD_CATALOG.csv", buf.getvalue())
         zf.writestr("BUILD_MANIFEST.json", json.dumps(manifest, indent=2) + "\n")
         zf.writestr("ACTIVATION_ORDER.txt", "\n".join(
             f"{i:3d}  {o['type']}  {o['name']}  ({o['module']})" for i, o in enumerate(manifest["objects"], 1)) + "\n")

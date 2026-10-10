@@ -10,10 +10,10 @@ and does not need it). The package is a **template of views only**: the consumpt
 exactly as it is stored in ECC. The customer's load program reads them and changes values and posts the data on
 S/4HANA as the project needs.
 
-## Architecture: basic → composite → consumption
+## Architecture: basic â†’ composite â†’ consumption
 
 ```
- ECC tables ──► basic ZEMX_I_*  ──► composite ZEMX_I_*  ──► consumption ZEMX_C_*Mig  ──► load program ──► S/4HANA
+ ECC tables â”€â”€â–º basic ZEMX_I_*  â”€â”€â–º composite ZEMX_I_*  â”€â”€â–º consumption ZEMX_C_*Mig  â”€â”€â–º load program â”€â”€â–º S/4HANA
                one table each       business object         migration template           (customer)
                (EQUI, EQUZ, ...)    (joins, status flags,   scope applied, migrated
                                     current versions)       fields only, values as in ECC
@@ -21,8 +21,8 @@ S/4HANA as the project needs.
 
 | Layer | Naming | Rule (checked by the validators) |
 |---|---|---|
-| Basic | `ZEMX_I_<Entity>` (e.g. `ZEMX_I_EquipmentHeader` on EQUI) | Exactly one table per view, no joins; filters on that table only (e.g. `OBJTY = 'A'`, status `I0076`). Technical field names → semantic names. Relationships to other basic views are declared as **associations** and exposed (e.g. `ZEMX_I_EquipmentTimeSegment` → `_LocAcctAssignment`, `_MainWorkCenter`). |
-| Composite | `ZEMX_I_<Object>` (e.g. `ZEMX_I_Equipment`) | Reads only basic / composite views. Related data is read through the associations with **path expressions** (`seg._MainWorkCenter.WorkCenter`, `eq._DeletionFlag.StatusCode`). **Inner joins** only where they decide which rows exist: current time segment (EQUZ), latest task list version, operation assignment ↔ operation, last reading, PM data of notifications / orders (QMIH, AFIH, AFKO, AFVV). |
+| Basic | `ZEMX_I_<Entity>` (e.g. `ZEMX_I_EquipmentHeader` on EQUI) | Exactly one table per view, no joins; filters on that table only (e.g. `OBJTY = 'A'`, status `I0076`). Technical field names â†’ semantic names. Relationships to other basic views are declared as **associations** and exposed (e.g. `ZEMX_I_EquipmentTimeSegment` â†’ `_LocAcctAssignment`, `_MainWorkCenter`). |
+| Composite | `ZEMX_I_<Object>` (e.g. `ZEMX_I_Equipment`) | Reads only basic / composite views. Related data is read through the associations with **path expressions** (`seg._MainWorkCenter.WorkCenter`, `eq._DeletionFlag.StatusCode`). **Inner joins** only where they decide which rows exist: current time segment (EQUZ), latest task list version, operation assignment â†” operation, last reading, PM data of notifications / orders (QMIH, AFIH, AFKO, AFVV). |
 | Consumption | `ZEMX_C_<Object>Mig`, `ZEMX_C_<Object>MigCount` | Reads composite (or basic) views. One view per migration structure: only records in scope, only the fields that are migrated, values unchanged. Child structures reach their parent through an association for the scope filter (e.g. operations: `where _MaintOrder.IsClosed = ''`). The only layer with `@Analytics.dataExtraction.enabled: true`. Count views for reconciliation. |
 
 Layer naming follows the SAP VDM convention (`I_` for basic and composite views, `C_` for consumption views,
@@ -35,16 +35,16 @@ only basic views read tables, no left outer joins in composite views) is checked
 | Module | Consumption views (interface) | Load level | Numbering |
 |---|---|---|---|
 | `core` | - (shared basic views: ILOA, status flags, characteristics) | - | - |
-| `work_center` | `ZEMX_C_WorkCenterMig`, `…TextMig`, `…CostCtrMig` | 1 | keep |
+| `work_center` | `ZEMX_C_WorkCenterMig`, `â€¦TextMig`, `â€¦CostCtrMig` | 1 | keep |
 | `functional_location` | `ZEMX_C_FuncLocMig`, `ZEMX_C_FuncLocTextMig` | 2 | keep |
-| `equipment` | `ZEMX_C_EquipmentMig`, `ZEMX_C_EquipmentTextMig` | 3 | keep |
+| `equipment_bom` | `ZEMX_C_EquipBOMAssignMig`, BOM state ledgers | 4 | new |\n| `equipment` | `ZEMX_C_EquipmentMig`, `ZEMX_C_EquipmentTextMig` | 3 | keep |
 | `measuring_point` | `ZEMX_C_MeasuringPointMig` | 4 | new |
-| `task_list` | `ZEMX_C_TaskListMig`, `…OperationMig`, `…AllocationMig` | 4 | new |
+| `task_list` | `ZEMX_C_TaskListMig`, `â€¦OperationMig`, `â€¦AllocationMig` | 4 | new |
 | `classification` | `ZEMX_C_ClassAssignmentMig`, `ZEMX_C_CharcValueMig` | 4 | derived |
 | `maintenance_notification` | `ZEMX_C_MaintNotificationMig`, `ZEMX_C_MaintNotifItemMig` (open only) | 4 | new |
 | `measurement_document` | `ZEMX_C_MeasReadingMig` (last reading per point) | 5 | new |
-| `maintenance_plan` | `ZEMX_C_MaintenancePlanMig` (incl. restart date), `…ItemMig`, `…CycleMig` | 6 | new |
-| `maintenance_order` | `ZEMX_C_MaintOrderMig`, `…OperationMig`, `…ComponentMig` (open only) | 7 | new |
+| `maintenance_plan` | `ZEMX_C_MaintenancePlanMig` (incl. restart date), `â€¦ItemMig`, `â€¦CycleMig` | 6 | new |
+| `maintenance_order` | `ZEMX_C_MaintOrderMig`, `â€¦OperationMig`, `â€¦ComponentMig` (open only) | 7 | new |
 | `object_status`, `object_partner`, `long_text` | `ZEMX_C_UserStatusMig`, `ZEMX_C_ObjectPartnerMig`, `ZEMX_C_LongTextIndexMig` | 8 | derived |
 
 Every module depends on `core`; modules with a work center reference also depend on `work_center` (the build
@@ -79,8 +79,25 @@ Reconciliation compares the consumption views with the S/4HANA views of
 [`packages/eam_mig_s4`](../eam_mig_s4/README.md) after the load. If the load program changed values (new plant
 codes, new numbers), pass those old -> new lists to `tools/mig_reconcile.py` with `--maps <folder> --translate`.
 
-## Known gaps of the pilot
+## Added migration structures (0.3.0 draft)
 
-Long text content (STXL is compressed - the load program reads it with `READ_TEXT` using the long text index),
-work center capacities, task list components / PRTs, notification causes / tasks / activities, order settlement
-rules, serial number stock data and alternative functional location labels. See `BATCH_REPORT.md`.
+- equipment_bom: equipment assignments, plus versioned equipment-category BOM headers, selection states and item states.
+- task_list: component allocations, PRT assignments and operation maintenance packages.
+- maintenance_notification: causes, tasks and activities.
+- maintenance_order: settlement distribution rows and permit assignments; partners use the existing object_partner module.
+- work_center: capacity allocations, FORK2 formula reference and capacity header reference ledger.
+- equipment: serial-stock context; functional_location: alternative labeling data.
+
+All additions remain draft-unverified. See [installation](docs/INSTALLATION.md), [compatibility and exact scope](docs/COMPATIBILITY.md) and [change log](docs/CHANGELOG.md).
+Customer ZIPs include selected-module FIELD_CATALOG.csv with source/target references and scope.
+
+## Scope boundaries
+
+BOM state ledgers preserve counters, valid-from dates and deletion states. They are not a flattened current BOM and need customer cutover resolution and filtering through selected equipment assignments.
+Task-list latest counters are selected independently for each table identity; effective-date/change-number handling remains a high-risk verification item.
+PRT and component references are technical IDs; resolve them before loading.
+
+Long-text content is read by the customer loader using READ_TEXT. Only the index is delivered as CDS.
+Serial-stock quantities, material serial profiles, shift calendars, full available-capacity intervals and additional formulas/defaults are integration extensions.
+Permit issue/status semantics and settlement profile/receiver conversions require actual DDIC/API verification.
+Reconciliation companion views cover existing main objects; the newly added child structures require separate customer checks.

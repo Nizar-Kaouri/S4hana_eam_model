@@ -14,10 +14,15 @@ define view ZEMX_C_TaskListAllocationMig
   as select from ZEMX_I_TaskListObjectAssgmt as src
   association [0..1] to ZEMX_I_TaskListCurrent as _TaskListCurrent on _TaskListCurrent.TaskListType = $projection.TaskListType and _TaskListCurrent.TaskListGroup = $projection.TaskListGroup and _TaskListCurrent.TaskListGroupCounter = $projection.TaskListGroupCounter
 {
+      @EndUserText.label: 'Task List Type'
   key src.TaskListType         as TaskListType,
+      @EndUserText.label: 'Task List Group'
   key src.TaskListGroup        as TaskListGroup,
+      @EndUserText.label: 'Task List Group Counter'
   key src.TaskListGroupCounter as TaskListGroupCounter,
+      @EndUserText.label: 'Equipment'
       src.Equipment            as Equipment,
+      @EndUserText.label: 'Functional Location'
       src.FunctionalLocation   as FunctionalLocation
 }
 where _TaskListCurrent.IsMarkedForDeletion = ''

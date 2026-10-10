@@ -15,7 +15,9 @@
 define view ZEMX_I_StatusNotifCompleted
   as select from jest
 {
+      @EndUserText.label: 'Object Number'
   key jest.objnr as ObjectNumber,
+      @EndUserText.label: 'Status Code'
       jest.stat  as StatusCode
 }
 where jest.stat = 'I0072' and jest.inact = ''

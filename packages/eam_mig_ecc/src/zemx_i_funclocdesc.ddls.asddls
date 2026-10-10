@@ -15,10 +15,14 @@
 define view ZEMX_I_FuncLocDesc
   as select from iflotx
 {
+      @EndUserText.label: 'Functional Location'
   key iflotx.tplnr as FunctionalLocation,
       @Semantics.language: true
+      @EndUserText.label: 'Language'
   key iflotx.spras as Language,
       @Semantics.text: true
+      @EndUserText.label: 'Functional Location Name'
       iflotx.pltxt as FunctionalLocationName,
+      @EndUserText.label: 'Has Long Text'
       iflotx.kzltx as HasLongText
 }

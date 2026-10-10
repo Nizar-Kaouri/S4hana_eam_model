@@ -63,6 +63,58 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `DamageCode` | QMFE-FECOD | QMFE-FECOD | copy |  |
 | `MaintNotifItemText` | QMFE-FETXT | QMFE-FETXT | copy |  |
 
+## `ZEMX_C_NotifCauseMig`
+
+- Source: `ZEMX_I_NotifCause`
+- Keys: `MaintenanceNotification`, `MaintNotificationItem`, `CauseNumber`
+- Scope: `src.IsMarkedForDeletion = '' and _Parent.IsCompleted = '' and _Parent.IsMarkedForDeletion = ''`
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `MaintenanceNotification` | QMUR-QMNUM | QMUR-QMNUM | copy |  |
+| `MaintNotificationItem` | QMUR-FENUM | QMUR-FENUM | copy |  |
+| `CauseNumber` | QMUR-URNUM | QMUR-URNUM | copy |  |
+| `CauseCodeGroup` | QMUR-URGRP | QMUR-URGRP | copy |  |
+| `CauseCode` | QMUR-URCOD | QMUR-URCOD | copy |  |
+| `CauseText` | QMUR-URTXT | QMUR-URTXT | copy |  |
+
+## `ZEMX_C_NotifTaskMig`
+
+- Source: `ZEMX_I_NotifTask`
+- Keys: `MaintenanceNotification`, `TaskNumber`
+- Scope: `src.IsMarkedForDeletion = '' and _Parent.IsCompleted = '' and _Parent.IsMarkedForDeletion = ''`
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `MaintenanceNotification` | QMSM-QMNUM | QMSM-QMNUM | copy |  |
+| `TaskNumber` | QMSM-MANUM | QMSM-MANUM | copy |  |
+| `MaintNotificationItem` | QMSM-FENUM | QMSM-FENUM | copy |  |
+| `TaskCodeGroup` | QMSM-MNGRP | QMSM-MNGRP | copy |  |
+| `TaskCode` | QMSM-MNCOD | QMSM-MNCOD | copy |  |
+| `TaskText` | QMSM-MATXT | QMSM-MATXT | copy |  |
+| `PartnerFunction` | QMSM-PARVW | QMSM-PARVW | copy |  |
+| `ResponsiblePartner` | QMSM-PARNR | QMSM-PARNR | copy |  |
+| `PlannedStartDate` | QMSM-PSTER | QMSM-PSTER | copy |  |
+| `PlannedEndDate` | QMSM-PETER | QMSM-PETER | copy |  |
+| `CompletionDate` | QMSM-ERLDAT | QMSM-ERLDAT | copy |  |
+
+## `ZEMX_C_NotifActivityMig`
+
+- Source: `ZEMX_I_NotifActivity`
+- Keys: `MaintenanceNotification`, `ActivityNumber`
+- Scope: `src.IsMarkedForDeletion = '' and _Parent.IsCompleted = '' and _Parent.IsMarkedForDeletion = ''`
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `MaintenanceNotification` | QMMA-QMNUM | QMMA-QMNUM | copy |  |
+| `ActivityNumber` | QMMA-MANUM | QMMA-MANUM | copy |  |
+| `MaintNotificationItem` | QMMA-FENUM | QMMA-FENUM | copy |  |
+| `ActivityCodeGroup` | QMMA-MNGRP | QMMA-MNGRP | copy |  |
+| `ActivityCode` | QMMA-MNCOD | QMMA-MNCOD | copy |  |
+| `ActivityText` | QMMA-MATXT | QMMA-MATXT | copy |  |
+| `ActivityStartDate` | QMMA-STARTDAT | QMMA-STARTDAT | copy |  |
+| `ActivityEndDate` | QMMA-ENDDAT | QMMA-ENDDAT | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |
@@ -74,6 +126,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_MaintNotification` | `CreationDate` | QMEL-ERDAT | information only |
 | `ZEMX_I_MaintNotification` | `CreatedByUser` | QMEL-ERNAM | information only |
 | `ZEMX_I_MaintNotifItem` | `IsMarkedForDeletion` | QMFE-KZLOESCH | scope flag |
+| `ZEMX_I_NotifCause` | `IsMarkedForDeletion` | QMUR-KZLOESCH | scope flag |
+| `ZEMX_I_NotifTask` | `IsMarkedForDeletion` | QMSM-KZLOESCH | scope flag |
+| `ZEMX_I_NotifActivity` | `IsMarkedForDeletion` | QMMA-KZLOESCH | scope flag |
 
 ## Reconciliation
 
@@ -87,4 +142,4 @@ python3 tools/mig_reconcile.py records --module maintenance_notification --sourc
 
 ## Open gaps
 
-- TODO-VERIFY[M] XNO-G01: causes (QMUR), tasks (QMSM) and activities (QMMA) are not extracted in the pilot
+- TODO-VERIFY[H] XNO-G02: confirm notification child keys, deletion fields, task statuses and date fields before real-system activation.

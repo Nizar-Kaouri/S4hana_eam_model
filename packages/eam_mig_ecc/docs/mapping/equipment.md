@@ -76,6 +76,22 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `Language` | EQKT-SPRAS | EQKT-SPRAS | copy |  |
 | `EquipmentName` | EQKT-EQKTX | EQKT-EQKTX | copy |  |
 
+## `ZEMX_C_EquipSerialStockMig`
+
+- Source: `ZEMX_I_EquipSerialStock`
+- Keys: `Equipment`
+- Scope: `_Parent.IsMarkedForDeletion = ''`
+- Delivery mode: **reference**
+- Before posting: Reference context only; select referenced identities and implement customer-specific target posting and prerequisites.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQBS-EQUNR | EQBS-EQUNR | copy |  |
+| `StockPlant` | EQBS-B_WERK | EQBS-B_WERK | copy |  |
+| `StorageLocation` | EQBS-B_LAGER | EQBS-B_LAGER | copy |  |
+| `Batch` | EQBS-B_CHARGE | EQBS-B_CHARGE | copy |  |
+| `SpecialStock` | EQBS-SOBKZ | EQBS-SOBKZ | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |
@@ -98,5 +114,5 @@ python3 tools/mig_reconcile.py records --module equipment --source ecc_extract.c
 
 ## Open gaps
 
-- TODO-VERIFY[M] XEQ-G01: serial number stock data (EQBS) and material serial profiles are not extracted in the pilot
+- TODO-VERIFY[H] XEQ-G01: EQBS serial stock context is delivered as reference data only; stock quantities and material serial profiles belong to the customer MM migration, not EAM master posting.
 - TODO-VERIFY[H] XEQ-G02: material numbers must exist on S/4HANA (material master migration, MM) before equipment with a material is loaded

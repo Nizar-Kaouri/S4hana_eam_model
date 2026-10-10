@@ -15,20 +15,35 @@
 define view ZEMX_I_LocAcctAssignment
   as select from iloa
 {
+      @EndUserText.label: 'Loc Acct Assignment'
   key iloa.iloan as LocAcctAssignment,
+      @EndUserText.label: 'Functional Location'
       iloa.tplnr as FunctionalLocation,
       // TODO-VERIFY[L] XFL-004: ILOA field names (SWERK, BEBER, STORT, MSGRP, ABCKZ, EQFNR, BUKRS, GSBER, KOKRS, KOSTL, ANLNR, ANLUN, DAUFN)
+      @EndUserText.label: 'Maintenance Plant'
       iloa.swerk as MaintenancePlant,
+      @EndUserText.label: 'Plant Section'
       iloa.beber as PlantSection,
+      @EndUserText.label: 'Asset Location'
       iloa.stort as AssetLocation,
+      @EndUserText.label: 'Asset Room'
       iloa.msgrp as AssetRoom,
+      @EndUserText.label: 'ABCIndicator'
       iloa.abckz as ABCIndicator,
+      @EndUserText.label: 'Sort Field'
       iloa.eqfnr as SortField,
+      @EndUserText.label: 'Company Code'
       iloa.bukrs as CompanyCode,
+      @EndUserText.label: 'Business Area'
       iloa.gsber as BusinessArea,
+      @EndUserText.label: 'Controlling Area'
       iloa.kokrs as ControllingArea,
+      @EndUserText.label: 'Cost Center'
       iloa.kostl as CostCenter,
+      @EndUserText.label: 'Master Fixed Asset'
       iloa.anlnr as MasterFixedAsset,
+      @EndUserText.label: 'Fixed Asset'
       iloa.anlun as FixedAsset,
+      @EndUserText.label: 'Standing Order'
       iloa.daufn as StandingOrder
 }

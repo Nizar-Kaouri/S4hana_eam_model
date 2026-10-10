@@ -13,8 +13,11 @@
 define view ZEMX_C_ClassAssgmtMigCount
   as select from ZEMX_C_ClassAssignmentMig
 {
+      @EndUserText.label: 'Class Type'
   key ClassType  as ClassType,
+      @EndUserText.label: 'Class'
   key Class      as Class,
+      @EndUserText.label: 'Record Count'
       count( * ) as RecordCount
 }
 group by ClassType, Class

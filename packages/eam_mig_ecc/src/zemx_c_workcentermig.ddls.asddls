@@ -13,12 +13,19 @@
 define view ZEMX_C_WorkCenterMig
   as select from ZEMX_I_WorkCenterHeader as src
 {
+      @EndUserText.label: 'Work Center'
   key src.WorkCenter             as WorkCenter,
+      @EndUserText.label: 'Plant'
   key src.Plant                  as Plant,
+      @EndUserText.label: 'Work Center Category Code'
       src.WorkCenterCategoryCode as WorkCenterCategoryCode,
+      @EndUserText.label: 'Work Center Responsible'
       src.WorkCenterResponsible  as WorkCenterResponsible,
+      @EndUserText.label: 'Task List Usage'
       src.TaskListUsage          as TaskListUsage,
+      @EndUserText.label: 'Validity Start Date'
       src.ValidityStartDate      as ValidityStartDate,
+      @EndUserText.label: 'Validity End Date'
       src.ValidityEndDate        as ValidityEndDate
 }
 where src.IsMarkedForDeletion = ''

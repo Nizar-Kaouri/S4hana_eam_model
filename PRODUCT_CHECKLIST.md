@@ -1,6 +1,6 @@
 # Product checklist
 
-## Direction: migration models (ECC → S/4HANA)
+## Direction: migration models (ECC â†’ S/4HANA)
 
 The packages are sold as **migration models** for moving data from an old SAP ERP (ECC 6.0) system to
 SAP S/4HANA: ECC extraction views + mapping model + S/4HANA reconciliation (see `README.md`). Agreed
@@ -15,7 +15,7 @@ Migration Cockpit; EAM first, then the other areas with the same pattern.
 | Reconcile tool with unit tests (`tools/mig_reconcile.py`) | [x] |
 | Offline checks clean (`tools/check_all.py`) | [x] |
 | Migration Cockpit objects and structure fields confirmed (`M01` items) | [ ] |
-| Gaps closed: long text content (READ_TEXT extractor), capacities, task list components, notification causes / tasks / activities, settlement rules | [ ] |
+| Added draft BOM, task-list details, notification details, settlement/permit and capacity-reference structures | [x] |\n| Real DDIC verification, effective-date resolution, capacity intervals and customer READ_TEXT integration | [ ] |
 | Activated on an ECC test system and on S/4HANA 2025 | [ ] |
 | Test migration with reconciliation report | [ ] |
 | Ready to sell | [ ] |
@@ -41,16 +41,16 @@ coverage for the main objects, "Medium" means it has to be checked object by obj
 
 ## Products with a folder
 
-Recommended build order: **FI-AA → MM → QM → PS**, because those link to EAM, then PP, CO, FI, SD.
+Recommended build order: **FI-AA â†’ MM â†’ QM â†’ PS**, because those link to EAM, then PP, CO, FI, SD.
 
 | # | Product | Folder | Prefix / package | Fit | Modules | SAP released views used (unverified) | Links to EAM |
 |---|---|---|---|---|---|---|---|
 | - | **Enterprise Asset Management** (PM) | `packages/eam` | `ZEAM_` / `ZEAM_VDM` | Strong | 16 modules, 86 views (see `packages/eam/README.md`) | confirmed list in `packages/eam/ACTIVATION_CHECKLIST.md` | - |
-| 1 | **Asset Accounting** (FI-AA) | `packages/fi_aa` | `ZFAA_` / `ZFAA_VDM` | Strong | **drafted:** fixed_asset, asset_transaction, rpt_asset_balance (14 views) | `I_JournalEntryItem`, `I_GLAccountInChartOfAccounts`, `I_FixedAsset`, `I_CompanyCode`, `I_AssetClass`, `I_Plant` (all to confirm) | equipment ↔ fixed asset (bridge: `ZBRG_I_EquipmentWithAsset`, `ZBRG_R_EquipmentAssetValue`) |
-| 2 | **Materials Management** (MM) | `packages/mm` | `ZMMV_` / `ZMMV_VDM` | Strong | **drafted:** product, material_stock, goods_movement, purchase_requisition, purchase_order, rpt_open_purchase_order, rpt_material_consumption (24 views) | `I_MaterialDocumentItem_2`, `I_Plant`, `I_MaterialStock_2`, `I_Product`, `I_ProductDescription`, `I_ProductPlantBasic`, `I_PurchaseOrderAPI01`, `I_PurchaseOrderItemAPI01`, `I_Supplier`, `I_CompanyCode`, `I_PurchaseRequisitionItemAPI01` (all to confirm) | order component ↔ material, stock, purchase order |
-| 3 | **Quality Management** (QM) | `packages/qm` | `ZQMV_` / `ZQMV_VDM` | Good | **drafted:** inspection_lot, inspection_result, quality_notification, rpt_supplier_quality (13 views) | `I_InspectionLot`, `I_Plant`, `I_InspectionCharacteristic`, `I_QualityNotification` (all to confirm) | notification / equipment ↔ quality notification |
-| 4 | **Project System** (PS) | `packages/ps` | `ZPSV_` / `ZPSV_VDM` | Good | **drafted:** project, wbs_element, project_cost, rpt_project_cost_to_date (13 views) | `I_EnterpriseProject`, `I_CompanyCode`, `I_JournalEntryItem`, `I_WBSElement` (all to confirm) | maintenance order ↔ WBS element (shutdowns, investments) |
-| 5 | **Production Planning** (PP) | `packages/pp` | `ZPPV_` / `ZPPV_VDM` | Good | **drafted:** production_order, production_order_operation, bill_of_material, rpt_order_schedule (13 views) | `I_MaterialBOMLink`, `I_BillOfMaterialItemBasic`, `I_ManufacturingOrder`, `I_Plant`, `I_ManufacturingOrderOperation` (all to confirm) | work center (shared), equipment ↔ production line |
+| 1 | **Asset Accounting** (FI-AA) | `packages/fi_aa` | `ZFAA_` / `ZFAA_VDM` | Strong | **drafted:** fixed_asset, asset_transaction, rpt_asset_balance (14 views) | `I_JournalEntryItem`, `I_GLAccountInChartOfAccounts`, `I_FixedAsset`, `I_CompanyCode`, `I_AssetClass`, `I_Plant` (all to confirm) | equipment â†” fixed asset (bridge: `ZBRG_I_EquipmentWithAsset`, `ZBRG_R_EquipmentAssetValue`) |
+| 2 | **Materials Management** (MM) | `packages/mm` | `ZMMV_` / `ZMMV_VDM` | Strong | **drafted:** product, material_stock, goods_movement, purchase_requisition, purchase_order, rpt_open_purchase_order, rpt_material_consumption (24 views) | `I_MaterialDocumentItem_2`, `I_Plant`, `I_MaterialStock_2`, `I_Product`, `I_ProductDescription`, `I_ProductPlantBasic`, `I_PurchaseOrderAPI01`, `I_PurchaseOrderItemAPI01`, `I_Supplier`, `I_CompanyCode`, `I_PurchaseRequisitionItemAPI01` (all to confirm) | order component â†” material, stock, purchase order |
+| 3 | **Quality Management** (QM) | `packages/qm` | `ZQMV_` / `ZQMV_VDM` | Good | **drafted:** inspection_lot, inspection_result, quality_notification, rpt_supplier_quality (13 views) | `I_InspectionLot`, `I_Plant`, `I_InspectionCharacteristic`, `I_QualityNotification` (all to confirm) | notification / equipment â†” quality notification |
+| 4 | **Project System** (PS) | `packages/ps` | `ZPSV_` / `ZPSV_VDM` | Good | **drafted:** project, wbs_element, project_cost, rpt_project_cost_to_date (13 views) | `I_EnterpriseProject`, `I_CompanyCode`, `I_JournalEntryItem`, `I_WBSElement` (all to confirm) | maintenance order â†” WBS element (shutdowns, investments) |
+| 5 | **Production Planning** (PP) | `packages/pp` | `ZPPV_` / `ZPPV_VDM` | Good | **drafted:** production_order, production_order_operation, bill_of_material, rpt_order_schedule (13 views) | `I_MaterialBOMLink`, `I_BillOfMaterialItemBasic`, `I_ManufacturingOrder`, `I_Plant`, `I_ManufacturingOrderOperation` (all to confirm) | work center (shared), equipment â†” production line |
 | 6 | **Controlling** (CO) | `packages/co` | `ZCOV_` / `ZCOV_VDM` | Strong | **drafted:** cost_center, internal_order, profit_center, cost_actuals, rpt_cost_center_ytd (17 views) | `I_JournalEntryItem`, `I_GLAccountInChartOfAccounts`, `I_CostCenter`, `I_CostCenterText`, `I_CompanyCode`, `I_InternalOrder`, `I_ProfitCenter`, `I_ProfitCenterText` (all to confirm) | maintenance cost per cost center |
 | 7 | **Financial Accounting** (FI) | `packages/fi` | `ZFIV_` / `ZFIV_VDM` | Strong | **drafted:** gl_account, supplier, customer, gl_line_item, open_items (13 views) | `I_Customer`, `I_GLAccountInChartOfAccounts`, `I_GLAccountText`, `I_JournalEntryItem`, `I_OperationalAcctgDocItem`, `I_Supplier` (all to confirm) | - (via CO / FI-AA) |
 | 8 | **Sales and Distribution** (SD) | `packages/sd` | `ZSDV_` / `ZSDV_VDM` | Strong | **drafted:** sales_order, outbound_delivery, billing_document, rpt_open_sales_orders (15 views) | `I_BillingDocument`, `I_BillingDocumentItem`, `I_CompanyCode`, `I_DeliveryDocument`, `I_DeliveryDocumentItem`, `I_Plant`, `I_SalesDocument`, `I_SalesDocumentItem`, `I_Customer` (all to confirm) | - (service / equipment sales later) |
@@ -113,7 +113,7 @@ link only when all its modules (after hard dependencies) are selected. `build_pa
 | Intra-product link objects | 19 | 5 | 9 | 2 | 3 | 1 | 5 | 6 | 2 |
 | Used by bridge links | [x] | [x] | [x] | [x] | [ ] | [x] | [x] | [x] | [x] |
 
-Bridge links (18 objects): equipment ↔ fixed asset (+ asset value cube/query), maintenance order component ↔
-product (I/R/Q), maintenance order ↔ goods movements, maintenance cost ↔ cost center (R/Q), production
-operation ↔ work center, PO item ↔ supplier (R/Q), revenue ↔ customer (R/Q), inspection lot ↔ product (R/Q),
-production order ↔ product (R/Q). Not yet bridged: PS (maintenance order ↔ WBS element), QM ↔ EAM notifications.
+Bridge links (18 objects): equipment â†” fixed asset (+ asset value cube/query), maintenance order component â†”
+product (I/R/Q), maintenance order â†” goods movements, maintenance cost â†” cost center (R/Q), production
+operation â†” work center, PO item â†” supplier (R/Q), revenue â†” customer (R/Q), inspection lot â†” product (R/Q),
+production order â†” product (R/Q). Not yet bridged: PS (maintenance order â†” WBS element), QM â†” EAM notifications.

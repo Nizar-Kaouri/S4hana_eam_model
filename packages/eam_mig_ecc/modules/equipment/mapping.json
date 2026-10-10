@@ -368,6 +368,53 @@
           "compare": false
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipSerialStockMig",
+      "source_view": "ZEMX_I_EquipSerialStock",
+      "scope_filter": "_Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "Equipment"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQBS-EQUNR",
+          "target": "EQBS-EQUNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StockPlant",
+          "source": "EQBS-B_WERK",
+          "target": "EQBS-B_WERK",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StorageLocation",
+          "source": "EQBS-B_LAGER",
+          "target": "EQBS-B_LAGER",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Batch",
+          "source": "EQBS-B_CHARGE",
+          "target": "EQBS-B_CHARGE",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SpecialStock",
+          "source": "EQBS-SOBKZ",
+          "target": "EQBS-SOBKZ",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference context only; select referenced identities and implement customer-specific target posting and prerequisites."
     }
   ],
   "not_migrated": [
@@ -439,7 +486,7 @@
     }
   },
   "gaps": [
-    "TODO-VERIFY[M] XEQ-G01: serial number stock data (EQBS) and material serial profiles are not extracted in the pilot",
+    "TODO-VERIFY[H] XEQ-G01: EQBS serial stock context is delivered as reference data only; stock quantities and material serial profiles belong to the customer MM migration, not EAM master posting.",
     "TODO-VERIFY[H] XEQ-G02: material numbers must exist on S/4HANA (material master migration, MM) before equipment with a material is loaded"
   ],
   "main_structure": "ZEMX_C_EquipmentMig"

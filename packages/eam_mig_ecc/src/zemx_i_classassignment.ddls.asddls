@@ -15,11 +15,18 @@
 define view ZEMX_I_ClassAssignment
   as select from ZEMX_I_ObjectClassAssgmt as asg
 {
+      @EndUserText.label: 'Classified Object'
   key asg.ClassifiedObject     as ClassifiedObject,
+      @EndUserText.label: 'Class Type'
   key asg.ClassType            as ClassType,
+      @EndUserText.label: 'Class Internal ID'
   key asg.ClassInternalID      as ClassInternalID,
+      @EndUserText.label: 'Change Counter'
   key asg.ChangeCounter        as ChangeCounter,
+      @EndUserText.label: 'Class'
       asg._Class.Class         as Class,
+      @EndUserText.label: 'Classification Status'
       asg.ClassificationStatus as ClassificationStatus,
+      @EndUserText.label: 'Is Marked For Deletion'
       asg.IsMarkedForDeletion  as IsMarkedForDeletion
 }

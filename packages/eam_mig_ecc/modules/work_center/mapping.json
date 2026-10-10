@@ -170,6 +170,109 @@
           "compare": false
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_WorkCenterCapacityMig",
+      "source_view": "ZEMX_I_WorkCenterCapacity",
+      "scope_filter": "src.ObjectType = 'A' and _Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "ObjectType",
+        "WorkCenterInternalID",
+        "CapacityAssignment"
+      ],
+      "fields": [
+        {
+          "element": "ObjectType",
+          "source": "CRCA-OBJTY",
+          "target": "CRCA-OBJTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "WorkCenterInternalID",
+          "source": "CRCA-OBJID",
+          "target": "CRCA-OBJID",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CapacityAssignment",
+          "source": "CRCA-CANUM",
+          "target": "CRCA-CANUM",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CapacityInternalID",
+          "source": "CRCA-KAPID",
+          "target": "CRCA-KAPID",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "CRCA-BEGDA",
+          "target": "CRCA-BEGDA",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CRCA-ENDDA",
+          "target": "CRCA-ENDDA",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CapacityFormula",
+          "source": "CRCA-FORK2",
+          "target": "CRCA-FORK2",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "WorkCenter",
+          "source": "CRHD-ARBPL",
+          "target": "CRHD-ARBPL",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference context only; select referenced identities and implement customer-specific target posting and prerequisites."
+    },
+    {
+      "consumption_view": "ZEMX_C_CapacityHeaderMig",
+      "source_view": "ZEMX_I_CapacityHeader",
+      "scope_filter": "",
+      "keys": [
+        "CapacityInternalID"
+      ],
+      "fields": [
+        {
+          "element": "CapacityInternalID",
+          "source": "KAKO-KAPID",
+          "target": "KAKO-KAPID",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CapacityCategory",
+          "source": "KAKO-KAPAR",
+          "target": "KAKO-KAPAR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CapacityName",
+          "source": "KAKO-NAME",
+          "target": "KAKO-NAME",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference context only; select referenced identities and implement customer-specific target posting and prerequisites."
     }
   ],
   "not_migrated": [
@@ -256,7 +359,7 @@
     }
   },
   "gaps": [
-    "TODO-VERIFY[M] XWC-G01: capacities (KAKO/CRCA), scheduling formulas and default values are not extracted in the pilot"
+    "TODO-VERIFY[H] XWC-G01: CRCA allocation, FORK2 formula and KAKO header are delivered as reference data; available-capacity intervals, shift calendars, additional formulas and defaults require release-specific extension."
   ],
   "main_structure": "ZEMX_C_WorkCenterMig"
 }

@@ -13,8 +13,11 @@
 define view ZEMX_C_MaintNotifMigCount
   as select from ZEMX_C_MaintNotificationMig
 {
+      @EndUserText.label: 'Notification Type'
   key NotificationType         as NotificationType,
+      @EndUserText.label: 'Maintenance Planning Plant'
   key MaintenancePlanningPlant as MaintenancePlanningPlant,
+      @EndUserText.label: 'Record Count'
       count( * )               as RecordCount
 }
 group by NotificationType, MaintenancePlanningPlant

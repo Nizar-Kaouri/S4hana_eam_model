@@ -13,8 +13,11 @@
 define view ZEMX_C_TaskListMigCount
   as select from ZEMX_C_TaskListMig
 {
+      @EndUserText.label: 'Task List Type'
   key TaskListType as TaskListType,
+      @EndUserText.label: 'Plant'
   key Plant        as Plant,
+      @EndUserText.label: 'Record Count'
       count( * )   as RecordCount
 }
 group by TaskListType, Plant

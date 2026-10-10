@@ -61,6 +61,19 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `Language` | IFLOTX-SPRAS | IFLOTX-SPRAS | copy |  |
 | `FunctionalLocationName` | IFLOTX-PLTXT | IFLOTX-PLTXT | copy |  |
 
+## `ZEMX_C_FuncLocLabelMig`
+
+- Source: `ZEMX_I_FuncLocLabel`
+- Keys: `FunctionalLocation`, `LabelingSystem`
+- Scope: `_Parent.IsMarkedForDeletion = ''`
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | IFLOS-TPLNR | IFLOS-TPLNR | copy |  |
+| `LabelingSystem` | IFLOS-ALTNR | IFLOS-ALTNR | copy |  |
+| `AlternativeLabel` | IFLOS-STRNO | IFLOS-STRNO | copy |  |
+| `IsActiveLabel` | IFLOS-ACTVS | IFLOS-ACTVS | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |
@@ -83,4 +96,4 @@ python3 tools/mig_reconcile.py records --module functional_location --source ecc
 
 ## Open gaps
 
-- TODO-VERIFY[H] XFL-G01: alternative labeling (IFLOS) and structure indicator edit masks must match on S/4HANA before the load
+- TODO-VERIFY[H] XFL-G01: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks.

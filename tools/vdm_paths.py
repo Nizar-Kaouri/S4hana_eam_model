@@ -46,6 +46,6 @@ PRODUCT_ROOT = PACKAGES / PRODUCT
 def rel(path):
     """Repository-relative path for messages."""
     try:
-        return str(Path(path).resolve().relative_to(REPO))
+        return Path(path).resolve().relative_to(REPO).as_posix()
     except ValueError:
         return str(path)

@@ -114,6 +114,26 @@ class RecordsTest(unittest.TestCase):
         self.assertEqual((res["missing"], res["extra"]), ([], []))
         self.assertTrue(any("kept 1 of 2" in n for n in res["notes"]))
 
+    def test_duplicate_source_and_target_keys_are_rejected(self):
+        row = {e: "A" for e in self.mapping["reconciliation"]["compare"]["key"] + self.mapping["reconciliation"]["compare"]["fields"]}
+        conflicting = dict(row, EquipmentCategory="DIFFERENT")
+        for source, target in [([conflicting, row], [row]), ([row], [conflicting, row])]:
+            with self.assertRaisesRegex(mr.InputError, "duplicate business key"):
+                mr.records(self.mapping, source, target, mr.Maps(None))
+
+    def test_normalization_collision_is_rejected(self):
+        row = {e: "A" for e in self.mapping["reconciliation"]["compare"]["key"] + self.mapping["reconciliation"]["compare"]["fields"]}
+        a, b = dict(row, Equipment="0001"), dict(row, Equipment="1")
+        with self.assertRaisesRegex(mr.InputError, "duplicate business key"):
+            mr.records(self.mapping, [a, b], [b], mr.Maps(None), strip_zeros=True)
+
+    def test_translation_collision_is_rejected(self):
+        write(self.dir, "key_map_equipment.csv", "source,target\nOLD1,NEW\nOLD2,NEW\n")
+        row = {e: "A" for e in self.mapping["reconciliation"]["compare"]["key"] + self.mapping["reconciliation"]["compare"]["fields"]}
+        with self.assertRaisesRegex(mr.InputError, "duplicate business key"):
+            mr.records(self.mapping, [dict(row, Equipment="OLD1"), dict(row, Equipment="OLD2")],
+                       [dict(row, Equipment="NEW")], mr.Maps(self.dir), translate=True)
+
     def test_scope_parser(self):
         pred = mr.scope_filter("IsCompleted = '' and IsMarkedForDeletion = ''")
         self.assertTrue(pred({"IsCompleted": "", "IsMarkedForDeletion": ""}))

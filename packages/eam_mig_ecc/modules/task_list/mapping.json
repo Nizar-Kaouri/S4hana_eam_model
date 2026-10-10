@@ -311,6 +311,232 @@
           "compare": false
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_TaskListCompMig",
+      "source_view": "ZEMX_I_TaskListComp",
+      "scope_filter": "src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "AllocationNumber",
+        "VersionCounter"
+      ],
+      "fields": [
+        {
+          "element": "TaskListType",
+          "source": "PLMZ-PLNTY",
+          "target": "PLMZ-PLNTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "PLMZ-PLNNR",
+          "target": "PLMZ-PLNNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaskListGroupCounter",
+          "source": "PLMZ-PLNAL",
+          "target": "PLMZ-PLNAL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "OperationInternalID",
+          "source": "PLMZ-PLNKN",
+          "target": "PLMZ-PLNKN",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "VersionCounter",
+          "source": "PLMZ-ZAEHL",
+          "target": "PLMZ-ZAEHL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AllocationNumber",
+          "source": "PLMZ-ZUONR",
+          "target": "PLMZ-ZUONR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMCategory",
+          "source": "PLMZ-STLTY",
+          "target": "PLMZ-STLTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "PLMZ-STLNR",
+          "target": "PLMZ-STLNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMAlternative",
+          "source": "PLMZ-STLAL",
+          "target": "PLMZ-STLAL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMItemNode",
+          "source": "PLMZ-STLKN",
+          "target": "PLMZ-STLKN",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_TaskListPRTMig",
+      "source_view": "ZEMX_I_TaskListPRT",
+      "scope_filter": "src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "PRTItem",
+        "VersionCounter"
+      ],
+      "fields": [
+        {
+          "element": "TaskListType",
+          "source": "PLFH-PLNTY",
+          "target": "PLFH-PLNTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "PLFH-PLNNR",
+          "target": "PLFH-PLNNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaskListGroupCounter",
+          "source": "PLFH-PLNAL",
+          "target": "PLFH-PLNAL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "OperationInternalID",
+          "source": "PLFH-PLNKN",
+          "target": "PLFH-PLNKN",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "VersionCounter",
+          "source": "PLFH-ZAEHL",
+          "target": "PLFH-ZAEHL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PRTItem",
+          "source": "PLFH-PSNFH",
+          "target": "PLFH-PSNFH",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PRTObjectType",
+          "source": "PLFH-OBJTY",
+          "target": "PLFH-OBJTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PRTInternalID",
+          "source": "PLFH-OBJID",
+          "target": "PLFH-OBJID",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PRTControlKey",
+          "source": "PLFH-STEUF",
+          "target": "PLFH-STEUF",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_TaskListPackageMig",
+      "source_view": "ZEMX_I_TaskListPackage",
+      "scope_filter": "src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "MaintenancePackage",
+        "VersionCounter"
+      ],
+      "fields": [
+        {
+          "element": "TaskListType",
+          "source": "PLWP-PLNTY",
+          "target": "PLWP-PLNTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "PLWP-PLNNR",
+          "target": "PLWP-PLNNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaskListGroupCounter",
+          "source": "PLWP-PLNAL",
+          "target": "PLWP-PLNAL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "OperationInternalID",
+          "source": "PLWP-PLNKN",
+          "target": "PLWP-PLNKN",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "VersionCounter",
+          "source": "PLWP-ZAEHL",
+          "target": "PLWP-ZAEHL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "MaintenancePackage",
+          "source": "PLWP-PAKET",
+          "target": "PLWP-PAKET",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting."
     }
   ],
   "not_migrated": [
@@ -373,6 +599,24 @@
       "element": "IsMarkedForDeletion",
       "source": "PLPO-LOEKZ",
       "reason": "scope"
+    },
+    {
+      "view": "ZEMX_I_TaskListComp",
+      "element": "IsMarkedForDeletion",
+      "source": "PLMZ-LOEKZ",
+      "reason": "scope"
+    },
+    {
+      "view": "ZEMX_I_TaskListPRT",
+      "element": "IsMarkedForDeletion",
+      "source": "PLFH-LOEKZ",
+      "reason": "scope"
+    },
+    {
+      "view": "ZEMX_I_TaskListPackage",
+      "element": "IsMarkedForDeletion",
+      "source": "PLWP-LOEKZ",
+      "reason": "scope"
     }
   ],
   "reconciliation": {
@@ -407,7 +651,7 @@
     }
   },
   "gaps": [
-    "TODO-VERIFY[M] XTL-G01: component allocation (PLMZ), production resources/tools (PLFH) and maintenance packages per operation (PLWP) are not extracted in the pilot"
+    "TODO-VERIFY[H] XTL-G02: highest recorded counters are provisional; resolve engineering-change effectivity and operation references at the customer cutover date before loading components, PRTs or packages."
   ],
   "main_structure": "ZEMX_C_TaskListMig"
 }

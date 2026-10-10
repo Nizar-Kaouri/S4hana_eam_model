@@ -15,13 +15,20 @@
 define view ZEMX_I_ObjectPartner
   as select from ihpa
 {
+      @EndUserText.label: 'Object Number'
   key ihpa.objnr                     as ObjectNumber,
+      @EndUserText.label: 'Partner Function'
   key ihpa.parvw                     as PartnerFunction,
       // TODO-VERIFY[M] XPA-001: IHPA field names COUNTER, PARNR, KZLOESCH
+      @EndUserText.label: 'Partner Counter'
   key ihpa.counter                   as PartnerCounter,
+      @EndUserText.label: 'Partner Object Type'
       substring( ihpa.objnr, 1, 2 )  as PartnerObjectType,
+      @EndUserText.label: 'Partner Object Key'
       substring( ihpa.objnr, 3, 30 ) as PartnerObjectKey,
       // TODO-VERIFY[H] XPA-002: the meaning of PARNR depends on the partner function (customer, vendor, contact person, user, personnel number); customers and vendors become business partners on S/4HANA
+      @EndUserText.label: 'Partner'
       ihpa.parnr                     as Partner,
+      @EndUserText.label: 'Is Marked For Deletion'
       ihpa.kzloesch                  as IsMarkedForDeletion
 }

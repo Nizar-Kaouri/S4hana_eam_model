@@ -15,10 +15,14 @@
 define view ZEMX_I_EquipmentDesc
   as select from eqkt
 {
+      @EndUserText.label: 'Equipment'
   key eqkt.equnr as Equipment,
       @Semantics.language: true
+      @EndUserText.label: 'Language'
   key eqkt.spras as Language,
       @Semantics.text: true
+      @EndUserText.label: 'Equipment Name'
       eqkt.eqktx as EquipmentName,
+      @EndUserText.label: 'Has Long Text'
       eqkt.kzltx as HasLongText
 }

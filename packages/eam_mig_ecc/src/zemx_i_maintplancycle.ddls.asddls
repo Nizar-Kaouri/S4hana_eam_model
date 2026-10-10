@@ -15,11 +15,17 @@
 define view ZEMX_I_MaintPlanCycle
   as select from mmpt
 {
+      @EndUserText.label: 'Maintenance Plan'
   key mmpt.warpl    as MaintenancePlan,
       // TODO-VERIFY[H] XPL-005: MMPT field names (NUMMER, ZYKL1, ZEIEH, PAK_TEXT, POINT); ZYKL1 is stored as floating point in the SI unit
+      @EndUserText.label: 'Maintenance Plan Cycle'
   key mmpt.nummer   as MaintenancePlanCycle,
+      @EndUserText.label: 'Cycle Value'
       mmpt.zykl1    as CycleValue,
+      @EndUserText.label: 'Cycle Unit'
       mmpt.zeieh    as CycleUnit,
+      @EndUserText.label: 'Cycle Text'
       mmpt.pak_text as CycleText,
+      @EndUserText.label: 'Measuring Point'
       mmpt.point    as MeasuringPoint
 }

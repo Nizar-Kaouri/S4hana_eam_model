@@ -1,0 +1,319 @@
+{
+  "module": "equipment_bom",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer load program; resolve BOM effective states before posting",
+    "todo_verify": [
+      "TODO-VERIFY[H] XBM-T01: resolve alternative and engineering-change validity at cutover; raw BOM counters must not be posted as multiple current items."
+    ]
+  },
+  "sequence_after": [
+    "equipment"
+  ],
+  "key": {
+    "business_key": [
+      "Equipment",
+      "Plant",
+      "BOMUsage",
+      "BOMAlternative"
+    ],
+    "numbering": "new",
+    "note": "Maintain old-to-new BOM identifiers in the customer loader."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZEMX_C_EquipBOMAssignMig",
+      "source_view": "ZEMX_I_EquipBOMAssign",
+      "scope_filter": "_Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "Equipment",
+        "Plant",
+        "BOMUsage",
+        "BOMAlternative"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQST-EQUNR",
+          "target": "EQST-EQUNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Plant",
+          "source": "EQST-WERKS",
+          "target": "EQST-WERKS",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMUsage",
+          "source": "EQST-STLAN",
+          "target": "EQST-STLAN",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "EQST-STLNR",
+          "target": "EQST-STLNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMAlternative",
+          "source": "EQST-STLAL",
+          "target": "EQST-STLAL",
+          "rule": "copy",
+          "compare": false
+        }
+      ]
+    },
+    {
+      "consumption_view": "ZEMX_C_BOMHeaderMig",
+      "source_view": "ZEMX_I_BOMHeader",
+      "scope_filter": "",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "HeaderCounter"
+      ],
+      "fields": [
+        {
+          "element": "BOMCategory",
+          "source": "STKO-STLTY",
+          "target": "STKO-STLTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "STKO-STLNR",
+          "target": "STKO-STLNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMAlternative",
+          "source": "STKO-STLAL",
+          "target": "STKO-STLAL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "HeaderCounter",
+          "source": "STKO-STKOZ",
+          "target": "STKO-STKOZ",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "STKO-DATUV",
+          "target": "STKO-DATUV",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsMarkedForDeletion",
+          "source": "STKO-LKENZ",
+          "target": "STKO-LKENZ",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BaseQuantity",
+          "source": "STKO-BMENG",
+          "target": "STKO-BMENG",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BaseUnit",
+          "source": "STKO-BMEIN",
+          "target": "STKO-BMEIN",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "version_ledger",
+      "preprocessing": "Restrict BillOfMaterial to selected equipment assignments. Resolve alternative, valid-from date, change-number and deletion states at cutover before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_BOMSelectionMig",
+      "source_view": "ZEMX_I_BOMSelection",
+      "scope_filter": "",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "BOMItemNode",
+        "SelectionCounter"
+      ],
+      "fields": [
+        {
+          "element": "BOMCategory",
+          "source": "STAS-STLTY",
+          "target": "STAS-STLTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "STAS-STLNR",
+          "target": "STAS-STLNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMAlternative",
+          "source": "STAS-STLAL",
+          "target": "STAS-STLAL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMItemNode",
+          "source": "STAS-STLKN",
+          "target": "STAS-STLKN",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SelectionCounter",
+          "source": "STAS-STASZ",
+          "target": "STAS-STASZ",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "STAS-DATUV",
+          "target": "STAS-DATUV",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsMarkedForDeletion",
+          "source": "STAS-LKENZ",
+          "target": "STAS-LKENZ",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "version_ledger",
+      "preprocessing": "Restrict BillOfMaterial to selected equipment assignments. Resolve alternative, valid-from date, change-number and deletion states at cutover before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_BOMItemMig",
+      "source_view": "ZEMX_I_BOMItem",
+      "scope_filter": "",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMItemNode",
+        "ItemCounter"
+      ],
+      "fields": [
+        {
+          "element": "BOMCategory",
+          "source": "STPO-STLTY",
+          "target": "STPO-STLTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "STPO-STLNR",
+          "target": "STPO-STLNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMItemNode",
+          "source": "STPO-STLKN",
+          "target": "STPO-STLKN",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ItemCounter",
+          "source": "STPO-STPOZ",
+          "target": "STPO-STPOZ",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "STPO-DATUV",
+          "target": "STPO-DATUV",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMItemNumber",
+          "source": "STPO-POSNR",
+          "target": "STPO-POSNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMItemCategory",
+          "source": "STPO-POSTP",
+          "target": "STPO-POSTP",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ComponentMaterial",
+          "source": "STPO-IDNRK",
+          "target": "STPO-IDNRK",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ComponentQuantity",
+          "source": "STPO-MENGE",
+          "target": "STPO-MENGE",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ComponentUnit",
+          "source": "STPO-MEINS",
+          "target": "STPO-MEINS",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsMarkedForDeletion",
+          "source": "STPO-LKENZ",
+          "target": "STPO-LKENZ",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "version_ledger",
+      "preprocessing": "Restrict BillOfMaterial to selected equipment assignments. Resolve alternative, valid-from date, change-number and deletion states at cutover before posting."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [],
+  "main_structure": "ZEMX_C_EquipBOMAssignMig",
+  "reconciliation": {
+    "source_values": "source",
+    "source_count_view": "ZEMX_C_EquipBOMMigCount",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "Plant"
+      },
+      {
+        "element": "BOMUsage"
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": null
+  }
+}

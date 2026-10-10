@@ -13,13 +13,21 @@
 define view ZEMX_C_CharcValueMig
   as select from ZEMX_I_CharcValue as src
 {
+      @EndUserText.label: 'Classified Object'
   key src.ClassifiedObject         as ClassifiedObject,
+      @EndUserText.label: 'Class Type'
   key src.ClassType                as ClassType,
+      @EndUserText.label: 'Characteristic'
   key src.Characteristic           as Characteristic,
+      @EndUserText.label: 'Charc Value Position Number'
   key src.CharcValuePositionNumber as CharcValuePositionNumber,
+      @EndUserText.label: 'Charc Value'
       src.CharcValue               as CharcValue,
+      @EndUserText.label: 'Charc From Numeric Value'
       src.CharcFromNumericValue    as CharcFromNumericValue,
+      @EndUserText.label: 'Charc To Numeric Value'
       src.CharcToNumericValue      as CharcToNumericValue,
+      @EndUserText.label: 'Charc Value Dependency'
       src.CharcValueDependency     as CharcValueDependency
 }
 where src.IsMarkedForDeletion = '' and ( src.ClassType = '002' or src.ClassType = '003' )

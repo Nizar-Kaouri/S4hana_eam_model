@@ -1,12 +1,12 @@
-# SAP ERP → S/4HANA migration models (CDS)
+# SAP ERP â†’ S/4HANA migration models (CDS)
 
 Packages that help move data from an old SAP ERP (ECC 6.0) system to SAP S/4HANA (new implementation or
 selective data transition). Per business area there is:
 
-- a **source** product that runs on ECC: classic CDS views in three layers - basic (one table each) → composite
-  (business object) → consumption (`C_*Mig`: migration template, scope applied, values exactly as in ECC).
+- a **source** product that runs on ECC: classic CDS views in three layers - basic (one table each) â†’ composite
+  (business object) â†’ consumption (`C_*Mig`: migration template, scope applied, values exactly as in ECC).
   The customer's load program reads the consumption views with any technology and adapts the values,
-- a **mapping model** (every source element → S/4HANA target field with a rule, business keys and numbering,
+- a **mapping model** (every source element â†’ S/4HANA target field with a rule, business keys and numbering,
   scope filters, load order),
 - a **reconciliation** product on S/4HANA plus `tools/mig_reconcile.py` (counts and record-by-record field
   comparison after the load).
@@ -28,7 +28,7 @@ migration pilot; all other rows are the S/4HANA analytics add-on.
 
 | Product | Folder | Prefix | State |
 |---|---|---|---|
-| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | drafted: 13 migration objects, 100 classic views (basic → composite → consumption), 13 mapping files |
+| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | drafted: 13 migration objects, 100 classic views (basic â†’ composite â†’ consumption), 13 mapping files |
 | **EAM migration - S/4HANA reconciliation (pilot)** | [`packages/eam_mig_s4`](packages/eam_mig_s4/README.md) | `ZEMT_` | drafted: 8 objects, 16 views |
 | Analytics add-on: Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
 | Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 14 views |
@@ -46,9 +46,9 @@ migration pilot; all other rows are the S/4HANA analytics add-on.
 ```
 PRODUCT_CHECKLIST.md         which areas get a package, fit, status per product
 ADT_SETUP.md                 push / activate / fix loop against a real system (abap-adt-api)
-build_package.py             customer build: --product <name> <modules> → abapGit ZIP in dist/<product>/
+build_package.py             customer build: --product <name> <modules> â†’ abapGit ZIP in dist/<product>/
                              (migration-source products also ship mapping/ with mapping files and docs)
-build_bundle.py              multi-product build: product:module ... → ONE prefix/package ZIP incl. bridge links
+build_bundle.py              multi-product build: product:module ... â†’ ONE prefix/package ZIP incl. bridge links
 tools/                       shared tooling (every tool takes --product <name>)
   check_all.py               all quality gates for all products (or --only <name>; --fix regenerates)
   new_product.py             scaffold a new product folder
@@ -77,7 +77,7 @@ Inside an analytics product, the architecture is the same everywhere (see `packa
 object is a self-contained module. Cross-object associations live in link views that ship only when
 all their modules are selected. Hard dependencies are added automatically by the build.
 
-Links between products (e.g. EAM equipment ↔ FI-AA fixed asset) live in `packages/bridge`. Each bridge
+Links between products (e.g. EAM equipment â†” FI-AA fixed asset) live in `packages/bridge`. Each bridge
 link declares qualified modules (`eam:equipment` + `fi_aa:fixed_asset`) and ships only through
 `build_bundle.py`, only when all of them are selected. A bundle rewrites every product prefix and package
 to one target prefix and one target package.
