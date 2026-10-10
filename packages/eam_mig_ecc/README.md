@@ -21,13 +21,14 @@ S/4HANA as the project needs.
 
 | Layer | Naming | Rule (checked by the validators) |
 |---|---|---|
-| Basic | `ZEMX_I_<Entity>` (e.g. `ZEMX_I_EquipmentHeader` on EQUI) | Exactly one table per view; filters on that table only (e.g. `OBJTY = 'A'`, status `I0076`). Technical field names → semantic names. |
-| Composite | `ZEMX_I_<Object>` (e.g. `ZEMX_I_Equipment`) | Reads only basic / composite views. Assembles the business object: joins (equipment = EQUI + current EQUZ segment + ILOA + work center + deletion flag), internal IDs → business keys (work center name + plant, class / characteristic names), current versions, scope flags. |
-| Consumption | `ZEMX_C_<Object>Mig`, `ZEMX_C_<Object>MigCount` | Reads composite (or basic) views. One view per migration structure: only records in scope, only the fields that are migrated, values unchanged. The only layer with `@Analytics.dataExtraction.enabled: true`. Count views for reconciliation. |
+| Basic | `ZEMX_I_<Entity>` (e.g. `ZEMX_I_EquipmentHeader` on EQUI) | Exactly one table per view, no joins; filters on that table only (e.g. `OBJTY = 'A'`, status `I0076`). Technical field names → semantic names. Relationships to other basic views are declared as **associations** and exposed (e.g. `ZEMX_I_EquipmentTimeSegment` → `_LocAcctAssignment`, `_MainWorkCenter`). |
+| Composite | `ZEMX_I_<Object>` (e.g. `ZEMX_I_Equipment`) | Reads only basic / composite views. Related data is read through the associations with **path expressions** (`seg._MainWorkCenter.WorkCenter`, `eq._DeletionFlag.StatusCode`). **Inner joins** only where they decide which rows exist: current time segment (EQUZ), latest task list version, operation assignment ↔ operation, last reading, PM data of notifications / orders (QMIH, AFIH, AFKO, AFVV). |
+| Consumption | `ZEMX_C_<Object>Mig`, `ZEMX_C_<Object>MigCount` | Reads composite (or basic) views. One view per migration structure: only records in scope, only the fields that are migrated, values unchanged. Child structures reach their parent through an association for the scope filter (e.g. operations: `where _MaintOrder.IsClosed = ''`). The only layer with `@Analytics.dataExtraction.enabled: true`. Count views for reconciliation. |
 
 Layer naming follows the SAP VDM convention (`I_` for basic and composite views, `C_` for consumption views,
 layer set by `@VDM.viewType`). The order of the layers (upper layers read only the same or lower layers,
-only basic views read tables) is checked by `tools/tests/test_build_migration.py`.
+only basic views read tables, no left outer joins in composite views) is checked by
+`tools/tests/test_build_migration.py`.
 
 ## Modules and load order
 

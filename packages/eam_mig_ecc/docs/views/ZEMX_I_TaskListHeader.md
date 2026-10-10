@@ -26,7 +26,7 @@ All versions (change-number states) of maintenance task list headers of type A (
 
 ## Associations defined here
 
-- none
+- `_MainWorkCenter` → `ZEMX_I_WorkCenterHeader` [0..1]
 
 ## Access control
 

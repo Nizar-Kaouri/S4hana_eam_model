@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_ObjectClassAssgmt
   as select from kssk
+  association [0..1] to ZEMX_I_ClassHeader as _Class on $projection.ClassInternalID = _Class.ClassInternalID
 {
       // TODO-VERIFY[H] XCL-001: KSSK/AUSP-OBJEK is the equipment number for class type 002 and the internal functional location key for 003
   key kssk.objek as ClassifiedObject,
@@ -22,6 +23,7 @@ define view ZEMX_I_ObjectClassAssgmt
   key kssk.adzhl as ChangeCounter,
       // TODO-VERIFY[M] XCL-002: KSSK-STATU, KSSK-LKENZ, AUSP-ATCOD, AUSP-LKENZ field names
       kssk.statu as ClassificationStatus,
-      kssk.lkenz as IsMarkedForDeletion
+      kssk.lkenz as IsMarkedForDeletion,
+      _Class
 }
 where kssk.mafid = 'O'

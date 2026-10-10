@@ -15,10 +15,6 @@
 define view ZEMX_I_MaintNotification
   as select from ZEMX_I_NotificationHeader as hdr
     inner join ZEMX_I_NotificationMaintData as pm on pm.MaintenanceNotification = hdr.MaintenanceNotification
-    left outer join ZEMX_I_LocAcctAssignment as loc on loc.LocAcctAssignment = pm.LocAcctAssignment
-    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = hdr.MainWorkCenterInternalID
-    left outer join ZEMX_I_StatusNotifCompleted as noco on noco.ObjectNumber = hdr.ObjectNumber
-    left outer join ZEMX_I_StatusDeletionFlag as dlfl on dlfl.ObjectNumber = hdr.ObjectNumber
 {
   key hdr.MaintenanceNotification    as MaintenanceNotification,
       hdr.NotificationType           as NotificationType,
@@ -35,21 +31,21 @@ define view ZEMX_I_MaintNotification
       hdr.NotificationCode           as NotificationCode,
       hdr.MaintenanceOrder           as MaintenanceOrder,
       pm.Equipment                   as Equipment,
-      loc.FunctionalLocation         as FunctionalLocation,
+      pm._LocAcctAssignment.FunctionalLocation as FunctionalLocation,
       pm.MaintenancePlanningPlant    as MaintenancePlanningPlant,
       pm.MaintenancePlannerGroup     as MaintenancePlannerGroup,
-      wc.WorkCenter                  as MainWorkCenter,
-      wc.Plant                       as MainWorkCenterPlant,
-      loc.MaintenancePlant           as MaintenancePlant,
-      loc.PlantSection               as PlantSection,
+      hdr._MainWorkCenter.WorkCenter as MainWorkCenter,
+      hdr._MainWorkCenter.Plant      as MainWorkCenterPlant,
+      pm._LocAcctAssignment.MaintenancePlant as MaintenancePlant,
+      pm._LocAcctAssignment.PlantSection as PlantSection,
       pm.MaintenanceObjectIsDown     as MaintenanceObjectIsDown,
       pm.MalfunctionStartDate        as MalfunctionStartDate,
       pm.MalfunctionStartTime        as MalfunctionStartTime,
       pm.MalfunctionEndDate          as MalfunctionEndDate,
       pm.MalfunctionEndTime          as MalfunctionEndTime,
       hdr.ObjectNumber               as ObjectNumber,
-      case noco.StatusCode when 'I0072' then 'X' else '' end as IsCompleted,
-      case dlfl.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
+      case hdr._CompletedFlag.StatusCode when 'I0072' then 'X' else '' end as IsCompleted,
+      case hdr._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
       hdr.CreationDate               as CreationDate,
       hdr.CreatedByUser              as CreatedByUser,
       hdr.LastChangeDate             as LastChangeDate

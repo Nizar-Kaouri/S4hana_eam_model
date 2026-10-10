@@ -14,6 +14,8 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_MaintenanceItemHeader
   as select from mpos
+  association [0..1] to ZEMX_I_LocAcctAssignment as _LocAcctAssignment on $projection.LocAcctAssignment = _LocAcctAssignment.LocAcctAssignment
+  association [0..1] to ZEMX_I_WorkCenterHeader as _MainWorkCenter on $projection.MainWorkCenterInternalID = _MainWorkCenter.WorkCenterInternalID
 {
   key mpos.wapos as MaintenanceItem,
       mpos.warpl as MaintenancePlan,
@@ -34,5 +36,7 @@ define view ZEMX_I_MaintenanceItemHeader
       mpos.plnal as TaskListGroupCounter,
       mpos.iloan as LocAcctAssignment,
       mpos.ersdt as CreationDate,
-      mpos.aedat as LastChangeDate
+      mpos.aedat as LastChangeDate,
+      _LocAcctAssignment,
+      _MainWorkCenter
 }

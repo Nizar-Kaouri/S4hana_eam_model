@@ -23,7 +23,7 @@ Equipment master records (EQUI): category, object type, manufacturer, acquisitio
 
 ## Associations defined here
 
-- none
+- `_DeletionFlag` → `ZEMX_I_StatusDeletionFlag` [0..1]
 
 ## Access control
 

@@ -14,8 +14,6 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintenanceItem
   as select from ZEMX_I_MaintenanceItemHeader as itm
-    left outer join ZEMX_I_LocAcctAssignment as loc on loc.LocAcctAssignment = itm.LocAcctAssignment
-    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = itm.MainWorkCenterInternalID
 {
   key itm.MaintenanceItem            as MaintenanceItem,
       itm.MaintenancePlan            as MaintenancePlan,
@@ -24,8 +22,8 @@ define view ZEMX_I_MaintenanceItem
       itm.FunctionalLocation         as FunctionalLocation,
       itm.MaintenancePlanningPlant   as MaintenancePlanningPlant,
       itm.MaintenancePlannerGroup    as MaintenancePlannerGroup,
-      wc.WorkCenter                  as MainWorkCenter,
-      wc.Plant                       as MainWorkCenterPlant,
+      itm._MainWorkCenter.WorkCenter as MainWorkCenter,
+      itm._MainWorkCenter.Plant      as MainWorkCenterPlant,
       itm.MaintenanceOrderType       as MaintenanceOrderType,
       itm.NotificationType           as NotificationType,
       itm.MaintenanceActivityType    as MaintenanceActivityType,
@@ -33,7 +31,7 @@ define view ZEMX_I_MaintenanceItem
       itm.TaskListType               as TaskListType,
       itm.TaskListGroup              as TaskListGroup,
       itm.TaskListGroupCounter       as TaskListGroupCounter,
-      loc.BusinessArea               as BusinessArea,
+      itm._LocAcctAssignment.BusinessArea as BusinessArea,
       itm.MainWorkCenterInternalID   as MainWorkCenterInternalID,
       itm.LocAcctAssignment          as LocAcctAssignment,
       itm.CreationDate               as CreationDate,

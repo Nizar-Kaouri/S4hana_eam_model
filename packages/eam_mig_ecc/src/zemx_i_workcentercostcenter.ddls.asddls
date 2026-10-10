@@ -14,16 +14,15 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_WorkCenterCostCenter
   as select from ZEMX_I_WorkCenterCostAssgmt as cc
-    inner join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = cc.WorkCenterInternalID
 {
-  key cc.WorkCenterInternalID    as WorkCenterInternalID,
-  key cc.ActivityTypeSet         as ActivityTypeSet,
-  key cc.ValidityEndDate         as ValidityEndDate,
-  key cc.CostCenterAssgmtCounter as CostCenterAssgmtCounter,
-      wc.WorkCenter              as WorkCenter,
-      wc.Plant                   as Plant,
-      cc.ValidityStartDate       as ValidityStartDate,
-      cc.ControllingArea         as ControllingArea,
-      cc.CostCenter              as CostCenter,
-      wc.IsMarkedForDeletion     as IsMarkedForDeletion
+  key cc.WorkCenterInternalID        as WorkCenterInternalID,
+  key cc.ActivityTypeSet             as ActivityTypeSet,
+  key cc.ValidityEndDate             as ValidityEndDate,
+  key cc.CostCenterAssgmtCounter     as CostCenterAssgmtCounter,
+      cc._WorkCenter.WorkCenter      as WorkCenter,
+      cc._WorkCenter.Plant           as Plant,
+      cc.ValidityStartDate           as ValidityStartDate,
+      cc.ControllingArea             as ControllingArea,
+      cc.CostCenter                  as CostCenter,
+      cc._WorkCenter.IsMarkedForDeletion as IsMarkedForDeletion
 }

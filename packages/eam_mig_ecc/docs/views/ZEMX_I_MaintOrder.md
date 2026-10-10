@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `ZEMX_I_OrderMasterData`, join `ZEMX_I_OrderMaintData`, join `ZEMX_I_OrderHeaderPlanning`, join `ZEMX_I_LocAcctAssignment`, join `ZEMX_I_WorkCenterHeader`, join `ZEMX_I_StatusTechCompleted`, join `ZEMX_I_StatusClosed`, join `ZEMX_I_StatusDeletionFlag` |
+| Data source | `ZEMX_I_OrderMasterData`, join `ZEMX_I_OrderMaintData`, join `ZEMX_I_OrderHeaderPlanning` |
 | Source file | `src/zemx_i_maintorder.ddls.asddls` |
 
 ## Purpose

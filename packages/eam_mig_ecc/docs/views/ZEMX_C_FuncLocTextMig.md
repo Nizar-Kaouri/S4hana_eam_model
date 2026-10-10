@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_FuncLocDesc`, join `ZEMX_I_FuncLoc` |
+| Data source | `ZEMX_I_FuncLocDesc` |
 | Source file | `src/zemx_c_funcloctextmig.ddls.asddls` |
 
 ## Purpose
@@ -24,7 +24,7 @@ Descriptions of the functional locations in scope per language.
 
 ## Associations defined here
 
-- none
+- `_FuncLoc` → `ZEMX_I_FuncLoc` [0..1]
 
 ## Access control
 

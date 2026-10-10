@@ -55,7 +55,15 @@ class BuildMigrationTest(unittest.TestCase):
                 ref_name = next(n for n in layer if n.upper() == ref)
                 self.assertLessEqual(rank[layer[ref_name]], rank[lay], f"{name} ({lay}) reads {ref_name}")
             if lay == "basic":
-                self.assertEqual(refs, set(), f"basic view {name} must read one table only")
+                text = bp.strip_comments((ECC / "src" / f"{name.lower()}.ddls.asddls").read_text(), "DDLS")
+                self.assertRegex(text, r"as select from [a-z0-9_]+\s", f"basic view {name} must select from one table")
+                self.assertNotRegex(text, r"\bjoin\b", f"basic view {name} must not join")
+                for ref in refs:  # only associations to other basic views
+                    ref_name = next(n for n in layer if n.upper() == ref)
+                    self.assertEqual(layer[ref_name], "basic", f"{name} associates {ref_name}")
+            if lay == "composite":
+                text = (ECC / "src" / f"{name.lower()}.ddls.asddls").read_text()
+                self.assertNotIn("left outer join", text, f"{name}: use an association instead of a left outer join")
 
     def test_sql_view_name_too_long_for_prefix(self):
         with self.assertRaises(bp.BuildError) as ctx:
@@ -64,7 +72,7 @@ class BuildMigrationTest(unittest.TestCase):
         self.assertIn("SQL view name", str(ctx.exception))
 
     def test_sql_view_name_is_not_a_reference(self):
-        self.assertEqual(bp.references("DDLS", "ZEMX_I_EquipmentHeader", "ZEMX_", ECC), set())
+        self.assertEqual(bp.references("DDLS", "ZEMX_I_EquipmentDesc", "ZEMX_", ECC), set())
 
     def test_bundle_refuses_mixed_systems(self):
         args = argparse.Namespace(all=False, product_all=None, modules=["eam:equipment", "eam_mig_ecc:equipment"])

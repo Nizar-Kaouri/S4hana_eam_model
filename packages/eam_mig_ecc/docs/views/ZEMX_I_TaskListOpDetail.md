@@ -26,7 +26,7 @@ Operation details of task lists (PLPO): operation number, control key, work cent
 
 ## Associations defined here
 
-- none
+- `_WorkCenter` → `ZEMX_I_WorkCenterHeader` [0..1]
 
 ## Access control
 

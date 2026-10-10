@@ -13,7 +13,7 @@
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_MaintenanceItemMig
   as select from ZEMX_I_MaintenanceItem as src
-    inner join ZEMX_I_MaintenancePlan as obj on obj.MaintenancePlan = src.MaintenancePlan
+  association [0..1] to ZEMX_I_MaintenancePlan as _MaintenancePlan on _MaintenancePlan.MaintenancePlan = $projection.MaintenancePlan
 {
   key src.MaintenanceItem            as MaintenanceItem,
       src.MaintenancePlan            as MaintenancePlan,
@@ -34,4 +34,4 @@ define view ZEMX_C_MaintenanceItemMig
       src.BusinessArea               as BusinessArea,
       src.LastChangeDate             as LastChangeDate
 }
-where obj.IsMarkedForDeletion = ''
+where _MaintenancePlan.IsMarkedForDeletion = ''

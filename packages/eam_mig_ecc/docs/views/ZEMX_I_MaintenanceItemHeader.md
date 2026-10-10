@@ -23,7 +23,8 @@ Maintenance items (MPOS) with reference object, planning data, order / notificat
 
 ## Associations defined here
 
-- none
+- `_LocAcctAssignment` → `ZEMX_I_LocAcctAssignment` [0..1]
+- `_MainWorkCenter` → `ZEMX_I_WorkCenterHeader` [0..1]
 
 ## Access control
 

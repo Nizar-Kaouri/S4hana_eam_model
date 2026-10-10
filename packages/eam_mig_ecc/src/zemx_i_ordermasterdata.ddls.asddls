@@ -15,6 +15,9 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_OrderMasterData
   as select from aufk
+  association [0..1] to ZEMX_I_StatusTechCompleted as _TechCompletedFlag on $projection.ObjectNumber = _TechCompletedFlag.ObjectNumber
+  association [0..1] to ZEMX_I_StatusClosed as _ClosedFlag on $projection.ObjectNumber = _ClosedFlag.ObjectNumber
+  association [0..1] to ZEMX_I_StatusDeletionFlag as _DeletionFlag on $projection.ObjectNumber = _DeletionFlag.ObjectNumber
 {
   key aufk.aufnr as MaintenanceOrder,
       aufk.auart as MaintenanceOrderType,
@@ -27,6 +30,9 @@ define view ZEMX_I_OrderMasterData
       aufk.objnr as ObjectNumber,
       aufk.erdat as CreationDate,
       aufk.ernam as CreatedByUser,
-      aufk.aedat as LastChangeDate
+      aufk.aedat as LastChangeDate,
+      _TechCompletedFlag,
+      _ClosedFlag,
+      _DeletionFlag
 }
 where aufk.autyp = '30'

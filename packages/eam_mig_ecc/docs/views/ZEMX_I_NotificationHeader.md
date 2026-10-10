@@ -23,7 +23,9 @@ Notification headers (QMEL): type, texts, dates, priority, coding, order referen
 
 ## Associations defined here
 
-- none
+- `_MainWorkCenter` → `ZEMX_I_WorkCenterHeader` [0..1]
+- `_CompletedFlag` → `ZEMX_I_StatusNotifCompleted` [0..1]
+- `_DeletionFlag` → `ZEMX_I_StatusDeletionFlag` [0..1]
 
 ## Access control
 

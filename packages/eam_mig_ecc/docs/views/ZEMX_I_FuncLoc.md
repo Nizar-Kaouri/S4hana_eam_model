@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_FuncLocHeader`, join `ZEMX_I_LocAcctAssignment`, join `ZEMX_I_StatusDeletionFlag` |
+| Data source | `ZEMX_I_FuncLocHeader` |
 | Source file | `src/zemx_i_funcloc.ddls.asddls` |
 
 ## Purpose
@@ -35,4 +35,4 @@ Read the hierarchy of plant 1000 top-down: filter MaintenancePlanningPlant = '10
 
 ## Open verification items
 
-`XFL-G01`, `XGEN-003` - see `BATCH_REPORT.md`.
+`XFL-G01`, `XGEN-003`, `XGEN-005` - see `BATCH_REPORT.md`.

@@ -26,7 +26,7 @@ Cost center assignments of work centers per validity period (CRCO).
 
 ## Associations defined here
 
-- none
+- `_WorkCenter` → `ZEMX_I_WorkCenterHeader` [0..1]
 
 ## Access control
 

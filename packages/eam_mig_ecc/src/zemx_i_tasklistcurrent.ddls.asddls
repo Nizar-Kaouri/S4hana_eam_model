@@ -15,7 +15,6 @@
 define view ZEMX_I_TaskListCurrent
   as select from ZEMX_I_TaskListHeader as hdr
     inner join ZEMX_I_TaskListLatestVersion as latest on latest.TaskListType = hdr.TaskListType and latest.TaskListGroup = hdr.TaskListGroup and latest.TaskListGroupCounter = hdr.TaskListGroupCounter and latest.TaskListVersionCounter = hdr.TaskListVersionCounter
-    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = hdr.MainWorkCenterInternalID
 {
   key hdr.TaskListType               as TaskListType,
   key hdr.TaskListGroup              as TaskListGroup,
@@ -27,8 +26,8 @@ define view ZEMX_I_TaskListCurrent
       hdr.TaskListUsage              as TaskListUsage,
       hdr.TaskListStatus             as TaskListStatus,
       hdr.MaintenancePlannerGroup    as MaintenancePlannerGroup,
-      wc.WorkCenter                  as MainWorkCenter,
-      wc.Plant                       as MainWorkCenterPlant,
+      hdr._MainWorkCenter.WorkCenter as MainWorkCenter,
+      hdr._MainWorkCenter.Plant      as MainWorkCenterPlant,
       hdr.MaintenanceStrategy        as MaintenanceStrategy,
       hdr.MaintObjectSystemCondition as MaintObjectSystemCondition,
       hdr.MainWorkCenterInternalID   as MainWorkCenterInternalID,

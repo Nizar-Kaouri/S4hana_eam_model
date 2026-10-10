@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_EquipmentHeader
   as select from equi
+  association [0..1] to ZEMX_I_StatusDeletionFlag as _DeletionFlag on $projection.ObjectNumber = _DeletionFlag.ObjectNumber
 {
   key equi.equnr as Equipment,
       equi.eqtyp as EquipmentCategory,
@@ -45,5 +46,6 @@ define view ZEMX_I_EquipmentHeader
       equi.objnr as ObjectNumber,
       equi.erdat as CreationDate,
       equi.ernam as CreatedByUser,
-      equi.aedat as LastChangeDate
+      equi.aedat as LastChangeDate,
+      _DeletionFlag
 }

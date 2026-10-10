@@ -14,8 +14,7 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintenancePlan
   as select from ZEMX_I_MaintenancePlanHeader as pl
-    left outer join ZEMX_I_MaintPlanLastCall as lastcall on lastcall.MaintenancePlan = pl.MaintenancePlan
-    left outer join ZEMX_I_StatusDeletionFlag as dlfl on dlfl.ObjectNumber = pl.ObjectNumber
+  association [0..1] to ZEMX_I_MaintPlanLastCall as _LastCall on $projection.MaintenancePlan = _LastCall.MaintenancePlan
 {
   key pl.MaintenancePlan             as MaintenancePlan,
       pl.MaintenancePlanDesc         as MaintenancePlanDesc,
@@ -32,11 +31,11 @@ define view ZEMX_I_MaintenancePlan
       pl.EarlyCompletionShiftFactor  as EarlyCompletionShiftFactor,
       pl.EarlyCompletionTolerance    as EarlyCompletionTolerance,
       pl.FactoryCalendar             as FactoryCalendar,
-      lastcall.LastCallNumber        as LastCallNumber,
-      lastcall.LastCompletionDate    as LastCompletionDate,
       pl.ObjectNumber                as ObjectNumber,
-      case dlfl.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
+      case pl._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
       pl.CreationDate                as CreationDate,
       pl.CreatedByUser               as CreatedByUser,
-      pl.LastChangeDate              as LastChangeDate
+      pl.LastChangeDate              as LastChangeDate,
+      _LastCall.LastCallNumber       as LastCallNumber,
+      _LastCall.LastCompletionDate   as LastCompletionDate
 }

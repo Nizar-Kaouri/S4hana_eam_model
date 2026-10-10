@@ -24,7 +24,7 @@ Order operations (AFVC): number, control key, text, work center, plant, activity
 
 ## Associations defined here
 
-- none
+- `_WorkCenter` → `ZEMX_I_WorkCenterHeader` [0..1]
 
 ## Access control
 

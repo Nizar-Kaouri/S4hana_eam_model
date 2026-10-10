@@ -27,7 +27,7 @@ Characteristic values of objects (AUSP, object indicator 'O').
 
 ## Associations defined here
 
-- none
+- `_Characteristic` → `ZEMX_I_Characteristic` [0..1]
 
 ## Access control
 

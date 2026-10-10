@@ -23,7 +23,8 @@ Functional location master records (IFLOT) with category, hierarchy, planning da
 
 ## Associations defined here
 
-- none
+- `_LocAcctAssignment` → `ZEMX_I_LocAcctAssignment` [0..1]
+- `_DeletionFlag` → `ZEMX_I_StatusDeletionFlag` [0..1]
 
 ## Access control
 

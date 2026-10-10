@@ -26,7 +26,7 @@ Class assignments of objects (KSSK, object indicator 'O').
 
 ## Associations defined here
 
-- none
+- `_Class` → `ZEMX_I_ClassHeader` [0..1]
 
 ## Access control
 

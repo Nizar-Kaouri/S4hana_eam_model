@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_WorkCenterCostAssgmt
   as select from crco
+  association [0..1] to ZEMX_I_WorkCenterHeader as _WorkCenter on $projection.WorkCenterInternalID = _WorkCenter.WorkCenterInternalID
 {
   key crco.objid as WorkCenterInternalID,
       // TODO-VERIFY[H] XWC-004: CRCO key structure (OBJTY, OBJID, LASET, ENDDA, LANUM) and field names
@@ -22,6 +23,7 @@ define view ZEMX_I_WorkCenterCostAssgmt
   key crco.lanum as CostCenterAssgmtCounter,
       crco.begda as ValidityStartDate,
       crco.kokrs as ControllingArea,
-      crco.kostl as CostCenter
+      crco.kostl as CostCenter,
+      _WorkCenter
 }
 where crco.objty = 'A'

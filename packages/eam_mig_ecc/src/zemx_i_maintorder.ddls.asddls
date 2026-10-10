@@ -16,11 +16,6 @@ define view ZEMX_I_MaintOrder
   as select from ZEMX_I_OrderMasterData as ord
     inner join ZEMX_I_OrderMaintData as pm on pm.MaintenanceOrder = ord.MaintenanceOrder
     inner join ZEMX_I_OrderHeaderPlanning as plan on plan.MaintenanceOrder = ord.MaintenanceOrder
-    left outer join ZEMX_I_LocAcctAssignment as loc on loc.LocAcctAssignment = pm.LocAcctAssignment
-    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = pm.MainWorkCenterInternalID
-    left outer join ZEMX_I_StatusTechCompleted as teco on teco.ObjectNumber = ord.ObjectNumber
-    left outer join ZEMX_I_StatusClosed as clsd on clsd.ObjectNumber = ord.ObjectNumber
-    left outer join ZEMX_I_StatusDeletionFlag as dlfl on dlfl.ObjectNumber = ord.ObjectNumber
 {
   key ord.MaintenanceOrder           as MaintenanceOrder,
       ord.MaintenanceOrderType       as MaintenanceOrderType,
@@ -31,17 +26,17 @@ define view ZEMX_I_MaintOrder
       plan.MaintOrdBasicEndDate      as MaintOrdBasicEndDate,
       pm.MaintenancePlanningPlant    as MaintenancePlanningPlant,
       pm.MaintenancePlannerGroup     as MaintenancePlannerGroup,
-      wc.WorkCenter                  as MainWorkCenter,
-      wc.Plant                       as MainWorkCenterPlant,
-      loc.MaintenancePlant           as MaintenancePlant,
+      pm._MainWorkCenter.WorkCenter  as MainWorkCenter,
+      pm._MainWorkCenter.Plant       as MainWorkCenterPlant,
+      pm._LocAcctAssignment.MaintenancePlant as MaintenancePlant,
       ord.CompanyCode                as CompanyCode,
       ord.BusinessArea               as BusinessArea,
       ord.ControllingArea            as ControllingArea,
       ord.ResponsibleCostCenter      as ResponsibleCostCenter,
-      loc.CostCenter                 as CostCenter,
+      pm._LocAcctAssignment.CostCenter as CostCenter,
       pm.MaintenanceNotification     as MaintenanceNotification,
       pm.Equipment                   as Equipment,
-      loc.FunctionalLocation         as FunctionalLocation,
+      pm._LocAcctAssignment.FunctionalLocation as FunctionalLocation,
       pm.MaintenancePlan             as MaintenancePlan,
       pm.MaintenanceItem             as MaintenanceItem,
       pm.MaintObjectSystemCondition  as MaintObjectSystemCondition,
@@ -51,9 +46,9 @@ define view ZEMX_I_MaintOrder
       plan.TaskListGroupCounter      as TaskListGroupCounter,
       ord.Currency                   as Currency,
       ord.ObjectNumber               as ObjectNumber,
-      case teco.StatusCode when 'I0045' then 'X' else '' end as IsTechnicallyCompleted,
-      case clsd.StatusCode when 'I0046' then 'X' else '' end as IsClosed,
-      case dlfl.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
+      case ord._TechCompletedFlag.StatusCode when 'I0045' then 'X' else '' end as IsTechnicallyCompleted,
+      case ord._ClosedFlag.StatusCode when 'I0046' then 'X' else '' end as IsClosed,
+      case ord._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
       ord.CreationDate               as CreationDate,
       ord.CreatedByUser              as CreatedByUser,
       ord.LastChangeDate             as LastChangeDate

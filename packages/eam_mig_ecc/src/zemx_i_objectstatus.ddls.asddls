@@ -14,13 +14,12 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_ObjectStatus
   as select from ZEMX_I_ObjectStatusEntry as st
-    left outer join ZEMX_I_StatusObjectInfo as obj on obj.ObjectNumber = st.ObjectNumber
 {
-  key st.ObjectNumber       as ObjectNumber,
-  key st.StatusCode         as StatusCode,
-      st.StatusObjectType   as StatusObjectType,
-      st.StatusObjectKey    as StatusObjectKey,
-      st.StatusKind         as StatusKind,
-      obj.StatusProfile     as StatusProfile,
-      st.StatusChangeNumber as StatusChangeNumber
+  key st.ObjectNumber                as ObjectNumber,
+  key st.StatusCode                  as StatusCode,
+      st.StatusObjectType            as StatusObjectType,
+      st.StatusObjectKey             as StatusObjectKey,
+      st.StatusKind                  as StatusKind,
+      st._StatusObject.StatusProfile as StatusProfile,
+      st.StatusChangeNumber          as StatusChangeNumber
 }

@@ -232,7 +232,7 @@
     {
       "consumption_view": "ZEMX_C_MaintOrderOperationMig",
       "source_view": "ZEMX_I_MaintOrderOperation",
-      "scope_filter": "obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''",
+      "scope_filter": "_MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''",
       "keys": [
         "MaintenanceOrder",
         "MaintenanceOrderOperation",
@@ -335,7 +335,7 @@
     {
       "consumption_view": "ZEMX_C_MaintOrderComponentMig",
       "source_view": "ZEMX_I_MaintOrderComponent",
-      "scope_filter": "src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''",
+      "scope_filter": "src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and _MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''",
       "keys": [
         "MaintenanceOrder",
         "ReservationItem"
@@ -444,19 +444,19 @@
     {
       "view": "ZEMX_I_MaintOrder",
       "element": "IsTechnicallyCompleted",
-      "source": "derived: case teco.StatusCode when 'I0045' then 'X' else '' end from JEST-STAT",
+      "source": "derived: case ord._TechCompletedFlag.StatusCode when 'I0045' then 'X' else '' end from JEST-STAT",
       "reason": "scope"
     },
     {
       "view": "ZEMX_I_MaintOrder",
       "element": "IsClosed",
-      "source": "derived: case clsd.StatusCode when 'I0046' then 'X' else '' end from JEST-STAT",
+      "source": "derived: case ord._ClosedFlag.StatusCode when 'I0046' then 'X' else '' end from JEST-STAT",
       "reason": "scope"
     },
     {
       "view": "ZEMX_I_MaintOrder",
       "element": "IsMarkedForDeletion",
-      "source": "derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
+      "source": "derived: case ord._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
       "reason": "scope"
     },
     {

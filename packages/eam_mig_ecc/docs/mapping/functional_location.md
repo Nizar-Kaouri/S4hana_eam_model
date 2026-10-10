@@ -53,7 +53,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 - Source: `ZEMX_I_FuncLocDesc`
 - Keys: `FunctionalLocation`, `Language`
-- Scope: `obj.IsMarkedForDeletion = ''`
+- Scope: `_FuncLoc.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -66,7 +66,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | View | Element | Source | Reason |
 |---|---|---|---|
 | `ZEMX_I_FuncLoc` | `ObjectNumber` | IFLOT-OBJNR | not migrated: status object number - regenerated on S/4HANA; joins status and partners |
-| `ZEMX_I_FuncLoc` | `IsMarkedForDeletion` | derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
+| `ZEMX_I_FuncLoc` | `IsMarkedForDeletion` | derived: case fl._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_FuncLoc` | `CreationDate` | IFLOT-ERDAT | information only |
 | `ZEMX_I_FuncLoc` | `CreatedByUser` | IFLOT-ERNAM | information only |
 | `ZEMX_I_FuncLocDesc` | `HasLongText` | IFLOTX-KZLTX | information only |

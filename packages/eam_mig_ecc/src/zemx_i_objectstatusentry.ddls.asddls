@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_ObjectStatusEntry
   as select from jest
+  association [0..1] to ZEMX_I_StatusObjectInfo as _StatusObject on $projection.ObjectNumber = _StatusObject.ObjectNumber
 {
   key jest.objnr                     as ObjectNumber,
   key jest.stat                      as StatusCode,
@@ -21,6 +22,7 @@ define view ZEMX_I_ObjectStatusEntry
       substring( jest.objnr, 1, 2 )  as StatusObjectType,
       substring( jest.objnr, 3, 30 ) as StatusObjectKey,
       substring( jest.stat, 1, 1 )   as StatusKind,
-      jest.chgnr                     as StatusChangeNumber
+      jest.chgnr                     as StatusChangeNumber,
+      _StatusObject
 }
 where jest.inact = ''

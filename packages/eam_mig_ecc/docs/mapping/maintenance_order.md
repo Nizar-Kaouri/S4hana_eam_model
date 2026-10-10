@@ -52,7 +52,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 - Source: `ZEMX_I_MaintOrderOperation`
 - Keys: `MaintenanceOrder`, `MaintenanceOrderOperation`, `MaintenanceOrderSubOperation`
-- Scope: `obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''`
+- Scope: `_MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -74,7 +74,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 - Source: `ZEMX_I_MaintOrderComponent`
 - Keys: `MaintenanceOrder`, `ReservationItem`
-- Scope: `src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''`
+- Scope: `src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and _MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -97,9 +97,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 |---|---|---|---|
 | `ZEMX_I_MaintOrder` | `OrderRoutingNumber` | AFKO-AUFPL | not migrated: internal routing number - regenerated on S/4HANA |
 | `ZEMX_I_MaintOrder` | `ObjectNumber` | AUFK-OBJNR | not migrated: status object number - regenerated on S/4HANA |
-| `ZEMX_I_MaintOrder` | `IsTechnicallyCompleted` | derived: case teco.StatusCode when 'I0045' then 'X' else '' end from JEST-STAT | scope flag |
-| `ZEMX_I_MaintOrder` | `IsClosed` | derived: case clsd.StatusCode when 'I0046' then 'X' else '' end from JEST-STAT | scope flag |
-| `ZEMX_I_MaintOrder` | `IsMarkedForDeletion` | derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
+| `ZEMX_I_MaintOrder` | `IsTechnicallyCompleted` | derived: case ord._TechCompletedFlag.StatusCode when 'I0045' then 'X' else '' end from JEST-STAT | scope flag |
+| `ZEMX_I_MaintOrder` | `IsClosed` | derived: case ord._ClosedFlag.StatusCode when 'I0046' then 'X' else '' end from JEST-STAT | scope flag |
+| `ZEMX_I_MaintOrder` | `IsMarkedForDeletion` | derived: case ord._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_MaintOrder` | `CreationDate` | AUFK-ERDAT | information only |
 | `ZEMX_I_MaintOrder` | `CreatedByUser` | AUFK-ERNAM | information only |
 | `ZEMX_I_MaintOrderOperation` | `OrderOperationInternalID` | AFVC-APLZL | not migrated: internal counter - regenerated on S/4HANA |

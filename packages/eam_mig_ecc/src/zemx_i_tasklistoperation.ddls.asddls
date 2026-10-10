@@ -15,7 +15,6 @@
 define view ZEMX_I_TaskListOperation
   as select from ZEMX_I_TaskListOpAssignment as asg
     inner join ZEMX_I_TaskListOpDetail as op on op.TaskListType = asg.TaskListType and op.TaskListGroup = asg.TaskListGroup and op.TaskListOperationInternalId = asg.TaskListOperationInternalId
-    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = op.WorkCenterInternalID
 {
   key asg.TaskListType               as TaskListType,
   key asg.TaskListGroup              as TaskListGroup,
@@ -28,8 +27,8 @@ define view ZEMX_I_TaskListOperation
       op.TaskListSubOperation        as TaskListSubOperation,
       op.OperationControlKey         as OperationControlKey,
       op.OperationText               as OperationText,
-      wc.WorkCenter                  as WorkCenter,
-      wc.Plant                       as WorkCenterPlant,
+      op._WorkCenter.WorkCenter      as WorkCenter,
+      op._WorkCenter.Plant           as WorkCenterPlant,
       op.Plant                       as Plant,
       op.ActivityType                as ActivityType,
       @Semantics.quantity.unitOfMeasure: 'PlannedWorkQuantityUnit'

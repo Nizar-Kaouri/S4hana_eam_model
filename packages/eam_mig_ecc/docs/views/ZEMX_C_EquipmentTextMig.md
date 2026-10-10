@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_EquipmentDesc`, join `ZEMX_I_Equipment` |
+| Data source | `ZEMX_I_EquipmentDesc` |
 | Source file | `src/zemx_c_equipmenttextmig.ddls.asddls` |
 
 ## Purpose
@@ -24,7 +24,7 @@ Descriptions of the equipment in scope per language.
 
 ## Associations defined here
 
-- none
+- `_Equipment` → `ZEMX_I_Equipment` [0..1]
 
 ## Access control
 

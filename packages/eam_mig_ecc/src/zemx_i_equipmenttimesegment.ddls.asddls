@@ -14,6 +14,8 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_EquipmentTimeSegment
   as select from equz
+  association [0..1] to ZEMX_I_LocAcctAssignment as _LocAcctAssignment on $projection.LocAcctAssignment = _LocAcctAssignment.LocAcctAssignment
+  association [0..1] to ZEMX_I_WorkCenterHeader as _MainWorkCenter on $projection.MainWorkCenterInternalID = _MainWorkCenter.WorkCenterInternalID
 {
   key equz.equnr as Equipment,
   key equz.datbi as ValidityEndDate,
@@ -28,5 +30,7 @@ define view ZEMX_I_EquipmentTimeSegment
       equz.heqnr as EquipInstallationPositionNmbr,
       // TODO-VERIFY[M] XEQ-003: EQUZ-TIDNR is the technical identification number
       equz.tidnr as TechnicalIdentificationNumber,
-      equz.iloan as LocAcctAssignment
+      equz.iloan as LocAcctAssignment,
+      _LocAcctAssignment,
+      _MainWorkCenter
 }

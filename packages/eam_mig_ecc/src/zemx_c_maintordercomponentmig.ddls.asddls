@@ -12,7 +12,7 @@
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_MaintOrderComponentMig
   as select from ZEMX_I_MaintOrderComponent as src
-    inner join ZEMX_I_MaintOrder as obj on obj.MaintenanceOrder = src.MaintenanceOrder
+  association [0..1] to ZEMX_I_MaintOrder as _MaintOrder on _MaintOrder.MaintenanceOrder = $projection.MaintenanceOrder
 {
   key src.MaintenanceOrder           as MaintenanceOrder,
   key src.ReservationItem            as ReservationItem,
@@ -30,4 +30,4 @@ define view ZEMX_C_MaintOrderComponentMig
       @Semantics.unitOfMeasure: true
       src.BaseUnit                   as BaseUnit
 }
-where src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''
+where src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and _MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''

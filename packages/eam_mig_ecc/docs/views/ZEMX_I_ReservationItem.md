@@ -25,7 +25,7 @@ Reservation / dependent requirement items (RESB) with order and operation link, 
 
 ## Associations defined here
 
-- none
+- `_Operation` → `ZEMX_I_OrderOperationData` [0..1]
 
 ## Access control
 

@@ -24,7 +24,7 @@ Active system and user statuses of all objects (JEST, INACT = space) with the ob
 
 ## Associations defined here
 
-- none
+- `_StatusObject` → `ZEMX_I_StatusObjectInfo` [0..1]
 
 ## Access control
 

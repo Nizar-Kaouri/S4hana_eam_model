@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_MaintenancePlanHeader`, join `ZEMX_I_MaintPlanLastCall`, join `ZEMX_I_StatusDeletionFlag` |
+| Data source | `ZEMX_I_MaintenancePlanHeader` |
 | Source file | `src/zemx_i_maintenanceplan.ddls.asddls` |
 
 ## Purpose
@@ -23,7 +23,7 @@ Maintenance plan with scheduling parameters, deletion flag and the restart point
 
 ## Associations defined here
 
-- none
+- `_LastCall` → `ZEMX_I_MaintPlanLastCall` [0..1]
 
 ## Access control
 

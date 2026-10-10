@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintPlanCycle`, join `ZEMX_I_MaintenancePlan` |
+| Data source | `ZEMX_I_MaintPlanCycle` |
 | Source file | `src/zemx_c_maintplancyclemig.ddls.asddls` |
 
 ## Purpose
@@ -24,7 +24,7 @@ Cycles / packages of the plans in scope with unit and measuring point; cycle val
 
 ## Associations defined here
 
-- none
+- `_MaintenancePlan` → `ZEMX_I_MaintenancePlan` [0..1]
 
 ## Access control
 

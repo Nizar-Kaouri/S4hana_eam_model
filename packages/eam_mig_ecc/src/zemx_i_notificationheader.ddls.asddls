@@ -14,6 +14,9 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_NotificationHeader
   as select from qmel
+  association [0..1] to ZEMX_I_WorkCenterHeader as _MainWorkCenter on $projection.MainWorkCenterInternalID = _MainWorkCenter.WorkCenterInternalID
+  association [0..1] to ZEMX_I_StatusNotifCompleted as _CompletedFlag on $projection.ObjectNumber = _CompletedFlag.ObjectNumber
+  association [0..1] to ZEMX_I_StatusDeletionFlag as _DeletionFlag on $projection.ObjectNumber = _DeletionFlag.ObjectNumber
 {
   key qmel.qmnum as MaintenanceNotification,
       qmel.qmart as NotificationType,
@@ -35,5 +38,8 @@ define view ZEMX_I_NotificationHeader
       qmel.objnr as ObjectNumber,
       qmel.erdat as CreationDate,
       qmel.ernam as CreatedByUser,
-      qmel.aedat as LastChangeDate
+      qmel.aedat as LastChangeDate,
+      _MainWorkCenter,
+      _CompletedFlag,
+      _DeletionFlag
 }

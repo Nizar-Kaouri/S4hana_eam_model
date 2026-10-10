@@ -12,7 +12,7 @@
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_MaintOrderOperationMig
   as select from ZEMX_I_MaintOrderOperation as src
-    inner join ZEMX_I_MaintOrder as obj on obj.MaintenanceOrder = src.MaintenanceOrder
+  association [0..1] to ZEMX_I_MaintOrder as _MaintOrder on _MaintOrder.MaintenanceOrder = $projection.MaintenanceOrder
 {
   key src.MaintenanceOrder           as MaintenanceOrder,
   key src.MaintenanceOrderOperation  as MaintenanceOrderOperation,
@@ -32,4 +32,4 @@ define view ZEMX_C_MaintOrderOperationMig
       @Semantics.unitOfMeasure: true
       src.OperationDurationUnit      as OperationDurationUnit
 }
-where obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''
+where _MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''

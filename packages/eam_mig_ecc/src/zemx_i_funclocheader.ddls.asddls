@@ -14,6 +14,8 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_FuncLocHeader
   as select from iflot
+  association [0..1] to ZEMX_I_LocAcctAssignment as _LocAcctAssignment on $projection.LocAcctAssignment = _LocAcctAssignment.LocAcctAssignment
+  association [0..1] to ZEMX_I_StatusDeletionFlag as _DeletionFlag on $projection.ObjectNumber = _DeletionFlag.ObjectNumber
 {
   key iflot.tplnr as FunctionalLocation,
       iflot.fltyp as FunctionalLocationCategory,
@@ -37,5 +39,7 @@ define view ZEMX_I_FuncLocHeader
       iflot.objnr as ObjectNumber,
       iflot.erdat as CreationDate,
       iflot.ernam as CreatedByUser,
-      iflot.aedat as LastChangeDate
+      iflot.aedat as LastChangeDate,
+      _LocAcctAssignment,
+      _DeletionFlag
 }

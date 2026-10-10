@@ -154,7 +154,7 @@
     {
       "consumption_view": "ZEMX_C_MaintenanceItemMig",
       "source_view": "ZEMX_I_MaintenanceItem",
-      "scope_filter": "obj.IsMarkedForDeletion = ''",
+      "scope_filter": "_MaintenancePlan.IsMarkedForDeletion = ''",
       "keys": [
         "MaintenanceItem"
       ],
@@ -290,7 +290,7 @@
     {
       "consumption_view": "ZEMX_C_MaintPlanCycleMig",
       "source_view": "ZEMX_I_MaintPlanCycle",
-      "scope_filter": "obj.IsMarkedForDeletion = ''",
+      "scope_filter": "_MaintenancePlan.IsMarkedForDeletion = ''",
       "keys": [
         "MaintenancePlan",
         "MaintenancePlanCycle"
@@ -344,12 +344,6 @@
   "not_migrated": [
     {
       "view": "ZEMX_I_MaintenancePlan",
-      "element": "LastCallNumber",
-      "source": "derived: max( cal.MaintPlanCallNumber ) from MHIS-ABNUM",
-      "reason": "info"
-    },
-    {
-      "view": "ZEMX_I_MaintenancePlan",
       "element": "ObjectNumber",
       "source": "MPLA-OBJNR",
       "reason": "skip:status object number - regenerated on S/4HANA"
@@ -357,7 +351,7 @@
     {
       "view": "ZEMX_I_MaintenancePlan",
       "element": "IsMarkedForDeletion",
-      "source": "derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
+      "source": "derived: case pl._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
       "reason": "scope"
     },
     {
@@ -370,6 +364,12 @@
       "view": "ZEMX_I_MaintenancePlan",
       "element": "CreatedByUser",
       "source": "MPLA-ERNAM",
+      "reason": "info"
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "LastCallNumber",
+      "source": "derived: max( cal.MaintPlanCallNumber ) from MHIS-ABNUM",
       "reason": "info"
     },
     {

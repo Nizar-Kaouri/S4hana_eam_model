@@ -23,7 +23,7 @@ Measuring points and counters (IMPTT) with object number, characteristic, ranges
 
 ## Associations defined here
 
-- none
+- `_Characteristic` → `ZEMX_I_Characteristic` [0..1]
 
 ## Access control
 

@@ -17,9 +17,6 @@
 define view ZEMX_I_Equipment
   as select from ZEMX_I_EquipmentHeader as eq
     inner join ZEMX_I_EquipmentTimeSegment as seg on seg.Equipment = eq.Equipment
-    left outer join ZEMX_I_LocAcctAssignment as loc on loc.LocAcctAssignment = seg.LocAcctAssignment
-    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = seg.MainWorkCenterInternalID
-    left outer join ZEMX_I_StatusDeletionFlag as dlfl on dlfl.ObjectNumber = eq.ObjectNumber
 {
   key eq.Equipment                   as Equipment,
       eq.EquipmentCategory           as EquipmentCategory,
@@ -28,25 +25,25 @@ define view ZEMX_I_Equipment
       seg.ValidityStartDate          as ValidityStartDate,
       seg.MaintenancePlanningPlant   as MaintenancePlanningPlant,
       seg.MaintenancePlannerGroup    as MaintenancePlannerGroup,
-      wc.WorkCenter                  as MainWorkCenter,
-      wc.Plant                       as MainWorkCenterPlant,
-      loc.FunctionalLocation         as FunctionalLocation,
+      seg._MainWorkCenter.WorkCenter as MainWorkCenter,
+      seg._MainWorkCenter.Plant      as MainWorkCenterPlant,
+      seg._LocAcctAssignment.FunctionalLocation as FunctionalLocation,
       seg.SuperordinateEquipment     as SuperordinateEquipment,
       seg.EquipInstallationPositionNmbr as EquipInstallationPositionNmbr,
       seg.TechnicalIdentificationNumber as TechnicalIdentificationNumber,
-      loc.MaintenancePlant           as MaintenancePlant,
-      loc.PlantSection               as PlantSection,
-      loc.AssetLocation              as AssetLocation,
-      loc.AssetRoom                  as AssetRoom,
-      loc.ABCIndicator               as ABCIndicator,
-      loc.SortField                  as SortField,
-      loc.CompanyCode                as CompanyCode,
-      loc.BusinessArea               as BusinessArea,
-      loc.ControllingArea            as ControllingArea,
-      loc.CostCenter                 as CostCenter,
-      loc.MasterFixedAsset           as MasterFixedAsset,
-      loc.FixedAsset                 as FixedAsset,
-      loc.StandingOrder              as StandingOrder,
+      seg._LocAcctAssignment.MaintenancePlant as MaintenancePlant,
+      seg._LocAcctAssignment.PlantSection as PlantSection,
+      seg._LocAcctAssignment.AssetLocation as AssetLocation,
+      seg._LocAcctAssignment.AssetRoom as AssetRoom,
+      seg._LocAcctAssignment.ABCIndicator as ABCIndicator,
+      seg._LocAcctAssignment.SortField as SortField,
+      seg._LocAcctAssignment.CompanyCode as CompanyCode,
+      seg._LocAcctAssignment.BusinessArea as BusinessArea,
+      seg._LocAcctAssignment.ControllingArea as ControllingArea,
+      seg._LocAcctAssignment.CostCenter as CostCenter,
+      seg._LocAcctAssignment.MasterFixedAsset as MasterFixedAsset,
+      seg._LocAcctAssignment.FixedAsset as FixedAsset,
+      seg._LocAcctAssignment.StandingOrder as StandingOrder,
       eq.Material                    as Material,
       eq.SerialNumber                as SerialNumber,
       eq.AssetManufacturerName       as AssetManufacturerName,
@@ -69,7 +66,7 @@ define view ZEMX_I_Equipment
       @Semantics.currencyCode: true
       eq.Currency                    as Currency,
       eq.ObjectNumber                as ObjectNumber,
-      case dlfl.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
+      case eq._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
       eq.CreationDate                as CreationDate,
       eq.CreatedByUser               as CreatedByUser,
       eq.LastChangeDate              as LastChangeDate

@@ -68,7 +68,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 - Source: `ZEMX_I_EquipmentDesc`
 - Keys: `Equipment`, `Language`
-- Scope: `obj.IsMarkedForDeletion = ''`
+- Scope: `_Equipment.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -81,7 +81,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | View | Element | Source | Reason |
 |---|---|---|---|
 | `ZEMX_I_Equipment` | `ObjectNumber` | EQUI-OBJNR | not migrated: status object number - regenerated on S/4HANA; joins status, partners and classification |
-| `ZEMX_I_Equipment` | `IsMarkedForDeletion` | derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
+| `ZEMX_I_Equipment` | `IsMarkedForDeletion` | derived: case eq._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_Equipment` | `CreationDate` | EQUI-ERDAT | information only |
 | `ZEMX_I_Equipment` | `CreatedByUser` | EQUI-ERNAM | information only |
 | `ZEMX_I_EquipmentDesc` | `HasLongText` | EQKT-KZLTX | information only |

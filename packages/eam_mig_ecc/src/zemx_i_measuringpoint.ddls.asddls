@@ -14,7 +14,6 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MeasuringPoint
   as select from ZEMX_I_MeasuringPointHeader as mp
-    left outer join ZEMX_I_Characteristic as chr on chr.CharcInternalID = mp.CharcInternalID
 {
   key mp.MeasuringPoint              as MeasuringPoint,
       mp.MeasuringPointDescription   as MeasuringPointDescription,
@@ -22,7 +21,7 @@ define view ZEMX_I_MeasuringPoint
       mp.MeasuringPointPositionNumber as MeasuringPointPositionNumber,
       mp.MeasuringPointObjectType    as MeasuringPointObjectType,
       mp.TechnicalObjectKey          as TechnicalObjectKey,
-      chr.Characteristic             as Characteristic,
+      mp._Characteristic.Characteristic as Characteristic,
       mp.MeasuringPointIsCounter     as MeasuringPointIsCounter,
       mp.MeasuringPointDecimalPlaces as MeasuringPointDecimalPlaces,
       mp.MeasurementRangeUnit        as MeasurementRangeUnit,

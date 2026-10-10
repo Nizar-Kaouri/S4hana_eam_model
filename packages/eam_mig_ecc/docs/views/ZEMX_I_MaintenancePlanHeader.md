@@ -23,7 +23,7 @@ Maintenance plans (MPLA) with category, strategy and scheduling parameters.
 
 ## Associations defined here
 
-- none
+- `_DeletionFlag` → `ZEMX_I_StatusDeletionFlag` [0..1]
 
 ## Access control
 

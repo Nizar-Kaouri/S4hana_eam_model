@@ -15,6 +15,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_NotificationMaintData
   as select from qmih
+  association [0..1] to ZEMX_I_LocAcctAssignment as _LocAcctAssignment on $projection.LocAcctAssignment = _LocAcctAssignment.LocAcctAssignment
 {
   key qmih.qmnum as MaintenanceNotification,
       qmih.equnr as Equipment,
@@ -25,5 +26,6 @@ define view ZEMX_I_NotificationMaintData
       qmih.ausvn as MalfunctionStartDate,
       qmih.auztv as MalfunctionStartTime,
       qmih.ausbs as MalfunctionEndDate,
-      qmih.auztb as MalfunctionEndTime
+      qmih.auztb as MalfunctionEndTime,
+      _LocAcctAssignment
 }

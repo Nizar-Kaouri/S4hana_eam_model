@@ -340,7 +340,7 @@
     {
       "consumption_view": "ZEMX_C_EquipmentTextMig",
       "source_view": "ZEMX_I_EquipmentDesc",
-      "scope_filter": "obj.IsMarkedForDeletion = ''",
+      "scope_filter": "_Equipment.IsMarkedForDeletion = ''",
       "keys": [
         "Equipment",
         "Language"
@@ -380,7 +380,7 @@
     {
       "view": "ZEMX_I_Equipment",
       "element": "IsMarkedForDeletion",
-      "source": "derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
+      "source": "derived: case eq._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
       "reason": "scope"
     },
     {

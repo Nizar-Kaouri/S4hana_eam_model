@@ -14,6 +14,8 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_OrderMaintData
   as select from afih
+  association [0..1] to ZEMX_I_LocAcctAssignment as _LocAcctAssignment on $projection.LocAcctAssignment = _LocAcctAssignment.LocAcctAssignment
+  association [0..1] to ZEMX_I_WorkCenterHeader as _MainWorkCenter on $projection.MainWorkCenterInternalID = _MainWorkCenter.WorkCenterInternalID
 {
   key afih.aufnr as MaintenanceOrder,
       afih.ilart as MaintenanceActivityType,
@@ -28,5 +30,7 @@ define view ZEMX_I_OrderMaintData
       afih.iloan as LocAcctAssignment,
       afih.warpl as MaintenancePlan,
       afih.wapos as MaintenanceItem,
-      afih.anlzu as MaintObjectSystemCondition
+      afih.anlzu as MaintObjectSystemCondition,
+      _LocAcctAssignment,
+      _MainWorkCenter
 }

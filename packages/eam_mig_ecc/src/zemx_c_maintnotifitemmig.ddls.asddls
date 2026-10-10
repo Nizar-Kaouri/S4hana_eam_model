@@ -12,7 +12,7 @@
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_MaintNotifItemMig
   as select from ZEMX_I_MaintNotifItem as src
-    inner join ZEMX_I_MaintNotification as obj on obj.MaintenanceNotification = src.MaintenanceNotification
+  association [0..1] to ZEMX_I_MaintNotification as _MaintNotification on _MaintNotification.MaintenanceNotification = $projection.MaintenanceNotification
 {
   key src.MaintenanceNotification as MaintenanceNotification,
   key src.MaintNotificationItem   as MaintNotificationItem,
@@ -22,4 +22,4 @@ define view ZEMX_C_MaintNotifItemMig
       src.DamageCode              as DamageCode,
       src.MaintNotifItemText      as MaintNotifItemText
 }
-where src.IsMarkedForDeletion = '' and obj.IsCompleted = '' and obj.IsMarkedForDeletion = ''
+where src.IsMarkedForDeletion = '' and _MaintNotification.IsCompleted = '' and _MaintNotification.IsMarkedForDeletion = ''

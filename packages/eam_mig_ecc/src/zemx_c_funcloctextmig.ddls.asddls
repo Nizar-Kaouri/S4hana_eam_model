@@ -12,7 +12,7 @@
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_FuncLocTextMig
   as select from ZEMX_I_FuncLocDesc as src
-    inner join ZEMX_I_FuncLoc as obj on obj.FunctionalLocation = src.FunctionalLocation
+  association [0..1] to ZEMX_I_FuncLoc as _FuncLoc on _FuncLoc.FunctionalLocation = $projection.FunctionalLocation
 {
   key src.FunctionalLocation     as FunctionalLocation,
       @Semantics.language: true
@@ -20,4 +20,4 @@ define view ZEMX_C_FuncLocTextMig
       @Semantics.text: true
       src.FunctionalLocationName as FunctionalLocationName
 }
-where obj.IsMarkedForDeletion = ''
+where _FuncLoc.IsMarkedForDeletion = ''

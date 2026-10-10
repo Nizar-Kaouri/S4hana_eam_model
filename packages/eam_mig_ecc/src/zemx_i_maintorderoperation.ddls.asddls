@@ -16,7 +16,6 @@ define view ZEMX_I_MaintOrderOperation
   as select from ZEMX_I_OrderOperationData as op
     inner join ZEMX_I_OrderOperationValues as val on val.OrderRoutingNumber = op.OrderRoutingNumber and val.OrderOperationInternalID = op.OrderOperationInternalID
     inner join ZEMX_I_OrderHeaderPlanning as plan on plan.OrderRoutingNumber = op.OrderRoutingNumber
-    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = op.WorkCenterInternalID
 {
   key plan.MaintenanceOrder          as MaintenanceOrder,
   key op.OrderOperationInternalID    as OrderOperationInternalID,
@@ -25,8 +24,8 @@ define view ZEMX_I_MaintOrderOperation
       op.MaintenanceOrderSubOperation as MaintenanceOrderSubOperation,
       op.OperationDescription        as OperationDescription,
       op.OperationControlKey         as OperationControlKey,
-      wc.WorkCenter                  as WorkCenter,
-      wc.Plant                       as WorkCenterPlant,
+      op._WorkCenter.WorkCenter      as WorkCenter,
+      op._WorkCenter.Plant           as WorkCenterPlant,
       op.Plant                       as Plant,
       op.ActivityType                as ActivityType,
       @Semantics.quantity.unitOfMeasure: 'PlannedWorkQuantityUnit'

@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_ObjectCharcValue
   as select from ausp
+  association [0..1] to ZEMX_I_Characteristic as _Characteristic on $projection.CharcInternalID = _Characteristic.CharcInternalID
 {
   key ausp.objek as ClassifiedObject,
   key ausp.atinn as CharcInternalID,
@@ -25,6 +26,7 @@ define view ZEMX_I_ObjectCharcValue
       ausp.atflv as CharcFromNumericValue,
       ausp.atflb as CharcToNumericValue,
       ausp.atcod as CharcValueDependency,
-      ausp.lkenz as IsMarkedForDeletion
+      ausp.lkenz as IsMarkedForDeletion,
+      _Characteristic
 }
 where ausp.mafid = 'O'

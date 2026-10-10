@@ -41,7 +41,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 - Source: `ZEMX_I_MaintenanceItem`
 - Keys: `MaintenanceItem`
-- Scope: `obj.IsMarkedForDeletion = ''`
+- Scope: `_MaintenancePlan.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -68,7 +68,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 - Source: `ZEMX_I_MaintPlanCycle`
 - Keys: `MaintenancePlan`, `MaintenancePlanCycle`
-- Scope: `obj.IsMarkedForDeletion = ''`
+- Scope: `_MaintenancePlan.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -83,11 +83,11 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 | View | Element | Source | Reason |
 |---|---|---|---|
-| `ZEMX_I_MaintenancePlan` | `LastCallNumber` | derived: max( cal.MaintPlanCallNumber ) from MHIS-ABNUM | information only |
 | `ZEMX_I_MaintenancePlan` | `ObjectNumber` | MPLA-OBJNR | not migrated: status object number - regenerated on S/4HANA |
-| `ZEMX_I_MaintenancePlan` | `IsMarkedForDeletion` | derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
+| `ZEMX_I_MaintenancePlan` | `IsMarkedForDeletion` | derived: case pl._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_MaintenancePlan` | `CreationDate` | MPLA-ERSDT | information only |
 | `ZEMX_I_MaintenancePlan` | `CreatedByUser` | MPLA-ERNAM | information only |
+| `ZEMX_I_MaintenancePlan` | `LastCallNumber` | derived: max( cal.MaintPlanCallNumber ) from MHIS-ABNUM | information only |
 | `ZEMX_I_MaintenanceItem` | `MainWorkCenterInternalID` | MPOS-GEWRK | not migrated: internal object ID - replaced by MainWorkCenter |
 | `ZEMX_I_MaintenanceItem` | `LocAcctAssignment` | MPOS-ILOAN | not migrated: internal location record - regenerated on S/4HANA |
 | `ZEMX_I_MaintenanceItem` | `CreationDate` | MPOS-ERSDT | information only |

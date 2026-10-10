@@ -23,7 +23,9 @@ Order master data (AUFK) of maintenance orders (order category 30).
 
 ## Associations defined here
 
-- none
+- `_TechCompletedFlag` → `ZEMX_I_StatusTechCompleted` [0..1]
+- `_ClosedFlag` → `ZEMX_I_StatusClosed` [0..1]
+- `_DeletionFlag` → `ZEMX_I_StatusDeletionFlag` [0..1]
 
 ## Access control
 

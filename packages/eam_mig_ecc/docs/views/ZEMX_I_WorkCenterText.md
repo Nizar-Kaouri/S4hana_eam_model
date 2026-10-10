@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_WorkCenterDesc`, join `ZEMX_I_WorkCenterHeader` |
+| Data source | `ZEMX_I_WorkCenterDesc` |
 | Source file | `src/zemx_i_workcentertext.ddls.asddls` |
 
 ## Purpose

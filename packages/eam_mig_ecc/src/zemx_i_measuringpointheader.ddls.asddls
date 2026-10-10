@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_MeasuringPointHeader
   as select from imptt
+  association [0..1] to ZEMX_I_Characteristic as _Characteristic on $projection.CharcInternalID = _Characteristic.CharcInternalID
 {
   key imptt.point                    as MeasuringPoint,
       imptt.pttxt                    as MeasuringPointDescription,
@@ -38,5 +39,6 @@ define view ZEMX_I_MeasuringPointHeader
       imptt.lvorm                    as IsMarkedForDeletion,
       imptt.erdat                    as CreationDate,
       imptt.ernam                    as CreatedByUser,
-      imptt.aedat                    as LastChangeDate
+      imptt.aedat                    as LastChangeDate,
+      _Characteristic
 }

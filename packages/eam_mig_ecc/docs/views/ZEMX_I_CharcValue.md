@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `ZEMX_I_ObjectCharcValue`, join `ZEMX_I_Characteristic` |
+| Data source | `ZEMX_I_ObjectCharcValue` |
 | Source file | `src/zemx_i_charcvalue.ddls.asddls` |
 
 ## Purpose

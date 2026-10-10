@@ -135,7 +135,7 @@
     {
       "consumption_view": "ZEMX_C_TaskListOperationMig",
       "source_view": "ZEMX_I_TaskListOperation",
-      "scope_filter": "src.IsMarkedForDeletion = '' and src.OpAssignmentIsDeleted = '' and obj.IsMarkedForDeletion = ''",
+      "scope_filter": "src.IsMarkedForDeletion = '' and src.OpAssignmentIsDeleted = '' and _TaskListCurrent.IsMarkedForDeletion = ''",
       "keys": [
         "TaskListType",
         "TaskListGroup",
@@ -268,7 +268,7 @@
     {
       "consumption_view": "ZEMX_C_TaskListAllocationMig",
       "source_view": "ZEMX_I_TaskListObjectAssgmt",
-      "scope_filter": "obj.IsMarkedForDeletion = ''",
+      "scope_filter": "_TaskListCurrent.IsMarkedForDeletion = ''",
       "keys": [
         "TaskListType",
         "TaskListGroup",

@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_MaintenancePlanHeader
   as select from mpla
+  association [0..1] to ZEMX_I_StatusDeletionFlag as _DeletionFlag on $projection.ObjectNumber = _DeletionFlag.ObjectNumber
 {
   key mpla.warpl as MaintenancePlan,
       mpla.wptxt as MaintenancePlanDesc,
@@ -35,5 +36,6 @@ define view ZEMX_I_MaintenancePlanHeader
       mpla.objnr as ObjectNumber,
       mpla.ersdt as CreationDate,
       mpla.ernam as CreatedByUser,
-      mpla.aedat as LastChangeDate
+      mpla.aedat as LastChangeDate,
+      _DeletionFlag
 }

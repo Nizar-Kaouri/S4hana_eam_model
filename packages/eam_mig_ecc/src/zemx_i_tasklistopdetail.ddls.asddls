@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_TaskListOpDetail
   as select from plpo
+  association [0..1] to ZEMX_I_WorkCenterHeader as _WorkCenter on $projection.WorkCenterInternalID = _WorkCenter.WorkCenterInternalID
 {
   key plpo.plnty as TaskListType,
   key plpo.plnnr as TaskListGroup,
@@ -36,6 +37,7 @@ define view ZEMX_I_TaskListOpDetail
       @Semantics.unitOfMeasure: true
       plpo.daune as OperationDurationUnit,
       plpo.anzzl as NumberOfCapacities,
-      plpo.loekz as IsMarkedForDeletion
+      plpo.loekz as IsMarkedForDeletion,
+      _WorkCenter
 }
 where plpo.plnty = 'A' or plpo.plnty = 'E' or plpo.plnty = 'T'

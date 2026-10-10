@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintOrderComponent`, join `ZEMX_I_MaintOrder` |
+| Data source | `ZEMX_I_MaintOrderComponent` |
 | Source file | `src/zemx_c_maintordercomponentmig.ddls.asddls` |
 
 ## Purpose
@@ -24,7 +24,7 @@ Open components (not deleted, not finally issued) of the open orders with materi
 
 ## Associations defined here
 
-- none
+- `_MaintOrder` → `ZEMX_I_MaintOrder` [0..1]
 
 ## Access control
 

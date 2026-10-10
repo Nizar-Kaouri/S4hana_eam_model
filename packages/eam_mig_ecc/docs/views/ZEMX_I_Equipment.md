@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_EquipmentHeader`, join `ZEMX_I_EquipmentTimeSegment`, join `ZEMX_I_LocAcctAssignment`, join `ZEMX_I_WorkCenterHeader`, join `ZEMX_I_StatusDeletionFlag` |
+| Data source | `ZEMX_I_EquipmentHeader`, join `ZEMX_I_EquipmentTimeSegment` |
 | Source file | `src/zemx_i_equipment.ddls.asddls` |
 
 ## Purpose

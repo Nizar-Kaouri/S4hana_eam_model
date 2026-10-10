@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_TaskListOperation`, join `ZEMX_I_TaskListCurrent` |
+| Data source | `ZEMX_I_TaskListOperation` |
 | Source file | `src/zemx_c_tasklistoperationmig.ddls.asddls` |
 
 ## Purpose
@@ -27,7 +27,7 @@ Operations of the task lists in scope (not deleted) with work center, control ke
 
 ## Associations defined here
 
-- none
+- `_TaskListCurrent` → `ZEMX_I_TaskListCurrent` [0..1]
 
 ## Access control
 

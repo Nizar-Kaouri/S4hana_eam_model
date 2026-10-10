@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_TaskListHeader
   as select from plko
+  association [0..1] to ZEMX_I_WorkCenterHeader as _MainWorkCenter on $projection.MainWorkCenterInternalID = _MainWorkCenter.WorkCenterInternalID
 {
   key plko.plnty as TaskListType,
   key plko.plnnr as TaskListGroup,
@@ -34,6 +35,7 @@ define view ZEMX_I_TaskListHeader
       plko.loekz as IsMarkedForDeletion,
       plko.andat as CreationDate,
       plko.annam as CreatedByUser,
-      plko.aedat as LastChangeDate
+      plko.aedat as LastChangeDate,
+      _MainWorkCenter
 }
 where plko.plnty = 'A' or plko.plnty = 'E' or plko.plnty = 'T'

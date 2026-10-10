@@ -14,17 +14,16 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_CharcValue
   as select from ZEMX_I_ObjectCharcValue as val
-    inner join ZEMX_I_Characteristic as chr on chr.CharcInternalID = val.CharcInternalID
 {
-  key val.ClassifiedObject         as ClassifiedObject,
-  key val.CharcInternalID          as CharcInternalID,
-  key val.CharcValuePositionNumber as CharcValuePositionNumber,
-  key val.ClassType                as ClassType,
-  key val.ChangeCounter            as ChangeCounter,
-      chr.Characteristic           as Characteristic,
-      val.CharcValue               as CharcValue,
-      val.CharcFromNumericValue    as CharcFromNumericValue,
-      val.CharcToNumericValue      as CharcToNumericValue,
-      val.CharcValueDependency     as CharcValueDependency,
-      val.IsMarkedForDeletion      as IsMarkedForDeletion
+  key val.ClassifiedObject           as ClassifiedObject,
+  key val.CharcInternalID            as CharcInternalID,
+  key val.CharcValuePositionNumber   as CharcValuePositionNumber,
+  key val.ClassType                  as ClassType,
+  key val.ChangeCounter              as ChangeCounter,
+      val._Characteristic.Characteristic as Characteristic,
+      val.CharcValue                 as CharcValue,
+      val.CharcFromNumericValue      as CharcFromNumericValue,
+      val.CharcToNumericValue        as CharcToNumericValue,
+      val.CharcValueDependency       as CharcValueDependency,
+      val.IsMarkedForDeletion        as IsMarkedForDeletion
 }

@@ -23,7 +23,7 @@ Maintenance data of PM notifications (QMIH): reference object, planning plant, p
 
 ## Associations defined here
 
-- none
+- `_LocAcctAssignment` → `ZEMX_I_LocAcctAssignment` [0..1]
 
 ## Access control
 

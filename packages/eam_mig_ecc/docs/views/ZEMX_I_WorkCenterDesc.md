@@ -24,7 +24,7 @@ Work center descriptions (CRTX) per language for object type 'A'.
 
 ## Associations defined here
 
-- none
+- `_WorkCenter` → `ZEMX_I_WorkCenterHeader` [0..1]
 
 ## Access control
 

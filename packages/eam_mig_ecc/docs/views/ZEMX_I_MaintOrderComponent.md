@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `ZEMX_I_ReservationItem`, join `ZEMX_I_OrderMaintData`, join `ZEMX_I_OrderOperationData` |
+| Data source | `ZEMX_I_ReservationItem`, join `ZEMX_I_OrderMaintData` |
 | Source file | `src/zemx_i_maintordercomponent.ddls.asddls` |
 
 ## Purpose

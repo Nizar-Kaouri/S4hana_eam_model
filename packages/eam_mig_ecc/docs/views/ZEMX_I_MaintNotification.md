@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `ZEMX_I_NotificationHeader`, join `ZEMX_I_NotificationMaintData`, join `ZEMX_I_LocAcctAssignment`, join `ZEMX_I_WorkCenterHeader`, join `ZEMX_I_StatusNotifCompleted`, join `ZEMX_I_StatusDeletionFlag` |
+| Data source | `ZEMX_I_NotificationHeader`, join `ZEMX_I_NotificationMaintData` |
 | Source file | `src/zemx_i_maintnotification.ddls.asddls` |
 
 ## Purpose

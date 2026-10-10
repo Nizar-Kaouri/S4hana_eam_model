@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_ReservationItem
   as select from resb
+  association [0..1] to ZEMX_I_OrderOperationData as _Operation on $projection.OrderRoutingNumber = _Operation.OrderRoutingNumber and $projection.OrderOperationInternalID = _Operation.OrderOperationInternalID
 {
   key resb.rsnum as Reservation,
   key resb.rspos as ReservationItem,
@@ -35,5 +36,6 @@ define view ZEMX_I_ReservationItem
       @Semantics.unitOfMeasure: true
       resb.meins as BaseUnit,
       resb.xloek as IsMarkedForDeletion,
-      resb.kzear as IsFinalIssue
+      resb.kzear as IsFinalIssue,
+      _Operation
 }

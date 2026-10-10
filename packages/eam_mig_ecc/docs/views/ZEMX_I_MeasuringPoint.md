@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_MeasuringPointHeader`, join `ZEMX_I_Characteristic` |
+| Data source | `ZEMX_I_MeasuringPointHeader` |
 | Source file | `src/zemx_i_measuringpoint.ddls.asddls` |
 
 ## Purpose

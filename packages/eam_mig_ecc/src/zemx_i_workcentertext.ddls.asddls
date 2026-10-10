@@ -13,14 +13,13 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_WorkCenterText
   as select from ZEMX_I_WorkCenterDesc as txt
-    inner join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = txt.WorkCenterInternalID
 {
-  key txt.WorkCenterInternalID as WorkCenterInternalID,
+  key txt.WorkCenterInternalID       as WorkCenterInternalID,
       @Semantics.language: true
-  key txt.Language             as Language,
-      wc.WorkCenter            as WorkCenter,
-      wc.Plant                 as Plant,
+  key txt.Language                   as Language,
+      txt._WorkCenter.WorkCenter     as WorkCenter,
+      txt._WorkCenter.Plant          as Plant,
       @Semantics.text: true
-      txt.WorkCenterText       as WorkCenterText,
-      wc.IsMarkedForDeletion   as IsMarkedForDeletion
+      txt.WorkCenterText             as WorkCenterText,
+      txt._WorkCenter.IsMarkedForDeletion as IsMarkedForDeletion
 }

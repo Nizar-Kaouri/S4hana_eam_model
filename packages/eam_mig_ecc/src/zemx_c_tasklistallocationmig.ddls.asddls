@@ -12,7 +12,7 @@
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_TaskListAllocationMig
   as select from ZEMX_I_TaskListObjectAssgmt as src
-    inner join ZEMX_I_TaskListCurrent as obj on obj.TaskListType = src.TaskListType and obj.TaskListGroup = src.TaskListGroup and obj.TaskListGroupCounter = src.TaskListGroupCounter
+  association [0..1] to ZEMX_I_TaskListCurrent as _TaskListCurrent on _TaskListCurrent.TaskListType = $projection.TaskListType and _TaskListCurrent.TaskListGroup = $projection.TaskListGroup and _TaskListCurrent.TaskListGroupCounter = $projection.TaskListGroupCounter
 {
   key src.TaskListType         as TaskListType,
   key src.TaskListGroup        as TaskListGroup,
@@ -20,4 +20,4 @@ define view ZEMX_C_TaskListAllocationMig
       src.Equipment            as Equipment,
       src.FunctionalLocation   as FunctionalLocation
 }
-where obj.IsMarkedForDeletion = ''
+where _TaskListCurrent.IsMarkedForDeletion = ''

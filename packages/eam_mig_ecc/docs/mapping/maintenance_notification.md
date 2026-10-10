@@ -51,7 +51,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 - Source: `ZEMX_I_MaintNotifItem`
 - Keys: `MaintenanceNotification`, `MaintNotificationItem`
-- Scope: `src.IsMarkedForDeletion = '' and obj.IsCompleted = '' and obj.IsMarkedForDeletion = ''`
+- Scope: `src.IsMarkedForDeletion = '' and _MaintNotification.IsCompleted = '' and _MaintNotification.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -69,8 +69,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 |---|---|---|---|
 | `ZEMX_I_MaintNotification` | `MaintenanceOrder` | QMEL-AUFNR | not migrated: set by the order load - the migrated order references the notification |
 | `ZEMX_I_MaintNotification` | `ObjectNumber` | QMEL-OBJNR | not migrated: status object number - regenerated on S/4HANA |
-| `ZEMX_I_MaintNotification` | `IsCompleted` | derived: case noco.StatusCode when 'I0072' then 'X' else '' end from JEST-STAT | scope flag |
-| `ZEMX_I_MaintNotification` | `IsMarkedForDeletion` | derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
+| `ZEMX_I_MaintNotification` | `IsCompleted` | derived: case hdr._CompletedFlag.StatusCode when 'I0072' then 'X' else '' end from JEST-STAT | scope flag |
+| `ZEMX_I_MaintNotification` | `IsMarkedForDeletion` | derived: case hdr._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_MaintNotification` | `CreationDate` | QMEL-ERDAT | information only |
 | `ZEMX_I_MaintNotification` | `CreatedByUser` | QMEL-ERNAM | information only |
 | `ZEMX_I_MaintNotifItem` | `IsMarkedForDeletion` | QMFE-KZLOESCH | scope flag |

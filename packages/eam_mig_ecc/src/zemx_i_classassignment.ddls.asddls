@@ -14,13 +14,12 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_ClassAssignment
   as select from ZEMX_I_ObjectClassAssgmt as asg
-    inner join ZEMX_I_ClassHeader as cls on cls.ClassInternalID = asg.ClassInternalID
 {
   key asg.ClassifiedObject     as ClassifiedObject,
   key asg.ClassType            as ClassType,
   key asg.ClassInternalID      as ClassInternalID,
   key asg.ChangeCounter        as ChangeCounter,
-      cls.Class                as Class,
+      asg._Class.Class         as Class,
       asg.ClassificationStatus as ClassificationStatus,
       asg.IsMarkedForDeletion  as IsMarkedForDeletion
 }

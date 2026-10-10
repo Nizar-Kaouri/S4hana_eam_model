@@ -234,7 +234,7 @@
     {
       "consumption_view": "ZEMX_C_FuncLocTextMig",
       "source_view": "ZEMX_I_FuncLocDesc",
-      "scope_filter": "obj.IsMarkedForDeletion = ''",
+      "scope_filter": "_FuncLoc.IsMarkedForDeletion = ''",
       "keys": [
         "FunctionalLocation",
         "Language"
@@ -274,7 +274,7 @@
     {
       "view": "ZEMX_I_FuncLoc",
       "element": "IsMarkedForDeletion",
-      "source": "derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
+      "source": "derived: case fl._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
       "reason": "scope"
     },
     {

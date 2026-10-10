@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintNotifItem`, join `ZEMX_I_MaintNotification` |
+| Data source | `ZEMX_I_MaintNotifItem` |
 | Source file | `src/zemx_c_maintnotifitemmig.ddls.asddls` |
 
 ## Purpose
@@ -24,7 +24,7 @@ Items of the open notifications with code groups and codes.
 
 ## Associations defined here
 
-- none
+- `_MaintNotification` → `ZEMX_I_MaintNotification` [0..1]
 
 ## Access control
 

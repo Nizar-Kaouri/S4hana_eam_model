@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintOrderOperation`, join `ZEMX_I_MaintOrder` |
+| Data source | `ZEMX_I_MaintOrderOperation` |
 | Source file | `src/zemx_c_maintorderoperationmig.ddls.asddls` |
 
 ## Purpose
@@ -25,7 +25,7 @@ Operations of the open orders with work center, control key, activity type and u
 
 ## Associations defined here
 
-- none
+- `_MaintOrder` → `ZEMX_I_MaintOrder` [0..1]
 
 ## Access control
 

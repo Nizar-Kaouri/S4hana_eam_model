@@ -222,7 +222,7 @@
     {
       "consumption_view": "ZEMX_C_MaintNotifItemMig",
       "source_view": "ZEMX_I_MaintNotifItem",
-      "scope_filter": "src.IsMarkedForDeletion = '' and obj.IsCompleted = '' and obj.IsMarkedForDeletion = ''",
+      "scope_filter": "src.IsMarkedForDeletion = '' and _MaintNotification.IsCompleted = '' and _MaintNotification.IsMarkedForDeletion = ''",
       "keys": [
         "MaintenanceNotification",
         "MaintNotificationItem"
@@ -296,13 +296,13 @@
     {
       "view": "ZEMX_I_MaintNotification",
       "element": "IsCompleted",
-      "source": "derived: case noco.StatusCode when 'I0072' then 'X' else '' end from JEST-STAT",
+      "source": "derived: case hdr._CompletedFlag.StatusCode when 'I0072' then 'X' else '' end from JEST-STAT",
       "reason": "scope"
     },
     {
       "view": "ZEMX_I_MaintNotification",
       "element": "IsMarkedForDeletion",
-      "source": "derived: case dlfl.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
+      "source": "derived: case hdr._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT",
       "reason": "scope"
     },
     {

@@ -15,13 +15,12 @@
 define view ZEMX_I_MaintOrderComponent
   as select from ZEMX_I_ReservationItem as cmp
     inner join ZEMX_I_OrderMaintData as pm on pm.MaintenanceOrder = cmp.MaintenanceOrder
-    left outer join ZEMX_I_OrderOperationData as op on op.OrderRoutingNumber = cmp.OrderRoutingNumber and op.OrderOperationInternalID = cmp.OrderOperationInternalID
 {
   key cmp.Reservation                as Reservation,
   key cmp.ReservationItem            as ReservationItem,
   key cmp.ReservationRecordType      as ReservationRecordType,
       cmp.MaintenanceOrder           as MaintenanceOrder,
-      op.MaintenanceOrderOperation   as MaintenanceOrderOperation,
+      cmp._Operation.MaintenanceOrderOperation as MaintenanceOrderOperation,
       cmp.OrderRoutingNumber         as OrderRoutingNumber,
       cmp.OrderOperationInternalID   as OrderOperationInternalID,
       cmp.BOMItemNumber              as BOMItemNumber,

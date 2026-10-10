@@ -14,6 +14,7 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_OrderOperationData
   as select from afvc
+  association [0..1] to ZEMX_I_WorkCenterHeader as _WorkCenter on $projection.WorkCenterInternalID = _WorkCenter.WorkCenterInternalID
 {
   key afvc.aufpl as OrderRoutingNumber,
   key afvc.aplzl as OrderOperationInternalID,
@@ -25,5 +26,6 @@ define view ZEMX_I_OrderOperationData
       afvc.arbid as WorkCenterInternalID,
       afvc.werks as Plant,
       afvc.larnt as ActivityType,
-      afvc.objnr as ObjectNumber
+      afvc.objnr as ObjectNumber,
+      _WorkCenter
 }

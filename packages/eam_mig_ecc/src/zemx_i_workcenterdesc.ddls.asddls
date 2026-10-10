@@ -14,11 +14,13 @@
 @VDM.viewType: #BASIC
 define view ZEMX_I_WorkCenterDesc
   as select from crtx
+  association [0..1] to ZEMX_I_WorkCenterHeader as _WorkCenter on $projection.WorkCenterInternalID = _WorkCenter.WorkCenterInternalID
 {
   key crtx.objid as WorkCenterInternalID,
       @Semantics.language: true
   key crtx.spras as Language,
       @Semantics.text: true
-      crtx.ktext as WorkCenterText
+      crtx.ktext as WorkCenterText,
+      _WorkCenter
 }
 where crtx.objty = 'A'

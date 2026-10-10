@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_TaskListObjectAssgmt`, join `ZEMX_I_TaskListCurrent` |
+| Data source | `ZEMX_I_TaskListObjectAssgmt` |
 | Source file | `src/zemx_c_tasklistallocationmig.ddls.asddls` |
 
 ## Purpose
@@ -25,7 +25,7 @@ Equipment / functional location allocation of the task lists in scope.
 
 ## Associations defined here
 
-- none
+- `_TaskListCurrent` → `ZEMX_I_TaskListCurrent` [0..1]
 
 ## Access control
 
