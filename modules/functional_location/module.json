@@ -82,6 +82,14 @@
         "maintenance_order"
       ],
       "access_control": "ZEAM_I_FuncLocWithOrder"
+    },
+    {
+      "name": "ZEAM_I_FuncLocWithMeasPoint",
+      "requires_modules": [
+        "functional_location",
+        "measuring_point"
+      ],
+      "access_control": "ZEAM_I_FuncLocWithMeasPoint"
     }
   ]
 }

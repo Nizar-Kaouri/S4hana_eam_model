@@ -82,6 +82,22 @@
         "maintenance_order"
       ],
       "access_control": "ZEAM_I_EquipmentWithOrder"
+    },
+    {
+      "name": "ZEAM_I_EquipmentWithMeasPoint",
+      "requires_modules": [
+        "equipment",
+        "measuring_point"
+      ],
+      "access_control": "ZEAM_I_EquipmentWithMeasPoint"
+    },
+    {
+      "name": "ZEAM_I_EquipmentWithMaintItem",
+      "requires_modules": [
+        "equipment",
+        "maintenance_plan"
+      ],
+      "access_control": "ZEAM_I_EquipmentWithMaintItem"
     }
   ]
 }

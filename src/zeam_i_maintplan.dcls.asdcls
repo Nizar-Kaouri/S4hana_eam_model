@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_MaintenancePlan.
+// TODO-VERIFY[H] PL-D01: I_MaintenancePlan has an access control role and every element it references is projected by ZEAM_I_MaintPlan
+@EndUserText.label: 'Maintenance Plan'
+@MappingRole: true
+define role ZEAM_I_MaintPlan {
+  grant
+    select
+      on
+        ZEAM_I_MaintPlan
+          where
+            inheriting conditions from entity I_MaintenancePlan;
+}

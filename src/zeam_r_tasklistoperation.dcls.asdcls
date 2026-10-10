@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the basic view (see GEN-D02).
+@EndUserText.label: 'Task List Operation - Cube'
+@MappingRole: true
+define role ZEAM_R_TaskListOperation {
+  grant
+    select
+      on
+        ZEAM_R_TaskListOperation
+          where
+            inheriting conditions from entity ZEAM_I_TaskListOperation;
+}

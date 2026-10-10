@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - equipment conditions (see GEN-D02).
+@EndUserText.label: 'Equipment with Maintenance Items'
+@MappingRole: true
+define role ZEAM_I_EquipmentWithMaintItem {
+  grant
+    select
+      on
+        ZEAM_I_EquipmentWithMaintItem
+          where
+            inheriting conditions from entity ZEAM_I_Equipment;
+}

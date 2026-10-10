@@ -84,6 +84,14 @@
         "maintenance_order"
       ],
       "access_control": "ZEAM_I_NotifWithOrder"
+    },
+    {
+      "name": "ZEAM_I_MaintPlanWithOrder",
+      "requires_modules": [
+        "maintenance_order",
+        "maintenance_plan"
+      ],
+      "access_control": "ZEAM_I_MaintPlanWithOrder"
     }
   ]
 }

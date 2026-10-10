@@ -1,0 +1,31 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// UI annotations for ZEAM_R_MaintItem. Partner layer: customers can override in #CUSTOMER.
+@Metadata.layer: #PARTNER
+@UI.headerInfo: {
+  typeName: 'Maintenance Item',
+  typeNamePlural: 'Maintenance Items',
+  title: { type: #STANDARD, value: 'MaintenanceItem' }
+}
+annotate entity ZEAM_R_MaintItem with
+{
+  @UI.lineItem: [ { position: 10, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 10 } ]
+  MaintenanceItem;
+  @UI.lineItem: [ { position: 20, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 20 } ]
+  MaintenancePlan;
+  @UI.lineItem: [ { position: 30, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 30 } ]
+  MaintenancePlanCategory;
+  @UI.lineItem: [ { position: 40, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 40 } ]
+  MaintenancePlanningPlant;
+  @UI.lineItem: [ { position: 50, importance: #MEDIUM } ]
+  Equipment;
+  @UI.lineItem: [ { position: 60, importance: #MEDIUM } ]
+  FunctionalLocation;
+  @UI.lineItem: [ { position: 70, importance: #LOW } ]
+  MaintenanceOrderType;
+  @UI.lineItem: [ { position: 80, importance: #LOW } ]
+  TaskListGroup;
+}

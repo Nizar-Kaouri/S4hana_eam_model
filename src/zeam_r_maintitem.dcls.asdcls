@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the basic view (see GEN-D02).
+@EndUserText.label: 'Maintenance Item - Cube'
+@MappingRole: true
+define role ZEAM_R_MaintItem {
+  grant
+    select
+      on
+        ZEAM_R_MaintItem
+          where
+            inheriting conditions from entity ZEAM_I_MaintItem;
+}
