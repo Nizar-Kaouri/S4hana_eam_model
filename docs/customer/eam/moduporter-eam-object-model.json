@@ -1,0 +1,4345 @@
+{
+  "revision": "cc08609d92e6a623412c395f0fac4d6205cf376f",
+  "version": "1.0.0-rc.1",
+  "nodes": [
+    {
+      "name": "ZEMX_C_BOMHeaderMig",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "consumption",
+      "label": "BOMHeader state ledger for customer resolver",
+      "purpose": "BOMHeader state ledger for customer resolver",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "HeaderCounter"
+      ],
+      "sources": [
+        "ZEMX_I_BOMHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_bomheadermig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_BOMItemMig",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "consumption",
+      "label": "BOMItem state ledger for customer resolver",
+      "purpose": "BOMItem state ledger for customer resolver",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMItemNode",
+        "ItemCounter"
+      ],
+      "sources": [
+        "ZEMX_I_BOMItem"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_bomitemmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_BOMSelectionMig",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "consumption",
+      "label": "BOMSelection state ledger for customer resolver",
+      "purpose": "BOMSelection state ledger for customer resolver",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "BOMItemNode",
+        "SelectionCounter"
+      ],
+      "sources": [
+        "ZEMX_I_BOMSelection"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_bomselectionmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_CapacityHeaderMig",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "consumption",
+      "label": "CapacityHeader migration extract",
+      "purpose": "CapacityHeader migration extract",
+      "keys": [
+        "CapacityInternalID"
+      ],
+      "sources": [
+        "ZEMX_I_CapacityHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_capacityheadermig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_CharcValueMig",
+      "product": "eam_mig_ecc",
+      "module": "classification",
+      "layer": "consumption",
+      "label": "Characteristic value (migration)",
+      "purpose": "Characteristic values of equipment and functional locations; numeric values in the base unit.",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "sources": [
+        "ZEMX_I_CharcValue",
+        "Numeric"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_charcvaluemig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_ClassAssgmtMigCount",
+      "product": "eam_mig_ecc",
+      "module": "classification",
+      "layer": "consumption",
+      "label": "Class assignment count (migration)",
+      "purpose": "Record count of the class assignments delivered by ZEMX_C_ClassAssignmentMig per ClassType, Class; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "ClassType",
+        "Class"
+      ],
+      "sources": [
+        "ZEMX_C_ClassAssignmentMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_classassgmtmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_ClassAssignmentMig",
+      "product": "eam_mig_ecc",
+      "module": "classification",
+      "layer": "consumption",
+      "label": "Class assignment (migration)",
+      "purpose": "Class assignments of equipment (002) and functional locations (003).",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Class"
+      ],
+      "sources": [
+        "ZEMX_I_ClassAssignment"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_classassignmentmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_EquipBOMAssignMig",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "consumption",
+      "label": "EquipBOMAssign migration extract",
+      "purpose": "EquipBOMAssign migration extract",
+      "keys": [
+        "Equipment",
+        "Plant",
+        "BOMUsage",
+        "BOMAlternative"
+      ],
+      "sources": [
+        "ZEMX_I_EquipBOMAssign"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_Equipment",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_equipbomassignmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_EquipBOMMigCount",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "consumption",
+      "label": "Equipment BOM assignment count",
+      "purpose": "Equipment BOM assignment count",
+      "keys": [
+        "Plant",
+        "BOMUsage"
+      ],
+      "sources": [
+        "ZEMX_C_EquipBOMAssignMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_equipbommigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_EquipmentMig",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "consumption",
+      "label": "Equipment (migration)",
+      "purpose": "Equipment to migrate (not flagged for deletion) with all fields as stored in ECC.",
+      "keys": [
+        "Equipment"
+      ],
+      "sources": [
+        "ZEMX_I_Equipment"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_equipmentmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_EquipmentMigCount",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "consumption",
+      "label": "Equipment count (migration)",
+      "purpose": "Record count of the equipment delivered by ZEMX_C_EquipmentMig per MaintenancePlanningPlant, EquipmentCategory; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "MaintenancePlanningPlant",
+        "EquipmentCategory"
+      ],
+      "sources": [
+        "ZEMX_C_EquipmentMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_equipmentmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_EquipmentTextMig",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "consumption",
+      "label": "Equipment text (migration)",
+      "purpose": "Descriptions of the equipment in scope per language.",
+      "keys": [
+        "Equipment",
+        "Language"
+      ],
+      "sources": [
+        "ZEMX_I_EquipmentDesc"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_Equipment",
+          "name": "_Equipment"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_equipmenttextmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_EquipSerialStockMig",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "consumption",
+      "label": "EquipSerialStock migration extract",
+      "purpose": "EquipSerialStock migration extract",
+      "keys": [
+        "Equipment"
+      ],
+      "sources": [
+        "ZEMX_I_EquipSerialStock"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_Equipment",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_equipserialstockmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_FuncLocLabelMig",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "consumption",
+      "label": "FuncLocLabel migration extract",
+      "purpose": "FuncLocLabel migration extract",
+      "keys": [
+        "FunctionalLocation",
+        "LabelingSystem"
+      ],
+      "sources": [
+        "ZEMX_I_FuncLocLabel"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_FuncLoc",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_funcloclabelmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_FuncLocMig",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "consumption",
+      "label": "Functional location (migration)",
+      "purpose": "Functional locations to migrate (not flagged for deletion) with all fields as stored in ECC.",
+      "keys": [
+        "FunctionalLocation"
+      ],
+      "sources": [
+        "ZEMX_I_FuncLoc"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_funclocmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_FuncLocMigCount",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "consumption",
+      "label": "Functional location count (migration)",
+      "purpose": "Record count of the functional locations delivered by ZEMX_C_FuncLocMig per MaintenancePlanningPlant, FunctionalLocationCategory; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "MaintenancePlanningPlant",
+        "FunctionalLocationCategory"
+      ],
+      "sources": [
+        "ZEMX_C_FuncLocMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_funclocmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_FuncLocTextMig",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "consumption",
+      "label": "Functional location text (migration)",
+      "purpose": "Descriptions of the functional locations in scope per language.",
+      "keys": [
+        "FunctionalLocation",
+        "Language"
+      ],
+      "sources": [
+        "ZEMX_I_FuncLocDesc"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_FuncLoc",
+          "name": "_FuncLoc"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_funcloctextmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_LongTextIndexMig",
+      "product": "eam_mig_ecc",
+      "module": "long_text",
+      "layer": "consumption",
+      "label": "Long text index (migration)",
+      "purpose": "Long texts of EAM objects to migrate: the work list for the load program, which reads the content with READ_TEXT.",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "sources": [
+        "ZEMX_I_LongTextHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_longtextindexmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_LongTextMigCount",
+      "product": "eam_mig_ecc",
+      "module": "long_text",
+      "layer": "consumption",
+      "label": "Long text count (migration)",
+      "purpose": "Record count of the long texts delivered by ZEMX_C_LongTextIndexMig per TextObject, TextID; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "TextObject",
+        "TextID"
+      ],
+      "sources": [
+        "ZEMX_C_LongTextIndexMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_longtextmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintenanceItemMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "consumption",
+      "label": "Maintenance item (migration)",
+      "purpose": "Maintenance items of the plans in scope with reference objects, work center, types and task list.",
+      "keys": [
+        "MaintenanceItem"
+      ],
+      "sources": [
+        "ZEMX_I_MaintenanceItem"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintenancePlan",
+          "name": "_MaintenancePlan"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintenanceitemmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintenancePlanMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "consumption",
+      "label": "Maintenance plan (migration)",
+      "purpose": "Maintenance plans to migrate with scheduling parameters and restart point.",
+      "keys": [
+        "MaintenancePlan"
+      ],
+      "sources": [
+        "ZEMX_I_MaintenancePlan"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintenanceplanmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintNotificationMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "consumption",
+      "label": "Maintenance notification (migration)",
+      "purpose": "Open notifications (not completed, not deleted).",
+      "keys": [
+        "MaintenanceNotification"
+      ],
+      "sources": [
+        "ZEMX_I_MaintNotification"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintnotificationmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintNotifItemMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "consumption",
+      "label": "Notification item (migration)",
+      "purpose": "Items of the open notifications with code groups and codes.",
+      "keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem"
+      ],
+      "sources": [
+        "ZEMX_I_MaintNotifItem"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintNotification",
+          "name": "_MaintNotification"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintnotifitemmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintNotifMigCount",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "consumption",
+      "label": "Open notification count (migration)",
+      "purpose": "Record count of the open maintenance notifications delivered by ZEMX_C_MaintNotificationMig per NotificationType, MaintenancePlanningPlant; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "NotificationType",
+        "MaintenancePlanningPlant"
+      ],
+      "sources": [
+        "ZEMX_C_MaintNotificationMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintnotifmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintOrderComponentMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "consumption",
+      "label": "Maintenance order component (migration)",
+      "purpose": "Open components (not deleted, not finally issued) of the open orders with material, plant and storage location.",
+      "keys": [
+        "MaintenanceOrder",
+        "ReservationItem"
+      ],
+      "sources": [
+        "ZEMX_I_MaintOrderComponent"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintOrder",
+          "name": "_MaintOrder"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintordercomponentmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintOrderMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "consumption",
+      "label": "Maintenance order (migration)",
+      "purpose": "Open maintenance orders (not technically completed, not closed, not deleted).",
+      "keys": [
+        "MaintenanceOrder"
+      ],
+      "sources": [
+        "ZEMX_I_MaintOrder"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintordermig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintOrderMigCount",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "consumption",
+      "label": "Open maintenance order count (migration)",
+      "purpose": "Record count of the open maintenance orders delivered by ZEMX_C_MaintOrderMig per MaintenanceOrderType, MaintenancePlanningPlant; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "MaintenanceOrderType",
+        "MaintenancePlanningPlant"
+      ],
+      "sources": [
+        "ZEMX_C_MaintOrderMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintordermigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintOrderOperationMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "consumption",
+      "label": "Maintenance order operation (migration)",
+      "purpose": "Operations of the open orders with work center, control key, activity type and units.",
+      "keys": [
+        "MaintenanceOrder",
+        "MaintenanceOrderOperation",
+        "MaintenanceOrderSubOperation"
+      ],
+      "sources": [
+        "ZEMX_I_MaintOrderOperation"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintOrder",
+          "name": "_MaintOrder"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintorderoperationmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintPlanCycleMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "consumption",
+      "label": "Maintenance plan cycle (migration)",
+      "purpose": "Cycles / packages of the plans in scope with unit and measuring point; cycle values in the SI unit.",
+      "keys": [
+        "MaintenancePlan",
+        "MaintenancePlanCycle"
+      ],
+      "sources": [
+        "ZEMX_I_MaintPlanCycle"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintenancePlan",
+          "name": "_MaintenancePlan"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintplancyclemig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MaintPlanMigCount",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "consumption",
+      "label": "Maintenance plan count (migration)",
+      "purpose": "Record count of the maintenance plans delivered by ZEMX_C_MaintenancePlanMig per MaintenancePlanCategory, MaintenanceStrategy; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "MaintenancePlanCategory",
+        "MaintenanceStrategy"
+      ],
+      "sources": [
+        "ZEMX_C_MaintenancePlanMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_maintplanmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MeasPointMigCount",
+      "product": "eam_mig_ecc",
+      "module": "measuring_point",
+      "layer": "consumption",
+      "label": "Measuring point count (migration)",
+      "purpose": "Record count of the measuring points delivered by ZEMX_C_MeasuringPointMig per MeasuringPointCategory, MeasuringPointIsCounter; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "MeasuringPointCategory",
+        "MeasuringPointIsCounter"
+      ],
+      "sources": [
+        "ZEMX_C_MeasuringPointMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_measpointmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MeasReadingMig",
+      "product": "eam_mig_ecc",
+      "module": "measurement_document",
+      "layer": "consumption",
+      "label": "Last measurement reading (migration)",
+      "purpose": "Last valid reading per measuring point; values in the SI unit.",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "ZEMX_I_MeasPointLastReading"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_measreadingmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MeasReadingMigCount",
+      "product": "eam_mig_ecc",
+      "module": "measurement_document",
+      "layer": "consumption",
+      "label": "Last reading count (migration)",
+      "purpose": "Record count of the last readings delivered by ZEMX_C_MeasReadingMig per MsmtEntryUnit; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "MsmtEntryUnit"
+      ],
+      "sources": [
+        "ZEMX_C_MeasReadingMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_measreadingmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_MeasuringPointMig",
+      "product": "eam_mig_ecc",
+      "module": "measuring_point",
+      "layer": "consumption",
+      "label": "Measuring point (migration)",
+      "purpose": "Measuring points to migrate with technical object key and characteristic name; range values stay in the SI unit (converted by the load program).",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "ZEMX_I_MeasuringPoint"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_measuringpointmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_NotifActivityMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "consumption",
+      "label": "NotifActivity migration extract",
+      "purpose": "NotifActivity migration extract",
+      "keys": [
+        "MaintenanceNotification",
+        "ActivityNumber"
+      ],
+      "sources": [
+        "ZEMX_I_NotifActivity"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintNotification",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_notifactivitymig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_NotifCauseMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "consumption",
+      "label": "NotifCause migration extract",
+      "purpose": "NotifCause migration extract",
+      "keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem",
+        "CauseNumber"
+      ],
+      "sources": [
+        "ZEMX_I_NotifCause"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintNotification",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_notifcausemig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_NotifTaskMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "consumption",
+      "label": "NotifTask migration extract",
+      "purpose": "NotifTask migration extract",
+      "keys": [
+        "MaintenanceNotification",
+        "TaskNumber"
+      ],
+      "sources": [
+        "ZEMX_I_NotifTask"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintNotification",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_notiftaskmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_ObjectPartnerMig",
+      "product": "eam_mig_ecc",
+      "module": "object_partner",
+      "layer": "consumption",
+      "label": "Object partner (migration)",
+      "purpose": "Partner assignments (not deleted) with object key, partner function and partner.",
+      "keys": [
+        "PartnerObjectKey",
+        "PartnerFunction",
+        "PartnerCounter",
+        "PartnerObjectType"
+      ],
+      "sources": [
+        "ZEMX_I_ObjectPartner"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_objectpartnermig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_ObjectPartnerMigCount",
+      "product": "eam_mig_ecc",
+      "module": "object_partner",
+      "layer": "consumption",
+      "label": "Object partner count (migration)",
+      "purpose": "Record count of the partner assignments delivered by ZEMX_C_ObjectPartnerMig per PartnerObjectType, PartnerFunction; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "PartnerObjectType",
+        "PartnerFunction"
+      ],
+      "sources": [
+        "ZEMX_C_ObjectPartnerMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_objectpartnermigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_OrderPermitMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "consumption",
+      "label": "OrderPermit migration extract",
+      "purpose": "OrderPermit migration extract",
+      "keys": [
+        "ObjectNumber",
+        "Permit"
+      ],
+      "sources": [
+        "ZEMX_I_OrderPermit"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintOrder",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_orderpermitmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_OrderSettlementMig",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "consumption",
+      "label": "OrderSettlement migration extract",
+      "purpose": "OrderSettlement migration extract",
+      "keys": [
+        "ObjectNumber",
+        "DistributionRuleNumber"
+      ],
+      "sources": [
+        "ZEMX_I_OrderSettlement",
+        "Year",
+        "Period"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintOrder",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_ordersettlementmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_TaskListAllocationMig",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "consumption",
+      "label": "Task list allocation (migration)",
+      "purpose": "Equipment / functional location allocation of the task lists in scope.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "Equipment",
+        "FunctionalLocation",
+        "AdditionalCriteriaCounter",
+        "AssignmentCounter"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListObjectAssgmt"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_TaskListCurrent",
+          "name": "_TaskListCurrent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_tasklistallocationmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_TaskListCompMig",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "consumption",
+      "label": "TaskListComp migration extract",
+      "purpose": "TaskListComp migration extract",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "AllocationNumber"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListComp"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_TaskListCurrent",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_tasklistcompmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_TaskListMig",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "consumption",
+      "label": "Maintenance task list (migration)",
+      "purpose": "Current, not deleted maintenance task list headers.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListCurrent"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_tasklistmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_TaskListMigCount",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "consumption",
+      "label": "Task list count (migration)",
+      "purpose": "Record count of the task lists delivered by ZEMX_C_TaskListMig per TaskListType, Plant; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "TaskListType",
+        "Plant"
+      ],
+      "sources": [
+        "ZEMX_C_TaskListMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_tasklistmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_TaskListOperationMig",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "consumption",
+      "label": "Task list operation (migration)",
+      "purpose": "Operations of the task lists in scope (not deleted) with work center, control key and units.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "TaskListSequence",
+        "TaskListOperation"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListOperation"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_TaskListCurrent",
+          "name": "_TaskListCurrent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_tasklistoperationmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_TaskListPackageMig",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "consumption",
+      "label": "TaskListPackage migration extract",
+      "purpose": "TaskListPackage migration extract",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "MaintenancePackage"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListPackage"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_TaskListCurrent",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_tasklistpackagemig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_TaskListPRTMig",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "consumption",
+      "label": "TaskListPRT migration extract",
+      "purpose": "TaskListPRT migration extract",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "PRTItem"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListPRT"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_TaskListCurrent",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_tasklistprtmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_UserStatusMig",
+      "product": "eam_mig_ecc",
+      "module": "object_status",
+      "layer": "consumption",
+      "label": "User status (migration)",
+      "purpose": "Active user statuses (kind E) with object key and status profile; system statuses are set by S/4HANA and not migrated.",
+      "keys": [
+        "StatusObjectKey",
+        "StatusCode",
+        "StatusObjectType"
+      ],
+      "sources": [
+        "ZEMX_I_ObjectStatus"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_userstatusmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_UserStatusMigCount",
+      "product": "eam_mig_ecc",
+      "module": "object_status",
+      "layer": "consumption",
+      "label": "User status count (migration)",
+      "purpose": "Record count of the user statuses delivered by ZEMX_C_UserStatusMig per StatusObjectType, StatusCode; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "StatusObjectType",
+        "StatusCode"
+      ],
+      "sources": [
+        "ZEMX_C_UserStatusMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_userstatusmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterCapacityMig",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "consumption",
+      "label": "WorkCenterCapacity migration extract",
+      "purpose": "WorkCenterCapacity migration extract",
+      "keys": [
+        "ObjectType",
+        "WorkCenterInternalID",
+        "CapacityAssignment"
+      ],
+      "sources": [
+        "ZEMX_I_WorkCenterCapacity"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_Parent"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_workcentercapacitymig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterCostCtrMig",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "consumption",
+      "label": "Work center cost center (migration)",
+      "purpose": "Cost center assignments of the work centers in scope with controlling area and cost center.",
+      "keys": [
+        "WorkCenter",
+        "Plant",
+        "ValidityEndDate",
+        "ActivityTypeSet",
+        "CostCenterAssgmtCounter"
+      ],
+      "sources": [
+        "ZEMX_I_WorkCenterCostCenter"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_workcentercostctrmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterMig",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "consumption",
+      "label": "Work center (migration)",
+      "purpose": "Work centers to migrate (not flagged for deletion) with plant, category and responsible person.",
+      "keys": [
+        "WorkCenter",
+        "Plant"
+      ],
+      "sources": [
+        "ZEMX_I_WorkCenterHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_workcentermig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterMigCount",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "consumption",
+      "label": "Work center count (migration)",
+      "purpose": "Record count of the work centers delivered by ZEMX_C_WorkCenterMig per Plant, WorkCenterCategoryCode; compared with the same count on S/4HANA by tools/mig_reconcile.py.",
+      "keys": [
+        "Plant",
+        "WorkCenterCategoryCode"
+      ],
+      "sources": [
+        "ZEMX_C_WorkCenterMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_workcentermigcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterTextMig",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "consumption",
+      "label": "Work center text (migration)",
+      "purpose": "Work center descriptions per language for the work centers in scope with the business key (work center + plant).",
+      "keys": [
+        "WorkCenter",
+        "Plant",
+        "Language"
+      ],
+      "sources": [
+        "ZEMX_I_WorkCenterText"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_c_workcentertextmig.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_BOMHeader",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "composite",
+      "label": "BOMHeader versioned business data",
+      "purpose": "BOMHeader versioned business data",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "HeaderCounter"
+      ],
+      "sources": [
+        "ZEMX_I_BOMHeaderData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_bomheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_BOMHeaderData",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "basic",
+      "label": "BOMHeader equipment-category state ledger",
+      "purpose": "BOMHeader equipment-category state ledger",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "HeaderCounter"
+      ],
+      "sources": [
+        "stko"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_bomheaderdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_BOMItem",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "composite",
+      "label": "BOMItem versioned business data",
+      "purpose": "BOMItem versioned business data",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMItemNode",
+        "ItemCounter"
+      ],
+      "sources": [
+        "ZEMX_I_BOMItemData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_bomitem.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_BOMItemData",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "basic",
+      "label": "BOMItem equipment-category state ledger",
+      "purpose": "BOMItem equipment-category state ledger",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMItemNode",
+        "ItemCounter"
+      ],
+      "sources": [
+        "stpo"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_bomitemdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_BOMSelection",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "composite",
+      "label": "BOMSelection versioned business data",
+      "purpose": "BOMSelection versioned business data",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "BOMItemNode",
+        "SelectionCounter"
+      ],
+      "sources": [
+        "ZEMX_I_BOMSelectionData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_bomselection.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_BOMSelectionData",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "basic",
+      "label": "BOMSelection equipment-category state ledger",
+      "purpose": "BOMSelection equipment-category state ledger",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "BOMItemNode",
+        "SelectionCounter"
+      ],
+      "sources": [
+        "stas"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_bomselectiondata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_CapacityHeader",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "composite",
+      "label": "CapacityHeader migration business data",
+      "purpose": "CapacityHeader migration business data",
+      "keys": [
+        "CapacityInternalID"
+      ],
+      "sources": [
+        "ZEMX_I_CapacityHeaderData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_capacityheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_CapacityHeaderData",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "basic",
+      "label": "CapacityHeader source data",
+      "purpose": "CapacityHeader source data",
+      "keys": [
+        "CapacityInternalID"
+      ],
+      "sources": [
+        "kako"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_capacityheaderdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_Characteristic",
+      "product": "eam_mig_ecc",
+      "module": "core",
+      "layer": "basic",
+      "label": "Characteristic",
+      "purpose": "Characteristic names by internal number (current version): the name is the key used on S/4HANA, the internal number differs.",
+      "keys": [
+        "CharcInternalID"
+      ],
+      "sources": [
+        "cabn"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_characteristic.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_CharcValue",
+      "product": "eam_mig_ecc",
+      "module": "classification",
+      "layer": "composite",
+      "label": "Characteristic value",
+      "purpose": "Characteristic values with the characteristic name instead of the internal number.",
+      "keys": [
+        "ClassifiedObject",
+        "CharcInternalID",
+        "CharcValuePositionNumber",
+        "ClassType",
+        "ChangeCounter"
+      ],
+      "sources": [
+        "ZEMX_I_ObjectCharcValue",
+        "Numeric"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_charcvalue.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_ClassAssignment",
+      "product": "eam_mig_ecc",
+      "module": "classification",
+      "layer": "composite",
+      "label": "Class assignment",
+      "purpose": "Class assignments with the class name instead of the internal class number.",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "ClassInternalID",
+        "ChangeCounter"
+      ],
+      "sources": [
+        "ZEMX_I_ObjectClassAssgmt"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_classassignment.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_ClassHeader",
+      "product": "eam_mig_ecc",
+      "module": "classification",
+      "layer": "basic",
+      "label": "Class header",
+      "purpose": "Classes (KLAH) by internal number.",
+      "keys": [
+        "ClassInternalID"
+      ],
+      "sources": [
+        "klah"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_classheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_EquipBOMAssign",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "composite",
+      "label": "EquipBOMAssign migration business data",
+      "purpose": "EquipBOMAssign migration business data",
+      "keys": [
+        "Equipment",
+        "Plant",
+        "BOMUsage",
+        "BOMAlternative"
+      ],
+      "sources": [
+        "ZEMX_I_EquipBOMAssignData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equipbomassign.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_EquipBOMAssignData",
+      "product": "eam_mig_ecc",
+      "module": "equipment_bom",
+      "layer": "basic",
+      "label": "EquipBOMAssign source data",
+      "purpose": "EquipBOMAssign source data",
+      "keys": [
+        "Equipment",
+        "Plant",
+        "BOMUsage",
+        "BOMAlternative"
+      ],
+      "sources": [
+        "eqst"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equipbomassigndata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_Equipment",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "composite",
+      "label": "Equipment",
+      "purpose": "Equipment in its current time segment with installation location, superordinate equipment, main work center (business key), location / account assignment, manufacturer data and deletion flag: the complete business object.",
+      "keys": [
+        "Equipment"
+      ],
+      "sources": [
+        "ZEMX_I_EquipmentHeader",
+        "ZEMX_I_EquipmentTimeSegment"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equipment.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_EquipmentDesc",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "basic",
+      "label": "Equipment description",
+      "purpose": "Equipment descriptions (EQKT) per language with the long-text indicator.",
+      "keys": [
+        "Equipment",
+        "Language"
+      ],
+      "sources": [
+        "eqkt"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equipmentdesc.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_EquipmentHeader",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "basic",
+      "label": "Equipment header",
+      "purpose": "Equipment master records (EQUI): category, object type, manufacturer, acquisition and serial data.",
+      "keys": [
+        "Equipment"
+      ],
+      "sources": [
+        "equi"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_StatusDeletionFlag",
+          "name": "_DeletionFlag"
+        }
+      ],
+      "checks": 2,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equipmentheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_EquipmentTimeSegment",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "basic",
+      "label": "Equipment time segment",
+      "purpose": "Time segments of equipment (EQUZ): planning plant, planner group, main work center, superordinate equipment and location record per validity period.",
+      "keys": [
+        "Equipment",
+        "ValidityEndDate",
+        "TimeSegmentCounter"
+      ],
+      "sources": [
+        "equz"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_LocAcctAssignment",
+          "name": "_LocAcctAssignment"
+        },
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_MainWorkCenter"
+        }
+      ],
+      "checks": 3,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equipmenttimesegment.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_EquipSerialStock",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "composite",
+      "label": "EquipSerialStock migration business data",
+      "purpose": "EquipSerialStock migration business data",
+      "keys": [
+        "Equipment"
+      ],
+      "sources": [
+        "ZEMX_I_EquipSerialStockData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equipserialstock.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_EquipSerialStockData",
+      "product": "eam_mig_ecc",
+      "module": "equipment",
+      "layer": "basic",
+      "label": "EquipSerialStock source data",
+      "purpose": "EquipSerialStock source data",
+      "keys": [
+        "Equipment"
+      ],
+      "sources": [
+        "eqbs"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equipserialstockdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_EquipTaskListAsgmt",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "Task list assignment change states",
+      "purpose": "Task-list object allocation change states; customer resolves validity at cutover.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "Equipment",
+        "AdditionalCriteriaCounter",
+        "AssignmentCounter"
+      ],
+      "sources": [
+        "eapl"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_equiptasklistasgmt.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_FuncLoc",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "composite",
+      "label": "Functional location",
+      "purpose": "Functional location with hierarchy, category, planning data, location / account assignment and deletion flag: the complete business object.",
+      "keys": [
+        "FunctionalLocation"
+      ],
+      "sources": [
+        "ZEMX_I_FuncLocHeader"
+      ],
+      "associations": [],
+      "checks": 2,
+      "file": "packages/eam_mig_ecc/src/zemx_i_funcloc.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_FuncLocDesc",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "basic",
+      "label": "Functional location description",
+      "purpose": "Functional location descriptions (IFLOTX) per language with the long-text indicator.",
+      "keys": [
+        "FunctionalLocation",
+        "Language"
+      ],
+      "sources": [
+        "iflotx"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_funclocdesc.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_FuncLocHeader",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "basic",
+      "label": "Functional location header",
+      "purpose": "Functional location master records (IFLOT) with category, hierarchy, planning data and general data.",
+      "keys": [
+        "FunctionalLocation"
+      ],
+      "sources": [
+        "iflot"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_LocAcctAssignment",
+          "name": "_LocAcctAssignment"
+        },
+        {
+          "target": "ZEMX_I_StatusDeletionFlag",
+          "name": "_DeletionFlag"
+        }
+      ],
+      "checks": 3,
+      "file": "packages/eam_mig_ecc/src/zemx_i_funclocheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_FuncLocLabel",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "composite",
+      "label": "FuncLocLabel migration business data",
+      "purpose": "FuncLocLabel migration business data",
+      "keys": [
+        "FunctionalLocation",
+        "LabelingSystem"
+      ],
+      "sources": [
+        "ZEMX_I_FuncLocLabelData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_funcloclabel.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_FuncLocLabelData",
+      "product": "eam_mig_ecc",
+      "module": "functional_location",
+      "layer": "basic",
+      "label": "FuncLocLabel source data",
+      "purpose": "FuncLocLabel source data",
+      "keys": [
+        "FunctionalLocation",
+        "LabelingSystem"
+      ],
+      "sources": [
+        "iflos"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_funcloclabeldata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_FuncTaskListAsgmt",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "Task list assignment change states",
+      "purpose": "Task-list object allocation change states; customer resolves validity at cutover.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "FunctionalLocation",
+        "AdditionalCriteriaCounter",
+        "AssignmentCounter"
+      ],
+      "sources": [
+        "tapl"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_functasklistasgmt.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_LocAcctAssignment",
+      "product": "eam_mig_ecc",
+      "module": "core",
+      "layer": "basic",
+      "label": "Location and account assignment",
+      "purpose": "Location and account assignment data (ILOA) shared by functional locations, equipment, notifications, orders and maintenance items.",
+      "keys": [
+        "LocAcctAssignment"
+      ],
+      "sources": [
+        "iloa"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_locacctassignment.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_LongTextHeader",
+      "product": "eam_mig_ecc",
+      "module": "long_text",
+      "layer": "basic",
+      "label": "Long text header",
+      "purpose": "Index of the SAPscript long texts of EAM objects (STXH): which texts exist, in which language, when changed.",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "sources": [
+        "stxh"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_longtextheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintenanceItem",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "composite",
+      "label": "Maintenance item",
+      "purpose": "Maintenance item with reference object, planning data, main work center (business key), order / notification type, task list and business area.",
+      "keys": [
+        "MaintenanceItem"
+      ],
+      "sources": [
+        "ZEMX_I_MaintenanceItemHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintenanceitem.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintenanceItemHeader",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "basic",
+      "label": "Maintenance item header",
+      "purpose": "Maintenance items (MPOS) with reference object, planning data, order / notification type and task list.",
+      "keys": [
+        "MaintenanceItem"
+      ],
+      "sources": [
+        "mpos"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_LocAcctAssignment",
+          "name": "_LocAcctAssignment"
+        },
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_MainWorkCenter"
+        }
+      ],
+      "checks": 2,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintenanceitemheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintenancePlan",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "composite",
+      "label": "Maintenance plan",
+      "purpose": "Maintenance plan with scheduling parameters, deletion flag and the restart point (last call / last completion date).",
+      "keys": [
+        "MaintenancePlan"
+      ],
+      "sources": [
+        "ZEMX_I_MaintenancePlanHeader"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintPlanLastCall",
+          "name": "_LastCall"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintenanceplan.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintenancePlanHeader",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "basic",
+      "label": "Maintenance plan header",
+      "purpose": "Maintenance plans (MPLA) with category, strategy and scheduling parameters.",
+      "keys": [
+        "MaintenancePlan"
+      ],
+      "sources": [
+        "mpla"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_StatusDeletionFlag",
+          "name": "_DeletionFlag"
+        }
+      ],
+      "checks": 2,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintenanceplanheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintNotification",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "composite",
+      "label": "Maintenance notification",
+      "purpose": "PM notification with maintenance data, reference object, location, main work center (business key) and completion / deletion flags.",
+      "keys": [
+        "MaintenanceNotification"
+      ],
+      "sources": [
+        "ZEMX_I_NotificationHeader",
+        "ZEMX_I_NotificationMaintData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintnotification.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintNotifItem",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "composite",
+      "label": "Maintenance notification item",
+      "purpose": "Items of PM notifications (restricted to notifications with maintenance data).",
+      "keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem"
+      ],
+      "sources": [
+        "ZEMX_I_NotificationItemData",
+        "ZEMX_I_NotificationMaintData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintnotifitem.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintOrder",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "composite",
+      "label": "Maintenance order",
+      "purpose": "Maintenance order with planning data, reference object, account assignment, main work center (business key) and the status flags that decide the migration scope.",
+      "keys": [
+        "MaintenanceOrder"
+      ],
+      "sources": [
+        "ZEMX_I_OrderMasterData",
+        "ZEMX_I_OrderMaintData",
+        "ZEMX_I_OrderHeaderPlanning"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintorder.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintOrderComponent",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "composite",
+      "label": "Maintenance order component",
+      "purpose": "Material components of maintenance orders with the operation number (instead of the internal operation counter).",
+      "keys": [
+        "Reservation",
+        "ReservationItem",
+        "ReservationRecordType"
+      ],
+      "sources": [
+        "ZEMX_I_ReservationItem",
+        "ZEMX_I_OrderMaintData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintordercomponent.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintOrderOperation",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "composite",
+      "label": "Maintenance order operation",
+      "purpose": "Operations of maintenance orders with quantities and the work center as business key.",
+      "keys": [
+        "MaintenanceOrder",
+        "OrderOperationInternalID"
+      ],
+      "sources": [
+        "ZEMX_I_OrderOperationData",
+        "ZEMX_I_OrderOperationValues",
+        "ZEMX_I_OrderHeaderPlanning"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintorderoperation.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintPlanCallHistory",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "basic",
+      "label": "Maintenance plan call history",
+      "purpose": "Scheduled and completed calls per maintenance plan (MHIS).",
+      "keys": [
+        "MaintenancePlan",
+        "MaintPlanCallNumber"
+      ],
+      "sources": [
+        "mhis"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintplancallhistory.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintPlanCycle",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "basic",
+      "label": "Maintenance plan cycle",
+      "purpose": "Cycles of single-cycle and multiple-counter plans and packages of strategy plans (MMPT).",
+      "keys": [
+        "MaintenancePlan",
+        "MaintenancePlanCycle"
+      ],
+      "sources": [
+        "mmpt"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintplancycle.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MaintPlanLastCall",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_plan",
+      "layer": "composite",
+      "label": "Maintenance plan last call",
+      "purpose": "Last call number and last completion date per maintenance plan: the restart point of the schedule on S/4HANA.",
+      "keys": [
+        "MaintenancePlan"
+      ],
+      "sources": [
+        "ZEMX_I_MaintPlanCallHistory"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_maintplanlastcall.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MeasPointLastDate",
+      "product": "eam_mig_ecc",
+      "module": "measurement_document",
+      "layer": "composite",
+      "label": "Last reading date",
+      "purpose": "Latest non-cancelled reading timestamp helper.",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "ZEMX_I_MeasurementDocument"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_measpointlastdate.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MeasPointLastDoc",
+      "product": "eam_mig_ecc",
+      "module": "measurement_document",
+      "layer": "composite",
+      "label": "Last measurement document per point",
+      "purpose": "Latest non-cancelled reading by date and time; highest document ID breaks timestamp ties.",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "ZEMX_I_MeasurementDocument",
+        "ZEMX_I_MeasPointLastTime"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_measpointlastdoc.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MeasPointLastReading",
+      "product": "eam_mig_ecc",
+      "module": "measurement_document",
+      "layer": "composite",
+      "label": "Last reading per measuring point",
+      "purpose": "Latest valid reading per measuring point: migrated as the initial reading so that counters and performance-based plans continue.",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "ZEMX_I_MeasPointLastDoc",
+        "ZEMX_I_MeasurementDocument"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_measpointlastreading.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MeasPointLastTime",
+      "product": "eam_mig_ecc",
+      "module": "measurement_document",
+      "layer": "composite",
+      "label": "Last reading time",
+      "purpose": "Latest non-cancelled reading timestamp helper.",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "ZEMX_I_MeasurementDocument",
+        "ZEMX_I_MeasPointLastDate"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_measpointlasttime.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MeasurementDocument",
+      "product": "eam_mig_ecc",
+      "module": "measurement_document",
+      "layer": "basic",
+      "label": "Measurement document",
+      "purpose": "Measurement documents (IMRG): readings and counter readings with date, time, values, valuation code and cancellation flag.",
+      "keys": [
+        "MeasurementDocument"
+      ],
+      "sources": [
+        "imrg"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_measurementdocument.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MeasuringPoint",
+      "product": "eam_mig_ecc",
+      "module": "measuring_point",
+      "layer": "composite",
+      "label": "Measuring point",
+      "purpose": "Measuring point with the technical object it belongs to (decoded from the object number) and the characteristic name instead of the internal number.",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "ZEMX_I_MeasuringPointHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_measuringpoint.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_MeasuringPointHeader",
+      "product": "eam_mig_ecc",
+      "module": "measuring_point",
+      "layer": "basic",
+      "label": "Measuring point header",
+      "purpose": "Measuring points and counters (IMPTT) with object number, characteristic, ranges and indicators.",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "imptt"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_Characteristic",
+          "name": "_Characteristic"
+        }
+      ],
+      "checks": 3,
+      "file": "packages/eam_mig_ecc/src/zemx_i_measuringpointheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotifActivity",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "composite",
+      "label": "NotifActivity migration business data",
+      "purpose": "NotifActivity migration business data",
+      "keys": [
+        "MaintenanceNotification",
+        "ActivityNumber"
+      ],
+      "sources": [
+        "ZEMX_I_NotifActivityData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notifactivity.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotifActivityData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "basic",
+      "label": "NotifActivity source data",
+      "purpose": "NotifActivity source data",
+      "keys": [
+        "MaintenanceNotification",
+        "ActivityNumber"
+      ],
+      "sources": [
+        "qmma"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notifactivitydata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotifCause",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "composite",
+      "label": "NotifCause migration business data",
+      "purpose": "NotifCause migration business data",
+      "keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem",
+        "CauseNumber"
+      ],
+      "sources": [
+        "ZEMX_I_NotifCauseData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notifcause.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotifCauseData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "basic",
+      "label": "NotifCause source data",
+      "purpose": "NotifCause source data",
+      "keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem",
+        "CauseNumber"
+      ],
+      "sources": [
+        "qmur"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notifcausedata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotificationHeader",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "basic",
+      "label": "Notification header",
+      "purpose": "Notification headers (QMEL): type, texts, dates, priority, coding, order reference and object number.",
+      "keys": [
+        "MaintenanceNotification"
+      ],
+      "sources": [
+        "qmel"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_MainWorkCenter"
+        },
+        {
+          "target": "ZEMX_I_StatusNotifCompleted",
+          "name": "_CompletedFlag"
+        },
+        {
+          "target": "ZEMX_I_StatusDeletionFlag",
+          "name": "_DeletionFlag"
+        }
+      ],
+      "checks": 2,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notificationheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotificationItemData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "basic",
+      "label": "Notification item",
+      "purpose": "Notification items (QMFE): object part and damage codes with text.",
+      "keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem"
+      ],
+      "sources": [
+        "qmfe"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notificationitemdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotificationMaintData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "basic",
+      "label": "Notification maintenance data",
+      "purpose": "Maintenance data of PM notifications (QMIH): reference object, planning plant, planner group, breakdown and malfunction data.",
+      "keys": [
+        "MaintenanceNotification"
+      ],
+      "sources": [
+        "qmih"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_LocAcctAssignment",
+          "name": "_LocAcctAssignment"
+        }
+      ],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notificationmaintdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotifTask",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "composite",
+      "label": "NotifTask migration business data",
+      "purpose": "NotifTask migration business data",
+      "keys": [
+        "MaintenanceNotification",
+        "TaskNumber"
+      ],
+      "sources": [
+        "ZEMX_I_NotifTaskData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notiftask.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_NotifTaskData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_notification",
+      "layer": "basic",
+      "label": "NotifTask source data",
+      "purpose": "NotifTask source data",
+      "keys": [
+        "MaintenanceNotification",
+        "TaskNumber"
+      ],
+      "sources": [
+        "qmsm"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_notiftaskdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_ObjectCharcValue",
+      "product": "eam_mig_ecc",
+      "module": "classification",
+      "layer": "basic",
+      "label": "Object characteristic value",
+      "purpose": "Characteristic values of objects (AUSP, object indicator 'O').",
+      "keys": [
+        "ClassifiedObject",
+        "CharcInternalID",
+        "CharcValuePositionNumber",
+        "ClassType",
+        "ChangeCounter"
+      ],
+      "sources": [
+        "ausp"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_Characteristic",
+          "name": "_Characteristic"
+        }
+      ],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_objectcharcvalue.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_ObjectClassAssgmt",
+      "product": "eam_mig_ecc",
+      "module": "classification",
+      "layer": "basic",
+      "label": "Object class assignment",
+      "purpose": "Class assignments of objects (KSSK, object indicator 'O').",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "ClassInternalID",
+        "ChangeCounter"
+      ],
+      "sources": [
+        "kssk"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_ClassHeader",
+          "name": "_Class"
+        }
+      ],
+      "checks": 2,
+      "file": "packages/eam_mig_ecc/src/zemx_i_objectclassassgmt.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_ObjectPartner",
+      "product": "eam_mig_ecc",
+      "module": "object_partner",
+      "layer": "basic",
+      "label": "Object partner",
+      "purpose": "Partners of technical objects, notifications and orders (IHPA) with the object type and key decoded.",
+      "keys": [
+        "ObjectNumber",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "sources": [
+        "ihpa"
+      ],
+      "associations": [],
+      "checks": 2,
+      "file": "packages/eam_mig_ecc/src/zemx_i_objectpartner.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_ObjectStatus",
+      "product": "eam_mig_ecc",
+      "module": "object_status",
+      "layer": "composite",
+      "label": "Object status",
+      "purpose": "Active statuses with object type, object key and status profile.",
+      "keys": [
+        "ObjectNumber",
+        "StatusCode"
+      ],
+      "sources": [
+        "ZEMX_I_ObjectStatusEntry"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_objectstatus.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_ObjectStatusEntry",
+      "product": "eam_mig_ecc",
+      "module": "object_status",
+      "layer": "basic",
+      "label": "Active object status",
+      "purpose": "Active system and user statuses of all objects (JEST, INACT = space) with the object type and status kind decoded.",
+      "keys": [
+        "ObjectNumber",
+        "StatusCode"
+      ],
+      "sources": [
+        "jest"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_StatusObjectInfo",
+          "name": "_StatusObject"
+        }
+      ],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_objectstatusentry.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderHeaderPlanning",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "Order header planning data",
+      "purpose": "Order header planning data (AFKO): basic dates, routing number and the task list used.",
+      "keys": [
+        "MaintenanceOrder"
+      ],
+      "sources": [
+        "afko"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_orderheaderplanning.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderMaintData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "Order maintenance data",
+      "purpose": "Maintenance data of orders (AFIH): reference object, planning data, notification, maintenance plan.",
+      "keys": [
+        "MaintenanceOrder"
+      ],
+      "sources": [
+        "afih"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_LocAcctAssignment",
+          "name": "_LocAcctAssignment"
+        },
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_MainWorkCenter"
+        }
+      ],
+      "checks": 2,
+      "file": "packages/eam_mig_ecc/src/zemx_i_ordermaintdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderMasterData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "Order master data",
+      "purpose": "Order master data (AUFK) of maintenance orders (order category 30).",
+      "keys": [
+        "MaintenanceOrder"
+      ],
+      "sources": [
+        "aufk"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_StatusTechCompleted",
+          "name": "_TechCompletedFlag"
+        },
+        {
+          "target": "ZEMX_I_StatusClosed",
+          "name": "_ClosedFlag"
+        },
+        {
+          "target": "ZEMX_I_StatusDeletionFlag",
+          "name": "_DeletionFlag"
+        }
+      ],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_ordermasterdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderOperationData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "Order operation",
+      "purpose": "Order operations (AFVC): number, control key, text, work center, plant, activity type.",
+      "keys": [
+        "OrderRoutingNumber",
+        "OrderOperationInternalID"
+      ],
+      "sources": [
+        "afvc"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_WorkCenter"
+        }
+      ],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_orderoperationdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderOperationValues",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "Order operation quantities",
+      "purpose": "Quantities and durations of order operations (AFVV).",
+      "keys": [
+        "OrderRoutingNumber",
+        "OrderOperationInternalID"
+      ],
+      "sources": [
+        "afvv"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_orderoperationvalues.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderPermit",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "composite",
+      "label": "OrderPermit migration business data",
+      "purpose": "OrderPermit migration business data",
+      "keys": [
+        "ObjectNumber",
+        "Permit"
+      ],
+      "sources": [
+        "ZEMX_I_OrderPermitData"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintOrder",
+          "name": "_Business"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_orderpermit.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderPermitData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "OrderPermit source data",
+      "purpose": "OrderPermit source data",
+      "keys": [
+        "ObjectNumber",
+        "Permit"
+      ],
+      "sources": [
+        "ihsg"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_orderpermitdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderSettlement",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "composite",
+      "label": "OrderSettlement migration business data",
+      "purpose": "OrderSettlement migration business data",
+      "keys": [
+        "ObjectNumber",
+        "DistributionRuleNumber"
+      ],
+      "sources": [
+        "ZEMX_I_OrderSettlementData",
+        "Year",
+        "Period"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_MaintOrder",
+          "name": "_Order"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_ordersettlement.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_OrderSettlementData",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "OrderSettlement source data",
+      "purpose": "OrderSettlement source data",
+      "keys": [
+        "ObjectNumber",
+        "DistributionRuleNumber"
+      ],
+      "sources": [
+        "cobrb",
+        "Year",
+        "Period"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_ordersettlementdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_ReservationItem",
+      "product": "eam_mig_ecc",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "Reservation item",
+      "purpose": "Reservation / dependent requirement items (RESB) with order and operation link, material, quantities and flags.",
+      "keys": [
+        "Reservation",
+        "ReservationItem",
+        "ReservationRecordType"
+      ],
+      "sources": [
+        "resb"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_OrderOperationData",
+          "name": "_Operation"
+        }
+      ],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_reservationitem.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_StatusClosed",
+      "product": "eam_mig_ecc",
+      "module": "core",
+      "layer": "basic",
+      "label": "Objects with status closed (CLSD)",
+      "purpose": "Object numbers whose system status I0046 - closed (CLSD) - is active; joined by the composite views to derive the scope flags.",
+      "keys": [
+        "ObjectNumber"
+      ],
+      "sources": [
+        "jest"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_statusclosed.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_StatusDeletionFlag",
+      "product": "eam_mig_ecc",
+      "module": "core",
+      "layer": "basic",
+      "label": "Objects with status deletion flag (DLFL)",
+      "purpose": "Object numbers whose system status I0076 - deletion flag (DLFL) - is active; joined by the composite views to derive the scope flags.",
+      "keys": [
+        "ObjectNumber"
+      ],
+      "sources": [
+        "jest"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_statusdeletionflag.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_StatusNotifCompleted",
+      "product": "eam_mig_ecc",
+      "module": "core",
+      "layer": "basic",
+      "label": "Objects with status notification completed (NOCO)",
+      "purpose": "Object numbers whose system status I0072 - notification completed (NOCO) - is active; joined by the composite views to derive the scope flags.",
+      "keys": [
+        "ObjectNumber"
+      ],
+      "sources": [
+        "jest"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_statusnotifcompleted.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_StatusObjectInfo",
+      "product": "eam_mig_ecc",
+      "module": "object_status",
+      "layer": "basic",
+      "label": "Status object information",
+      "purpose": "Status profile per object number (JSTO).",
+      "keys": [
+        "ObjectNumber"
+      ],
+      "sources": [
+        "jsto"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_statusobjectinfo.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_StatusTechCompleted",
+      "product": "eam_mig_ecc",
+      "module": "core",
+      "layer": "basic",
+      "label": "Objects with status technically completed (TECO)",
+      "purpose": "Object numbers whose system status I0045 - technically completed (TECO) - is active; joined by the composite views to derive the scope flags.",
+      "keys": [
+        "ObjectNumber"
+      ],
+      "sources": [
+        "jest"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_statustechcompleted.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListAsgLatest",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "Latest recorded task list operation state",
+      "purpose": "Latest recorded operation state, including deletion states; cutover effectivity still requires verification.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "TaskListSequence",
+        "TaskListOperationInternalId"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListOpAssignment"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistasglatest.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListComp",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "TaskListComp migration business data",
+      "purpose": "TaskListComp migration business data",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "AllocationNumber"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListCompData",
+        "ZEMX_I_TaskListCompLatest"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistcomp.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListCompData",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "TaskListComp source data",
+      "purpose": "TaskListComp source data",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "AllocationNumber"
+      ],
+      "sources": [
+        "plmz"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistcompdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListCompLatest",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "TaskListComp latest recorded counter",
+      "purpose": "TaskListComp latest recorded counter",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "AllocationNumber"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListCompData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistcomplatest.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListCurrent",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "Current maintenance task list",
+      "purpose": "Current version of each maintenance task list header with the main work center as business key and the deletion flag.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListHeader",
+        "ZEMX_I_TaskListLatestVersion"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistcurrent.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListHeader",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "Task list header",
+      "purpose": "All versions (change-number states) of maintenance task list headers of type A (general), E (equipment) and T (functional location).",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "TaskListVersionCounter"
+      ],
+      "sources": [
+        "plko"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_MainWorkCenter"
+        }
+      ],
+      "checks": 3,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListLatestVersion",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "Task list latest version",
+      "purpose": "Highest version counter per task list group and group counter (helper for the current task list).",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistlatestversion.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListObjectAssgmt",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "Task list object assignment",
+      "purpose": "Task-list object allocation change states; customer resolves validity at cutover.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "Equipment",
+        "FunctionalLocation",
+        "AdditionalCriteriaCounter",
+        "AssignmentCounter"
+      ],
+      "sources": [
+        "ZEMX_I_EquipTaskListAsgmt",
+        "ZEMX_I_FuncTaskListAsgmt"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistobjectassgmt.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListOpAssignment",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "Task list operation assignment",
+      "purpose": "Assignment of operations to task list sequences (PLAS) for maintenance task lists.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "TaskListSequence",
+        "TaskListOperationInternalId",
+        "TaskListOpAssgmtVersion"
+      ],
+      "sources": [
+        "plas"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistopassignment.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListOpDetail",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "Task list operation detail",
+      "purpose": "Operation details of task lists (PLPO): operation number, control key, work center, work, duration.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListOperationInternalId",
+        "TaskListOpVersionCounter"
+      ],
+      "sources": [
+        "plpo"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_WorkCenter"
+        }
+      ],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistopdetail.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListOperation",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "Task list operation",
+      "purpose": "Operations of maintenance task lists (sequence assignment joined with operation detail) with the work center as business key.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "TaskListSequence",
+        "TaskListOperationInternalId",
+        "TaskListOpAssgmtVersion",
+        "TaskListOpVersionCounter"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListOpAssignment",
+        "ZEMX_I_TaskListOpDetail",
+        "ZEMX_I_TaskListAsgLatest",
+        "ZEMX_I_TaskListOpLatest"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistoperation.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListOpLatest",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "Latest recorded task list operation state",
+      "purpose": "Latest recorded operation state, including deletion states; cutover effectivity still requires verification.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListOperationInternalId"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListOpDetail"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistoplatest.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListPackage",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "TaskListPackage migration business data",
+      "purpose": "TaskListPackage migration business data",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "MaintenancePackage"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListPackageData",
+        "ZEMX_I_TaskListPackageLatest"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistpackage.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListPackageData",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "TaskListPackage source data",
+      "purpose": "TaskListPackage source data",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "MaintenancePackage"
+      ],
+      "sources": [
+        "plwp"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistpackagedata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListPackageLatest",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "TaskListPackage latest recorded counter",
+      "purpose": "TaskListPackage latest recorded counter",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "MaintenancePackage"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListPackageData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistpackagelatest.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListPRT",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "TaskListPRT migration business data",
+      "purpose": "TaskListPRT migration business data",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "PRTItem"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListPRTData",
+        "ZEMX_I_TaskListPRTLatest"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistprt.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListPRTData",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "TaskListPRT source data",
+      "purpose": "TaskListPRT source data",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "VersionCounter",
+        "PRTItem"
+      ],
+      "sources": [
+        "plfh"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistprtdata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_TaskListPRTLatest",
+      "product": "eam_mig_ecc",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "TaskListPRT latest recorded counter",
+      "purpose": "TaskListPRT latest recorded counter",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "PRTItem"
+      ],
+      "sources": [
+        "ZEMX_I_TaskListPRTData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_tasklistprtlatest.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_UserStatusDesc",
+      "product": "eam_mig_ecc",
+      "module": "object_status",
+      "layer": "basic",
+      "label": "User status description",
+      "purpose": "Short and long texts of user statuses per status profile (TJ30T): reference list of the user statuses in use.",
+      "keys": [
+        "StatusProfile",
+        "StatusCode",
+        "Language"
+      ],
+      "sources": [
+        "tj30t"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_userstatusdesc.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_WorkCenterCapacity",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "composite",
+      "label": "WorkCenterCapacity migration business data",
+      "purpose": "WorkCenterCapacity migration business data",
+      "keys": [
+        "ObjectType",
+        "WorkCenterInternalID",
+        "CapacityAssignment"
+      ],
+      "sources": [
+        "ZEMX_I_WorkCenterCapacityData"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_Business"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_workcentercapacity.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_WorkCenterCapacityData",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "basic",
+      "label": "WorkCenterCapacity source data",
+      "purpose": "WorkCenterCapacity source data",
+      "keys": [
+        "ObjectType",
+        "WorkCenterInternalID",
+        "CapacityAssignment"
+      ],
+      "sources": [
+        "crca"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_workcentercapacitydata.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_WorkCenterCostAssgmt",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "basic",
+      "label": "Work center cost center assignment",
+      "purpose": "Cost center assignments of work centers per validity period (CRCO).",
+      "keys": [
+        "WorkCenterInternalID",
+        "ActivityTypeSet",
+        "ValidityEndDate",
+        "CostCenterAssgmtCounter"
+      ],
+      "sources": [
+        "crco"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_WorkCenter"
+        }
+      ],
+      "checks": 1,
+      "file": "packages/eam_mig_ecc/src/zemx_i_workcentercostassgmt.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_WorkCenterCostCenter",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "composite",
+      "label": "Work center cost center",
+      "purpose": "Cost center assignments of work centers with the business key (work center + plant).",
+      "keys": [
+        "WorkCenterInternalID",
+        "ActivityTypeSet",
+        "ValidityEndDate",
+        "CostCenterAssgmtCounter"
+      ],
+      "sources": [
+        "ZEMX_I_WorkCenterCostAssgmt"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_workcentercostcenter.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_WorkCenterDesc",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "basic",
+      "label": "Work center description",
+      "purpose": "Work center descriptions (CRTX) per language for object type 'A'.",
+      "keys": [
+        "WorkCenterInternalID",
+        "Language"
+      ],
+      "sources": [
+        "crtx"
+      ],
+      "associations": [
+        {
+          "target": "ZEMX_I_WorkCenterHeader",
+          "name": "_WorkCenter"
+        }
+      ],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_workcenterdesc.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_WorkCenterHeader",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "basic",
+      "label": "Work center header",
+      "purpose": "Work centers of object type 'A' (CRHD) with plant, category, responsible person, validity and deletion flag.",
+      "keys": [
+        "WorkCenterInternalID"
+      ],
+      "sources": [
+        "crhd"
+      ],
+      "associations": [],
+      "checks": 3,
+      "file": "packages/eam_mig_ecc/src/zemx_i_workcenterheader.ddls.asddls"
+    },
+    {
+      "name": "ZEMX_I_WorkCenterText",
+      "product": "eam_mig_ecc",
+      "module": "work_center",
+      "layer": "composite",
+      "label": "Work center text",
+      "purpose": "Work center descriptions with the business key (work center + plant) instead of the internal object ID.",
+      "keys": [
+        "WorkCenterInternalID",
+        "Language"
+      ],
+      "sources": [
+        "ZEMX_I_WorkCenterDesc"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_ecc/src/zemx_i_workcentertext.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_EquipmentCompare",
+      "product": "eam_mig_s4",
+      "module": "equipment",
+      "layer": "basic",
+      "label": "Equipment compare (reconciliation)",
+      "purpose": "Equipment on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.",
+      "keys": [
+        "Equipment"
+      ],
+      "sources": [
+        "I_Equipment"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_s4/src/zemt_i_equipmentcompare.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_EquipmentCount",
+      "product": "eam_mig_s4",
+      "module": "equipment",
+      "layer": "composite",
+      "label": "Equipment count (reconciliation)",
+      "purpose": "Record count of equipments on S/4HANA per MaintenancePlanningPlant, EquipmentCategory; same structure as the ECC count view.",
+      "keys": [
+        "MaintenancePlanningPlant",
+        "EquipmentCategory"
+      ],
+      "sources": [
+        "I_Equipment"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_s4/src/zemt_i_equipmentcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_FuncLocCompare",
+      "product": "eam_mig_s4",
+      "module": "functional_location",
+      "layer": "basic",
+      "label": "Functional location compare (reconciliation)",
+      "purpose": "Functional location on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.",
+      "keys": [
+        "FunctionalLocation"
+      ],
+      "sources": [
+        "I_FunctionalLocation"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_s4/src/zemt_i_funcloccompare.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_FuncLocCount",
+      "product": "eam_mig_s4",
+      "module": "functional_location",
+      "layer": "composite",
+      "label": "Functional location count (reconciliation)",
+      "purpose": "Record count of functional locations on S/4HANA per MaintenancePlanningPlant, FunctionalLocationCategory; same structure as the ECC count view.",
+      "keys": [
+        "MaintenancePlanningPlant",
+        "FunctionalLocationCategory"
+      ],
+      "sources": [
+        "I_FunctionalLocation"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_s4/src/zemt_i_funcloccount.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_MaintNotifCompare",
+      "product": "eam_mig_s4",
+      "module": "maintenance_notification",
+      "layer": "basic",
+      "label": "Maintenance notification compare (reconciliation)",
+      "purpose": "Maintenance notification on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.",
+      "keys": [
+        "MaintenanceNotification"
+      ],
+      "sources": [
+        "I_MaintenanceNotification"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_s4/src/zemt_i_maintnotifcompare.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_MaintNotifCount",
+      "product": "eam_mig_s4",
+      "module": "maintenance_notification",
+      "layer": "composite",
+      "label": "Maintenance notification count (reconciliation)",
+      "purpose": "Record count of maintenance notifications on S/4HANA per NotificationType, MaintenancePlanningPlant; same structure as the ECC count view.",
+      "keys": [
+        "NotificationType",
+        "MaintenancePlanningPlant"
+      ],
+      "sources": [
+        "I_MaintenanceNotification"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_s4/src/zemt_i_maintnotifcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_MaintOrderCompare",
+      "product": "eam_mig_s4",
+      "module": "maintenance_order",
+      "layer": "basic",
+      "label": "Maintenance order compare (reconciliation)",
+      "purpose": "Maintenance order on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.",
+      "keys": [
+        "MaintenanceOrder"
+      ],
+      "sources": [
+        "I_MaintenanceOrder"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_s4/src/zemt_i_maintordercompare.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_MaintOrderCount",
+      "product": "eam_mig_s4",
+      "module": "maintenance_order",
+      "layer": "composite",
+      "label": "Maintenance order count (reconciliation)",
+      "purpose": "Record count of maintenance orders on S/4HANA per MaintenanceOrderType, MaintenancePlanningPlant; same structure as the ECC count view.",
+      "keys": [
+        "MaintenanceOrderType",
+        "MaintenancePlanningPlant"
+      ],
+      "sources": [
+        "I_MaintenanceOrder"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_s4/src/zemt_i_maintordercount.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_MaintPlanCompare",
+      "product": "eam_mig_s4",
+      "module": "maintenance_plan",
+      "layer": "basic",
+      "label": "Maintenance plan compare (reconciliation)",
+      "purpose": "Maintenance plan on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.",
+      "keys": [
+        "MaintenancePlan"
+      ],
+      "sources": [
+        "I_MaintenancePlan"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_s4/src/zemt_i_maintplancompare.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_MaintPlanCount",
+      "product": "eam_mig_s4",
+      "module": "maintenance_plan",
+      "layer": "composite",
+      "label": "Maintenance plan count (reconciliation)",
+      "purpose": "Record count of maintenance plans on S/4HANA per MaintenancePlanCategory, MaintenanceStrategy; same structure as the ECC count view.",
+      "keys": [
+        "MaintenancePlanCategory",
+        "MaintenanceStrategy"
+      ],
+      "sources": [
+        "I_MaintenancePlan"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_s4/src/zemt_i_maintplancount.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_MeasPointCompare",
+      "product": "eam_mig_s4",
+      "module": "measuring_point",
+      "layer": "basic",
+      "label": "Measuring point compare (reconciliation)",
+      "purpose": "Measuring point on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "sources": [
+        "I_MeasuringPoint"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_s4/src/zemt_i_measpointcompare.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_MeasPointCount",
+      "product": "eam_mig_s4",
+      "module": "measuring_point",
+      "layer": "composite",
+      "label": "Measuring point count (reconciliation)",
+      "purpose": "Record count of measuring points on S/4HANA per MeasuringPointCategory, MeasuringPointIsCounter; same structure as the ECC count view.",
+      "keys": [
+        "MeasuringPointCategory",
+        "MeasuringPointIsCounter"
+      ],
+      "sources": [
+        "I_MeasuringPoint"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_s4/src/zemt_i_measpointcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_TaskListCompare",
+      "product": "eam_mig_s4",
+      "module": "task_list",
+      "layer": "basic",
+      "label": "Maintenance task list compare (reconciliation)",
+      "purpose": "Maintenance task list on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "sources": [
+        "I_MaintenanceTaskList"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_s4/src/zemt_i_tasklistcompare.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_TaskListCount",
+      "product": "eam_mig_s4",
+      "module": "task_list",
+      "layer": "composite",
+      "label": "Maintenance task list count (reconciliation)",
+      "purpose": "Record count of maintenance task lists on S/4HANA per TaskListType, Plant; same structure as the ECC count view.",
+      "keys": [
+        "TaskListType",
+        "Plant"
+      ],
+      "sources": [
+        "I_MaintenanceTaskList"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_s4/src/zemt_i_tasklistcount.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_WorkCenterCompare",
+      "product": "eam_mig_s4",
+      "module": "work_center",
+      "layer": "basic",
+      "label": "Work center compare (reconciliation)",
+      "purpose": "Work center on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.",
+      "keys": [
+        "WorkCenter",
+        "Plant"
+      ],
+      "sources": [
+        "I_WorkCenter"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/eam_mig_s4/src/zemt_i_workcentercompare.ddls.asddls"
+    },
+    {
+      "name": "ZEMT_I_WorkCenterCount",
+      "product": "eam_mig_s4",
+      "module": "work_center",
+      "layer": "composite",
+      "label": "Work center count (reconciliation)",
+      "purpose": "Record count of work centers on S/4HANA per Plant, WorkCenterCategoryCode; same structure as the ECC count view.",
+      "keys": [
+        "Plant",
+        "WorkCenterCategoryCode"
+      ],
+      "sources": [
+        "I_WorkCenter"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/eam_mig_s4/src/zemt_i_workcentercount.ddls.asddls"
+    }
+  ],
+  "modules": [
+    {
+      "product": "eam_mig_ecc",
+      "name": "classification",
+      "title": "Classification",
+      "description": "Class assignments and characteristic values of technical objects.",
+      "dependencies": [
+        "core"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "core",
+      "title": "Migration core",
+      "description": "Shared basic views: location / account assignment, status flags, characteristics.",
+      "dependencies": [],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "equipment",
+      "title": "Equipment",
+      "description": "Equipment current segment, texts and serial-stock context.",
+      "dependencies": [
+        "core",
+        "work_center"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "equipment_bom",
+      "title": "Equipment BOM",
+      "description": "Equipment BOM assignments and versioned header, selection and item ledgers.",
+      "dependencies": [
+        "equipment"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "functional_location",
+      "title": "Functional location",
+      "description": "Functional locations, texts and alternative labels.",
+      "dependencies": [
+        "core"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "long_text",
+      "title": "Long text",
+      "description": "Index of long texts of EAM objects (content via READ_TEXT in the load program).",
+      "dependencies": [
+        "core"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "maintenance_notification",
+      "title": "Maintenance notification",
+      "description": "Open PM notifications with items, causes, tasks and activities.",
+      "dependencies": [
+        "core",
+        "work_center"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "maintenance_order",
+      "title": "Maintenance order",
+      "description": "Open maintenance orders with operations, components, settlement rows and permit assignments.",
+      "dependencies": [
+        "core",
+        "work_center"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "maintenance_plan",
+      "title": "Maintenance plan",
+      "description": "Maintenance plans with items, cycles and the schedule restart point.",
+      "dependencies": [
+        "core",
+        "work_center"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "measurement_document",
+      "title": "Measurement document",
+      "description": "Last reading per measuring point (initial readings on S/4HANA).",
+      "dependencies": [
+        "core"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "measuring_point",
+      "title": "Measuring point",
+      "description": "Measuring points and counters of equipment and functional locations.",
+      "dependencies": [
+        "core"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "object_partner",
+      "title": "Object partner",
+      "description": "Partner assignments of technical objects, notifications and orders.",
+      "dependencies": [
+        "core"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "object_status",
+      "title": "Object status",
+      "description": "Active user statuses of technical objects, notifications and orders.",
+      "dependencies": [
+        "core"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "task_list",
+      "title": "Maintenance task list",
+      "description": "Maintenance task lists with operations, object allocation, component/PRT/package references and provisional latest-counter selection.",
+      "dependencies": [
+        "core",
+        "work_center"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_ecc",
+      "name": "work_center",
+      "title": "Work center",
+      "description": "Work-center headers, texts, cost centers and capacity references.",
+      "dependencies": [
+        "core"
+      ],
+      "batch": 2
+    },
+    {
+      "product": "eam_mig_s4",
+      "name": "equipment",
+      "title": "Equipment reconciliation",
+      "description": "Target-side reconciliation of the equipment migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "eam_mig_s4",
+      "name": "functional_location",
+      "title": "Functional location reconciliation",
+      "description": "Target-side reconciliation of the functional location migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "eam_mig_s4",
+      "name": "maintenance_notification",
+      "title": "Maintenance notification reconciliation",
+      "description": "Target-side reconciliation of the maintenance notification migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "eam_mig_s4",
+      "name": "maintenance_order",
+      "title": "Maintenance order reconciliation",
+      "description": "Target-side reconciliation of the maintenance order migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "eam_mig_s4",
+      "name": "maintenance_plan",
+      "title": "Maintenance plan reconciliation",
+      "description": "Target-side reconciliation of the maintenance plan migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "eam_mig_s4",
+      "name": "measuring_point",
+      "title": "Measuring point reconciliation",
+      "description": "Target-side reconciliation of the measuring point migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "eam_mig_s4",
+      "name": "task_list",
+      "title": "Maintenance task list reconciliation",
+      "description": "Target-side reconciliation of the task list migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "eam_mig_s4",
+      "name": "work_center",
+      "title": "Work center reconciliation",
+      "description": "Target-side reconciliation of the work center migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+      "dependencies": [],
+      "batch": 1
+    }
+  ],
+  "structures": [
+    {
+      "name": "ZEMX_C_ClassAssignmentMig",
+      "module": "classification",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Class"
+      ],
+      "fields": 4,
+      "filter": "src.IsMarkedForDeletion = '' and ( src.ClassType = '002' or src.ClassType = '003' )"
+    },
+    {
+      "name": "ZEMX_C_CharcValueMig",
+      "module": "classification",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "fields": 8,
+      "filter": "src.IsMarkedForDeletion = '' and ( src.ClassType = '002' or src.ClassType = '003' )"
+    },
+    {
+      "name": "ZEMX_C_EquipmentMig",
+      "module": "equipment",
+      "keys": [
+        "Equipment"
+      ],
+      "fields": 44,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_EquipmentTextMig",
+      "module": "equipment",
+      "keys": [
+        "Equipment",
+        "Language"
+      ],
+      "fields": 3,
+      "filter": "_Equipment.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_EquipSerialStockMig",
+      "module": "equipment",
+      "keys": [
+        "Equipment"
+      ],
+      "fields": 5,
+      "filter": "_Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_EquipBOMAssignMig",
+      "module": "equipment_bom",
+      "keys": [
+        "Equipment",
+        "Plant",
+        "BOMUsage",
+        "BOMAlternative"
+      ],
+      "fields": 5,
+      "filter": "_Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_BOMHeaderMig",
+      "module": "equipment_bom",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "HeaderCounter"
+      ],
+      "fields": 8,
+      "filter": ""
+    },
+    {
+      "name": "ZEMX_C_BOMSelectionMig",
+      "module": "equipment_bom",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMAlternative",
+        "BOMItemNode",
+        "SelectionCounter"
+      ],
+      "fields": 7,
+      "filter": ""
+    },
+    {
+      "name": "ZEMX_C_BOMItemMig",
+      "module": "equipment_bom",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMItemNode",
+        "ItemCounter"
+      ],
+      "fields": 11,
+      "filter": ""
+    },
+    {
+      "name": "ZEMX_C_FuncLocMig",
+      "module": "functional_location",
+      "keys": [
+        "FunctionalLocation"
+      ],
+      "fields": 29,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_FuncLocTextMig",
+      "module": "functional_location",
+      "keys": [
+        "FunctionalLocation",
+        "Language"
+      ],
+      "fields": 3,
+      "filter": "_FuncLoc.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_FuncLocLabelMig",
+      "module": "functional_location",
+      "keys": [
+        "FunctionalLocation",
+        "LabelingSystem"
+      ],
+      "fields": 4,
+      "filter": "_Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_LongTextIndexMig",
+      "module": "long_text",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": 4,
+      "filter": ""
+    },
+    {
+      "name": "ZEMX_C_MaintNotificationMig",
+      "module": "maintenance_notification",
+      "keys": [
+        "MaintenanceNotification"
+      ],
+      "fields": 27,
+      "filter": "src.IsCompleted = '' and src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_MaintNotifItemMig",
+      "module": "maintenance_notification",
+      "keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem"
+      ],
+      "fields": 7,
+      "filter": "src.IsMarkedForDeletion = '' and _MaintNotification.IsCompleted = '' and _MaintNotification.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_NotifCauseMig",
+      "module": "maintenance_notification",
+      "keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem",
+        "CauseNumber"
+      ],
+      "fields": 6,
+      "filter": "src.IsMarkedForDeletion = '' and _Parent.IsCompleted = '' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_NotifTaskMig",
+      "module": "maintenance_notification",
+      "keys": [
+        "MaintenanceNotification",
+        "TaskNumber"
+      ],
+      "fields": 11,
+      "filter": "src.IsMarkedForDeletion = '' and _Parent.IsCompleted = '' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_NotifActivityMig",
+      "module": "maintenance_notification",
+      "keys": [
+        "MaintenanceNotification",
+        "ActivityNumber"
+      ],
+      "fields": 8,
+      "filter": "src.IsMarkedForDeletion = '' and _Parent.IsCompleted = '' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_MaintOrderMig",
+      "module": "maintenance_order",
+      "keys": [
+        "MaintenanceOrder"
+      ],
+      "fields": 28,
+      "filter": "src.IsTechnicallyCompleted = '' and src.IsClosed = '' and src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_MaintOrderOperationMig",
+      "module": "maintenance_order",
+      "keys": [
+        "MaintenanceOrder",
+        "MaintenanceOrderOperation",
+        "MaintenanceOrderSubOperation"
+      ],
+      "fields": 13,
+      "filter": "_MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_MaintOrderComponentMig",
+      "module": "maintenance_order",
+      "keys": [
+        "MaintenanceOrder",
+        "ReservationItem"
+      ],
+      "fields": 12,
+      "filter": "src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and _MaintOrder.IsTechnicallyCompleted = '' and _MaintOrder.IsClosed = '' and _MaintOrder.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_OrderSettlementMig",
+      "module": "maintenance_order",
+      "keys": [
+        "ObjectNumber",
+        "DistributionRuleNumber"
+      ],
+      "fields": 19,
+      "filter": "_Parent.IsClosed = '' and _Parent.IsTechnicallyCompleted = '' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_OrderPermitMig",
+      "module": "maintenance_order",
+      "keys": [
+        "ObjectNumber",
+        "Permit"
+      ],
+      "fields": 3,
+      "filter": "_Parent.IsClosed = '' and _Parent.IsTechnicallyCompleted = '' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_MaintenancePlanMig",
+      "module": "maintenance_plan",
+      "keys": [
+        "MaintenancePlan"
+      ],
+      "fields": 17,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_MaintenanceItemMig",
+      "module": "maintenance_plan",
+      "keys": [
+        "MaintenanceItem"
+      ],
+      "fields": 18,
+      "filter": "_MaintenancePlan.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_MaintPlanCycleMig",
+      "module": "maintenance_plan",
+      "keys": [
+        "MaintenancePlan",
+        "MaintenancePlanCycle"
+      ],
+      "fields": 6,
+      "filter": "_MaintenancePlan.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_MeasReadingMig",
+      "module": "measurement_document",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "fields": 10,
+      "filter": ""
+    },
+    {
+      "name": "ZEMX_C_MeasuringPointMig",
+      "module": "measuring_point",
+      "keys": [
+        "MeasuringPoint"
+      ],
+      "fields": 17,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_ObjectPartnerMig",
+      "module": "object_partner",
+      "keys": [
+        "PartnerObjectKey",
+        "PartnerFunction",
+        "PartnerCounter",
+        "PartnerObjectType"
+      ],
+      "fields": 5,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_UserStatusMig",
+      "module": "object_status",
+      "keys": [
+        "StatusObjectKey",
+        "StatusCode",
+        "StatusObjectType"
+      ],
+      "fields": 4,
+      "filter": "src.StatusKind = 'E'"
+    },
+    {
+      "name": "ZEMX_C_TaskListMig",
+      "module": "task_list",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "fields": 14,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_TaskListOperationMig",
+      "module": "task_list",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "TaskListSequence",
+        "TaskListOperation"
+      ],
+      "fields": 17,
+      "filter": "src.IsMarkedForDeletion = '' and src.OpAssignmentIsDeleted = '' and _TaskListCurrent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_TaskListAllocationMig",
+      "module": "task_list",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "Equipment",
+        "FunctionalLocation",
+        "AdditionalCriteriaCounter",
+        "AssignmentCounter"
+      ],
+      "fields": 8,
+      "filter": "_TaskListCurrent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_TaskListCompMig",
+      "module": "task_list",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "AllocationNumber",
+        "VersionCounter"
+      ],
+      "fields": 10,
+      "filter": "src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_TaskListPRTMig",
+      "module": "task_list",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "PRTItem",
+        "VersionCounter"
+      ],
+      "fields": 9,
+      "filter": "src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_TaskListPackageMig",
+      "module": "task_list",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "OperationInternalID",
+        "MaintenancePackage",
+        "VersionCounter"
+      ],
+      "fields": 6,
+      "filter": "src.IsMarkedForDeletion = '' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterMig",
+      "module": "work_center",
+      "keys": [
+        "WorkCenter",
+        "Plant"
+      ],
+      "fields": 7,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterTextMig",
+      "module": "work_center",
+      "keys": [
+        "WorkCenter",
+        "Plant",
+        "Language"
+      ],
+      "fields": 4,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterCostCtrMig",
+      "module": "work_center",
+      "keys": [
+        "WorkCenter",
+        "Plant",
+        "ValidityEndDate",
+        "ActivityTypeSet",
+        "CostCenterAssgmtCounter"
+      ],
+      "fields": 8,
+      "filter": "src.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_WorkCenterCapacityMig",
+      "module": "work_center",
+      "keys": [
+        "ObjectType",
+        "WorkCenterInternalID",
+        "CapacityAssignment"
+      ],
+      "fields": 8,
+      "filter": "src.ObjectType = 'A' and _Parent.IsMarkedForDeletion = ''"
+    },
+    {
+      "name": "ZEMX_C_CapacityHeaderMig",
+      "module": "work_center",
+      "keys": [
+        "CapacityInternalID"
+      ],
+      "fields": 3,
+      "filter": ""
+    }
+  ],
+  "extensions": [
+    {
+      "name": "capacity",
+      "tables": [
+        "KAKO",
+        "KAKT",
+        "KAZY",
+        "KAPA",
+        "KAPE"
+      ],
+      "cohort": "CRCA.KAPID"
+    },
+    {
+      "name": "shift_calendars",
+      "tables": [
+        "T550A",
+        "T550P"
+      ],
+      "cohort": "selected capacity shift definitions"
+    },
+    {
+      "name": "formulas_and_defaults",
+      "tables": [
+        "TC20",
+        "TC20T",
+        "TC21",
+        "TC21T",
+        "TC25",
+        "TC25T",
+        "CRHD"
+      ],
+      "cohort": "selected work-center formulas/standard values"
+    },
+    {
+      "name": "task_list_relationships",
+      "tables": [
+        "PLAB",
+        "PLFL"
+      ],
+      "cohort": "selected task-list group and operation nodes"
+    },
+    {
+      "name": "service_packages",
+      "tables": [
+        "ESLH",
+        "ESLL",
+        "ESUH",
+        "ESUC",
+        "ESUP",
+        "ESUS"
+      ],
+      "cohort": "selected PLPO package references and recursive ESLL.SUB_PACKNO"
+    },
+    {
+      "name": "object_dependencies",
+      "tables": [
+        "CUOB",
+        "CUKB",
+        "CUKT",
+        "CUKN",
+        "CUXREF",
+        "CABN",
+        "CABNT",
+        "CAWN",
+        "CAWNT"
+      ],
+      "cohort": "selected task-list/service dependency references"
+    }
+  ],
+  "allowlist": [
+    "EQUI",
+    "EQUZ",
+    "EQKT",
+    "EQBS",
+    "IFLOT",
+    "IFLOTX",
+    "IFLOS",
+    "ILOA",
+    "CRHD",
+    "CRTX",
+    "CRCO",
+    "CRCA",
+    "KAKO",
+    "KAKT",
+    "KAZY",
+    "KAPA",
+    "KAPE",
+    "T550A",
+    "T550P",
+    "TC20",
+    "TC20T",
+    "TC21",
+    "TC21T",
+    "TC25",
+    "TC25T",
+    "PLKO",
+    "PLPO",
+    "PLAS",
+    "PLFL",
+    "PLAB",
+    "PLMZ",
+    "PLFH",
+    "PLWP",
+    "EAPL",
+    "TAPL",
+    "ESLH",
+    "ESLL",
+    "ESUH",
+    "ESUC",
+    "ESUP",
+    "ESUS",
+    "CUOB",
+    "CUKB",
+    "CUKT",
+    "CUKN",
+    "CUXREF",
+    "IMPTT",
+    "IMRG",
+    "MPLA",
+    "MPOS",
+    "MMPT",
+    "MHIS",
+    "QMEL",
+    "QMFE",
+    "QMUR",
+    "QMSM",
+    "QMMA",
+    "AUFK",
+    "AFIH",
+    "AFVC",
+    "AFVV",
+    "RESB",
+    "COBRB",
+    "IHSG",
+    "EQST",
+    "STKO",
+    "STAS",
+    "STPO",
+    "JEST",
+    "JSTO",
+    "IHPA",
+    "KSSK",
+    "AUSP",
+    "INOB",
+    "CABN",
+    "CABNT",
+    "CAWN",
+    "CAWNT",
+    "KLAH",
+    "KSML",
+    "STXH"
+  ],
+  "helpers": [
+    "ZEMX_EAM_TABLE_EXPORT",
+    "ZEMX_EAM_TEXT_EXPORT"
+  ],
+  "tools": [
+    "eam_run.py",
+    "eam_prepare.py",
+    "mig_reconcile.py"
+  ]
+}

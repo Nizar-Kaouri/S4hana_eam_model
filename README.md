@@ -14,6 +14,9 @@ selective data transition). Per business area there is:
 The buyer picks the migration objects and gets only those, plus what they depend on, under their own prefix
 and ABAP package. **EAM / Plant Maintenance is the pilot** (`packages/eam_mig_ecc` + `packages/eam_mig_s4`).
 
+English and German EAM customer manuals and the complete VDM object map are in
+[`docs/customer/eam`](docs/customer/eam/README.md).
+
 The S/4HANA analytics packages built first (`eam`, `fi_aa`, `mm`, ...; analytical cubes and queries on SAP
 released `I_` views) stay in the repository as an optional **analytics add-on** for after the migration.
 
@@ -28,7 +31,7 @@ migration pilot; all other rows are the S/4HANA analytics add-on.
 
 | Product | Folder | Prefix | State |
 |---|---|---|---|
-| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | drafted: 13 migration objects, 100 classic views (basic â†’ composite â†’ consumption), 13 mapping files |
+| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | release candidate 1.0.0-rc.1: 14 migration modules plus core, 158 classic views, 41 extraction structures |
 | **EAM migration - S/4HANA reconciliation (pilot)** | [`packages/eam_mig_s4`](packages/eam_mig_s4/README.md) | `ZEMT_` | drafted: 8 objects, 16 views |
 | Analytics add-on: Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
 | Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 14 views |
