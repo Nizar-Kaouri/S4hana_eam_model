@@ -1,0 +1,12 @@
+// ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Supplier - Value Help'
+@MappingRole: true
+define role ZFIV_I_SupplierVH {
+  grant
+    select
+      on
+        ZFIV_I_SupplierVH
+          where
+            inheriting conditions from entity ZFIV_I_Supplier;
+}

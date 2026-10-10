@@ -1,0 +1,13 @@
+// ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_Customer.
+// TODO-VERIFY[H] FI-D04: I_Customer has an access control role and every element it references is projected by ZFIV_I_Customer
+@EndUserText.label: 'Customer'
+@MappingRole: true
+define role ZFIV_I_Customer {
+  grant
+    select
+      on
+        ZFIV_I_Customer
+          where
+            inheriting conditions from entity I_Customer;
+}

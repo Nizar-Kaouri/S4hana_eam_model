@@ -14,5 +14,8 @@
     "CLAS": 30,
     "DEVC": 30
   },
-  "reserve_prefix_chars": 1
+  "reserve_prefix_chars": 1,
+  "map_title": "ZFIV Financial Accounting Model Map",
+  "map_area": "Financial Accounting (FI)",
+  "map_initial": "ZFIV_I_GLJournalItem"
 }

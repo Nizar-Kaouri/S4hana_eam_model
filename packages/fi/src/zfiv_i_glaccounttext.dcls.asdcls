@@ -1,0 +1,10 @@
+// ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
+// Descriptions are not treated as authorization-relevant (see GEN-D01).
+@EndUserText.label: 'G/L Account - Text'
+@MappingRole: true
+define role ZFIV_I_GLAccountText {
+  grant
+    select
+      on
+        ZFIV_I_GLAccountText;
+}

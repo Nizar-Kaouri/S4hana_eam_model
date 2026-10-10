@@ -1,0 +1,12 @@
+// ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'G/L Journal Item - Cube'
+@MappingRole: true
+define role ZFIV_R_GLJournalItem {
+  grant
+    select
+      on
+        ZFIV_R_GLJournalItem
+          where
+            inheriting conditions from entity ZFIV_I_GLJournalItem;
+}

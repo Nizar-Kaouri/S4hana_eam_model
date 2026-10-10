@@ -1,0 +1,43 @@
+{
+  "name": "open_items",
+  "title": "Open Items (Payables and Receivables)",
+  "description": "Uncleared supplier and customer items with due date, overdue days and aging buckets; cube and query.",
+  "batch": 2,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "transactional",
+    "accounts-payable",
+    "accounts-receivable",
+    "aging",
+    "analytics"
+  ],
+  "sap_released_views": [
+    "I_OperationalAcctgDocItem"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZFIV_I_OpenItem"
+    ],
+    "composite": [
+      "ZFIV_R_OpenItemAging"
+    ],
+    "consumption": [
+      "ZFIV_C_OpenItemAgingQ"
+    ],
+    "access_controls": [
+      "ZFIV_I_OpenItem",
+      "ZFIV_R_OpenItemAging"
+    ],
+    "metadata_extensions": [],
+    "tests": [
+      "ZFIV_CL_OPENITEM_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZFIV_C_OpenItemAgingQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_R_OpenItemAging (see GEN-Q01)."
+  },
+  "link_views": []
+}

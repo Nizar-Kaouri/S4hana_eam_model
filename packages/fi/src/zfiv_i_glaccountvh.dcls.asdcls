@@ -1,0 +1,12 @@
+// ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'G/L Account - Value Help'
+@MappingRole: true
+define role ZFIV_I_GLAccountVH {
+  grant
+    select
+      on
+        ZFIV_I_GLAccountVH
+          where
+            inheriting conditions from entity ZFIV_I_GLAccount;
+}
