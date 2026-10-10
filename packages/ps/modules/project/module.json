@@ -1,0 +1,45 @@
+{
+  "name": "project",
+  "title": "Project",
+  "description": "Project definitions with profile, dates, status and organizational assignment; value help, cube and query.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "master-data",
+    "project",
+    "analytics",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_EnterpriseProject",
+    "I_CompanyCode"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZPSV_I_Project",
+      "ZPSV_I_ProjectVH"
+    ],
+    "composite": [
+      "ZPSV_R_Project"
+    ],
+    "consumption": [
+      "ZPSV_C_ProjectQ"
+    ],
+    "access_controls": [
+      "ZPSV_I_Project",
+      "ZPSV_I_ProjectVH",
+      "ZPSV_R_Project"
+    ],
+    "metadata_extensions": [
+      "ZPSV_R_Project"
+    ],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPSV_C_ProjectQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_Project (see GEN-Q01)."
+  },
+  "link_views": []
+}

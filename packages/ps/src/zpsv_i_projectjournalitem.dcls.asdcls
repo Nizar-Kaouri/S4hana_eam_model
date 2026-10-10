@@ -1,0 +1,13 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_JournalEntryItem.
+// TODO-VERIFY[H] PS-D03: I_JournalEntryItem has an access control role and every element it references is projected by ZPSV_I_ProjectJournalItem
+@EndUserText.label: 'Project Journal Item'
+@MappingRole: true
+define role ZPSV_I_ProjectJournalItem {
+  grant
+    select
+      on
+        ZPSV_I_ProjectJournalItem
+          where
+            inheriting conditions from entity I_JournalEntryItem;
+}

@@ -14,5 +14,8 @@
     "CLAS": 30,
     "DEVC": 30
   },
-  "reserve_prefix_chars": 1
+  "reserve_prefix_chars": 1,
+  "map_title": "ZPSV Project System Model Map",
+  "map_area": "Project System (PS)",
+  "map_initial": "ZPSV_I_ProjectJournalItem"
 }

@@ -1,0 +1,37 @@
+{
+  "name": "rpt_project_cost_to_date",
+  "title": "Report: Project Cost to Date",
+  "description": "Cumulative actual cost and settlement per WBS element and ledger up to a key date. Needs project_cost.",
+  "batch": 3,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "project",
+    "cost",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "project_cost"
+  ],
+  "objects": {
+    "basic": [],
+    "composite": [
+      "ZPSV_R_ProjectCostToDate"
+    ],
+    "consumption": [
+      "ZPSV_C_ProjectCostToDateQ"
+    ],
+    "access_controls": [
+      "ZPSV_R_ProjectCostToDate"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPSV_C_ProjectCostToDateQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_ProjectCostToDate (see GEN-Q01)."
+  },
+  "link_views": []
+}

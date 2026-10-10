@@ -1,0 +1,12 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Project - Value Help'
+@MappingRole: true
+define role ZPSV_I_ProjectVH {
+  grant
+    select
+      on
+        ZPSV_I_ProjectVH
+          where
+            inheriting conditions from entity ZPSV_I_Project;
+}

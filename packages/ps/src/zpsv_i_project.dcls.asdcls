@@ -1,0 +1,13 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_EnterpriseProject.
+// TODO-VERIFY[H] PS-D01: I_EnterpriseProject has an access control role and every element it references is projected by ZPSV_I_Project
+@EndUserText.label: 'Project'
+@MappingRole: true
+define role ZPSV_I_Project {
+  grant
+    select
+      on
+        ZPSV_I_Project
+          where
+            inheriting conditions from entity I_EnterpriseProject;
+}

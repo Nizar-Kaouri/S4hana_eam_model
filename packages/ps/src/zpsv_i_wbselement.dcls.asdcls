@@ -1,0 +1,13 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_WBSElement.
+// TODO-VERIFY[H] PS-D02: I_WBSElement has an access control role and every element it references is projected by ZPSV_I_WBSElement
+@EndUserText.label: 'WBS Element'
+@MappingRole: true
+define role ZPSV_I_WBSElement {
+  grant
+    select
+      on
+        ZPSV_I_WBSElement
+          where
+            inheriting conditions from entity I_WBSElement;
+}
