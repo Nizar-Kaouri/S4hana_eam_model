@@ -1,0 +1,48 @@
+{
+  "name": "inspection_lot",
+  "title": "Inspection Lot",
+  "description": "Inspection lots with origin, material, quantities, dates and usage decision; value help, cube and query.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "quality",
+    "inspection-lot",
+    "usage-decision",
+    "analytics",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_InspectionLot",
+    "I_Plant"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZQMV_I_InspectionLot",
+      "ZQMV_I_InspectionLotVH"
+    ],
+    "composite": [
+      "ZQMV_R_InspectionLot"
+    ],
+    "consumption": [
+      "ZQMV_C_InspectionLotQ"
+    ],
+    "access_controls": [
+      "ZQMV_I_InspectionLot",
+      "ZQMV_I_InspectionLotVH",
+      "ZQMV_R_InspectionLot"
+    ],
+    "metadata_extensions": [
+      "ZQMV_R_InspectionLot"
+    ],
+    "tests": [
+      "ZQMV_CL_INSPLOT_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZQMV_C_InspectionLotQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_R_InspectionLot (see GEN-Q01)."
+  },
+  "link_views": []
+}

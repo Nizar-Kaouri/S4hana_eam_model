@@ -1,0 +1,13 @@
+// ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_QualityNotification.
+// TODO-VERIFY[H] QM-D03: I_QualityNotification has an access control role and every element it references is projected by ZQMV_I_QualityNotif
+@EndUserText.label: 'Quality Notification'
+@MappingRole: true
+define role ZQMV_I_QualityNotif {
+  grant
+    select
+      on
+        ZQMV_I_QualityNotif
+          where
+            inheriting conditions from entity I_QualityNotification;
+}

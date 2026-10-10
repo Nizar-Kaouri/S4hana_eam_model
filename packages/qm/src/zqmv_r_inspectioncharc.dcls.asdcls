@@ -1,0 +1,12 @@
+// ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Inspection Result - Cube'
+@MappingRole: true
+define role ZQMV_R_InspectionCharc {
+  grant
+    select
+      on
+        ZQMV_R_InspectionCharc
+          where
+            inheriting conditions from entity ZQMV_I_InspectionCharc;
+}

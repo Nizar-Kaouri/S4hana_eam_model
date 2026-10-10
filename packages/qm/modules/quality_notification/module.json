@@ -1,0 +1,46 @@
+{
+  "name": "quality_notification",
+  "title": "Quality Notification",
+  "description": "Quality notifications (complaints against suppliers, internal problems, customer complaints): dimension, value help, cube and query.",
+  "batch": 3,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "quality",
+    "quality-notification",
+    "complaint",
+    "analytics",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_QualityNotification",
+    "I_Plant"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZQMV_I_QualityNotif",
+      "ZQMV_I_QualityNotifVH"
+    ],
+    "composite": [
+      "ZQMV_R_QualityNotif"
+    ],
+    "consumption": [
+      "ZQMV_C_QualityNotifQ"
+    ],
+    "access_controls": [
+      "ZQMV_I_QualityNotif",
+      "ZQMV_I_QualityNotifVH",
+      "ZQMV_R_QualityNotif"
+    ],
+    "metadata_extensions": [
+      "ZQMV_R_QualityNotif"
+    ],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZQMV_C_QualityNotifQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_R_QualityNotif (see GEN-Q01)."
+  },
+  "link_views": []
+}
