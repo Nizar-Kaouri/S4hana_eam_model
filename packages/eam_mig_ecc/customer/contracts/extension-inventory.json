@@ -1,0 +1,73 @@
+{
+  "status": "system-unverified",
+  "field_contract": "All DDIC fields plus actual DDIC keys; schema emitted with each export. Binary fields remain raw representations; no dependency source decoding/posting is claimed.",
+  "groups": [
+    {
+      "name": "capacity",
+      "tables": [
+        "KAKO",
+        "KAKT",
+        "KAZY",
+        "KAPA",
+        "KAPE"
+      ],
+      "cohort": "CRCA.KAPID"
+    },
+    {
+      "name": "shift_calendars",
+      "tables": [
+        "T550A",
+        "T550P"
+      ],
+      "cohort": "selected capacity shift definitions"
+    },
+    {
+      "name": "formulas_and_defaults",
+      "tables": [
+        "TC20",
+        "TC20T",
+        "TC21",
+        "TC21T",
+        "TC25",
+        "TC25T",
+        "CRHD"
+      ],
+      "cohort": "selected work-center formulas/standard values"
+    },
+    {
+      "name": "task_list_relationships",
+      "tables": [
+        "PLAB",
+        "PLFL"
+      ],
+      "cohort": "selected task-list group and operation nodes"
+    },
+    {
+      "name": "service_packages",
+      "tables": [
+        "ESLH",
+        "ESLL",
+        "ESUH",
+        "ESUC",
+        "ESUP",
+        "ESUS"
+      ],
+      "cohort": "selected PLPO package references and recursive ESLL.SUB_PACKNO"
+    },
+    {
+      "name": "object_dependencies",
+      "tables": [
+        "CUOB",
+        "CUKB",
+        "CUKT",
+        "CUKN",
+        "CUXREF",
+        "CABN",
+        "CABNT",
+        "CAWN",
+        "CAWNT"
+      ],
+      "cohort": "selected task-list/service dependency references"
+    }
+  ]
+}

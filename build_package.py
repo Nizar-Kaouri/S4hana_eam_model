@@ -346,6 +346,15 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
         "warning": "Draft content - never activated on an SAP system unless module_status says otherwise.",
     }
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as zf:
+        if (root / "docs" / "CUSTOMER_TEST.md").exists():
+            zf.writestr("README.md", "# ModuPorter EAM customer package\n\n"
+                + f"Product: {root.name}. Package: {new_package}. Prefix: {new_prefix}.\n\n"
+                + "Start with docs/CUSTOMER_TEST.md and docs/SUPPORTED_SCOPE.md. Import the src/ library through abapGit on the appropriate system. "
+                + "Optional SAP reports live in helpers/ and are created separately in SE38. "
+                + "Python tools require Python 3.10+ and no extra dependencies; run commands from this extracted directory.\n\n"
+                + "Read OPEN_CHECKS.md, DDIC_REQUIREMENTS.csv (source), BUILD_MANIFEST.json and ACTIVATION_ORDER.txt before activation. "
+                + "For historical cutover use docs/CUSTOMER_WORKFLOW.md in the source package; current CDS previews do not recover past states. "
+                + "This candidate is system-unverified pending the customer's activation/extraction trial.\n")
         zf.writestr(".abapgit.xml", (root / ".abapgit.xml").read_text(encoding="utf-8"))
         devc = (root / "src" / "package.devc.xml").read_text(encoding="utf-8")
         zf.writestr("src/package.devc.xml", rewrite(devc))
@@ -380,10 +389,40 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     line = f"| {cells[1].strip()} | {links} | " + ", ".join(f"`{v}`" for v in views) + " |"
                 lines.append(line)
             zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite("\n".join(lines) + "\n"))
-        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "KNOWN_LIMITATIONS.md"):
+        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md"):
             extra = root / "docs" / doc
             if extra.exists():
                 zf.writestr("docs/" + doc, rewrite(extra.read_text(encoding="utf-8")))
+        if library.get("kind") == "migration-source" and (root / "customer").exists():
+            for helper in sorted((root / "helpers").glob("*")):
+                if helper.is_file():
+                    zf.writestr("helpers/" + rewrite(helper.name), rewrite(helper.read_text(encoding="utf-8")))
+            shipped_views = {n for _, n, _ in objects}
+            for asset in sorted((root / "customer").rglob("*")):
+                if not asset.is_file():
+                    continue
+                text = asset.read_text(encoding="utf-8")
+                if asset.name == "structure-cohorts.json":
+                    content = json.loads(text)
+                    text = json.dumps({n: v for n, v in content.items() if n in shipped_views}, indent=2) + "\n"
+                elif asset.name == "customer-cohort-project.json":
+                    content = json.loads(text)
+                    content["steps"] = [s for s in content["steps"] if s["input"] in shipped_views]
+                    needed = {s[k] for s in content["steps"] for k in ("input", "parent")}
+                    roots = [n for n in content["outputs"] if n in shipped_views]
+                    needed.update(roots)
+                    content["inputs"] = {n: p for n, p in content["inputs"].items() if n in needed}
+                    content["outputs"] = roots + [s["name"] for s in content["steps"]]
+                    text = json.dumps(content, indent=2) + "\n"
+                relative = asset.relative_to(root)
+                zf.writestr(relative.as_posix(), rewrite(text))
+            for tool in ("mig_reconcile.py", "eam_prepare.py", "eam_run.py"):
+                zf.writestr("tools/" + tool, (vdm_paths.REPO / "tools" / tool).read_text(encoding="utf-8"))
+            # The existing main-object CLI resolves mappings by product/module.
+            for mod in resolved:
+                mp = root / "modules" / mod / "mapping.json"
+                if mp.exists():
+                    zf.writestr(f"packages/{root.name}/modules/{mod}/mapping.json", rewrite(mp.read_text(encoding="utf-8")))
         if library.get("kind") == "migration-source":
             import csv
             import io

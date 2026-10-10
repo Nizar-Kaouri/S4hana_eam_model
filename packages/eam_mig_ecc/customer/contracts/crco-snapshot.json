@@ -1,0 +1,11 @@
+{
+  "identity": [
+    "OBJTY",
+    "OBJID",
+    "LASET",
+    "LANUM"
+  ],
+  "valid_from": "BEGDA",
+  "valid_to": "ENDDA",
+  "mode": "interval"
+}

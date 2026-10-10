@@ -3,7 +3,7 @@
   "title": "Classification",
   "description": "Class assignments and characteristic values of technical objects.",
   "batch": 2,
-  "version": "0.3.1",
+  "version": "1.0.0-rc.1",
   "status": "draft-unverified",
   "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
   "tags": [

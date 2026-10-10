@@ -1,6 +1,6 @@
 # ModuPorter EAM customer acceptance trial
 
-Candidate: 0.3.1. Status: draft-unverified, pending your SAP trial.
+Candidate: 1.0.0-rc.1. Status: draft-unverified, pending your SAP trial.
 
 ## Install
 
@@ -37,3 +37,7 @@ Use --maps <folder> --translate when your loader changes keys or values. Exit co
 ## Return the evidence
 
 Return TEST_RESULTS.csv, exact source/target releases, view name and full activation message for each failure, and anonymized rows for discrepancies. Mark each structure PASS, FAIL, BLOCKED or NOT_TESTED. Only promote a module after all its relevant structures and system checks pass; leave untested modules draft-unverified.
+
+## Added workflow acceptance
+
+Run CUSTOMER_WORKFLOW.md and the synthetic project. Activate both optional reports separately. Test complete-row/schema export, row-limit rejection, restricted user, filter quoting, Unicode/packed/float/binary fields, nested service packages, source eligibility, overlapping intervals and orphan references. Export and compare long-text payloads including blank lines, format tags and significant whitespace. Compare a child from every canonical structure using eam_prepare.py; validate specialized raw rows against the DDIC schema and changed IDs. Record blocked release-specific variants instead of marking them passed.

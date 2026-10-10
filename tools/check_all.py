@@ -66,6 +66,8 @@ def main():
             ok &= run([sys.executable, str(REPO / "tools" / "validate_mapping.py")], REPO, env, "validate_mapping")
         if lint:
             ok &= run(lint, root, env, "abaplint")
+            if (root / "abaplint-helpers.json").exists():
+                ok &= run(lint + ["abaplint-helpers.json"], root, env, "ABAP helper parser (DDIC/runtime unverified)")
         else:
             print("  [skip] abaplint: run `npm install` or set ABAPLINT=<path to abaplint>")
             ok = False

@@ -114,6 +114,23 @@ class BuildMigrationTest(unittest.TestCase):
             for target in re.findall(r'\]\(([^)]+)\)', seq):
                 self.assertIn('mapping/' + target, zf.namelist())
 
+    def test_customer_delivery_is_self_contained_and_scopes_its_project(self):
+        import subprocess
+        out, manifest = bp.build(['equipment'], prefix='ZACME_', package='ZACME_MIG', out=self.tmp / 'customer.zip', root=ECC)
+        delivery = self.tmp / 'delivery'
+        with zipfile.ZipFile(out) as zf:
+            zf.extractall(delivery)
+            self.assertIn('helpers/zacme_eam_text_export.prog.abap', zf.namelist())
+            self.assertIn('docs/LICENSE.md', zf.namelist())
+            scopes = json.loads(zf.read('customer/contracts/structure-cohorts.json'))
+            shipped = {o['name'] for o in manifest['objects']}
+            self.assertTrue(set(scopes) <= shipped)
+            project = json.loads(zf.read('customer/contracts/customer-cohort-project.json'))
+            self.assertTrue(all(s['input'] in shipped for s in project['steps']))
+        result = subprocess.run([sys.executable, 'tools/eam_run.py', '--project', 'customer/examples/workflow.json', '--out', 'example-results'], cwd=delivery, capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertTrue((delivery / 'example-results/PREPARATION_AUDIT.json').exists())
+
     def test_reading_selection_uses_date_time_then_document_id(self):
         import sqlite3
         import re

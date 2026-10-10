@@ -1,0 +1,70 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "segments": "equipment_segments.csv",
+    "selected_equipment": "selected_equipment.csv",
+    "headers": "task_headers.csv",
+    "service_roots": "service_roots.csv",
+    "service_lines": "service_lines.csv"
+  },
+  "steps": [
+    {
+      "name": "equipment_at_cutover",
+      "operation": "snapshot",
+      "input": "segments",
+      "contract": {
+        "identity": [
+          "EQUNR"
+        ],
+        "valid_from": "DATAB",
+        "valid_to": "DATBI",
+        "mode": "interval"
+      }
+    },
+    {
+      "name": "selected_equipment_segments",
+      "operation": "cohort",
+      "input": "equipment_at_cutover",
+      "parent": "selected_equipment",
+      "child_keys": [
+        "EQUNR"
+      ],
+      "parent_keys": [
+        "EQUNR"
+      ]
+    },
+    {
+      "name": "task_headers_at_cutover",
+      "operation": "snapshot",
+      "input": "headers",
+      "contract": {
+        "identity": [
+          "PLNTY",
+          "PLNNR",
+          "PLNAL"
+        ],
+        "valid_from": "DATUV",
+        "counter": "ZAEHL",
+        "deletion": "LOEKZ",
+        "change_number": "AENNR",
+        "eligibility": "Eligible"
+      }
+    },
+    {
+      "name": "selected_service_lines",
+      "operation": "closure",
+      "input": "service_lines",
+      "parent": "service_roots",
+      "contract": {
+        "key": "PACKNO",
+        "reference": "SUB_PACKNO",
+        "root": "PACKNO"
+      }
+    }
+  ],
+  "outputs": [
+    "selected_equipment_segments",
+    "task_headers_at_cutover",
+    "selected_service_lines"
+  ]
+}

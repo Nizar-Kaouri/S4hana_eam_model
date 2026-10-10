@@ -52,7 +52,7 @@ class CsvRows(list):
         self.columns = columns
 
 
-def read_csv(path):
+def read_csv(path, preserve_values=False):
     path = Path(path)
     try:
         text = path.read_text(encoding="utf-8-sig")
@@ -74,7 +74,7 @@ def read_csv(path):
         for r in reader:
             if None in r or any(v is None for v in r.values()):
                 raise InputError(f"{path}: row {reader.line_num} has the wrong number of fields")
-            rows.append({k: v.strip() for k, v in r.items()})
+            rows.append({k: v if preserve_values else v.strip() for k, v in r.items()})
     except csv.Error as exc:
         raise InputError(f"{path}: malformed CSV: {exc}") from exc
     return CsvRows(rows, columns)
@@ -83,6 +83,8 @@ def read_csv(path):
 class Maps:
     def __init__(self, folder):
         self.folder = Path(folder) if folder else None
+        if self.folder and not self.folder.is_dir():
+            raise InputError(f"mapping folder does not exist: {self.folder}")
         self.cache = {}
 
     def get(self, kind, name):
@@ -195,7 +197,7 @@ def counts_report(module, res):
 
 # ----------------------------------------------------------------------------- records
 
-def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_zeros=False, translate=False):
+def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_zeros=False, translate=False, exact_fields=()):
     cmp_ = mapping["reconciliation"].get("compare")
     if not cmp_:
         raise InputError(f"module {mapping['module']} has no record comparison in its mapping")
@@ -231,8 +233,10 @@ def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_ze
     mismatches = {f: [] for f in fields}
     for k in sorted(set(src) & set(tgt)):
         for f in fields:
-            s = normalize(maps.translate(f, src[k][f]) if do_map else src[k][f], strip_zeros)
-            t = normalize(tgt[k][f], strip_zeros)
+            s = maps.translate(f, src[k][f]) if do_map else src[k][f]
+            t = tgt[k][f]
+            if f not in exact_fields:
+                s, t = normalize(s, strip_zeros), normalize(t, strip_zeros)
             if s != t:
                 mismatches[f].append((k, s, t))
     return {"key": keys, "source_records": len(src), "target_records": len(tgt), "matched": len(set(src) & set(tgt)),

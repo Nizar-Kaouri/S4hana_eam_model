@@ -1,0 +1,12 @@
+{
+  "identity": [
+    "PLNTY",
+    "PLNNR",
+    "PLNKN"
+  ],
+  "valid_from": "DATUV",
+  "counter": "ZAEHL",
+  "deletion": "LOEKZ",
+  "change_number": "AENNR",
+  "eligibility": "Eligible"
+}

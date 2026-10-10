@@ -1,0 +1,17 @@
+{
+  "key": [
+    "TextObject",
+    "TextName",
+    "TextID",
+    "Language",
+    "LineNumber"
+  ],
+  "fields": [
+    "Format",
+    "Text"
+  ],
+  "exact_fields": [
+    "Format",
+    "Text"
+  ]
+}

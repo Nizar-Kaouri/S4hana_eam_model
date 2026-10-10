@@ -1,12 +1,12 @@
 # EAM Migration - ECC source views (`ZEMX_`)
 
-> **Status: draft-unverified (pilot).** No SAP system has been available, so nothing has been activated,
+> **Status: customer release candidate 1.0.0-rc.1, system-unverified.** No SAP system has been available, so nothing has been activated,
 > extracted or loaded. Tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Every uncertain
 > table field, annotation and rule is marked `TODO-VERIFY` and ranked in [`BATCH_REPORT.md`](BATCH_REPORT.md).
 
 Part of the **EAM migration model**: moving Plant Maintenance data from an old SAP ERP (ECC 6.0) system to
 SAP S/4HANA (new implementation or selective data transition; a system conversion converts the data in place
-and does not need it). The package is a **template of views only**: the consumption views deliver the data
+and does not need it). The package is a **template of CDS views with extraction, preparation and reconciliation helpers**: the consumption views deliver the data
 exactly as it is stored in ECC. The customer's load program reads them and changes values and posts the data on
 S/4HANA as the project needs.
 
@@ -101,3 +101,7 @@ Long-text content is read by the customer loader using READ_TEXT. Only the index
 Serial-stock quantities, material serial profiles, shift calendars, full available-capacity intervals and additional formulas/defaults are integration extensions.
 Permit issue/status semantics and settlement profile/receiver conversions require actual DDIC/API verification.
 Reconciliation companion views cover existing main objects; the newly added child structures require separate customer checks.
+
+## Customer workflow release
+
+Read [SUPPORTED_SCOPE.md](docs/SUPPORTED_SCOPE.md), [CUSTOMER_WORKFLOW.md](docs/CUSTOMER_WORKFLOW.md) and [CUSTOMER_TEST.md](docs/CUSTOMER_TEST.md). The optional SAP reports export complete DDIC rows and READ_TEXT payloads. Python tools prepare dated/cohort-scoped exports, follow nested service packages and reconcile every canonical structure or raw extension. Real DDIC, native ECM eligibility and target posting interfaces remain customer inputs. See [LICENSE.md](docs/LICENSE.md) for the intended use/modification/no-resale terms.

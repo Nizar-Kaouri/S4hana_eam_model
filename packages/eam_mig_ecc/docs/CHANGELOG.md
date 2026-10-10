@@ -22,3 +22,7 @@ No SAP-tested status is implied by this version.
 - Rejected malformed CSV, missing headers and fractional/invalid counts; preserved exact integers and multiline fields.
 - Scoped ZIP migration links to shipped modules and included open checks, DDIC field requirements and a customer acceptance guide.
 - SAP activation remains unverified.
+
+## 1.0.0-rc.1 — complete customer workflow candidate
+
+Added auditable raw-ledger preparation, complete typed cohort contracts, generic child/raw reconciliation, nested service closure, DDIC/full-row and READ_TEXT reports, specialized-data inventories, runnable examples, supported-scope and intended commercial license. Retains system-unverified status pending customer trial.

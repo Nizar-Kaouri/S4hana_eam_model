@@ -1,17 +1,11 @@
-# Known limitations of candidate 0.3.1
+# System verification boundaries
 
-This is an activation and customer acceptance candidate, not a validated SAP release. No SAP system was available for this review. OPEN_CHECKS.md contains outstanding checks for the delivered objects; passing offline gates does not resolve those checks.
+This release candidate includes preparation/reconciliation and specialized-data helpers previously absent from the pack. SAP system validation is still pending.
 
-- Confirm all table fields, keys, types and released-view elements on your exact system. Prioritize IHSG permit fields, EQBS serial stock fields, IFLOS labels and CRCA/KAKO capacity references.
-- EAPL equipment and TAPL functional-location task-list allocations are delivered as version ledgers. Resolve additional criteria, assignment counters and deletion states for cutover. The draft no longer assumes EAPL contains functional locations.
-- Task-list operation/component/PRT/package helpers use the greatest recorded counter. Confirm effective dates, future changes, sequences, suboperations and deleted states before loading.
-- Equipment time slices and current task-list headers require cutover verification. BOMs preserve history rather than resolve engineering-change effectivity.
-- The last measurement reading is selected by reading date, time and document ID, excluding cancellations. Filter readings to the selected measuring-point population and exclude dates beyond the agreed cutover.
-- Full capacity intervals/shifts/formulas, operation relationships/service packages, object dependencies and other specialized extensions are not complete migration payloads.
-- Long-text rows are indexes. READ_TEXT and target text posting are customer implementation work.
-- Status, partners and long texts require a migrated-object cohort filter. Their global extracts can include objects outside the migration.
-- The S/4HANA companion provides main-object comparisons for eight modules. It does not reconcile all child structures or all fourteen source modules. Record child validation separately.
-- Filter the target to the migrated cohort before aggregating counts. Source open/deletion filters and target all-record exports are not automatically equivalent; unrelated existing target rows must be excluded explicitly.
-- Mappings describe provisional table fields. Choose and test supported target posting APIs/BAPIs; do not use them as direct table-write instructions.
-
-SAP confirms the TAPL functional-location allocation source in [PM functional-location task-list migration](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/d3a3eb7caa1842858bf0372e17ad3909/6a850a18d1834d24b2af1e45b4eb457a.html). This confirms the source-table split, not every field or release assumption in this candidate.
+1. Confirm all CDS fields/keys, the helper DDIC structures and function-module signatures on your exact releases. Prioritize permit, serial-stock, label and capacity definitions and report field conversion.
+2. Existing current/max-counter CDS extracts are previews. Use the raw-ledger preparation workflow for historical cutover; a postfilter cannot recover discarded history.
+3. Native engineering-change eligibility, typed root scope and identifier maps are explicit customer inputs. Unevaluated or ambiguous effectivity stops preparation. No claim of a universal ECM evaluation engine is made.
+4. Specialized full-row exports preserve DDIC data. Dependency source decoding, customizing decisions and target posting require your chosen interface.
+5. The two optional ABAP reports need an interactive SAP GUI. They have parser checks only and require SAP activation/runtime tests; do not treat these checks as DDIC validation.
+6. The target CDS companion covers eight main objects. Python reconciliation covers every canonical structure and raw extensions, using customer target exports and maps for changed technical identities.
+7. Real extraction, Unicode/numeric/raw conversion, authorizations and target posting are untested. OPEN_CHECKS.md retains all pending source/target questions.

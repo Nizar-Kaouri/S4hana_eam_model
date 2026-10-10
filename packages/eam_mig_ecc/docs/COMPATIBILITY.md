@@ -5,7 +5,7 @@
 - Actual tested releases, databases and SAP activation: none.
 - Offline linting parses syntax; it does not validate DDIC field availability, associations, business semantics or authorizations.
 - No system conversion, target loading program, transport export, support service or release certification is included in this draft.
-- Long-text content, serial stock posting, material serial profiles, shift calendars and full available-capacity intervals remain customer/integration extensions.
+- Long-text content and specialized capacity/calendar/task-list data are available through the delivered read-only helpers and preparation workflow. Target posting and interface-specific conversion belong to the customer loader.
 - CapacityHeader is a reference ledger. Filter it by CapacityInternalID values in the selected WorkCenterCapacity extract.
 - BOMHeader/BOMSelection/BOMItem are equipment-category version ledgers, not flattened current BOMs. Restrict them to BillOfMaterial values in EquipBOMAssign. Resolve alternative selection, change numbers, valid-from dates and deletion states at cutover.
 - Task-list child views provisionally select the highest recorded counter for each table identity. They are not an engineering-change effectivity engine; future states require an explicit customer cutover rule.
