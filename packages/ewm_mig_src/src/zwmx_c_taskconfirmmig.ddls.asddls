@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Confirmed task records only; open tasks, serials and quantity semantics remain pending. Reference extraction, not task recreation.
 // Purpose: Read TaskConfirmMig as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZWMX_V010C'
@@ -13,15 +14,16 @@
 define view ZWMX_C_TaskConfirmMig
   as select from ZWMX_I_TaskConfirm as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
   key src.Warehouse as Warehouse,
   key src.WarehouseTask as WarehouseTask,
-  key src.ConfirmationID as ConfirmationID,
-      src.ConfirmedQuantity as ConfirmedQuantity,
-      src.DifferenceQuantity as DifferenceQuantity,
-      src.QuantityUnit as QuantityUnit,
-      src.ConfirmedAtUTC as ConfirmedAtUTC,
-      src.ReversalStatus as ReversalStatus
+  key src.WarehouseTaskItem as WarehouseTaskItem,
+      src.WarehouseOrder as WarehouseOrder,
+      src.ProcessType as ProcessType,
+      src.TaskStatus as TaskStatus,
+      src.ConfirmedBy as ConfirmedBy,
+      src.ConfirmedAt as ConfirmedAt,
+      src.SourceStorageType as SourceStorageType,
+      src.SourceBin as SourceBin,
+      src.TargetStorageType as TargetStorageType,
+      src.TargetBin as TargetBin
 }

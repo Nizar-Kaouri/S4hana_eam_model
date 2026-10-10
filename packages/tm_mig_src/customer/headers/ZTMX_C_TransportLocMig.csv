@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,LocationID,LocationType,Description,BusinessPartner,Country,PostalCode,City,TimeZone,Latitude,Longitude
+﻿LocationUUID,LocationID,DeletionFlag,Longitude,Latitude

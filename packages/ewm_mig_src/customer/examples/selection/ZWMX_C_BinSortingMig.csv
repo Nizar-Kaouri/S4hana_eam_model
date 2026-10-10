@@ -1,2 +1,2 @@
-﻿SourceSystem,SourceClient,ExportBatch,Warehouse,StorageBin,SortSequence
-ERP_DEMO,100,DEMO001,0001,0001,0001
+﻿Warehouse,StorageBin,ActivityArea,Activity
+0001,0001,0001,0001

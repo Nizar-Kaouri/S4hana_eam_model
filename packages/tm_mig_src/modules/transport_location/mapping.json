@@ -2,19 +2,16 @@
   "module": "transport_location",
   "status": "draft-unverified",
   "target": {
-    "tool": "Customer-selected supported business interface; stages are not posting",
+    "tool": "Customer-selected supported business interface; native views are read-only",
     "todo_verify": []
   },
   "sequence_after": [],
   "key": {
     "business_key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LocationID"
+      "LocationUUID"
     ],
     "numbering": "keep",
-    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
   },
   "structures": [
     {
@@ -22,149 +19,72 @@
       "source_view": "ZTMX_I_TransportLoc",
       "scope_filter": "",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "LocationID"
+        "LocationUUID"
       ],
       "fields": [
         {
-          "element": "SourceSystem",
-          "source": "ZTMX_TMS001-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "SourceClient",
-          "source": "ZTMX_TMS001-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "ExportBatch",
-          "source": "ZTMX_TMS001-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
+          "element": "LocationUUID",
+          "source": "/SAPAPO/LOC-LOCID",
+          "target": "Native target evidence: ZTMT_I_TransportLocCompare.LocationUUID",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "LocationID",
-          "source": "ZTMX_TMS001-F004",
-          "target": "Customer native interface: LocationID (adapter required)",
+          "source": "/SAPAPO/LOC-LOCNO",
+          "target": "Native target evidence: ZTMT_I_TransportLocCompare.LocationID",
           "rule": "copy",
           "compare": true
         },
         {
-          "element": "LocationType",
-          "source": "ZTMX_TMS001-F005",
-          "target": "Customer native interface: LocationType (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "Description",
-          "source": "ZTMX_TMS001-F006",
-          "target": "Customer native interface: Description (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "BusinessPartner",
-          "source": "ZTMX_TMS001-F007",
-          "target": "Customer native interface: BusinessPartner (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "Country",
-          "source": "ZTMX_TMS001-F008",
-          "target": "Customer native interface: Country (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "PostalCode",
-          "source": "ZTMX_TMS001-F009",
-          "target": "Customer native interface: PostalCode (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "City",
-          "source": "ZTMX_TMS001-F010",
-          "target": "Customer native interface: City (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "TimeZone",
-          "source": "ZTMX_TMS001-F011",
-          "target": "Customer native interface: TimeZone (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "Latitude",
-          "source": "ZTMX_TMS001-F012",
-          "target": "Customer native interface: Latitude (adapter required)",
+          "element": "DeletionFlag",
+          "source": "/SAPAPO/LOC-LVORM",
+          "target": "Native target evidence: ZTMT_I_TransportLocCompare.DeletionFlag",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Longitude",
-          "source": "ZTMX_TMS001-F013",
-          "target": "Customer native interface: Longitude (adapter required)",
+          "source": "/SAPAPO/LOC-XPOS",
+          "target": "Native target evidence: ZTMT_I_TransportLocCompare.Longitude",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Latitude",
+          "source": "/SAPAPO/LOC-YPOS",
+          "target": "Native target evidence: ZTMT_I_TransportLocCompare.Latitude",
           "rule": "copy",
           "compare": true
         }
       ],
       "delivery_mode": "master",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+      "preprocessing": "Internal location UUID is preserved. Address, location type and time zone payload remain pending. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
     }
   ],
   "not_migrated": [],
   "gaps": [
-    "Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces.",
-    "Native export adapters and target business posting are customer implementations."
+    "Native field/key/release verification and SAP activation pending. No posting adapter."
   ],
   "reconciliation": {
     "source_values": "source",
-    "dimensions": [
-      {
-        "element": "SourceSystem"
-      },
-      {
-        "element": "SourceClient"
-      },
-      {
-        "element": "ExportBatch"
-      }
-    ],
+    "dimensions": [],
     "source_count_view": "ZTMX_C_TransportLocMigCount",
     "target_count_view": "ZTMT_I_TransportLocCount",
     "compare": {
       "source_view": "ZTMX_C_TransportLocMig",
       "target_view": "ZTMT_I_TransportLocCompare",
       "key": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "LocationID"
+        "LocationUUID"
       ],
       "fields": [
-        "LocationType",
-        "Description",
-        "BusinessPartner",
-        "Country",
-        "PostalCode",
-        "City",
-        "TimeZone",
-        "Latitude",
-        "Longitude"
+        "LocationID",
+        "DeletionFlag",
+        "Longitude",
+        "Latitude"
       ]
     }
   },
-  "main_structure": "ZTMX_C_TransportLocMig"
+  "main_structure": "ZTMX_C_TransportLocMig",
+  "pending_dependencies": []
 }

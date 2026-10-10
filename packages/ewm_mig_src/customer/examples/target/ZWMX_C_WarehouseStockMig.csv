@@ -1,2 +1,0 @@
-﻿SourceSystem,SourceClient,ExportBatch,Warehouse,StockIdentity,Product,StorageBin,Batch,Owner,EntitledParty,StockType,SpecialStock,ReferenceDocument,ReferenceItem,HandlingUnit,Quantity,QuantityUnit,InventoryDate
-ERP_DEMO,100,DEMO001,0001,0001,sample,sample,sample,sample,sample,sample,sample,sample,sample,EA,10.00,EA,20261011

@@ -3,10 +3,10 @@
   "phase": "no-system",
   "prefix": "ZEHT_",
   "package": "ZEHT_MIG",
-  "package_description": "Environment Health and Safety canonical staging",
+  "package_description": "Environment Health and Safety native migration drafts",
   "product_title": "Environment Health and Safety migration s4",
   "sap_area": "EHS-MIG",
-  "target_release": "S/4HANA 2025 customer stage",
+  "target_release": "Customer native application on compatible ABAP stack; unverified",
   "max_object_name_length": {
     "DDLS": 30,
     "DCLS": 30,
@@ -18,16 +18,17 @@
   "kind": "migration-target",
   "system": "s4",
   "migration_pair": "ehs_mig_src",
-  "map_title": "Environment Health and Safety staged evidence",
-  "map_area": "Customer-owned stages",
-  "map_initial": "ZEHT_I_EHSLocationCompare",
+  "map_title": "Environment Health and Safety native extraction",
+  "map_area": "Native SAP tables",
+  "map_initial": "ZEHT_I_SpecificationCompare",
   "layer_prefixes": {
     "basic": "I_",
     "composite": "I_",
     "consumption": "C_"
   },
-  "map_external_title": "Native adapters",
-  "map_external_sub": "customer implementation required",
-  "draft_tested_release": "none (draft, S/4HANA 2025 assumed)",
-  "map_release": "Customer evidence staging on S/4HANA 2025 (assumed)"
+  "map_external_title": "SAP system tables",
+  "map_external_sub": "Exact release and DDIC verification pending",
+  "draft_tested_release": "none (native DDIC and SAP activation pending)",
+  "map_release": "Native application installation required; never activated on SAP",
+  "native_table_sources": true
 }

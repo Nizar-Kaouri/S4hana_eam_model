@@ -3,10 +3,10 @@
   "phase": "no-system",
   "prefix": "ZWMX_",
   "package": "ZWMX_MIG",
-  "package_description": "Extended Warehouse Management canonical staging",
+  "package_description": "Extended Warehouse Management native migration drafts",
   "product_title": "Extended Warehouse Management migration source",
   "sap_area": "EWM-MIG",
-  "target_release": "Administrative NetWeaver 7.40 SP08+ stage",
+  "target_release": "Customer native application on compatible ABAP stack; unverified",
   "max_object_name_length": {
     "DDLS": 30,
     "DCLS": 30,
@@ -20,13 +20,13 @@
   "kind": "migration-source",
   "system": "source",
   "migration_pair": "ewm_mig_s4",
-  "map_title": "Extended Warehouse Management staged evidence",
-  "map_area": "Customer-owned stages",
+  "map_title": "Extended Warehouse Management native extraction",
+  "map_area": "Native SAP tables",
   "map_initial": "ZWMX_I_StorageBinData",
-  "map_external_title": "Native adapters",
-  "draft_tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
-  "map_release": "Customer staging on ABAP NW 7.40 SP08+ (assumed)",
-  "map_external_sub": "customer implementation required",
+  "map_external_title": "SAP system tables",
+  "draft_tested_release": "none (native DDIC and SAP activation pending)",
+  "map_release": "Native application installation required; never activated on SAP",
+  "map_external_sub": "Exact release and DDIC verification pending",
   "layer_prefixes": {
     "basic": "I_",
     "composite": "I_",
@@ -35,5 +35,6 @@
   "consumption_suffixes": [
     "Mig",
     "MigCount"
-  ]
+  ],
+  "native_table_sources": true
 }

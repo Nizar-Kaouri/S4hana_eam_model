@@ -2,23 +2,16 @@
   "module": "collection_activity",
   "status": "draft-unverified",
   "target": {
-    "tool": "Customer-selected supported business interface; stages are not posting",
+    "tool": "Customer-selected supported business interface; native views are read-only",
     "todo_verify": []
   },
-  "sequence_after": [
-    "collections_profile"
-  ],
+  "sequence_after": [],
   "key": {
     "business_key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment",
-      "ContactID"
+      "ContactUUID"
     ],
     "numbering": "keep",
-    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
   },
   "structures": [
     {
@@ -26,214 +19,124 @@
       "source_view": "ZFCX_I_CollectContact",
       "scope_filter": "",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "CollectionSegment",
-        "ContactID"
+        "ContactUUID"
       ],
       "fields": [
         {
-          "element": "SourceSystem",
-          "source": "ZFCX_FCS007-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
+          "element": "ContactUUID",
+          "source": "UDM_CCT_ATTR-CCT_GUID",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactUUID",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "SourceClient",
-          "source": "ZFCX_FCS007-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ExportBatch",
-          "source": "ZFCX_FCS007-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "BusinessPartner",
-          "source": "ZFCX_FCS007-F004",
-          "target": "Customer native interface: BusinessPartner (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "CollectionSegment",
-          "source": "ZFCX_FCS007-F005",
-          "target": "Customer native interface: CollectionSegment (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ContactID",
-          "source": "ZFCX_FCS007-F006",
-          "target": "Customer native interface: ContactID (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ContactAtUTC",
-          "source": "ZFCX_FCS007-F007",
-          "target": "Customer native interface: ContactAtUTC (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ContactType",
-          "source": "ZFCX_FCS007-F008",
-          "target": "Customer native interface: ContactType (adapter required)",
+          "element": "ContactDate",
+          "source": "UDM_CCT_ATTR-CCT_DATE",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactDate",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ContactResult",
-          "source": "ZFCX_FCS007-F009",
-          "target": "Customer native interface: ContactResult (adapter required)",
+          "source": "UDM_CCT_ATTR-CCT_RESULT",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactResult",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "Specialist",
-          "source": "ZFCX_FCS007-F010",
-          "target": "Customer native interface: Specialist (adapter required)",
-          "rule": "info",
-          "compare": true
-        }
-      ],
-      "delivery_mode": "process-reference",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter."
-    },
-    {
-      "consumption_view": "ZFCX_C_CollectTaskMig",
-      "source_view": "ZFCX_I_CollectTask",
-      "scope_filter": "",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "CollectionSegment",
-        "TaskID"
-      ],
-      "fields": [
-        {
-          "element": "SourceSystem",
-          "source": "ZFCX_FCS008-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
+          "element": "ContactType",
+          "source": "UDM_CCT_ATTR-CCT_TYPE",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactType",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "SourceClient",
-          "source": "ZFCX_FCS008-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
+          "element": "ContactDirection",
+          "source": "UDM_CCT_ATTR-CCT_DIRECTION",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactDirection",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "ExportBatch",
-          "source": "ZFCX_FCS008-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "BusinessPartner",
-          "source": "ZFCX_FCS008-F004",
-          "target": "Customer native interface: BusinessPartner (adapter required)",
+          "element": "Reached",
+          "source": "UDM_CCT_ATTR-XREACHED",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.Reached",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CollectionSegment",
-          "source": "ZFCX_FCS008-F005",
-          "target": "Customer native interface: CollectionSegment (adapter required)",
+          "source": "UDM_CCT_ATTR-COLL_SEGMENT",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.CollectionSegment",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "TaskID",
-          "source": "ZFCX_FCS008-F006",
-          "target": "Customer native interface: TaskID (adapter required)",
+          "element": "CollectionSpecialist",
+          "source": "UDM_CCT_ATTR-COLL_SPECIALIST",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.CollectionSpecialist",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "Reason",
-          "source": "ZFCX_FCS008-F007",
-          "target": "Customer native interface: Reason (adapter required)",
+          "element": "BusinessPartner",
+          "source": "UDM_CCT_ATTR-CUSTOMER",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.BusinessPartner",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "DueAtUTC",
-          "source": "ZFCX_FCS008-F008",
-          "target": "Customer native interface: DueAtUTC (adapter required)",
+          "element": "ContactName",
+          "source": "UDM_CCT_ATTR-CCT_NAME",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactName",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "TaskStatus",
-          "source": "ZFCX_FCS008-F009",
-          "target": "Customer native interface: TaskStatus (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "RelatedContact",
-          "source": "ZFCX_FCS008-F010",
-          "target": "Customer native interface: RelatedContact (adapter required)",
+          "element": "ChangedAt",
+          "source": "UDM_CCT_ATTR-CHANGED_AT",
+          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ChangedAt",
           "rule": "info",
           "compare": true
         }
       ],
       "delivery_mode": "process-reference",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter."
+      "preprocessing": "Contact attributes only; associated items and resubmissions remain pending. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
     }
   ],
   "not_migrated": [],
   "gaps": [
-    "Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter.",
-    "Native export adapters and target business posting are customer implementations."
+    "Native field/key/release verification and SAP activation pending. No posting adapter.",
+    "CollectTask: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "Pending native dependency: collections_profile"
   ],
   "reconciliation": {
     "source_values": "source",
-    "dimensions": [
-      {
-        "element": "SourceSystem"
-      },
-      {
-        "element": "SourceClient"
-      },
-      {
-        "element": "ExportBatch"
-      }
-    ],
+    "dimensions": [],
     "source_count_view": "ZFCX_C_CollectContactMigCount",
     "target_count_view": "ZFCT_I_CollectContactCount",
     "compare": {
       "source_view": "ZFCX_C_CollectContactMig",
       "target_view": "ZFCT_I_CollectContactCompare",
       "key": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "CollectionSegment",
-        "ContactID"
+        "ContactUUID"
       ],
       "fields": [
-        "ContactAtUTC",
-        "ContactType",
+        "ContactDate",
         "ContactResult",
-        "Specialist"
+        "ContactType",
+        "ContactDirection",
+        "Reached",
+        "CollectionSegment",
+        "CollectionSpecialist",
+        "BusinessPartner",
+        "ContactName",
+        "ChangedAt"
       ]
     }
   },
-  "main_structure": "ZFCX_C_CollectContactMig"
+  "main_structure": "ZFCX_C_CollectContactMig",
+  "pending_dependencies": [
+    "collections_profile"
+  ]
 }

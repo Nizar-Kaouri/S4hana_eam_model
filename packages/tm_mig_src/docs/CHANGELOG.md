@@ -1,3 +1,3 @@
 # Changelog
 
-0.1.0: first adapter-backed domain draft. No SAP runtime validation or business posting adapter.
+0.2.0: Replace staging drafts with documented native extraction and explicit pending coverage. 0.1.0 is superseded. No SAP runtime verification.

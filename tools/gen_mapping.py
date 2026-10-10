@@ -61,7 +61,7 @@ def module_doc(m, lib, status):
         lines.append("")
     lines += ["## Reconciliation", "",
               f"- Counts: `{rec['source_count_view']}` (ECC) vs `{rec['target_count_view'] or '-'}` "
-              "(S/4HANA) per " + ", ".join(f"`{d['element']}`" for d in rec["dimensions"])]
+              "(S/4HANA)" + (" per " + ", ".join(f"`{d['element']}`" for d in rec["dimensions"]) if rec["dimensions"] else " as global candidate counts")]
     if rec.get("compare"):
         c = rec["compare"]
         lines.append(f"- Records and fields: `{c['source_view']}` vs `{c['target_view']}` on "
@@ -72,7 +72,8 @@ def module_doc(m, lib, status):
         lines.append(f"python3 tools/mig_reconcile.py records --product {ROOT.name} --module {m['module']} --source ecc_extract.csv --target s4_compare.csv")
     lines += ["```", "", "## Open gaps", ""]
     lines += [f"- {g}" for g in m["gaps"]] or ["None known."]
-    return "\n".join(lines) + "\n"
+    result = "\n".join(lines) + "\n"
+    return result.replace("ECC", "SAP source") if lib.get("native_table_sources") else result
 
 
 def expected():
@@ -94,6 +95,9 @@ def expected():
     for i, level in enumerate(levels, 1):
         views = [st["consumption_view"] for n in level for st in mappings[n]["structures"]]
         seq.append(f"| {i} | {', '.join(f'[`{n}`](mapping/{n}.md)' for n in level)} | {', '.join(f'`{v}`' for v in views)} |")
+    if lib.get("native_table_sources"):
+        seq[4] = "This groups the supplied native extraction drafts only. Pending dependencies remain listed in module metadata and mappings; this is not a complete business load plan. No load program is supplied."
+        seq[6] = "| Level | Modules | Supplied native consumption views |"
     out[DOCS / "MIGRATION_SEQUENCE.md"] = "\n".join(seq) + "\n"
     return out
 

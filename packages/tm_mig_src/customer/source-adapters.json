@@ -1,553 +1,62 @@
 {
   "ZTMX_C_TransportLocMig": {
     "module": "transport_location",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "/SAPAPO/LOC",
+    "basic_view": "ZTMX_I_TransportLocData",
+    "composite_view": "ZTMX_I_TransportLoc",
+    "consumption_view": "ZTMX_C_TransportLocMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LocationID"
+      "LocationUUID"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+      "LocationUUID",
       "LocationID",
-      "LocationType",
-      "Description",
-      "BusinessPartner",
-      "Country",
-      "PostalCode",
-      "City",
-      "TimeZone",
-      "Latitude",
-      "Longitude"
+      "DeletionFlag",
+      "Longitude",
+      "Latitude"
     ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZTMX_C_TransportResMig": {
-    "module": "transport_resource",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ResourceID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ResourceID",
-      "ResourceType",
-      "Description",
-      "Carrier",
-      "VehicleType",
-      "TimeZone"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZTMX_C_ResCapacityMig": {
-    "module": "transport_resource",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ResourceID",
-      "CapacityID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ResourceID",
-      "CapacityID",
-      "CapacityType",
-      "CapacityValue",
-      "CapacityUnit"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZTMX_C_TransportLaneMig": {
-    "module": "transport_lane",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LaneID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LaneID",
-      "SourceLocation",
-      "DestinationLocation",
-      "TransportMode",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [
-      "transport_location"
-    ],
-    "mode": "master"
-  },
-  "ZTMX_C_LaneCarrierMig": {
-    "module": "transport_lane",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LaneID",
-      "CarrierID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LaneID",
-      "CarrierID",
-      "Priority",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [
-      "transport_location"
-    ],
-    "mode": "master"
-  },
-  "ZTMX_C_ScheduleMig": {
-    "module": "transport_schedule",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScheduleID",
-      "Version"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScheduleID",
-      "Version",
-      "Description",
-      "TransportMode",
-      "Carrier",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [
-      "transport_location"
-    ],
-    "mode": "master"
-  },
-  "ZTMX_C_ScheduleStopMig": {
-    "module": "transport_schedule",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScheduleID",
-      "Version",
-      "StopID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScheduleID",
-      "Version",
-      "StopID",
-      "LocationID",
-      "Sequence",
-      "ArrivalLocal",
-      "DepartureLocal",
-      "TimeZone"
-    ],
-    "parent_modules": [
-      "transport_location"
-    ],
-    "mode": "master"
-  },
-  "ZTMX_C_FreightAgreeMig": {
-    "module": "freight_agreement",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AgreementID",
-      "Version"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AgreementID",
-      "Version",
-      "AgreementType",
-      "Carrier",
-      "Currency",
-      "ValidityStartDate",
-      "ValidityEndDate",
-      "ReleaseStatus"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZTMX_C_FreightRateMig": {
-    "module": "freight_agreement",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AgreementID",
-      "Version",
-      "RateID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AgreementID",
-      "Version",
-      "RateID",
-      "ChargeType",
-      "CalculationBasis",
-      "Rate",
-      "Currency",
-      "PricingUnit",
-      "QuantityUnit"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZTMX_C_FreightScaleMig": {
-    "module": "freight_agreement",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AgreementID",
-      "Version",
-      "RateID",
-      "ScaleLine"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AgreementID",
-      "Version",
-      "RateID",
-      "ScaleLine",
-      "FromValue",
-      "ToValue",
-      "ScaleUnit",
-      "ScaleRate",
-      "Currency"
-    ],
-    "parent_modules": [],
-    "mode": "master"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/SUPPORT_CONTENT/sapo/3354623172.html",
+    "notes": "Internal location UUID is preserved. Address, location type and time zone payload remain pending."
   },
   "ZTMX_C_FreightUnitMig": {
     "module": "freight_unit",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "/SCMTMS/D_TORROT",
+    "basic_view": "ZTMX_I_FreightUnitData",
+    "composite_view": "ZTMX_I_FreightUnit",
+    "consumption_view": "ZTMX_C_FreightUnitMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightUnitID"
+      "DocumentUUID"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightUnitID",
-      "NativeGUID",
-      "UnitType",
-      "DocumentStatus",
-      "SourceLocation",
-      "DestinationLocation"
+      "DocumentUUID",
+      "DocumentID",
+      "DocumentCategory",
+      "DocumentType",
+      "LifecycleStatus"
     ],
-    "parent_modules": [
-      "transport_location"
-    ],
-    "mode": "process-reference"
-  },
-  "ZTMX_C_FreightUnitIteMig": {
-    "module": "freight_unit",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightUnitID",
-      "ItemID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightUnitID",
-      "ItemID",
-      "Product",
-      "Quantity",
-      "QuantityUnit",
-      "GrossWeight",
-      "WeightUnit",
-      "ReferenceDocument",
-      "ReferenceItem"
-    ],
-    "parent_modules": [
-      "transport_location"
-    ],
-    "mode": "process-reference"
-  },
-  "ZTMX_C_FreightUnitStoMig": {
-    "module": "freight_unit",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightUnitID",
-      "StopID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightUnitID",
-      "StopID",
-      "LocationID",
-      "Sequence",
-      "StopRole",
-      "PlannedAtUTC",
-      "TimeZone"
-    ],
-    "parent_modules": [
-      "transport_location"
-    ],
-    "mode": "process-reference"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "notes": "Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
   },
   "ZTMX_C_FreightOrderMig": {
     "module": "freight_order",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "/SCMTMS/D_TORROT",
+    "basic_view": "ZTMX_I_FreightOrderData",
+    "composite_view": "ZTMX_I_FreightOrder",
+    "consumption_view": "ZTMX_C_FreightOrderMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightOrderID"
+      "DocumentUUID"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightOrderID",
-      "NativeGUID",
+      "DocumentUUID",
+      "DocumentID",
       "DocumentCategory",
-      "OrderType",
-      "Carrier",
-      "ResourceID",
-      "ExecutionStatus",
-      "SettlementStatus"
+      "DocumentType",
+      "LifecycleStatus"
     ],
-    "parent_modules": [
-      "transport_location",
-      "transport_resource",
-      "freight_unit"
-    ],
-    "mode": "process-reference"
-  },
-  "ZTMX_C_FreightOrdItemMig": {
-    "module": "freight_order",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightOrderID",
-      "ItemID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightOrderID",
-      "ItemID",
-      "FreightUnitID",
-      "Product",
-      "Quantity",
-      "QuantityUnit"
-    ],
-    "parent_modules": [
-      "transport_location",
-      "transport_resource",
-      "freight_unit"
-    ],
-    "mode": "process-reference"
-  },
-  "ZTMX_C_FreightOrdStopMig": {
-    "module": "freight_order",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightOrderID",
-      "StopID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightOrderID",
-      "StopID",
-      "LocationID",
-      "Sequence",
-      "StopRole",
-      "PlannedAtUTC",
-      "ActualAtUTC",
-      "TimeZone"
-    ],
-    "parent_modules": [
-      "transport_location",
-      "transport_resource",
-      "freight_unit"
-    ],
-    "mode": "process-reference"
-  },
-  "ZTMX_C_FreightStageMig": {
-    "module": "freight_order",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightOrderID",
-      "StageID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "FreightOrderID",
-      "StageID",
-      "FromStop",
-      "ToStop",
-      "Distance",
-      "DistanceUnit",
-      "TransportMode"
-    ],
-    "parent_modules": [
-      "transport_location",
-      "transport_resource",
-      "freight_unit"
-    ],
-    "mode": "process-reference"
-  },
-  "ZTMX_C_FreightSettleMig": {
-    "module": "freight_settlement",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SettlementID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SettlementID",
-      "FreightOrderID",
-      "Carrier",
-      "CompanyCode",
-      "Currency",
-      "TotalAmount",
-      "SettlementStatus",
-      "AccountingDocument"
-    ],
-    "parent_modules": [
-      "freight_order"
-    ],
-    "mode": "reference"
-  },
-  "ZTMX_C_SettleItemMig": {
-    "module": "freight_settlement",
-    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SettlementID",
-      "SettlementItem"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SettlementID",
-      "SettlementItem",
-      "ChargeType",
-      "Amount",
-      "Currency",
-      "TaxCode",
-      "ReferenceItem"
-    ],
-    "parent_modules": [
-      "freight_order"
-    ],
-    "mode": "reference"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "notes": "Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
   }
 }

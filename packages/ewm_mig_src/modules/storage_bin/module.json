@@ -1,24 +1,24 @@
 {
   "name": "storage_bin",
   "title": "Storage bins and sorting",
-  "description": "Canonical Storage bins and sorting exports over customer stages; native business adapters required.",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "master"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "/SCWM/LAGP",
+    "/SCWM/LAGPS"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
-    "tables": [
-      "ZWMX_WMS001",
-      "ZWMX_WMS002"
-    ],
+    "tables": [],
     "basic": [
       "ZWMX_I_StorageBinData",
       "ZWMX_I_BinSortingData"
@@ -37,13 +37,14 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZWMX_I_StorageBinData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_StorageBin": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_StorageBinMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_StorageBinMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_BinSortingData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_BinSorting": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_BinSortingMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+    "ZWMX_I_StorageBinData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_I_StorageBin": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_C_StorageBinMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_C_StorageBinMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_I_BinSortingData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_I_BinSorting": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_C_BinSortingMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
-  "link_views": []
+  "link_views": [],
+  "pending_structures": []
 }

@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys.
 // Purpose: Read PhraseSetData as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 // TODO-VERIFY[H] EHX-009: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
@@ -12,13 +13,14 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #BASIC
 define view ZEHX_I_PhraseSetData
-  as select from zehx_ehs009 as src
+  as select from estpj as src
 {
-  key src.f001 as SourceSystem,
-  key src.f002 as SourceClient,
-  key src.f003 as ExportBatch,
-  key src.f004 as PhraseSetID,
-  key src.f005 as PhraseCatalog,
-  key src.f006 as PhraseID,
-      src.f007 as SortSequence
+  key src.recn as RecordNumber,
+  key src.actn as ChangeState,
+      src.valfr as ValidFrom,
+      src.valto as ValidTo,
+      src.delflg as DeletionFlag,
+      src.phrsel as PhraseSet,
+      src.phrid as PhraseID,
+      src.ord as SortOrder
 }

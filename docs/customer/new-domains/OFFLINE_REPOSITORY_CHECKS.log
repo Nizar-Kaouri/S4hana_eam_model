@@ -66,18 +66,17 @@ ehs_mig_s4:
   [ok ] gen_checklist --check
   [ok ] gen_model_map --check
   [ok ] todo_verify_report --check
-  [ok ] validate_repo: validate_repo: 0 error(s), 9 module(s), 55 object(s), 24 TODO-VERIFY item(s)
+  [ok ] validate_repo: validate_repo: 0 error(s), 9 module(s), 6 object(s), 5 TODO-VERIFY item(s)
   [ok ] abaplint: ABAP language version: Normal
-  [ok ] ABAP helper parser (DDIC/runtime unverified): ABAP language version: Normal
 ehs_mig_src:
   [ok ] sync_xml --check
   [ok ] gen_docs --check
   [ok ] gen_checklist --check
   [ok ] gen_model_map --check
   [ok ] todo_verify_report --check
-  [ok ] validate_repo: validate_repo: 0 error(s), 9 module(s), 101 object(s), 24 TODO-VERIFY item(s)
-  [ok ] gen_mapping --check: gen_mapping: 0 file(s) out of date, 10 expected
-  [ok ] validate_mapping: validate_mapping: 0 error(s), 9 mapping(s), 23 structure(s), 216 delivered field(s), 3 load level(s)
+  [ok ] validate_repo: validate_repo: 0 error(s), 9 module(s), 14 object(s), 5 TODO-VERIFY item(s)
+  [ok ] gen_mapping --check: gen_mapping: 0 file(s) out of date, 3 expected
+  [ok ] validate_mapping: validate_mapping: 0 error(s), 2 mapping(s), 4 structure(s), 37 delivered field(s), 1 load level(s)
   [ok ] abaplint: ABAP language version: Normal
   [ok ] ABAP helper parser (DDIC/runtime unverified): ABAP language version: Normal
 ewm_mig_s4:
@@ -86,18 +85,17 @@ ewm_mig_s4:
   [ok ] gen_checklist --check
   [ok ] gen_model_map --check
   [ok ] todo_verify_report --check
-  [ok ] validate_repo: validate_repo: 0 error(s), 8 module(s), 40 object(s), 17 TODO-VERIFY item(s)
+  [ok ] validate_repo: validate_repo: 0 error(s), 8 module(s), 7 object(s), 5 TODO-VERIFY item(s)
   [ok ] abaplint: ABAP language version: Normal
-  [ok ] ABAP helper parser (DDIC/runtime unverified): ABAP language version: Normal
 ewm_mig_src:
   [ok ] sync_xml --check
   [ok ] gen_docs --check
   [ok ] gen_checklist --check
   [ok ] gen_model_map --check
   [ok ] todo_verify_report --check
-  [ok ] validate_repo: validate_repo: 0 error(s), 8 module(s), 72 object(s), 17 TODO-VERIFY item(s)
-  [ok ] gen_mapping --check: gen_mapping: 0 file(s) out of date, 9 expected
-  [ok ] validate_mapping: validate_mapping: 0 error(s), 8 mapping(s), 16 structure(s), 181 delivered field(s), 3 load level(s)
+  [ok ] validate_repo: validate_repo: 0 error(s), 8 module(s), 15 object(s), 5 TODO-VERIFY item(s)
+  [ok ] gen_mapping --check: gen_mapping: 0 file(s) out of date, 4 expected
+  [ok ] validate_mapping: validate_mapping: 0 error(s), 3 mapping(s), 4 structure(s), 36 delivered field(s), 2 load level(s)
   [ok ] abaplint: ABAP language version: Normal
   [ok ] ABAP helper parser (DDIC/runtime unverified): ABAP language version: Normal
 fi:
@@ -160,18 +158,17 @@ fscm_mig_s4:
   [ok ] gen_checklist --check
   [ok ] gen_model_map --check
   [ok ] todo_verify_report --check
-  [ok ] validate_repo: validate_repo: 0 error(s), 7 module(s), 35 object(s), 15 TODO-VERIFY item(s)
+  [ok ] validate_repo: validate_repo: 0 error(s), 7 module(s), 11 object(s), 7 TODO-VERIFY item(s)
   [ok ] abaplint: ABAP language version: Normal
-  [ok ] ABAP helper parser (DDIC/runtime unverified): ABAP language version: Normal
 fscm_mig_src:
   [ok ] sync_xml --check
   [ok ] gen_docs --check
   [ok ] gen_checklist --check
   [ok ] gen_model_map --check
   [ok ] todo_verify_report --check
-  [ok ] validate_repo: validate_repo: 0 error(s), 7 module(s), 63 object(s), 15 TODO-VERIFY item(s)
-  [ok ] gen_mapping --check: gen_mapping: 0 file(s) out of date, 8 expected
-  [ok ] validate_mapping: validate_mapping: 0 error(s), 7 mapping(s), 14 structure(s), 133 delivered field(s), 3 load level(s)
+  [ok ] validate_repo: validate_repo: 0 error(s), 7 module(s), 23 object(s), 7 TODO-VERIFY item(s)
+  [ok ] gen_mapping --check: gen_mapping: 0 file(s) out of date, 6 expected
+  [ok ] validate_mapping: validate_mapping: 0 error(s), 5 mapping(s), 6 structure(s), 57 delivered field(s), 2 load level(s)
   [ok ] abaplint: ABAP language version: Normal
   [ok ] ABAP helper parser (DDIC/runtime unverified): ABAP language version: Normal
 mm:
@@ -315,18 +312,17 @@ tm_mig_s4:
   [ok ] gen_checklist --check
   [ok ] gen_model_map --check
   [ok ] todo_verify_report --check
-  [ok ] validate_repo: validate_repo: 0 error(s), 8 module(s), 46 object(s), 20 TODO-VERIFY item(s)
+  [ok ] validate_repo: validate_repo: 0 error(s), 8 module(s), 6 object(s), 4 TODO-VERIFY item(s)
   [ok ] abaplint: ABAP language version: Normal
-  [ok ] ABAP helper parser (DDIC/runtime unverified): ABAP language version: Normal
 tm_mig_src:
   [ok ] sync_xml --check
   [ok ] gen_docs --check
   [ok ] gen_checklist --check
   [ok ] gen_model_map --check
   [ok ] todo_verify_report --check
-  [ok ] validate_repo: validate_repo: 0 error(s), 8 module(s), 84 object(s), 20 TODO-VERIFY item(s)
-  [ok ] gen_mapping --check: gen_mapping: 0 file(s) out of date, 9 expected
-  [ok ] validate_mapping: validate_mapping: 0 error(s), 8 mapping(s), 19 structure(s), 196 delivered field(s), 4 load level(s)
+  [ok ] validate_repo: validate_repo: 0 error(s), 8 module(s), 12 object(s), 4 TODO-VERIFY item(s)
+  [ok ] gen_mapping --check: gen_mapping: 0 file(s) out of date, 4 expected
+  [ok ] validate_mapping: validate_mapping: 0 error(s), 3 mapping(s), 3 structure(s), 15 delivered field(s), 3 load level(s)
   [ok ] abaplint: ABAP language version: Normal
   [ok ] ABAP helper parser (DDIC/runtime unverified): ABAP language version: Normal
 shared:

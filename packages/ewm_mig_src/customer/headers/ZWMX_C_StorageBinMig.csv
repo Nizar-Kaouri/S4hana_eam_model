@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,Warehouse,StorageBin,StorageType,StorageSection,BinType,Capacity,CapacityUnit,Blocked
+﻿Warehouse,StorageBin,StorageType,StorageSection,BinType,RemovalBlocked,PutawayBlocked,InventoryBlocked

@@ -2,276 +2,159 @@
   "module": "warehouse_task",
   "status": "draft-unverified",
   "target": {
-    "tool": "Customer-selected supported business interface; stages are not posting",
+    "tool": "Customer-selected supported business interface; native views are read-only",
     "todo_verify": []
   },
   "sequence_after": [
-    "storage_bin",
-    "warehouse_product"
+    "storage_bin"
   ],
   "key": {
     "business_key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
       "Warehouse",
-      "WarehouseTask"
+      "WarehouseTask",
+      "WarehouseTaskItem"
     ],
     "numbering": "keep",
-    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
   },
   "structures": [
-    {
-      "consumption_view": "ZWMX_C_WarehouseTaskMig",
-      "source_view": "ZWMX_I_WarehouseTask",
-      "scope_filter": "",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "WarehouseTask"
-      ],
-      "fields": [
-        {
-          "element": "SourceSystem",
-          "source": "ZWMX_WMS009-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "SourceClient",
-          "source": "ZWMX_WMS009-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ExportBatch",
-          "source": "ZWMX_WMS009-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "Warehouse",
-          "source": "ZWMX_WMS009-F004",
-          "target": "Customer native interface: Warehouse (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "WarehouseTask",
-          "source": "ZWMX_WMS009-F005",
-          "target": "Customer native interface: WarehouseTask (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "WarehouseOrder",
-          "source": "ZWMX_WMS009-F006",
-          "target": "Customer native interface: WarehouseOrder (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "Product",
-          "source": "ZWMX_WMS009-F007",
-          "target": "Customer native interface: Product (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "SourceBin",
-          "source": "ZWMX_WMS009-F008",
-          "target": "Customer native interface: SourceBin (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "DestinationBin",
-          "source": "ZWMX_WMS009-F009",
-          "target": "Customer native interface: DestinationBin (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "HandlingUnit",
-          "source": "ZWMX_WMS009-F010",
-          "target": "Customer native interface: HandlingUnit (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "PlannedQuantity",
-          "source": "ZWMX_WMS009-F011",
-          "target": "Customer native interface: PlannedQuantity (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "QuantityUnit",
-          "source": "ZWMX_WMS009-F012",
-          "target": "Customer native interface: QuantityUnit (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ProcessType",
-          "source": "ZWMX_WMS009-F013",
-          "target": "Customer native interface: ProcessType (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "TaskStatus",
-          "source": "ZWMX_WMS009-F014",
-          "target": "Customer native interface: TaskStatus (adapter required)",
-          "rule": "info",
-          "compare": true
-        }
-      ],
-      "delivery_mode": "process-reference",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently."
-    },
     {
       "consumption_view": "ZWMX_C_TaskConfirmMig",
       "source_view": "ZWMX_I_TaskConfirm",
       "scope_filter": "",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
         "WarehouseTask",
-        "ConfirmationID"
+        "WarehouseTaskItem"
       ],
       "fields": [
         {
-          "element": "SourceSystem",
-          "source": "ZWMX_WMS010-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "SourceClient",
-          "source": "ZWMX_WMS010-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ExportBatch",
-          "source": "ZWMX_WMS010-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
           "element": "Warehouse",
-          "source": "ZWMX_WMS010-F004",
-          "target": "Customer native interface: Warehouse (adapter required)",
+          "source": "/SCWM/ORDIM_C-LGNUM",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.Warehouse",
           "rule": "info",
           "compare": true
         },
         {
           "element": "WarehouseTask",
-          "source": "ZWMX_WMS010-F005",
-          "target": "Customer native interface: WarehouseTask (adapter required)",
+          "source": "/SCWM/ORDIM_C-TANUM",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.WarehouseTask",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "ConfirmationID",
-          "source": "ZWMX_WMS010-F006",
-          "target": "Customer native interface: ConfirmationID (adapter required)",
+          "element": "WarehouseTaskItem",
+          "source": "/SCWM/ORDIM_C-TAPOS",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.WarehouseTaskItem",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "ConfirmedQuantity",
-          "source": "ZWMX_WMS010-F007",
-          "target": "Customer native interface: ConfirmedQuantity (adapter required)",
+          "element": "WarehouseOrder",
+          "source": "/SCWM/ORDIM_C-WHO",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.WarehouseOrder",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "DifferenceQuantity",
-          "source": "ZWMX_WMS010-F008",
-          "target": "Customer native interface: DifferenceQuantity (adapter required)",
+          "element": "ProcessType",
+          "source": "/SCWM/ORDIM_C-PROCTY",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.ProcessType",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "QuantityUnit",
-          "source": "ZWMX_WMS010-F009",
-          "target": "Customer native interface: QuantityUnit (adapter required)",
+          "element": "TaskStatus",
+          "source": "/SCWM/ORDIM_C-TOSTAT",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.TaskStatus",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "ConfirmedAtUTC",
-          "source": "ZWMX_WMS010-F010",
-          "target": "Customer native interface: ConfirmedAtUTC (adapter required)",
+          "element": "ConfirmedBy",
+          "source": "/SCWM/ORDIM_C-CONFIRMED_BY",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.ConfirmedBy",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "ReversalStatus",
-          "source": "ZWMX_WMS010-F011",
-          "target": "Customer native interface: ReversalStatus (adapter required)",
+          "element": "ConfirmedAt",
+          "source": "/SCWM/ORDIM_C-CONFIRMED_AT",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.ConfirmedAt",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceStorageType",
+          "source": "/SCWM/ORDIM_C-VLTYP",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.SourceStorageType",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceBin",
+          "source": "/SCWM/ORDIM_C-VLPLA",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.SourceBin",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TargetStorageType",
+          "source": "/SCWM/ORDIM_C-NLTYP",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.TargetStorageType",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TargetBin",
+          "source": "/SCWM/ORDIM_C-NLPLA",
+          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.TargetBin",
           "rule": "info",
           "compare": true
         }
       ],
       "delivery_mode": "process-reference",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently."
+      "preprocessing": "Confirmed task records only; open tasks, serials and quantity semantics remain pending. Reference extraction, not task recreation. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
     }
   ],
   "not_migrated": [],
   "gaps": [
-    "LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently.",
-    "Native export adapters and target business posting are customer implementations."
+    "Native field/key/release verification and SAP activation pending. No posting adapter.",
+    "WarehouseTask: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "Pending native dependency: warehouse_product"
   ],
   "reconciliation": {
     "source_values": "source",
     "dimensions": [
       {
-        "element": "SourceSystem"
-      },
-      {
-        "element": "SourceClient"
-      },
-      {
-        "element": "ExportBatch"
+        "element": "Warehouse"
       }
     ],
-    "source_count_view": "ZWMX_C_WarehouseTaskMigCount",
-    "target_count_view": "ZWMT_I_WarehouseTaskCount",
+    "source_count_view": "ZWMX_C_TaskConfirmMigCount",
+    "target_count_view": "ZWMT_I_TaskConfirmCount",
     "compare": {
-      "source_view": "ZWMX_C_WarehouseTaskMig",
-      "target_view": "ZWMT_I_WarehouseTaskCompare",
+      "source_view": "ZWMX_C_TaskConfirmMig",
+      "target_view": "ZWMT_I_TaskConfirmCompare",
       "key": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
-        "WarehouseTask"
+        "WarehouseTask",
+        "WarehouseTaskItem"
       ],
       "fields": [
         "WarehouseOrder",
-        "Product",
-        "SourceBin",
-        "DestinationBin",
-        "HandlingUnit",
-        "PlannedQuantity",
-        "QuantityUnit",
         "ProcessType",
-        "TaskStatus"
+        "TaskStatus",
+        "ConfirmedBy",
+        "ConfirmedAt",
+        "SourceStorageType",
+        "SourceBin",
+        "TargetStorageType",
+        "TargetBin"
       ]
     }
   },
-  "main_structure": "ZWMX_C_WarehouseTaskMig"
+  "main_structure": "ZWMX_C_TaskConfirmMig",
+  "pending_dependencies": [
+    "warehouse_product"
+  ]
 }

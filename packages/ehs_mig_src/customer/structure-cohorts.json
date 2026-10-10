@@ -1,69 +1,10 @@
 {
-  "ZEHX_C_EHSLocationMig": {
-    "module": "ehs_location",
-    "table": "ZEHX_EHS001",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LocationID"
-    ],
-    "selection": "selection/ZEHX_C_EHSLocationMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
-  "ZEHX_C_EHSLocHierarchMig": {
-    "module": "ehs_location",
-    "table": "ZEHX_EHS002",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "HierarchyID",
-      "ParentLocation",
-      "ChildLocation",
-      "ValidityStartDate"
-    ],
-    "selection": "selection/ZEHX_C_EHSLocHierarchMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
-  "ZEHX_C_ChemicalPropMig": {
-    "module": "chemical_property",
-    "table": "ZEHX_EHS003",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PropertyID"
-    ],
-    "selection": "selection/ZEHX_C_ChemicalPropMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
-  "ZEHX_C_PropertyUnitMig": {
-    "module": "chemical_property",
-    "table": "ZEHX_EHS004",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PropertyID",
-      "UnitID"
-    ],
-    "selection": "selection/ZEHX_C_PropertyUnitMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
   "ZEHX_C_SpecificationMig": {
     "module": "specification",
-    "table": "ZEHX_EHS005",
+    "table": "ESTRH",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version"
+      "RecordNumber",
+      "ChangeState"
     ],
     "selection": "selection/ZEHX_C_SpecificationMig.csv",
     "requires_business_approval": true,
@@ -71,45 +12,21 @@
   },
   "ZEHX_C_SpecIdentifierMig": {
     "module": "specification",
-    "table": "ZEHX_EHS006",
+    "table": "ESTRI",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version",
-      "IdentifierID"
+      "RecordNumber",
+      "ChangeState"
     ],
     "selection": "selection/ZEHX_C_SpecIdentifierMig.csv",
     "requires_business_approval": true,
     "mode": "master"
   },
-  "ZEHX_C_SpecPropertyMig": {
-    "module": "specification",
-    "table": "ZEHX_EHS007",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version",
-      "PropertyID",
-      "ValueID"
-    ],
-    "selection": "selection/ZEHX_C_SpecPropertyMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
   "ZEHX_C_PhraseMig": {
     "module": "phrase",
-    "table": "ZEHX_EHS008",
+    "table": "ESTPH",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PhraseCatalog",
-      "PhraseID",
-      "Language"
+      "RecordNumber",
+      "ChangeState"
     ],
     "selection": "selection/ZEHX_C_PhraseMig.csv",
     "requires_business_approval": true,
@@ -117,219 +34,13 @@
   },
   "ZEHX_C_PhraseSetMig": {
     "module": "phrase",
-    "table": "ZEHX_EHS009",
+    "table": "ESTPJ",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PhraseSetID",
-      "PhraseCatalog",
-      "PhraseID"
+      "RecordNumber",
+      "ChangeState"
     ],
     "selection": "selection/ZEHX_C_PhraseSetMig.csv",
     "requires_business_approval": true,
     "mode": "master"
-  },
-  "ZEHX_C_IncidentMig": {
-    "module": "incident",
-    "table": "ZEHX_EHS010",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID"
-    ],
-    "selection": "selection/ZEHX_C_IncidentMig.csv",
-    "requires_business_approval": true,
-    "mode": "process-reference"
-  },
-  "ZEHX_C_IncidentPersonMig": {
-    "module": "incident",
-    "table": "ZEHX_EHS011",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "PersonRole",
-      "PersonID"
-    ],
-    "selection": "selection/ZEHX_C_IncidentPersonMig.csv",
-    "requires_business_approval": true,
-    "mode": "process-reference"
-  },
-  "ZEHX_C_IncidentActionMig": {
-    "module": "incident",
-    "table": "ZEHX_EHS012",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "ActionID"
-    ],
-    "selection": "selection/ZEHX_C_IncidentActionMig.csv",
-    "requires_business_approval": true,
-    "mode": "process-reference"
-  },
-  "ZEHX_C_RiskAssessmentMig": {
-    "module": "risk_assessment",
-    "table": "ZEHX_EHS013",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version"
-    ],
-    "selection": "selection/ZEHX_C_RiskAssessmentMig.csv",
-    "requires_business_approval": true,
-    "mode": "reference"
-  },
-  "ZEHX_C_RiskHazardMig": {
-    "module": "risk_assessment",
-    "table": "ZEHX_EHS014",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "HazardID"
-    ],
-    "selection": "selection/ZEHX_C_RiskHazardMig.csv",
-    "requires_business_approval": true,
-    "mode": "reference"
-  },
-  "ZEHX_C_RiskControlMig": {
-    "module": "risk_assessment",
-    "table": "ZEHX_EHS015",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "HazardID",
-      "ControlID"
-    ],
-    "selection": "selection/ZEHX_C_RiskControlMig.csv",
-    "requires_business_approval": true,
-    "mode": "reference"
-  },
-  "ZEHX_C_DataClassifierMig": {
-    "module": "environmental_data",
-    "table": "ZEHX_EHS016",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ClassifierID"
-    ],
-    "selection": "selection/ZEHX_C_DataClassifierMig.csv",
-    "requires_business_approval": true,
-    "mode": "reference"
-  },
-  "ZEHX_C_DataCollectionMig": {
-    "module": "environmental_data",
-    "table": "ZEHX_EHS017",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CollectionID"
-    ],
-    "selection": "selection/ZEHX_C_DataCollectionMig.csv",
-    "requires_business_approval": true,
-    "mode": "reference"
-  },
-  "ZEHX_C_MeasurementMig": {
-    "module": "environmental_data",
-    "table": "ZEHX_EHS018",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CollectionID",
-      "MeasurementID"
-    ],
-    "selection": "selection/ZEHX_C_MeasurementMig.csv",
-    "requires_business_approval": true,
-    "mode": "reference"
-  },
-  "ZEHX_C_ComplianceReqMig": {
-    "module": "compliance",
-    "table": "ZEHX_EHS019",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "RequirementID",
-      "Version"
-    ],
-    "selection": "selection/ZEHX_C_ComplianceReqMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
-  "ZEHX_C_ComplianceScenMig": {
-    "module": "compliance",
-    "table": "ZEHX_EHS020",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScenarioID",
-      "Version"
-    ],
-    "selection": "selection/ZEHX_C_ComplianceScenMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
-  "ZEHX_C_ComplianceLinkMig": {
-    "module": "compliance",
-    "table": "ZEHX_EHS021",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScenarioID",
-      "Version",
-      "RequirementID",
-      "RequirementVersion"
-    ],
-    "selection": "selection/ZEHX_C_ComplianceLinkMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
-  "ZEHX_C_DangerousGoodsMig": {
-    "module": "dangerous_goods",
-    "table": "ZEHX_EHS022",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Product",
-      "RegulationID",
-      "Version"
-    ],
-    "selection": "selection/ZEHX_C_DangerousGoodsMig.csv",
-    "requires_business_approval": true,
-    "mode": "regulatory-reference"
-  },
-  "ZEHX_C_DGTransportMig": {
-    "module": "dangerous_goods",
-    "table": "ZEHX_EHS023",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Product",
-      "RegulationID",
-      "Version",
-      "TransportMode"
-    ],
-    "selection": "selection/ZEHX_C_DGTransportMig.csv",
-    "requires_business_approval": true,
-    "mode": "regulatory-reference"
   }
 }

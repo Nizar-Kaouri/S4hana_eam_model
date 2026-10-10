@@ -30,8 +30,12 @@ def check(mapping, view, schema):
         tables.add(native[0].upper());projected[field['element']] = native[1].upper()
     if len(tables) != 1 or len(projected) != len(structure['fields']) or len(set(projected.values())) != len(projected):
         raise InputError('DDIC check requires one table and unique aliases/native fields')
-    # Only a typed MANDT is implicit because the helper reads the current client.
-    implicit = {'MANDT'} if actual.get('MANDT', {}).get('DATATYPE', '').strip().upper() == 'CLNT' else set()
+    # SAP client fields can be called CLIENT (for example UKMBP_CMS).
+    # Only a single typed client key is implicit; do not hide arbitrary keys.
+    client_keys = {f for f, r in actual.items()
+                   if r['KEYFLAG'].strip().upper() == 'X'
+                   and r['DATATYPE'].strip().upper() == 'CLNT'}
+    implicit = client_keys if len(client_keys) == 1 else set()
     actual_keys = {f for f, r in actual.items() if r['KEYFLAG'].strip().upper() == 'X'} - implicit
     try: declared = {projected[k] for k in structure['keys']}
     except KeyError as exc: raise InputError('declared key is not projected') from exc

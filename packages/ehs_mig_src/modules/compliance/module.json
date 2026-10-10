@@ -1,14 +1,14 @@
 {
   "name": "compliance",
   "title": "Compliance requirements scenarios and assignments",
-  "description": "Canonical Compliance requirements scenarios and assignments exports over customer stages; native business adapters required.",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "master"
   ],
   "sap_tables": [],
@@ -19,42 +19,19 @@
     "environmental_data"
   ],
   "objects": {
-    "tables": [
-      "ZEHX_EHS019",
-      "ZEHX_EHS020",
-      "ZEHX_EHS021"
-    ],
-    "basic": [
-      "ZEHX_I_ComplianceReqData",
-      "ZEHX_I_ComplianceScenData",
-      "ZEHX_I_ComplianceLinkData"
-    ],
-    "composite": [
-      "ZEHX_I_ComplianceReq",
-      "ZEHX_I_ComplianceScen",
-      "ZEHX_I_ComplianceLink"
-    ],
-    "consumption": [
-      "ZEHX_C_ComplianceReqMig",
-      "ZEHX_C_ComplianceReqMigCount",
-      "ZEHX_C_ComplianceScenMig",
-      "ZEHX_C_ComplianceLinkMig"
-    ],
+    "tables": [],
+    "basic": [],
+    "composite": [],
+    "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {
-    "ZEHX_I_ComplianceReqData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_I_ComplianceReq": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_C_ComplianceReqMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_C_ComplianceReqMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_I_ComplianceScenData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_I_ComplianceScen": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_C_ComplianceScenMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_I_ComplianceLinkData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_I_ComplianceLink": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_C_ComplianceLinkMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
-  },
-  "link_views": []
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "ComplianceReq",
+    "ComplianceScen",
+    "ComplianceLink"
+  ]
 }

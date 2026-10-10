@@ -1,3 +1,0 @@
-﻿SourceSystem,SourceClient,ExportBatch,AgreementID,Version,AgreementType,Carrier,Currency,ValidityStartDate,ValidityEndDate,ReleaseStatus
-ERP_DEMO,100,DEMO001,0001,0001,sample,sample,EUR,20261011,20261011,sample
-ERP_DEMO,100,DEMO001,0002,0002,sample,sample,EUR,20261011,20261011,sample

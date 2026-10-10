@@ -1,0 +1,218 @@
+[
+  {
+    "domain": "tm",
+    "module": "transport_location",
+    "structure": "TransportLoc",
+    "status": "NATIVE_DRAFT",
+    "table": "/SAPAPO/LOC",
+    "reason": "Internal location UUID is preserved. Address, location type and time zone payload remain pending.",
+    "evidence": "https://help.sap.com/docs/SUPPORT_CONTENT/sapo/3354623172.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "LocationType",
+      "Description",
+      "BusinessPartner",
+      "Country",
+      "PostalCode",
+      "City",
+      "TimeZone"
+    ]
+  },
+  {
+    "domain": "tm",
+    "module": "transport_resource",
+    "structure": "TransportRes",
+    "status": "PENDING",
+    "table": "/SAPAPO/RES_HEAD",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "transport_resource",
+    "structure": "ResCapacity",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "transport_lane",
+    "structure": "TransportLane",
+    "status": "PENDING",
+    "table": "/SAPAPO/TR",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "transport_lane",
+    "structure": "LaneCarrier",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "transport_schedule",
+    "structure": "Schedule",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_SCHROT",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "transport_schedule",
+    "structure": "ScheduleStop",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightAgree",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_FAGROT",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightRate",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightScale",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnit",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORROT",
+    "reason": "Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "FreightUnitID",
+      "NativeGUID",
+      "UnitType",
+      "DocumentStatus",
+      "SourceLocation",
+      "DestinationLocation"
+    ]
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnitItem",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_TORITE",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnitStop",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_TORSTP",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrder",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORROT",
+    "reason": "Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "FreightOrderID",
+      "NativeGUID",
+      "OrderType",
+      "Carrier",
+      "ResourceID",
+      "ExecutionStatus",
+      "SettlementStatus"
+    ]
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrdItem",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_TORITE",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrdStop",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_TORSTP",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightStage",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_TORSTS",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_settlement",
+    "structure": "FreightSettle",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "tm",
+    "module": "freight_settlement",
+    "structure": "SettleItem",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  }
+]

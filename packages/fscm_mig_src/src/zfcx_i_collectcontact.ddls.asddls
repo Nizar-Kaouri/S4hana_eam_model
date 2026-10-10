@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Contact attributes only; associated items and resubmissions remain pending.
 // Purpose: Read CollectContact as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZFCX_V007R'
@@ -13,14 +14,15 @@
 define view ZFCX_I_CollectContact
   as select from ZFCX_I_CollectContactData as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
-  key src.BusinessPartner as BusinessPartner,
-  key src.CollectionSegment as CollectionSegment,
-  key src.ContactID as ContactID,
-      src.ContactAtUTC as ContactAtUTC,
-      src.ContactType as ContactType,
+  key src.ContactUUID as ContactUUID,
+      src.ContactDate as ContactDate,
       src.ContactResult as ContactResult,
-      src.Specialist as Specialist
+      src.ContactType as ContactType,
+      src.ContactDirection as ContactDirection,
+      src.Reached as Reached,
+      src.CollectionSegment as CollectionSegment,
+      src.CollectionSpecialist as CollectionSpecialist,
+      src.BusinessPartner as BusinessPartner,
+      src.ContactName as ContactName,
+      src.ChangedAt as ChangedAt
 }

@@ -1,396 +1,150 @@
 {
   "ZFCX_C_CreditProfileMig": {
     "module": "credit_profile",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "UKMBP_CMS",
+    "basic_view": "ZFCX_I_CreditProfileData",
+    "composite_view": "ZFCX_I_CreditProfile",
+    "consumption_view": "ZFCX_C_CreditProfileMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
       "BusinessPartner"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
       "BusinessPartner",
-      "RiskClass",
+      "OwnRating",
       "CheckRule",
-      "Score",
-      "ScoreDate",
+      "LimitRule",
+      "RatingValidTo",
+      "RiskClass",
       "CreditGroup"
     ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZFCX_C_CreditRelationMig": {
-    "module": "credit_profile",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "RelatedPartner",
-      "RelationType",
-      "ValidityStartDate"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "RelatedPartner",
-      "RelationType",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [],
-    "mode": "master"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
+    "notes": "CLIENT is the implicit current-client field. Credit relationships remain pending."
   },
   "ZFCX_C_CreditSegmentMig": {
     "module": "credit_segment",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "UKMBP_CMS_SGM",
+    "basic_view": "ZFCX_I_CreditSegmentData",
+    "composite_view": "ZFCX_I_CreditSegment",
+    "consumption_view": "ZFCX_C_CreditSegmentMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
       "BusinessPartner",
       "CreditSegment"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
       "BusinessPartner",
       "CreditSegment",
-      "CreditLimit",
-      "Currency",
-      "LimitValidTo",
       "Blocked",
-      "CreditControlArea"
+      "LimitValidTo",
+      "LimitChangedOn",
+      "Coordinator",
+      "BlockReason",
+      "Critical",
+      "ZeroLimit"
     ],
-    "parent_modules": [
-      "credit_profile"
-    ],
-    "mode": "master"
-  },
-  "ZFCX_C_CreditExposureMig": {
-    "module": "credit_exposure",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CreditSegment",
-      "ExposureCategory",
-      "SourceDocument",
-      "SourceItem"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CreditSegment",
-      "ExposureCategory",
-      "SourceDocument",
-      "SourceItem",
-      "ExposureAmount",
-      "Currency",
-      "AsOfUTC"
-    ],
-    "parent_modules": [
-      "credit_segment"
-    ],
-    "mode": "reference"
-  },
-  "ZFCX_C_CollectProfileMig": {
-    "module": "collections_profile",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "ProfileID",
-      "CompanyCode",
-      "CollectionStrategy"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZFCX_C_CollectSegmentMig": {
-    "module": "collections_profile",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment",
-      "CollectionGroup",
-      "Specialist",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [],
-    "mode": "master"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
+    "notes": "CreditLimit and its currency context require UKMCRED_SGM0C verification; no fictitious segment currency column is supplied."
   },
   "ZFCX_C_CollectContactMig": {
     "module": "collection_activity",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "UDM_CCT_ATTR",
+    "basic_view": "ZFCX_I_CollectContactData",
+    "composite_view": "ZFCX_I_CollectContact",
+    "consumption_view": "ZFCX_C_CollectContactMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment",
-      "ContactID"
+      "ContactUUID"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment",
-      "ContactID",
-      "ContactAtUTC",
-      "ContactType",
+      "ContactUUID",
+      "ContactDate",
       "ContactResult",
-      "Specialist"
-    ],
-    "parent_modules": [
-      "collections_profile"
-    ],
-    "mode": "process-reference"
-  },
-  "ZFCX_C_CollectTaskMig": {
-    "module": "collection_activity",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
+      "ContactType",
+      "ContactDirection",
+      "Reached",
       "CollectionSegment",
-      "TaskID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+      "CollectionSpecialist",
       "BusinessPartner",
-      "CollectionSegment",
-      "TaskID",
-      "Reason",
-      "DueAtUTC",
-      "TaskStatus",
-      "RelatedContact"
+      "ContactName",
+      "ChangedAt"
     ],
-    "parent_modules": [
-      "collections_profile"
-    ],
-    "mode": "process-reference"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm",
+    "notes": "Contact attributes only; associated items and resubmissions remain pending."
   },
   "ZFCX_C_PaymentPromiseMig": {
     "module": "promise_to_pay",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "UDM_P2P_ATTR",
+    "basic_view": "ZFCX_I_PaymentPromiseData",
+    "composite_view": "ZFCX_I_PaymentPromise",
+    "consumption_view": "ZFCX_C_PaymentPromiseMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID"
+      "CaseUUID"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID",
-      "PromiseDate",
-      "DueDate",
-      "PromisedAmount",
+      "CaseUUID",
+      "CompanyCode",
+      "Customer",
       "Currency",
-      "PromiseStatus"
+      "DueDate",
+      "PromiseDate",
+      "PromiseState",
+      "PromiseLevel",
+      "PromisedBy"
     ],
-    "parent_modules": [
-      "collections_profile"
-    ],
-    "mode": "process-reference"
-  },
-  "ZFCX_C_PromiseItemMig": {
-    "module": "promise_to_pay",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID",
-      "CompanyCode",
-      "FiscalYear",
-      "AccountingDocument",
-      "AccountingItem"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID",
-      "CompanyCode",
-      "FiscalYear",
-      "AccountingDocument",
-      "AccountingItem",
-      "AssignedAmount",
-      "Currency"
-    ],
-    "parent_modules": [
-      "collections_profile"
-    ],
-    "mode": "process-reference"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/e7/57b6b490ba4f0e894c410d51f271aa/content.htm",
+    "notes": "Financial amount annotations, logical-system naming and invoice relations require DDIC verification. Invoice number is not assumed to be a native attribute field."
   },
   "ZFCX_C_DisputeCaseMig": {
     "module": "dispute_case",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "UDMCASEATTR00",
+    "basic_view": "ZFCX_I_DisputeCaseData",
+    "composite_view": "ZFCX_I_DisputeCase",
+    "consumption_view": "ZFCX_C_DisputeCaseMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID"
+      "CaseUUID"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "NativeGUID",
-      "BusinessPartner",
-      "CaseType",
-      "Reason",
-      "CaseStatus",
-      "Priority",
-      "DisputedAmount",
-      "Currency",
-      "CreatedAtUTC"
-    ],
-    "parent_modules": [],
-    "mode": "process-reference"
-  },
-  "ZFCX_C_DisputeItemMig": {
-    "module": "dispute_case",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
+      "CaseUUID",
       "CompanyCode",
-      "FiscalYear",
-      "AccountingDocument",
-      "AccountingItem"
+      "Customer",
+      "Coordinator",
+      "DisputeCurrency",
+      "DueDate",
+      "LogicalSystem"
     ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "CompanyCode",
-      "FiscalYear",
-      "AccountingDocument",
-      "AccountingItem",
-      "DisputedAmount",
-      "Currency"
-    ],
-    "parent_modules": [],
-    "mode": "process-reference"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm",
+    "notes": "Financial dispute attributes; amount payload, item relations and attachments remain pending."
   },
   "ZFCX_C_CaseAttributeMig": {
     "module": "dispute_case",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "SCMG_T_CASE_ATTR",
+    "basic_view": "ZFCX_I_CaseAttributeData",
+    "composite_view": "ZFCX_I_CaseAttribute",
+    "consumption_view": "ZFCX_C_CaseAttributeMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "AttributeID"
+      "CaseUUID"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "AttributeID",
-      "AttributeValue"
+      "CaseUUID",
+      "CaseType",
+      "ExternalKey",
+      "ExternalReference",
+      "CreatedBy",
+      "CreatedAt",
+      "ChangedBy",
+      "ChangedAt",
+      "Processor",
+      "Responsible",
+      "Category",
+      "Priority",
+      "Status",
+      "ReasonCode"
     ],
-    "parent_modules": [],
-    "mode": "process-reference"
-  },
-  "ZFCX_C_CaseAttachmentMig": {
-    "module": "dispute_case",
-    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "AttachmentID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "AttachmentID",
-      "DocumentType",
-      "FileName",
-      "ContentHash",
-      "RepositoryReference"
-    ],
-    "parent_modules": [],
-    "mode": "process-reference"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/6d/69cc1bee13af4fbc7ebbdf0eb00e3b/content.htm",
+    "notes": "One wide native record per case UUID; not synthetic attribute-name/value rows. Includes general cases, not only disputes; approve case-type scope."
   }
 }

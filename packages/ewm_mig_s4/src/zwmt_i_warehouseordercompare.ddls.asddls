@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: All native warehouse-order records; customer must approve process state and cutover scope.
 // Purpose: Read WarehouseOrderCompare as target comparison candidates.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 // TODO-VERIFY[H] WMT-011: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
@@ -10,16 +11,16 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #BASIC
 define view entity ZWMT_I_WarehouseOrderCompare
-  as select from zwmt_wmt011 as src
+  as select from /scwm/who as src
 {
-  key src.f001 as SourceSystem,
-  key src.f002 as SourceClient,
-  key src.f003 as ExportBatch,
-  key src.f004 as Warehouse,
-  key src.f005 as WarehouseOrder,
-      src.f006 as ActivityArea,
-      src.f007 as Queue,
-      src.f008 as Resource,
-      src.f009 as OrderStatus,
-      src.f010 as CreatedAtUTC
+  key src.lgnum as Warehouse,
+  key src.who as WarehouseOrder,
+      src.wcr as CreationRule,
+      src.status as OrderStatus,
+      src.queue as Queue,
+      src.areawho as ActivityArea,
+      src.created_at as CreatedAt,
+      src.created_by as CreatedBy,
+      src.started_at as StartedAt,
+      src.confirmed_at as ConfirmedAt
 }

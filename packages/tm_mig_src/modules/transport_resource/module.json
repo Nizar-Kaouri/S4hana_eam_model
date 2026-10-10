@@ -1,49 +1,32 @@
 {
   "name": "transport_resource",
   "title": "Vehicles trailers and capacities",
-  "description": "Canonical Vehicles trailers and capacities exports over customer stages; native business adapters required.",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "master"
   ],
   "sap_tables": [],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
-    "tables": [
-      "ZTMX_TMS002",
-      "ZTMX_TMS003"
-    ],
-    "basic": [
-      "ZTMX_I_TransportResData",
-      "ZTMX_I_ResCapacityData"
-    ],
-    "composite": [
-      "ZTMX_I_TransportRes",
-      "ZTMX_I_ResCapacity"
-    ],
-    "consumption": [
-      "ZTMX_C_TransportResMig",
-      "ZTMX_C_TransportResMigCount",
-      "ZTMX_C_ResCapacityMig"
-    ],
+    "tables": [],
+    "basic": [],
+    "composite": [],
+    "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {
-    "ZTMX_I_TransportResData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_TransportRes": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_TransportResMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_TransportResMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_ResCapacityData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_ResCapacity": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_ResCapacityMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
-  },
-  "link_views": []
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "TransportRes",
+    "ResCapacity"
+  ]
 }

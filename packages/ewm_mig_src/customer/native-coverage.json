@@ -1,0 +1,182 @@
+[
+  {
+    "domain": "ewm",
+    "module": "storage_bin",
+    "structure": "StorageBin",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/LAGP",
+    "reason": "EWM storage bins; LE-WM LAGP is a different model. Capacity fields await validated unit semantics.",
+    "evidence": "https://help.sap.com/saphelp_ewm700_ehp02/helpdata/en/47/d1d47a2297467886e0962fa13c6312/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "Capacity",
+      "CapacityUnit",
+      "Blocked"
+    ]
+  },
+  {
+    "domain": "ewm",
+    "module": "storage_bin",
+    "structure": "BinSorting",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/LAGPS",
+    "reason": "SortSequence is payload, not an invented key. Confirm exact DDIC key flags before activation.",
+    "evidence": "https://help.sap.com/saphelp_ewm700_ehp02/helpdata/en/47/d1d47a2297467886e0962fa13c6312/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "SortDirection"
+    ]
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_product",
+    "structure": "WarehouseProd",
+    "status": "PENDING",
+    "table": "/SAPAPO/MATLWH",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_product",
+    "structure": "FixedBin",
+    "status": "PENDING",
+    "table": "/SCWM/BINMAT",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_stock",
+    "structure": "WarehouseStock",
+    "status": "PENDING",
+    "table": "/SCWM/QUAN; /SCWM/AQUA",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_stock",
+    "structure": "StockSerial",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "handling_unit",
+    "structure": "HandlingUnit",
+    "status": "PENDING",
+    "table": "/SCWM/HUHDR",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "handling_unit",
+    "structure": "HUContent",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_task",
+    "structure": "WarehouseTask",
+    "status": "PENDING",
+    "table": "/SCWM/ORDIM_O",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_task",
+    "structure": "TaskConfirm",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/ORDIM_C",
+    "reason": "Confirmed task records only; open tasks, serials and quantity semantics remain pending. Reference extraction, not task recreation.",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/9832125c23154a179bfa1784cdc9577a/4fa06705fc52617be10000000a42189c.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "ConfirmationID",
+      "ConfirmedQuantity",
+      "DifferenceQuantity",
+      "QuantityUnit",
+      "ConfirmedAtUTC",
+      "ReversalStatus"
+    ]
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_order",
+    "structure": "WarehouseOrder",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/WHO",
+    "reason": "All native warehouse-order records; customer must approve process state and cutover scope.",
+    "evidence": "https://help.sap.com/docs/SAP_EXTENDED_WAREHOUSE_MANAGEMENT/3d97bec9bf1649099384bb8167df3cf2/4fa066b2fc52617be10000000a42189c.html?locale=de-DE",
+    "SAP_verified": false,
+    "pending_payload": [
+      "Resource",
+      "CreatedAtUTC"
+    ]
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_delivery",
+    "structure": "WhDelivery",
+    "status": "PENDING",
+    "table": "/SCDL/DB_PROCH_I; /SCDL/DB_PROCH_O",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_delivery",
+    "structure": "WhDeliveryItem",
+    "status": "PENDING",
+    "table": "/SCDL/DB_PROCI_I; /SCDL/DB_PROCI_O",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "pack_specification",
+    "structure": "PackSpec",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "pack_specification",
+    "structure": "PackLevel",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ewm",
+    "module": "pack_specification",
+    "structure": "PackElement",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  }
+]

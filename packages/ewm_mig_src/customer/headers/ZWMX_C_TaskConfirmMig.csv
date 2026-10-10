@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,Warehouse,WarehouseTask,ConfirmationID,ConfirmedQuantity,DifferenceQuantity,QuantityUnit,ConfirmedAtUTC,ReversalStatus
+﻿Warehouse,WarehouseTask,WarehouseTaskItem,WarehouseOrder,ProcessType,TaskStatus,ConfirmedBy,ConfirmedAt,SourceStorageType,SourceBin,TargetStorageType,TargetBin

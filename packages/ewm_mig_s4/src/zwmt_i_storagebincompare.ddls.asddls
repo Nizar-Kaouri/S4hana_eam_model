@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: EWM storage bins; LE-WM LAGP is a different model. Capacity fields await validated unit semantics.
 // Purpose: Read StorageBinCompare as target comparison candidates.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 // TODO-VERIFY[H] WMT-001: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
@@ -10,17 +11,14 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #BASIC
 define view entity ZWMT_I_StorageBinCompare
-  as select from zwmt_wmt001 as src
+  as select from /scwm/lagp as src
 {
-  key src.f001 as SourceSystem,
-  key src.f002 as SourceClient,
-  key src.f003 as ExportBatch,
-  key src.f004 as Warehouse,
-  key src.f005 as StorageBin,
-      src.f006 as StorageType,
-      src.f007 as StorageSection,
-      src.f008 as BinType,
-      src.f009 as Capacity,
-      src.f010 as CapacityUnit,
-      src.f011 as Blocked
+  key src.lgnum as Warehouse,
+  key src.lgpla as StorageBin,
+      src.lgtyp as StorageType,
+      src.lgber as StorageSection,
+      src.lptyp as BinType,
+      src.skzua as RemovalBlocked,
+      src.skzue as PutawayBlocked,
+      src.skzsi as InventoryBlocked
 }

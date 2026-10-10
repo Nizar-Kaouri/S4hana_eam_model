@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,BusinessPartner,PromiseID,PromiseDate,DueDate,PromisedAmount,Currency,PromiseStatus
+﻿CaseUUID,CompanyCode,Customer,Currency,DueDate,PromiseDate,PromiseState,PromiseLevel,PromisedBy

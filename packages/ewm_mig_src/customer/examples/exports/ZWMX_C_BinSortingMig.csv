@@ -1,3 +1,3 @@
-﻿SourceSystem,SourceClient,ExportBatch,Warehouse,StorageBin,SortSequence,ActivityArea,Activity,SortDirection
-ERP_DEMO,100,DEMO001,0001,0001,0001,sample,sample,sample
-ERP_DEMO,100,DEMO001,0002,0002,0002,sample,sample,sample
+﻿Warehouse,StorageBin,ActivityArea,Activity,StorageType,SortSequence
+0001,0001,0001,0001,sample,sample
+0002,0002,0002,0002,sample,sample

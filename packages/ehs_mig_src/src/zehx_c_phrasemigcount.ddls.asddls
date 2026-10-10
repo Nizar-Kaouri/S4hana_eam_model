@@ -13,9 +13,5 @@
 define view ZEHX_C_PhraseMigCount
   as select from ZEHX_C_PhraseMig as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
       count( * ) as RecordCount
 }
-group by src.SourceSystem, src.SourceClient, src.ExportBatch

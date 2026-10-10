@@ -1,34 +1,20 @@
 [
   {
-    "html": "ModuPorter-New-Domains-VDM.html",
-    "objects": 496,
-    "selected": 496,
+    "name": "ModuPorter-New-Domains-VDM.html",
+    "objects": 94,
+    "native_lineage": true,
     "filters": true,
-    "languages": true,
-    "lineage": true,
-    "responsiveWidths": [
-      1600,
-      1100,
-      736,
-      390,
-      320
-    ],
+    "pending": 55,
+    "responsive": true,
     "errors": []
   },
   {
-    "html": "ModuPorter-All-Domains-VDM.html",
-    "objects": 966,
-    "selected": 966,
+    "name": "ModuPorter-All-Domains-VDM.html",
+    "objects": 564,
+    "native_lineage": true,
     "filters": true,
-    "languages": true,
-    "lineage": true,
-    "responsiveWidths": [
-      1600,
-      1100,
-      736,
-      390,
-      320
-    ],
+    "pending": 55,
+    "responsive": true,
     "errors": []
   }
 ]

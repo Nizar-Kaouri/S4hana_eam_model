@@ -1,58 +1,48 @@
 {
   "name": "freight_unit",
   "title": "Freight units items and stops",
-  "description": "Canonical Freight units items and stops exports over customer stages; native business adapters required.",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "process-reference"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "/SCMTMS/D_TORROT"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [
     "transport_location"
   ],
   "objects": {
-    "tables": [
-      "ZTMX_TMS011",
-      "ZTMX_TMS012",
-      "ZTMX_TMS013"
-    ],
+    "tables": [],
     "basic": [
-      "ZTMX_I_FreightUnitData",
-      "ZTMX_I_FreightUnitIteData",
-      "ZTMX_I_FreightUnitStoData"
+      "ZTMX_I_FreightUnitData"
     ],
     "composite": [
-      "ZTMX_I_FreightUnit",
-      "ZTMX_I_FreightUnitIte",
-      "ZTMX_I_FreightUnitSto"
+      "ZTMX_I_FreightUnit"
     ],
     "consumption": [
       "ZTMX_C_FreightUnitMig",
-      "ZTMX_C_FreightUnitMigCount",
-      "ZTMX_C_FreightUnitIteMig",
-      "ZTMX_C_FreightUnitStoMig"
+      "ZTMX_C_FreightUnitMigCount"
     ],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZTMX_I_FreightUnitData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_FreightUnit": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_FreightUnitMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_FreightUnitMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_FreightUnitIteData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_FreightUnitIte": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_FreightUnitIteMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_FreightUnitStoData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_FreightUnitSto": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_FreightUnitStoMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+    "ZTMX_I_FreightUnitData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZTMX_I_FreightUnit": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZTMX_C_FreightUnitMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZTMX_C_FreightUnitMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
-  "link_views": []
+  "link_views": [],
+  "pending_structures": [
+    "FreightUnitItem",
+    "FreightUnitStop"
+  ]
 }

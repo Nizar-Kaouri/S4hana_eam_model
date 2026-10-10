@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,PhraseSetID,PhraseCatalog,PhraseID,SortSequence
+﻿RecordNumber,ChangeState,ValidFrom,ValidTo,DeletionFlag,PhraseSet,PhraseID,SortOrder

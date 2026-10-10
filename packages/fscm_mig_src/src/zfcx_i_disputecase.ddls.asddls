@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Financial dispute attributes; amount payload, item relations and attachments remain pending.
 // Purpose: Read DisputeCase as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZFCX_V011R'
@@ -13,17 +14,11 @@
 define view ZFCX_I_DisputeCase
   as select from ZFCX_I_DisputeCaseData as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
-  key src.CaseID as CaseID,
-      src.NativeGUID as NativeGUID,
-      src.BusinessPartner as BusinessPartner,
-      src.CaseType as CaseType,
-      src.Reason as Reason,
-      src.CaseStatus as CaseStatus,
-      src.Priority as Priority,
-      src.DisputedAmount as DisputedAmount,
-      src.Currency as Currency,
-      src.CreatedAtUTC as CreatedAtUTC
+  key src.CaseUUID as CaseUUID,
+      src.CompanyCode as CompanyCode,
+      src.Customer as Customer,
+      src.Coordinator as Coordinator,
+      src.DisputeCurrency as DisputeCurrency,
+      src.DueDate as DueDate,
+      src.LogicalSystem as LogicalSystem
 }

@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Phrase header only. ESTPP multilingual text and graphics are pending; no invented Language key on the header.
 // Purpose: Read PhraseMig as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZEHX_V008C'
@@ -13,12 +14,13 @@
 define view ZEHX_C_PhraseMig
   as select from ZEHX_I_Phrase as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
-  key src.PhraseCatalog as PhraseCatalog,
-  key src.PhraseID as PhraseID,
-  key src.Language as Language,
-      src.PhraseText as PhraseText,
-      src.PhraseCode as PhraseCode
+  key src.RecordNumber as RecordNumber,
+  key src.ChangeState as ChangeState,
+      src.ValidFrom as ValidFrom,
+      src.ValidTo as ValidTo,
+      src.DeletionFlag as DeletionFlag,
+      src.PhraseID as PhraseID,
+      src.Remark as Remark,
+      src.SourceLanguage as SourceLanguage,
+      src.UserDefinedName as UserDefinedName
 }

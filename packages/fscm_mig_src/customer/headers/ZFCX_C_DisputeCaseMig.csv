@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,CaseID,NativeGUID,BusinessPartner,CaseType,Reason,CaseStatus,Priority,DisputedAmount,Currency,CreatedAtUTC
+﻿CaseUUID,CompanyCode,Customer,Coordinator,DisputeCurrency,DueDate,LogicalSystem

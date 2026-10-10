@@ -13,9 +13,5 @@
 define view ZTMX_C_FreightUnitMigCount
   as select from ZTMX_C_FreightUnitMig as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
       count( * ) as RecordCount
 }
-group by src.SourceSystem, src.SourceClient, src.ExportBatch

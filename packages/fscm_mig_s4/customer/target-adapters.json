@@ -1,275 +1,126 @@
 {
   "ZFCX_C_CreditProfileMig": {
     "module": "credit_profile",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+    "compare_view": "ZFCT_I_CreditProfileCompare",
+    "required_keys": [
       "BusinessPartner"
     ],
-    "fields": [
-      "RiskClass",
+    "columns": [
+      "BusinessPartner",
+      "OwnRating",
       "CheckRule",
-      "Score",
-      "ScoreDate",
+      "LimitRule",
+      "RatingValidTo",
+      "RiskClass",
       "CreditGroup"
     ],
-    "target_export": "target/ZFCX_C_CreditProfileMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZFCX_C_CreditRelationMig": {
-    "module": "credit_profile",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "RelatedPartner",
-      "RelationType",
-      "ValidityStartDate"
-    ],
-    "fields": [
-      "ValidityEndDate"
-    ],
-    "target_export": "target/ZFCX_C_CreditRelationMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "UKMBP_CMS",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZFCX_C_CreditSegmentMig": {
     "module": "credit_segment",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+    "compare_view": "ZFCT_I_CreditSegmentCompare",
+    "required_keys": [
       "BusinessPartner",
       "CreditSegment"
     ],
-    "fields": [
-      "CreditLimit",
-      "Currency",
-      "LimitValidTo",
-      "Blocked",
-      "CreditControlArea"
-    ],
-    "target_export": "target/ZFCX_C_CreditSegmentMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZFCX_C_CreditExposureMig": {
-    "module": "credit_exposure",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+    "columns": [
       "BusinessPartner",
       "CreditSegment",
-      "ExposureCategory",
-      "SourceDocument",
-      "SourceItem"
+      "Blocked",
+      "LimitValidTo",
+      "LimitChangedOn",
+      "Coordinator",
+      "BlockReason",
+      "Critical",
+      "ZeroLimit"
     ],
-    "fields": [
-      "ExposureAmount",
-      "Currency",
-      "AsOfUTC"
-    ],
-    "target_export": "target/ZFCX_C_CreditExposureMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZFCX_C_CollectProfileMig": {
-    "module": "collections_profile",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner"
-    ],
-    "fields": [
-      "ProfileID",
-      "CompanyCode",
-      "CollectionStrategy"
-    ],
-    "target_export": "target/ZFCX_C_CollectProfileMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZFCX_C_CollectSegmentMig": {
-    "module": "collections_profile",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment"
-    ],
-    "fields": [
-      "CollectionGroup",
-      "Specialist",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "target_export": "target/ZFCX_C_CollectSegmentMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "UKMBP_CMS_SGM",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZFCX_C_CollectContactMig": {
     "module": "collection_activity",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment",
-      "ContactID"
+    "compare_view": "ZFCT_I_CollectContactCompare",
+    "required_keys": [
+      "ContactUUID"
     ],
-    "fields": [
-      "ContactAtUTC",
-      "ContactType",
+    "columns": [
+      "ContactUUID",
+      "ContactDate",
       "ContactResult",
-      "Specialist"
-    ],
-    "target_export": "target/ZFCX_C_CollectContactMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZFCX_C_CollectTaskMig": {
-    "module": "collection_activity",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
+      "ContactType",
+      "ContactDirection",
+      "Reached",
       "CollectionSegment",
-      "TaskID"
+      "CollectionSpecialist",
+      "BusinessPartner",
+      "ContactName",
+      "ChangedAt"
     ],
-    "fields": [
-      "Reason",
-      "DueAtUTC",
-      "TaskStatus",
-      "RelatedContact"
-    ],
-    "target_export": "target/ZFCX_C_CollectTaskMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "UDM_CCT_ATTR",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZFCX_C_PaymentPromiseMig": {
     "module": "promise_to_pay",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID"
+    "compare_view": "ZFCT_I_PaymentPromiseCompare",
+    "required_keys": [
+      "CaseUUID"
     ],
-    "fields": [
-      "PromiseDate",
-      "DueDate",
-      "PromisedAmount",
-      "Currency",
-      "PromiseStatus"
-    ],
-    "target_export": "target/ZFCX_C_PaymentPromiseMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZFCX_C_PromiseItemMig": {
-    "module": "promise_to_pay",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID",
+    "columns": [
+      "CaseUUID",
       "CompanyCode",
-      "FiscalYear",
-      "AccountingDocument",
-      "AccountingItem"
+      "Customer",
+      "Currency",
+      "DueDate",
+      "PromiseDate",
+      "PromiseState",
+      "PromiseLevel",
+      "PromisedBy"
     ],
-    "fields": [
-      "AssignedAmount",
-      "Currency"
-    ],
-    "target_export": "target/ZFCX_C_PromiseItemMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "UDM_P2P_ATTR",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZFCX_C_DisputeCaseMig": {
     "module": "dispute_case",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID"
+    "compare_view": "ZFCT_I_DisputeCaseCompare",
+    "required_keys": [
+      "CaseUUID"
     ],
-    "fields": [
-      "NativeGUID",
-      "BusinessPartner",
-      "CaseType",
-      "Reason",
-      "CaseStatus",
-      "Priority",
-      "DisputedAmount",
-      "Currency",
-      "CreatedAtUTC"
-    ],
-    "target_export": "target/ZFCX_C_DisputeCaseMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZFCX_C_DisputeItemMig": {
-    "module": "dispute_case",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
+    "columns": [
+      "CaseUUID",
       "CompanyCode",
-      "FiscalYear",
-      "AccountingDocument",
-      "AccountingItem"
+      "Customer",
+      "Coordinator",
+      "DisputeCurrency",
+      "DueDate",
+      "LogicalSystem"
     ],
-    "fields": [
-      "DisputedAmount",
-      "Currency"
-    ],
-    "target_export": "target/ZFCX_C_DisputeItemMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "UDMCASEATTR00",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZFCX_C_CaseAttributeMig": {
     "module": "dispute_case",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "AttributeID"
+    "compare_view": "ZFCT_I_CaseAttributeCompare",
+    "required_keys": [
+      "CaseUUID"
     ],
-    "fields": [
-      "AttributeValue"
+    "columns": [
+      "CaseUUID",
+      "CaseType",
+      "ExternalKey",
+      "ExternalReference",
+      "CreatedBy",
+      "CreatedAt",
+      "ChangedBy",
+      "ChangedAt",
+      "Processor",
+      "Responsible",
+      "Category",
+      "Priority",
+      "Status",
+      "ReasonCode"
     ],
-    "target_export": "target/ZFCX_C_CaseAttributeMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZFCX_C_CaseAttachmentMig": {
-    "module": "dispute_case",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "AttachmentID"
-    ],
-    "fields": [
-      "DocumentType",
-      "FileName",
-      "ContentHash",
-      "RepositoryReference"
-    ],
-    "target_export": "target/ZFCX_C_CaseAttachmentMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "SCMG_T_CASE_ATTR",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   }
 }

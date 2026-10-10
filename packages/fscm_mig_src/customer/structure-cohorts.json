@@ -1,40 +1,18 @@
 {
   "ZFCX_C_CreditProfileMig": {
     "module": "credit_profile",
-    "table": "ZFCX_FCS001",
+    "table": "UKMBP_CMS",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
       "BusinessPartner"
     ],
     "selection": "selection/ZFCX_C_CreditProfileMig.csv",
     "requires_business_approval": true,
     "mode": "master"
   },
-  "ZFCX_C_CreditRelationMig": {
-    "module": "credit_profile",
-    "table": "ZFCX_FCS002",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "RelatedPartner",
-      "RelationType",
-      "ValidityStartDate"
-    ],
-    "selection": "selection/ZFCX_C_CreditRelationMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
   "ZFCX_C_CreditSegmentMig": {
     "module": "credit_segment",
-    "table": "ZFCX_FCS003",
+    "table": "UKMBP_CMS_SGM",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
       "BusinessPartner",
       "CreditSegment"
     ],
@@ -42,167 +20,43 @@
     "requires_business_approval": true,
     "mode": "master"
   },
-  "ZFCX_C_CreditExposureMig": {
-    "module": "credit_exposure",
-    "table": "ZFCX_FCS004",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CreditSegment",
-      "ExposureCategory",
-      "SourceDocument",
-      "SourceItem"
-    ],
-    "selection": "selection/ZFCX_C_CreditExposureMig.csv",
-    "requires_business_approval": true,
-    "mode": "reference"
-  },
-  "ZFCX_C_CollectProfileMig": {
-    "module": "collections_profile",
-    "table": "ZFCX_FCS005",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner"
-    ],
-    "selection": "selection/ZFCX_C_CollectProfileMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
-  "ZFCX_C_CollectSegmentMig": {
-    "module": "collections_profile",
-    "table": "ZFCX_FCS006",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment"
-    ],
-    "selection": "selection/ZFCX_C_CollectSegmentMig.csv",
-    "requires_business_approval": true,
-    "mode": "master"
-  },
   "ZFCX_C_CollectContactMig": {
     "module": "collection_activity",
-    "table": "ZFCX_FCS007",
+    "table": "UDM_CCT_ATTR",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment",
-      "ContactID"
+      "ContactUUID"
     ],
     "selection": "selection/ZFCX_C_CollectContactMig.csv",
     "requires_business_approval": true,
     "mode": "process-reference"
   },
-  "ZFCX_C_CollectTaskMig": {
-    "module": "collection_activity",
-    "table": "ZFCX_FCS008",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "CollectionSegment",
-      "TaskID"
-    ],
-    "selection": "selection/ZFCX_C_CollectTaskMig.csv",
-    "requires_business_approval": true,
-    "mode": "process-reference"
-  },
   "ZFCX_C_PaymentPromiseMig": {
     "module": "promise_to_pay",
-    "table": "ZFCX_FCS009",
+    "table": "UDM_P2P_ATTR",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID"
+      "CaseUUID"
     ],
     "selection": "selection/ZFCX_C_PaymentPromiseMig.csv",
     "requires_business_approval": true,
     "mode": "process-reference"
   },
-  "ZFCX_C_PromiseItemMig": {
-    "module": "promise_to_pay",
-    "table": "ZFCX_FCS010",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID",
-      "CompanyCode",
-      "FiscalYear",
-      "AccountingDocument",
-      "AccountingItem"
-    ],
-    "selection": "selection/ZFCX_C_PromiseItemMig.csv",
-    "requires_business_approval": true,
-    "mode": "process-reference"
-  },
   "ZFCX_C_DisputeCaseMig": {
     "module": "dispute_case",
-    "table": "ZFCX_FCS011",
+    "table": "UDMCASEATTR00",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID"
+      "CaseUUID"
     ],
     "selection": "selection/ZFCX_C_DisputeCaseMig.csv",
     "requires_business_approval": true,
     "mode": "process-reference"
   },
-  "ZFCX_C_DisputeItemMig": {
-    "module": "dispute_case",
-    "table": "ZFCX_FCS012",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "CompanyCode",
-      "FiscalYear",
-      "AccountingDocument",
-      "AccountingItem"
-    ],
-    "selection": "selection/ZFCX_C_DisputeItemMig.csv",
-    "requires_business_approval": true,
-    "mode": "process-reference"
-  },
   "ZFCX_C_CaseAttributeMig": {
     "module": "dispute_case",
-    "table": "ZFCX_FCS013",
+    "table": "SCMG_T_CASE_ATTR",
     "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "AttributeID"
+      "CaseUUID"
     ],
     "selection": "selection/ZFCX_C_CaseAttributeMig.csv",
-    "requires_business_approval": true,
-    "mode": "process-reference"
-  },
-  "ZFCX_C_CaseAttachmentMig": {
-    "module": "dispute_case",
-    "table": "ZFCX_FCS014",
-    "keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CaseID",
-      "AttachmentID"
-    ],
-    "selection": "selection/ZFCX_C_CaseAttachmentMig.csv",
     "requires_business_approval": true,
     "mode": "process-reference"
   }

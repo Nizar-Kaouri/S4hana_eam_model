@@ -1,49 +1,32 @@
 {
   "name": "chemical_property",
   "title": "Chemical and physical property definitions",
-  "description": "Canonical Chemical and physical property definitions exports over customer stages; native business adapters required.",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "master"
   ],
   "sap_tables": [],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
-    "tables": [
-      "ZEHX_EHS003",
-      "ZEHX_EHS004"
-    ],
-    "basic": [
-      "ZEHX_I_ChemicalPropData",
-      "ZEHX_I_PropertyUnitData"
-    ],
-    "composite": [
-      "ZEHX_I_ChemicalProp",
-      "ZEHX_I_PropertyUnit"
-    ],
-    "consumption": [
-      "ZEHX_C_ChemicalPropMig",
-      "ZEHX_C_ChemicalPropMigCount",
-      "ZEHX_C_PropertyUnitMig"
-    ],
+    "tables": [],
+    "basic": [],
+    "composite": [],
+    "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {
-    "ZEHX_I_ChemicalPropData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_I_ChemicalProp": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_C_ChemicalPropMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_C_ChemicalPropMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_I_PropertyUnitData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_I_PropertyUnit": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZEHX_C_PropertyUnitMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
-  },
-  "link_views": []
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "ChemicalProp",
+    "PropertyUnit"
+  ]
 }

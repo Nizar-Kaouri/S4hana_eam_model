@@ -1,3 +1,3 @@
-# Target staging companion
+# Native target comparison draft
 
-This ZIP contains customer-owned stages and comparison views over staged target evidence. It does not read native target business objects or supply posting adapters. Run offline preparation/comparison from the source ZIP. Follow its customer workflow and record real SAP evidence.
+Read docs/CUSTOMER_MANUAL_EN.md. Native read-only comparison views replace target staging. Partial native coverage and all SAP verification remain pending.

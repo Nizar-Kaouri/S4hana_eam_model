@@ -1,3 +1,0 @@
-﻿SourceSystem,SourceClient,ExportBatch,FreightUnitID,ItemID,Product,Quantity,QuantityUnit,GrossWeight,WeightUnit,ReferenceDocument,ReferenceItem
-ERP_DEMO,100,DEMO001,0001,0001,sample,10.00,EA,sample,EA,sample,sample
-ERP_DEMO,100,DEMO001,0002,0002,sample,10.00,EA,sample,EA,sample,sample

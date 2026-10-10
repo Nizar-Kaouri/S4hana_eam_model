@@ -36,6 +36,18 @@ class DDICPreflightTest(unittest.TestCase):
         result = check(self.mapping, 'Balance', self.schema)
         self.assertEqual(result['missing_fields'], ['DRCRK']);self.assertEqual(result['non_native_declared_keys'], ['DRCRK'])
 
+    def test_client_named_client_is_implicit_only_with_clnt_type(self):
+        self.mapping['structures'][0]['keys'].append('Sign')
+        self.schema[0]['FIELDNAME'] = 'CLIENT'
+        self.assertTrue(check(self.mapping, 'Balance', self.schema)['passed'])
+        self.schema[0]['DATATYPE'] = 'CHAR'
+        self.assertEqual(check(self.mapping, 'Balance', self.schema)['omitted_native_keys'], ['CLIENT'])
+
+    def test_multiple_client_typed_keys_are_not_hidden(self):
+        self.mapping['structures'][0]['keys'].append('Sign')
+        self.schema.append({'FIELDNAME':'CLIENT','KEYFLAG':'X','DATATYPE':'CLNT'})
+        self.assertEqual(check(self.mapping, 'Balance', self.schema)['omitted_native_keys'], ['CLIENT', 'MANDT'])
+
     def test_duplicate_or_keyless_schema_is_rejected(self):
         self.schema.append(dict(self.schema[1]))
         with self.assertRaises(InputError): check(self.mapping, 'Balance', self.schema)

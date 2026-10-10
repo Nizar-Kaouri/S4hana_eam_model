@@ -1,23 +1,23 @@
 {
   "name": "credit_segment",
   "title": "Credit segment limits target staged comparison",
-  "description": "Canonical Credit segment limits exports over customer stages; native business adapters required.",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "master"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "UKMBP_CMS_SGM"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
-    "tables": [
-      "ZFCT_FCT003"
-    ],
+    "tables": [],
     "basic": [
       "ZFCT_I_CreditSegmentCompare"
     ],
@@ -30,8 +30,9 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFCT_I_CreditSegmentCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCT_I_CreditSegmentCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+    "ZFCT_I_CreditSegmentCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCT_I_CreditSegmentCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
-  "link_views": []
+  "link_views": [],
+  "pending_structures": []
 }

@@ -1,27 +1,25 @@
 {
   "name": "collection_activity",
   "title": "Collections contacts and tasks target staged comparison",
-  "description": "Canonical Collections contacts and tasks exports over customer stages; native business adapters required.",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "process-reference"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "UDM_CCT_ATTR"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
-    "tables": [
-      "ZFCT_FCT007",
-      "ZFCT_FCT008"
-    ],
+    "tables": [],
     "basic": [
-      "ZFCT_I_CollectContactCompare",
-      "ZFCT_I_CollectTaskCompare"
+      "ZFCT_I_CollectContactCompare"
     ],
     "composite": [
       "ZFCT_I_CollectContactCount"
@@ -32,9 +30,11 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFCT_I_CollectContactCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCT_I_CollectContactCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCT_I_CollectTaskCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+    "ZFCT_I_CollectContactCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCT_I_CollectContactCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
-  "link_views": []
+  "link_views": [],
+  "pending_structures": [
+    "CollectTask"
+  ]
 }

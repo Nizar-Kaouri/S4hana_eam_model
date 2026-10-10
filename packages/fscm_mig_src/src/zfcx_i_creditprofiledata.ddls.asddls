@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: CLIENT is the implicit current-client field. Credit relationships remain pending.
 // Purpose: Read CreditProfileData as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 // TODO-VERIFY[H] FCX-001: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
@@ -12,15 +13,13 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #BASIC
 define view ZFCX_I_CreditProfileData
-  as select from zfcx_fcs001 as src
+  as select from ukmbp_cms as src
 {
-  key src.f001 as SourceSystem,
-  key src.f002 as SourceClient,
-  key src.f003 as ExportBatch,
-  key src.f004 as BusinessPartner,
-      src.f005 as RiskClass,
-      src.f006 as CheckRule,
-      src.f007 as Score,
-      src.f008 as ScoreDate,
-      src.f009 as CreditGroup
+  key src.partner as BusinessPartner,
+      src.own_rating as OwnRating,
+      src.check_rule as CheckRule,
+      src.limit_rule as LimitRule,
+      src.rating_val_date as RatingValidTo,
+      src.risk_class as RiskClass,
+      src.credit_group as CreditGroup
 }

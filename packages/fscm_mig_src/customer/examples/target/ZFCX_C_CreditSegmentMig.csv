@@ -1,2 +1,2 @@
-﻿SourceSystem,SourceClient,ExportBatch,BusinessPartner,CreditSegment,CreditLimit,Currency,LimitValidTo,Blocked,CreditControlArea
-ERP_DEMO,100,DEMO001,0001,0001,sample,EUR,sample,sample,sample
+﻿BusinessPartner,CreditSegment,Blocked,LimitValidTo,LimitChangedOn,Coordinator,BlockReason,Critical,ZeroLimit
+0001,0001,sample,sample,sample,sample,sample,sample,sample

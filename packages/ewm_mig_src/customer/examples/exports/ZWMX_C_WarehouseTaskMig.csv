@@ -1,3 +1,0 @@
-﻿SourceSystem,SourceClient,ExportBatch,Warehouse,WarehouseTask,WarehouseOrder,Product,SourceBin,DestinationBin,HandlingUnit,PlannedQuantity,QuantityUnit,ProcessType,TaskStatus
-ERP_DEMO,100,DEMO001,0001,0001,sample,sample,sample,sample,EA,10.00,EA,sample,sample
-ERP_DEMO,100,DEMO001,0002,0002,sample,sample,sample,sample,EA,10.00,EA,sample,sample

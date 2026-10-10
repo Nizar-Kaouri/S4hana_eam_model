@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Classic specification model. Preserve all change states; no unverified latest-record rule.
 // Purpose: Read Specification as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZEHX_V005R'
@@ -13,14 +14,13 @@
 define view ZEHX_I_Specification
   as select from ZEHX_I_SpecificationData as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
-  key src.SpecificationID as SpecificationID,
-  key src.Version as Version,
-      src.SpecificationType as SpecificationType,
-      src.Description as Description,
+  key src.RecordNumber as RecordNumber,
+  key src.ChangeState as ChangeState,
+      src.ValidFrom as ValidFrom,
+      src.ValidTo as ValidTo,
+      src.DeletionFlag as DeletionFlag,
+      src.SpecificationID as SpecificationID,
+      src.SpecificationCategory as SpecificationCategory,
       src.AuthorizationGroup as AuthorizationGroup,
-      src.ValidityStartDate as ValidityStartDate,
-      src.ValidityEndDate as ValidityEndDate
+      src.Remark as Remark
 }

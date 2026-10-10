@@ -1,3 +1,0 @@
-﻿SourceSystem,SourceClient,ExportBatch,AgreementID,Version,RateID,ChargeType,CalculationBasis,Rate,Currency,PricingUnit,QuantityUnit
-ERP_DEMO,100,DEMO001,0001,0001,0001,sample,sample,sample,EUR,EA,EA
-ERP_DEMO,100,DEMO001,0002,0002,0002,sample,sample,sample,EUR,EA,EA

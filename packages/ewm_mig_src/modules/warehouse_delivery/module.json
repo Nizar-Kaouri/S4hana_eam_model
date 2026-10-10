@@ -1,14 +1,14 @@
 {
   "name": "warehouse_delivery",
   "title": "Inbound and outbound warehouse deliveries",
-  "description": "Canonical Inbound and outbound warehouse deliveries exports over customer stages; native business adapters required.",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "process-reference"
   ],
   "sap_tables": [],
@@ -17,35 +17,18 @@
     "warehouse_product"
   ],
   "objects": {
-    "tables": [
-      "ZWMX_WMS012",
-      "ZWMX_WMS013"
-    ],
-    "basic": [
-      "ZWMX_I_WhDeliveryData",
-      "ZWMX_I_WhDeliveryItemData"
-    ],
-    "composite": [
-      "ZWMX_I_WhDelivery",
-      "ZWMX_I_WhDeliveryItem"
-    ],
-    "consumption": [
-      "ZWMX_C_WhDeliveryMig",
-      "ZWMX_C_WhDeliveryMigCount",
-      "ZWMX_C_WhDeliveryItemMig"
-    ],
+    "tables": [],
+    "basic": [],
+    "composite": [],
+    "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {
-    "ZWMX_I_WhDeliveryData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_WhDelivery": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_WhDeliveryMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_WhDeliveryMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_WhDeliveryItemData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_WhDeliveryItem": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_WhDeliveryItemMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
-  },
-  "link_views": []
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "WhDelivery",
+    "WhDeliveryItem"
+  ]
 }

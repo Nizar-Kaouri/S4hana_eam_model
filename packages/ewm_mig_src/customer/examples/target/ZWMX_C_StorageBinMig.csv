@@ -1,2 +1,2 @@
-﻿SourceSystem,SourceClient,ExportBatch,Warehouse,StorageBin,StorageType,StorageSection,BinType,Capacity,CapacityUnit,Blocked
-ERP_DEMO,100,DEMO001,0001,0001,sample,sample,sample,sample,EA,sample
+﻿Warehouse,StorageBin,StorageType,StorageSection,BinType,RemovalBlocked,PutawayBlocked,InventoryBlocked
+0001,0001,sample,sample,sample,sample,sample,sample

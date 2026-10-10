@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DEVC>
-    <CTEXT>Environment Health and Safety Migration - S/4HANA Reconciliation CDS Virtual Data Model</CTEXT>
+    <CTEXT>Environment Health and Safety Migration - ECC Source Extraction CDS Virtual Data Model</CTEXT>
    </DEVC>
   </asx:values>
  </asx:abap>

@@ -1,343 +1,89 @@
 {
   "ZWMX_C_StorageBinMig": {
     "module": "storage_bin",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+    "compare_view": "ZWMT_I_StorageBinCompare",
+    "required_keys": [
       "Warehouse",
       "StorageBin"
     ],
-    "fields": [
+    "columns": [
+      "Warehouse",
+      "StorageBin",
       "StorageType",
       "StorageSection",
       "BinType",
-      "Capacity",
-      "CapacityUnit",
-      "Blocked"
+      "RemovalBlocked",
+      "PutawayBlocked",
+      "InventoryBlocked"
     ],
-    "target_export": "target/ZWMX_C_StorageBinMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "/SCWM/LAGP",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZWMX_C_BinSortingMig": {
     "module": "storage_bin",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+    "compare_view": "ZWMT_I_BinSortingCompare",
+    "required_keys": [
       "Warehouse",
       "StorageBin",
-      "SortSequence"
+      "ActivityArea",
+      "Activity"
     ],
-    "fields": [
+    "columns": [
+      "Warehouse",
+      "StorageBin",
       "ActivityArea",
       "Activity",
-      "SortDirection"
-    ],
-    "target_export": "target/ZWMX_C_BinSortingMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_WarehouseProdMig": {
-    "module": "warehouse_product",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "Product",
-      "EntitledParty"
-    ],
-    "fields": [
-      "WarehouseUoM",
-      "PutawayControl",
-      "RemovalControl",
-      "CycleCountIndicator"
-    ],
-    "target_export": "target/ZWMX_C_WarehouseProdMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_FixedBinMig": {
-    "module": "warehouse_product",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "Product",
-      "EntitledParty",
       "StorageType",
-      "StorageBin"
+      "SortSequence"
     ],
-    "fields": [
-      "MinimumQuantity",
-      "MaximumQuantity",
-      "QuantityUnit"
-    ],
-    "target_export": "target/ZWMX_C_FixedBinMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_WarehouseStockMig": {
-    "module": "warehouse_stock",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "StockIdentity"
-    ],
-    "fields": [
-      "Product",
-      "StorageBin",
-      "Batch",
-      "Owner",
-      "EntitledParty",
-      "StockType",
-      "SpecialStock",
-      "ReferenceDocument",
-      "ReferenceItem",
-      "HandlingUnit",
-      "Quantity",
-      "QuantityUnit",
-      "InventoryDate"
-    ],
-    "target_export": "target/ZWMX_C_WarehouseStockMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_StockSerialMig": {
-    "module": "warehouse_stock",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "StockIdentity",
-      "SerialNumber"
-    ],
-    "fields": [
-      "Product",
-      "HandlingUnit"
-    ],
-    "target_export": "target/ZWMX_C_StockSerialMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_HandlingUnitMig": {
-    "module": "handling_unit",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "HandlingUnit"
-    ],
-    "fields": [
-      "ExternalHU",
-      "ParentHU",
-      "PackagingProduct",
-      "GrossWeight",
-      "NetWeight",
-      "WeightUnit",
-      "StorageBin",
-      "HUStatus"
-    ],
-    "target_export": "target/ZWMX_C_HandlingUnitMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_HUContentMig": {
-    "module": "handling_unit",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "HandlingUnit",
-      "ContentItem"
-    ],
-    "fields": [
-      "Product",
-      "Batch",
-      "StockIdentity",
-      "Quantity",
-      "QuantityUnit",
-      "Owner",
-      "EntitledParty"
-    ],
-    "target_export": "target/ZWMX_C_HUContentMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_WarehouseTaskMig": {
-    "module": "warehouse_task",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "WarehouseTask"
-    ],
-    "fields": [
-      "WarehouseOrder",
-      "Product",
-      "SourceBin",
-      "DestinationBin",
-      "HandlingUnit",
-      "PlannedQuantity",
-      "QuantityUnit",
-      "ProcessType",
-      "TaskStatus"
-    ],
-    "target_export": "target/ZWMX_C_WarehouseTaskMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "/SCWM/LAGPS",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZWMX_C_TaskConfirmMig": {
     "module": "warehouse_task",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+    "compare_view": "ZWMT_I_TaskConfirmCompare",
+    "required_keys": [
       "Warehouse",
       "WarehouseTask",
-      "ConfirmationID"
+      "WarehouseTaskItem"
     ],
-    "fields": [
-      "ConfirmedQuantity",
-      "DifferenceQuantity",
-      "QuantityUnit",
-      "ConfirmedAtUTC",
-      "ReversalStatus"
+    "columns": [
+      "Warehouse",
+      "WarehouseTask",
+      "WarehouseTaskItem",
+      "WarehouseOrder",
+      "ProcessType",
+      "TaskStatus",
+      "ConfirmedBy",
+      "ConfirmedAt",
+      "SourceStorageType",
+      "SourceBin",
+      "TargetStorageType",
+      "TargetBin"
     ],
-    "target_export": "target/ZWMX_C_TaskConfirmMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "/SCWM/ORDIM_C",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZWMX_C_WarehouseOrderMig": {
     "module": "warehouse_order",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+    "compare_view": "ZWMT_I_WarehouseOrderCompare",
+    "required_keys": [
       "Warehouse",
       "WarehouseOrder"
     ],
-    "fields": [
-      "ActivityArea",
-      "Queue",
-      "Resource",
+    "columns": [
+      "Warehouse",
+      "WarehouseOrder",
+      "CreationRule",
       "OrderStatus",
-      "CreatedAtUTC"
+      "Queue",
+      "ActivityArea",
+      "CreatedAt",
+      "CreatedBy",
+      "StartedAt",
+      "ConfirmedAt"
     ],
-    "target_export": "target/ZWMX_C_WarehouseOrderMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_WhDeliveryMig": {
-    "module": "warehouse_delivery",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "DeliveryID"
-    ],
-    "fields": [
-      "DeliveryCategory",
-      "ExternalDelivery",
-      "Partner",
-      "DeliveryStatus",
-      "PlannedAtUTC"
-    ],
-    "target_export": "target/ZWMX_C_WhDeliveryMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_WhDeliveryItemMig": {
-    "module": "warehouse_delivery",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Warehouse",
-      "DeliveryID",
-      "DeliveryItem"
-    ],
-    "fields": [
-      "Product",
-      "Batch",
-      "Quantity",
-      "QuantityUnit",
-      "HandlingUnit",
-      "ReferenceDocument",
-      "ReferenceItem"
-    ],
-    "target_export": "target/ZWMX_C_WhDeliveryItemMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_PackSpecMig": {
-    "module": "pack_specification",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PackSpecification",
-      "Version"
-    ],
-    "fields": [
-      "Description",
-      "ValidityStartDate",
-      "ValidityEndDate",
-      "ReleaseStatus"
-    ],
-    "target_export": "target/ZWMX_C_PackSpecMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_PackLevelMig": {
-    "module": "pack_specification",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PackSpecification",
-      "Version",
-      "LevelID"
-    ],
-    "fields": [
-      "ParentLevel",
-      "PackagingProduct",
-      "TargetQuantity",
-      "QuantityUnit"
-    ],
-    "target_export": "target/ZWMX_C_PackLevelMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZWMX_C_PackElementMig": {
-    "module": "pack_specification",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PackSpecification",
-      "Version",
-      "LevelID",
-      "ElementID"
-    ],
-    "fields": [
-      "Product",
-      "Quantity",
-      "QuantityUnit",
-      "ElementType"
-    ],
-    "target_export": "target/ZWMX_C_PackElementMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "/SCWM/WHO",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   }
 }

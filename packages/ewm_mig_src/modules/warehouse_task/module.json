@@ -1,52 +1,48 @@
 {
   "name": "warehouse_task",
   "title": "Warehouse tasks and confirmations",
-  "description": "Canonical Warehouse tasks and confirmations exports over customer stages; native business adapters required.",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "process-reference"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "/SCWM/ORDIM_C"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [
     "storage_bin",
     "warehouse_product"
   ],
   "objects": {
-    "tables": [
-      "ZWMX_WMS009",
-      "ZWMX_WMS010"
-    ],
+    "tables": [],
     "basic": [
-      "ZWMX_I_WarehouseTaskData",
       "ZWMX_I_TaskConfirmData"
     ],
     "composite": [
-      "ZWMX_I_WarehouseTask",
       "ZWMX_I_TaskConfirm"
     ],
     "consumption": [
-      "ZWMX_C_WarehouseTaskMig",
-      "ZWMX_C_WarehouseTaskMigCount",
-      "ZWMX_C_TaskConfirmMig"
+      "ZWMX_C_TaskConfirmMig",
+      "ZWMX_C_TaskConfirmMigCount"
     ],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZWMX_I_WarehouseTaskData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_WarehouseTask": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_WarehouseTaskMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_WarehouseTaskMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_TaskConfirmData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_TaskConfirm": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_TaskConfirmMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+    "ZWMX_I_TaskConfirmData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_I_TaskConfirm": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_C_TaskConfirmMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_C_TaskConfirmMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
-  "link_views": []
+  "link_views": [],
+  "pending_structures": [
+    "WarehouseTask"
+  ]
 }

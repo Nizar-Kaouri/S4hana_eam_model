@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,FreightOrderID,NativeGUID,DocumentCategory,OrderType,Carrier,ResourceID,ExecutionStatus,SettlementStatus
+﻿DocumentUUID,DocumentID,DocumentCategory,DocumentType,LifecycleStatus

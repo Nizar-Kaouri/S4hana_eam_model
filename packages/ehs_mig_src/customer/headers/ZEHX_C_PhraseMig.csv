@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,PhraseCatalog,PhraseID,Language,PhraseText,PhraseCode
+﻿RecordNumber,ChangeState,ValidFrom,ValidTo,DeletionFlag,PhraseID,Remark,SourceLanguage,UserDefinedName

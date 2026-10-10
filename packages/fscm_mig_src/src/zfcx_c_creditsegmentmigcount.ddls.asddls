@@ -13,9 +13,5 @@
 define view ZFCX_C_CreditSegmentMigCount
   as select from ZFCX_C_CreditSegmentMig as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
       count( * ) as RecordCount
 }
-group by src.SourceSystem, src.SourceClient, src.ExportBatch

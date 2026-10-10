@@ -1,9 +1,10 @@
-# Design provenance
+# Native source evidence
 
-Reviewed 2026-10-11. These primary SAP documents inform deployment distinctions and business boundaries. They do not validate the supplied canonical fields as native SAP table fields or certify any adapter.
+- StorageBin: https://help.sap.com/saphelp_ewm700_ehp02/helpdata/en/47/d1d47a2297467886e0962fa13c6312/content.htm
+- BinSorting: https://help.sap.com/saphelp_ewm700_ehp02/helpdata/en/47/d1d47a2297467886e0962fa13c6312/content.htm
+- TaskConfirm: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/9832125c23154a179bfa1784cdc9577a/4fa06705fc52617be10000000a42189c.html
+- WarehouseOrder: https://help.sap.com/docs/SAP_EXTENDED_WAREHOUSE_MANAGEMENT/3d97bec9bf1649099384bb8167df3cf2/4fa066b2fc52617be10000000a42189c.html?locale=de-DE
 
-- [Migration of storage bins](https://help.sap.com/docs/PRODUCT_ID/9832125c23154a179bfa1784cdc9577a/7c4b7afd79204861aa50ad7a202f918d.html)
-- [Warehouse product migration](https://help.sap.com/saphelp_ewm900/helpdata/en/d1/58a5ef3b6a427eab5e7cc9bad16b96/content.htm)
-- [Warehouse stock migration](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/d3a3eb7caa1842858bf0372e17ad3909/7593e67e35d8403a97b3151a367c8715.html)
+Classic EHS administrative fields: https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html
 
-The delivered tables and field names are customer-owned contracts. Native extraction and target posting interfaces are deliberately unspecified until the actual application, release and supported interface are selected. No SAP system has been used to validate this pack.
+Sources establish documented table/field usage, not customer DDIC key flags, exact release compatibility or SAP activation.

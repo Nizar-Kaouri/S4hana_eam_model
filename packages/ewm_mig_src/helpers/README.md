@@ -1,3 +1,3 @@
-# Customer staging reports
+# Native full-row read helper
 
-Create stage_load and stage_export manually in SE38. Only the delivered customer stages are allowlisted. Loader requires S_TABU_NAM change authorization and defaults to simulation. Exporter requires display authorization. Validate UTF-8 TSV, all-field CHAR lengths, duplicate insert rollback and current-client behavior on SAP before use. Native business tables are never allowed. A stage insert does not create a business object.
+Create the report manually in SE38. Only documented native tables are allowlisted; S_TABU_NAM display authorization and a row limit are required. Current-client reads only; no database writes. Export includes raw native columns and DDIC metadata. Raw exports are not aliased consumption CSVs and do not apply consumption/category filters. Read the customer manual. Validate on the actual SAP release; never activated here.

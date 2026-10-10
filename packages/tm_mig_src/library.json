@@ -3,10 +3,10 @@
   "phase": "no-system",
   "prefix": "ZTMX_",
   "package": "ZTMX_MIG",
-  "package_description": "Transportation Management canonical staging",
+  "package_description": "Transportation Management native migration drafts",
   "product_title": "Transportation Management migration source",
   "sap_area": "TM-MIG",
-  "target_release": "Administrative NetWeaver 7.40 SP08+ stage",
+  "target_release": "Customer native application on compatible ABAP stack; unverified",
   "max_object_name_length": {
     "DDLS": 30,
     "DCLS": 30,
@@ -20,13 +20,13 @@
   "kind": "migration-source",
   "system": "source",
   "migration_pair": "tm_mig_s4",
-  "map_title": "Transportation Management staged evidence",
-  "map_area": "Customer-owned stages",
+  "map_title": "Transportation Management native extraction",
+  "map_area": "Native SAP tables",
   "map_initial": "ZTMX_I_TransportLocData",
-  "map_external_title": "Native adapters",
-  "draft_tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
-  "map_release": "Customer staging on ABAP NW 7.40 SP08+ (assumed)",
-  "map_external_sub": "customer implementation required",
+  "map_external_title": "SAP system tables",
+  "draft_tested_release": "none (native DDIC and SAP activation pending)",
+  "map_release": "Native application installation required; never activated on SAP",
+  "map_external_sub": "Exact release and DDIC verification pending",
   "layer_prefixes": {
     "basic": "I_",
     "composite": "I_",
@@ -35,5 +35,6 @@
   "consumption_suffixes": [
     "Mig",
     "MigCount"
-  ]
+  ],
+  "native_table_sources": true
 }

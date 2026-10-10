@@ -11,9 +11,7 @@
 define view entity ZWMT_I_StorageBinCount
   as select from ZWMT_I_StorageBinCompare as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
+  key src.Warehouse as Warehouse,
       count( * ) as RecordCount
 }
-group by src.SourceSystem, src.SourceClient, src.ExportBatch
+group by src.Warehouse

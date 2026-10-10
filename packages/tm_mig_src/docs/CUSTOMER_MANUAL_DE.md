@@ -1,36 +1,19 @@
-# ModuPorter Transportmanagement
+# ModuPorter Transportmanagement — nativer Entwurf 0.2.0
 
-Version 0.1.0. Nicht in SAP aktiviert oder getestet.
+Ersetzt die Staging-Architektur von 0.1.0. Dokumentierte Strukturen folgen SAP-Systemtabelle → Basic → Composite → Consumption. Zielvergleichsviews lesen native Tabellen. Keine kundeneigenen Stagingtabellen oder Ladeberichte.
 
-Freigegebene Geschäftsdienste oder geprüfte native Geschäftsobjektexporte verwenden. Interne GUIDs, Elternbeziehungen, UTC-Zeitpunkte und Zeitzonen erhalten. Frachtbelege besitzen Ausführungs- und Abrechnungswirkungen und bleiben bis zur Schnittstellenfreigabe Prozessreferenzen. Vereinbarungen, Staffeln, Währungen und Rating separat prüfen. Upgrade-XPRA-Berichte sind keine allgemeinen systemübergreifenden Migrationsschnittstellen.
-
-## Module
-
-- transport_location: 1 Strukturen; master.
-- transport_resource: 2 Strukturen; master.
-- transport_lane: 2 Strukturen; master.
-- transport_schedule: 2 Strukturen; master.
-- freight_agreement: 3 Strukturen; master.
-- freight_unit: 3 Strukturen; process-reference.
-- freight_order: 4 Strukturen; process-reference.
-- freight_settlement: 2 Strukturen; reference.
+**Paket noch unvollständig:** 3 native Strukturentwürfe; 16 offene Strukturen. Weitere fehlende Nutzdaten stehen in customer/native-coverage.json. Kopf-/Wurzelviews sind keine vollständigen Geschäftsobjekte.
 
 ## Vorgehen
 
-Native Leseadapter für die tatsächliche Quell-/Zielversion implementieren und fachlich freigeben. source-adapters.json und target-adapters.json beschreiben Verträge, keine fertigen SAP Konnektoren. Die kundeneigenen Stagingtabellen übernehmen normalisierte Exportdaten; ihre Befüllung ist keine Geschäftsobjektbeladung.
+Anwendung und Release feststellen: EWM ist nicht LE-WM, klassische EHS-Spezifikationen sind nicht moderne EHSM-Vorfälle. Tabellen, Felder und vollständige DDIC-Schlüssel in SE11/ADT prüfen; die gelieferten Schlüssel sind ungetestete Entwürfe. Den nativen Lesebericht zum Export der tatsächlichen DDIC-Feldliste nutzen und migration_ddic.py ausführen. Keine erfundenen Metadaten als Nachweis verwenden.
 
-SourceSystem, SourceClient und ExportBatch kennzeichnen die Ursprungspopulation. Auch Zieldaten verwenden diese Ursprungskennungen. Neue Zielnummern für den Vergleich auf Quellschlüssel zurückführen und die Zuordnung separat protokollieren. Pro Datei ist nur eine Ursprungspopulation erlaubt.
+Quell- und Zielpaket getrennt importieren und ACTIVATION_ORDER.txt befolgen. Native Tabellen müssen vorhanden sein. Klassische CDS-Views in der Quelle, View Entities im Ziel. Konkrete Mindestversionen und SAP-Aktivierung sind ungeprüft. Erlaubte/eingeschränkte Benutzer sowie Mandantentrennung testen; keine DCL enthalten. S_TABU_NAM im Lesebericht schützt nicht automatisch alle CDS-Zugriffe.
 
-Freigegebene vollständige Schlüssel in customer/selection eintragen. Eltern-/Kindbeziehungen und fachliche Stichtagsregeln unabhängig prüfen. Leere Auswahldateien liefern null Zeilen. migration_run.py erzeugt die geprüfte Auswahl mit Hash-Audit; das synthetische Beispiel in customer/examples/project.json zuerst lokal ausführen.
+Consumption-Daten mit CDS-Spaltennamen nach customer/exports exportieren. System, Mandant, Exportzeit und freigegebene Population separat protokollieren. Der Tabellenbericht exportiert Rohspalten und wendet keine Consumption-Filter an. Vollständige native Schlüssel in customer/selection eintragen; leere Auswahl erzeugt null Zeilen. `python tools/migration_run.py --project customer/customer-cohort-project.json --out prepared` ausführen. Fachliche Zustände, Stichtag und Eltern-/Kindbeziehungen zusätzlich prüfen.
 
-migration_stage.py mit customer/staging-contracts.json prüft Spaltenreihenfolge, vollständige eindeutige Schlüssel, Feldlängen und Herkunft. Die Ausgabe enthält canonical.csv, stage.tsv ohne Kopfzeile und audit.json. Tabulatoren, Zeilenumbrüche, NUL und abschließende Leerzeichen sind unzulässig; Langtexte und Anlagen benötigen native Schnittstellen.
+Dieselbe Zielpopulation aus nativen Vergleichsviews exportieren. Neu erzeugte UUIDs und geänderte Nummern vor dem Vergleich anhand einer geprüften Zuordnung abgleichen; Originalschlüssel separat erhalten. Gleiche UUIDs in verschiedenen Systemen werden nicht vorausgesetzt. migration_prepare.py compare mit passendem Mapping und View nutzen. Zählviews zählen breite Kandidatenbestände; dieselbe Population anwenden.
 
-Quell- und Ziel-ZIP separat importieren. Gemäß ACTIVATION_ORDER zuerst Stagingtabellen, dann Basic, Composite und Consumption aktivieren. Berichte separat in SE38 anlegen. Der Ladebericht simuliert standardmäßig. Nur freigegebene kundeneigene Tabellen sind erlaubt; tatsächliche Ausführung fügt neue Zeilen ein, lehnt Duplikate ab und rollt Datenbankfehler zurück. Keine Geschäftsobjekttabellen werden verändert. GUI UTF-8, Tabulatoren und Rollback-Verhalten in SAP prüfen. Alternativ die CSV Werkzeuge ohne SAP Staging nutzen.
+EHS-Änderungsstände RECN/ACTN, Gültigkeit und Löschkennzeichen erhalten. Kein ungeprüfter Filter auf den letzten Stand. TM-Kategorien und Lebenszyklus prüfen; allgemeine Fallattribute enthalten mehrere Fallarten. Fehlende Nutzdaten bleiben offen. Aktivierung, Schlüsseldeutigkeit, Berechtigungen, Extraktionsvollständigkeit und Vergleich in customer/TEST_RESULTS.csv mit tatsächlichen SAP-Nachweisen dokumentieren.
 
-Den vollständigen Stagingexport mit migration_stage.py --physical in kanonische Spalten zurückführen. migration_ddic.py prüft die Stagingmetadaten, nicht die Vollständigkeit des nativen Geschäftsobjektexports. Erst danach eine unterstützte Zielgeschäftsschnittstelle verwenden. Referenzhistorie nicht automatisch buchen.
-
-Dieselbe Zielpopulation nativ exportieren und mit migration_prepare.py compare vergleichen. Optionale Ziel-CDS Views zeigen nur Staging-Belege, keine live ausgelesenen Geschäftsobjekte. Beträge, Mengen, Währungen und Vorzeichen zusätzlich mit migration_business.py totals abstimmen. Gleiche Stagingzeilen beweisen keine erfolgreiche Geschäftsobjektmigration. Tests, fachliche Freigabe und offene Adapteranforderungen dokumentieren.
-
-## Staging TSV Format
-
-stage.tsv unverändert verwenden. Die Datei enthält keine Kopfzeile; jede Zeile endet nach dem letzten Tabulator mit #MODUPORTER_END#. Der Bericht prüft und entfernt die Markierung, damit leere Endwerte erhalten bleiben. canonical.csv nicht als TSV laden. Kodierung und SPLIT Verhalten der SAP GUI müssen im Kundensystem geprüft werden.
+Nur Leseextraktion; keine Buchungsadapter oder Anlage von Zielgeschäftsobjekten.

@@ -1,6 +1,6 @@
 # ZWMX_I_TaskConfirmData
 
-> Status: **draft-unverified** · tested release: none (draft, customer staging on NetWeaver 7.40 SP08+ assumed). Nothing below has been activated on a system.
+> Status: **draft-unverified** · tested release: none (native DDIC and SAP activation pending). Nothing below has been activated on a system.
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Layer | basic (`@VDM.viewType: #BASIC`) |
 | Kind | view |
 | Data category | - |
-| Data source | `zwmx_wms010` |
+| Data source | `/scwm/ordim_c` |
 | Source file | `src/zwmx_i_taskconfirmdata.ddls.asddls` |
 
 ## Purpose
@@ -19,12 +19,9 @@ Read TaskConfirmData as source candidates; approve the key-date population befor
 
 ## Keys
 
-- `SourceSystem`
-- `SourceClient`
-- `ExportBatch`
 - `Warehouse`
 - `WarehouseTask`
-- `ConfirmationID`
+- `WarehouseTaskItem`
 
 ## Associations defined here
 
@@ -32,7 +29,7 @@ Read TaskConfirmData as source candidates; approve the key-date population befor
 
 ## Access control
 
-No DCL by design: Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.
+No DCL by design: Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.
 
 ## Example use case
 

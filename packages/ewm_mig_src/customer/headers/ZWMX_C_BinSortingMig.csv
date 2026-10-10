@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,Warehouse,StorageBin,SortSequence,ActivityArea,Activity,SortDirection
+﻿Warehouse,StorageBin,ActivityArea,Activity,StorageType,SortSequence

@@ -54,25 +54,32 @@ class StageTest(unittest.TestCase):
             self.assertEqual((out/'keep').read_text(),'preserved')
 
 
-class AdapterDeliveryTest(unittest.TestCase):
-    def test_source_subset_closes_modules_and_filters_native_stage_contracts(self):
+class NativeDeliveryTest(unittest.TestCase):
+    def test_source_subset_preserves_pending_dependencies_and_native_contracts(self):
         with tempfile.TemporaryDirectory() as tmp:
             archive,manifest=bp.build(['warehouse_stock'],root=ROOT/'packages/ewm_mig_src',out=Path(tmp)/'stock.zip')
             self.assertEqual(set(manifest['resolved_modules']),{'storage_bin','warehouse_product','warehouse_stock'})
             with zipfile.ZipFile(archive) as z:
-                stage=json.loads(z.read('customer/staging-contracts.json'));native=json.loads(z.read('customer/source-adapters.json'))
-                self.assertEqual(set(stage),set(native));self.assertEqual(len(stage),6)
-                self.assertIn('tools/migration_stage.py',z.namelist())
-                self.assertIn('helpers/zwmx_ewm_src_stage_load.prog.abap',z.namelist())
-                self.assertEqual(sum(n.endswith('.tabl.xml') for n in z.namelist()),6)
+                native=json.loads(z.read('customer/source-adapters.json'))
+                self.assertEqual({c['native_table'] for c in native.values()},{'/SCWM/LAGP','/SCWM/LAGPS'})
+                self.assertNotIn('tools/migration_stage.py',z.namelist())
+                self.assertFalse(any('stage_load' in n or n.endswith('.tabl.xml') for n in z.namelist()))
+                coverage=json.loads(z.read('customer/native-coverage.json'))
+                self.assertEqual({c['module'] for c in coverage},set(manifest['resolved_modules']))
+                pending=[c for c in coverage if c['module']=='warehouse_stock']
+                self.assertTrue(pending);self.assertTrue(all(c['status']=='PENDING' for c in pending))
 
-    def test_target_subset_contains_its_stage_tools_and_only_selected_contract(self):
+    def test_target_subset_reads_native_credit_table_without_write_helpers(self):
         with tempfile.TemporaryDirectory() as tmp:
             archive,_=bp.build(['credit_segment'],root=ROOT/'packages/fscm_mig_s4',out=Path(tmp)/'credit.zip')
             with zipfile.ZipFile(archive) as z:
-                stage=json.loads(z.read('customer/staging-contracts.json'))
-                self.assertEqual(len(stage),1)
-                self.assertIn('tools/migration_stage.py',z.namelist());self.assertIn('helpers/zfct_fscm_s4_stage_load.prog.abap',z.namelist())
+                contracts=json.loads(z.read('customer/target-adapters.json'))
+                self.assertEqual(len(contracts),1)
+                self.assertEqual(next(iter(contracts.values()))['native_table'],'UKMBP_CMS_SGM')
+                self.assertFalse(any('stage_load' in n or n.endswith('.tabl.xml') for n in z.namelist()))
+                ddls='\n'.join(z.read(n).decode() for n in z.namelist() if n.endswith('.asddls'))
+                self.assertIn('ukmbp_cms_sgm as src',ddls)
+                self.assertNotIn('SourceSystem',ddls)
 
 
 if __name__=='__main__':unittest.main()

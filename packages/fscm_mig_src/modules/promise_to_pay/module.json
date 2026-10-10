@@ -1,51 +1,47 @@
 {
   "name": "promise_to_pay",
   "title": "Promises to pay and related receivables",
-  "description": "Canonical Promises to pay and related receivables exports over customer stages; native business adapters required.",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "process-reference"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "UDM_P2P_ATTR"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [
     "collections_profile"
   ],
   "objects": {
-    "tables": [
-      "ZFCX_FCS009",
-      "ZFCX_FCS010"
-    ],
+    "tables": [],
     "basic": [
-      "ZFCX_I_PaymentPromiseData",
-      "ZFCX_I_PromiseItemData"
+      "ZFCX_I_PaymentPromiseData"
     ],
     "composite": [
-      "ZFCX_I_PaymentPromise",
-      "ZFCX_I_PromiseItem"
+      "ZFCX_I_PaymentPromise"
     ],
     "consumption": [
       "ZFCX_C_PaymentPromiseMig",
-      "ZFCX_C_PaymentPromiseMigCount",
-      "ZFCX_C_PromiseItemMig"
+      "ZFCX_C_PaymentPromiseMigCount"
     ],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFCX_I_PaymentPromiseData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_I_PaymentPromise": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_C_PaymentPromiseMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_C_PaymentPromiseMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_I_PromiseItemData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_I_PromiseItem": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_C_PromiseItemMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+    "ZFCX_I_PaymentPromiseData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCX_I_PaymentPromise": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCX_C_PaymentPromiseMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCX_C_PaymentPromiseMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
-  "link_views": []
+  "link_views": [],
+  "pending_structures": [
+    "PromiseItem"
+  ]
 }

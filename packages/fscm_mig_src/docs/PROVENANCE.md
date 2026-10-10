@@ -1,9 +1,12 @@
-# Design provenance
+# Native source evidence
 
-Reviewed 2026-10-11. These primary SAP documents inform deployment distinctions and business boundaries. They do not validate the supplied canonical fields as native SAP table fields or certify any adapter.
+- CreditProfile: https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm
+- CreditSegment: https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm
+- CollectContact: https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm
+- PaymentPromise: https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/e7/57b6b490ba4f0e894c410d51f271aa/content.htm
+- DisputeCase: https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm
+- CaseAttribute: https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/6d/69cc1bee13af4fbc7ebbdf0eb00e3b/content.htm
 
-- [Credit management master data](https://help.sap.com/docs/SAP_ERP/3eb91abaa20c4dc696ab706d9d50cb74/6de01054a62b3018e10000000a174cb4.html)
-- [Collections and dispute successor migration](https://help.sap.com/docs/SAP_S4HANA_CLOUD/918bca53037f408f91a2295d04ac16bc/2dc763811754417dad108fdc11208f6b.html)
-- [Collection task migration](https://help.sap.com/docs/SAP_S4HANA_CLOUD/918bca53037f408f91a2295d04ac16bc/bf864aa3a2ea4adb8776f1c18eb60a9b.html)
+Classic EHS administrative fields: https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html
 
-The delivered tables and field names are customer-owned contracts. Native extraction and target posting interfaces are deliberately unspecified until the actual application, release and supported interface are selected. No SAP system has been used to validate this pack.
+Sources establish documented table/field usage, not customer DDIC key flags, exact release compatibility or SAP activation.

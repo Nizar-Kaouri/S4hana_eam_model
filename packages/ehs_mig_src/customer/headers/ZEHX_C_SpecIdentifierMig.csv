@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,SpecificationID,Version,IdentifierID,IdentifierType,IdentifierCategory,IdentifierValue,Language
+﻿RecordNumber,ChangeState,ValidFrom,ValidTo,DeletionFlag,RootRecordNumber,IdentifierType,IdentifierCategory,Language,Identifier,SortOrder

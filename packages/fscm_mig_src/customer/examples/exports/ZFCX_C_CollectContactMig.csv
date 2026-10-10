@@ -1,3 +1,3 @@
-﻿SourceSystem,SourceClient,ExportBatch,BusinessPartner,CollectionSegment,ContactID,ContactAtUTC,ContactType,ContactResult,Specialist
-ERP_DEMO,100,DEMO001,0001,0001,0001,20261011100000,sample,sample,sample
-ERP_DEMO,100,DEMO001,0002,0002,0002,20261011100000,sample,sample,sample
+﻿ContactUUID,ContactDate,ContactResult,ContactType,ContactDirection,Reached,CollectionSegment,CollectionSpecialist,BusinessPartner,ContactName,ChangedAt
+00000000000000000000000000000001,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample
+00000000000000000000000000000002,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample

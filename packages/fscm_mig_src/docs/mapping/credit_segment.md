@@ -1,39 +1,38 @@
 # Migration interface: credit_segment
 
-> Status: **draft-unverified** · tested release: none (draft, customer staging on NetWeaver 7.40 SP08+ assumed). Nothing below has been run on a system.
+> Status: **draft-unverified** · tested release: none (native DDIC and SAP activation pending). Nothing below has been run on a system.
 
-- **Read by:** Customer-selected supported business interface; stages are not posting
+- **Read by:** Customer-selected supported business interface; native views are read-only
 - **Load after:** `credit_profile`
-- **Business key:** `SourceSystem`, `SourceClient`, `ExportBatch`, `BusinessPartner`, `CreditSegment` · numbering **keep**
-- **Key rule:** Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger.
+- **Business key:** `BusinessPartner`, `CreditSegment` · numbering **keep**
+- **Key rule:** Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison.
 
-The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
+The consumption views deliver the values **exactly as stored in SAP source**. Changing values (new plants, new numbers, ...) is up to the load program.
 
 ## `ZFCX_C_CreditSegmentMig`
 
 - Source: `ZFCX_I_CreditSegment`
-- Keys: `SourceSystem`, `SourceClient`, `ExportBatch`, `BusinessPartner`, `CreditSegment`
+- Keys: `BusinessPartner`, `CreditSegment`
 - Scope: `all rows`
 - Delivery mode: **master**
-- Before posting: Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter.
+- Before posting: CreditLimit and its currency context require UKMCRED_SGM0C verification; no fictitious segment currency column is supplied. Confirm full native key flags and approve the business cohort. Native extraction is not posting.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `SourceSystem` | ZFCX_FCS003-F001 | Customer native interface: SourceSystem (adapter required) | copy | yes |
-| `SourceClient` | ZFCX_FCS003-F002 | Customer native interface: SourceClient (adapter required) | copy | yes |
-| `ExportBatch` | ZFCX_FCS003-F003 | Customer native interface: ExportBatch (adapter required) | copy | yes |
-| `BusinessPartner` | ZFCX_FCS003-F004 | Customer native interface: BusinessPartner (adapter required) | copy | yes |
-| `CreditSegment` | ZFCX_FCS003-F005 | Customer native interface: CreditSegment (adapter required) | copy | yes |
-| `CreditLimit` | ZFCX_FCS003-F006 | Customer native interface: CreditLimit (adapter required) | copy | yes |
-| `Currency` | ZFCX_FCS003-F007 | Customer native interface: Currency (adapter required) | copy | yes |
-| `LimitValidTo` | ZFCX_FCS003-F008 | Customer native interface: LimitValidTo (adapter required) | copy | yes |
-| `Blocked` | ZFCX_FCS003-F009 | Customer native interface: Blocked (adapter required) | copy | yes |
-| `CreditControlArea` | ZFCX_FCS003-F010 | Customer native interface: CreditControlArea (adapter required) | copy | yes |
+| `BusinessPartner` | UKMBP_CMS_SGM-PARTNER | Native target evidence: ZFCT_I_CreditSegmentCompare.BusinessPartner | copy | yes |
+| `CreditSegment` | UKMBP_CMS_SGM-CREDIT_SGMNT | Native target evidence: ZFCT_I_CreditSegmentCompare.CreditSegment | copy | yes |
+| `Blocked` | UKMBP_CMS_SGM-XBLOCKED | Native target evidence: ZFCT_I_CreditSegmentCompare.Blocked | copy | yes |
+| `LimitValidTo` | UKMBP_CMS_SGM-LIMIT_VALID_DATE | Native target evidence: ZFCT_I_CreditSegmentCompare.LimitValidTo | copy | yes |
+| `LimitChangedOn` | UKMBP_CMS_SGM-LIMIT_CHG_DATE | Native target evidence: ZFCT_I_CreditSegmentCompare.LimitChangedOn | copy | yes |
+| `Coordinator` | UKMBP_CMS_SGM-COORDINATOR | Native target evidence: ZFCT_I_CreditSegmentCompare.Coordinator | copy | yes |
+| `BlockReason` | UKMBP_CMS_SGM-BLOCK_REASON | Native target evidence: ZFCT_I_CreditSegmentCompare.BlockReason | copy | yes |
+| `Critical` | UKMBP_CMS_SGM-XCRITICAL | Native target evidence: ZFCT_I_CreditSegmentCompare.Critical | copy | yes |
+| `ZeroLimit` | UKMBP_CMS_SGM-X_LIMIT_ZERO | Native target evidence: ZFCT_I_CreditSegmentCompare.ZeroLimit | copy | yes |
 
 ## Reconciliation
 
-- Counts: `ZFCX_C_CreditSegmentMigCount` (ECC) vs `ZFCT_I_CreditSegmentCount` (S/4HANA) per `SourceSystem`, `SourceClient`, `ExportBatch`
-- Records and fields: `ZFCX_C_CreditSegmentMig` vs `ZFCT_I_CreditSegmentCompare` on `SourceSystem`, `SourceClient`, `ExportBatch`, `BusinessPartner`, `CreditSegment`; compared: `CreditLimit`, `Currency`, `LimitValidTo`, `Blocked`, `CreditControlArea`
+- Counts: `ZFCX_C_CreditSegmentMigCount` (SAP source) vs `ZFCT_I_CreditSegmentCount` (S/4HANA) as global candidate counts
+- Records and fields: `ZFCX_C_CreditSegmentMig` vs `ZFCT_I_CreditSegmentCompare` on `BusinessPartner`, `CreditSegment`; compared: `Blocked`, `LimitValidTo`, `LimitChangedOn`, `Coordinator`, `BlockReason`, `Critical`, `ZeroLimit`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fscm_mig_src --module credit_segment --source ecc_counts.csv --target s4_counts.csv
@@ -42,5 +41,4 @@ python3 tools/mig_reconcile.py records --product fscm_mig_src --module credit_se
 
 ## Open gaps
 
-- Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter.
-- Native export adapters and target business posting are customer implementations.
+- Native field/key/release verification and SAP activation pending. No posting adapter.

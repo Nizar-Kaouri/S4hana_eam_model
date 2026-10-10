@@ -114,8 +114,8 @@ FI-AA, MM, QM, PS, PP, CO, FI and SD now have separate `<domain>_mig_ecc` and `<
 
 See [customer guides and all-object VDM map](docs/customer/domains/README.md) and [cross-domain prerequisites](docs/customer/domains/CROSS_DOMAIN_PREREQUISITES.md). All drafts require actual SAP DDIC, activation and business acceptance tests.
 
-## EWM TM FSCM EHS adapter drafts
+## EWM TM FSCM EHS native drafts
 
-EWM, TM, FSCM and EHS now have eight additional source/target products with 32 modules, 72 canonical structures, 352 CDS views and 144 customer-owned staging tables. These products use `<domain>_mig_src` and `<domain>_mig_s4`. Their Basic → Composite → Consumption layers read staged exports; native read and business posting adapters remain customer implementation work. This is an explicit staging exception to the native-table/released-view convention used by earlier packs. All SAP runtime behavior remains unverified.
+Version 0.2.0 replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → Basic → Composite → Consumption for 17 documented structure drafts, with native target comparison views. The 32-module coverage plan contains 72 structures: 55 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these eight products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
 
 See [bilingual customer guides and VDM maps](docs/customer/new-domains/README.md). Industry solutions remain out of scope.

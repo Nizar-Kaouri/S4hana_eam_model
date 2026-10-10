@@ -11,9 +11,5 @@
 define view entity ZTMT_I_TransportLocCount
   as select from ZTMT_I_TransportLocCompare as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
       count( * ) as RecordCount
 }
-group by src.SourceSystem, src.SourceClient, src.ExportBatch

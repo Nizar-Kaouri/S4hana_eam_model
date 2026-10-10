@@ -1,0 +1,179 @@
+[
+  {
+    "domain": "fscm",
+    "module": "credit_profile",
+    "structure": "CreditProfile",
+    "status": "NATIVE_DRAFT",
+    "table": "UKMBP_CMS",
+    "reason": "CLIENT is the implicit current-client field. Credit relationships remain pending.",
+    "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "Score",
+      "ScoreDate"
+    ]
+  },
+  {
+    "domain": "fscm",
+    "module": "credit_profile",
+    "structure": "CreditRelation",
+    "status": "PENDING",
+    "table": "BUT050 (credit-specific relationship selection unresolved)",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "fscm",
+    "module": "credit_segment",
+    "structure": "CreditSegment",
+    "status": "NATIVE_DRAFT",
+    "table": "UKMBP_CMS_SGM",
+    "reason": "CreditLimit and its currency context require UKMCRED_SGM0C verification; no fictitious segment currency column is supplied.",
+    "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "CreditLimit",
+      "Currency",
+      "CreditControlArea"
+    ]
+  },
+  {
+    "domain": "fscm",
+    "module": "credit_exposure",
+    "structure": "CreditExposure",
+    "status": "PENDING",
+    "table": "UKM_TOTALS",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "fscm",
+    "module": "collections_profile",
+    "structure": "CollectProfile",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "fscm",
+    "module": "collections_profile",
+    "structure": "CollectSegment",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "fscm",
+    "module": "collection_activity",
+    "structure": "CollectContact",
+    "status": "NATIVE_DRAFT",
+    "table": "UDM_CCT_ATTR",
+    "reason": "Contact attributes only; associated items and resubmissions remain pending.",
+    "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "ContactID",
+      "ContactAtUTC",
+      "Specialist"
+    ]
+  },
+  {
+    "domain": "fscm",
+    "module": "collection_activity",
+    "structure": "CollectTask",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "fscm",
+    "module": "promise_to_pay",
+    "structure": "PaymentPromise",
+    "status": "NATIVE_DRAFT",
+    "table": "UDM_P2P_ATTR",
+    "reason": "Financial amount annotations, logical-system naming and invoice relations require DDIC verification. Invoice number is not assumed to be a native attribute field.",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/e7/57b6b490ba4f0e894c410d51f271aa/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "BusinessPartner",
+      "PromiseID",
+      "PromisedAmount",
+      "PromiseStatus"
+    ]
+  },
+  {
+    "domain": "fscm",
+    "module": "promise_to_pay",
+    "structure": "PromiseItem",
+    "status": "PENDING",
+    "table": "Native case-to-invoice relations unresolved",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "fscm",
+    "module": "dispute_case",
+    "structure": "DisputeCase",
+    "status": "NATIVE_DRAFT",
+    "table": "UDMCASEATTR00",
+    "reason": "Financial dispute attributes; amount payload, item relations and attachments remain pending.",
+    "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "CaseID",
+      "NativeGUID",
+      "BusinessPartner",
+      "CaseType",
+      "Reason",
+      "CaseStatus",
+      "Priority",
+      "DisputedAmount",
+      "Currency",
+      "CreatedAtUTC"
+    ]
+  },
+  {
+    "domain": "fscm",
+    "module": "dispute_case",
+    "structure": "DisputeItem",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "fscm",
+    "module": "dispute_case",
+    "structure": "CaseAttribute",
+    "status": "NATIVE_DRAFT",
+    "table": "SCMG_T_CASE_ATTR",
+    "reason": "One wide native record per case UUID; not synthetic attribute-name/value rows. Includes general cases, not only disputes; approve case-type scope.",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/6d/69cc1bee13af4fbc7ebbdf0eb00e3b/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "CaseID",
+      "AttributeID",
+      "AttributeValue"
+    ]
+  },
+  {
+    "domain": "fscm",
+    "module": "dispute_case",
+    "structure": "CaseAttachment",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  }
+]

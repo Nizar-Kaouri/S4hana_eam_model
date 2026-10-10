@@ -1,14 +1,14 @@
 {
   "name": "transport_schedule",
   "title": "Transportation schedules and stops",
-  "description": "Canonical Transportation schedules and stops exports over customer stages; native business adapters required.",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "master"
   ],
   "sap_tables": [],
@@ -17,35 +17,18 @@
     "transport_location"
   ],
   "objects": {
-    "tables": [
-      "ZTMX_TMS006",
-      "ZTMX_TMS007"
-    ],
-    "basic": [
-      "ZTMX_I_ScheduleData",
-      "ZTMX_I_ScheduleStopData"
-    ],
-    "composite": [
-      "ZTMX_I_Schedule",
-      "ZTMX_I_ScheduleStop"
-    ],
-    "consumption": [
-      "ZTMX_C_ScheduleMig",
-      "ZTMX_C_ScheduleMigCount",
-      "ZTMX_C_ScheduleStopMig"
-    ],
+    "tables": [],
+    "basic": [],
+    "composite": [],
+    "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {
-    "ZTMX_I_ScheduleData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_Schedule": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_ScheduleMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_ScheduleMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_ScheduleStopData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_I_ScheduleStop": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZTMX_C_ScheduleStopMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
-  },
-  "link_views": []
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "Schedule",
+    "ScheduleStop"
+  ]
 }

@@ -11,9 +11,5 @@
 define view entity ZFCT_I_DisputeCaseCount
   as select from ZFCT_I_DisputeCaseCompare as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
       count( * ) as RecordCount
 }
-group by src.SourceSystem, src.SourceClient, src.ExportBatch

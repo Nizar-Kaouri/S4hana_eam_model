@@ -82,15 +82,16 @@ def collect():
         for ref in n["sources"] + [a["target"] for a in n["assocs"]]:
             if not ref.upper().startswith(prefix.upper()) and ref not in nodes:
                 ext = next((pr for pf, pr in other.items() if ref.upper().startswith(pf)), None)
-                table = lib.get("system") == "ecc" and ref.islower()
+                native = lib.get("native_table_sources", False)
+                table = (native and ref.upper() in {t.upper() for mod in modules.values() for t in mod.get("sap_tables", [])}) or (lib.get("system") == "ecc" and ref.islower())
                 sap.setdefault(ref, {"name": ref, "label": f"View of product {ext}" if ext else (
-                                         "ECC table (read directly)" if table else "SAP released view"),
+                                         ("Native SAP table (DDIC verification pending)" if native else "ECC table (read directly)") if table else "SAP released view"),
                                      "module": "sap", "layer": "sap",
-                                     "kind": "product view" if ext else ("ECC table" if table else "SAP view"),
+                                     "kind": "product view" if ext else (("SAP table" if native else "ECC table") if table else "SAP view"),
                                      "batch": "-", "link": False, "requires": [], "purpose": "", "example": "", "keys": [],
                                      "params": [], "sources": [], "assocs": [],
                                      "dcl": (f"Shipped with product {ext} (packages/{ext})." if ext else
-                                             "SAP ECC table; no CDS access control on the source system." if table else
+                                             ("Native SAP table; restrict and verify the extraction channel." if native else "SAP ECC table; no CDS access control on the source system.") if table else
                                              "Shipped by SAP (C1-released view assumed; see ACTIVATION_CHECKLIST.md)."),
                                      "risk": {"H": 0, "M": 0, "L": 0}, "file": "", "usedBy": []})
                 sap[ref]["usedBy"].append(n["name"])

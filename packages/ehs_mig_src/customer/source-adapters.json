@@ -1,659 +1,103 @@
 {
-  "ZEHX_C_EHSLocationMig": {
-    "module": "ehs_location",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LocationID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LocationID",
-      "LocationType",
-      "Description",
-      "Plant",
-      "Country",
-      "TimeZone",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZEHX_C_EHSLocHierarchMig": {
-    "module": "ehs_location",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "HierarchyID",
-      "ParentLocation",
-      "ChildLocation",
-      "ValidityStartDate"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "HierarchyID",
-      "ParentLocation",
-      "ChildLocation",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZEHX_C_ChemicalPropMig": {
-    "module": "chemical_property",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PropertyID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PropertyID",
-      "Description",
-      "PropertyType",
-      "DefaultUnit",
-      "Dimension"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZEHX_C_PropertyUnitMig": {
-    "module": "chemical_property",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PropertyID",
-      "UnitID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PropertyID",
-      "UnitID",
-      "ConversionNumerator",
-      "ConversionDenominator"
-    ],
-    "parent_modules": [],
-    "mode": "master"
-  },
   "ZEHX_C_SpecificationMig": {
     "module": "specification",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "ESTRH",
+    "basic_view": "ZEHX_I_SpecificationData",
+    "composite_view": "ZEHX_I_Specification",
+    "consumption_view": "ZEHX_C_SpecificationMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version"
+      "RecordNumber",
+      "ChangeState"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+      "RecordNumber",
+      "ChangeState",
+      "ValidFrom",
+      "ValidTo",
+      "DeletionFlag",
       "SpecificationID",
-      "Version",
-      "SpecificationType",
-      "Description",
+      "SpecificationCategory",
       "AuthorizationGroup",
-      "ValidityStartDate",
-      "ValidityEndDate"
+      "Remark"
     ],
-    "parent_modules": [
-      "chemical_property"
-    ],
-    "mode": "master"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/60a5ce5314894208e10000000a174cb4.html",
+    "notes": "Classic specification model. Preserve all change states; no unverified latest-record rule."
   },
   "ZEHX_C_SpecIdentifierMig": {
     "module": "specification",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "ESTRI",
+    "basic_view": "ZEHX_I_SpecIdentifierData",
+    "composite_view": "ZEHX_I_SpecIdentifier",
+    "consumption_view": "ZEHX_C_SpecIdentifierMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version",
-      "IdentifierID"
+      "RecordNumber",
+      "ChangeState"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version",
-      "IdentifierID",
+      "RecordNumber",
+      "ChangeState",
+      "ValidFrom",
+      "ValidTo",
+      "DeletionFlag",
+      "RootRecordNumber",
       "IdentifierType",
       "IdentifierCategory",
-      "IdentifierValue",
-      "Language"
+      "Language",
+      "Identifier",
+      "SortOrder"
     ],
-    "parent_modules": [
-      "chemical_property"
-    ],
-    "mode": "master"
-  },
-  "ZEHX_C_SpecPropertyMig": {
-    "module": "specification",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version",
-      "PropertyID",
-      "ValueID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version",
-      "PropertyID",
-      "ValueID",
-      "ValueText",
-      "ValueLow",
-      "ValueHigh",
-      "QuantityUnit",
-      "UsageRating",
-      "RegulatoryArea",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [
-      "chemical_property"
-    ],
-    "mode": "master"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/63a5ce5314894208e10000000a174cb4.html",
+    "notes": "Native short identifier only; long-text interfaces and effective parent change-state relations remain pending."
   },
   "ZEHX_C_PhraseMig": {
     "module": "phrase",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "ESTPH",
+    "basic_view": "ZEHX_I_PhraseData",
+    "composite_view": "ZEHX_I_Phrase",
+    "consumption_view": "ZEHX_C_PhraseMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PhraseCatalog",
-      "PhraseID",
-      "Language"
+      "RecordNumber",
+      "ChangeState"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PhraseCatalog",
+      "RecordNumber",
+      "ChangeState",
+      "ValidFrom",
+      "ValidTo",
+      "DeletionFlag",
       "PhraseID",
-      "Language",
-      "PhraseText",
-      "PhraseCode"
+      "Remark",
+      "SourceLanguage",
+      "UserDefinedName"
     ],
-    "parent_modules": [],
-    "mode": "master"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html",
+    "notes": "Phrase header only. ESTPP multilingual text and graphics are pending; no invented Language key on the header."
   },
   "ZEHX_C_PhraseSetMig": {
     "module": "phrase",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
+    "native_table": "ESTPJ",
+    "basic_view": "ZEHX_I_PhraseSetData",
+    "composite_view": "ZEHX_I_PhraseSet",
+    "consumption_view": "ZEHX_C_PhraseSetMig",
     "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PhraseSetID",
-      "PhraseCatalog",
-      "PhraseID"
+      "RecordNumber",
+      "ChangeState"
     ],
     "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PhraseSetID",
-      "PhraseCatalog",
+      "RecordNumber",
+      "ChangeState",
+      "ValidFrom",
+      "ValidTo",
+      "DeletionFlag",
+      "PhraseSet",
       "PhraseID",
-      "SortSequence"
+      "SortOrder"
     ],
-    "parent_modules": [],
-    "mode": "master"
-  },
-  "ZEHX_C_IncidentMig": {
-    "module": "incident",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "IncidentType",
-      "LocationID",
-      "OccurredAtUTC",
-      "TimeZone",
-      "IncidentStatus",
-      "Description"
-    ],
-    "parent_modules": [
-      "ehs_location"
-    ],
-    "mode": "process-reference"
-  },
-  "ZEHX_C_IncidentPersonMig": {
-    "module": "incident",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "PersonRole",
-      "PersonID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "PersonRole",
-      "PersonID",
-      "BusinessPartner",
-      "RestrictedRecordReference"
-    ],
-    "parent_modules": [
-      "ehs_location"
-    ],
-    "mode": "process-reference"
-  },
-  "ZEHX_C_IncidentActionMig": {
-    "module": "incident",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "ActionID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "ActionID",
-      "ActionType",
-      "ResponsiblePartner",
-      "DueDate",
-      "ActionStatus"
-    ],
-    "parent_modules": [
-      "ehs_location"
-    ],
-    "mode": "process-reference"
-  },
-  "ZEHX_C_RiskAssessmentMig": {
-    "module": "risk_assessment",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "LocationID",
-      "ValidityStartDate",
-      "ValidityEndDate",
-      "AssessmentStatus"
-    ],
-    "parent_modules": [
-      "ehs_location"
-    ],
-    "mode": "reference"
-  },
-  "ZEHX_C_RiskHazardMig": {
-    "module": "risk_assessment",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "HazardID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "HazardID",
-      "HazardType",
-      "Likelihood",
-      "Severity",
-      "RiskRating",
-      "RatingScheme"
-    ],
-    "parent_modules": [
-      "ehs_location"
-    ],
-    "mode": "reference"
-  },
-  "ZEHX_C_RiskControlMig": {
-    "module": "risk_assessment",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "HazardID",
-      "ControlID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "HazardID",
-      "ControlID",
-      "ControlType",
-      "Description",
-      "ResponsiblePartner",
-      "ControlStatus"
-    ],
-    "parent_modules": [
-      "ehs_location"
-    ],
-    "mode": "reference"
-  },
-  "ZEHX_C_DataClassifierMig": {
-    "module": "environmental_data",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ClassifierID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ClassifierID",
-      "Description",
-      "ClassifierType",
-      "PropertyID"
-    ],
-    "parent_modules": [
-      "ehs_location",
-      "chemical_property"
-    ],
-    "mode": "reference"
-  },
-  "ZEHX_C_DataCollectionMig": {
-    "module": "environmental_data",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CollectionID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CollectionID",
-      "LocationID",
-      "ClassifierID",
-      "Description",
-      "ScheduleType",
-      "TimeZone"
-    ],
-    "parent_modules": [
-      "ehs_location",
-      "chemical_property"
-    ],
-    "mode": "reference"
-  },
-  "ZEHX_C_MeasurementMig": {
-    "module": "environmental_data",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CollectionID",
-      "MeasurementID"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CollectionID",
-      "MeasurementID",
-      "MeasuredAtUTC",
-      "Value",
-      "QuantityUnit",
-      "MethodID",
-      "QualityStatus"
-    ],
-    "parent_modules": [
-      "ehs_location",
-      "chemical_property"
-    ],
-    "mode": "reference"
-  },
-  "ZEHX_C_ComplianceReqMig": {
-    "module": "compliance",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "RequirementID",
-      "Version"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "RequirementID",
-      "Version",
-      "RegulatoryArea",
-      "Description",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [
-      "ehs_location",
-      "chemical_property",
-      "environmental_data"
-    ],
-    "mode": "master"
-  },
-  "ZEHX_C_ComplianceScenMig": {
-    "module": "compliance",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScenarioID",
-      "Version"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScenarioID",
-      "Version",
-      "LocationID",
-      "Description",
-      "ScenarioStatus"
-    ],
-    "parent_modules": [
-      "ehs_location",
-      "chemical_property",
-      "environmental_data"
-    ],
-    "mode": "master"
-  },
-  "ZEHX_C_ComplianceLinkMig": {
-    "module": "compliance",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScenarioID",
-      "Version",
-      "RequirementID",
-      "RequirementVersion"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScenarioID",
-      "Version",
-      "RequirementID",
-      "RequirementVersion",
-      "ClassifierID",
-      "PropertyID"
-    ],
-    "parent_modules": [
-      "ehs_location",
-      "chemical_property",
-      "environmental_data"
-    ],
-    "mode": "master"
-  },
-  "ZEHX_C_DangerousGoodsMig": {
-    "module": "dangerous_goods",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Product",
-      "RegulationID",
-      "Version"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Product",
-      "RegulationID",
-      "Version",
-      "UNNumber",
-      "ProperShippingName",
-      "HazardClass",
-      "PackingGroup",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "parent_modules": [],
-    "mode": "regulatory-reference"
-  },
-  "ZEHX_C_DGTransportMig": {
-    "module": "dangerous_goods",
-    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
-    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
-    "native_interface": null,
-    "required_keys": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Product",
-      "RegulationID",
-      "Version",
-      "TransportMode"
-    ],
-    "columns": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Product",
-      "RegulationID",
-      "Version",
-      "TransportMode",
-      "LimitedQuantity",
-      "QuantityUnit",
-      "ExemptionCode"
-    ],
-    "parent_modules": [],
-    "mode": "regulatory-reference"
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html",
+    "notes": "Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys."
   }
 }

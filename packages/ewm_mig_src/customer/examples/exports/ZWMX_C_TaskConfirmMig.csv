@@ -1,3 +1,3 @@
-﻿SourceSystem,SourceClient,ExportBatch,Warehouse,WarehouseTask,ConfirmationID,ConfirmedQuantity,DifferenceQuantity,QuantityUnit,ConfirmedAtUTC,ReversalStatus
-ERP_DEMO,100,DEMO001,0001,0001,0001,10.00,10.00,EA,20261011100000,sample
-ERP_DEMO,100,DEMO001,0002,0002,0002,10.00,10.00,EA,20261011100000,sample
+﻿Warehouse,WarehouseTask,WarehouseTaskItem,WarehouseOrder,ProcessType,TaskStatus,ConfirmedBy,ConfirmedAt,SourceStorageType,SourceBin,TargetStorageType,TargetBin
+0001,0001,0001,sample,sample,sample,sample,sample,sample,sample,sample,sample
+0002,0002,0002,sample,sample,sample,sample,sample,sample,sample,sample,sample

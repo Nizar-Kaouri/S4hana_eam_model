@@ -1,0 +1,260 @@
+[
+  {
+    "domain": "ehs",
+    "module": "ehs_location",
+    "structure": "EHSLocation",
+    "status": "PENDING",
+    "table": "EHFNDD_LOC_ROOT; EHFNDD_LOC_REV",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "ehs_location",
+    "structure": "EHSLocHierarchy",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "chemical_property",
+    "structure": "ChemicalProp",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "chemical_property",
+    "structure": "PropertyUnit",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "specification",
+    "structure": "Specification",
+    "status": "NATIVE_DRAFT",
+    "table": "ESTRH",
+    "reason": "Classic specification model. Preserve all change states; no unverified latest-record rule.",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/60a5ce5314894208e10000000a174cb4.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "Version",
+      "SpecificationType",
+      "Description",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+  },
+  {
+    "domain": "ehs",
+    "module": "specification",
+    "structure": "SpecIdentifier",
+    "status": "NATIVE_DRAFT",
+    "table": "ESTRI",
+    "reason": "Native short identifier only; long-text interfaces and effective parent change-state relations remain pending.",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/63a5ce5314894208e10000000a174cb4.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "SpecificationID",
+      "Version",
+      "IdentifierID",
+      "IdentifierValue"
+    ],
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+  },
+  {
+    "domain": "ehs",
+    "module": "specification",
+    "structure": "SpecProperty",
+    "status": "PENDING",
+    "table": "ESTVH; ESTVA; classification value relations unresolved",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "phrase",
+    "structure": "Phrase",
+    "status": "NATIVE_DRAFT",
+    "table": "ESTPH",
+    "reason": "Phrase header only. ESTPP multilingual text and graphics are pending; no invented Language key on the header.",
+    "evidence": "https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "PhraseCatalog",
+      "Language",
+      "PhraseText",
+      "PhraseCode"
+    ],
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+  },
+  {
+    "domain": "ehs",
+    "module": "phrase",
+    "structure": "PhraseSet",
+    "status": "NATIVE_DRAFT",
+    "table": "ESTPJ",
+    "reason": "Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys.",
+    "evidence": "https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "PhraseSetID",
+      "PhraseCatalog",
+      "SortSequence"
+    ],
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+  },
+  {
+    "domain": "ehs",
+    "module": "incident",
+    "structure": "Incident",
+    "status": "PENDING",
+    "table": "EHHSSD_INC_ROOT; EHHSSD_INC_BINFA",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "incident",
+    "structure": "IncidentPerson",
+    "status": "PENDING",
+    "table": "EHHSSD_INC_PINV",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "incident",
+    "structure": "IncidentAction",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "risk_assessment",
+    "structure": "RiskAssessment",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "risk_assessment",
+    "structure": "RiskHazard",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "risk_assessment",
+    "structure": "RiskControl",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "environmental_data",
+    "structure": "DataClassifier",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "environmental_data",
+    "structure": "DataCollection",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "environmental_data",
+    "structure": "Measurement",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "compliance",
+    "structure": "ComplianceReq",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "compliance",
+    "structure": "ComplianceScen",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "compliance",
+    "structure": "ComplianceLink",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "dangerous_goods",
+    "structure": "DangerousGoods",
+    "status": "PENDING",
+    "table": "EST0D",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  },
+  {
+    "domain": "ehs",
+    "module": "dangerous_goods",
+    "structure": "DGTransport",
+    "status": "PENDING",
+    "table": "EST0F",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false
+  }
+]

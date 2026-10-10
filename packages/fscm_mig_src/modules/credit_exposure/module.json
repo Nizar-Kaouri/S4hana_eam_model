@@ -1,14 +1,14 @@
 {
   "name": "credit_exposure",
   "title": "Credit exposure references",
-  "description": "Canonical Credit exposure references exports over customer stages; native business adapters required.",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "reference"
   ],
   "sap_tables": [],
@@ -17,28 +17,17 @@
     "credit_segment"
   ],
   "objects": {
-    "tables": [
-      "ZFCX_FCS004"
-    ],
-    "basic": [
-      "ZFCX_I_CreditExposureData"
-    ],
-    "composite": [
-      "ZFCX_I_CreditExposure"
-    ],
-    "consumption": [
-      "ZFCX_C_CreditExposureMig",
-      "ZFCX_C_CreditExposureMigCount"
-    ],
+    "tables": [],
+    "basic": [],
+    "composite": [],
+    "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {
-    "ZFCX_I_CreditExposureData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_I_CreditExposure": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_C_CreditExposureMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCX_C_CreditExposureMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
-  },
-  "link_views": []
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "CreditExposure"
+  ]
 }

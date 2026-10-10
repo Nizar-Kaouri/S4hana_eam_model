@@ -1,14 +1,14 @@
 {
   "name": "warehouse_stock",
   "title": "Warehouse stock and serials",
-  "description": "Canonical Warehouse stock and serials exports over customer stages; native business adapters required.",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "balance"
   ],
   "sap_tables": [],
@@ -18,35 +18,18 @@
     "warehouse_product"
   ],
   "objects": {
-    "tables": [
-      "ZWMX_WMS005",
-      "ZWMX_WMS006"
-    ],
-    "basic": [
-      "ZWMX_I_WarehouseStockData",
-      "ZWMX_I_StockSerialData"
-    ],
-    "composite": [
-      "ZWMX_I_WarehouseStock",
-      "ZWMX_I_StockSerial"
-    ],
-    "consumption": [
-      "ZWMX_C_WarehouseStockMig",
-      "ZWMX_C_WarehouseStockMigCount",
-      "ZWMX_C_StockSerialMig"
-    ],
+    "tables": [],
+    "basic": [],
+    "composite": [],
+    "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {
-    "ZWMX_I_WarehouseStockData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_WarehouseStock": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_WarehouseStockMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_WarehouseStockMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_StockSerialData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_I_StockSerial": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMX_C_StockSerialMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
-  },
-  "link_views": []
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "WarehouseStock",
+    "StockSerial"
+  ]
 }

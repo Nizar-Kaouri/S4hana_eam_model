@@ -1,3 +1,0 @@
-﻿SourceSystem,SourceClient,ExportBatch,SettlementID,FreightOrderID,Carrier,CompanyCode,Currency,TotalAmount,SettlementStatus,AccountingDocument
-ERP_DEMO,100,DEMO001,0001,sample,sample,sample,EUR,10.00,sample,sample
-ERP_DEMO,100,DEMO001,0002,sample,sample,sample,EUR,10.00,sample,sample

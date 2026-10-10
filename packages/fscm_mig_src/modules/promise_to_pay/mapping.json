@@ -2,22 +2,16 @@
   "module": "promise_to_pay",
   "status": "draft-unverified",
   "target": {
-    "tool": "Customer-selected supported business interface; stages are not posting",
+    "tool": "Customer-selected supported business interface; native views are read-only",
     "todo_verify": []
   },
-  "sequence_after": [
-    "collections_profile"
-  ],
+  "sequence_after": [],
   "key": {
     "business_key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "BusinessPartner",
-      "PromiseID"
+      "CaseUUID"
     ],
     "numbering": "keep",
-    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
   },
   "structures": [
     {
@@ -25,223 +19,108 @@
       "source_view": "ZFCX_I_PaymentPromise",
       "scope_filter": "",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "PromiseID"
+        "CaseUUID"
       ],
       "fields": [
         {
-          "element": "SourceSystem",
-          "source": "ZFCX_FCS009-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "SourceClient",
-          "source": "ZFCX_FCS009-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ExportBatch",
-          "source": "ZFCX_FCS009-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "BusinessPartner",
-          "source": "ZFCX_FCS009-F004",
-          "target": "Customer native interface: BusinessPartner (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "PromiseID",
-          "source": "ZFCX_FCS009-F005",
-          "target": "Customer native interface: PromiseID (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "PromiseDate",
-          "source": "ZFCX_FCS009-F006",
-          "target": "Customer native interface: PromiseDate (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "DueDate",
-          "source": "ZFCX_FCS009-F007",
-          "target": "Customer native interface: DueDate (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "PromisedAmount",
-          "source": "ZFCX_FCS009-F008",
-          "target": "Customer native interface: PromisedAmount (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "Currency",
-          "source": "ZFCX_FCS009-F009",
-          "target": "Customer native interface: Currency (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "PromiseStatus",
-          "source": "ZFCX_FCS009-F010",
-          "target": "Customer native interface: PromiseStatus (adapter required)",
-          "rule": "info",
-          "compare": true
-        }
-      ],
-      "delivery_mode": "process-reference",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter."
-    },
-    {
-      "consumption_view": "ZFCX_C_PromiseItemMig",
-      "source_view": "ZFCX_I_PromiseItem",
-      "scope_filter": "",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "PromiseID",
-        "CompanyCode",
-        "FiscalYear",
-        "AccountingDocument",
-        "AccountingItem"
-      ],
-      "fields": [
-        {
-          "element": "SourceSystem",
-          "source": "ZFCX_FCS010-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "SourceClient",
-          "source": "ZFCX_FCS010-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "ExportBatch",
-          "source": "ZFCX_FCS010-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "BusinessPartner",
-          "source": "ZFCX_FCS010-F004",
-          "target": "Customer native interface: BusinessPartner (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "PromiseID",
-          "source": "ZFCX_FCS010-F005",
-          "target": "Customer native interface: PromiseID (adapter required)",
+          "element": "CaseUUID",
+          "source": "UDM_P2P_ATTR-CASE_GUID",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.CaseUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CompanyCode",
-          "source": "ZFCX_FCS010-F006",
-          "target": "Customer native interface: CompanyCode (adapter required)",
+          "source": "UDM_P2P_ATTR-FIN_COMP_CODE",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.CompanyCode",
           "rule": "info",
           "compare": true
         },
         {
-          "element": "FiscalYear",
-          "source": "ZFCX_FCS010-F007",
-          "target": "Customer native interface: FiscalYear (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "AccountingDocument",
-          "source": "ZFCX_FCS010-F008",
-          "target": "Customer native interface: AccountingDocument (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "AccountingItem",
-          "source": "ZFCX_FCS010-F009",
-          "target": "Customer native interface: AccountingItem (adapter required)",
-          "rule": "info",
-          "compare": true
-        },
-        {
-          "element": "AssignedAmount",
-          "source": "ZFCX_FCS010-F010",
-          "target": "Customer native interface: AssignedAmount (adapter required)",
+          "element": "Customer",
+          "source": "UDM_P2P_ATTR-FIN_CUSTOMER",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.Customer",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Currency",
-          "source": "ZFCX_FCS010-F011",
-          "target": "Customer native interface: Currency (adapter required)",
+          "source": "UDM_P2P_ATTR-FIN_P2P_CURR",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.Currency",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DueDate",
+          "source": "UDM_P2P_ATTR-FIN_P2P_DUE_DATE",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.DueDate",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PromiseDate",
+          "source": "UDM_P2P_ATTR-FIN_P2P_DATE",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseDate",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PromiseState",
+          "source": "UDM_P2P_ATTR-FIN_P2P_STATE",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseState",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PromiseLevel",
+          "source": "UDM_P2P_ATTR-FIN_P2P_LEVEL",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseLevel",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PromisedBy",
+          "source": "UDM_P2P_ATTR-FIN_PROMISED_BY",
+          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromisedBy",
           "rule": "info",
           "compare": true
         }
       ],
       "delivery_mode": "process-reference",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter."
+      "preprocessing": "Financial amount annotations, logical-system naming and invoice relations require DDIC verification. Invoice number is not assumed to be a native attribute field. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
     }
   ],
   "not_migrated": [],
   "gaps": [
-    "Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter.",
-    "Native export adapters and target business posting are customer implementations."
+    "Native field/key/release verification and SAP activation pending. No posting adapter.",
+    "PromiseItem: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "Pending native dependency: collections_profile"
   ],
   "reconciliation": {
     "source_values": "source",
-    "dimensions": [
-      {
-        "element": "SourceSystem"
-      },
-      {
-        "element": "SourceClient"
-      },
-      {
-        "element": "ExportBatch"
-      }
-    ],
+    "dimensions": [],
     "source_count_view": "ZFCX_C_PaymentPromiseMigCount",
     "target_count_view": "ZFCT_I_PaymentPromiseCount",
     "compare": {
       "source_view": "ZFCX_C_PaymentPromiseMig",
       "target_view": "ZFCT_I_PaymentPromiseCompare",
       "key": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "PromiseID"
+        "CaseUUID"
       ],
       "fields": [
-        "PromiseDate",
-        "DueDate",
-        "PromisedAmount",
+        "CompanyCode",
+        "Customer",
         "Currency",
-        "PromiseStatus"
+        "DueDate",
+        "PromiseDate",
+        "PromiseState",
+        "PromiseLevel",
+        "PromisedBy"
       ]
     }
   },
-  "main_structure": "ZFCX_C_PaymentPromiseMig"
+  "main_structure": "ZFCX_C_PaymentPromiseMig",
+  "pending_dependencies": [
+    "collections_profile"
+  ]
 }

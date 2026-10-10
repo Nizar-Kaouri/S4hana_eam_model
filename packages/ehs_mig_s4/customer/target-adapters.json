@@ -1,448 +1,87 @@
 {
-  "ZEHX_C_EHSLocationMig": {
-    "module": "ehs_location",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "LocationID"
-    ],
-    "fields": [
-      "LocationType",
-      "Description",
-      "Plant",
-      "Country",
-      "TimeZone",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "target_export": "target/ZEHX_C_EHSLocationMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_EHSLocHierarchMig": {
-    "module": "ehs_location",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "HierarchyID",
-      "ParentLocation",
-      "ChildLocation",
-      "ValidityStartDate"
-    ],
-    "fields": [
-      "ValidityEndDate"
-    ],
-    "target_export": "target/ZEHX_C_EHSLocHierarchMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_ChemicalPropMig": {
-    "module": "chemical_property",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PropertyID"
-    ],
-    "fields": [
-      "Description",
-      "PropertyType",
-      "DefaultUnit",
-      "Dimension"
-    ],
-    "target_export": "target/ZEHX_C_ChemicalPropMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_PropertyUnitMig": {
-    "module": "chemical_property",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PropertyID",
-      "UnitID"
-    ],
-    "fields": [
-      "ConversionNumerator",
-      "ConversionDenominator"
-    ],
-    "target_export": "target/ZEHX_C_PropertyUnitMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
   "ZEHX_C_SpecificationMig": {
     "module": "specification",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
+    "compare_view": "ZEHT_I_SpecificationCompare",
+    "required_keys": [
+      "RecordNumber",
+      "ChangeState"
+    ],
+    "columns": [
+      "RecordNumber",
+      "ChangeState",
+      "ValidFrom",
+      "ValidTo",
+      "DeletionFlag",
       "SpecificationID",
-      "Version"
-    ],
-    "fields": [
-      "SpecificationType",
-      "Description",
+      "SpecificationCategory",
       "AuthorizationGroup",
-      "ValidityStartDate",
-      "ValidityEndDate"
+      "Remark"
     ],
-    "target_export": "target/ZEHX_C_SpecificationMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "ESTRH",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZEHX_C_SpecIdentifierMig": {
     "module": "specification",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version",
-      "IdentifierID"
+    "compare_view": "ZEHT_I_SpecIdentifierCompare",
+    "required_keys": [
+      "RecordNumber",
+      "ChangeState"
     ],
-    "fields": [
+    "columns": [
+      "RecordNumber",
+      "ChangeState",
+      "ValidFrom",
+      "ValidTo",
+      "DeletionFlag",
+      "RootRecordNumber",
       "IdentifierType",
       "IdentifierCategory",
-      "IdentifierValue",
-      "Language"
+      "Language",
+      "Identifier",
+      "SortOrder"
     ],
-    "target_export": "target/ZEHX_C_SpecIdentifierMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_SpecPropertyMig": {
-    "module": "specification",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "SpecificationID",
-      "Version",
-      "PropertyID",
-      "ValueID"
-    ],
-    "fields": [
-      "ValueText",
-      "ValueLow",
-      "ValueHigh",
-      "QuantityUnit",
-      "UsageRating",
-      "RegulatoryArea",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "target_export": "target/ZEHX_C_SpecPropertyMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "ESTRI",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZEHX_C_PhraseMig": {
     "module": "phrase",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PhraseCatalog",
+    "compare_view": "ZEHT_I_PhraseCompare",
+    "required_keys": [
+      "RecordNumber",
+      "ChangeState"
+    ],
+    "columns": [
+      "RecordNumber",
+      "ChangeState",
+      "ValidFrom",
+      "ValidTo",
+      "DeletionFlag",
       "PhraseID",
-      "Language"
+      "Remark",
+      "SourceLanguage",
+      "UserDefinedName"
     ],
-    "fields": [
-      "PhraseText",
-      "PhraseCode"
-    ],
-    "target_export": "target/ZEHX_C_PhraseMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "ESTPH",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   },
   "ZEHX_C_PhraseSetMig": {
     "module": "phrase",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "PhraseSetID",
-      "PhraseCatalog",
-      "PhraseID"
+    "compare_view": "ZEHT_I_PhraseSetCompare",
+    "required_keys": [
+      "RecordNumber",
+      "ChangeState"
     ],
-    "fields": [
-      "SortSequence"
+    "columns": [
+      "RecordNumber",
+      "ChangeState",
+      "ValidFrom",
+      "ValidTo",
+      "DeletionFlag",
+      "PhraseSet",
+      "PhraseID",
+      "SortOrder"
     ],
-    "target_export": "target/ZEHX_C_PhraseSetMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_IncidentMig": {
-    "module": "incident",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID"
-    ],
-    "fields": [
-      "IncidentType",
-      "LocationID",
-      "OccurredAtUTC",
-      "TimeZone",
-      "IncidentStatus",
-      "Description"
-    ],
-    "target_export": "target/ZEHX_C_IncidentMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_IncidentPersonMig": {
-    "module": "incident",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "PersonRole",
-      "PersonID"
-    ],
-    "fields": [
-      "BusinessPartner",
-      "RestrictedRecordReference"
-    ],
-    "target_export": "target/ZEHX_C_IncidentPersonMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_IncidentActionMig": {
-    "module": "incident",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "IncidentID",
-      "ActionID"
-    ],
-    "fields": [
-      "ActionType",
-      "ResponsiblePartner",
-      "DueDate",
-      "ActionStatus"
-    ],
-    "target_export": "target/ZEHX_C_IncidentActionMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_RiskAssessmentMig": {
-    "module": "risk_assessment",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version"
-    ],
-    "fields": [
-      "LocationID",
-      "ValidityStartDate",
-      "ValidityEndDate",
-      "AssessmentStatus"
-    ],
-    "target_export": "target/ZEHX_C_RiskAssessmentMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_RiskHazardMig": {
-    "module": "risk_assessment",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "HazardID"
-    ],
-    "fields": [
-      "HazardType",
-      "Likelihood",
-      "Severity",
-      "RiskRating",
-      "RatingScheme"
-    ],
-    "target_export": "target/ZEHX_C_RiskHazardMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_RiskControlMig": {
-    "module": "risk_assessment",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "AssessmentID",
-      "Version",
-      "HazardID",
-      "ControlID"
-    ],
-    "fields": [
-      "ControlType",
-      "Description",
-      "ResponsiblePartner",
-      "ControlStatus"
-    ],
-    "target_export": "target/ZEHX_C_RiskControlMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_DataClassifierMig": {
-    "module": "environmental_data",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ClassifierID"
-    ],
-    "fields": [
-      "Description",
-      "ClassifierType",
-      "PropertyID"
-    ],
-    "target_export": "target/ZEHX_C_DataClassifierMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_DataCollectionMig": {
-    "module": "environmental_data",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CollectionID"
-    ],
-    "fields": [
-      "LocationID",
-      "ClassifierID",
-      "Description",
-      "ScheduleType",
-      "TimeZone"
-    ],
-    "target_export": "target/ZEHX_C_DataCollectionMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_MeasurementMig": {
-    "module": "environmental_data",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "CollectionID",
-      "MeasurementID"
-    ],
-    "fields": [
-      "MeasuredAtUTC",
-      "Value",
-      "QuantityUnit",
-      "MethodID",
-      "QualityStatus"
-    ],
-    "target_export": "target/ZEHX_C_MeasurementMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_ComplianceReqMig": {
-    "module": "compliance",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "RequirementID",
-      "Version"
-    ],
-    "fields": [
-      "RegulatoryArea",
-      "Description",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "target_export": "target/ZEHX_C_ComplianceReqMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_ComplianceScenMig": {
-    "module": "compliance",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScenarioID",
-      "Version"
-    ],
-    "fields": [
-      "LocationID",
-      "Description",
-      "ScenarioStatus"
-    ],
-    "target_export": "target/ZEHX_C_ComplianceScenMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_ComplianceLinkMig": {
-    "module": "compliance",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "ScenarioID",
-      "Version",
-      "RequirementID",
-      "RequirementVersion"
-    ],
-    "fields": [
-      "ClassifierID",
-      "PropertyID"
-    ],
-    "target_export": "target/ZEHX_C_ComplianceLinkMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_DangerousGoodsMig": {
-    "module": "dangerous_goods",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Product",
-      "RegulationID",
-      "Version"
-    ],
-    "fields": [
-      "UNNumber",
-      "ProperShippingName",
-      "HazardClass",
-      "PackingGroup",
-      "ValidityStartDate",
-      "ValidityEndDate"
-    ],
-    "target_export": "target/ZEHX_C_DangerousGoodsMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
-  },
-  "ZEHX_C_DGTransportMig": {
-    "module": "dangerous_goods",
-    "key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
-      "Product",
-      "RegulationID",
-      "Version",
-      "TransportMode"
-    ],
-    "fields": [
-      "LimitedQuantity",
-      "QuantityUnit",
-      "ExemptionCode"
-    ],
-    "target_export": "target/ZEHX_C_DGTransportMig.csv",
-    "adapter_status": "customer native target implementation required",
-    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+    "native_table": "ESTPJ",
+    "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
   }
 }

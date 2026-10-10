@@ -1,60 +1,54 @@
 # Migration interface: storage_bin
 
-> Status: **draft-unverified** · tested release: none (draft, customer staging on NetWeaver 7.40 SP08+ assumed). Nothing below has been run on a system.
+> Status: **draft-unverified** · tested release: none (native DDIC and SAP activation pending). Nothing below has been run on a system.
 
-- **Read by:** Customer-selected supported business interface; stages are not posting
+- **Read by:** Customer-selected supported business interface; native views are read-only
 - **Load after:** - (first level)
-- **Business key:** `SourceSystem`, `SourceClient`, `ExportBatch`, `Warehouse`, `StorageBin` · numbering **keep**
-- **Key rule:** Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger.
+- **Business key:** `Warehouse`, `StorageBin` · numbering **keep**
+- **Key rule:** Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison.
 
-The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
+The consumption views deliver the values **exactly as stored in SAP source**. Changing values (new plants, new numbers, ...) is up to the load program.
 
 ## `ZWMX_C_StorageBinMig`
 
 - Source: `ZWMX_I_StorageBin`
-- Keys: `SourceSystem`, `SourceClient`, `ExportBatch`, `Warehouse`, `StorageBin`
+- Keys: `Warehouse`, `StorageBin`
 - Scope: `all rows`
 - Delivery mode: **master**
-- Before posting: Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently.
+- Before posting: EWM storage bins; LE-WM LAGP is a different model. Capacity fields await validated unit semantics. Confirm full native key flags and approve the business cohort. Native extraction is not posting.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `SourceSystem` | ZWMX_WMS001-F001 | Customer native interface: SourceSystem (adapter required) | copy | yes |
-| `SourceClient` | ZWMX_WMS001-F002 | Customer native interface: SourceClient (adapter required) | copy | yes |
-| `ExportBatch` | ZWMX_WMS001-F003 | Customer native interface: ExportBatch (adapter required) | copy | yes |
-| `Warehouse` | ZWMX_WMS001-F004 | Customer native interface: Warehouse (adapter required) | copy | yes |
-| `StorageBin` | ZWMX_WMS001-F005 | Customer native interface: StorageBin (adapter required) | copy | yes |
-| `StorageType` | ZWMX_WMS001-F006 | Customer native interface: StorageType (adapter required) | copy | yes |
-| `StorageSection` | ZWMX_WMS001-F007 | Customer native interface: StorageSection (adapter required) | copy | yes |
-| `BinType` | ZWMX_WMS001-F008 | Customer native interface: BinType (adapter required) | copy | yes |
-| `Capacity` | ZWMX_WMS001-F009 | Customer native interface: Capacity (adapter required) | copy | yes |
-| `CapacityUnit` | ZWMX_WMS001-F010 | Customer native interface: CapacityUnit (adapter required) | copy | yes |
-| `Blocked` | ZWMX_WMS001-F011 | Customer native interface: Blocked (adapter required) | copy | yes |
+| `Warehouse` | /SCWM/LAGP-LGNUM | Native target evidence: ZWMT_I_StorageBinCompare.Warehouse | copy | yes |
+| `StorageBin` | /SCWM/LAGP-LGPLA | Native target evidence: ZWMT_I_StorageBinCompare.StorageBin | copy | yes |
+| `StorageType` | /SCWM/LAGP-LGTYP | Native target evidence: ZWMT_I_StorageBinCompare.StorageType | copy | yes |
+| `StorageSection` | /SCWM/LAGP-LGBER | Native target evidence: ZWMT_I_StorageBinCompare.StorageSection | copy | yes |
+| `BinType` | /SCWM/LAGP-LPTYP | Native target evidence: ZWMT_I_StorageBinCompare.BinType | copy | yes |
+| `RemovalBlocked` | /SCWM/LAGP-SKZUA | Native target evidence: ZWMT_I_StorageBinCompare.RemovalBlocked | copy | yes |
+| `PutawayBlocked` | /SCWM/LAGP-SKZUE | Native target evidence: ZWMT_I_StorageBinCompare.PutawayBlocked | copy | yes |
+| `InventoryBlocked` | /SCWM/LAGP-SKZSI | Native target evidence: ZWMT_I_StorageBinCompare.InventoryBlocked | copy | yes |
 
 ## `ZWMX_C_BinSortingMig`
 
 - Source: `ZWMX_I_BinSorting`
-- Keys: `SourceSystem`, `SourceClient`, `ExportBatch`, `Warehouse`, `StorageBin`, `SortSequence`
+- Keys: `Warehouse`, `StorageBin`, `ActivityArea`, `Activity`
 - Scope: `all rows`
 - Delivery mode: **master**
-- Before posting: Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently.
+- Before posting: SortSequence is payload, not an invented key. Confirm exact DDIC key flags before activation. Confirm full native key flags and approve the business cohort. Native extraction is not posting.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `SourceSystem` | ZWMX_WMS002-F001 | Customer native interface: SourceSystem (adapter required) | copy | yes |
-| `SourceClient` | ZWMX_WMS002-F002 | Customer native interface: SourceClient (adapter required) | copy | yes |
-| `ExportBatch` | ZWMX_WMS002-F003 | Customer native interface: ExportBatch (adapter required) | copy | yes |
-| `Warehouse` | ZWMX_WMS002-F004 | Customer native interface: Warehouse (adapter required) | copy | yes |
-| `StorageBin` | ZWMX_WMS002-F005 | Customer native interface: StorageBin (adapter required) | copy | yes |
-| `SortSequence` | ZWMX_WMS002-F006 | Customer native interface: SortSequence (adapter required) | copy | yes |
-| `ActivityArea` | ZWMX_WMS002-F007 | Customer native interface: ActivityArea (adapter required) | copy | yes |
-| `Activity` | ZWMX_WMS002-F008 | Customer native interface: Activity (adapter required) | copy | yes |
-| `SortDirection` | ZWMX_WMS002-F009 | Customer native interface: SortDirection (adapter required) | copy | yes |
+| `Warehouse` | /SCWM/LAGPS-LGNUM | Native target evidence: ZWMT_I_BinSortingCompare.Warehouse | copy | yes |
+| `StorageBin` | /SCWM/LAGPS-LGPLA | Native target evidence: ZWMT_I_BinSortingCompare.StorageBin | copy | yes |
+| `ActivityArea` | /SCWM/LAGPS-AAREA | Native target evidence: ZWMT_I_BinSortingCompare.ActivityArea | copy | yes |
+| `Activity` | /SCWM/LAGPS-ACT_TYPE | Native target evidence: ZWMT_I_BinSortingCompare.Activity | copy | yes |
+| `StorageType` | /SCWM/LAGPS-LGTYP | Native target evidence: ZWMT_I_BinSortingCompare.StorageType | copy | yes |
+| `SortSequence` | /SCWM/LAGPS-REIHF | Native target evidence: ZWMT_I_BinSortingCompare.SortSequence | copy | yes |
 
 ## Reconciliation
 
-- Counts: `ZWMX_C_StorageBinMigCount` (ECC) vs `ZWMT_I_StorageBinCount` (S/4HANA) per `SourceSystem`, `SourceClient`, `ExportBatch`
-- Records and fields: `ZWMX_C_StorageBinMig` vs `ZWMT_I_StorageBinCompare` on `SourceSystem`, `SourceClient`, `ExportBatch`, `Warehouse`, `StorageBin`; compared: `StorageType`, `StorageSection`, `BinType`, `Capacity`, `CapacityUnit`, `Blocked`
+- Counts: `ZWMX_C_StorageBinMigCount` (SAP source) vs `ZWMT_I_StorageBinCount` (S/4HANA) per `Warehouse`
+- Records and fields: `ZWMX_C_StorageBinMig` vs `ZWMT_I_StorageBinCompare` on `Warehouse`, `StorageBin`; compared: `StorageType`, `StorageSection`, `BinType`, `RemovalBlocked`, `PutawayBlocked`, `InventoryBlocked`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product ewm_mig_src --module storage_bin --source ecc_counts.csv --target s4_counts.csv
@@ -63,5 +57,4 @@ python3 tools/mig_reconcile.py records --product ewm_mig_src --module storage_bi
 
 ## Open gaps
 
-- LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently.
-- Native export adapters and target business posting are customer implementations.
+- Native field/key/release verification and SAP activation pending. No posting adapter.

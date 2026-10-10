@@ -1,2 +1,2 @@
-﻿SourceSystem,SourceClient,ExportBatch,FreightUnitID,NativeGUID,UnitType,DocumentStatus,SourceLocation,DestinationLocation
-ERP_DEMO,100,DEMO001,0001,sample,sample,sample,sample,sample
+﻿DocumentUUID,DocumentID,DocumentCategory,DocumentType,LifecycleStatus
+00000000000000000000000000000001,sample,FU,sample,sample

@@ -1,1 +1,1 @@
-SourceSystem,SourceClient,ExportBatch,Warehouse,WarehouseOrder,ActivityArea,Queue,Resource,OrderStatus,CreatedAtUTC
+﻿Warehouse,WarehouseOrder,CreationRule,OrderStatus,Queue,ActivityArea,CreatedAt,CreatedBy,StartedAt,ConfirmedAt

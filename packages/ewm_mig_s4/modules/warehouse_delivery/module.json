@@ -1,40 +1,32 @@
 {
   "name": "warehouse_delivery",
   "title": "Inbound and outbound warehouse deliveries target staged comparison",
-  "description": "Canonical Inbound and outbound warehouse deliveries exports over customer stages; native business adapters required.",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "process-reference"
   ],
   "sap_tables": [],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
-    "tables": [
-      "ZWMT_WMT012",
-      "ZWMT_WMT013"
-    ],
-    "basic": [
-      "ZWMT_I_WhDeliveryCompare",
-      "ZWMT_I_WhDeliveryItemCompare"
-    ],
-    "composite": [
-      "ZWMT_I_WhDeliveryCount"
-    ],
+    "tables": [],
+    "basic": [],
+    "composite": [],
     "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {
-    "ZWMT_I_WhDeliveryCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMT_I_WhDeliveryCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMT_I_WhDeliveryItemCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
-  },
-  "link_views": []
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "WhDelivery",
+    "WhDeliveryItem"
+  ]
 }

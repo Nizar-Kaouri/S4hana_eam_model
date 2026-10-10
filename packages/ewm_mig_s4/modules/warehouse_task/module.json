@@ -1,30 +1,28 @@
 {
   "name": "warehouse_task",
   "title": "Warehouse tasks and confirmations target staged comparison",
-  "description": "Canonical Warehouse tasks and confirmations exports over customer stages; native business adapters required.",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "process-reference"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "/SCWM/ORDIM_C"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
-    "tables": [
-      "ZWMT_WMT009",
-      "ZWMT_WMT010"
-    ],
+    "tables": [],
     "basic": [
-      "ZWMT_I_WarehouseTaskCompare",
       "ZWMT_I_TaskConfirmCompare"
     ],
     "composite": [
-      "ZWMT_I_WarehouseTaskCount"
+      "ZWMT_I_TaskConfirmCount"
     ],
     "consumption": [],
     "access_controls": [],
@@ -32,9 +30,11 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZWMT_I_WarehouseTaskCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMT_I_WarehouseTaskCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZWMT_I_TaskConfirmCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+    "ZWMT_I_TaskConfirmCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMT_I_TaskConfirmCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
-  "link_views": []
+  "link_views": [],
+  "pending_structures": [
+    "WarehouseTask"
+  ]
 }

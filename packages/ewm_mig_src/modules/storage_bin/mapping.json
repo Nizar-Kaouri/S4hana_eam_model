@@ -2,20 +2,17 @@
   "module": "storage_bin",
   "status": "draft-unverified",
   "target": {
-    "tool": "Customer-selected supported business interface; stages are not posting",
+    "tool": "Customer-selected supported business interface; native views are read-only",
     "todo_verify": []
   },
   "sequence_after": [],
   "key": {
     "business_key": [
-      "SourceSystem",
-      "SourceClient",
-      "ExportBatch",
       "Warehouse",
       "StorageBin"
     ],
     "numbering": "keep",
-    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
   },
   "structures": [
     {
@@ -23,191 +20,137 @@
       "source_view": "ZWMX_I_StorageBin",
       "scope_filter": "",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
         "StorageBin"
       ],
       "fields": [
         {
-          "element": "SourceSystem",
-          "source": "ZWMX_WMS001-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "SourceClient",
-          "source": "ZWMX_WMS001-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "ExportBatch",
-          "source": "ZWMX_WMS001-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
           "element": "Warehouse",
-          "source": "ZWMX_WMS001-F004",
-          "target": "Customer native interface: Warehouse (adapter required)",
+          "source": "/SCWM/LAGP-LGNUM",
+          "target": "Native target evidence: ZWMT_I_StorageBinCompare.Warehouse",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageBin",
-          "source": "ZWMX_WMS001-F005",
-          "target": "Customer native interface: StorageBin (adapter required)",
+          "source": "/SCWM/LAGP-LGPLA",
+          "target": "Native target evidence: ZWMT_I_StorageBinCompare.StorageBin",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageType",
-          "source": "ZWMX_WMS001-F006",
-          "target": "Customer native interface: StorageType (adapter required)",
+          "source": "/SCWM/LAGP-LGTYP",
+          "target": "Native target evidence: ZWMT_I_StorageBinCompare.StorageType",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageSection",
-          "source": "ZWMX_WMS001-F007",
-          "target": "Customer native interface: StorageSection (adapter required)",
+          "source": "/SCWM/LAGP-LGBER",
+          "target": "Native target evidence: ZWMT_I_StorageBinCompare.StorageSection",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "BinType",
-          "source": "ZWMX_WMS001-F008",
-          "target": "Customer native interface: BinType (adapter required)",
+          "source": "/SCWM/LAGP-LPTYP",
+          "target": "Native target evidence: ZWMT_I_StorageBinCompare.BinType",
           "rule": "copy",
           "compare": true
         },
         {
-          "element": "Capacity",
-          "source": "ZWMX_WMS001-F009",
-          "target": "Customer native interface: Capacity (adapter required)",
+          "element": "RemovalBlocked",
+          "source": "/SCWM/LAGP-SKZUA",
+          "target": "Native target evidence: ZWMT_I_StorageBinCompare.RemovalBlocked",
           "rule": "copy",
           "compare": true
         },
         {
-          "element": "CapacityUnit",
-          "source": "ZWMX_WMS001-F010",
-          "target": "Customer native interface: CapacityUnit (adapter required)",
+          "element": "PutawayBlocked",
+          "source": "/SCWM/LAGP-SKZUE",
+          "target": "Native target evidence: ZWMT_I_StorageBinCompare.PutawayBlocked",
           "rule": "copy",
           "compare": true
         },
         {
-          "element": "Blocked",
-          "source": "ZWMX_WMS001-F011",
-          "target": "Customer native interface: Blocked (adapter required)",
+          "element": "InventoryBlocked",
+          "source": "/SCWM/LAGP-SKZSI",
+          "target": "Native target evidence: ZWMT_I_StorageBinCompare.InventoryBlocked",
           "rule": "copy",
           "compare": true
         }
       ],
       "delivery_mode": "master",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently."
+      "preprocessing": "EWM storage bins; LE-WM LAGP is a different model. Capacity fields await validated unit semantics. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
     },
     {
       "consumption_view": "ZWMX_C_BinSortingMig",
       "source_view": "ZWMX_I_BinSorting",
       "scope_filter": "",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
         "StorageBin",
-        "SortSequence"
+        "ActivityArea",
+        "Activity"
       ],
       "fields": [
         {
-          "element": "SourceSystem",
-          "source": "ZWMX_WMS002-F001",
-          "target": "Customer native interface: SourceSystem (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "SourceClient",
-          "source": "ZWMX_WMS002-F002",
-          "target": "Customer native interface: SourceClient (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "ExportBatch",
-          "source": "ZWMX_WMS002-F003",
-          "target": "Customer native interface: ExportBatch (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
           "element": "Warehouse",
-          "source": "ZWMX_WMS002-F004",
-          "target": "Customer native interface: Warehouse (adapter required)",
+          "source": "/SCWM/LAGPS-LGNUM",
+          "target": "Native target evidence: ZWMT_I_BinSortingCompare.Warehouse",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageBin",
-          "source": "ZWMX_WMS002-F005",
-          "target": "Customer native interface: StorageBin (adapter required)",
-          "rule": "copy",
-          "compare": true
-        },
-        {
-          "element": "SortSequence",
-          "source": "ZWMX_WMS002-F006",
-          "target": "Customer native interface: SortSequence (adapter required)",
+          "source": "/SCWM/LAGPS-LGPLA",
+          "target": "Native target evidence: ZWMT_I_BinSortingCompare.StorageBin",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ActivityArea",
-          "source": "ZWMX_WMS002-F007",
-          "target": "Customer native interface: ActivityArea (adapter required)",
+          "source": "/SCWM/LAGPS-AAREA",
+          "target": "Native target evidence: ZWMT_I_BinSortingCompare.ActivityArea",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Activity",
-          "source": "ZWMX_WMS002-F008",
-          "target": "Customer native interface: Activity (adapter required)",
+          "source": "/SCWM/LAGPS-ACT_TYPE",
+          "target": "Native target evidence: ZWMT_I_BinSortingCompare.Activity",
           "rule": "copy",
           "compare": true
         },
         {
-          "element": "SortDirection",
-          "source": "ZWMX_WMS002-F009",
-          "target": "Customer native interface: SortDirection (adapter required)",
+          "element": "StorageType",
+          "source": "/SCWM/LAGPS-LGTYP",
+          "target": "Native target evidence: ZWMT_I_BinSortingCompare.StorageType",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SortSequence",
+          "source": "/SCWM/LAGPS-REIHF",
+          "target": "Native target evidence: ZWMT_I_BinSortingCompare.SortSequence",
           "rule": "copy",
           "compare": true
         }
       ],
       "delivery_mode": "master",
-      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently."
+      "preprocessing": "SortSequence is payload, not an invented key. Confirm exact DDIC key flags before activation. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
     }
   ],
   "not_migrated": [],
   "gaps": [
-    "LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently.",
-    "Native export adapters and target business posting are customer implementations."
+    "Native field/key/release verification and SAP activation pending. No posting adapter."
   ],
   "reconciliation": {
     "source_values": "source",
     "dimensions": [
       {
-        "element": "SourceSystem"
-      },
-      {
-        "element": "SourceClient"
-      },
-      {
-        "element": "ExportBatch"
+        "element": "Warehouse"
       }
     ],
     "source_count_view": "ZWMX_C_StorageBinMigCount",
@@ -216,9 +159,6 @@
       "source_view": "ZWMX_C_StorageBinMig",
       "target_view": "ZWMT_I_StorageBinCompare",
       "key": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
         "StorageBin"
       ],
@@ -226,11 +166,12 @@
         "StorageType",
         "StorageSection",
         "BinType",
-        "Capacity",
-        "CapacityUnit",
-        "Blocked"
+        "RemovalBlocked",
+        "PutawayBlocked",
+        "InventoryBlocked"
       ]
     }
   },
-  "main_structure": "ZWMX_C_StorageBinMig"
+  "main_structure": "ZWMX_C_StorageBinMig",
+  "pending_dependencies": []
 }

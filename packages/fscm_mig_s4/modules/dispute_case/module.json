@@ -1,31 +1,27 @@
 {
   "name": "dispute_case",
   "title": "Dispute cases attributes receivables and attachments target staged comparison",
-  "description": "Canonical Dispute cases attributes receivables and attachments exports over customer stages; native business adapters required.",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "status": "draft-unverified",
-  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
     "migration",
-    "adapter-backed",
+    "native-table",
     "process-reference"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "UDMCASEATTR00",
+    "SCMG_T_CASE_ATTR"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
-    "tables": [
-      "ZFCT_FCT011",
-      "ZFCT_FCT012",
-      "ZFCT_FCT013",
-      "ZFCT_FCT014"
-    ],
+    "tables": [],
     "basic": [
       "ZFCT_I_DisputeCaseCompare",
-      "ZFCT_I_DisputeItemCompare",
-      "ZFCT_I_CaseAttributeCompare",
-      "ZFCT_I_CaseAttachmentCompare"
+      "ZFCT_I_CaseAttributeCompare"
     ],
     "composite": [
       "ZFCT_I_DisputeCaseCount"
@@ -36,11 +32,13 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFCT_I_DisputeCaseCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCT_I_DisputeCaseCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCT_I_DisputeItemCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCT_I_CaseAttributeCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
-    "ZFCT_I_CaseAttachmentCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+    "ZFCT_I_DisputeCaseCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCT_I_DisputeCaseCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCT_I_CaseAttributeCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
-  "link_views": []
+  "link_views": [],
+  "pending_structures": [
+    "DisputeItem",
+    "CaseAttachment"
+  ]
 }

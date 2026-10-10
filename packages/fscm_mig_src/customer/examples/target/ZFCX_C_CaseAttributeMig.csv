@@ -1,2 +1,2 @@
-﻿SourceSystem,SourceClient,ExportBatch,CaseID,AttributeID,AttributeValue
-ERP_DEMO,100,DEMO001,0001,0001,sample
+﻿CaseUUID,CaseType,ExternalKey,ExternalReference,CreatedBy,CreatedAt,ChangedBy,ChangedAt,Processor,Responsible,Category,Priority,Status,ReasonCode
+00000000000000000000000000000001,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample

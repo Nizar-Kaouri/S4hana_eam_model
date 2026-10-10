@@ -1,4 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Native short identifier only; long-text interfaces and effective parent change-state relations remain pending.
 // Purpose: Read SpecIdentifierMig as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZEHX_V006C'
@@ -13,14 +14,15 @@
 define view ZEHX_C_SpecIdentifierMig
   as select from ZEHX_I_SpecIdentifier as src
 {
-  key src.SourceSystem as SourceSystem,
-  key src.SourceClient as SourceClient,
-  key src.ExportBatch as ExportBatch,
-  key src.SpecificationID as SpecificationID,
-  key src.Version as Version,
-  key src.IdentifierID as IdentifierID,
+  key src.RecordNumber as RecordNumber,
+  key src.ChangeState as ChangeState,
+      src.ValidFrom as ValidFrom,
+      src.ValidTo as ValidTo,
+      src.DeletionFlag as DeletionFlag,
+      src.RootRecordNumber as RootRecordNumber,
       src.IdentifierType as IdentifierType,
       src.IdentifierCategory as IdentifierCategory,
-      src.IdentifierValue as IdentifierValue,
-      src.Language as Language
+      src.Language as Language,
+      src.Identifier as Identifier,
+      src.SortOrder as SortOrder
 }
