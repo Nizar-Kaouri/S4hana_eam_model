@@ -23,6 +23,8 @@ Exit code: 0 = no differences, 1 = differences found, 2 = usage / input error.
 import argparse
 import csv
 import json
+import io
+from decimal import Decimal, InvalidOperation
 import re
 import sys
 from collections import Counter
@@ -44,17 +46,38 @@ def load_mapping(product, module):
     return json.loads(p.read_text(encoding="utf-8"))
 
 
+class CsvRows(list):
+    def __init__(self, rows, columns):
+        super().__init__(rows)
+        self.columns = columns
+
+
 def read_csv(path):
     path = Path(path)
-    if not path.exists():
-        raise InputError(f"file not found: {path}")
-    text = path.read_text(encoding="utf-8-sig")
     try:
-        dialect = csv.Sniffer().sniff(text.splitlines()[0] if text else ",", delimiters=",;\t")
+        text = path.read_text(encoding="utf-8-sig")
+    except (OSError, UnicodeError) as exc:
+        raise InputError(f"cannot read CSV {path}: {exc}") from exc
+    if not text.strip():
+        raise InputError(f"{path}: CSV header is required, even for an empty export")
+    try:
+        dialect = csv.Sniffer().sniff(text.splitlines()[0], delimiters=",;\t")
     except csv.Error:
         dialect = csv.excel
-    rows = list(csv.DictReader(text.splitlines(), dialect=dialect))
-    return [{(k or "").strip(): (v or "").strip() for k, v in r.items()} for r in rows]
+    reader = csv.DictReader(io.StringIO(text, newline=""), dialect=dialect, strict=True)
+    try:
+        columns = [c.strip() for c in (reader.fieldnames or [])]
+        if not columns or any(not c for c in columns) or len(set(columns)) != len(columns):
+            raise InputError(f"{path}: empty or duplicate column names")
+        reader.fieldnames = columns
+        rows = []
+        for r in reader:
+            if None in r or any(v is None for v in r.values()):
+                raise InputError(f"{path}: row {reader.line_num} has the wrong number of fields")
+            rows.append({k: v.strip() for k, v in r.items()})
+    except csv.Error as exc:
+        raise InputError(f"{path}: malformed CSV: {exc}") from exc
+    return CsvRows(rows, columns)
 
 
 class Maps:
@@ -104,7 +127,8 @@ def normalize(value, strip_zeros):
 
 
 def require(rows, columns, label):
-    if rows and (missing := [c for c in columns if c not in rows[0]]):
+    available = rows.columns if isinstance(rows, CsvRows) else (rows[0].keys() if rows else columns)
+    if missing := [c for c in columns if c not in available]:
         raise InputError(f"{label}: columns missing: {', '.join(missing)}")
 
 
@@ -143,9 +167,12 @@ def counts(mapping, source_rows, target_rows, maps, strip_zeros=False, translate
             key = tuple(normalize(maps.translate(d["element"], r[d["element"]]) if use and do_map else r[d["element"]],
                                   strip_zeros) for d in rec["dimensions"])
             try:
-                acc[key] += int(float(r[measure] or 0))
-            except ValueError as exc:
-                raise InputError(f"{measure} is not a number: {r[measure]!r}") from exc
+                value = Decimal(r[measure])
+                if not value.is_finite() or value < 0 or value != value.to_integral_value():
+                    raise InvalidOperation
+                acc[key] += int(value)
+            except (InvalidOperation, ValueError) as exc:
+                raise InputError(f"{measure} must be a non-negative integer: {r[measure]!r}") from exc
         return acc
 
     src, tgt = total(source_rows, True), total(target_rows, False)

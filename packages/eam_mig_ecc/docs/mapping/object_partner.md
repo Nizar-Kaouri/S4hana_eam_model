@@ -14,7 +14,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## `ZEMX_C_ObjectPartnerMig`
 
 - Source: `ZEMX_I_ObjectPartner`
-- Keys: `PartnerObjectKey`, `PartnerFunction`, `PartnerCounter`
+- Keys: `PartnerObjectKey`, `PartnerFunction`, `PartnerCounter`, `PartnerObjectType`
 - Scope: `src.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |

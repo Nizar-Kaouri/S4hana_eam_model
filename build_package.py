@@ -361,8 +361,26 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                                 rewrite(extra.read_text(encoding="utf-8")))
         seq = root / "docs" / "MIGRATION_SEQUENCE.md"
         if seq.exists():
-            zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite(seq.read_text(encoding="utf-8")))
-        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md"):
+            text = seq.read_text(encoding="utf-8")
+            lines = []
+            for line in text.splitlines():
+                if line.startswith("| ") and re.match(r"\| \d+ \|", line):
+                    names = re.findall(r"\[`([^`]+)`\]", line)
+                    included = [m for m in names if m in resolved]
+                    if not included:
+                        continue
+                    # Rebuild mixed levels so no unselected module or consumption view is advertised.
+                    cells = line.split("|")
+                    links = ", ".join(f"[`{m}`](docs/{m}.md)" for m in included)
+                    views = []
+                    for m in included:
+                        mp = root / "modules" / m / "mapping.json"
+                        if mp.exists():
+                            views.extend(x["consumption_view"] for x in json.loads(mp.read_text(encoding="utf-8"))["structures"])
+                    line = f"| {cells[1].strip()} | {links} | " + ", ".join(f"`{v}`" for v in views) + " |"
+                lines.append(line)
+            zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite("\n".join(lines) + "\n"))
+        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "KNOWN_LIMITATIONS.md"):
             extra = root / "docs" / doc
             if extra.exists():
                 zf.writestr("docs/" + doc, rewrite(extra.read_text(encoding="utf-8")))
@@ -383,6 +401,40 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                             field["element"] in structure["keys"], field["source"], field["target"],
                             field["rule"], rewrite(structure.get("scope_filter", "")), structure.get("delivery_mode", "scoped_extract"), modules[mod]["status"]])
             zf.writestr("FIELD_CATALOG.csv", buf.getvalue())
+        # System preflight accompanies the actual selected objects, rather than the whole repository.
+        checks = ["# Open system verification checks", "", "These checks remain unverified until SAP activation and extraction evidence exists.", ""]
+        ddic = set()
+        for typ, name, mod in objects:
+            if typ != "DDLS":
+                continue
+            path = root / "src" / (file_base(name) + ".ddls.asddls")
+            text = path.read_text(encoding="utf-8")
+            for number, line in enumerate(text.splitlines(), 1):
+                if "TODO-VERIFY" in line:
+                    checks.append(f"- {rewrite(name)}:{number}: {rewrite(line.strip().lstrip('/').strip())}")
+            clean = strip_comments(text, "DDLS")
+            match = re.search(r"as select from (\w+)(?: as (\w+))?", clean, re.IGNORECASE)
+            if match and not match.group(1).upper().startswith(old_prefix.upper()):
+                table = match.group(1).upper()
+                alias = match.group(2) or match.group(1)
+                if table in modules[mod].get("sap_tables", []):
+                    for field in re.findall(r"\b" + re.escape(alias) + r"\.(\w+)", clean):
+                        ddic.add((mod, table, field.upper(), rewrite(name)))
+        for mod in resolved:
+            mp = root / "modules" / mod / "mapping.json"
+            if mp.exists():
+                for line in mp.read_text(encoding="utf-8").splitlines():
+                    if "TODO-VERIFY" in line:
+                        checks.append(f"- {mod} mapping: {rewrite(line.strip())}")
+        zf.writestr("OPEN_CHECKS.md", "\n".join(checks) + "\n")
+        if ddic:
+            import csv
+            import io
+            buf = io.StringIO(newline="")
+            writer = csv.writer(buf)
+            writer.writerow(["module", "table", "field", "view"])
+            writer.writerows(sorted(ddic))
+            zf.writestr("DDIC_REQUIREMENTS.csv", buf.getvalue())
         zf.writestr("BUILD_MANIFEST.json", json.dumps(manifest, indent=2) + "\n")
         zf.writestr("ACTIVATION_ORDER.txt", "\n".join(
             f"{i:3d}  {o['type']}  {o['name']}  ({o['module']})" for i, o in enumerate(manifest["objects"], 1)) + "\n")

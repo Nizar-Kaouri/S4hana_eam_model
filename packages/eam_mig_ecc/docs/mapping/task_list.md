@@ -63,16 +63,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## `ZEMX_C_TaskListAllocationMig`
 
 - Source: `ZEMX_I_TaskListObjectAssgmt`
-- Keys: `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`
+- Keys: `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`, `Equipment`, `FunctionalLocation`, `AdditionalCriteriaCounter`, `AssignmentCounter`
 - Scope: `_TaskListCurrent.IsMarkedForDeletion = ''`
+- Delivery mode: **version_ledger**
+- Before posting: Resolve EAPL/TAPL assignment counters, additional criteria and deletion states for the cutover date. Do not post every history row.
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
 | `TaskListType` | EAPL-PLNTY | EAPL-PLNTY | copy |  |
 | `TaskListGroup` | EAPL-PLNNR | EAPL-PLNNR | copy |  |
 | `TaskListGroupCounter` | EAPL-PLNAL | EAPL-PLNAL | copy |  |
-| `Equipment` | EAPL-EQUNR | EAPL-EQUNR | copy |  |
-| `FunctionalLocation` | EAPL-TPLNR | EAPL-TPLNR | copy |  |
+| `Equipment` | EAPL-EQUNR (blank for TAPL functional-location assignments) | EAPL-EQUNR | copy |  |
+| `FunctionalLocation` | TAPL-TPLNR (blank for EAPL equipment assignments) | EAPL-TPLNR | copy |  |
+| `AdditionalCriteriaCounter` | EAPL/TAPL-ZKRIZ | - | copy |  |
+| `AssignmentCounter` | EAPL/TAPL-ZAEHL | - | copy |  |
+| `IsMarkedForDeletion` | EAPL/TAPL-LOEKZ | - | copy |  |
 
 ## `ZEMX_C_TaskListCompMig`
 

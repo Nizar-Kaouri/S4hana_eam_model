@@ -124,7 +124,9 @@
       "keys": [
         "WorkCenter",
         "Plant",
-        "ValidityEndDate"
+        "ValidityEndDate",
+        "ActivityTypeSet",
+        "CostCenterAssgmtCounter"
       ],
       "fields": [
         {
@@ -166,6 +168,20 @@
           "element": "CostCenter",
           "source": "CRCO-KOSTL",
           "target": "CRCO-KOSTL",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ActivityTypeSet",
+          "source": "CRCO-LASET",
+          "target": "CRCO-LASET",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CostCenterAssgmtCounter",
+          "source": "CRCO-LANUM",
+          "target": "CRCO-LANUM",
           "rule": "copy",
           "compare": false
         }
@@ -311,18 +327,6 @@
       "element": "WorkCenterInternalID",
       "source": "CRCO-OBJID",
       "reason": "skip:internal object ID"
-    },
-    {
-      "view": "ZEMX_I_WorkCenterCostCenter",
-      "element": "ActivityTypeSet",
-      "source": "CRCO-LASET",
-      "reason": "info"
-    },
-    {
-      "view": "ZEMX_I_WorkCenterCostCenter",
-      "element": "CostCenterAssgmtCounter",
-      "source": "CRCO-LANUM",
-      "reason": "info"
     },
     {
       "view": "ZEMX_I_WorkCenterCostCenter",

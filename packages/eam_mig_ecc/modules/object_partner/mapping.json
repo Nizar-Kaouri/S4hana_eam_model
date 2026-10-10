@@ -30,7 +30,8 @@
       "keys": [
         "PartnerObjectKey",
         "PartnerFunction",
-        "PartnerCounter"
+        "PartnerCounter",
+        "PartnerObjectType"
       ],
       "fields": [
         {

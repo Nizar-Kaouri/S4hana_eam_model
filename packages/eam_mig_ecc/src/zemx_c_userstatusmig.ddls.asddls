@@ -18,7 +18,7 @@ define view ZEMX_C_UserStatusMig
       @EndUserText.label: 'Status Code'
   key src.StatusCode       as StatusCode,
       @EndUserText.label: 'Status Object Type'
-      src.StatusObjectType as StatusObjectType,
+  key src.StatusObjectType as StatusObjectType,
       @EndUserText.label: 'Status Profile'
       src.StatusProfile    as StatusProfile
 }

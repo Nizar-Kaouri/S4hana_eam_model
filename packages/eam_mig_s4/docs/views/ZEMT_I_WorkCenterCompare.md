@@ -28,7 +28,7 @@ Work center on S/4HANA with the business key and the fields compared after the l
 
 ## Access control
 
-No DCL by design: Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design.
+No DCL by design: Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.
 
 ## Example use case
 

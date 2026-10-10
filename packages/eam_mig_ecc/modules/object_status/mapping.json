@@ -29,7 +29,8 @@
       "scope_filter": "src.StatusKind = 'E'",
       "keys": [
         "StatusObjectKey",
-        "StatusCode"
+        "StatusCode",
+        "StatusObjectType"
       ],
       "fields": [
         {

@@ -20,7 +20,7 @@ define view ZEMX_C_ObjectPartnerMig
       @EndUserText.label: 'Partner Counter'
   key src.PartnerCounter    as PartnerCounter,
       @EndUserText.label: 'Partner Object Type'
-      src.PartnerObjectType as PartnerObjectType,
+  key src.PartnerObjectType as PartnerObjectType,
       @EndUserText.label: 'Partner'
       src.Partner           as Partner
 }

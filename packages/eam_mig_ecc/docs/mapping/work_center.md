@@ -43,7 +43,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## `ZEMX_C_WorkCenterCostCtrMig`
 
 - Source: `ZEMX_I_WorkCenterCostCenter`
-- Keys: `WorkCenter`, `Plant`, `ValidityEndDate`
+- Keys: `WorkCenter`, `Plant`, `ValidityEndDate`, `ActivityTypeSet`, `CostCenterAssgmtCounter`
 - Scope: `src.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
@@ -54,6 +54,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ValidityStartDate` | CRCO-BEGDA | CRCO-BEGDA | copy |  |
 | `ControllingArea` | CRCO-KOKRS | CRCO-KOKRS | copy |  |
 | `CostCenter` | CRCO-KOSTL | CRCO-KOSTL | copy |  |
+| `ActivityTypeSet` | CRCO-LASET | CRCO-LASET | copy |  |
+| `CostCenterAssgmtCounter` | CRCO-LANUM | CRCO-LANUM | copy |  |
 
 ## `ZEMX_C_WorkCenterCapacityMig`
 
@@ -98,8 +100,6 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_WorkCenterText` | `WorkCenterInternalID` | CRTX-OBJID | not migrated: internal object ID |
 | `ZEMX_I_WorkCenterText` | `IsMarkedForDeletion` | CRHD-LVORM | scope flag |
 | `ZEMX_I_WorkCenterCostCenter` | `WorkCenterInternalID` | CRCO-OBJID | not migrated: internal object ID |
-| `ZEMX_I_WorkCenterCostCenter` | `ActivityTypeSet` | CRCO-LASET | information only |
-| `ZEMX_I_WorkCenterCostCenter` | `CostCenterAssgmtCounter` | CRCO-LANUM | information only |
 | `ZEMX_I_WorkCenterCostCenter` | `IsMarkedForDeletion` | CRHD-LVORM | scope flag |
 
 ## Reconciliation

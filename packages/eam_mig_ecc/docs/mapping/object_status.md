@@ -14,7 +14,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## `ZEMX_C_UserStatusMig`
 
 - Source: `ZEMX_I_ObjectStatus`
-- Keys: `StatusObjectKey`, `StatusCode`
+- Keys: `StatusObjectKey`, `StatusCode`, `StatusObjectType`
 - Scope: `src.StatusKind = 'E'`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |

@@ -19,6 +19,10 @@ define view ZEMX_C_WorkCenterCostCtrMig
   key src.Plant             as Plant,
       @EndUserText.label: 'Validity End Date'
   key src.ValidityEndDate   as ValidityEndDate,
+      @EndUserText.label: 'Activity type set'
+  key src.ActivityTypeSet as ActivityTypeSet,
+      @EndUserText.label: 'Assignment counter'
+  key src.CostCenterAssgmtCounter as CostCenterAssgmtCounter,
       @EndUserText.label: 'Validity Start Date'
       src.ValidityStartDate as ValidityStartDate,
       @EndUserText.label: 'Controlling Area'

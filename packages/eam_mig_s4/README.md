@@ -10,7 +10,7 @@ S/4HANA views the migrated data is compared with.
 | | |
 |---|---|
 | Product folder | `packages/eam_mig_s4` |
-| Object prefix | `ZEMT_` (use the same customer prefix as for the ECC extraction) |
+| Object prefix | `ZEMT_` (separate target prefix; default ZEMT_) |
 | ABAP package | `ZEMT_MIG` |
 | Target release | SAP S/4HANA 2025 (on-premise / Private Cloud Edition) |
 

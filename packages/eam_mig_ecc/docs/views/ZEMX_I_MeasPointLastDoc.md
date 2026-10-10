@@ -10,12 +10,12 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MeasurementDocument` |
+| Data source | `ZEMX_I_MeasurementDocument`, join `ZEMX_I_MeasPointLastTime` |
 | Source file | `src/zemx_i_measpointlastdoc.ddls.asddls` |
 
 ## Purpose
 
-Highest non-cancelled measurement document number per measuring point (helper for the last reading).
+Latest non-cancelled reading by date and time; highest document ID breaks timestamp ties.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Highest non-cancelled measurement document number per measuring point (helper fo
 
 ## Access control
 
-No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
+No DCL by design: Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.
 
 ## Example use case
 
@@ -35,4 +35,4 @@ Read LastMeasurementDocument of measuring point 1234.
 
 ## Open verification items
 
-`XMD-002` - see `BATCH_REPORT.md`.
+none

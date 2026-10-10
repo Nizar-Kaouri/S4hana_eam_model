@@ -47,6 +47,8 @@ def elements(root, view):
     text = source_text(root, view)
     if "{" not in text:
         return set(), set()
+    # Later UNION branches repeat the projection; their FROM aliases are not elements.
+    text = re.split(r"\bunion\s+(?:all\s+)?select\b", text, maxsplit=1, flags=re.IGNORECASE)[0]
     body = text[text.index("{") + 1:text.rindex("}")]
     names = set(re.findall(r"\bas\s+(\w+)\s*(?:,|$)", body, re.MULTILINE))
     keys = set(re.findall(r"^\s*key\s+.*?\bas\s+(\w+)", body, re.MULTILINE))

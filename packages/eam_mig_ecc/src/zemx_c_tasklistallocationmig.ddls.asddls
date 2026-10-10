@@ -21,8 +21,14 @@ define view ZEMX_C_TaskListAllocationMig
       @EndUserText.label: 'Task List Group Counter'
   key src.TaskListGroupCounter as TaskListGroupCounter,
       @EndUserText.label: 'Equipment'
-      src.Equipment            as Equipment,
+  key src.Equipment            as Equipment,
       @EndUserText.label: 'Functional Location'
-      src.FunctionalLocation   as FunctionalLocation
+  key src.FunctionalLocation   as FunctionalLocation,
+      @EndUserText.label: 'AdditionalCriteriaCounter'
+  key src.AdditionalCriteriaCounter as AdditionalCriteriaCounter,
+      @EndUserText.label: 'AssignmentCounter'
+  key src.AssignmentCounter as AssignmentCounter,
+      @EndUserText.label: 'IsMarkedForDeletion'
+      src.IsMarkedForDeletion as IsMarkedForDeletion
 }
 where _TaskListCurrent.IsMarkedForDeletion = ''

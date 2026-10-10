@@ -63,7 +63,7 @@ def parse_view(text):
     info["source"] = src.group(1) if src else "-"
     info["joins"] = re.findall(r"\bjoin\s+([\w/]+)", code, re.I)
     info["params"] = re.findall(r"(P_\w+)\s*:\s*([\w.()]+)", code.split("as projection on")[0].split("as select")[0])
-    info["keys"] = re.findall(r"^\s*key\s+(?:[\w]+\.)?(\w+)", code, re.M)
+    info["keys"] = list(dict.fromkeys(re.findall(r"^\s*key\s+(?:[\w]+\.)?(\w+)", code, re.M)))
     info["assocs"] = re.findall(r"association\s+(?:of\s+[\w\s]+\s+)?(\[[^\]]*\]|to\s+(?:one|many)\b)?\s*(?:to\s+)?([\w/]+)\s+as\s+(\w+)", code, re.I)
     return info
 

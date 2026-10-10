@@ -105,6 +105,63 @@ class BuildMigrationTest(unittest.TestCase):
         self.assertEqual(db.execute(query + " where op.IsMarkedForDeletion=''").fetchall(), [])
         db.close()
 
+    def test_selected_sequence_has_only_shipped_modules_and_working_links(self):
+        import re
+        out, _ = bp.build(['equipment'], out=self.tmp / 'selected.zip', root=ECC)
+        with zipfile.ZipFile(out) as zf:
+            seq = zf.read('mapping/MIGRATION_SEQUENCE.md').decode()
+            self.assertNotIn('task_list', seq)
+            for target in re.findall(r'\]\(([^)]+)\)', seq):
+                self.assertIn('mapping/' + target, zf.namelist())
+
+    def test_reading_selection_uses_date_time_then_document_id(self):
+        import sqlite3
+        import re
+        db = sqlite3.connect(':memory:')
+        db.executescript("""
+          create table ZEMX_I_MeasurementDocument(MeasuringPoint,MeasurementDocument,MsmtRdngDate,MsmtRdngTime,MsmtDocumentIsCancelled);
+          insert into ZEMX_I_MeasurementDocument values
+            ('P',999,'20251001','120000',''), ('P',10,'20251002','080000',''),
+            ('P',11,'20251002','090000',''), ('P',12,'20251002','090000',''),
+            ('P',1000,'20251003','100000','X');
+        """)
+        for name in ('ZEMX_I_MeasPointLastDate','ZEMX_I_MeasPointLastTime','ZEMX_I_MeasPointLastDoc'):
+            ddl = (ECC / 'src' / (name.lower()+'.ddls.asddls')).read_text()
+            body = re.sub(r'^\s*@[^\n]+\n', '', ddl[ddl.index('{')+1:ddl.index('}')], flags=re.M)
+            body = re.sub(r'\bkey\s+', '', body)
+            source = ddl[ddl.index('as select from')+len('as select from'):ddl.index('{')]
+            tail = ddl[ddl.index('}')+1:]
+            db.execute('create view '+name+' as select '+body+' from '+source+' '+tail)
+        self.assertEqual(db.execute('select * from ZEMX_I_MeasPointLastDoc').fetchall(), [('P',12)])
+        db.close()
+
+    def test_task_list_allocations_preserve_both_object_types_and_history(self):
+        import sqlite3
+        import re
+        db = sqlite3.connect(':memory:')
+        db.executescript("""
+          create table eapl(plnty,plnnr,plnal,equnr,zkriz,zaehl,loekz);
+          create table tapl(plnty,plnnr,plnal,tplnr,zkriz,zaehl,loekz);
+          insert into eapl values ('E','G','1','EQ1',0,1,''),('E','G','1','EQ1',0,2,'X');
+          insert into tapl values ('T','G','1','FL1',0,1,'');
+        """)
+        for name in ('ZEMX_I_EquipTaskListAsgmt','ZEMX_I_FuncTaskListAsgmt','ZEMX_I_TaskListObjectAssgmt'):
+            ddl = bp.strip_comments((ECC / 'src' / (name.lower()+'.ddls.asddls')).read_text(), 'DDLS')
+            sql = ddl[ddl.index('as select from')+3:]
+            sql = re.sub(r'^\s*@[^\n]+\n', '', sql, flags=re.M)
+            sql = re.sub(r'\bkey\s+', '', sql)
+            sql = re.sub(r"cast\( '' as abap.char\(\d+\) \)", "''", sql)
+            parts = re.split(r'\bunion all\b', sql)
+            selects = []
+            for part in parts:
+                source = part[part.index('select from')+len('select from'):part.index('{')]
+                body = part[part.index('{')+1:part.index('}')]
+                selects.append('select '+body+' from '+source)
+            db.execute('create view '+name+' as '+' union all '.join(selects))
+        rows = db.execute('select Equipment,FunctionalLocation,AssignmentCounter,IsMarkedForDeletion from ZEMX_I_TaskListObjectAssgmt order by TaskListType,AssignmentCounter').fetchall()
+        self.assertEqual(rows, [('EQ1','',1,''),('EQ1','',2,'X'),('','FL1',1,'')])
+        db.close()
+
     def test_sql_view_name_too_long_for_prefix(self):
         with self.assertRaises(bp.BuildError) as ctx:
             bp.check_lengths([("DDLS", "ZEMX_I_Equipment", "equipment")], "ZEMX_", "ZABCDEFGHIJKLM_",

@@ -272,7 +272,11 @@
       "keys": [
         "TaskListType",
         "TaskListGroup",
-        "TaskListGroupCounter"
+        "TaskListGroupCounter",
+        "Equipment",
+        "FunctionalLocation",
+        "AdditionalCriteriaCounter",
+        "AssignmentCounter"
       ],
       "fields": [
         {
@@ -298,19 +302,42 @@
         },
         {
           "element": "Equipment",
-          "source": "EAPL-EQUNR",
+          "source": "EAPL-EQUNR (blank for TAPL functional-location assignments)",
           "target": "EAPL-EQUNR",
           "rule": "copy",
           "compare": false
         },
         {
           "element": "FunctionalLocation",
-          "source": "EAPL-TPLNR",
+          "source": "TAPL-TPLNR (blank for EAPL equipment assignments)",
           "target": "EAPL-TPLNR",
           "rule": "copy",
           "compare": false
+        },
+        {
+          "element": "AdditionalCriteriaCounter",
+          "source": "EAPL/TAPL-ZKRIZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AssignmentCounter",
+          "source": "EAPL/TAPL-ZAEHL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsMarkedForDeletion",
+          "source": "EAPL/TAPL-LOEKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
-      ]
+      ],
+      "delivery_mode": "version_ledger",
+      "preprocessing": "Resolve EAPL/TAPL assignment counters, additional criteria and deletion states for the cutover date. Do not post every history row."
     },
     {
       "consumption_view": "ZEMX_C_TaskListCompMig",

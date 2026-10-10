@@ -151,3 +151,31 @@ class RecordsTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CsvIntegrityTest(unittest.TestCase):
+    def test_multiline_fields_are_preserved(self):
+        with tempfile.TemporaryDirectory() as folder:
+            rows = mr.read_csv(write(folder, 'x.csv', 'Key,Text\n1,"first\nsecond"\n'))
+            self.assertEqual(rows[0]['Text'], 'first\nsecond')
+
+    def test_invalid_csv_is_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            for text in ('', 'A,A\n1,2\n', 'A,B\n1\n', 'A,B\n1,2,3\n'):
+                with self.subTest(text=text), self.assertRaises(mr.InputError):
+                    mr.read_csv(write(folder, 'x.csv', text))
+
+    def test_empty_exports_still_require_the_correct_header(self):
+        with tempfile.TemporaryDirectory() as folder:
+            rows = mr.read_csv(write(folder, 'x.csv', 'Wrong,Header\n'))
+            with self.assertRaises(mr.InputError):
+                mr.require(rows, ['Equipment'], 'source')
+
+    def test_counts_are_exact_and_reject_invalid_values(self):
+        mapping = {'reconciliation': {'dimensions': [], 'measure': 'RecordCount'}}
+        value = '9007199254740993'
+        result = mr.counts(mapping, [{'RecordCount':value}], [{'RecordCount':value}], mr.Maps(None))
+        self.assertEqual(result['source_total'], int(value))
+        for value in ('', '1.5', '-1', 'NaN', 'Infinity'):
+            with self.subTest(value=value), self.assertRaises(mr.InputError):
+                mr.counts(mapping, [{'RecordCount':value}], [], mr.Maps(None))
