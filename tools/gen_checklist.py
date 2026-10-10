@@ -9,8 +9,11 @@ Usage: python3 tools/gen_checklist.py [--check]
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vdm_paths  # noqa: E402  (consumes --product)
+
+ROOT = vdm_paths.PRODUCT_ROOT
+sys.path.insert(0, str(vdm_paths.REPO))
 import build_package as bp  # noqa: E402
 
 FILE = ROOT / "ACTIVATION_CHECKLIST.md"

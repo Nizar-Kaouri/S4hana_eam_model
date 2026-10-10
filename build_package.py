@@ -13,11 +13,11 @@ What it does
      and an ACTIVATION_ORDER.txt computed from the object references.
 
 Examples
-  python3 build_package.py --list
-  python3 build_package.py equipment
-  python3 build_package.py equipment functional_location --prefix ZACME_ --package ZACME_EAM
-  python3 build_package.py --all --prefix /ACME/ --package /ACME/EAM_VDM --with-tests
-  python3 build_package.py --all --activation-order
+  python3 build_package.py --product eam --list
+  python3 build_package.py --product eam equipment
+  python3 build_package.py --product eam equipment functional_location --prefix ZACME_ --package ZACME_EAM
+  python3 build_package.py --product eam --all --prefix /ACME/ --package /ACME/EAM_VDM --with-tests
+  python3 build_package.py --product eam --all --activation-order
 
 Status: the generated content is draft-unverified (never activated on an SAP system).
 """
@@ -30,7 +30,10 @@ import zipfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(Path(__file__).resolve().parent / "tools"))
+import vdm_paths  # noqa: E402  (consumes --product)
+
+ROOT = vdm_paths.PRODUCT_ROOT
 
 # object type -> (source dir, list of file suffixes belonging to the object)
 OBJECT_FILES = {
@@ -293,7 +296,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
     order = activation_order(objects, old_prefix, root)
     rewrite = make_rewriter(old_prefix, new_prefix, old_package, new_package)
 
-    out = Path(out) if out else root / "dist" / f"{file_base(new_package)}_{'_'.join(resolved)[:80]}.zip"
+    out = Path(out) if out else vdm_paths.REPO / "dist" / root.name / f"{file_base(new_package)}_{'_'.join(resolved)[:80]}.zip"
     out.parent.mkdir(parents=True, exist_ok=True)
 
     manifest = {
@@ -329,7 +332,8 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
-    ap.add_argument("modules", nargs="*", help="module names (folder names under /modules)")
+    ap.add_argument("--product", help="product folder under /packages (e.g. eam); also VDM_PRODUCT")
+    ap.add_argument("modules", nargs="*", help="module names (folder names under packages/<product>/modules)")
     ap.add_argument("--all", action="store_true", help="select every module")
     ap.add_argument("--prefix", help="target object prefix, e.g. ZACME_ or /ACME/ (default: library.json)")
     ap.add_argument("--package", help="target package, e.g. ZACME_EAM (default: library.json)")

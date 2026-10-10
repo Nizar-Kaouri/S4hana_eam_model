@@ -13,9 +13,11 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vdm_paths  # noqa: E402  (consumes --product)
+
+ROOT = vdm_paths.PRODUCT_ROOT
+sys.path.insert(0, str(vdm_paths.REPO))
 import build_package as bp  # noqa: E402
 import gen_docs  # noqa: E402
 
@@ -94,6 +96,17 @@ def render():
 
 
 def main():
+    if not bp.load_modules():
+        # empty product: no map (the page needs at least one entity)
+        if "--check" in sys.argv:
+            if OUT.exists():
+                print("docs/model_map.html exists but the product has no modules - delete it")
+                sys.exit(1)
+            return
+        if OUT.exists():
+            OUT.unlink()
+        print("no modules - no model map")
+        return
     html = render()
     if "--check" in sys.argv:
         if not OUT.exists() or OUT.read_text(encoding="utf-8") != html:
@@ -101,7 +114,7 @@ def main():
             sys.exit(1)
         return
     OUT.write_text(html, encoding="utf-8")
-    print(f"wrote {OUT.relative_to(ROOT)} ({len(html) // 1024} KB)")
+    print(f"wrote {vdm_paths.rel(OUT)} ({len(html) // 1024} KB)")
 
 
 if __name__ == "__main__":

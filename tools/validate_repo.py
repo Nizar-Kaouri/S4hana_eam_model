@@ -25,9 +25,11 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vdm_paths  # noqa: E402  (consumes --product)
+
+ROOT = vdm_paths.PRODUCT_ROOT
+sys.path.insert(0, str(vdm_paths.REPO))
 
 import build_package as bp  # noqa: E402
 import sync_xml  # noqa: E402
@@ -90,7 +92,7 @@ def main():
         folder, suffixes = bp.OBJECT_FILES[t]
         path = ROOT / folder / (n_upper.lower().replace("/", "#") + suffixes[0])
         if not path.exists():
-            err(f"M2 {t} {n_upper} ({mod}) has no file {path.relative_to(ROOT)}")
+            err(f"M2 {t} {n_upper} ({mod}) has no file {vdm_paths.rel(path)}")
     for m in modules.values():
         for t, n, _ in bp.module_objects(m, with_tests=True):
             canonical[(t, n.upper())] = n
@@ -104,7 +106,7 @@ def main():
             for ext, t in ext_type.items():
                 if path.name.endswith(ext):
                     if (t, path.name[: -len(ext)].upper().replace("#", "/")) not in owner:
-                        err(f"M2 {path.relative_to(ROOT)} is not listed in any module.json")
+                        err(f"M2 {vdm_paths.rel(path)} is not listed in any module.json")
 
     ddls_text = {}
     for (t, n_upper), mod in owner.items():
@@ -247,28 +249,28 @@ def main():
     # M10 - XML sync
     for path, content in sync_xml.expected_files().items():
         if not path.exists() or path.read_text(encoding="utf-8") != content:
-            err(f"M10 {path.relative_to(ROOT)} out of date - run python3 tools/sync_xml.py")
+            err(f"M10 {vdm_paths.rel(path)} out of date - run python3 tools/sync_xml.py")
 
     for path, content in gen_docs.expected().items():
         if not path.exists() or path.read_text(encoding="utf-8") != content:
-            err(f"M10 {path.relative_to(ROOT)} out of date - run python3 tools/gen_docs.py")
+            err(f"M10 {vdm_paths.rel(path)} out of date - run python3 tools/gen_docs.py")
 
     # M11 - markers
     seen = {}
-    for folder in ("src", "tests", "tools"):
-        for path in sorted((ROOT / folder).rglob("*")):
+    for base in (ROOT / "src", ROOT / "tests", vdm_paths.TOOLS):
+        for path in sorted(base.rglob("*")):
             if not path.is_file() or path.suffix == ".pyc" or path.name in ("validate_repo.py", "todo_verify_report.py"):
                 continue
             for i, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
                 if LOOSE_MARKER_RE.search(line):
                     m = MARKER_RE.search(line)
                     if not m:
-                        err(f"M11 {path.relative_to(ROOT)}:{i}: malformed TODO-VERIFY marker")
+                        err(f"M11 {vdm_paths.rel(path)}:{i}: malformed TODO-VERIFY marker")
                     elif m.group("id") in seen:
                         err(f"M11 duplicate TODO-VERIFY id {m.group('id')} ({seen[m.group('id')]} and "
-                            f"{path.relative_to(ROOT)}:{i})")
+                            f"{vdm_paths.rel(path)}:{i})")
                     else:
-                        seen[m.group("id")] = f"{path.relative_to(ROOT)}:{i}"
+                        seen[m.group("id")] = f"{vdm_paths.rel(path)}:{i}"
 
     for e in errors:
         print("ERROR " + e)

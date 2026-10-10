@@ -16,8 +16,11 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vdm_paths  # noqa: E402  (consumes --product)
+
+ROOT = vdm_paths.PRODUCT_ROOT
+sys.path.insert(0, str(vdm_paths.REPO))
 import build_package as bp  # noqa: E402
 
 REPORT = ROOT / "BATCH_REPORT.md"
@@ -45,8 +48,8 @@ def batch_map():
 def collect():
     batches = batch_map()
     items = []
-    for folder in ("src", "tests", "tools"):
-        for path in sorted((ROOT / folder).rglob("*")):
+    for base in (ROOT / "src", ROOT / "tests", vdm_paths.TOOLS):
+        for path in sorted(base.rglob("*")):
             if not path.is_file() or path.suffix == ".pyc" or path.name in ("todo_verify_report.py", "validate_repo.py"):
                 continue
             for i, line in enumerate(path.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
@@ -54,7 +57,7 @@ def collect():
                 if m:
                     batch = batches.get(path.name.split(".")[0], "tooling")
                     items.append((m.group("risk"), m.group("id"), m.group("text").replace("|", "\\|"),
-                                  f"{path.relative_to(ROOT)}:{i}", batch))
+                                  f"{vdm_paths.rel(path)}:{i}", batch))
     items.sort(key=lambda it: (RISK_ORDER[it[0]], it[1]))
     return items
 

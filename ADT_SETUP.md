@@ -39,7 +39,7 @@ Always push the **output of the build**, not the raw `src/`. Then prefixes, the 
 selection and link views match what a customer would get:
 
 ```bash
-python3 build_package.py --all --with-tests --out dist/all.zip
+python3 build_package.py --product eam --all --with-tests --out dist/all.zip
 unzip -o dist/all.zip -d dist/all
 cat dist/all/ACTIVATION_ORDER.txt
 ```
@@ -146,7 +146,7 @@ process.exit(result.success ? 0 : 1);
 
 - `activate()` returns `{ success, messages[], inactive[] }`. Each message has a type
   (`E`/`W`/`I`), a short text and an `href` pointing to object + position
-  (`#start=<line>,<col>`). Map the object name back to `src/<name>.<type>` (undo the
+  (`#start=<line>,<col>`). Map the object name back to `packages/<product>/src/<name>.<type>` (undo the
   prefix rewrite: `ZACME_` → `ZEAM_`). The line numbers match because the build does not
   change line structure.
 - Typical first-import errors and what they mean for this library:
@@ -161,8 +161,8 @@ process.exit(result.success ? 0 : 1);
 
 ### Fix rules
 
-1. Change sources only in git. Re-run `node <abaplint>`, `python3 tools/sync_xml.py`,
-   `python3 tools/validate_repo.py` and `python3 tools/todo_verify_report.py`.
+1. Change sources only in git (`packages/<product>/src`). Re-run
+   `python3 tools/check_all.py --only <product> --fix` and then without `--fix`.
 2. When an item is confirmed (activated without error **and** the data preview is
    plausible), delete its `TODO-VERIFY` marker and add a line to the *Verification log* in
    `BATCH_REPORT.md`.
@@ -173,7 +173,7 @@ process.exit(result.success ? 0 : 1);
 
 If you would rather not create objects through the API:
 
-1. `python3 build_package.py <modules> --with-tests` → ZIP.
+1. `python3 build_package.py --product <product> <modules> --with-tests` → ZIP.
 2. In SAP GUI run `ZABAPGIT` → *New Offline* → package → *Import ZIP* → *Pull*.
 3. abapGit shows activation errors in its log. Fix in git, rebuild, pull again.
 4. Use the script above only for activation and ABAP Unit

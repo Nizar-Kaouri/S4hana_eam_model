@@ -1,0 +1,113 @@
+{
+  "global": {
+    "files": "/{src,tests/abap}/**/*.*",
+    "exclude": [],
+    "skipGeneratedGatewayClasses": true,
+    "skipGeneratedPersistentClasses": true,
+    "skipGeneratedFunctionGroups": true
+  },
+  "dependencies": [],
+  "syntax": {
+    "version": "v816",
+    "errorNamespace": "^(ZPSV_|LCL_|TY_|LIF_)",
+    "globalConstants": [],
+    "globalMacros": []
+  },
+  "rules": {
+    "cds_parser_error": true,
+    "cds_legacy_view": true,
+    "cds_comment_style": true,
+    "cds_association_name": true,
+    "cds_field_order": true,
+    "cds_naming": {
+      "basicInterfaceView": "ZPSV_I_",
+      "compositeInterfaceView": "ZPSV_I_",
+      "consumptionView": "ZPSV_C_",
+      "basicRestrictedReuseView": "ZPSV_R_",
+      "compositeRestrictedReuseView": "ZPSV_R_",
+      "privateView": "ZPSV_P_",
+      "remoteAPIView": "ZPSV_A_",
+      "viewExtend": "ZPSV_X_",
+      "extensionIncludeView": "ZPSV_E_",
+      "derivationFunction": "ZPSV_F_",
+      "abstractEntity": "ZPSV_D_"
+    },
+    "allowed_object_types": {
+      "allowed": [
+        "DDLS",
+        "DCLS",
+        "DDLX",
+        "DEVC",
+        "CLAS"
+      ]
+    },
+    "allowed_object_naming": true,
+    "xml_consistency": true,
+    "parser_error": true,
+    "check_syntax": true,
+    "unknown_types": true,
+    "check_no_handler_pragma": true,
+    "keyword_case": {
+      "style": "upper",
+      "ignoreLowerClassImplmentationStatement": true,
+      "ignoreGlobalClassDefinition": false,
+      "ignoreGlobalInterface": false,
+      "ignoreFunctionModuleName": false,
+      "ignoreGlobalClassBoundaries": false,
+      "ignoreKeywords": []
+    },
+    "line_length": {
+      "length": 120
+    },
+    "indentation": true,
+    "contains_tab": true,
+    "unused_variables": true,
+    "prefer_inline": false,
+    "local_variable_names": false,
+    "method_parameter_names": false,
+    "exporting": true,
+    "functional_writing": true,
+    "obsolete_statement": true,
+    "superclass_final": true,
+    "sql_escape_host_variables": true,
+    "strict_sql": false,
+    "begin_end_names": true,
+    "empty_structure": true,
+    "use_new": true,
+    "whitespace_end": true,
+    "max_one_statement": true,
+    "colon_missing_space": true,
+    "double_space": true,
+    "start_at_tab": true,
+    "space_before_colon": true,
+    "space_before_dot": true,
+    "sequential_blank": {
+      "lines": 3
+    },
+    "definitions_top": true,
+    "if_in_if": true,
+    "commented_code": true,
+    "empty_statement": true,
+    "identical_form_names": true,
+    "mix_returning": true,
+    "preferred_compare_operator": true,
+    "unreachable_code": true,
+    "release_idoc": true,
+    "abapdoc": false,
+    "form_no_dash": true,
+    "global_class": true,
+    "implement_methods": true,
+    "check_ddic": true,
+    "check_include": true,
+    "msag_consistency": true,
+    "method_length": {
+      "statements": 100,
+      "ignoreTestClasses": false,
+      "errorWhenEmpty": false
+    },
+    "cyclomatic_complexity": {
+      "max": 20
+    },
+    "tabl_enhancement_category": true
+  }
+}

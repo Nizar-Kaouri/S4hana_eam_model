@@ -1,0 +1,18 @@
+{
+  "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
+  "phase": "no-system",
+  "prefix": "ZPSV_",
+  "package": "ZPSV_VDM",
+  "package_description": "Project System CDS Virtual Data Model",
+  "product_title": "Project System",
+  "sap_area": "PS",
+  "target_release": "SAP S/4HANA 2025 (on-premise / Private Cloud Edition)",
+  "max_object_name_length": {
+    "DDLS": 30,
+    "DCLS": 30,
+    "DDLX": 30,
+    "CLAS": 30,
+    "DEVC": 30
+  },
+  "reserve_prefix_chars": 1
+}

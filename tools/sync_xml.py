@@ -14,7 +14,10 @@ import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
 
-ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vdm_paths  # noqa: E402  (consumes --product)
+
+ROOT = vdm_paths.PRODUCT_ROOT
 SRC = ROOT / "src"
 
 LABEL_RE = re.compile(r"@EndUserText\.label\s*:\s*'([^']*)'")
@@ -135,7 +138,7 @@ def main():
             if not check:
                 path.write_text(content, encoding="utf-8")
     for p in stale:
-        print(("STALE " if check else "wrote ") + str(p.relative_to(ROOT)))
+        print(("STALE " if check else "wrote ") + vdm_paths.rel(str(p)))
     if check and stale:
         sys.exit(1)
 

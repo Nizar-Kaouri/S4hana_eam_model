@@ -1,5 +1,6 @@
-"""Unit tests for build_package.py (run: python3 -m unittest discover -s tests/build)."""
+"""Unit tests for build_package.py against the EAM product (run: python3 -m unittest discover -s tools/tests)."""
 import json
+import os
 import shutil
 import sys
 import tempfile
@@ -9,6 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
+os.environ["VDM_PRODUCT"] = "eam"
 import build_package as bp  # noqa: E402
 
 

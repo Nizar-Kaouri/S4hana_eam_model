@@ -13,8 +13,11 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vdm_paths  # noqa: E402  (consumes --product)
+
+ROOT = vdm_paths.PRODUCT_ROOT
+sys.path.insert(0, str(vdm_paths.REPO))
 import build_package as bp  # noqa: E402
 
 DOCS = ROOT / "docs" / "views"
@@ -150,7 +153,7 @@ def main():
     orphans = [p for p in DOCS.glob("*.md") if p not in exp]
     if check:
         for p in stale + orphans:
-            print("STALE " + str(p.relative_to(ROOT)))
+            print("STALE " + vdm_paths.rel(str(p)))
         sys.exit(1 if stale or orphans else 0)
     DOCS.mkdir(parents=True, exist_ok=True)
     for p in stale:
