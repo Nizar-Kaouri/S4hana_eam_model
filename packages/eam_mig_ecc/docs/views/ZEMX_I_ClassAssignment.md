@@ -4,25 +4,25 @@
 
 | | |
 |---|---|
-| Description | Class assignment (migration extract) |
+| Description | Class assignment |
 | Module | `classification` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `kssk`, join `klah` |
+| Data source | `ZEMX_I_ObjectClassAssgmt`, join `ZEMX_I_ClassHeader` |
 | Source file | `src/zemx_i_classassignment.ddls.asddls` |
 
 ## Purpose
 
-Class assignments of objects (class type 002 equipment, 003 functional location, ...) with the class name instead of the internal class number.
+Class assignments with the class name instead of the internal class number.
 
 ## Keys
 
-- `objek`
-- `klart`
-- `clint`
-- `adzhl`
+- `ClassifiedObject`
+- `ClassType`
+- `ClassInternalID`
+- `ChangeCounter`
 
 ## Associations defined here
 
@@ -30,12 +30,12 @@ Class assignments of objects (class type 002 equipment, 003 functional location,
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the equipment classes: filter ClassType = '002'.
+Read the equipment classes: filter ClassType = '002'.
 
 ## Open verification items
 
-`XCL-001`, `XCL-002` - see `BATCH_REPORT.md`.
+none

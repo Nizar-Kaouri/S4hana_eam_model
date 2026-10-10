@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_MEASURINGPOINT</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Measuring point (migration extract)</DDTEXT>
+    <DDTEXT>Measuring point</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

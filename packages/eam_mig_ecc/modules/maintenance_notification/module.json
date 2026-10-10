@@ -2,8 +2,8 @@
   "name": "maintenance_notification",
   "title": "Maintenance notification",
   "description": "Open PM notifications with items.",
-  "batch": 1,
-  "version": "0.1.0",
+  "batch": 2,
+  "version": "0.2.0",
   "status": "draft-unverified",
   "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
   "tags": [
@@ -14,30 +14,42 @@
   "sap_tables": [
     "QMEL",
     "QMIH",
-    "QMFE",
-    "ILOA",
-    "CRHD",
-    "JEST"
+    "QMFE"
   ],
   "sap_released_views": [],
-  "hard_dependencies": [],
+  "hard_dependencies": [
+    "core",
+    "work_center"
+  ],
   "objects": {
+    "tables": [],
     "basic": [
+      "ZEMX_I_NotificationHeader",
+      "ZEMX_I_NotificationMaintData",
+      "ZEMX_I_NotificationItemData"
+    ],
+    "composite": [
       "ZEMX_I_MaintNotification",
       "ZEMX_I_MaintNotifItem"
     ],
-    "composite": [
-      "ZEMX_R_MaintNotifCount"
+    "consumption": [
+      "ZEMX_C_MaintNotificationMig",
+      "ZEMX_C_MaintNotifItemMig",
+      "ZEMX_C_MaintNotifMigCount"
     ],
-    "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEMX_I_MaintNotification": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
-    "ZEMX_I_MaintNotifItem": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
-    "ZEMX_R_MaintNotifCount": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01)."
+    "ZEMX_I_NotificationHeader": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_NotificationMaintData": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_NotificationItemData": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_MaintNotification": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_MaintNotifItem": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_MaintNotificationMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_MaintNotifItemMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_MaintNotifMigCount": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline)."
   },
   "link_views": []
 }

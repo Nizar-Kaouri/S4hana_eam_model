@@ -2,10 +2,9 @@
   "module": "object_partner",
   "status": "draft-unverified",
   "target": {
-    "tool": "SAP S/4HANA Migration Cockpit",
-    "migration_object": "Partner (part of the object migration)",
+    "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
     "todo_verify": [
-      "TODO-VERIFY[H] XPA-M01: Migration Cockpit object for 'Partner (part of the object migration)' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+      "TODO-VERIFY[M] XPA-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -16,88 +15,105 @@
   ],
   "key": {
     "business_key": [
-      "ObjectNumber",
+      "PartnerObjectKey",
       "PartnerFunction",
       "PartnerCounter"
     ],
     "numbering": "derived",
-    "note": "Partner numbers of customers and vendors map to business partners (key map 'business_partner' from the customer / vendor integration)."
+    "note": "Customers and vendors map to business partners through the key map 'BUSINESS_PARTNER' from the business partner migration."
   },
-  "scope": {
-    "filter": "IsMarkedForDeletion = ''",
-    "note": ""
-  },
-  "fields": [
+  "provides_key_maps": [],
+  "external_key_maps": [
+    "business_partner"
+  ],
+  "value_maps": [
+    "partner_function"
+  ],
+  "key_maps": [
+    "business_partner",
+    "equipment",
+    "functional_location",
+    "maintenance_notification",
+    "maintenance_order"
+  ],
+  "structures": [
+    {
+      "consumption_view": "ZEMX_C_ObjectPartnerMig",
+      "source_view": "ZEMX_I_ObjectPartner",
+      "scope_filter": "src.IsMarkedForDeletion = ''",
+      "keys": [
+        "LegacyPartnerObjectKey",
+        "LegacyPartnerFunction",
+        "PartnerCounter"
+      ],
+      "fields": [
+        {
+          "element": "PartnerCounter",
+          "source": "IHPA-COUNTER",
+          "target": "IHPA-COUNTER",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "IHPA-PARVW",
+          "target": "IHPA-PARVW",
+          "rule": "value_map:partner_function",
+          "compare": false
+        },
+        {
+          "element": "PartnerObjectType",
+          "source": "IHPA: substring( ihpa.objnr, 1, 2 )",
+          "target": "",
+          "rule": "derive:object type of the object number",
+          "compare": false
+        },
+        {
+          "element": "PartnerObjectKey",
+          "source": "IHPA: substring( ihpa.objnr, 3, 30 )",
+          "target": "",
+          "rule": "key_map:equipment|functional_location|maintenance_notification|maintenance_order",
+          "compare": false
+        },
+        {
+          "element": "Partner",
+          "source": "IHPA-PARNR",
+          "target": "IHPA-PARNR",
+          "rule": "key_map:business_partner",
+          "compare": false
+        }
+      ]
+    }
+  ],
+  "not_migrated": [
     {
       "view": "ZEMX_I_ObjectPartner",
       "element": "ObjectNumber",
       "source": "IHPA-OBJNR",
-      "target": "IHPA-OBJNR",
-      "rule": "derive:object key from the object number",
-      "compare": false
-    },
-    {
-      "view": "ZEMX_I_ObjectPartner",
-      "element": "PartnerFunction",
-      "source": "IHPA-PARVW",
-      "target": "IHPA-PARVW",
-      "rule": "value_map:partner_function",
-      "compare": false
-    },
-    {
-      "view": "ZEMX_I_ObjectPartner",
-      "element": "PartnerCounter",
-      "source": "IHPA-COUNTER",
-      "target": "IHPA-COUNTER",
-      "rule": "copy",
-      "compare": false
-    },
-    {
-      "view": "ZEMX_I_ObjectPartner",
-      "element": "PartnerObjectType",
-      "source": "substring( ihpa.objnr, 1, 2 )",
-      "target": "",
-      "rule": "derive:selection helper - object type of the object number",
-      "compare": false
-    },
-    {
-      "view": "ZEMX_I_ObjectPartner",
-      "element": "Partner",
-      "source": "IHPA-PARNR",
-      "target": "IHPA-PARNR",
-      "rule": "convert:partner_to_business_partner",
-      "compare": false
+      "reason": "skip:rebuilt on S/4HANA from the translated object key"
     },
     {
       "view": "ZEMX_I_ObjectPartner",
       "element": "IsMarkedForDeletion",
       "source": "IHPA-KZLOESCH",
-      "target": "",
-      "rule": "scope",
-      "compare": false
+      "reason": "scope"
     }
   ],
-  "value_maps": [
-    "partner_function"
-  ],
-  "key_maps": [],
-  "provides_key_maps": [],
-  "external_key_maps": [],
   "reconciliation": {
-    "source_count_view": "ZEMX_R_ObjectPartnerCount",
+    "source_values": "target",
+    "source_count_view": "ZEMX_C_ObjectPartnerMigCount",
     "target_count_view": null,
     "dimensions": [
       {
-        "element": "PartnerObjectType",
-        "value_map": null
+        "element": "PartnerObjectType"
       },
       {
-        "element": "PartnerFunction",
-        "value_map": null
+        "element": "PartnerFunction"
       }
     ],
     "measure": "RecordCount",
     "compare": null
   },
-  "gaps": []
+  "gaps": [],
+  "main_structure": "ZEMX_C_ObjectPartnerMig"
 }

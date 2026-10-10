@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_FUNCLOC</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Functional location (migration extract)</DDTEXT>
+    <DDTEXT>Functional location</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

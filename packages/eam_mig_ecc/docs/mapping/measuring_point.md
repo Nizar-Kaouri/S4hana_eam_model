@@ -1,62 +1,72 @@
-# Mapping: measuring_point
+# Migration interface: measuring_point
 
 > Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
 
-- **Target:** SAP S/4HANA Migration Cockpit - migration object *Measuring point*
+- **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `equipment`, `functional_location`
 - **Business key:** `MeasuringPoint` · numbering **new**
-- **Key rule:** Measuring point numbers are usually assigned internally on S/4HANA: keep the key map 'measuring_point' (old,new) from the load log; maintenance plan cycles and measurement documents use it.
-- **Scope filter:** `IsMarkedForDeletion = ''` - Measuring points flagged for deletion are not migrated.
+- **Key rule:** Measuring point numbers are usually assigned internally on S/4HANA: the load program writes old -> new into the key map 'MEASURING_POINT' for the later objects.
 
-> TODO-VERIFY[H] XMP-M01: Migration Cockpit object for 'Measuring point' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance
+> TODO-VERIFY[M] XMP-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-## Fields
+Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
 
-| View | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|---|
-| `ZEMX_I_MeasuringPoint` | `MeasuringPoint` | IMPTT-POINT | IMPTT-POINT | key map: `measuring_point` | yes |
-| `ZEMX_I_MeasuringPoint` | `MeasuringPointDescription` | IMPTT-PTTXT | IMPTT-PTTXT | copy |  |
-| `ZEMX_I_MeasuringPoint` | `MeasuringPointCategory` | IMPTT-MPTYP | IMPTT-MPTYP | value map: `measuring_point_category` | yes |
-| `ZEMX_I_MeasuringPoint` | `MeasuringPointPositionNumber` | IMPTT-PSORT | IMPTT-PSORT | copy |  |
-| `ZEMX_I_MeasuringPoint` | `MeasuringPointObjectType` | substring( imptt.mpobj, 1, 2 ) | - | derive: IE = equipment, IF = functional location |  |
-| `ZEMX_I_MeasuringPoint` | `TechnicalObjectKey` | substring( imptt.mpobj, 3, 30 ) | IMPTT-MPOBJ (rebuilt from the new key) | key map: `equipment\|functional_location` |  |
-| `ZEMX_I_MeasuringPoint` | `Characteristic` | CABN-ATNAM | IMPTT-ATINN (via characteristic name) | copy |  |
-| `ZEMX_I_MeasuringPoint` | `MeasuringPointIsCounter` | IMPTT-INDCT | IMPTT-INDCT | copy | yes |
-| `ZEMX_I_MeasuringPoint` | `MeasuringPointDecimalPlaces` | IMPTT-DECIM | IMPTT-DECIM | copy |  |
-| `ZEMX_I_MeasuringPoint` | `MeasurementRangeUnit` | IMPTT-MRNGU | IMPTT-MRNGU | value map: `unit_of_measure` |  |
-| `ZEMX_I_MeasuringPoint` | `LowerRangeLimit` | IMPTT-MRMIN | IMPTT-MRMIN | convert: `float_si_to_unit` |  |
-| `ZEMX_I_MeasuringPoint` | `UpperRangeLimit` | IMPTT-MRMAX | IMPTT-MRMAX | convert: `float_si_to_unit` |  |
-| `ZEMX_I_MeasuringPoint` | `TargetValue` | IMPTT-DESIR | IMPTT-DESIR | convert: `float_si_to_unit` |  |
-| `ZEMX_I_MeasuringPoint` | `CodeGroup` | IMPTT-CODGR | IMPTT-CODGR | value map: `code_group` |  |
-| `ZEMX_I_MeasuringPoint` | `MeasuringPointIsInactive` | IMPTT-INACT | IMPTT-INACT | copy |  |
-| `ZEMX_I_MeasuringPoint` | `AuthorizationGroup` | IMPTT-BEGRU | IMPTT-BEGRU | value map: `authorization_group` |  |
-| `ZEMX_I_MeasuringPoint` | `IsMarkedForDeletion` | IMPTT-LVORM | - | scope filter |  |
-| `ZEMX_I_MeasuringPoint` | `CreationDate` | IMPTT-ERDAT | - | information only |  |
-| `ZEMX_I_MeasuringPoint` | `CreatedByUser` | IMPTT-ERNAM | - | information only |  |
-| `ZEMX_I_MeasuringPoint` | `LastChangeDate` | IMPTT-AEDAT | - | information only |  |
+## `ZEMX_C_MeasuringPointMig`
 
-## Value maps and key maps
+- Source: `ZEMX_I_MeasuringPoint`
+- Keys: `LegacyMeasuringPoint`
+- Scope: `src.IsMarkedForDeletion = ''`
 
-Templates: `docs/mapping/templates/` (columns `source,target,comment`). An empty map means "same value on S/4HANA".
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `MeasuringPoint` | IMPTT-POINT | IMPTT-POINT | key map: `MEASURING_POINT` | yes |
+| `MeasuringPointDescription` | IMPTT-PTTXT | IMPTT-PTTXT | copy |  |
+| `MeasuringPointCategory` | IMPTT-MPTYP | IMPTT-MPTYP | value map: `MEASURING_POINT_CATEGORY` | yes |
+| `MeasuringPointPositionNumber` | IMPTT-PSORT | IMPTT-PSORT | copy |  |
+| `MeasuringPointObjectType` | IMPTT: substring( imptt.mpobj, 1, 2 ) | - | derived: IE = equipment, IF = functional location |  |
+| `TechnicalObjectKey` | IMPTT: substring( imptt.mpobj, 3, 30 ) | - | key map: `EQUIPMENT`, `FUNCTIONAL_LOCATION` |  |
+| `Characteristic` | CABN-ATNAM | CABN-ATNAM | copy |  |
+| `MeasuringPointIsCounter` | IMPTT-INDCT | IMPTT-INDCT | copy | yes |
+| `MeasuringPointDecimalPlaces` | IMPTT-DECIM | IMPTT-DECIM | copy |  |
+| `MeasurementRangeUnit` | IMPTT-MRNGU | IMPTT-MRNGU | value map: `UNIT_OF_MEASURE` |  |
+| `LowerRangeLimit` | IMPTT-MRMIN | IMPTT-MRMIN | convert (load program): float_si_to_unit |  |
+| `UpperRangeLimit` | IMPTT-MRMAX | IMPTT-MRMAX | convert (load program): float_si_to_unit |  |
+| `TargetValue` | IMPTT-DESIR | IMPTT-DESIR | convert (load program): float_si_to_unit |  |
+| `CodeGroup` | IMPTT-CODGR | IMPTT-CODGR | value map: `CODE_GROUP` |  |
+| `MeasuringPointIsInactive` | IMPTT-INACT | IMPTT-INACT | copy |  |
+| `AuthorizationGroup` | IMPTT-BEGRU | IMPTT-BEGRU | value map: `AUTHORIZATION_GROUP` |  |
+| `LastChangeDate` | IMPTT-AEDAT | - | information only |  |
 
-- value map `authorization_group`
-- value map `code_group`
-- value map `measuring_point_category`
-- value map `unit_of_measure`
-- key map `equipment`
-- key map `functional_location`
-- key map `measuring_point`
+## Not delivered
 
-This object's load provides the key map(s) `measuring_point` (old key, new key from the load log).
+| View | Element | Source | Reason |
+|---|---|---|---|
+| `ZEMX_I_MeasuringPoint` | `MeasuringPointObjectNumber` | IMPTT-MPOBJ | not migrated: rebuilt from the translated technical object key |
+| `ZEMX_I_MeasuringPoint` | `CharcInternalID` | IMPTT-ATINN | not migrated: internal characteristic number - mapped by name |
+| `ZEMX_I_MeasuringPoint` | `IsMarkedForDeletion` | IMPTT-LVORM | scope flag |
+| `ZEMX_I_MeasuringPoint` | `CreationDate` | IMPTT-ERDAT | information only |
+| `ZEMX_I_MeasuringPoint` | `CreatedByUser` | IMPTT-ERNAM | information only |
+
+## Maps
+
+- value map `AUTHORIZATION_GROUP`
+- value map `CODE_GROUP`
+- value map `MEASURING_POINT_CATEGORY`
+- value map `UNIT_OF_MEASURE`
+- key map `EQUIPMENT`
+- key map `FUNCTIONAL_LOCATION`
+- key map `MEASURING_POINT`
+
+After loading this object, the key map(s) `MEASURING_POINT` (old key, new key from the load log) must be written into `ZEMX_MAP` on the ECC system (by the load program via RFC or by uploading the load log) before the objects that use them are extracted.
 
 ## Reconciliation
 
-- Counts: `ZEMX_R_MeasPointCount` (ECC) vs `ZEMT_R_MeasPointCount` (S/4HANA) per `MeasuringPointCategory` (value map `measuring_point_category`), `MeasuringPointIsCounter`
-- Records and fields: `ZEMX_I_MeasuringPoint` vs `ZEMT_I_MeasPointCompare` on `MeasuringPoint` (key map `measuring_point`); compared fields: `MeasuringPointCategory`, `MeasuringPointIsCounter`
+- Counts: `ZEMX_C_MeasPointMigCount` (ECC, translated values) vs `ZEMT_I_MeasPointCount` (S/4HANA) per `MeasuringPointCategory`, `MeasuringPointIsCounter`
+- Records and fields: `ZEMX_C_MeasuringPointMig` vs `ZEMT_I_MeasPointCompare` on `MeasuringPoint`; compared: `MeasuringPointCategory`, `MeasuringPointIsCounter`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module measuring_point --source ecc_counts.csv --target s4_counts.csv --maps <folder>
-python3 tools/mig_reconcile.py records --module measuring_point --source ecc_extract.csv --target s4_compare.csv --maps <folder>
+python3 tools/mig_reconcile.py counts --module measuring_point --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --module measuring_point --source ecc_extract.csv --target s4_compare.csv
 ```
 
 ## Open gaps

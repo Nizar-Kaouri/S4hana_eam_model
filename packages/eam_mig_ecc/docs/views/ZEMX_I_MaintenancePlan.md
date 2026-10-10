@@ -4,22 +4,22 @@
 
 | | |
 |---|---|
-| Description | Maintenance plan (migration extract) |
+| Description | Maintenance plan |
 | Module | `maintenance_plan` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `mpla`, join `jest` |
+| Data source | `ZEMX_I_MaintenancePlanHeader`, join `ZEMX_I_MaintPlanLastCall`, join `ZEMX_I_StatusDeletionFlag` |
 | Source file | `src/zemx_i_maintenanceplan.ddls.asddls` |
 
 ## Purpose
 
-One row per maintenance plan with category, strategy and the scheduling parameters needed to continue the schedule on S/4HANA.
+Maintenance plan with scheduling parameters, deletion flag and the restart point (last call / last completion date).
 
 ## Keys
 
-- `warpl`
+- `MaintenancePlan`
 
 ## Associations defined here
 
@@ -27,12 +27,12 @@ One row per maintenance plan with category, strategy and the scheduling paramete
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract all strategy plans: filter MaintenanceStrategy <> ''.
+Read the restart point of every strategy plan.
 
 ## Open verification items
 
-`XPL-001`, `XPL-002` - see `BATCH_REPORT.md`.
+none

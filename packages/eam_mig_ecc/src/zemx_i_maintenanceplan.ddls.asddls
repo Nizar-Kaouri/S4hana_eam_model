@@ -1,42 +1,42 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per maintenance plan with category, strategy and the scheduling parameters needed to continue the schedule on S/4HANA.
-// Example: Extract all strategy plans: filter MaintenanceStrategy <> ''.
+// Purpose: Maintenance plan with scheduling parameters, deletion flag and the restart point (last call / last completion date).
+// Example: Read the restart point of every strategy plan.
 @AbapCatalog.sqlViewName: 'ZEMX_PL'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #DIMENSION
-@Analytics.dataExtraction.enabled: true
-@Analytics.dataExtraction.delta.byElement.name: 'LastChangeDate'
-@EndUserText.label: 'Maintenance plan (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Maintenance plan'
 @ObjectModel.representativeKey: 'MaintenancePlan'
 @ObjectModel.usageType.dataClass: #MASTER
 @ObjectModel.usageType.serviceQuality: #D
 @ObjectModel.usageType.sizeCategory: #L
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintenancePlan
-  as select from mpla
-    left outer join jest as dlfl on dlfl.objnr = mpla.objnr and dlfl.stat = 'I0076' and dlfl.inact = ''
+  as select from ZEMX_I_MaintenancePlanHeader as pl
+    left outer join ZEMX_I_MaintPlanLastCall as lastcall on lastcall.MaintenancePlan = pl.MaintenancePlan
+    left outer join ZEMX_I_StatusDeletionFlag as dlfl on dlfl.ObjectNumber = pl.ObjectNumber
 {
-  key mpla.warpl                     as MaintenancePlan,
-      mpla.wptxt                     as MaintenancePlanDesc,
-      mpla.mptyp                     as MaintenancePlanCategory,
-      mpla.strat                     as MaintenanceStrategy,
-      // TODO-VERIFY[M] XPL-002: MPLA field names BEGRU, ERSDT, ERNAM, AEDAT
-      mpla.begru                     as AuthorizationGroup,
-      // TODO-VERIFY[M] XPL-001: MPLA scheduling fields ABRHO, HUNIT, HORIZ, SFAKT, STICH, VSPOS, TOPOS, VSNEG, TONEG, FABKL
-      mpla.abrho                     as SchedulingPeriod,
-      mpla.hunit                     as SchedulingPeriodUnit,
-      mpla.horiz                     as CallHorizonPercent,
-      mpla.sfakt                     as CycleModificationFactor,
-      mpla.stich                     as SchedulingIndicator,
-      mpla.vspos                     as LateCompletionShiftFactor,
-      mpla.topos                     as LateCompletionTolerance,
-      mpla.vsneg                     as EarlyCompletionShiftFactor,
-      mpla.toneg                     as EarlyCompletionTolerance,
-      mpla.fabkl                     as FactoryCalendar,
-      mpla.objnr                     as ObjectNumber,
-      case dlfl.stat when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
-      mpla.ersdt                     as CreationDate,
-      mpla.ernam                     as CreatedByUser,
-      mpla.aedat                     as LastChangeDate
+  key pl.MaintenancePlan             as MaintenancePlan,
+      pl.MaintenancePlanDesc         as MaintenancePlanDesc,
+      pl.MaintenancePlanCategory     as MaintenancePlanCategory,
+      pl.MaintenanceStrategy         as MaintenanceStrategy,
+      pl.AuthorizationGroup          as AuthorizationGroup,
+      pl.SchedulingPeriod            as SchedulingPeriod,
+      pl.SchedulingPeriodUnit        as SchedulingPeriodUnit,
+      pl.CallHorizonPercent          as CallHorizonPercent,
+      pl.CycleModificationFactor     as CycleModificationFactor,
+      pl.SchedulingIndicator         as SchedulingIndicator,
+      pl.LateCompletionShiftFactor   as LateCompletionShiftFactor,
+      pl.LateCompletionTolerance     as LateCompletionTolerance,
+      pl.EarlyCompletionShiftFactor  as EarlyCompletionShiftFactor,
+      pl.EarlyCompletionTolerance    as EarlyCompletionTolerance,
+      pl.FactoryCalendar             as FactoryCalendar,
+      lastcall.LastCallNumber        as LastCallNumber,
+      lastcall.LastCompletionDate    as LastCompletionDate,
+      pl.ObjectNumber                as ObjectNumber,
+      case dlfl.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
+      pl.CreationDate                as CreationDate,
+      pl.CreatedByUser               as CreatedByUser,
+      pl.LastChangeDate              as LastChangeDate
 }

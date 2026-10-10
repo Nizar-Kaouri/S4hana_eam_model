@@ -2,8 +2,8 @@
   "name": "equipment",
   "title": "Equipment",
   "description": "Equipment (current time segment) with location data and texts.",
-  "batch": 1,
-  "version": "0.1.0",
+  "batch": 2,
+  "version": "0.2.0",
   "status": "draft-unverified",
   "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
   "tags": [
@@ -15,30 +15,40 @@
   "sap_tables": [
     "EQUI",
     "EQUZ",
-    "EQKT",
-    "ILOA",
-    "CRHD",
-    "JEST"
+    "EQKT"
   ],
   "sap_released_views": [],
-  "hard_dependencies": [],
+  "hard_dependencies": [
+    "core",
+    "work_center"
+  ],
   "objects": {
+    "tables": [],
     "basic": [
-      "ZEMX_I_Equipment",
-      "ZEMX_I_EquipmentText"
+      "ZEMX_I_EquipmentHeader",
+      "ZEMX_I_EquipmentTimeSegment",
+      "ZEMX_I_EquipmentDesc"
     ],
     "composite": [
-      "ZEMX_R_EquipmentCount"
+      "ZEMX_I_Equipment"
     ],
-    "consumption": [],
+    "consumption": [
+      "ZEMX_C_EquipmentMig",
+      "ZEMX_C_EquipmentTextMig",
+      "ZEMX_C_EquipmentMigCount"
+    ],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEMX_I_Equipment": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
-    "ZEMX_I_EquipmentText": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
-    "ZEMX_R_EquipmentCount": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01)."
+    "ZEMX_I_EquipmentHeader": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_EquipmentTimeSegment": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_EquipmentDesc": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_I_Equipment": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_EquipmentMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_EquipmentTextMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
+    "ZEMX_C_EquipmentMigCount": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline)."
   },
   "link_views": []
 }

@@ -1,60 +1,56 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per PM notification (QMEL with maintenance data QMIH) with reference object, planning data, malfunction data and completion / deletion flags for the migration scope.
-// Example: Extract the open notifications: filter IsCompleted = '' and IsMarkedForDeletion = ''.
-// TODO-VERIFY[M] XNO-003: every PM notification has a QMIH row and quality / service notifications without maintenance data are excluded by the inner join
+// Purpose: PM notification with maintenance data, reference object, location, main work center (business key) and completion / deletion flags.
+// Example: Read the open notifications: filter IsCompleted = '' and IsMarkedForDeletion = ''.
 @AbapCatalog.sqlViewName: 'ZEMX_NO'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #FACT
-@Analytics.dataExtraction.enabled: true
-@Analytics.dataExtraction.delta.byElement.name: 'LastChangeDate'
-@EndUserText.label: 'Maintenance notification (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Maintenance notification'
 @ObjectModel.representativeKey: 'MaintenanceNotification'
 @ObjectModel.usageType.dataClass: #TRANSACTIONAL
 @ObjectModel.usageType.serviceQuality: #D
 @ObjectModel.usageType.sizeCategory: #L
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintNotification
-  as select from qmel
-    inner join qmih on qmih.qmnum = qmel.qmnum
-    left outer join iloa on iloa.iloan = qmih.iloan
-    left outer join crhd as wc on wc.objid = qmel.arbpl and wc.objty = 'A'
-    left outer join jest as noco on noco.objnr = qmel.objnr and noco.stat = 'I0072' and noco.inact = ''
-    left outer join jest as dlfl on dlfl.objnr = qmel.objnr and dlfl.stat = 'I0076' and dlfl.inact = ''
+  as select from ZEMX_I_NotificationHeader as hdr
+    inner join ZEMX_I_NotificationMaintData as pm on pm.MaintenanceNotification = hdr.MaintenanceNotification
+    left outer join ZEMX_I_LocAcctAssignment as loc on loc.LocAcctAssignment = pm.LocAcctAssignment
+    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = hdr.MainWorkCenterInternalID
+    left outer join ZEMX_I_StatusNotifCompleted as noco on noco.ObjectNumber = hdr.ObjectNumber
+    left outer join ZEMX_I_StatusDeletionFlag as dlfl on dlfl.ObjectNumber = hdr.ObjectNumber
 {
-  key qmel.qmnum                     as MaintenanceNotification,
-      qmel.qmart                     as NotificationType,
-      qmel.qmtxt                     as NotificationText,
-      qmel.priok                     as MaintPriority,
-      qmel.artpr                     as MaintPriorityType,
-      qmel.qmdat                     as NotificationDate,
-      qmel.mzeit                     as NotificationTime,
-      qmel.qmnam                     as ReportedByUser,
-      qmel.strmn                     as RequiredStartDate,
-      qmel.ltrmn                     as RequiredEndDate,
-      // TODO-VERIFY[M] XNO-001: QMEL field names ARTPR, QMKAT, QMGRP, QMCOD, STRMN, LTRMN, QMNAM
-      qmel.qmkat                     as NotificationCatalog,
-      qmel.qmgrp                     as NotificationCodeGroup,
-      qmel.qmcod                     as NotificationCode,
-      qmel.aufnr                     as MaintenanceOrder,
-      qmih.equnr                     as Equipment,
-      iloa.tplnr                     as FunctionalLocation,
-      qmih.iwerk                     as MaintenancePlanningPlant,
-      qmih.ingrp                     as MaintenancePlannerGroup,
-      // TODO-VERIFY[H] XNO-002: QMEL-ARBPL holds the CRHD object ID of the main work center
-      wc.arbpl                       as MainWorkCenter,
-      wc.werks                       as MainWorkCenterPlant,
-      iloa.swerk                     as MaintenancePlant,
-      iloa.beber                     as PlantSection,
-      qmih.msaus                     as MaintenanceObjectIsDown,
-      qmih.ausvn                     as MalfunctionStartDate,
-      qmih.auztv                     as MalfunctionStartTime,
-      qmih.ausbs                     as MalfunctionEndDate,
-      qmih.auztb                     as MalfunctionEndTime,
-      qmel.objnr                     as ObjectNumber,
-      case noco.stat when 'I0072' then 'X' else '' end as IsCompleted,
-      case dlfl.stat when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
-      qmel.erdat                     as CreationDate,
-      qmel.ernam                     as CreatedByUser,
-      qmel.aedat                     as LastChangeDate
+  key hdr.MaintenanceNotification    as MaintenanceNotification,
+      hdr.NotificationType           as NotificationType,
+      hdr.NotificationText           as NotificationText,
+      hdr.MaintPriority              as MaintPriority,
+      hdr.MaintPriorityType          as MaintPriorityType,
+      hdr.NotificationDate           as NotificationDate,
+      hdr.NotificationTime           as NotificationTime,
+      hdr.ReportedByUser             as ReportedByUser,
+      hdr.RequiredStartDate          as RequiredStartDate,
+      hdr.RequiredEndDate            as RequiredEndDate,
+      hdr.NotificationCatalog        as NotificationCatalog,
+      hdr.NotificationCodeGroup      as NotificationCodeGroup,
+      hdr.NotificationCode           as NotificationCode,
+      hdr.MaintenanceOrder           as MaintenanceOrder,
+      pm.Equipment                   as Equipment,
+      loc.FunctionalLocation         as FunctionalLocation,
+      pm.MaintenancePlanningPlant    as MaintenancePlanningPlant,
+      pm.MaintenancePlannerGroup     as MaintenancePlannerGroup,
+      wc.WorkCenter                  as MainWorkCenter,
+      wc.Plant                       as MainWorkCenterPlant,
+      loc.MaintenancePlant           as MaintenancePlant,
+      loc.PlantSection               as PlantSection,
+      pm.MaintenanceObjectIsDown     as MaintenanceObjectIsDown,
+      pm.MalfunctionStartDate        as MalfunctionStartDate,
+      pm.MalfunctionStartTime        as MalfunctionStartTime,
+      pm.MalfunctionEndDate          as MalfunctionEndDate,
+      pm.MalfunctionEndTime          as MalfunctionEndTime,
+      hdr.ObjectNumber               as ObjectNumber,
+      case noco.StatusCode when 'I0072' then 'X' else '' end as IsCompleted,
+      case dlfl.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
+      hdr.CreationDate               as CreationDate,
+      hdr.CreatedByUser              as CreatedByUser,
+      hdr.LastChangeDate             as LastChangeDate
 }

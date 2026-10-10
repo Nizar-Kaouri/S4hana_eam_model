@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_OBJECTSTATUS</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Object status (migration extract)</DDTEXT>
+    <DDTEXT>Object status</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

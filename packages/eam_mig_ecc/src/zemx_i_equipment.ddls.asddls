@@ -1,82 +1,77 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per equipment (current time segment) with installation location, superordinate equipment, main work center, location / account assignment and manufacturer data; source for the equipment migration object.
-// Example: Extract the equipment of plant 1000 in installation order: filter MaintenancePlanningPlant = '1000', load superordinate equipment first.
-// Earlier time segments (installation history) are not migrated; see the S/4HANA product eam for history reporting.
+// Purpose: Equipment in its current time segment with installation location, superordinate equipment, main work center (business key), location / account assignment, manufacturer data and deletion flag: the complete business object.
+// Example: Read the equipment of plant 1000 in installation order: filter MaintenancePlanningPlant = '1000'.
+// Earlier time segments (installation history) are not migrated.
+// TODO-VERIFY[H] XEQ-001: the current time segment of EQUZ has DATBI = '99991231'
 @AbapCatalog.sqlViewName: 'ZEMX_EQ'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #DIMENSION
-@Analytics.dataExtraction.enabled: true
-@Analytics.dataExtraction.delta.byElement.name: 'LastChangeDate'
-@EndUserText.label: 'Equipment (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Equipment'
 @ObjectModel.representativeKey: 'Equipment'
 @ObjectModel.usageType.dataClass: #MASTER
 @ObjectModel.usageType.serviceQuality: #D
 @ObjectModel.usageType.sizeCategory: #L
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view ZEMX_I_Equipment
-  as select from equi
-    inner join equz on equz.equnr = equi.equnr
-    left outer join iloa on iloa.iloan = equz.iloan
-    left outer join crhd as wc on wc.objid = equz.gewrk and wc.objty = 'A'
-    left outer join jest as dlfl on dlfl.objnr = equi.objnr and dlfl.stat = 'I0076' and dlfl.inact = ''
+  as select from ZEMX_I_EquipmentHeader as eq
+    inner join ZEMX_I_EquipmentTimeSegment as seg on seg.Equipment = eq.Equipment
+    left outer join ZEMX_I_LocAcctAssignment as loc on loc.LocAcctAssignment = seg.LocAcctAssignment
+    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = seg.MainWorkCenterInternalID
+    left outer join ZEMX_I_StatusDeletionFlag as dlfl on dlfl.ObjectNumber = eq.ObjectNumber
 {
-  key equi.equnr                     as Equipment,
-      equi.eqtyp                     as EquipmentCategory,
-      equi.eqart                     as TechnicalObjectType,
-      equi.begru                     as AuthorizationGroup,
-      // TODO-VERIFY[H] XEQ-001: the current time segment of EQUZ has DATBI = '99991231'
-      equz.datab                     as ValidityStartDate,
-      equz.iwerk                     as MaintenancePlanningPlant,
-      equz.ingrp                     as MaintenancePlannerGroup,
-      // TODO-VERIFY[H] XEQ-002: EQUZ-GEWRK holds the CRHD object ID (OBJTY 'A') of the main work center
-      wc.arbpl                       as MainWorkCenter,
-      wc.werks                       as MainWorkCenterPlant,
-      iloa.tplnr                     as FunctionalLocation,
-      equz.hequi                     as SuperordinateEquipment,
-      equz.heqnr                     as EquipInstallationPositionNmbr,
-      // TODO-VERIFY[M] XEQ-003: EQUZ-TIDNR is the technical identification number
-      equz.tidnr                     as TechnicalIdentificationNumber,
-      iloa.swerk                     as MaintenancePlant,
-      iloa.beber                     as PlantSection,
-      iloa.stort                     as AssetLocation,
-      iloa.msgrp                     as AssetRoom,
-      iloa.abckz                     as ABCIndicator,
-      iloa.eqfnr                     as SortField,
-      iloa.bukrs                     as CompanyCode,
-      iloa.gsber                     as BusinessArea,
-      iloa.kokrs                     as ControllingArea,
-      iloa.kostl                     as CostCenter,
-      iloa.anlnr                     as MasterFixedAsset,
-      iloa.anlun                     as FixedAsset,
-      iloa.daufn                     as StandingOrder,
-      equi.matnr                     as Material,
-      equi.sernr                     as SerialNumber,
-      equi.herst                     as AssetManufacturerName,
-      // TODO-VERIFY[M] XEQ-004: EQUI field names HERLD, TYPBZ, MAPAR, SERGE, BAUMM, INBDT, GROES
-      equi.herld                     as ManufacturerCountry,
-      equi.typbz                     as ManufacturerModelNumber,
-      equi.mapar                     as ManufacturerPartNmbr,
-      equi.serge                     as ManufacturerSerialNumber,
-      equi.baujj                     as ConstructionYear,
-      equi.baumm                     as ConstructionMonth,
-      equi.invnr                     as InventoryNumber,
-      equi.inbdt                     as OperationStartDate,
-      equi.groes                     as EquipmentSizeDimension,
+  key eq.Equipment                   as Equipment,
+      eq.EquipmentCategory           as EquipmentCategory,
+      eq.TechnicalObjectType         as TechnicalObjectType,
+      eq.AuthorizationGroup          as AuthorizationGroup,
+      seg.ValidityStartDate          as ValidityStartDate,
+      seg.MaintenancePlanningPlant   as MaintenancePlanningPlant,
+      seg.MaintenancePlannerGroup    as MaintenancePlannerGroup,
+      wc.WorkCenter                  as MainWorkCenter,
+      wc.Plant                       as MainWorkCenterPlant,
+      loc.FunctionalLocation         as FunctionalLocation,
+      seg.SuperordinateEquipment     as SuperordinateEquipment,
+      seg.EquipInstallationPositionNmbr as EquipInstallationPositionNmbr,
+      seg.TechnicalIdentificationNumber as TechnicalIdentificationNumber,
+      loc.MaintenancePlant           as MaintenancePlant,
+      loc.PlantSection               as PlantSection,
+      loc.AssetLocation              as AssetLocation,
+      loc.AssetRoom                  as AssetRoom,
+      loc.ABCIndicator               as ABCIndicator,
+      loc.SortField                  as SortField,
+      loc.CompanyCode                as CompanyCode,
+      loc.BusinessArea               as BusinessArea,
+      loc.ControllingArea            as ControllingArea,
+      loc.CostCenter                 as CostCenter,
+      loc.MasterFixedAsset           as MasterFixedAsset,
+      loc.FixedAsset                 as FixedAsset,
+      loc.StandingOrder              as StandingOrder,
+      eq.Material                    as Material,
+      eq.SerialNumber                as SerialNumber,
+      eq.AssetManufacturerName       as AssetManufacturerName,
+      eq.ManufacturerCountry         as ManufacturerCountry,
+      eq.ManufacturerModelNumber     as ManufacturerModelNumber,
+      eq.ManufacturerPartNmbr        as ManufacturerPartNmbr,
+      eq.ManufacturerSerialNumber    as ManufacturerSerialNumber,
+      eq.ConstructionYear            as ConstructionYear,
+      eq.ConstructionMonth           as ConstructionMonth,
+      eq.InventoryNumber             as InventoryNumber,
+      eq.OperationStartDate          as OperationStartDate,
+      eq.EquipmentSizeDimension      as EquipmentSizeDimension,
       @Semantics.quantity.unitOfMeasure: 'WeightUnit'
-      equi.brgew                     as GrossWeight,
+      eq.GrossWeight                 as GrossWeight,
       @Semantics.unitOfMeasure: true
-      equi.gewei                     as WeightUnit,
-      equi.ansdt                     as AcquisitionDate,
-      // TODO-VERIFY[M] XEQ-005: EQUI-WAERS is the currency key of EQUI-ANSWT
+      eq.WeightUnit                  as WeightUnit,
+      eq.AcquisitionDate             as AcquisitionDate,
       @Semantics.amount.currencyCode: 'Currency'
-      equi.answt                     as AcquisitionValue,
+      eq.AcquisitionValue            as AcquisitionValue,
       @Semantics.currencyCode: true
-      equi.waers                     as Currency,
-      equi.objnr                     as ObjectNumber,
-      case dlfl.stat when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
-      equi.erdat                     as CreationDate,
-      equi.ernam                     as CreatedByUser,
-      equi.aedat                     as LastChangeDate
+      eq.Currency                    as Currency,
+      eq.ObjectNumber                as ObjectNumber,
+      case dlfl.StatusCode when 'I0076' then 'X' else '' end as IsMarkedForDeletion,
+      eq.CreationDate                as CreationDate,
+      eq.CreatedByUser               as CreatedByUser,
+      eq.LastChangeDate              as LastChangeDate
 }
-where equz.datbi = '99991231'
+where seg.ValidityEndDate = '99991231'

@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_CHARCVALUE</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Characteristic value (migration extract)</DDTEXT>
+    <DDTEXT>Characteristic value</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

@@ -18,7 +18,7 @@ import build_package as bp  # noqa: E402
 
 FILE = ROOT / "ACTIVATION_CHECKLIST.md"
 BEGIN, END = "<!-- CHECKLIST:BEGIN -->", "<!-- CHECKLIST:END -->"
-KIND = {"DDLS": "Data definitions (DDLS)", "DCLS": "Access controls (DCLS)",
+KIND = {"TABL": "Database tables (TABL)", "DDLS": "Data definitions (DDLS)", "DCLS": "Access controls (DCLS)",
         "DDLX": "Metadata extensions (DDLX)", "CLAS": "ABAP Unit test classes (CLAS, only with --with-tests)"}
 
 
@@ -65,7 +65,7 @@ def render():
     batches = sorted({batch_of(o, n) for _, n, o in order})
     for b in batches:
         lines += [f"### Batch {b}", ""]
-        for kind in ("DDLS", "DCLS", "DDLX", "CLAS"):
+        for kind in ("TABL", "DDLS", "DCLS", "DDLX", "CLAS"):
             rows = [(i, t, n, o) for i, (t, n, o) in enumerate(order, 1) if t == kind and batch_of(o, n) == b]
             if not rows:
                 continue

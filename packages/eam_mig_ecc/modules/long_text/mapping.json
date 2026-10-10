@@ -2,10 +2,9 @@
   "module": "long_text",
   "status": "draft-unverified",
   "target": {
-    "tool": "SAP S/4HANA Migration Cockpit",
-    "migration_object": "Long text (part of each object migration)",
+    "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
     "todo_verify": [
-      "TODO-VERIFY[H] XLT-M01: Migration Cockpit object for 'Long text (part of each object migration)' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+      "TODO-VERIFY[M] XLT-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -24,99 +23,98 @@
       "Language"
     ],
     "numbering": "derived",
-    "note": "Text names contain the object key; rebuild them from the key maps."
+    "note": "Text names contain the object key; the load program rebuilds them from the key maps."
   },
-  "scope": {
-    "filter": "texts of objects in scope",
-    "note": ""
-  },
-  "fields": [
+  "provides_key_maps": [],
+  "external_key_maps": [],
+  "value_maps": [],
+  "key_maps": [],
+  "structures": [
     {
-      "view": "ZEMX_I_LongTextHeader",
-      "element": "TextObject",
-      "source": "STXH-TDOBJECT",
-      "target": "STXH-TDOBJECT",
-      "rule": "copy",
-      "compare": false
-    },
-    {
-      "view": "ZEMX_I_LongTextHeader",
-      "element": "TextName",
-      "source": "STXH-TDNAME",
-      "target": "STXH-TDNAME",
-      "rule": "derive:object key + text ID specific suffix; rebuilt from the new key",
-      "compare": false
-    },
-    {
-      "view": "ZEMX_I_LongTextHeader",
-      "element": "TextID",
-      "source": "STXH-TDID",
-      "target": "STXH-TDID",
-      "rule": "copy",
-      "compare": false
-    },
-    {
-      "view": "ZEMX_I_LongTextHeader",
-      "element": "Language",
-      "source": "STXH-TDSPRAS",
-      "target": "STXH-TDSPRAS",
-      "rule": "copy",
-      "compare": false
-    },
+      "consumption_view": "ZEMX_C_LongTextIndexMig",
+      "source_view": "ZEMX_I_LongTextHeader",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "STXH-TDOBJECT",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "derive:object key + text ID specific suffix; rebuilt from the translated key by the load program",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "STXH-TDID",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "STXH-TDSPRAS",
+          "rule": "copy",
+          "compare": false
+        }
+      ]
+    }
+  ],
+  "not_migrated": [
     {
       "view": "ZEMX_I_LongTextHeader",
       "element": "CreationDate",
       "source": "STXH-TDFDATE",
-      "target": "",
-      "rule": "info",
-      "compare": false
+      "reason": "info"
     },
     {
       "view": "ZEMX_I_LongTextHeader",
       "element": "CreatedByUser",
       "source": "STXH-TDFUSER",
-      "target": "",
-      "rule": "info",
-      "compare": false
+      "reason": "info"
     },
     {
       "view": "ZEMX_I_LongTextHeader",
       "element": "LastChangeDate",
       "source": "STXH-TDLDATE",
-      "target": "",
-      "rule": "info",
-      "compare": false
+      "reason": "info"
     },
     {
       "view": "ZEMX_I_LongTextHeader",
       "element": "LastChangedByUser",
       "source": "STXH-TDLUSER",
-      "target": "",
-      "rule": "info",
-      "compare": false
+      "reason": "info"
     }
   ],
-  "value_maps": [],
-  "key_maps": [],
-  "provides_key_maps": [],
-  "external_key_maps": [],
   "reconciliation": {
-    "source_count_view": "ZEMX_R_LongTextCount",
+    "source_values": "target",
+    "source_count_view": "ZEMX_C_LongTextMigCount",
     "target_count_view": null,
     "dimensions": [
       {
-        "element": "TextObject",
-        "value_map": null
+        "element": "TextObject"
       },
       {
-        "element": "TextID",
-        "value_map": null
+        "element": "TextID"
       }
     ],
     "measure": "RecordCount",
     "compare": null
   },
   "gaps": [
-    "TODO-VERIFY[H] XLT-G01: the text content (STXL, compressed) needs an ABAP extractor calling READ_TEXT; not part of the pilot"
-  ]
+    "TODO-VERIFY[H] XLT-G01: the text content (STXL, compressed) is read with READ_TEXT by the load program; CDS cannot read it"
+  ],
+  "main_structure": "ZEMX_C_LongTextIndexMig"
 }

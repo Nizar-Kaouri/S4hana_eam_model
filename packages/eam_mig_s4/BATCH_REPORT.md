@@ -10,7 +10,7 @@ real SAP S/4HANA 2025 system.
 | Status | draft-unverified (pilot) - nothing activated or run |
 | Tested release | none (draft, 2025 assumed) |
 | Modules | 8 (work center, functional location, equipment, measuring point, task list, maintenance plan, maintenance notification, maintenance order) |
-| Views | 16: one compare view (`ZEMT_I_*Compare`) and one count view (`ZEMT_R_*Count`) per module, on SAP released `I_` views |
+| Views | 16: one compare view (`ZEMT_I_*Compare`, basic) and one count view (`ZEMT_I_*Count`, composite) per module, on SAP released `I_` views |
 | Paired product | `packages/eam_mig_ecc` (extraction, mapping, `tools/mig_reconcile.py`) |
 
 ## Open TODO-VERIFY items (all batches, ranked by risk)
@@ -66,3 +66,6 @@ _Empty._
 - TTL-001: `I_MaintenanceTaskList` has one row per version; after a fresh load there is one version per task list.
 - TNO-001 / TOR-001: notifications and orders created on S/4HANA after the load must be excluded from the comparison.
 
+## Batch 2 - naming aligned with the SAP VDM convention
+
+Count views renamed `ZEMT_R_*Count` → `ZEMT_I_*Count` (composite views use `I_`). They are compared with the ECC consumption views (`ZEMX_C_*MigCount`, `ZEMX_C_*Mig`), which deliver translated values.

@@ -20,7 +20,7 @@
       "ZEMT_I_FuncLocCompare"
     ],
     "composite": [
-      "ZEMT_R_FuncLocCount"
+      "ZEMT_I_FuncLocCount"
     ],
     "consumption": [],
     "access_controls": [],
@@ -29,7 +29,7 @@
   },
   "no_dcl_by_design": {
     "ZEMT_I_FuncLocCompare": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design.",
-    "ZEMT_R_FuncLocCount": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design."
+    "ZEMT_I_FuncLocCount": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design."
   },
   "migration_source_module": "eam_mig_ecc:functional_location",
   "link_views": []

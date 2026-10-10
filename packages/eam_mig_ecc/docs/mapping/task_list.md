@@ -1,91 +1,118 @@
-# Mapping: task_list
+# Migration interface: task_list
 
 > Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
 
-- **Target:** SAP S/4HANA Migration Cockpit - migration object *Maintenance task list*
+- **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `work_center`, `equipment`, `functional_location`
 - **Business key:** `TaskListType`, `TaskListGroup`, `TaskListGroupCounter` · numbering **new**
-- **Key rule:** Task list groups are usually renumbered: keep the key map 'task_list_group' (old,new); maintenance plan items refer to it.
-- **Scope filter:** `extract ZEMX_R_TaskListCurrent; operations of the current version only` - Historical change-number states are not migrated.
+- **Key rule:** Task list groups are usually renumbered: the load program writes old -> new into the key map 'TASK_LIST_GROUP'; maintenance plan items use it.
 
-> TODO-VERIFY[H] XTL-M01: Migration Cockpit object for 'Maintenance task list' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance
+> TODO-VERIFY[M] XTL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-## Fields
+Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
 
-| View | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|---|
-| `ZEMX_I_TaskList` | `TaskListType` | PLKO-PLNTY | PLKO-PLNTY | copy | yes |
-| `ZEMX_I_TaskList` | `TaskListGroup` | PLKO-PLNNR | PLKO-PLNNR | key map: `task_list_group` | yes |
-| `ZEMX_I_TaskList` | `TaskListGroupCounter` | PLKO-PLNAL | PLKO-PLNAL | copy | yes |
-| `ZEMX_I_TaskList` | `TaskListVersionCounter` | PLKO-ZAEHL | - | not migrated: only the latest version is migrated |  |
-| `ZEMX_I_TaskList` | `ValidityStartDate` | PLKO-DATUV | PLKO-DATUV | copy |  |
-| `ZEMX_I_TaskList` | `TaskListDesc` | PLKO-KTEXT | PLKO-KTEXT | copy | yes |
-| `ZEMX_I_TaskList` | `Plant` | PLKO-WERKS | PLKO-WERKS | value map: `plant` | yes |
-| `ZEMX_I_TaskList` | `TaskListUsage` | PLKO-VERWE | PLKO-VERWE | value map: `task_list_usage` | yes |
-| `ZEMX_I_TaskList` | `TaskListStatus` | PLKO-STATU | PLKO-STATU | copy | yes |
-| `ZEMX_I_TaskList` | `MaintenancePlannerGroup` | PLKO-VAGRP | PLKO-VAGRP | value map: `planner_group` | yes |
-| `ZEMX_I_TaskList` | `MainWorkCenter` | CRHD-ARBPL | PLKO-ARBID (via work center) | key map: `work_center` |  |
-| `ZEMX_I_TaskList` | `MainWorkCenterPlant` | CRHD-WERKS | PLKO-ARBID (via work center) | value map: `plant` |  |
-| `ZEMX_I_TaskList` | `MaintenanceStrategy` | PLKO-STRAT | PLKO-STRAT | value map: `maintenance_strategy` | yes |
-| `ZEMX_I_TaskList` | `MaintObjectSystemCondition` | PLKO-ANLZU | PLKO-ANLZU | copy |  |
-| `ZEMX_I_TaskList` | `IsMarkedForDeletion` | PLKO-LOEKZ | - | scope filter |  |
-| `ZEMX_I_TaskList` | `CreationDate` | PLKO-ANDAT | - | information only |  |
-| `ZEMX_I_TaskList` | `CreatedByUser` | PLKO-ANNAM | - | information only |  |
-| `ZEMX_I_TaskList` | `LastChangeDate` | PLKO-AEDAT | - | information only |  |
-| `ZEMX_I_TaskListOperation` | `TaskListType` | PLAS-PLNTY | PLAS-PLNTY | copy |  |
-| `ZEMX_I_TaskListOperation` | `TaskListGroup` | PLAS-PLNNR | PLAS-PLNNR | key map: `task_list_group` |  |
-| `ZEMX_I_TaskListOperation` | `TaskListGroupCounter` | PLAS-PLNAL | PLAS-PLNAL | copy |  |
-| `ZEMX_I_TaskListOperation` | `TaskListSequence` | PLAS-PLNFL | PLAS-PLNFL | copy |  |
-| `ZEMX_I_TaskListOperation` | `TaskListOperationInternalId` | PLAS-PLNKN | - | not migrated: internal node number - regenerated on S/4HANA |  |
-| `ZEMX_I_TaskListOperation` | `TaskListOpAssgmtVersion` | PLAS-ZAEHL | - | not migrated: only the latest version is migrated |  |
-| `ZEMX_I_TaskListOperation` | `TaskListOpVersionCounter` | PLPO-ZAEHL | - | not migrated: only the latest version is migrated |  |
-| `ZEMX_I_TaskListOperation` | `TaskListOperation` | PLPO-VORNR | PLPO-VORNR | copy |  |
-| `ZEMX_I_TaskListOperation` | `TaskListSubOperation` | PLPO-UVORN | PLPO-UVORN | copy |  |
-| `ZEMX_I_TaskListOperation` | `OperationControlKey` | PLPO-STEUS | PLPO-STEUS | value map: `control_key` |  |
-| `ZEMX_I_TaskListOperation` | `OperationText` | PLPO-LTXA1 | PLPO-LTXA1 | copy |  |
-| `ZEMX_I_TaskListOperation` | `WorkCenter` | CRHD-ARBPL | PLPO-ARBID (via work center) | key map: `work_center` |  |
-| `ZEMX_I_TaskListOperation` | `WorkCenterPlant` | CRHD-WERKS | PLPO-ARBID (via work center) | value map: `plant` |  |
-| `ZEMX_I_TaskListOperation` | `Plant` | PLPO-WERKS | PLPO-WERKS | value map: `plant` |  |
-| `ZEMX_I_TaskListOperation` | `ActivityType` | PLPO-LARNT | PLPO-LARNT | value map: `activity_type` |  |
-| `ZEMX_I_TaskListOperation` | `PlannedWorkQuantity` | PLPO-ARBEI | PLPO-ARBEI | copy |  |
-| `ZEMX_I_TaskListOperation` | `PlannedWorkQuantityUnit` | PLPO-ARBEH | PLPO-ARBEH | value map: `unit_of_measure` |  |
-| `ZEMX_I_TaskListOperation` | `OperationDuration` | PLPO-DAUNO | PLPO-DAUNO | copy |  |
-| `ZEMX_I_TaskListOperation` | `OperationDurationUnit` | PLPO-DAUNE | PLPO-DAUNE | value map: `unit_of_measure` |  |
-| `ZEMX_I_TaskListOperation` | `NumberOfCapacities` | PLPO-ANZZL | PLPO-ANZZL | copy |  |
-| `ZEMX_I_TaskListOperation` | `OpAssignmentIsDeleted` | PLAS-LOEKZ | - | scope filter |  |
-| `ZEMX_I_TaskListOperation` | `IsMarkedForDeletion` | PLPO-LOEKZ | - | scope filter |  |
-| `ZEMX_I_TaskListAllocation` | `TaskListType` | EAPL-PLNTY | EAPL-PLNTY | copy |  |
-| `ZEMX_I_TaskListAllocation` | `TaskListGroup` | EAPL-PLNNR | EAPL-PLNNR | key map: `task_list_group` |  |
-| `ZEMX_I_TaskListAllocation` | `TaskListGroupCounter` | EAPL-PLNAL | EAPL-PLNAL | copy |  |
-| `ZEMX_I_TaskListAllocation` | `Equipment` | EAPL-EQUNR | EAPL-EQUNR | key map: `equipment` |  |
-| `ZEMX_I_TaskListAllocation` | `FunctionalLocation` | EAPL-TPLNR | EAPL-TPLNR | key map: `functional_location` |  |
+## `ZEMX_C_TaskListMig`
 
-## Value maps and key maps
+- Source: `ZEMX_I_TaskListCurrent`
+- Keys: `LegacyTaskListGroup`, `TaskListType`, `TaskListGroupCounter`
+- Scope: `src.IsMarkedForDeletion = ''`
 
-Templates: `docs/mapping/templates/` (columns `source,target,comment`). An empty map means "same value on S/4HANA".
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TaskListType` | PLKO-PLNTY | PLKO-PLNTY | copy | yes |
+| `TaskListGroupCounter` | PLKO-PLNAL | PLKO-PLNAL | copy | yes |
+| `TaskListGroup` | PLKO-PLNNR | PLKO-PLNNR | key map: `TASK_LIST_GROUP` | yes |
+| `ValidityStartDate` | PLKO-DATUV | PLKO-DATUV | copy |  |
+| `TaskListDesc` | PLKO-KTEXT | PLKO-KTEXT | copy | yes |
+| `Plant` | PLKO-WERKS | PLKO-WERKS | value map: `PLANT` | yes |
+| `TaskListUsage` | PLKO-VERWE | PLKO-VERWE | value map: `TASK_LIST_USAGE` | yes |
+| `TaskListStatus` | PLKO-STATU | PLKO-STATU | value map: `TASK_LIST_STATUS` | yes |
+| `MaintenancePlannerGroup` | PLKO-VAGRP | PLKO-VAGRP | value map: `PLANNER_GROUP` | yes |
+| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | key map: `WORK_CENTER` |  |
+| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | value map: `PLANT` |  |
+| `MaintenanceStrategy` | PLKO-STRAT | PLKO-STRAT | value map: `MAINTENANCE_STRATEGY` | yes |
+| `MaintObjectSystemCondition` | PLKO-ANLZU | PLKO-ANLZU | copy |  |
+| `LastChangeDate` | PLKO-AEDAT | - | information only |  |
 
-- value map `activity_type`
-- value map `control_key`
-- value map `maintenance_strategy`
-- value map `planner_group`
-- value map `plant`
-- value map `task_list_usage`
-- value map `unit_of_measure`
-- key map `equipment`
-- key map `functional_location`
-- key map `task_list_group`
-- key map `work_center`
+## `ZEMX_C_TaskListOperationMig`
 
-This object's load provides the key map(s) `task_list_group` (old key, new key from the load log).
+- Source: `ZEMX_I_TaskListOperation`
+- Keys: `LegacyTaskListGroup`, `TaskListType`, `TaskListGroupCounter`, `TaskListSequence`, `TaskListOperation`
+- Scope: `src.IsMarkedForDeletion = '' and src.OpAssignmentIsDeleted = '' and obj.IsMarkedForDeletion = ''`
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TaskListType` | PLAS-PLNTY | PLAS-PLNTY | copy |  |
+| `TaskListGroupCounter` | PLAS-PLNAL | PLAS-PLNAL | copy |  |
+| `TaskListSequence` | PLAS-PLNFL | PLAS-PLNFL | copy |  |
+| `TaskListOperation` | PLPO-VORNR | PLPO-VORNR | copy |  |
+| `TaskListGroup` | PLAS-PLNNR | PLAS-PLNNR | key map: `TASK_LIST_GROUP` |  |
+| `TaskListSubOperation` | PLPO-UVORN | PLPO-UVORN | copy |  |
+| `OperationControlKey` | PLPO-STEUS | PLPO-STEUS | value map: `CONTROL_KEY` |  |
+| `OperationText` | PLPO-LTXA1 | PLPO-LTXA1 | copy |  |
+| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | key map: `WORK_CENTER` |  |
+| `WorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | value map: `PLANT` |  |
+| `Plant` | PLPO-WERKS | PLPO-WERKS | value map: `PLANT` |  |
+| `ActivityType` | PLPO-LARNT | PLPO-LARNT | value map: `ACTIVITY_TYPE` |  |
+| `PlannedWorkQuantity` | PLPO-ARBEI | PLPO-ARBEI | copy |  |
+| `PlannedWorkQuantityUnit` | PLPO-ARBEH | PLPO-ARBEH | copy: reference unit of a quantity - unit of measure customizing is transported, not mapped |  |
+| `OperationDuration` | PLPO-DAUNO | PLPO-DAUNO | copy |  |
+| `OperationDurationUnit` | PLPO-DAUNE | PLPO-DAUNE | copy: reference unit of a quantity - unit of measure customizing is transported, not mapped |  |
+| `NumberOfCapacities` | PLPO-ANZZL | PLPO-ANZZL | copy |  |
+
+## `ZEMX_C_TaskListAllocationMig`
+
+- Source: `ZEMX_I_TaskListObjectAssgmt`
+- Keys: `LegacyTaskListGroup`, `TaskListType`, `TaskListGroupCounter`
+- Scope: `obj.IsMarkedForDeletion = ''`
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TaskListType` | EAPL-PLNTY | EAPL-PLNTY | copy |  |
+| `TaskListGroupCounter` | EAPL-PLNAL | EAPL-PLNAL | copy |  |
+| `TaskListGroup` | EAPL-PLNNR | EAPL-PLNNR | key map: `TASK_LIST_GROUP` |  |
+| `Equipment` | EAPL-EQUNR | EAPL-EQUNR | key map: `EQUIPMENT` |  |
+| `FunctionalLocation` | EAPL-TPLNR | EAPL-TPLNR | key map: `FUNCTIONAL_LOCATION` |  |
+
+## Not delivered
+
+| View | Element | Source | Reason |
+|---|---|---|---|
+| `ZEMX_I_TaskListCurrent` | `TaskListVersionCounter` | PLKO-ZAEHL | information only |
+| `ZEMX_I_TaskListCurrent` | `MainWorkCenterInternalID` | PLKO-ARBID | not migrated: internal object ID - replaced by MainWorkCenter |
+| `ZEMX_I_TaskListCurrent` | `IsMarkedForDeletion` | PLKO-LOEKZ | scope flag |
+| `ZEMX_I_TaskListCurrent` | `CreationDate` | PLKO-ANDAT | information only |
+| `ZEMX_I_TaskListOperation` | `TaskListOperationInternalId` | PLAS-PLNKN | not migrated: internal node number - regenerated on S/4HANA |
+| `ZEMX_I_TaskListOperation` | `TaskListOpAssgmtVersion` | PLAS-ZAEHL | information only |
+| `ZEMX_I_TaskListOperation` | `TaskListOpVersionCounter` | PLPO-ZAEHL | information only |
+| `ZEMX_I_TaskListOperation` | `WorkCenterInternalID` | PLPO-ARBID | not migrated: internal object ID - replaced by WorkCenter |
+| `ZEMX_I_TaskListOperation` | `OpAssignmentIsDeleted` | PLAS-LOEKZ | scope flag |
+| `ZEMX_I_TaskListOperation` | `IsMarkedForDeletion` | PLPO-LOEKZ | scope flag |
+
+## Maps
+
+- value map `ACTIVITY_TYPE`
+- value map `CONTROL_KEY`
+- value map `MAINTENANCE_STRATEGY`
+- value map `PLANNER_GROUP`
+- value map `PLANT`
+- value map `TASK_LIST_STATUS`
+- value map `TASK_LIST_USAGE`
+- key map `EQUIPMENT`
+- key map `FUNCTIONAL_LOCATION`
+- key map `TASK_LIST_GROUP`
+- key map `WORK_CENTER`
+
+After loading this object, the key map(s) `TASK_LIST_GROUP` (old key, new key from the load log) must be written into `ZEMX_MAP` on the ECC system (by the load program via RFC or by uploading the load log) before the objects that use them are extracted.
 
 ## Reconciliation
 
-- Counts: `ZEMX_R_TaskListCount` (ECC) vs `ZEMT_R_TaskListCount` (S/4HANA) per `TaskListType`, `Plant` (value map `plant`)
-- Records and fields: `ZEMX_I_TaskList` vs `ZEMT_I_TaskListCompare` on `TaskListType`, `TaskListGroup`, `TaskListGroupCounter` (key map `task_list_group`); compared fields: `TaskListDesc`, `Plant`, `TaskListUsage`, `TaskListStatus`, `MaintenancePlannerGroup`, `MaintenanceStrategy`
+- Counts: `ZEMX_C_TaskListMigCount` (ECC, translated values) vs `ZEMT_I_TaskListCount` (S/4HANA) per `TaskListType`, `Plant`
+- Records and fields: `ZEMX_C_TaskListMig` vs `ZEMT_I_TaskListCompare` on `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`; compared: `TaskListDesc`, `Plant`, `TaskListUsage`, `TaskListStatus`, `MaintenancePlannerGroup`, `MaintenanceStrategy`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module task_list --source ecc_counts.csv --target s4_counts.csv --maps <folder>
-python3 tools/mig_reconcile.py records --module task_list --source ecc_extract.csv --target s4_compare.csv --maps <folder>
+python3 tools/mig_reconcile.py counts --module task_list --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --module task_list --source ecc_extract.csv --target s4_compare.csv
 ```
 
 ## Open gaps

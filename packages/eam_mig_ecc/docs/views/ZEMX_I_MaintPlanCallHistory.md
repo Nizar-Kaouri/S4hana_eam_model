@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| Description | Maintenance plan call history (migration extract) |
+| Description | Maintenance plan call history |
 | Module | `maintenance_plan` |
-| Batch | 1 |
+| Batch | 2 |
 | Layer | basic (`@VDM.viewType: #BASIC`) |
 | Kind | view |
 | Data category | #FACT |
@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Scheduled and completed calls per maintenance plan: needed to set the start / last completion date so that the schedule continues seamlessly after go-live.
+Scheduled and completed calls per maintenance plan (MHIS).
 
 ## Keys
 
@@ -28,11 +28,11 @@ Scheduled and completed calls per maintenance plan: needed to set the start / la
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Find the last completed call of plan 100: filter MaintenancePlan = '000000000100', highest CallNumber with a CompletionDate.
+Read the calls of plan 100.
 
 ## Open verification items
 

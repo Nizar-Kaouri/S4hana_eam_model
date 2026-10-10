@@ -1,18 +1,16 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per measurement document (reading or counter reading) with reading date / time, values in SI and entry unit, valuation code and cancellation flag.
-// Example: Extract the readings of the last two years: filter MsmtRdngDate >= '20240101' and MsmtDocumentIsCancelled = ''.
-// TODO-VERIFY[M] XMD-003: measurement documents are not changed after creation (only cancelled), so CreationDate is a usable delta element
-@AbapCatalog.sqlViewName: 'ZEMX_MD'
+// Purpose: Measurement documents (IMRG): readings and counter readings with date, time, values, valuation code and cancellation flag.
+// Example: Read the readings of measuring point 1234 in 2025.
+@AbapCatalog.sqlViewName: 'ZEMX_IMRG'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #FACT
-@Analytics.dataExtraction.enabled: true
-@Analytics.dataExtraction.delta.byElement.name: 'CreationDate'
-@EndUserText.label: 'Measurement document (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Measurement document'
 @ObjectModel.representativeKey: 'MeasurementDocument'
 @ObjectModel.usageType.dataClass: #TRANSACTIONAL
 @ObjectModel.usageType.serviceQuality: #D
-@ObjectModel.usageType.sizeCategory: #L
+@ObjectModel.usageType.sizeCategory: #XL
 @VDM.viewType: #BASIC
 define view ZEMX_I_MeasurementDocument
   as select from imrg

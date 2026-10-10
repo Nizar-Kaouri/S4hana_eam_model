@@ -1,12 +1,12 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Cycles of single-cycle and multiple-counter plans and packages of strategy plans: cycle value, unit, text and counter (measuring point) for performance-based cycles.
-// Example: Extract the performance-based cycles: filter MeasuringPoint <> ''.
-@AbapCatalog.sqlViewName: 'ZEMX_PLC'
+// Purpose: Cycles of single-cycle and multiple-counter plans and packages of strategy plans (MMPT).
+// Example: Read the performance-based cycles: filter MeasuringPoint <> ''.
+@AbapCatalog.sqlViewName: 'ZEMX_MMPT'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #DIMENSION
-@Analytics.dataExtraction.enabled: true
-@EndUserText.label: 'Maintenance plan cycle (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Maintenance plan cycle'
 @ObjectModel.representativeKey: 'MaintenancePlanCycle'
 @ObjectModel.usageType.dataClass: #MASTER
 @ObjectModel.usageType.serviceQuality: #D

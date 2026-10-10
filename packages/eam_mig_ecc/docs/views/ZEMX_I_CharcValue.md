@@ -4,26 +4,26 @@
 
 | | |
 |---|---|
-| Description | Characteristic value (migration extract) |
+| Description | Characteristic value |
 | Module | `classification` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `ausp`, join `cabn` |
+| Data source | `ZEMX_I_ObjectCharcValue`, join `ZEMX_I_Characteristic` |
 | Source file | `src/zemx_i_charcvalue.ddls.asddls` |
 
 ## Purpose
 
-Characteristic values of classified objects with the characteristic name instead of the internal number.
+Characteristic values with the characteristic name instead of the internal number.
 
 ## Keys
 
-- `objek`
-- `atinn`
-- `atzhl`
-- `klart`
-- `adzhl`
+- `ClassifiedObject`
+- `CharcInternalID`
+- `CharcValuePositionNumber`
+- `ClassType`
+- `ChangeCounter`
 
 ## Associations defined here
 
@@ -31,12 +31,12 @@ Characteristic values of classified objects with the characteristic name instead
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the values of equipment 10000001: filter ClassType = '002' and ClassifiedObject = '000000000010000001'.
+Read the values of equipment 10000001: filter ClassType = '002'.
 
 ## Open verification items
 
-`XCL-003`, `XCL-004` - see `BATCH_REPORT.md`.
+none

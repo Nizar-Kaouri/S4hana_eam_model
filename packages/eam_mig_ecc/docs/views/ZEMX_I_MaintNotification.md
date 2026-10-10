@@ -4,22 +4,22 @@
 
 | | |
 |---|---|
-| Description | Maintenance notification (migration extract) |
+| Description | Maintenance notification |
 | Module | `maintenance_notification` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `qmel`, join `qmih`, join `iloa`, join `crhd`, join `jest`, join `jest` |
+| Data source | `ZEMX_I_NotificationHeader`, join `ZEMX_I_NotificationMaintData`, join `ZEMX_I_LocAcctAssignment`, join `ZEMX_I_WorkCenterHeader`, join `ZEMX_I_StatusNotifCompleted`, join `ZEMX_I_StatusDeletionFlag` |
 | Source file | `src/zemx_i_maintnotification.ddls.asddls` |
 
 ## Purpose
 
-One row per PM notification (QMEL with maintenance data QMIH) with reference object, planning data, malfunction data and completion / deletion flags for the migration scope.
+PM notification with maintenance data, reference object, location, main work center (business key) and completion / deletion flags.
 
 ## Keys
 
-- `qmnum`
+- `MaintenanceNotification`
 
 ## Associations defined here
 
@@ -27,12 +27,12 @@ One row per PM notification (QMEL with maintenance data QMIH) with reference obj
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the open notifications: filter IsCompleted = '' and IsMarkedForDeletion = ''.
+Read the open notifications: filter IsCompleted = '' and IsMarkedForDeletion = ''.
 
 ## Open verification items
 
-`XNO-001`, `XNO-002`, `XNO-003` - see `BATCH_REPORT.md`.
+none

@@ -4,23 +4,23 @@
 
 | | |
 |---|---|
-| Description | Work center text (migration extract) |
+| Description | Work center text |
 | Module | `work_center` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
-| Data category | #TEXT |
-| Data source | `crtx`, join `crhd` |
+| Data category | - |
+| Data source | `ZEMX_I_WorkCenterDesc`, join `ZEMX_I_WorkCenterHeader` |
 | Source file | `src/zemx_i_workcentertext.ddls.asddls` |
 
 ## Purpose
 
-Work center descriptions in every maintained language, with the business key (work center + plant) the target system needs.
+Work center descriptions with the business key (work center + plant) instead of the internal object ID.
 
 ## Keys
 
-- `objid`
-- `spras`
+- `WorkCenterInternalID`
+- `Language`
 
 ## Associations defined here
 
@@ -28,12 +28,12 @@ Work center descriptions in every maintained language, with the business key (wo
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the German and English texts: filter Language = 'D' or 'E'.
+Read all texts of work center MECH-01 in plant 1000.
 
 ## Open verification items
 
-none
+`MECH-01` - see `BATCH_REPORT.md`.

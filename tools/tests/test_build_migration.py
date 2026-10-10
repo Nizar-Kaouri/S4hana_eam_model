@@ -1,5 +1,6 @@
-"""Build tests of the EAM migration products (classic ECC views, mapping files, one system per bundle)."""
+"""Build tests of the EAM migration products (3-layer ECC views, mapping table, mapping files, one system per bundle)."""
 import argparse
+import json
 import os
 import shutil
 import sys
@@ -24,20 +25,45 @@ class BuildMigrationTest(unittest.TestCase):
     def tearDown(self):
         shutil.rmtree(self.tmp)
 
-    def test_ecc_build_rewrites_sql_view_names_and_ships_mapping(self):
+    def test_ecc_build_pulls_core_and_work_center_and_rewrites_everything(self):
         out, manifest = bp.build(["equipment"], prefix="ZACME_", package="ZACME_MIG", out=self.tmp / "e.zip", root=ECC)
+        self.assertEqual(sorted(manifest["resolved_modules"]), ["core", "equipment", "work_center"])
         with zipfile.ZipFile(out) as zf:
             names = zf.namelist()
-            ddl = zf.read("src/zacme_i_equipment.ddls.asddls").decode()
+            comp = zf.read("src/zacme_i_equipment.ddls.asddls").decode()
+            cons = zf.read("src/zacme_c_equipmentmig.ddls.asddls").decode()
+            mapv = zf.read("src/zacme_i_migrationmap.ddls.asddls").decode()
+            tabl = zf.read("src/zacme_map.tabl.xml").decode()
             mapping = zf.read("mapping/equipment/mapping.json").decode()
-        self.assertIn("@AbapCatalog.sqlViewName: 'ZACME_EQ'", ddl)
-        self.assertIn("define view ZACME_I_Equipment", ddl)
-        self.assertNotIn("ZEMX_", ddl)
-        self.assertIn("ZACME_I_Equipment", mapping)
+            order = zf.read("ACTIVATION_ORDER.txt").decode().splitlines()
+        self.assertIn("@AbapCatalog.sqlViewName: 'ZACME_EQ'", comp)
+        self.assertIn("define view ZACME_I_Equipment", comp)
+        self.assertIn("as select from ZACME_I_Equipment as src", cons)
+        self.assertIn("left outer join ZACME_I_MigrationMap as map01", cons)
+        self.assertIn("select from zacme_map", mapv)
+        self.assertIn("<TABNAME>ZACME_MAP</TABNAME>", tabl)
+        for text in (comp, cons, mapv, tabl, mapping):
+            self.assertNotIn("ZEMX_", text.upper())
+        self.assertIn("TABL  ZACME_MAP", order[0])
         self.assertIn("mapping/docs/equipment.md", names)
         self.assertIn("mapping/MIGRATION_SEQUENCE.md", names)
-        self.assertNotIn("mapping/work_center/mapping.json", names)
-        self.assertEqual(manifest["resolved_modules"], ["equipment"])
+        self.assertNotIn("mapping/task_list/mapping.json", names)
+        self.assertNotIn("mapping/core/mapping.json", names)
+
+    def test_layers_reference_only_lower_layers(self):
+        modules = {m["name"]: m for m in (json.loads(p.read_text()) for p in ECC.glob("modules/*/module.json"))}
+        layer = {n: lay for m in modules.values() for lay in ("basic", "composite", "consumption") for n in m["objects"][lay]}
+        rank = {"basic": 0, "composite": 1, "consumption": 2}
+        for name, lay in layer.items():
+            refs = bp.references("DDLS", name, "ZEMX_", ECC)
+            for ref in refs:
+                if ref == "ZEMX_MAP":
+                    self.assertEqual(name, "ZEMX_I_MigrationMap")
+                    continue
+                ref_name = next(n for n in layer if n.upper() == ref)
+                self.assertLessEqual(rank[layer[ref_name]], rank[lay], f"{name} ({lay}) reads {ref_name}")
+            if lay == "basic":
+                self.assertEqual(refs - {"ZEMX_MAP"}, set(), f"basic view {name} must read one table only")
 
     def test_sql_view_name_too_long_for_prefix(self):
         with self.assertRaises(bp.BuildError) as ctx:
@@ -45,9 +71,8 @@ class BuildMigrationTest(unittest.TestCase):
                              {"DDLS": 30, "SQLVIEW": 16}, ECC)
         self.assertIn("SQL view name", str(ctx.exception))
 
-    def test_no_reference_from_sql_view_name(self):
-        self.assertEqual(bp.references("DDLS", "ZEMX_I_Equipment", "ZEMX_", ECC), set())
-        self.assertEqual(bp.references("DDLS", "ZEMX_R_EquipmentCount", "ZEMX_", ECC), {"ZEMX_I_EQUIPMENT"})
+    def test_sql_view_name_is_not_a_reference(self):
+        self.assertEqual(bp.references("DDLS", "ZEMX_I_EquipmentHeader", "ZEMX_", ECC), set())
 
     def test_bundle_refuses_mixed_systems(self):
         args = argparse.Namespace(all=False, product_all=None, modules=["eam:equipment", "eam_mig_ecc:equipment"])

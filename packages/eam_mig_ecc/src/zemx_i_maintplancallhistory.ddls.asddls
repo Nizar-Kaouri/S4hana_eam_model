@@ -1,12 +1,12 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Scheduled and completed calls per maintenance plan: needed to set the start / last completion date so that the schedule continues seamlessly after go-live.
-// Example: Find the last completed call of plan 100: filter MaintenancePlan = '000000000100', highest CallNumber with a CompletionDate.
-@AbapCatalog.sqlViewName: 'ZEMX_PLH'
+// Purpose: Scheduled and completed calls per maintenance plan (MHIS).
+// Example: Read the calls of plan 100.
+@AbapCatalog.sqlViewName: 'ZEMX_MHIS'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #FACT
-@Analytics.dataExtraction.enabled: true
-@EndUserText.label: 'Maintenance plan call history (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Maintenance plan call history'
 @ObjectModel.representativeKey: 'MaintPlanCallNumber'
 @ObjectModel.usageType.dataClass: #TRANSACTIONAL
 @ObjectModel.usageType.serviceQuality: #D

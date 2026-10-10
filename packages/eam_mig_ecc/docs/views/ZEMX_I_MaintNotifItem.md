@@ -4,23 +4,23 @@
 
 | | |
 |---|---|
-| Description | Maintenance notification item (migration extract) |
+| Description | Maintenance notification item |
 | Module | `maintenance_notification` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `qmfe`, join `qmih` |
+| Data source | `ZEMX_I_NotificationItemData`, join `ZEMX_I_NotificationMaintData` |
 | Source file | `src/zemx_i_maintnotifitem.ddls.asddls` |
 
 ## Purpose
 
-Items of PM notifications (object part and damage codes with text).
+Items of PM notifications (restricted to notifications with maintenance data).
 
 ## Keys
 
-- `qmnum`
-- `fenum`
+- `MaintenanceNotification`
+- `MaintNotificationItem`
 
 ## Associations defined here
 
@@ -28,12 +28,12 @@ Items of PM notifications (object part and damage codes with text).
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the items of the open notifications: join on MaintenanceNotification with ZEMX_I_MaintNotification.
+Read the items of notification 10000001.
 
 ## Open verification items
 
-`XNO-004` - see `BATCH_REPORT.md`.
+none

@@ -1,13 +1,12 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Index of the SAPscript long texts of EAM objects (equipment, functional location, notification, order, task list, maintenance plan / item): which texts exist, in which language, when changed.
-// Example: Count the equipment long texts to migrate: filter TextObject = 'EQUI'.
-// The text lines are stored compressed in STXL and cannot be read with CDS; use READ_TEXT (see XLT-G01).
-@AbapCatalog.sqlViewName: 'ZEMX_LT'
+// Purpose: Index of the SAPscript long texts of EAM objects (STXH): which texts exist, in which language, when changed.
+// Example: Count the equipment long texts: filter TextObject = 'EQUI'.
+// The text lines are stored compressed in STXL and cannot be read with CDS; the load program reads them with READ_TEXT (see XLT-G01).
+@AbapCatalog.sqlViewName: 'ZEMX_STXH'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@Analytics.dataExtraction.enabled: true
-@Analytics.dataExtraction.delta.byElement.name: 'LastChangeDate'
-@EndUserText.label: 'Long text header (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Long text header'
 @ObjectModel.representativeKey: 'Language'
 @ObjectModel.usageType.dataClass: #MASTER
 @ObjectModel.usageType.serviceQuality: #D

@@ -4,28 +4,28 @@
 
 | | |
 |---|---|
-| Description | Task list operation (migration extract) |
+| Description | Task list operation |
 | Module | `task_list` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `plas`, join `plpo`, join `crhd` |
+| Data source | `ZEMX_I_TaskListOpAssignment`, join `ZEMX_I_TaskListOpDetail`, join `ZEMX_I_WorkCenterHeader` |
 | Source file | `src/zemx_i_tasklistoperation.ddls.asddls` |
 
 ## Purpose
 
-Operations of maintenance task lists (sequence assignment PLAS joined with operation PLPO) with work center, control key, work and duration.
+Operations of maintenance task lists (sequence assignment joined with operation detail) with the work center as business key.
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnal`
-- `plnfl`
-- `plnkn`
-- `zaehl`
-- `zaehl`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListGroupCounter`
+- `TaskListSequence`
+- `TaskListOperationInternalId`
+- `TaskListOpAssgmtVersion`
+- `TaskListOpVersionCounter`
 
 ## Associations defined here
 
@@ -33,12 +33,12 @@ Operations of maintenance task lists (sequence assignment PLAS joined with opera
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the operations of the task lists in scope: join on TaskListType / TaskListGroup / TaskListGroupCounter with ZEMX_R_TaskListCurrent.
+Read the operations of task list group 4711, counter 01.
 
 ## Open verification items
 
-`XTL-004`, `XTL-006` - see `BATCH_REPORT.md`.
+none

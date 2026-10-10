@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| Description | Object partner (migration extract) |
+| Description | Object partner |
 | Module | `object_partner` |
-| Batch | 1 |
+| Batch | 2 |
 | Layer | basic (`@VDM.viewType: #BASIC`) |
 | Kind | view |
 | Data category | #FACT |
@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Partners of technical objects, notifications and orders (partner function and partner number).
+Partners of technical objects, notifications and orders (IHPA) with the object type and key decoded.
 
 ## Keys
 
@@ -29,11 +29,11 @@ Partners of technical objects, notifications and orders (partner function and pa
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the partners of equipment: filter PartnerObjectType = 'IE'.
+Read the partners of equipment: filter PartnerObjectType = 'IE'.
 
 ## Open verification items
 

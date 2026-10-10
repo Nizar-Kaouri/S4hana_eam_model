@@ -4,22 +4,22 @@
 
 | | |
 |---|---|
-| Description | Maintenance item (migration extract) |
+| Description | Maintenance item |
 | Module | `maintenance_plan` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `mpos`, join `iloa`, join `crhd` |
+| Data source | `ZEMX_I_MaintenanceItemHeader`, join `ZEMX_I_LocAcctAssignment`, join `ZEMX_I_WorkCenterHeader` |
 | Source file | `src/zemx_i_maintenanceitem.ddls.asddls` |
 
 ## Purpose
 
-Maintenance items with reference object, planning data, order / notification type and the assigned task list.
+Maintenance item with reference object, planning data, main work center (business key), order / notification type, task list and business area.
 
 ## Keys
 
-- `wapos`
+- `MaintenanceItem`
 
 ## Associations defined here
 
@@ -27,12 +27,12 @@ Maintenance items with reference object, planning data, order / notification typ
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the items of the plans in scope: join on MaintenancePlan with ZEMX_I_MaintenancePlan.
+Read the items of the plans of plant 1000.
 
 ## Open verification items
 
-`XPL-003`, `XPL-004` - see `BATCH_REPORT.md`.
+none

@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| Description | Maintenance plan cycle (migration extract) |
+| Description | Maintenance plan cycle |
 | Module | `maintenance_plan` |
-| Batch | 1 |
+| Batch | 2 |
 | Layer | basic (`@VDM.viewType: #BASIC`) |
 | Kind | view |
 | Data category | #DIMENSION |
@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Cycles of single-cycle and multiple-counter plans and packages of strategy plans: cycle value, unit, text and counter (measuring point) for performance-based cycles.
+Cycles of single-cycle and multiple-counter plans and packages of strategy plans (MMPT).
 
 ## Keys
 
@@ -28,11 +28,11 @@ Cycles of single-cycle and multiple-counter plans and packages of strategy plans
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the performance-based cycles: filter MeasuringPoint <> ''.
+Read the performance-based cycles: filter MeasuringPoint <> ''.
 
 ## Open verification items
 

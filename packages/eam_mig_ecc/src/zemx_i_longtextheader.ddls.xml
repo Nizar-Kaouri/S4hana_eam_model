@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_LONGTEXTHEADER</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Long text header (migration extract)</DDTEXT>
+    <DDTEXT>Long text header</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

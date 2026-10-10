@@ -4,9 +4,9 @@
 
 | | |
 |---|---|
-| Description | Measurement document (migration extract) |
+| Description | Measurement document |
 | Module | `measurement_document` |
-| Batch | 1 |
+| Batch | 2 |
 | Layer | basic (`@VDM.viewType: #BASIC`) |
 | Kind | view |
 | Data category | #FACT |
@@ -15,7 +15,7 @@
 
 ## Purpose
 
-One row per measurement document (reading or counter reading) with reading date / time, values in SI and entry unit, valuation code and cancellation flag.
+Measurement documents (IMRG): readings and counter readings with date, time, values, valuation code and cancellation flag.
 
 ## Keys
 
@@ -27,12 +27,12 @@ One row per measurement document (reading or counter reading) with reading date 
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the readings of the last two years: filter MsmtRdngDate >= '20240101' and MsmtDocumentIsCancelled = ''.
+Read the readings of measuring point 1234 in 2025.
 
 ## Open verification items
 
-`XMD-001`, `XMD-003` - see `BATCH_REPORT.md`.
+`XMD-001` - see `BATCH_REPORT.md`.

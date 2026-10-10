@@ -4,23 +4,23 @@
 
 | | |
 |---|---|
-| Description | Object status (migration extract) |
+| Description | Object status |
 | Module | `object_status` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `jest`, join `jsto` |
+| Data source | `ZEMX_I_ObjectStatusEntry`, join `ZEMX_I_StatusObjectInfo` |
 | Source file | `src/zemx_i_objectstatus.ddls.asddls` |
 
 ## Purpose
 
-Active system and user statuses of all objects (equipment IE, functional location IF, notification QM, order OR, ...) with the status profile for user statuses.
+Active statuses with object type, object key and status profile.
 
 ## Keys
 
-- `objnr`
-- `stat`
+- `ObjectNumber`
+- `StatusCode`
 
 ## Associations defined here
 
@@ -28,12 +28,12 @@ Active system and user statuses of all objects (equipment IE, functional locatio
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the user statuses of equipment: filter StatusObjectType = 'IE' and StatusKind = 'E'.
+Read the active user statuses of the orders: filter StatusObjectType = 'OR' and StatusKind = 'E'.
 
 ## Open verification items
 
-`XST-001`, `XST-002` - see `BATCH_REPORT.md`.
+none

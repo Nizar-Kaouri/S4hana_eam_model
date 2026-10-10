@@ -6,7 +6,8 @@ module rules of this library, so this script enforces:
 
   M1  module.json: required keys, allowed status, phase rules from library.json
   M2  every object listed in a module.json exists; every /src object belongs to a module
-  M3  layer naming: basic=<P>I_*, composite=<P>R_*, consumption=<P>C_*Q, and the matching @VDM.viewType
+  M3  layer naming: basic=<P>I_*, composite=<P>R_*, consumption=<P>C_*Q (prefixes / suffixes configurable in
+      library.json: layer_prefixes, consumption_suffixes), and the matching @VDM.viewType
   M4  every DDLS has @AccessControl, @Analytics*, @VDM.viewType, @ObjectModel and @EndUserText.label
   M5  every DDLS has a DCL (unless listed in no_dcl_by_design / no_dcl_reason), '// Purpose:' and
       '// Example:' header comments and a doc page docs/views/<Name>.md
@@ -104,7 +105,7 @@ def main():
         canonical[("DDLS", link["name"].upper())] = link["name"]
         if link.get("access_control"):
             canonical[("DCLS", link["access_control"].upper())] = link["access_control"]
-    ext_type = {".ddls.asddls": "DDLS", ".dcls.asdcls": "DCLS", ".ddlx.asddlx": "DDLX", ".clas.abap": "CLAS"}
+    ext_type = {".tabl.xml": "TABL", ".ddls.asddls": "DDLS", ".dcls.asdcls": "DCLS", ".ddlx.asddlx": "DDLX", ".clas.abap": "CLAS"}
     for folder in ("src", "tests/abap"):
         for path in (ROOT / folder).glob("*.*"):
             for ext, t in ext_type.items():
@@ -119,28 +120,33 @@ def main():
             if p.exists():
                 ddls_text[n_upper] = p.read_text(encoding="utf-8")
 
+    lp = {"basic": "I_", "composite": "R_", "consumption": "C_"}
+    lp.update(library.get("layer_prefixes", {}))
+    layer_rules = {k: (lp[k], vdm) for k, (_, vdm) in LAYER_RULES.items()}
+    c_suffixes = tuple(library.get("consumption_suffixes", ["Q"]))
+
     # M3 / M4 / M5
     no_dcl_links = set()
     for m in modules.values():
-        for layer, (layer_prefix, vdm) in LAYER_RULES.items():
+        for layer, (layer_prefix, vdm) in layer_rules.items():
             for n in m["objects"].get(layer, []):
                 text = ddls_text.get(n.upper(), "")
                 if not n.upper().startswith((prefix + layer_prefix).upper()):
                     err(f"M3 {n}: {layer} views must start with {prefix}{layer_prefix}")
-                if layer == "consumption" and not n.endswith("Q"):
-                    err(f"M3 {n}: consumption views must end with 'Q'")
+                if layer == "consumption" and not n.endswith(c_suffixes):
+                    err(f"M3 {n}: consumption views must end with {' or '.join(c_suffixes)}")
                 if f"@VDM.viewType: {vdm}" not in text:
                     err(f"M3 {n}: expected @VDM.viewType: {vdm}")
     for link in links.values():
         text = ddls_text.get(link["name"].upper(), "")
         ok = False
-        for layer_prefix, vdm in LAYER_RULES.values():
+        for layer_prefix, vdm in layer_rules.values():
             if link["name"].upper().startswith((prefix + layer_prefix).upper()) and f"@VDM.viewType: {vdm}" in text:
                 ok = True
         if not ok:
             err(f"M3 link view {link['name']}: layer prefix and @VDM.viewType do not match")
-        if link["name"].upper().startswith((prefix + "C_").upper()) and not link["name"].endswith("Q"):
-            err(f"M3 link view {link['name']}: consumption views must end with 'Q'")
+        if link["name"].upper().startswith((prefix + "C_").upper()) and not link["name"].endswith(c_suffixes):
+            err(f"M3 link view {link['name']}: consumption views must end with {' or '.join(c_suffixes)}")
         if "LINK VIEW" not in text:
             err(f"M3 link view {link['name']}: header comment must say 'LINK VIEW'")
         if not link.get("access_control") and not link.get("no_dcl_reason"):
@@ -184,7 +190,7 @@ def main():
             continue
         allowed = allowed_modules(mod)
         for ref in refs:
-            ref_owner = owner.get(("DDLS", ref)) or owner.get(("DCLS", ref))
+            ref_owner = owner.get(("DDLS", ref)) or owner.get(("DCLS", ref)) or owner.get(("TABL", ref))
             if ref_owner is None:
                 err(f"M6 {t} {n_upper} references unknown object {ref}")
             elif ref_owner.startswith("link:") and not mod.startswith("link:"):

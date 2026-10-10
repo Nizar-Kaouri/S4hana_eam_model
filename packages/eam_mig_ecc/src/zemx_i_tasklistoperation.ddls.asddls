@@ -1,51 +1,47 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Operations of maintenance task lists (sequence assignment PLAS joined with operation PLPO) with work center, control key, work and duration.
-// Example: Extract the operations of the task lists in scope: join on TaskListType / TaskListGroup / TaskListGroupCounter with ZEMX_R_TaskListCurrent.
+// Purpose: Operations of maintenance task lists (sequence assignment joined with operation detail) with the work center as business key.
+// Example: Read the operations of task list group 4711, counter 01.
 @AbapCatalog.sqlViewName: 'ZEMX_TLO'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #DIMENSION
-@Analytics.dataExtraction.enabled: true
-@EndUserText.label: 'Task list operation (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Task list operation'
 @ObjectModel.representativeKey: 'TaskListOperationInternalId'
 @ObjectModel.usageType.dataClass: #MASTER
 @ObjectModel.usageType.serviceQuality: #D
 @ObjectModel.usageType.sizeCategory: #L
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view ZEMX_I_TaskListOperation
-  as select from plas
-    inner join plpo on  plpo.plnty = plas.plnty
-                    and plpo.plnnr = plas.plnnr
-                    and plpo.plnkn = plas.plnkn
-    left outer join crhd as wc on wc.objid = plpo.arbid and wc.objty = 'A'
+  as select from ZEMX_I_TaskListOpAssignment as asg
+    inner join ZEMX_I_TaskListOpDetail as op on op.TaskListType = asg.TaskListType and op.TaskListGroup = asg.TaskListGroup and op.TaskListOperationInternalId = asg.TaskListOperationInternalId
+    left outer join ZEMX_I_WorkCenterHeader as wc on wc.WorkCenterInternalID = op.WorkCenterInternalID
 {
-  key plas.plnty as TaskListType,
-  key plas.plnnr as TaskListGroup,
-  key plas.plnal as TaskListGroupCounter,
-  key plas.plnfl as TaskListSequence,
-  key plas.plnkn as TaskListOperationInternalId,
-      // TODO-VERIFY[H] XTL-004: PLAS and PLPO both carry change-number versions (ZAEHL); the join returns one row per combination, the mapping keeps only the latest non-deleted versions
-  key plas.zaehl as TaskListOpAssgmtVersion,
-  key plpo.zaehl as TaskListOpVersionCounter,
-      plpo.vornr as TaskListOperation,
-      // TODO-VERIFY[M] XTL-006: PLPO field names UVORN, LARNT, ANZZL, DAUNO, DAUNE
-      plpo.uvorn as TaskListSubOperation,
-      plpo.steus as OperationControlKey,
-      plpo.ltxa1 as OperationText,
-      wc.arbpl   as WorkCenter,
-      wc.werks   as WorkCenterPlant,
-      plpo.werks as Plant,
-      plpo.larnt as ActivityType,
+  key asg.TaskListType               as TaskListType,
+  key asg.TaskListGroup              as TaskListGroup,
+  key asg.TaskListGroupCounter       as TaskListGroupCounter,
+  key asg.TaskListSequence           as TaskListSequence,
+  key asg.TaskListOperationInternalId as TaskListOperationInternalId,
+  key asg.TaskListOpAssgmtVersion    as TaskListOpAssgmtVersion,
+  key op.TaskListOpVersionCounter    as TaskListOpVersionCounter,
+      op.TaskListOperation           as TaskListOperation,
+      op.TaskListSubOperation        as TaskListSubOperation,
+      op.OperationControlKey         as OperationControlKey,
+      op.OperationText               as OperationText,
+      wc.WorkCenter                  as WorkCenter,
+      wc.Plant                       as WorkCenterPlant,
+      op.Plant                       as Plant,
+      op.ActivityType                as ActivityType,
       @Semantics.quantity.unitOfMeasure: 'PlannedWorkQuantityUnit'
-      plpo.arbei as PlannedWorkQuantity,
+      op.PlannedWorkQuantity         as PlannedWorkQuantity,
       @Semantics.unitOfMeasure: true
-      plpo.arbeh as PlannedWorkQuantityUnit,
+      op.PlannedWorkQuantityUnit     as PlannedWorkQuantityUnit,
       @Semantics.quantity.unitOfMeasure: 'OperationDurationUnit'
-      plpo.dauno as OperationDuration,
+      op.OperationDuration           as OperationDuration,
       @Semantics.unitOfMeasure: true
-      plpo.daune as OperationDurationUnit,
-      plpo.anzzl as NumberOfCapacities,
-      plas.loekz as OpAssignmentIsDeleted,
-      plpo.loekz as IsMarkedForDeletion
+      op.OperationDurationUnit       as OperationDurationUnit,
+      op.NumberOfCapacities          as NumberOfCapacities,
+      op.WorkCenterInternalID        as WorkCenterInternalID,
+      asg.IsMarkedForDeletion        as OpAssignmentIsDeleted,
+      op.IsMarkedForDeletion         as IsMarkedForDeletion
 }
-where plas.plnty = 'A' or plas.plnty = 'E' or plas.plnty = 'T'

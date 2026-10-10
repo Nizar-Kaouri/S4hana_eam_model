@@ -41,7 +41,7 @@ def owner_index(products):
     for p in products.values():
         for m in p.modules.values():
             objs = m.get("objects", {})
-            for key in ("basic", "composite", "consumption", "access_controls", "metadata_extensions"):
+            for key in ("tables", "basic", "composite", "consumption", "access_controls", "metadata_extensions"):
                 for n in objs.get(key, []):
                     idx.setdefault(n.upper(), (p.name, "module", m["name"]))
             for lk in m.get("link_views", []):

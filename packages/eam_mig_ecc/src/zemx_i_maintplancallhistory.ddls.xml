@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_MAINTPLANCALLHISTORY</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Maintenance plan call history (migration extract)</DDTEXT>
+    <DDTEXT>Maintenance plan call history</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

@@ -13,7 +13,8 @@
     "DDLX": 30,
     "CLAS": 30,
     "DEVC": 30,
-    "SQLVIEW": 16
+    "SQLVIEW": 16,
+    "TABL": 16
   },
   "reserve_prefix_chars": 1,
   "kind": "migration-source",
@@ -25,5 +26,14 @@
   "map_external_title": "ECC tables",
   "draft_tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
   "map_release": "SAP ECC 6.0 (source)",
-  "map_external_sub": "tables (read directly, never copied)"
+  "map_external_sub": "tables (read directly, never copied)",
+  "layer_prefixes": {
+    "basic": "I_",
+    "composite": "I_",
+    "consumption": "C_"
+  },
+  "consumption_suffixes": [
+    "Mig",
+    "MigCount"
+  ]
 }

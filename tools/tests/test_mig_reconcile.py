@@ -33,7 +33,17 @@ class CountsTest(unittest.TestCase):
         self.assertEqual(res["differences"], [])
         self.assertEqual((res["source_total"], res["target_total"]), (7, 7))
 
-    def test_value_map_merges_plants(self):
+    def test_consumption_values_are_not_translated_again(self):
+        self.assertEqual(self.mapping["reconciliation"]["source_values"], "target")
+        maps = Path(self.dir) / "maps"
+        maps.mkdir()
+        write(maps, "value_map_plant.csv", "source,target\nP100,WRONG\n")
+        csv_ = "MaintenancePlanningPlant,EquipmentCategory,RecordCount\nP100,M,8\n"
+        self.assertEqual(self.run_counts(csv_, csv_, maps)["differences"], [])
+
+    def test_value_map_merges_plants_for_old_value_exports(self):
+        self.mapping["reconciliation"]["source_values"] = "source"
+        self.mapping["reconciliation"]["dimensions"][0]["value_map"] = "plant"
         maps = Path(self.dir) / "maps"
         maps.mkdir()
         write(maps, "value_map_plant.csv", "source,target,comment\n1000,P100,\n1100,P100,merged\n")
@@ -84,7 +94,8 @@ class RecordsTest(unittest.TestCase):
         maps.mkdir()
         write(maps, "key_map_equipment.csv", "source,target\n10000001,EQ-NEW-1\n")
         write(maps, "value_map_plant.csv", "source,target\n1000,P100\n")
-        res = self.run_records(self.row("10000001", extra="INV1,"), self.row("EQ-NEW-1", plant="P100", extra="INV1"), maps)
+        res = self.run_records(self.row("10000001", extra="INV1,"), self.row("EQ-NEW-1", plant="P100", extra="INV1"), maps,
+                               translate=True)
         self.assertEqual((res["missing"], res["extra"], res["mismatches"]), ([], [], {}))
 
     def test_missing_extra_and_field_difference(self):
@@ -97,6 +108,7 @@ class RecordsTest(unittest.TestCase):
         self.assertFalse(mr.records_report("equipment", res)[1])
 
     def test_scope_filter_and_leading_zeros(self):
+        self.mapping["scope"] = {"filter": "IsMarkedForDeletion = ''"}
         src = self.row("000000000010000001", extra="A,") + self.row("000000000010000002", extra="B,X")
         res = self.run_records(src, self.row("10000001", extra="A"), apply_scope=True, strip_zeros=True)
         self.assertEqual((res["missing"], res["extra"]), ([], []))

@@ -30,7 +30,7 @@ os.environ.setdefault("VDM_PRODUCT", "eam")  # build_package needs a product at 
 import build_package as bp  # noqa: E402
 import catalog  # noqa: E402
 
-TYPE_ORDER = {"DDLS": 0, "DCLS": 1, "DDLX": 2, "CLAS": 3}
+TYPE_ORDER = {"TABL": 0, "DDLS": 1, "DCLS": 2, "DDLX": 3, "CLAS": 4}
 
 
 class BundleError(Exception):

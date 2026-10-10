@@ -4,24 +4,24 @@
 
 | | |
 |---|---|
-| Description | Maintenance order component (migration extract) |
+| Description | Maintenance order component |
 | Module | `maintenance_order` |
-| Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Batch | 2 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `resb`, join `afih` |
+| Data source | `ZEMX_I_ReservationItem`, join `ZEMX_I_OrderMaintData`, join `ZEMX_I_OrderOperationData` |
 | Source file | `src/zemx_i_maintordercomponent.ddls.asddls` |
 
 ## Purpose
 
-Material components (reservation items) of maintenance orders with operation link, requirement and withdrawn quantity.
+Material components of maintenance orders with the operation number (instead of the internal operation counter).
 
 ## Keys
 
-- `rsnum`
-- `rspos`
-- `rsart`
+- `Reservation`
+- `ReservationItem`
+- `ReservationRecordType`
 
 ## Associations defined here
 
@@ -29,12 +29,12 @@ Material components (reservation items) of maintenance orders with operation lin
 
 ## Access control
 
-No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).
+No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
 
 ## Example use case
 
-Extract the open components: filter IsMarkedForDeletion = '' and IsFinalIssue = '' for the orders in scope.
+Read the open components of order 4000001.
 
 ## Open verification items
 
-`XOR-005` - see `BATCH_REPORT.md`.
+none

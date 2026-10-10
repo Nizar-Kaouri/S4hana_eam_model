@@ -1,28 +1,27 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Items of PM notifications (object part and damage codes with text).
-// Example: Extract the items of the open notifications: join on MaintenanceNotification with ZEMX_I_MaintNotification.
+// Purpose: Items of PM notifications (restricted to notifications with maintenance data).
+// Example: Read the items of notification 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_NOI'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #FACT
-@Analytics.dataExtraction.enabled: true
-@EndUserText.label: 'Maintenance notification item (migration extract)'
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Maintenance notification item'
 @ObjectModel.representativeKey: 'MaintNotificationItem'
 @ObjectModel.usageType.dataClass: #TRANSACTIONAL
 @ObjectModel.usageType.serviceQuality: #D
 @ObjectModel.usageType.sizeCategory: #L
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintNotifItem
-  as select from qmfe
-    inner join qmih on qmih.qmnum = qmfe.qmnum
+  as select from ZEMX_I_NotificationItemData as itm
+    inner join ZEMX_I_NotificationMaintData as pm on pm.MaintenanceNotification = itm.MaintenanceNotification
 {
-  key qmfe.qmnum    as MaintenanceNotification,
-  key qmfe.fenum    as MaintNotificationItem,
-      // TODO-VERIFY[M] XNO-004: QMFE field names OTGRP, OTEIL, FEGRP, FECOD, FETXT, KZLOESCH
-      qmfe.otgrp    as ObjectPartCodeGroup,
-      qmfe.oteil    as ObjectPartCode,
-      qmfe.fegrp    as DamageCodeGroup,
-      qmfe.fecod    as DamageCode,
-      qmfe.fetxt    as MaintNotifItemText,
-      qmfe.kzloesch as IsMarkedForDeletion
+  key itm.MaintenanceNotification as MaintenanceNotification,
+  key itm.MaintNotificationItem   as MaintNotificationItem,
+      itm.ObjectPartCodeGroup     as ObjectPartCodeGroup,
+      itm.ObjectPartCode          as ObjectPartCode,
+      itm.DamageCodeGroup         as DamageCodeGroup,
+      itm.DamageCode              as DamageCode,
+      itm.MaintNotifItemText      as MaintNotifItemText,
+      itm.IsMarkedForDeletion     as IsMarkedForDeletion
 }

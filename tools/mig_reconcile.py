@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Reconcile a migration: compare exports of the ECC source views with exports of the S/4HANA views.
+"""Reconcile a migration: compare exports of the ECC consumption views with exports of the S/4HANA views.
 
 Two checks, both driven by modules/<module>/mapping.json of the migration-source product:
 
-  counts   ECC count view vs S/4HANA count view. The source dimensions are translated with the value maps
-           named in reconciliation.dimensions, then the counts are compared per dimension combination.
-  records  ECC extract (basic view) vs S/4HANA compare view, record by record on the business key (translated
-           with the key map) and field by field for the compared fields (translated with each field's value /
-           key map). Reports records missing on S/4HANA, extra records on S/4HANA and field differences.
+  counts   ECC count view (<P>C_*MigCount) vs S/4HANA count view, per dimension combination.
+  records  ECC consumption view (<P>C_*Mig) vs S/4HANA compare view, record by record on the business key and
+           field by field for the compared fields. Reports records missing on S/4HANA, extra records on S/4HANA
+           and field differences.
 
-Maps are CSV files in a folder (--maps): value_map_<name>.csv / key_map_<name>.csv with the columns
-source,target[,comment] - the templates come from docs/mapping/templates/. A value without an entry stays as
-it is. Exports are CSV files with a header row of element names (comma or semicolon separated).
+The consumption views already deliver translated values (mapping table on ECC, reconciliation.source_values =
+"target"), so no maps are needed. For a source export with old values (source_values = "source", or --translate),
+maps can be applied from CSV files in a folder (--maps): value_map_<name>.csv / key_map_<name>.csv with the
+columns source,target[,comment]. Exports are CSV files with a header row of element names (comma or semicolon).
 
-  python3 tools/mig_reconcile.py counts  --module equipment --source ecc_counts.csv --target s4_counts.csv --maps maps/
+  python3 tools/mig_reconcile.py counts  --module equipment --source ecc_counts.csv  --target s4_counts.csv
   python3 tools/mig_reconcile.py records --module equipment --source ecc_extract.csv --target s4_compare.csv \
-          --maps maps/ [--apply-scope] [--strip-zeros] [--out report.md]
+          [--strip-zeros] [--out report.md]
 
 Exit code: 0 = no differences, 1 = differences found, 2 = usage / input error.
 """
@@ -115,17 +115,31 @@ def scope_filter(expr):
 
 # ----------------------------------------------------------------------------- counts
 
-def counts(mapping, source_rows, target_rows, maps, strip_zeros=False):
+def translated(mapping, force=False):
+    """True when the source export carries old values that still need the maps."""
+    return force or mapping["reconciliation"].get("source_values", "source") != "target"
+
+
+def compare_rules(mapping):
+    cmp_ = mapping["reconciliation"].get("compare") or {}
+    for st in mapping.get("structures", []):
+        if st["consumption_view"] == cmp_.get("source_view"):
+            return {f["element"]: f["rule"] for f in st["fields"]}
+    return {f["element"]: f["rule"] for f in mapping.get("fields", []) if f.get("view") == cmp_.get("source_view")}
+
+
+def counts(mapping, source_rows, target_rows, maps, strip_zeros=False, translate=False):
     rec = mapping["reconciliation"]
+    do_map = translated(mapping, translate)
     dims = [d["element"] for d in rec["dimensions"]]
     measure = rec.get("measure", "RecordCount")
     require(source_rows, dims + [measure], "source")
     require(target_rows, dims + [measure], "target")
 
-    def total(rows, translate):
+    def total(rows, use):
         acc = Counter()
         for r in rows:
-            key = tuple(normalize(maps.apply(f"value_map:{d['value_map']}" if translate and d.get("value_map") else "",
+            key = tuple(normalize(maps.apply(f"value_map:{d['value_map']}" if use and do_map and d.get("value_map") else "",
                                              r[d["element"]]), strip_zeros) for d in rec["dimensions"])
             try:
                 acc[key] += int(float(r[measure] or 0))
@@ -153,28 +167,31 @@ def counts_report(module, res):
 
 # ----------------------------------------------------------------------------- records
 
-def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_zeros=False):
+def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_zeros=False, translate=False):
     cmp_ = mapping["reconciliation"].get("compare")
     if not cmp_:
         raise InputError(f"module {mapping['module']} has no record comparison in its mapping")
-    rules = {f["element"]: f["rule"] for f in mapping["fields"] if f["view"] == cmp_["source_view"]}
+    rules = compare_rules(mapping) if translated(mapping, translate) else {}
     keys, fields = cmp_["key"], cmp_["fields"]
     require(source_rows, keys + fields, "source")
     require(target_rows, keys + fields, "target")
     notes = []
-    if apply_scope:
-        pred = scope_filter(mapping["scope"]["filter"])
+    scope = (mapping.get("scope") or {}).get("filter", "")
+    if apply_scope and not scope:
+        notes.append("no scope filter applied - the consumption view delivers the migration scope already")
+    elif apply_scope:
+        pred = scope_filter(scope)
         if pred is None:
-            notes.append(f"scope filter not applied (not a simple condition): {mapping['scope']['filter']}")
+            notes.append(f"scope filter not applied (not a simple condition): {scope}")
         else:
             before = len(source_rows)
             source_rows = [r for r in source_rows if pred(r)]
-            notes.append(f"scope filter `{mapping['scope']['filter']}` kept {len(source_rows)} of {before} source rows")
+            notes.append(f"scope filter `{scope}` kept {len(source_rows)} of {before} source rows")
 
-    def index(rows, translate, label):
+    def index(rows, use, label):
         out, dupes = {}, 0
         for r in rows:
-            k = tuple(normalize(maps.apply(rules.get(e) if translate else "", r[e]), strip_zeros) for e in keys)
+            k = tuple(normalize(maps.apply(rules.get(e) if use else "", r[e]), strip_zeros) for e in keys)
             if k in out:
                 dupes += 1
             out[k] = r
@@ -232,7 +249,8 @@ def main(argv=None):
     ap.add_argument("--source", required=True, help="CSV export of the ECC view")
     ap.add_argument("--target", required=True, help="CSV export of the S/4HANA view")
     ap.add_argument("--maps", help="folder with value_map_*.csv / key_map_*.csv")
-    ap.add_argument("--apply-scope", action="store_true", help="records: apply the mapping's scope filter to the source")
+    ap.add_argument("--apply-scope", action="store_true", help="records: apply a simple scope filter (old-value exports only)")
+    ap.add_argument("--translate", action="store_true", help="apply the maps from --maps to the source export (old values)")
     ap.add_argument("--strip-zeros", action="store_true", help="ignore leading zeros of numeric values (external formats)")
     ap.add_argument("--out", help="write the Markdown report to this file (default: stdout)")
     args = ap.parse_args(argv)
@@ -241,10 +259,11 @@ def main(argv=None):
         maps = Maps(args.maps)
         src, tgt = read_csv(args.source), read_csv(args.target)
         if args.check == "counts":
-            res = counts(mapping, src, tgt, maps, args.strip_zeros)
+            res = counts(mapping, src, tgt, maps, args.strip_zeros, args.translate)
             report, ok = counts_report(args.module, res), not res["differences"]
         else:
-            report, ok = records_report(args.module, records(mapping, src, tgt, maps, args.apply_scope, args.strip_zeros))
+            report, ok = records_report(args.module, records(mapping, src, tgt, maps, args.apply_scope, args.strip_zeros,
+                                                             args.translate))
     except InputError as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 2

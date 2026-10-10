@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_MAINTORDEROPERATION</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Maintenance order operation (migration extract)</DDTEXT>
+    <DDTEXT>Maintenance order operation</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

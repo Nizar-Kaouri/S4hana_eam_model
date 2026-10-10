@@ -20,7 +20,7 @@
       "ZEMT_I_WorkCenterCompare"
     ],
     "composite": [
-      "ZEMT_R_WorkCenterCount"
+      "ZEMT_I_WorkCenterCount"
     ],
     "consumption": [],
     "access_controls": [],
@@ -29,7 +29,7 @@
   },
   "no_dcl_by_design": {
     "ZEMT_I_WorkCenterCompare": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design.",
-    "ZEMT_R_WorkCenterCount": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design."
+    "ZEMT_I_WorkCenterCount": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design."
   },
   "migration_source_module": "eam_mig_ecc:work_center",
   "link_views": []

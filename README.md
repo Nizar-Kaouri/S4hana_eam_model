@@ -3,8 +3,9 @@
 Packages that help move data from an old SAP ERP (ECC 6.0) system to SAP S/4HANA (new implementation or
 selective data transition). Per business area there is:
 
-- a **source extraction** product that runs on ECC (classic CDS views on the tables: full field lists, scope
-  flags, extraction and delta annotations),
+- a **source** product that runs on ECC: classic CDS views in three layers - basic (one table each) → composite
+  (business object) → consumption (`C_*Mig`: migration-ready, scope applied, values translated through a mapping
+  table). The customer's load program reads the consumption views with any technology,
 - a **mapping model** (every source element → S/4HANA target field with a rule, business keys and numbering,
   scope filters, load order, value maps and key maps),
 - a **reconciliation** product on S/4HANA plus `tools/mig_reconcile.py` (counts and record-by-record field
@@ -27,7 +28,7 @@ migration pilot; all other rows are the S/4HANA analytics add-on.
 
 | Product | Folder | Prefix | State |
 |---|---|---|---|
-| **EAM migration - ECC extraction + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | drafted: 13 migration objects, 44 classic views, 13 mapping files |
+| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | drafted: 13 migration objects, 101 classic views (basic → composite → consumption), mapping table, 13 mapping files |
 | **EAM migration - S/4HANA reconciliation (pilot)** | [`packages/eam_mig_s4`](packages/eam_mig_s4/README.md) | `ZEMT_` | drafted: 8 objects, 16 views |
 | Analytics add-on: Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
 | Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 14 views |
@@ -66,8 +67,8 @@ packages/<product>/          one product
   README.md, BATCH_REPORT.md, ACTIVATION_CHECKLIST.md
 ```
 
-**Migration products** (`kind` `migration-source` / `migration-target` in `library.json`) use only the basic
-and composite layers: extraction / compare views and count views. On ECC (`system: ecc`) the views are
+**Migration products** (`kind` `migration-source` / `migration-target` in `library.json`) follow the SAP VDM
+naming: `I_` basic and composite, `C_` consumption (`layer_prefixes` in `library.json`). On ECC (`system: ecc`) the views are
 classic CDS views on tables without DCL (validator rule M12); hard rule 1 reads *released `I_` views on
 S/4HANA, direct table reads on the ECC side*. Details: [`packages/eam_mig_ecc/README.md`](packages/eam_mig_ecc/README.md).
 

@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_TASKLISTOPERATION</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Task list operation (migration extract)</DDTEXT>
+    <DDTEXT>Task list operation</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

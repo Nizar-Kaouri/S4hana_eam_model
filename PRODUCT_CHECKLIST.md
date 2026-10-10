@@ -9,7 +9,7 @@ Migration Cockpit; EAM first, then the other areas with the same pattern.
 
 | Step | EAM migration (pilot) |
 |---|---|
-| ECC extraction views drafted (`packages/eam_mig_ecc`, 13 objects, 44 views) | [x] |
+| ECC views drafted in 3 layers (`packages/eam_mig_ecc`: 42 basic, 21 composite, 38 consumption + mapping table) | [x] |
 | Mapping model drafted (13 mapping files, load sequence, value / key map templates) | [x] |
 | S/4HANA reconciliation views drafted (`packages/eam_mig_s4`, 8 objects, 16 views) | [x] |
 | Reconcile tool with unit tests (`tools/mig_reconcile.py`) | [x] |

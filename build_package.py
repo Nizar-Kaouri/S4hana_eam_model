@@ -37,13 +37,14 @@ ROOT = vdm_paths.PRODUCT_ROOT
 
 # object type -> (source dir, list of file suffixes belonging to the object)
 OBJECT_FILES = {
+    "TABL": ("src", [".tabl.xml"]),
     "DDLS": ("src", [".ddls.asddls", ".ddls.xml"]),
     "DCLS": ("src", [".dcls.asdcls", ".dcls.xml"]),
     "DDLX": ("src", [".ddlx.asddlx", ".ddlx.xml"]),
     "CLAS": ("tests/abap", [".clas.abap", ".clas.xml", ".clas.testclasses.abap", ".clas.locals_imp.abap"]),
 }
 LAYER_KEYS = ("basic", "composite", "consumption")
-TYPE_ORDER = {"DDLS": 0, "DCLS": 1, "DDLX": 2, "CLAS": 3}
+TYPE_ORDER = {"TABL": 0, "DDLS": 1, "DCLS": 2, "DDLX": 3, "CLAS": 4}
 
 
 class BuildError(Exception):
@@ -123,7 +124,7 @@ def resolve_modules(selected, modules):
 
 def module_objects(mod, with_tests):
     objs = mod.get("objects", {})
-    out = []
+    out = [("TABL", n, mod["name"]) for n in objs.get("tables", [])]
     for layer in LAYER_KEYS:
         out += [("DDLS", n, mod["name"]) for n in objs.get(layer, [])]
     out += [("DCLS", n, mod["name"]) for n in objs.get("access_controls", [])]
@@ -216,10 +217,13 @@ def activation_order(objects, prefix, root=ROOT):
     by_key = {(t, n.upper()): (t, n, o) for t, n, o in objects}
     ddls_names = {n.upper() for t, n, _ in objects if t == "DDLS"}
     dcls_names = {n.upper() for t, n, _ in objects if t == "DCLS"}
+    tabl_names = {n.upper() for t, n, _ in objects if t == "TABL"}
     deps = {}
     for t, n, _ in objects:
         d = set()
         for ref in references(t, n, prefix, root):
+            if ref in tabl_names:
+                d.add(("TABL", ref))
             if ref in ddls_names:
                 d.add(("DDLS", ref))
             if t == "DCLS" and ref in dcls_names:

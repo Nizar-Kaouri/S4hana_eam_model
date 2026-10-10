@@ -34,11 +34,12 @@
     },
     "allowed_object_types": {
       "allowed": [
-        "DDLS",
+        "CLAS",
         "DCLS",
+        "DDLS",
         "DDLX",
         "DEVC",
-        "CLAS"
+        "TABL"
       ]
     },
     "allowed_object_naming": true,

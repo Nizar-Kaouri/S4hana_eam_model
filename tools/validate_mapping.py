@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 """Checks of the migration mapping files (modules/<module>/mapping.json) of a migration-source product.
 
-  X1  every module has a mapping.json whose 'module' equals the folder name
-  X2  every field names a basic view of the module and an element of that view; every element of the module's
-      basic views is mapped (complete field list); the rule kind is known and carries its argument
-  X3  value_maps / key_maps list exactly the maps the field rules use
-  X4  sequence_after names existing modules and the load sequence has no cycle; every key map a module uses is
-      provided (provides_key_maps) by the module itself or by a module on an earlier load level, or is declared
-      in external_key_maps (provided by another migration, e.g. fixed assets by the FI-AA migration)
-  X5  reconciliation: the source count view is a composite view of the module with the listed dimensions and
-      RecordCount; the target count view and the compare view exist in the paired S/4HANA product
-      (library.json 'migration_pair') with the same dimensions / elements
-  X6  key.numbering is keep | new | derived; scope.filter is set
+The consumption views (<P>C_*Mig) are the interface the load program reads; mapping.json documents them.
+
+  X1  every module with consumption views has a mapping.json whose 'module' equals the folder name
+  X2  every structure names a consumption view of the module and its source view; the consumption view has exactly
+      the documented elements (+ Legacy* keys); every element of the source view is either delivered or listed in
+      not_migrated with its reason; rule kinds are known and carry their argument
+  X3  every value_map / key_map field is translated in the consumption view (join of the migration map with
+      MapName = '<NAME>' on that element, coalesce into the element); value_maps / key_maps list exactly the maps used
+  X4  sequence_after names existing modules, the load sequence has no cycle, and every key map a module uses is
+      provided by the module itself or by a module on an earlier load level, or is declared in external_key_maps
+  X5  reconciliation: the count view counts the main consumption view by the listed dimensions; the target count
+      view and the compare view exist in the paired S/4HANA product (library.json 'migration_pair') with the same
+      dimensions / elements
+  X6  key.numbering is keep | new | derived; the consumption view applies the documented scope filter
 Usage: python3 tools/validate_mapping.py --product <migration-source product>   (exit code 1 on any error)
 """
 import json
@@ -25,22 +28,29 @@ import vdm_paths  # noqa: E402  (consumes --product)
 ROOT = vdm_paths.PRODUCT_ROOT
 RULES = {"copy": False, "value_map": True, "key_map": True, "convert": True, "derive": True, "constant": True,
          "skip": True, "info": False, "scope": False}
-CONVERSIONS = {"material_number", "float_si_to_unit", "partner_to_business_partner"}
+CONVERSIONS = {"float_si_to_unit"}
 NUMBERING = {"keep", "new", "derived"}
 
 
 def load_modules(root):
-    return {json.loads(p.read_text(encoding="utf-8"))["name"]: json.loads(p.read_text(encoding="utf-8"))
-            for p in sorted((root / "modules").glob("*/module.json"))}
+    out = {}
+    for p in sorted((root / "modules").glob("*/module.json")):
+        m = json.loads(p.read_text(encoding="utf-8"))
+        out[m["name"]] = m
+    return out
+
+
+def source_text(root, view):
+    path = root / "src" / f"{view.lower()}.ddls.asddls"
+    return re.sub(r"//[^\n]*", " ", path.read_text(encoding="utf-8")) if path.exists() else ""
 
 
 def elements(root, view):
-    """Element names of a view (aliases, or the bare name in a plain projection list)."""
-    path = root / "src" / f"{view.lower()}.ddls.asddls"
-    if not path.exists():
-        return None, set()
-    text = re.sub(r"//[^\n]*", " ", path.read_text(encoding="utf-8"))
-    body = text[text.index("{") + 1:text.rindex("}")] if "{" in text else ""
+    """(keys, all element names) of a view."""
+    text = source_text(root, view)
+    if "{" not in text:
+        return set(), set()
+    body = text[text.index("{") + 1:text.rindex("}")]
     names = set(re.findall(r"\bas\s+(\w+)\s*(?:,|$)", body, re.MULTILINE))
     keys = set(re.findall(r"^\s*key\s+.*?\bas\s+(\w+)", body, re.MULTILINE))
     return keys, names
@@ -59,6 +69,10 @@ def sequence_order(mappings):
     return levels
 
 
+def norm(s):
+    return re.sub(r"\s+", " ", s or "").strip()
+
+
 def main():
     errors = []
     err = errors.append
@@ -69,7 +83,10 @@ def main():
     pair_modules = load_modules(pair_root) if pair_root and pair_root.exists() else {}
     mappings = {}
     for name, mod in modules.items():
+        consumption = mod["objects"].get("consumption", [])
         f = ROOT / "modules" / name / "mapping.json"
+        if not consumption:
+            continue
         if not f.exists():
             err(f"X1 module {name}: missing mapping.json")
             continue
@@ -77,54 +94,81 @@ def main():
         if m.get("module") != name:
             err(f"X1 module {name}: mapping.json says module '{m.get('module')}'")
         mappings[name] = m
-        basic = mod["objects"].get("basic", [])
-        composite = mod["objects"].get("composite", [])
-        # X2
-        mapped = {}
+        own = set(mod["objects"].get("basic", []) + mod["objects"].get("composite", []))
+        allowed_sources = set(own)
+        for dep in mod.get("hard_dependencies", []):
+            if dep in modules:
+                allowed_sources |= set(modules[dep]["objects"].get("basic", []) + modules[dep]["objects"].get("composite", []))
         used = {"value_map": set(), "key_map": set()}
-        for fld in m.get("fields", []):
-            v, el = fld.get("view"), fld.get("element")
-            if v not in basic:
-                err(f"X2 {name}: field {el} names view {v}, which is not a basic view of the module")
+        documented = set()
+        for st in m.get("structures", []):
+            cv, sv = st.get("consumption_view"), st.get("source_view")
+            documented.add(cv)
+            if cv not in consumption:
+                err(f"X2 {name}: {cv} is not a consumption view of the module")
                 continue
-            _, names = elements(ROOT, v)
-            if el not in names:
-                err(f"X2 {name}: element {el} not found in {v}")
-            mapped.setdefault(v, set()).add(el)
-            kind, _, arg = fld.get("rule", "").partition(":")
-            if kind not in RULES:
-                err(f"X2 {name}: {v}.{el} has unknown rule '{fld.get('rule')}'")
-            elif RULES[kind] and not arg:
-                err(f"X2 {name}: {v}.{el} rule '{kind}' needs an argument")
-            if kind == "convert" and arg not in CONVERSIONS:
-                err(f"X2 {name}: {v}.{el} unknown conversion '{arg}' (known: {', '.join(sorted(CONVERSIONS))})")
-            if kind in used:
-                used[kind].update(arg.split("|"))
-            if kind in ("copy", "value_map", "key_map", "convert") and not fld.get("target"):
-                err(f"X2 {name}: {v}.{el} is migrated ({kind}) but has no target field")
-        for v in basic:
-            _, names = elements(ROOT, v)
-            for el in sorted(names - mapped.get(v, set())):
-                err(f"X2 {name}: element {v}.{el} is not in the mapping")
-        # X3
+            if sv not in allowed_sources:
+                err(f"X2 {name}: source view {sv} of {cv} is not a basic / composite view of the module or its dependencies")
+            text = source_text(ROOT, cv)
+            if not re.search(r"\bselect\s+from\s+" + re.escape(sv) + r"\s+as\s+src\b", text, re.IGNORECASE):
+                err(f"X2 {name}: {cv} does not select from {sv} as src")
+            ckeys, cnames = elements(ROOT, cv)
+            doc = {fl["element"] for fl in st.get("fields", [])}
+            extra = {e for e in cnames - doc if not e.startswith(("Legacy", "Lgcy"))}
+            if extra:
+                err(f"X2 {name}: {cv} delivers undocumented elements {sorted(extra)}")
+            for e in sorted(doc - cnames):
+                err(f"X2 {name}: documented element {e} not delivered by {cv}")
+            if set(st.get("keys", [])) != ckeys:
+                err(f"X2 {name}: keys {st.get('keys')} != keys of {cv} {sorted(ckeys)}")
+            for fl in st.get("fields", []):
+                el = fl["element"]
+                kind, _, arg = fl.get("rule", "").partition(":")
+                if kind not in RULES:
+                    err(f"X2 {name}: {cv}.{el} unknown rule '{fl.get('rule')}'")
+                    continue
+                if RULES[kind] and not arg:
+                    err(f"X2 {name}: {cv}.{el} rule '{kind}' needs an argument")
+                if kind == "convert" and arg not in CONVERSIONS:
+                    err(f"X2 {name}: {cv}.{el} unknown conversion '{arg}'")
+                if kind in used:
+                    for mp in arg.split("|"):
+                        used[kind].add(mp)
+                        if not re.search(r"(\w+)\.MapName\s*=\s*'" + re.escape(mp.upper()) + r"'\s+and\s+\1\.SourceValue\s*=\s*src\."
+                                         + re.escape(el) + r"\b", text):
+                            err(f"X3 {name}: {cv}.{el} is not translated with map {mp.upper()} (missing map join)")
+                    if not re.search(r"coalesce\(.*\)\s+as\s+" + re.escape(el) + r"\b", text):
+                        err(f"X3 {name}: {cv}.{el} is not coalesced from the map")
+            # X6 scope filter applied
+            scope = norm(st.get("scope_filter"))
+            where = re.search(r"\}\s*where\s+(.*?)\s*(group\s+by|$)", text, re.DOTALL | re.IGNORECASE)
+            if scope and (not where or norm(where.group(1)) != scope):
+                err(f"X6 {name}: {cv} does not apply the scope filter '{scope}'")
+            # completeness of the source view
+            _, snames = elements(ROOT, sv)
+            nm = {x["element"] for x in m.get("not_migrated", []) if x["view"] == sv}
+            for e in sorted(snames - doc - nm):
+                err(f"X2 {name}: element {sv}.{e} is neither delivered by {cv} nor listed in not_migrated")
+        for cv in consumption:
+            if cv not in documented and not cv.endswith("MigCount"):
+                err(f"X2 {name}: consumption view {cv} has no structure in mapping.json")
         for kind, key in (("value_map", "value_maps"), ("key_map", "key_maps")):
             if set(m.get(key, [])) != used[kind]:
                 err(f"X3 {name}: {key} {sorted(m.get(key, []))} != maps used by the fields {sorted(used[kind])}")
-        # X6
         if m.get("key", {}).get("numbering") not in NUMBERING:
             err(f"X6 {name}: key.numbering must be one of {sorted(NUMBERING)}")
-        if not m.get("scope", {}).get("filter"):
-            err(f"X6 {name}: scope.filter is empty")
         # X5
         rec = m.get("reconciliation", {})
         scv = rec.get("source_count_view")
         dims = [d["element"] for d in rec.get("dimensions", [])]
-        if scv not in composite:
-            err(f"X5 {name}: source_count_view {scv} is not a composite view of the module")
+        if scv not in consumption:
+            err(f"X5 {name}: source_count_view {scv} is not a consumption view of the module")
         else:
             keys, names = elements(ROOT, scv)
             if set(dims) != keys or "RecordCount" not in names:
                 err(f"X5 {name}: {scv} keys {sorted(keys)} / RecordCount do not match the dimensions {dims}")
+            if not re.search(r"select\s+from\s+" + re.escape(m.get("main_structure", "")) + r"\b", source_text(ROOT, scv)):
+                err(f"X5 {name}: {scv} does not count the main structure {m.get('main_structure')}")
         tcv = rec.get("target_count_view")
         if tcv:
             pm = pair_modules.get(name)
@@ -136,8 +180,8 @@ def main():
                     err(f"X5 {name}: {tcv} keys {sorted(keys)} do not match the dimensions {dims}")
         cmp_ = rec.get("compare")
         if cmp_:
-            if cmp_["source_view"] not in basic:
-                err(f"X5 {name}: compare.source_view {cmp_['source_view']} is not a basic view of the module")
+            if cmp_["source_view"] not in consumption:
+                err(f"X5 {name}: compare.source_view {cmp_['source_view']} is not a consumption view of the module")
             pm = pair_modules.get(name)
             if not pm or cmp_["target_view"] not in pm["objects"].get("basic", []):
                 err(f"X5 {name}: compare.target_view {cmp_['target_view']} is not a basic view of {pair_name}:{name}")
@@ -151,12 +195,10 @@ def main():
                         err(f"X5 {name}: compare element {el} not in {cmp_['target_view']}")
                 if set(cmp_["key"]) != tkeys:
                     err(f"X5 {name}: compare key {cmp_['key']} != keys of {cmp_['target_view']} {sorted(tkeys)}")
-            if cmp_.get("key_map") and cmp_["key_map"] not in used["key_map"]:
-                err(f"X5 {name}: compare.key_map {cmp_['key_map']} is not used by any field")
     # X4
     for name, m in mappings.items():
         for dep in m.get("sequence_after", []):
-            if dep not in modules:
+            if dep not in mappings:
                 err(f"X4 {name}: sequence_after names unknown module {dep}")
     try:
         levels = sequence_order(mappings)
@@ -181,9 +223,10 @@ def main():
                 err(f"X4 {name}: uses key map {k} of {p}, which does not load earlier")
     for e in errors:
         print("ERROR " + e)
-    fields = sum(len(m.get("fields", [])) for m in mappings.values())
-    print(f"validate_mapping: {len(errors)} error(s), {len(mappings)} mapping(s), {fields} field(s), "
-          f"{len(levels)} load level(s)")
+    fields = sum(len(st["fields"]) for m in mappings.values() for st in m.get("structures", []))
+    structs = sum(len(m.get("structures", [])) for m in mappings.values())
+    print(f"validate_mapping: {len(errors)} error(s), {len(mappings)} mapping(s), {structs} structure(s), "
+          f"{fields} delivered field(s), {len(levels)} load level(s)")
     return 1 if errors else 0
 
 

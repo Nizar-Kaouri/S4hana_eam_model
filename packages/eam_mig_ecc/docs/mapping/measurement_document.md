@@ -1,51 +1,55 @@
-# Mapping: measurement_document
+# Migration interface: measurement_document
 
 > Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
 
-- **Target:** SAP S/4HANA Migration Cockpit - migration object *Measurement document*
+- **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `measuring_point`
-- **Business key:** `MeasuringPoint`, `MsmtRdngDate`, `MsmtRdngTime` · numbering **new**
-- **Key rule:** New document numbers on S/4HANA; compare by measuring point and reading date / time.
-- **Scope filter:** `extract ZEMX_R_MeasPointLastReading (default) or ZEMX_I_MeasurementDocument with MsmtDocumentIsCancelled = '' and a date limit (history option)` - Most projects migrate only the last counter reading; full history is optional and large.
+- **Business key:** `MeasuringPoint` · numbering **new**
+- **Key rule:** New document numbers on S/4HANA; one initial reading per measuring point.
 
-> TODO-VERIFY[H] XMD-M01: Migration Cockpit object for 'Measurement document' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance
+> TODO-VERIFY[M] XMD-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-## Fields
+Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
 
-| View | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|---|
-| `ZEMX_I_MeasurementDocument` | `MeasurementDocument` | IMRG-MDOCM | - | not migrated: new document numbers on S/4HANA |  |
-| `ZEMX_I_MeasurementDocument` | `MeasuringPoint` | IMRG-POINT | IMRG-POINT | key map: `measuring_point` |  |
-| `ZEMX_I_MeasurementDocument` | `MsmtRdngDate` | IMRG-IDATE | IMRG-IDATE | copy |  |
-| `ZEMX_I_MeasurementDocument` | `MsmtRdngTime` | IMRG-ITIME | IMRG-ITIME | copy |  |
-| `ZEMX_I_MeasurementDocument` | `MsmtRdngByUser` | IMRG-READR | IMRG-READR | copy |  |
-| `ZEMX_I_MeasurementDocument` | `MeasurementReading` | IMRG-READG | IMRG-READG | convert: `float_si_to_unit` |  |
-| `ZEMX_I_MeasurementDocument` | `MeasurementCounterReading` | IMRG-CNTRR | IMRG-CNTRR | convert: `float_si_to_unit` |  |
-| `ZEMX_I_MeasurementDocument` | `MeasurementCounterDifference` | IMRG-CDIFF | - | information only |  |
-| `ZEMX_I_MeasurementDocument` | `MsmtReadingInEntryUnit` | IMRG-RECDV | IMRG-RECDV | copy |  |
-| `ZEMX_I_MeasurementDocument` | `MsmtEntryUnit` | IMRG-RECDU | IMRG-RECDU | value map: `unit_of_measure` |  |
-| `ZEMX_I_MeasurementDocument` | `MsmtValuationCode` | IMRG-VLCOD | IMRG-VLCOD | value map: `code` |  |
-| `ZEMX_I_MeasurementDocument` | `MeasurementDocumentText` | IMRG-MDTXT | IMRG-MDTXT | copy |  |
-| `ZEMX_I_MeasurementDocument` | `MsmtDocumentIsCancelled` | IMRG-CANCL | - | scope filter |  |
-| `ZEMX_I_MeasurementDocument` | `CreationDate` | IMRG-ERDAT | - | information only |  |
-| `ZEMX_I_MeasurementDocument` | `CreatedByUser` | IMRG-ERNAM | - | information only |  |
+## `ZEMX_C_MeasReadingMig`
 
-## Value maps and key maps
+- Source: `ZEMX_I_MeasPointLastReading`
+- Keys: `LegacyMeasuringPoint`
+- Scope: `all rows`
 
-Templates: `docs/mapping/templates/` (columns `source,target,comment`). An empty map means "same value on S/4HANA".
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `MeasuringPoint` | IMRG-POINT | IMRG-POINT | key map: `MEASURING_POINT` |  |
+| `MsmtRdngDate` | IMRG-IDATE | IMRG-IDATE | copy |  |
+| `MsmtRdngTime` | IMRG-ITIME | IMRG-ITIME | copy |  |
+| `MsmtRdngByUser` | IMRG-READR | IMRG-READR | copy |  |
+| `MeasurementReading` | IMRG-READG | IMRG-READG | convert (load program): float_si_to_unit |  |
+| `MeasurementCounterReading` | IMRG-CNTRR | IMRG-CNTRR | convert (load program): float_si_to_unit |  |
+| `MsmtReadingInEntryUnit` | IMRG-RECDV | IMRG-RECDV | copy |  |
+| `MsmtEntryUnit` | IMRG-RECDU | IMRG-RECDU | value map: `UNIT_OF_MEASURE` |  |
+| `MsmtValuationCode` | IMRG-VLCOD | IMRG-VLCOD | value map: `CODE` |  |
+| `MeasurementDocumentText` | IMRG-MDTXT | IMRG-MDTXT | copy |  |
 
-- value map `code`
-- value map `unit_of_measure`
-- key map `measuring_point`
+## Not delivered
+
+| View | Element | Source | Reason |
+|---|---|---|---|
+| `ZEMX_I_MeasPointLastReading` | `MeasurementDocument` | IMRG-MDOCM | information only |
+
+## Maps
+
+- value map `CODE`
+- value map `UNIT_OF_MEASURE`
+- key map `MEASURING_POINT`
 
 ## Reconciliation
 
-- Counts: `ZEMX_R_MeasDocCount` (ECC) vs `-` (S/4HANA) per `MsmtDocumentIsCancelled`
+- Counts: `ZEMX_C_MeasReadingMigCount` (ECC, translated values) vs `-` (S/4HANA) per `MsmtEntryUnit`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module measurement_document --source ecc_counts.csv --target s4_counts.csv --maps <folder>
+python3 tools/mig_reconcile.py counts --module measurement_document --source ecc_counts.csv --target s4_counts.csv
 ```
 
 ## Open gaps
 
-None known.
+- TODO-VERIFY[L] XMD-G01: full reading history is not migrated (stays in the old system / archive); ZEMX_I_MeasurementDocument can feed a history load if required

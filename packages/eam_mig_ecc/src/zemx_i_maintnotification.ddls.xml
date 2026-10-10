@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_MAINTNOTIFICATION</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Maintenance notification (migration extract)</DDTEXT>
+    <DDTEXT>Maintenance notification</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>
