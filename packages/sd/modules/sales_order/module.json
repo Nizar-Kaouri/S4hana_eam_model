@@ -1,0 +1,52 @@
+{
+  "name": "sales_order",
+  "title": "Sales Order",
+  "description": "Sales order header and items with status, quantities and values; value help, item cube and query.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "transactional",
+    "sales-order",
+    "sales",
+    "analytics",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_SalesDocument",
+    "I_SalesDocumentItem",
+    "I_Customer",
+    "I_Plant"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZSDV_I_SalesOrder",
+      "ZSDV_I_SalesOrderItem",
+      "ZSDV_I_SalesOrderVH"
+    ],
+    "composite": [
+      "ZSDV_R_SalesOrderItem"
+    ],
+    "consumption": [
+      "ZSDV_C_SalesOrderQ"
+    ],
+    "access_controls": [
+      "ZSDV_I_SalesOrder",
+      "ZSDV_I_SalesOrderItem",
+      "ZSDV_I_SalesOrderVH",
+      "ZSDV_R_SalesOrderItem"
+    ],
+    "metadata_extensions": [
+      "ZSDV_R_SalesOrderItem"
+    ],
+    "tests": [
+      "ZSDV_CL_SALESORDER_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZSDV_C_SalesOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_SalesOrderItem (see GEN-Q01)."
+  },
+  "link_views": []
+}

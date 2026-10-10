@@ -1,0 +1,12 @@
+// ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Outbound Delivery Item - Cube'
+@MappingRole: true
+define role ZSDV_R_DeliveryItem {
+  grant
+    select
+      on
+        ZSDV_R_DeliveryItem
+          where
+            inheriting conditions from entity ZSDV_I_DeliveryItem;
+}

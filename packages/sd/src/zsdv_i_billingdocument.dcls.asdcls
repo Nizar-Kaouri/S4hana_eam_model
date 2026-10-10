@@ -1,0 +1,13 @@
+// ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_BillingDocument.
+// TODO-VERIFY[H] SD-D05: I_BillingDocument has an access control role and every element it references is projected by ZSDV_I_BillingDocument
+@EndUserText.label: 'Billing Document'
+@MappingRole: true
+define role ZSDV_I_BillingDocument {
+  grant
+    select
+      on
+        ZSDV_I_BillingDocument
+          where
+            inheriting conditions from entity I_BillingDocument;
+}

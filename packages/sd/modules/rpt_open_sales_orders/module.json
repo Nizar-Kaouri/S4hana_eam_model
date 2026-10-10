@@ -1,0 +1,37 @@
+{
+  "name": "rpt_open_sales_orders",
+  "title": "Report: Open Sales Orders",
+  "description": "Open sales order items with open value, order age and overdue requested delivery. Needs sales_order.",
+  "batch": 3,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "sales-order",
+    "backlog",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "sales_order"
+  ],
+  "objects": {
+    "basic": [],
+    "composite": [
+      "ZSDV_R_OpenSalesOrder"
+    ],
+    "consumption": [
+      "ZSDV_C_OpenSalesOrderQ"
+    ],
+    "access_controls": [
+      "ZSDV_R_OpenSalesOrder"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZSDV_C_OpenSalesOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_OpenSalesOrder (see GEN-Q01)."
+  },
+  "link_views": []
+}

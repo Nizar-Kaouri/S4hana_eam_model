@@ -1,0 +1,13 @@
+// ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_SalesDocumentItem.
+// TODO-VERIFY[H] SD-D02: I_SalesDocumentItem has an access control role and every element it references is projected by ZSDV_I_SalesOrderItem
+@EndUserText.label: 'Sales Order Item'
+@MappingRole: true
+define role ZSDV_I_SalesOrderItem {
+  grant
+    select
+      on
+        ZSDV_I_SalesOrderItem
+          where
+            inheriting conditions from entity I_SalesDocumentItem;
+}

@@ -1,0 +1,12 @@
+// ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Open Sales Order Items'
+@MappingRole: true
+define role ZSDV_R_OpenSalesOrder {
+  grant
+    select
+      on
+        ZSDV_R_OpenSalesOrder
+          where
+            inheriting conditions from entity ZSDV_I_SalesOrderItem;
+}
