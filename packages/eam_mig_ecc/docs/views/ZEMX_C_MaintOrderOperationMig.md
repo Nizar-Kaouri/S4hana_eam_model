@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintOrderOperation`, join `ZEMX_I_MaintOrder`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MaintOrderOperation`, join `ZEMX_I_MaintOrder` |
 | Source file | `src/zemx_c_maintorderoperationmig.ddls.asddls` |
 
 ## Purpose
 
-Operations of the open orders with work center, control key, activity type and units translated.
+Operations of the open orders with work center, control key, activity type and units.
 
 ## Keys
 

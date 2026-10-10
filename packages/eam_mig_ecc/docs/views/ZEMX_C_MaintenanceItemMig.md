@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintenanceItem`, join `ZEMX_I_MaintenancePlan`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MaintenanceItem`, join `ZEMX_I_MaintenancePlan` |
 | Source file | `src/zemx_c_maintenanceitemmig.ddls.asddls` |
 
 ## Purpose
 
-Maintenance items of the plans in scope with reference objects, work center, types and task list translated.
+Maintenance items of the plans in scope with reference objects, work center, types and task list.
 
 ## Keys
 

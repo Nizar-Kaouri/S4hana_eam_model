@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 """Checks of the migration mapping files (modules/<module>/mapping.json) of a migration-source product.
 
-The consumption views (<P>C_*Mig) are the interface the load program reads; mapping.json documents them.
+The consumption views (<P>C_*Mig) are the template the customer's load program reads (values unchanged from ECC);
+mapping.json documents them.
 
   X1  every module with consumption views has a mapping.json whose 'module' equals the folder name
-  X2  every structure names a consumption view of the module and its source view; the consumption view has exactly
-      the documented elements (+ Legacy* keys); every element of the source view is either delivered or listed in
-      not_migrated with its reason; rule kinds are known and carry their argument
-  X3  every value_map / key_map field is translated in the consumption view (join of the migration map with
-      MapName = '<NAME>' on that element, coalesce into the element); value_maps / key_maps list exactly the maps used
-  X4  sequence_after names existing modules, the load sequence has no cycle, and every key map a module uses is
-      provided by the module itself or by a module on an earlier load level, or is declared in external_key_maps
+  X2  every structure names a consumption view of the module and its source view; the consumption view selects from
+      the source view and has exactly the documented elements and keys; every element of the source view is either
+      delivered or listed in not_migrated with its reason; rule kinds are known and carry their argument
+  X4  sequence_after names existing modules and the load sequence has no cycle
   X5  reconciliation: the count view counts the main consumption view by the listed dimensions; the target count
       view and the compare view exist in the paired S/4HANA product (library.json 'migration_pair') with the same
       dimensions / elements
@@ -26,8 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import vdm_paths  # noqa: E402  (consumes --product)
 
 ROOT = vdm_paths.PRODUCT_ROOT
-RULES = {"copy": False, "value_map": True, "key_map": True, "convert": True, "derive": True, "constant": True,
-         "skip": True, "info": False, "scope": False}
+RULES = {"copy": False, "convert": True, "derive": True, "constant": True, "skip": True, "info": False, "scope": False}
 CONVERSIONS = {"float_si_to_unit"}
 NUMBERING = {"keep", "new", "derived"}
 
@@ -99,7 +96,6 @@ def main():
         for dep in mod.get("hard_dependencies", []):
             if dep in modules:
                 allowed_sources |= set(modules[dep]["objects"].get("basic", []) + modules[dep]["objects"].get("composite", []))
-        used = {"value_map": set(), "key_map": set()}
         documented = set()
         for st in m.get("structures", []):
             cv, sv = st.get("consumption_view"), st.get("source_view")
@@ -114,7 +110,7 @@ def main():
                 err(f"X2 {name}: {cv} does not select from {sv} as src")
             ckeys, cnames = elements(ROOT, cv)
             doc = {fl["element"] for fl in st.get("fields", [])}
-            extra = {e for e in cnames - doc if not e.startswith(("Legacy", "Lgcy"))}
+            extra = cnames - doc
             if extra:
                 err(f"X2 {name}: {cv} delivers undocumented elements {sorted(extra)}")
             for e in sorted(doc - cnames):
@@ -131,14 +127,6 @@ def main():
                     err(f"X2 {name}: {cv}.{el} rule '{kind}' needs an argument")
                 if kind == "convert" and arg not in CONVERSIONS:
                     err(f"X2 {name}: {cv}.{el} unknown conversion '{arg}'")
-                if kind in used:
-                    for mp in arg.split("|"):
-                        used[kind].add(mp)
-                        if not re.search(r"(\w+)\.MapName\s*=\s*'" + re.escape(mp.upper()) + r"'\s+and\s+\1\.SourceValue\s*=\s*src\."
-                                         + re.escape(el) + r"\b", text):
-                            err(f"X3 {name}: {cv}.{el} is not translated with map {mp.upper()} (missing map join)")
-                    if not re.search(r"coalesce\(.*\)\s+as\s+" + re.escape(el) + r"\b", text):
-                        err(f"X3 {name}: {cv}.{el} is not coalesced from the map")
             # X6 scope filter applied
             scope = norm(st.get("scope_filter"))
             where = re.search(r"\}\s*where\s+(.*?)\s*(group\s+by|$)", text, re.DOTALL | re.IGNORECASE)
@@ -152,9 +140,6 @@ def main():
         for cv in consumption:
             if cv not in documented and not cv.endswith("MigCount"):
                 err(f"X2 {name}: consumption view {cv} has no structure in mapping.json")
-        for kind, key in (("value_map", "value_maps"), ("key_map", "key_maps")):
-            if set(m.get(key, [])) != used[kind]:
-                err(f"X3 {name}: {key} {sorted(m.get(key, []))} != maps used by the fields {sorted(used[kind])}")
         if m.get("key", {}).get("numbering") not in NUMBERING:
             err(f"X6 {name}: key.numbering must be one of {sorted(NUMBERING)}")
         # X5
@@ -205,22 +190,6 @@ def main():
     except ValueError as exc:
         err(f"X4 load sequence: {exc}")
         levels = []
-    level_of = {n: i for i, lv in enumerate(levels) for n in lv}
-    provider = {}
-    for name, m in mappings.items():
-        for k in m.get("provides_key_maps", []):
-            if k in provider:
-                err(f"X4 key map {k} provided by {provider[k]} and {name}")
-            provider[k] = name
-    for name, m in mappings.items():
-        for k in m.get("key_maps", []):
-            if k in m.get("external_key_maps", []):
-                continue
-            p = provider.get(k)
-            if p is None:
-                err(f"X4 {name}: key map {k} is provided by no module (add it to external_key_maps if another migration provides it)")
-            elif p != name and level_of and level_of.get(p, 0) >= level_of.get(name, 0):
-                err(f"X4 {name}: uses key map {k} of {p}, which does not load earlier")
     for e in errors:
         print("ERROR " + e)
     fields = sum(len(st["fields"]) for m in mappings.values() for st in m.get("structures", []))

@@ -2,11 +2,9 @@
 """Generate the migration mapping documentation of a migration-source product from modules/*/mapping.json.
 
 Writes
-  docs/mapping/<module>.md                 interface description of the consumption views the load program reads:
-                                           structures, keys, scope, field mapping, maps, reconciliation, open gaps
-  docs/MIGRATION_SEQUENCE.md               load order (levels) derived from sequence_after + the maps to prepare
-  docs/mapping/templates/ZEMX_MAP_<NAME>.csv  upload templates for the mapping table (MAP_NAME,SOURCE_VALUE,
-                                           TARGET_VALUE,MAP_COMMENT - one file per map)
+  docs/mapping/<module>.md    description of the consumption views (the template the load program reads):
+                              structures, keys, scope, fields with ECC source and S/4HANA target, reconciliation, gaps
+  docs/MIGRATION_SEQUENCE.md  load order (levels) derived from sequence_after
 Usage: python3 tools/gen_mapping.py --product <product> [--check]
 Products whose library.json kind is not 'migration-source' are skipped.
 """
@@ -20,7 +18,7 @@ import validate_mapping as vm  # noqa: E402
 
 ROOT = vdm_paths.PRODUCT_ROOT
 DOCS = ROOT / "docs"
-RULE_TEXT = {"copy": "copy", "value_map": "value map", "key_map": "key map", "convert": "convert (load program)",
+RULE_TEXT = {"copy": "copy", "convert": "convert (load program)",
              "derive": "derived", "constant": "constant", "skip": "not migrated", "info": "information only",
              "scope": "scope flag"}
 
@@ -31,13 +29,10 @@ def cell(text):
 
 def rule_text(rule):
     kind, _, arg = rule.partition(":")
-    if kind in ("value_map", "key_map"):
-        return f"{RULE_TEXT[kind]}: " + ", ".join(f"`{a.upper()}`" for a in arg.split("|"))
     return RULE_TEXT.get(kind, kind) + (f": {arg}" if arg else "")
 
 
 def module_doc(m, lib, status):
-    prefix = lib["prefix"]
     rec = m["reconciliation"]
     lines = [f"# Migration interface: {m['module']}", "", status, "",
              f"- **Read by:** {m['target']['tool']}",
@@ -46,9 +41,8 @@ def module_doc(m, lib, status):
              f"- **Key rule:** {m['key']['note']}", ""]
     for t in m["target"].get("todo_verify", []):
         lines += [f"> {t}", ""]
-    lines += ["Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the "
-              f"mapping table `{prefix}MAP` (map name in capitals); without an entry the old value is delivered. "
-              "`Legacy*` key fields carry the old key of the record.", ""]
+    lines += ["The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, "
+              "new numbers, ...) is up to the load program.", ""]
     for st in m["structures"]:
         lines += [f"## `{st['consumption_view']}`", "",
                   f"- Source: `{st['source_view']}`",
@@ -64,19 +58,8 @@ def module_doc(m, lib, status):
         lines += [f"| `{x['view']}` | `{x['element']}` | {cell(x['source'])} | {cell(rule_text(x['reason']))} |"
                   for x in m["not_migrated"]]
         lines.append("")
-    lines += ["## Maps", ""]
-    if m["value_maps"] or m["key_maps"]:
-        lines += [f"- value map `{v.upper()}`" for v in m["value_maps"]]
-        lines += [f"- key map `{k.upper()}`" + (" (from another migration)" if k in m.get("external_key_maps", []) else "")
-                  for k in m["key_maps"]]
-        if m.get("provides_key_maps"):
-            lines += ["", "After loading this object, the key map(s) " + ", ".join(f"`{k.upper()}`" for k in m["provides_key_maps"])
-                      + f" (old key, new key from the load log) must be written into `{prefix}MAP` on the ECC system "
-                      "(by the load program via RFC or by uploading the load log) before the objects that use them are extracted."]
-    else:
-        lines.append("None.")
-    lines += ["", "## Reconciliation", "",
-              f"- Counts: `{rec['source_count_view']}` (ECC, translated values) vs `{rec['target_count_view'] or '-'}` "
+    lines += ["## Reconciliation", "",
+              f"- Counts: `{rec['source_count_view']}` (ECC) vs `{rec['target_count_view'] or '-'}` "
               "(S/4HANA) per " + ", ".join(f"`{d['element']}`" for d in rec["dimensions"])]
     if rec.get("compare"):
         c = rec["compare"]
@@ -104,28 +87,12 @@ def expected():
     out = {DOCS / "mapping" / f"{n}.md": module_doc(m, lib, status) for n, m in mappings.items()}
     levels = vm.sequence_order(mappings)
     seq = ["# Migration sequence", "", status, "",
-           "Load order derived from `sequence_after`. Objects on the same level can be loaded in parallel. The "
-           f"consumption views translate values with the mapping table `{lib['prefix']}MAP` on the ECC system: value maps "
-           "are filled before the load; key maps of objects that get new numbers are written back after each level "
-           "(load program via RFC or upload of the load log), before the next level is extracted.", "",
+           "Load order derived from `sequence_after`. Objects on the same level can be loaded in parallel; objects that "
+           "refer to other objects load after them.", "",
            "| Level | Modules | Consumption views read by the load program |", "|---|---|---|"]
     for i, level in enumerate(levels, 1):
         views = [st["consumption_view"] for n in level for st in mappings[n]["structures"]]
         seq.append(f"| {i} | {', '.join(f'[`{n}`](mapping/{n}.md)' for n in level)} | {', '.join(f'`{v}`' for v in views)} |")
-    maps = sorted({("value map", v) for m in mappings.values() for v in m["value_maps"]}
-                  | {("key map", k) for m in mappings.values() for k in m["key_maps"]}, key=lambda x: (x[0], x[1]))
-    seq += ["", f"## Maps in `{lib['prefix']}MAP`", "",
-            "| MAP_NAME | Kind | Filled by | Used by |", "|---|---|---|---|"]
-    providers = {k: n for n, m in mappings.items() for k in m.get("provides_key_maps", [])}
-    external = {k for m in mappings.values() for k in m.get("external_key_maps", [])}
-    for kind, name in maps:
-        users = sorted(n for n, m in mappings.items() if name in m[kind.replace(" ", "_") + "s"])
-        by = ("customer (before the load)" if kind == "value map" else
-              f"load program of `{providers[name]}`" if name in providers else
-              "other migration" if name in external else "customer")
-        seq.append(f"| `{name.upper()}` | {kind} | {by} | {', '.join(users)} |")
-        out[DOCS / "mapping" / "templates" / f"{lib['prefix']}MAP_{name.upper()}.csv"] = \
-            "MAP_NAME,SOURCE_VALUE,TARGET_VALUE,MAP_COMMENT\n"
     out[DOCS / "MIGRATION_SEQUENCE.md"] = "\n".join(seq) + "\n"
     return out
 

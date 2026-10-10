@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_ObjectStatus`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_ObjectStatus` |
 | Source file | `src/zemx_c_userstatusmig.ddls.asddls` |
 
 ## Purpose
 
-Active user statuses (kind E) with object key, status profile and status translated; system statuses are set by S/4HANA and not migrated.
+Active user statuses (kind E) with object key and status profile; system statuses are set by S/4HANA and not migrated.
 
 ## Keys
 

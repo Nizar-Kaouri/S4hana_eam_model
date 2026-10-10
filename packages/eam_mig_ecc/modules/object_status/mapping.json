@@ -20,35 +20,30 @@
       "StatusCode"
     ],
     "numbering": "derived",
-    "note": "Object numbers are rebuilt on S/4HANA from the translated object keys."
+    "note": "Object numbers are rebuilt on S/4HANA from the object keys."
   },
-  "provides_key_maps": [],
-  "external_key_maps": [],
-  "value_maps": [
-    "status_profile",
-    "user_status"
-  ],
-  "key_maps": [
-    "equipment",
-    "functional_location",
-    "maintenance_notification",
-    "maintenance_order"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_UserStatusMig",
       "source_view": "ZEMX_I_ObjectStatus",
       "scope_filter": "src.StatusKind = 'E'",
       "keys": [
-        "LegacyStatusObjectKey",
-        "LegacyStatusCode"
+        "StatusObjectKey",
+        "StatusCode"
       ],
       "fields": [
+        {
+          "element": "StatusObjectKey",
+          "source": "JEST: substring( jest.objnr, 3, 30 )",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "JEST-STAT",
-          "rule": "value_map:user_status",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -59,17 +54,10 @@
           "compare": false
         },
         {
-          "element": "StatusObjectKey",
-          "source": "JEST: substring( jest.objnr, 3, 30 )",
-          "target": "",
-          "rule": "key_map:equipment|functional_location|maintenance_notification|maintenance_order",
-          "compare": false
-        },
-        {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "JSTO-STSMA",
-          "rule": "value_map:status_profile",
+          "rule": "copy",
           "compare": false
         }
       ]
@@ -80,7 +68,7 @@
       "view": "ZEMX_I_ObjectStatus",
       "element": "ObjectNumber",
       "source": "JEST-OBJNR",
-      "reason": "skip:rebuilt on S/4HANA from the translated object key"
+      "reason": "skip:rebuilt on S/4HANA from the object key"
     },
     {
       "view": "ZEMX_I_ObjectStatus",
@@ -96,7 +84,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_UserStatusMigCount",
     "target_count_view": null,
     "dimensions": [
@@ -111,7 +99,7 @@
     "compare": null
   },
   "gaps": [
-    "TODO-VERIFY[M] XST-G01: user status codes are defined per status profile; the map 'USER_STATUS' assumes the same code means the same status in all profiles in scope"
+    "TODO-VERIFY[M] XST-G01: user status codes are defined per status profile; the same status code can mean different statuses in different profiles - deliver StatusProfile with the code"
   ],
   "main_structure": "ZEMX_C_UserStatusMig"
 }

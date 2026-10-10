@@ -19,35 +19,16 @@
       "TaskListGroupCounter"
     ],
     "numbering": "new",
-    "note": "Task list groups are usually renumbered: the load program writes old -> new into the key map 'TASK_LIST_GROUP'; maintenance plan items use it."
+    "note": "Task list groups are usually renumbered: the load program keeps the old -> new numbers; maintenance plan items refer to them."
   },
-  "provides_key_maps": [
-    "task_list_group"
-  ],
-  "external_key_maps": [],
-  "value_maps": [
-    "activity_type",
-    "control_key",
-    "maintenance_strategy",
-    "planner_group",
-    "plant",
-    "task_list_status",
-    "task_list_usage"
-  ],
-  "key_maps": [
-    "equipment",
-    "functional_location",
-    "task_list_group",
-    "work_center"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_TaskListMig",
       "source_view": "ZEMX_I_TaskListCurrent",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyTaskListGroup",
         "TaskListType",
+        "TaskListGroup",
         "TaskListGroupCounter"
       ],
       "fields": [
@@ -59,17 +40,17 @@
           "compare": true
         },
         {
-          "element": "TaskListGroupCounter",
-          "source": "PLKO-PLNAL",
-          "target": "PLKO-PLNAL",
+          "element": "TaskListGroup",
+          "source": "PLKO-PLNNR",
+          "target": "PLKO-PLNNR",
           "rule": "copy",
           "compare": true
         },
         {
-          "element": "TaskListGroup",
-          "source": "PLKO-PLNNR",
-          "target": "PLKO-PLNNR",
-          "rule": "key_map:task_list_group",
+          "element": "TaskListGroupCounter",
+          "source": "PLKO-PLNAL",
+          "target": "PLKO-PLNAL",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -90,49 +71,49 @@
           "element": "Plant",
           "source": "PLKO-WERKS",
           "target": "PLKO-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "TaskListUsage",
           "source": "PLKO-VERWE",
           "target": "PLKO-VERWE",
-          "rule": "value_map:task_list_usage",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "TaskListStatus",
           "source": "PLKO-STATU",
           "target": "PLKO-STATU",
-          "rule": "value_map:task_list_status",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "PLKO-VAGRP",
           "target": "PLKO-VAGRP",
-          "rule": "value_map:planner_group",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MaintenanceStrategy",
           "source": "PLKO-STRAT",
           "target": "PLKO-STRAT",
-          "rule": "value_map:maintenance_strategy",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -156,8 +137,8 @@
       "source_view": "ZEMX_I_TaskListOperation",
       "scope_filter": "src.IsMarkedForDeletion = '' and src.OpAssignmentIsDeleted = '' and obj.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyTaskListGroup",
         "TaskListType",
+        "TaskListGroup",
         "TaskListGroupCounter",
         "TaskListSequence",
         "TaskListOperation"
@@ -167,6 +148,13 @@
           "element": "TaskListType",
           "source": "PLAS-PLNTY",
           "target": "PLAS-PLNTY",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "PLAS-PLNNR",
+          "target": "PLAS-PLNNR",
           "rule": "copy",
           "compare": false
         },
@@ -192,13 +180,6 @@
           "compare": false
         },
         {
-          "element": "TaskListGroup",
-          "source": "PLAS-PLNNR",
-          "target": "PLAS-PLNNR",
-          "rule": "key_map:task_list_group",
-          "compare": false
-        },
-        {
           "element": "TaskListSubOperation",
           "source": "PLPO-UVORN",
           "target": "PLPO-UVORN",
@@ -209,7 +190,7 @@
           "element": "OperationControlKey",
           "source": "PLPO-STEUS",
           "target": "PLPO-STEUS",
-          "rule": "value_map:control_key",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -223,28 +204,28 @@
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "WorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "Plant",
           "source": "PLPO-WERKS",
           "target": "PLPO-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "ActivityType",
           "source": "PLPO-LARNT",
           "target": "PLPO-LARNT",
-          "rule": "value_map:activity_type",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -289,8 +270,8 @@
       "source_view": "ZEMX_I_TaskListObjectAssgmt",
       "scope_filter": "obj.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyTaskListGroup",
         "TaskListType",
+        "TaskListGroup",
         "TaskListGroupCounter"
       ],
       "fields": [
@@ -302,6 +283,13 @@
           "compare": false
         },
         {
+          "element": "TaskListGroup",
+          "source": "EAPL-PLNNR",
+          "target": "EAPL-PLNNR",
+          "rule": "copy",
+          "compare": false
+        },
+        {
           "element": "TaskListGroupCounter",
           "source": "EAPL-PLNAL",
           "target": "EAPL-PLNAL",
@@ -309,24 +297,17 @@
           "compare": false
         },
         {
-          "element": "TaskListGroup",
-          "source": "EAPL-PLNNR",
-          "target": "EAPL-PLNNR",
-          "rule": "key_map:task_list_group",
-          "compare": false
-        },
-        {
           "element": "Equipment",
           "source": "EAPL-EQUNR",
           "target": "EAPL-EQUNR",
-          "rule": "key_map:equipment",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "FunctionalLocation",
           "source": "EAPL-TPLNR",
           "target": "EAPL-TPLNR",
-          "rule": "key_map:functional_location",
+          "rule": "copy",
           "compare": false
         }
       ]
@@ -395,7 +376,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_TaskListMigCount",
     "target_count_view": "ZEMT_I_TaskListCount",
     "dimensions": [

@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Record count of the work centers delivered by ZEMX_C_WorkCenterMig per Plant, WorkCenterCategoryCode (values already translated); compared with the same count on S/4HANA by tools/mig_reconcile.py.
+Record count of the work centers delivered by ZEMX_C_WorkCenterMig per Plant, WorkCenterCategoryCode; compared with the same count on S/4HANA by tools/mig_reconcile.py.
 
 ## Keys
 

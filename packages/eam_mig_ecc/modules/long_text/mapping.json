@@ -23,12 +23,8 @@
       "Language"
     ],
     "numbering": "derived",
-    "note": "Text names contain the object key; the load program rebuilds them from the key maps."
+    "note": "Text names contain the object key; the load program rebuilds them from the new object keys."
   },
-  "provides_key_maps": [],
-  "external_key_maps": [],
-  "value_maps": [],
-  "key_maps": [],
   "structures": [
     {
       "consumption_view": "ZEMX_C_LongTextIndexMig",
@@ -52,7 +48,7 @@
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "derive:object key + text ID specific suffix; rebuilt from the translated key by the load program",
+          "rule": "derive:object key + text ID specific suffix; rebuilt from the object key by the load program",
           "compare": false
         },
         {
@@ -99,7 +95,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_LongTextMigCount",
     "target_count_view": null,
     "dimensions": [

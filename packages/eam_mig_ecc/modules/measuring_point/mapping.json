@@ -16,37 +16,22 @@
       "MeasuringPoint"
     ],
     "numbering": "new",
-    "note": "Measuring point numbers are usually assigned internally on S/4HANA: the load program writes old -> new into the key map 'MEASURING_POINT' for the later objects."
+    "note": "Measuring point numbers are usually assigned internally on S/4HANA: the load program keeps the old -> new numbers for the objects loaded later."
   },
-  "provides_key_maps": [
-    "measuring_point"
-  ],
-  "external_key_maps": [],
-  "value_maps": [
-    "authorization_group",
-    "code_group",
-    "measuring_point_category",
-    "unit_of_measure"
-  ],
-  "key_maps": [
-    "equipment",
-    "functional_location",
-    "measuring_point"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_MeasuringPointMig",
       "source_view": "ZEMX_I_MeasuringPoint",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyMeasuringPoint"
+        "MeasuringPoint"
       ],
       "fields": [
         {
           "element": "MeasuringPoint",
           "source": "IMPTT-POINT",
           "target": "IMPTT-POINT",
-          "rule": "key_map:measuring_point",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -60,7 +45,7 @@
           "element": "MeasuringPointCategory",
           "source": "IMPTT-MPTYP",
           "target": "IMPTT-MPTYP",
-          "rule": "value_map:measuring_point_category",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -81,7 +66,7 @@
           "element": "TechnicalObjectKey",
           "source": "IMPTT: substring( imptt.mpobj, 3, 30 )",
           "target": "",
-          "rule": "key_map:equipment|functional_location",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -109,7 +94,7 @@
           "element": "MeasurementRangeUnit",
           "source": "IMPTT-MRNGU",
           "target": "IMPTT-MRNGU",
-          "rule": "value_map:unit_of_measure",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -137,7 +122,7 @@
           "element": "CodeGroup",
           "source": "IMPTT-CODGR",
           "target": "IMPTT-CODGR",
-          "rule": "value_map:code_group",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -151,7 +136,7 @@
           "element": "AuthorizationGroup",
           "source": "IMPTT-BEGRU",
           "target": "IMPTT-BEGRU",
-          "rule": "value_map:authorization_group",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -169,7 +154,7 @@
       "view": "ZEMX_I_MeasuringPoint",
       "element": "MeasuringPointObjectNumber",
       "source": "IMPTT-MPOBJ",
-      "reason": "skip:rebuilt from the translated technical object key"
+      "reason": "skip:rebuilt from the technical object key on S/4HANA"
     },
     {
       "view": "ZEMX_I_MeasuringPoint",
@@ -197,7 +182,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_MeasPointMigCount",
     "target_count_view": "ZEMT_I_MeasPointCount",
     "dimensions": [

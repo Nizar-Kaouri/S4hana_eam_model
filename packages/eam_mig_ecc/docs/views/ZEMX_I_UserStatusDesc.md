@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Short and long texts of user statuses per status profile (TJ30T): the basis of the user status value map.
+Short and long texts of user statuses per status profile (TJ30T): reference list of the user statuses in use.
 
 ## Keys
 
@@ -33,7 +33,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-List all statuses of profile PM000001 to fill the map 'USER_STATUS'.
+List all statuses of profile PM000001 .
 
 ## Open verification items
 

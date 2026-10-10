@@ -9,25 +9,25 @@
 
 > TODO-VERIFY[M] XMD-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
+The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
 ## `ZEMX_C_MeasReadingMig`
 
 - Source: `ZEMX_I_MeasPointLastReading`
-- Keys: `LegacyMeasuringPoint`
+- Keys: `MeasuringPoint`
 - Scope: `all rows`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `MeasuringPoint` | IMRG-POINT | IMRG-POINT | key map: `MEASURING_POINT` |  |
+| `MeasuringPoint` | IMRG-POINT | IMRG-POINT | copy |  |
 | `MsmtRdngDate` | IMRG-IDATE | IMRG-IDATE | copy |  |
 | `MsmtRdngTime` | IMRG-ITIME | IMRG-ITIME | copy |  |
 | `MsmtRdngByUser` | IMRG-READR | IMRG-READR | copy |  |
 | `MeasurementReading` | IMRG-READG | IMRG-READG | convert (load program): float_si_to_unit |  |
 | `MeasurementCounterReading` | IMRG-CNTRR | IMRG-CNTRR | convert (load program): float_si_to_unit |  |
 | `MsmtReadingInEntryUnit` | IMRG-RECDV | IMRG-RECDV | copy |  |
-| `MsmtEntryUnit` | IMRG-RECDU | IMRG-RECDU | value map: `UNIT_OF_MEASURE` |  |
-| `MsmtValuationCode` | IMRG-VLCOD | IMRG-VLCOD | value map: `CODE` |  |
+| `MsmtEntryUnit` | IMRG-RECDU | IMRG-RECDU | copy |  |
+| `MsmtValuationCode` | IMRG-VLCOD | IMRG-VLCOD | copy |  |
 | `MeasurementDocumentText` | IMRG-MDTXT | IMRG-MDTXT | copy |  |
 
 ## Not delivered
@@ -36,15 +36,9 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 |---|---|---|---|
 | `ZEMX_I_MeasPointLastReading` | `MeasurementDocument` | IMRG-MDOCM | information only |
 
-## Maps
-
-- value map `CODE`
-- value map `UNIT_OF_MEASURE`
-- key map `MEASURING_POINT`
-
 ## Reconciliation
 
-- Counts: `ZEMX_C_MeasReadingMigCount` (ECC, translated values) vs `-` (S/4HANA) per `MsmtEntryUnit`
+- Counts: `ZEMX_C_MeasReadingMigCount` (ECC) vs `-` (S/4HANA) per `MsmtEntryUnit`
 
 ```bash
 python3 tools/mig_reconcile.py counts --module measurement_document --source ecc_counts.csv --target s4_counts.csv

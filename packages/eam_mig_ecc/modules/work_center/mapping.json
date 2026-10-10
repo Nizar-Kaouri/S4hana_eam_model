@@ -14,66 +14,51 @@
       "Plant"
     ],
     "numbering": "keep",
-    "note": "Work center names are external keys; keep them unless plants are renamed (value map 'plant')."
+    "note": "Work center names are external keys; keep them."
   },
-  "provides_key_maps": [
-    "work_center"
-  ],
-  "external_key_maps": [],
-  "value_maps": [
-    "controlling_area",
-    "cost_center",
-    "plant",
-    "task_list_usage",
-    "work_center_category",
-    "work_center_responsible"
-  ],
-  "key_maps": [
-    "work_center"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_WorkCenterMig",
       "source_view": "ZEMX_I_WorkCenterHeader",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyWorkCenter",
-        "LegacyPlant"
+        "WorkCenter",
+        "Plant"
       ],
       "fields": [
         {
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "Plant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "WorkCenterCategoryCode",
           "source": "CRHD-VERWE",
           "target": "CRHD-VERWE",
-          "rule": "value_map:work_center_category",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "WorkCenterResponsible",
           "source": "CRHD-VERAN",
           "target": "CRHD-VERAN",
-          "rule": "value_map:work_center_responsible",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "TaskListUsage",
           "source": "CRHD-PLANV",
           "target": "CRHD-PLANV",
-          "rule": "value_map:task_list_usage",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -97,30 +82,30 @@
       "source_view": "ZEMX_I_WorkCenterText",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyWorkCenter",
-        "LegacyPlant",
+        "WorkCenter",
+        "Plant",
         "Language"
       ],
       "fields": [
         {
-          "element": "Language",
-          "source": "CRTX-SPRAS",
-          "target": "CRTX-SPRAS",
-          "rule": "copy",
-          "compare": false
-        },
-        {
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "Plant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "CRTX-SPRAS",
+          "target": "CRTX-SPRAS",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -137,30 +122,30 @@
       "source_view": "ZEMX_I_WorkCenterCostCenter",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyWorkCenter",
-        "LegacyPlant",
+        "WorkCenter",
+        "Plant",
         "ValidityEndDate"
       ],
       "fields": [
         {
-          "element": "ValidityEndDate",
-          "source": "CRCO-ENDDA",
-          "target": "CRCO-ENDDA",
-          "rule": "copy",
-          "compare": false
-        },
-        {
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "Plant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CRCO-ENDDA",
+          "target": "CRCO-ENDDA",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -174,14 +159,14 @@
           "element": "ControllingArea",
           "source": "CRCO-KOKRS",
           "target": "CRCO-KOKRS",
-          "rule": "value_map:controlling_area",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "CostCenter",
           "source": "CRCO-KOSTL",
           "target": "CRCO-KOSTL",
-          "rule": "value_map:cost_center",
+          "rule": "copy",
           "compare": false
         }
       ]
@@ -244,7 +229,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_WorkCenterMigCount",
     "target_count_view": "ZEMT_I_WorkCenterCount",
     "dimensions": [

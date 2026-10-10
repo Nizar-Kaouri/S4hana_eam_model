@@ -1,6 +1,6 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
 // Purpose: Descriptions of the functional locations in scope per language.
-// Example: Read the texts of FL 1000-PUMP-01: filter LegacyFunctionalLocation = '1000-PUMP-01'.
+// Example: Read the texts of FL 1000-PUMP-01: filter FunctionalLocation = '1000-PUMP-01'.
 @AbapCatalog.sqlViewName: 'ZEMX_CFLT'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
@@ -13,12 +13,11 @@
 define view ZEMX_C_FuncLocTextMig
   as select from ZEMX_I_FuncLocDesc as src
     inner join ZEMX_I_FuncLoc as obj on obj.FunctionalLocation = src.FunctionalLocation
-    left outer join ZEMX_I_MigrationMap as map01 on map01.MapName = 'FUNCTIONAL_LOCATION' and map01.SourceValue = src.FunctionalLocation
 {
-  key src.FunctionalLocation         as LegacyFunctionalLocation,
-  key src.Language                   as Language,
-      coalesce( map01.TargetValue, src.FunctionalLocation ) as FunctionalLocation,
+  key src.FunctionalLocation     as FunctionalLocation,
+      @Semantics.language: true
+  key src.Language               as Language,
       @Semantics.text: true
-      src.FunctionalLocationName     as FunctionalLocationName
+      src.FunctionalLocationName as FunctionalLocationName
 }
 where obj.IsMarkedForDeletion = ''

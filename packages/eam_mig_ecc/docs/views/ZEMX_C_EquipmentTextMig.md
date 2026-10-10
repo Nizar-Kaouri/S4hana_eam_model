@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_EquipmentDesc`, join `ZEMX_I_Equipment`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_EquipmentDesc`, join `ZEMX_I_Equipment` |
 | Source file | `src/zemx_c_equipmenttextmig.ddls.asddls` |
 
 ## Purpose
@@ -32,7 +32,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-Read the texts of equipment 10000001: filter LegacyEquipment = '000000000010000001'.
+Read the texts of equipment 10000001: filter Equipment = '000000000010000001'.
 
 ## Open verification items
 

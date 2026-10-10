@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Record count of the long texts delivered by ZEMX_C_LongTextIndexMig per TextObject, TextID (values already translated); compared with the same count on S/4HANA by tools/mig_reconcile.py.
+Record count of the long texts delivered by ZEMX_C_LongTextIndexMig per TextObject, TextID; compared with the same count on S/4HANA by tools/mig_reconcile.py.
 
 ## Keys
 

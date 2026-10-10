@@ -9,33 +9,33 @@
 
 > TODO-VERIFY[M] XCL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
+The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
 ## `ZEMX_C_ClassAssignmentMig`
 
 - Source: `ZEMX_I_ClassAssignment`
-- Keys: `LegacyClassifiedObject`, `ClassType`, `Class`
+- Keys: `ClassifiedObject`, `ClassType`, `Class`
 - Scope: `src.IsMarkedForDeletion = '' and ( src.ClassType = '002' or src.ClassType = '003' )`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
+| `ClassifiedObject` | KSSK-OBJEK | KSSK-OBJEK | copy |  |
 | `ClassType` | KSSK-KLART | KSSK-KLART | copy |  |
 | `Class` | KLAH-CLASS | KLAH-CLASS | copy |  |
-| `ClassifiedObject` | KSSK-OBJEK | KSSK-OBJEK | key map: `EQUIPMENT`, `FUNCTIONAL_LOCATION` |  |
 | `ClassificationStatus` | KSSK-STATU | KSSK-STATU | copy |  |
 
 ## `ZEMX_C_CharcValueMig`
 
 - Source: `ZEMX_I_CharcValue`
-- Keys: `LegacyClassifiedObject`, `ClassType`, `Characteristic`, `CharcValuePositionNumber`
+- Keys: `ClassifiedObject`, `ClassType`, `Characteristic`, `CharcValuePositionNumber`
 - Scope: `src.IsMarkedForDeletion = '' and ( src.ClassType = '002' or src.ClassType = '003' )`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
+| `ClassifiedObject` | AUSP-OBJEK | AUSP-OBJEK | copy |  |
 | `ClassType` | AUSP-KLART | AUSP-KLART | copy |  |
 | `Characteristic` | CABN-ATNAM | CABN-ATNAM | copy |  |
 | `CharcValuePositionNumber` | AUSP-ATZHL | AUSP-ATZHL | copy |  |
-| `ClassifiedObject` | AUSP-OBJEK | AUSP-OBJEK | key map: `EQUIPMENT`, `FUNCTIONAL_LOCATION` |  |
 | `CharcValue` | AUSP-ATWRT | AUSP-ATWRT | copy |  |
 | `CharcFromNumericValue` | AUSP-ATFLV | AUSP-ATFLV | convert (load program): float_si_to_unit |  |
 | `CharcToNumericValue` | AUSP-ATFLB | AUSP-ATFLB | convert (load program): float_si_to_unit |  |
@@ -52,14 +52,9 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 | `ZEMX_I_CharcValue` | `ChangeCounter` | AUSP-ADZHL | information only |
 | `ZEMX_I_CharcValue` | `IsMarkedForDeletion` | AUSP-LKENZ | scope flag |
 
-## Maps
-
-- key map `EQUIPMENT`
-- key map `FUNCTIONAL_LOCATION`
-
 ## Reconciliation
 
-- Counts: `ZEMX_C_ClassAssgmtMigCount` (ECC, translated values) vs `-` (S/4HANA) per `ClassType`, `Class`
+- Counts: `ZEMX_C_ClassAssgmtMigCount` (ECC) vs `-` (S/4HANA) per `ClassType`, `Class`
 
 ```bash
 python3 tools/mig_reconcile.py counts --module classification --source ecc_counts.csv --target s4_counts.csv

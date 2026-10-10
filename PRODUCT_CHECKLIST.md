@@ -9,8 +9,8 @@ Migration Cockpit; EAM first, then the other areas with the same pattern.
 
 | Step | EAM migration (pilot) |
 |---|---|
-| ECC views drafted in 3 layers (`packages/eam_mig_ecc`: 42 basic, 21 composite, 38 consumption + mapping table) | [x] |
-| Mapping model drafted (13 mapping files, load sequence, value / key map templates) | [x] |
+| ECC views drafted in 3 layers (`packages/eam_mig_ecc`: 41 basic, 21 composite, 38 consumption) | [x] |
+| Mapping model drafted (13 mapping files: field lists, scope, load sequence) | [x] |
 | S/4HANA reconciliation views drafted (`packages/eam_mig_s4`, 8 objects, 16 views) | [x] |
 | Reconcile tool with unit tests (`tools/mig_reconcile.py`) | [x] |
 | Offline checks clean (`tools/check_all.py`) | [x] |
@@ -21,9 +21,8 @@ Migration Cockpit; EAM first, then the other areas with the same pattern.
 | Ready to sell | [ ] |
 
 Next migration areas (same pattern, source tables on ECC, reconciliation on the released views already
-identified below): FI-AA, MM (material master, stock), CO / FI master data, QM, PS, PP, SD. Open items for
-data that the Migration Cockpit migrates from other areas but EAM needs (material master, fixed assets,
-business partners) are handled through key maps marked as external.
+identified below): FI-AA, MM (material master, stock), CO / FI master data, QM, PS, PP, SD. Data EAM refers to
+from other areas (material master, fixed assets, business partners) must be migrated before EAM.
 
 ## Analytics add-on (S/4HANA)
 

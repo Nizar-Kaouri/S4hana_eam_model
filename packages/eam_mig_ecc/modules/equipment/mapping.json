@@ -16,70 +16,43 @@
       "Equipment"
     ],
     "numbering": "keep",
-    "note": "Keep equipment numbers (external number assignment on S/4HANA) where possible; otherwise maintain the key map 'EQUIPMENT' in ZEMX_MAP."
+    "note": "Keep equipment numbers (external number assignment on S/4HANA) where possible; otherwise the load program assigns and logs the new numbers."
   },
-  "provides_key_maps": [
-    "equipment"
-  ],
-  "external_key_maps": [
-    "fixed_asset",
-    "material"
-  ],
-  "value_maps": [
-    "authorization_group",
-    "business_area",
-    "company_code",
-    "controlling_area",
-    "cost_center",
-    "equipment_category",
-    "location",
-    "planner_group",
-    "plant",
-    "plant_section",
-    "technical_object_type"
-  ],
-  "key_maps": [
-    "equipment",
-    "fixed_asset",
-    "functional_location",
-    "material",
-    "work_center"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_EquipmentMig",
       "source_view": "ZEMX_I_Equipment",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyEquipment"
+        "Equipment"
       ],
       "fields": [
         {
           "element": "Equipment",
           "source": "EQUI-EQUNR",
           "target": "EQUI-EQUNR",
-          "rule": "key_map:equipment",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "EquipmentCategory",
           "source": "EQUI-EQTYP",
           "target": "EQUI-EQTYP",
-          "rule": "value_map:equipment_category",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "TechnicalObjectType",
           "source": "EQUI-EQART",
           "target": "EQUI-EQART",
-          "rule": "value_map:technical_object_type",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "AuthorizationGroup",
           "source": "EQUI-BEGRU",
           "target": "EQUI-BEGRU",
-          "rule": "value_map:authorization_group",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -93,42 +66,42 @@
           "element": "MaintenancePlanningPlant",
           "source": "EQUZ-IWERK",
           "target": "EQUZ-IWERK",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "EQUZ-INGRP",
           "target": "EQUZ-INGRP",
-          "rule": "value_map:planner_group",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "FunctionalLocation",
           "source": "ILOA-TPLNR",
           "target": "ILOA-TPLNR",
-          "rule": "key_map:functional_location",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "SuperordinateEquipment",
           "source": "EQUZ-HEQUI",
           "target": "EQUZ-HEQUI",
-          "rule": "key_map:equipment",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -149,21 +122,21 @@
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "PlantSection",
           "source": "ILOA-BEBER",
           "target": "ILOA-BEBER",
-          "rule": "value_map:plant_section",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "AssetLocation",
           "source": "ILOA-STORT",
           "target": "ILOA-STORT",
-          "rule": "value_map:location",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -191,56 +164,56 @@
           "element": "CompanyCode",
           "source": "ILOA-BUKRS",
           "target": "ILOA-BUKRS",
-          "rule": "value_map:company_code",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "BusinessArea",
           "source": "ILOA-GSBER",
           "target": "ILOA-GSBER",
-          "rule": "value_map:business_area",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "ControllingArea",
           "source": "ILOA-KOKRS",
           "target": "ILOA-KOKRS",
-          "rule": "value_map:controlling_area",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "CostCenter",
           "source": "ILOA-KOSTL",
           "target": "ILOA-KOSTL",
-          "rule": "value_map:cost_center",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MasterFixedAsset",
           "source": "ILOA-ANLNR",
           "target": "ILOA-ANLNR",
-          "rule": "key_map:fixed_asset",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "FixedAsset",
           "source": "ILOA-ANLUN",
           "target": "ILOA-ANLUN",
-          "rule": "key_map:fixed_asset",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "StandingOrder",
           "source": "ILOA-DAUFN",
           "target": "",
-          "rule": "derive:follow-up step after the order load (key map maintenance_order)",
+          "rule": "derive:follow-up step after the order load",
           "compare": false
         },
         {
           "element": "Material",
           "source": "EQUI-MATNR",
           "target": "EQUI-MATNR",
-          "rule": "key_map:material",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -369,22 +342,22 @@
       "source_view": "ZEMX_I_EquipmentDesc",
       "scope_filter": "obj.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyEquipment",
+        "Equipment",
         "Language"
       ],
       "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQKT-EQUNR",
+          "target": "EQKT-EQUNR",
+          "rule": "copy",
+          "compare": false
+        },
         {
           "element": "Language",
           "source": "EQKT-SPRAS",
           "target": "EQKT-SPRAS",
           "rule": "copy",
-          "compare": false
-        },
-        {
-          "element": "Equipment",
-          "source": "EQKT-EQUNR",
-          "target": "EQKT-EQUNR",
-          "rule": "key_map:equipment",
           "compare": false
         },
         {
@@ -430,7 +403,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_EquipmentMigCount",
     "target_count_view": "ZEMT_I_EquipmentCount",
     "dimensions": [
@@ -467,7 +440,7 @@
   },
   "gaps": [
     "TODO-VERIFY[M] XEQ-G01: serial number stock data (EQBS) and material serial profiles are not extracted in the pilot",
-    "TODO-VERIFY[H] XEQ-G02: material numbers: the key map 'MATERIAL' comes from the material master migration (MM)"
+    "TODO-VERIFY[H] XEQ-G02: material numbers must exist on S/4HANA (material master migration, MM) before equipment with a material is loaded"
   ],
   "main_structure": "ZEMX_C_EquipmentMig"
 }

@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Record count of the partner assignments delivered by ZEMX_C_ObjectPartnerMig per PartnerObjectType, PartnerFunction (values already translated); compared with the same count on S/4HANA by tools/mig_reconcile.py.
+Record count of the partner assignments delivered by ZEMX_C_ObjectPartnerMig per PartnerObjectType, PartnerFunction; compared with the same count on S/4HANA by tools/mig_reconcile.py.
 
 ## Keys
 

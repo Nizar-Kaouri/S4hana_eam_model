@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_WorkCenterText`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_WorkCenterText` |
 | Source file | `src/zemx_c_workcentertextmig.ddls.asddls` |
 
 ## Purpose
 
-Work center descriptions per language for the work centers in scope, business key translated.
+Work center descriptions per language for the work centers in scope with the business key (work center + plant).
 
 ## Keys
 
@@ -33,7 +33,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-Read the texts of work center MECH-01: filter LegacyWorkCenter = 'MECH-01'.
+Read the texts of work center MECH-01: filter WorkCenter = 'MECH-01'.
 
 ## Open verification items
 

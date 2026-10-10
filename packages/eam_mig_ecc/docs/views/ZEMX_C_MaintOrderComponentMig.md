@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintOrderComponent`, join `ZEMX_I_MaintOrder`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MaintOrderComponent`, join `ZEMX_I_MaintOrder` |
 | Source file | `src/zemx_c_maintordercomponentmig.ddls.asddls` |
 
 ## Purpose
 
-Open components (not deleted, not finally issued) of the open orders with material, plant and storage location translated.
+Open components (not deleted, not finally issued) of the open orders with material, plant and storage location.
 
 ## Keys
 

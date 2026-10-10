@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_FuncLocDesc`, join `ZEMX_I_FuncLoc`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_FuncLocDesc`, join `ZEMX_I_FuncLoc` |
 | Source file | `src/zemx_c_funcloctextmig.ddls.asddls` |
 
 ## Purpose
@@ -32,7 +32,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-Read the texts of FL 1000-PUMP-01: filter LegacyFunctionalLocation = '1000-PUMP-01'.
+Read the texts of FL 1000-PUMP-01: filter FunctionalLocation = '1000-PUMP-01'.
 
 ## Open verification items
 

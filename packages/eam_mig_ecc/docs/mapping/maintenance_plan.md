@@ -5,27 +5,27 @@
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `equipment`, `functional_location`, `task_list`, `measuring_point`, `measurement_document`
 - **Business key:** `MaintenancePlan` · numbering **new**
-- **Key rule:** Plans and items are usually renumbered: the load program writes old -> new into the key maps 'MAINTENANCE_PLAN' and 'MAINTENANCE_ITEM'.
+- **Key rule:** Plans and items are usually renumbered: the load program keeps the old -> new numbers.
 
 > TODO-VERIFY[M] XPL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
+The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
 ## `ZEMX_C_MaintenancePlanMig`
 
 - Source: `ZEMX_I_MaintenancePlan`
-- Keys: `LegacyMaintenancePlan`
+- Keys: `MaintenancePlan`
 - Scope: `src.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `MaintenancePlan` | MPLA-WARPL | MPLA-WARPL | key map: `MAINTENANCE_PLAN` | yes |
+| `MaintenancePlan` | MPLA-WARPL | MPLA-WARPL | copy | yes |
 | `MaintenancePlanDesc` | MPLA-WPTXT | MPLA-WPTXT | copy | yes |
-| `MaintenancePlanCategory` | MPLA-MPTYP | MPLA-MPTYP | value map: `MAINTENANCE_PLAN_CATEGORY` | yes |
-| `MaintenanceStrategy` | MPLA-STRAT | MPLA-STRAT | value map: `MAINTENANCE_STRATEGY` | yes |
-| `AuthorizationGroup` | MPLA-BEGRU | MPLA-BEGRU | value map: `AUTHORIZATION_GROUP` |  |
+| `MaintenancePlanCategory` | MPLA-MPTYP | MPLA-MPTYP | copy | yes |
+| `MaintenanceStrategy` | MPLA-STRAT | MPLA-STRAT | copy | yes |
+| `AuthorizationGroup` | MPLA-BEGRU | MPLA-BEGRU | copy |  |
 | `SchedulingPeriod` | MPLA-ABRHO | MPLA-ABRHO | copy |  |
-| `SchedulingPeriodUnit` | MPLA-HUNIT | MPLA-HUNIT | value map: `UNIT_OF_MEASURE` |  |
+| `SchedulingPeriodUnit` | MPLA-HUNIT | MPLA-HUNIT | copy |  |
 | `CallHorizonPercent` | MPLA-HORIZ | MPLA-HORIZ | copy |  |
 | `CycleModificationFactor` | MPLA-SFAKT | MPLA-SFAKT | copy |  |
 | `SchedulingIndicator` | MPLA-STICH | MPLA-STICH | copy |  |
@@ -33,51 +33,51 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 | `LateCompletionTolerance` | MPLA-TOPOS | MPLA-TOPOS | copy |  |
 | `EarlyCompletionShiftFactor` | MPLA-VSNEG | MPLA-VSNEG | copy |  |
 | `EarlyCompletionTolerance` | MPLA-TONEG | MPLA-TONEG | copy |  |
-| `FactoryCalendar` | MPLA-FABKL | MPLA-FABKL | value map: `FACTORY_CALENDAR` |  |
+| `FactoryCalendar` | MPLA-FABKL | MPLA-FABKL | copy |  |
 | `LastCompletionDate` | derived: max( cal.CompletionDate ) from MHIS-LRMDT | - | copy |  |
 | `LastChangeDate` | MPLA-AEDAT | - | information only |  |
 
 ## `ZEMX_C_MaintenanceItemMig`
 
 - Source: `ZEMX_I_MaintenanceItem`
-- Keys: `LegacyMaintenanceItem`
+- Keys: `MaintenanceItem`
 - Scope: `obj.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `MaintenanceItem` | MPOS-WAPOS | MPOS-WAPOS | key map: `MAINTENANCE_ITEM` |  |
-| `MaintenancePlan` | MPOS-WARPL | MPOS-WARPL | key map: `MAINTENANCE_PLAN` |  |
+| `MaintenanceItem` | MPOS-WAPOS | MPOS-WAPOS | copy |  |
+| `MaintenancePlan` | MPOS-WARPL | MPOS-WARPL | copy |  |
 | `MaintenanceItemDescription` | MPOS-PSTXT | MPOS-PSTXT | copy |  |
-| `Equipment` | MPOS-EQUNR | MPOS-EQUNR | key map: `EQUIPMENT` |  |
-| `FunctionalLocation` | MPOS-TPLNR | MPOS-TPLNR | key map: `FUNCTIONAL_LOCATION` |  |
-| `MaintenancePlanningPlant` | MPOS-IWERK | MPOS-IWERK | value map: `PLANT` |  |
-| `MaintenancePlannerGroup` | MPOS-WPGRP | MPOS-WPGRP | value map: `PLANNER_GROUP` |  |
-| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | key map: `WORK_CENTER` |  |
-| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | value map: `PLANT` |  |
-| `MaintenanceOrderType` | MPOS-AUART | MPOS-AUART | value map: `ORDER_TYPE` |  |
-| `NotificationType` | MPOS-QMART | MPOS-QMART | value map: `NOTIFICATION_TYPE` |  |
-| `MaintenanceActivityType` | MPOS-ILART | MPOS-ILART | value map: `ACTIVITY_TYPE_PM` |  |
-| `MaintPriority` | MPOS-PRIOK | MPOS-PRIOK | value map: `PRIORITY` |  |
+| `Equipment` | MPOS-EQUNR | MPOS-EQUNR | copy |  |
+| `FunctionalLocation` | MPOS-TPLNR | MPOS-TPLNR | copy |  |
+| `MaintenancePlanningPlant` | MPOS-IWERK | MPOS-IWERK | copy |  |
+| `MaintenancePlannerGroup` | MPOS-WPGRP | MPOS-WPGRP | copy |  |
+| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
+| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | copy |  |
+| `MaintenanceOrderType` | MPOS-AUART | MPOS-AUART | copy |  |
+| `NotificationType` | MPOS-QMART | MPOS-QMART | copy |  |
+| `MaintenanceActivityType` | MPOS-ILART | MPOS-ILART | copy |  |
+| `MaintPriority` | MPOS-PRIOK | MPOS-PRIOK | copy |  |
 | `TaskListType` | MPOS-PLNTY | MPOS-PLNTY | copy |  |
-| `TaskListGroup` | MPOS-PLNNR | MPOS-PLNNR | key map: `TASK_LIST_GROUP` |  |
+| `TaskListGroup` | MPOS-PLNNR | MPOS-PLNNR | copy |  |
 | `TaskListGroupCounter` | MPOS-PLNAL | MPOS-PLNAL | copy |  |
-| `BusinessArea` | ILOA-GSBER | ILOA-GSBER | value map: `BUSINESS_AREA` |  |
+| `BusinessArea` | ILOA-GSBER | ILOA-GSBER | copy |  |
 | `LastChangeDate` | MPOS-AEDAT | - | information only |  |
 
 ## `ZEMX_C_MaintPlanCycleMig`
 
 - Source: `ZEMX_I_MaintPlanCycle`
-- Keys: `LegacyMaintenancePlan`, `MaintenancePlanCycle`
+- Keys: `MaintenancePlan`, `MaintenancePlanCycle`
 - Scope: `obj.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
+| `MaintenancePlan` | MMPT-WARPL | MMPT-WARPL | copy |  |
 | `MaintenancePlanCycle` | MMPT-NUMMER | MMPT-NUMMER | copy |  |
-| `MaintenancePlan` | MMPT-WARPL | MMPT-WARPL | key map: `MAINTENANCE_PLAN` |  |
 | `CycleValue` | MMPT-ZYKL1 | MMPT-ZYKL1 | convert (load program): float_si_to_unit |  |
-| `CycleUnit` | MMPT-ZEIEH | MMPT-ZEIEH | value map: `UNIT_OF_MEASURE` |  |
+| `CycleUnit` | MMPT-ZEIEH | MMPT-ZEIEH | copy |  |
 | `CycleText` | MMPT-PAK_TEXT | MMPT-PAK_TEXT | copy |  |
-| `MeasuringPoint` | MMPT-POINT | MMPT-POINT | key map: `MEASURING_POINT` |  |
+| `MeasuringPoint` | MMPT-POINT | MMPT-POINT | copy |  |
 
 ## Not delivered
 
@@ -92,33 +92,9 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 | `ZEMX_I_MaintenanceItem` | `LocAcctAssignment` | MPOS-ILOAN | not migrated: internal location record - regenerated on S/4HANA |
 | `ZEMX_I_MaintenanceItem` | `CreationDate` | MPOS-ERSDT | information only |
 
-## Maps
-
-- value map `ACTIVITY_TYPE_PM`
-- value map `AUTHORIZATION_GROUP`
-- value map `BUSINESS_AREA`
-- value map `FACTORY_CALENDAR`
-- value map `MAINTENANCE_PLAN_CATEGORY`
-- value map `MAINTENANCE_STRATEGY`
-- value map `NOTIFICATION_TYPE`
-- value map `ORDER_TYPE`
-- value map `PLANNER_GROUP`
-- value map `PLANT`
-- value map `PRIORITY`
-- value map `UNIT_OF_MEASURE`
-- key map `EQUIPMENT`
-- key map `FUNCTIONAL_LOCATION`
-- key map `MAINTENANCE_ITEM`
-- key map `MAINTENANCE_PLAN`
-- key map `MEASURING_POINT`
-- key map `TASK_LIST_GROUP`
-- key map `WORK_CENTER`
-
-After loading this object, the key map(s) `MAINTENANCE_PLAN`, `MAINTENANCE_ITEM` (old key, new key from the load log) must be written into `ZEMX_MAP` on the ECC system (by the load program via RFC or by uploading the load log) before the objects that use them are extracted.
-
 ## Reconciliation
 
-- Counts: `ZEMX_C_MaintPlanMigCount` (ECC, translated values) vs `ZEMT_I_MaintPlanCount` (S/4HANA) per `MaintenancePlanCategory`, `MaintenanceStrategy`
+- Counts: `ZEMX_C_MaintPlanMigCount` (ECC) vs `ZEMT_I_MaintPlanCount` (S/4HANA) per `MaintenancePlanCategory`, `MaintenanceStrategy`
 - Records and fields: `ZEMX_C_MaintenancePlanMig` vs `ZEMT_I_MaintPlanCompare` on `MaintenancePlan`; compared: `MaintenancePlanDesc`, `MaintenancePlanCategory`, `MaintenanceStrategy`
 
 ```bash

@@ -34,7 +34,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-The load program loops over the rows of one TextObject and copies each text to the translated object.
+The load program loops over the rows of one TextObject and copies each text to the migrated object.
 
 ## Open verification items
 

@@ -5,11 +5,11 @@
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `equipment`, `functional_location`, `maintenance_notification`, `maintenance_order`, `task_list`, `maintenance_plan`
 - **Business key:** `TextObject`, `TextName`, `TextID`, `Language` · numbering **derived**
-- **Key rule:** Text names contain the object key; the load program rebuilds them from the key maps.
+- **Key rule:** Text names contain the object key; the load program rebuilds them from the new object keys.
 
 > TODO-VERIFY[M] XLT-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
+The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
 ## `ZEMX_C_LongTextIndexMig`
 
@@ -20,7 +20,7 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
 | `TextObject` | STXH-TDOBJECT | STXH-TDOBJECT | copy |  |
-| `TextName` | STXH-TDNAME | - | derived: object key + text ID specific suffix; rebuilt from the translated key by the load program |  |
+| `TextName` | STXH-TDNAME | - | derived: object key + text ID specific suffix; rebuilt from the object key by the load program |  |
 | `TextID` | STXH-TDID | STXH-TDID | copy |  |
 | `Language` | STXH-TDSPRAS | STXH-TDSPRAS | copy |  |
 
@@ -33,13 +33,9 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 | `ZEMX_I_LongTextHeader` | `LastChangeDate` | STXH-TDLDATE | information only |
 | `ZEMX_I_LongTextHeader` | `LastChangedByUser` | STXH-TDLUSER | information only |
 
-## Maps
-
-None.
-
 ## Reconciliation
 
-- Counts: `ZEMX_C_LongTextMigCount` (ECC, translated values) vs `-` (S/4HANA) per `TextObject`, `TextID`
+- Counts: `ZEMX_C_LongTextMigCount` (ECC) vs `-` (S/4HANA) per `TextObject`, `TextID`
 
 ```bash
 python3 tools/mig_reconcile.py counts --module long_text --source ecc_counts.csv --target s4_counts.csv

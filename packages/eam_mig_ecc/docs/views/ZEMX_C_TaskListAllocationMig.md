@@ -10,17 +10,17 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_TaskListObjectAssgmt`, join `ZEMX_I_TaskListCurrent`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_TaskListObjectAssgmt`, join `ZEMX_I_TaskListCurrent` |
 | Source file | `src/zemx_c_tasklistallocationmig.ddls.asddls` |
 
 ## Purpose
 
-Equipment / functional location allocation of the task lists in scope with all keys translated.
+Equipment / functional location allocation of the task lists in scope.
 
 ## Keys
 
-- `TaskListGroup`
 - `TaskListType`
+- `TaskListGroup`
 - `TaskListGroupCounter`
 
 ## Associations defined here
@@ -33,7 +33,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-The load program assigns each equipment task list to the translated equipment.
+The load program assigns each equipment task list to its equipment.
 
 ## Open verification items
 

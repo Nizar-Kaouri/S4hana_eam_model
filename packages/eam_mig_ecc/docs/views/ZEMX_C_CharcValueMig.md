@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_CharcValue`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_CharcValue` |
 | Source file | `src/zemx_c_charcvaluemig.ddls.asddls` |
 
 ## Purpose
 
-Characteristic values of equipment and functional locations with the object key translated; numeric values in the base unit.
+Characteristic values of equipment and functional locations; numeric values in the base unit.
 
 ## Keys
 

@@ -6,54 +6,37 @@
 
 Part of the **EAM migration model**: moving Plant Maintenance data from an old SAP ERP (ECC 6.0) system to
 SAP S/4HANA (new implementation or selective data transition; a system conversion converts the data in place
-and does not need it). The package delivers the **views only**. The customer's load program reads the
-consumption views and posts the data on S/4HANA with the technology of its choice.
+and does not need it). The package is a **template of views only**: the consumption views deliver the data
+exactly as it is stored in ECC. The customer's load program reads them and changes values and posts the data on
+S/4HANA as the project needs.
 
 ## Architecture: basic → composite → consumption
 
 ```
  ECC tables ──► basic ZEMX_I_*  ──► composite ZEMX_I_*  ──► consumption ZEMX_C_*Mig  ──► load program ──► S/4HANA
-               one table each       business object         migration-ready interface    (customer)
+               one table each       business object         migration template           (customer)
                (EQUI, EQUZ, ...)    (joins, status flags,   scope applied, migrated
-                                    current versions)       fields only, values mapped
-                                                            via ZEMX_MAP
+                                    current versions)       fields only, values as in ECC
 ```
 
 | Layer | Naming | Rule (checked by the validators) |
 |---|---|---|
 | Basic | `ZEMX_I_<Entity>` (e.g. `ZEMX_I_EquipmentHeader` on EQUI) | Exactly one table per view; filters on that table only (e.g. `OBJTY = 'A'`, status `I0076`). Technical field names → semantic names. |
 | Composite | `ZEMX_I_<Object>` (e.g. `ZEMX_I_Equipment`) | Reads only basic / composite views. Assembles the business object: joins (equipment = EQUI + current EQUZ segment + ILOA + work center + deletion flag), internal IDs → business keys (work center name + plant, class / characteristic names), current versions, scope flags. |
-| Consumption | `ZEMX_C_<Object>Mig`, `ZEMX_C_<Object>MigCount` | Reads composite (or basic) views. One view per migration structure: only records in scope, only migrated fields, every value / key field translated through the mapping table. `Legacy*` keys carry the old key. The only layer with `@Analytics.dataExtraction.enabled: true`. Count views for reconciliation. |
+| Consumption | `ZEMX_C_<Object>Mig`, `ZEMX_C_<Object>MigCount` | Reads composite (or basic) views. One view per migration structure: only records in scope, only the fields that are migrated, values unchanged. The only layer with `@Analytics.dataExtraction.enabled: true`. Count views for reconciliation. |
 
 Layer naming follows the SAP VDM convention (`I_` for basic and composite views, `C_` for consumption views,
 layer set by `@VDM.viewType`). The order of the layers (upper layers read only the same or lower layers,
 only basic views read tables) is checked by `tools/tests/test_build_migration.py`.
 
-### Value and key mapping on ECC: table `ZEMX_MAP`
-
-| Field | Meaning |
-|---|---|
-| `MAP_NAME` (CHAR 30, key) | Map name in capitals, e.g. `PLANT`, `ORDER_TYPE`, `EQUIPMENT` |
-| `SOURCE_VALUE` (CHAR 50, key) | Old value (internal format, e.g. with leading zeros) |
-| `TARGET_VALUE` (CHAR 50) | New value on S/4HANA |
-| `MAP_COMMENT` (CHAR 80) | Free text |
-
-Every consumption view joins `ZEMX_I_MigrationMap` once per translated field and delivers
-`coalesce( TargetValue, old value )`: **no entry = value unchanged**. Value maps (plants, order types, ...) are
-filled before the load; upload templates per map are in [`docs/mapping/templates/`](docs/mapping/templates/).
-Key maps of objects that get new numbers on S/4HANA (notifications, orders, task lists, plans, measuring points)
-are written back after each load level (by the load program via RFC or by uploading the load log), before the
-next level is extracted. Key maps from other migrations (material, fixed asset, business partner) are uploaded
-the same way.
-
 ## Modules and load order
 
 | Module | Consumption views (interface) | Load level | Numbering |
 |---|---|---|---|
-| `core` | - (shared basic views: ILOA, status flags, characteristics, `ZEMX_MAP` and its view) | - | - |
+| `core` | - (shared basic views: ILOA, status flags, characteristics) | - | - |
 | `work_center` | `ZEMX_C_WorkCenterMig`, `…TextMig`, `…CostCtrMig` | 1 | keep |
 | `functional_location` | `ZEMX_C_FuncLocMig`, `ZEMX_C_FuncLocTextMig` | 2 | keep |
-| `equipment` | `ZEMX_C_EquipmentMig`, `ZEMX_C_EquipmentTextMig` | 3 | keep (or key map) |
+| `equipment` | `ZEMX_C_EquipmentMig`, `ZEMX_C_EquipmentTextMig` | 3 | keep |
 | `measuring_point` | `ZEMX_C_MeasuringPointMig` | 4 | new |
 | `task_list` | `ZEMX_C_TaskListMig`, `…OperationMig`, `…AllocationMig` | 4 | new |
 | `classification` | `ZEMX_C_ClassAssignmentMig`, `ZEMX_C_CharcValueMig` | 4 | derived |
@@ -66,8 +49,8 @@ the same way.
 Every module depends on `core`; modules with a work center reference also depend on `work_center` (the build
 adds them automatically). Per module, [`docs/mapping/<module>.md`](docs/mapping/) describes the interface:
 structures, keys, scope, every delivered field with its ECC source, S/4HANA target and rule, the fields that are
-not delivered and why, maps and reconciliation. [`docs/MIGRATION_SEQUENCE.md`](docs/MIGRATION_SEQUENCE.md) has the
-load order and who fills which map.
+not delivered and why, and reconciliation. [`docs/MIGRATION_SEQUENCE.md`](docs/MIGRATION_SEQUENCE.md) has the
+load order.
 
 ## Rules for this product (differences from the S/4HANA products)
 
@@ -90,9 +73,10 @@ python3 tools/mig_reconcile.py counts  --module equipment --source ecc_counts.cs
 python3 tools/mig_reconcile.py records --module equipment --source ecc_extract.csv --target s4_compare.csv
 ```
 
-The ECC ZIP contains the views, the table `ZEMX_MAP`, `mapping/<module>/mapping.json`, the interface pages and
-`MIGRATION_SEQUENCE.md`. Reconciliation compares the consumption views (translated values) with the S/4HANA
-views of [`packages/eam_mig_s4`](../eam_mig_s4/README.md) after the load.
+The ECC ZIP contains the views, `mapping/<module>/mapping.json`, the description pages and `MIGRATION_SEQUENCE.md`.
+Reconciliation compares the consumption views with the S/4HANA views of
+[`packages/eam_mig_s4`](../eam_mig_s4/README.md) after the load. If the load program changed values (new plant
+codes, new numbers), pass those old -> new lists to `tools/mig_reconcile.py` with `--maps <folder> --translate`.
 
 ## Known gaps of the pilot
 

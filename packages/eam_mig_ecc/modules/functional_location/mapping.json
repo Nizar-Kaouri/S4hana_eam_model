@@ -17,95 +17,69 @@
     "numbering": "keep",
     "note": "Functional location labels are external keys. Load superior locations before their children."
   },
-  "provides_key_maps": [
-    "functional_location"
-  ],
-  "external_key_maps": [
-    "fixed_asset",
-    "material"
-  ],
-  "value_maps": [
-    "authorization_group",
-    "business_area",
-    "company_code",
-    "controlling_area",
-    "cost_center",
-    "functional_location_category",
-    "location",
-    "planner_group",
-    "plant",
-    "plant_section",
-    "structure_indicator",
-    "technical_object_type"
-  ],
-  "key_maps": [
-    "fixed_asset",
-    "functional_location",
-    "material"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_FuncLocMig",
       "source_view": "ZEMX_I_FuncLoc",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyFunctionalLocation"
+        "FunctionalLocation"
       ],
       "fields": [
         {
           "element": "FunctionalLocation",
           "source": "IFLOT-TPLNR",
           "target": "IFLOT-TPLNR",
-          "rule": "key_map:functional_location",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "FunctionalLocationCategory",
           "source": "IFLOT-FLTYP",
           "target": "IFLOT-FLTYP",
-          "rule": "value_map:functional_location_category",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "FuncLocationStructure",
           "source": "IFLOT-TPLKZ",
           "target": "IFLOT-TPLKZ",
-          "rule": "value_map:structure_indicator",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "SuperiorFunctionalLocation",
           "source": "IFLOT-TPLMA",
           "target": "IFLOT-TPLMA",
-          "rule": "key_map:functional_location",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "TechnicalObjectType",
           "source": "IFLOT-EQART",
           "target": "IFLOT-EQART",
-          "rule": "value_map:technical_object_type",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "AuthorizationGroup",
           "source": "IFLOT-BEGRU",
           "target": "IFLOT-BEGRU",
-          "rule": "value_map:authorization_group",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MaintenancePlanningPlant",
           "source": "IFLOT-IWERK",
           "target": "IFLOT-IWERK",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "IFLOT-INGRP",
           "target": "IFLOT-INGRP",
-          "rule": "value_map:planner_group",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -126,7 +100,7 @@
           "element": "ConstructionType",
           "source": "IFLOT-SUBMT",
           "target": "IFLOT-SUBMT",
-          "rule": "key_map:material",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -161,21 +135,21 @@
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "PlantSection",
           "source": "ILOA-BEBER",
           "target": "ILOA-BEBER",
-          "rule": "value_map:plant_section",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "AssetLocation",
           "source": "ILOA-STORT",
           "target": "ILOA-STORT",
-          "rule": "value_map:location",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -203,49 +177,49 @@
           "element": "CompanyCode",
           "source": "ILOA-BUKRS",
           "target": "ILOA-BUKRS",
-          "rule": "value_map:company_code",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "BusinessArea",
           "source": "ILOA-GSBER",
           "target": "ILOA-GSBER",
-          "rule": "value_map:business_area",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "ControllingArea",
           "source": "ILOA-KOKRS",
           "target": "ILOA-KOKRS",
-          "rule": "value_map:controlling_area",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "CostCenter",
           "source": "ILOA-KOSTL",
           "target": "ILOA-KOSTL",
-          "rule": "value_map:cost_center",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MasterFixedAsset",
           "source": "ILOA-ANLNR",
           "target": "ILOA-ANLNR",
-          "rule": "key_map:fixed_asset",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "FixedAsset",
           "source": "ILOA-ANLUN",
           "target": "ILOA-ANLUN",
-          "rule": "key_map:fixed_asset",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "StandingOrder",
           "source": "ILOA-DAUFN",
           "target": "",
-          "rule": "derive:follow-up step after the order load (key map maintenance_order)",
+          "rule": "derive:follow-up step after the order load",
           "compare": false
         },
         {
@@ -262,22 +236,22 @@
       "source_view": "ZEMX_I_FuncLocDesc",
       "scope_filter": "obj.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyFunctionalLocation",
+        "FunctionalLocation",
         "Language"
       ],
       "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOTX-TPLNR",
+          "target": "IFLOTX-TPLNR",
+          "rule": "copy",
+          "compare": false
+        },
         {
           "element": "Language",
           "source": "IFLOTX-SPRAS",
           "target": "IFLOTX-SPRAS",
           "rule": "copy",
-          "compare": false
-        },
-        {
-          "element": "FunctionalLocation",
-          "source": "IFLOTX-TPLNR",
-          "target": "IFLOTX-TPLNR",
-          "rule": "key_map:functional_location",
           "compare": false
         },
         {
@@ -323,7 +297,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_FuncLocMigCount",
     "target_count_view": "ZEMT_I_FuncLocCount",
     "dimensions": [

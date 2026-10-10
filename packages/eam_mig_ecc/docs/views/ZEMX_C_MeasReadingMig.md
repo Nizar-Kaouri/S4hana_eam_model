@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MeasPointLastReading`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MeasPointLastReading` |
 | Source file | `src/zemx_c_measreadingmig.ddls.asddls` |
 
 ## Purpose
 
-Last valid reading per measuring point with the measuring point translated (key map from the measuring point load); values in the SI unit.
+Last valid reading per measuring point; values in the SI unit.
 
 ## Keys
 

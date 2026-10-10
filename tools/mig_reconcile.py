@@ -8,10 +8,11 @@ Two checks, both driven by modules/<module>/mapping.json of the migration-source
            field by field for the compared fields. Reports records missing on S/4HANA, extra records on S/4HANA
            and field differences.
 
-The consumption views already deliver translated values (mapping table on ECC, reconciliation.source_values =
-"target"), so no maps are needed. For a source export with old values (source_values = "source", or --translate),
-maps can be applied from CSV files in a folder (--maps): value_map_<name>.csv / key_map_<name>.csv with the
-columns source,target[,comment]. Exports are CSV files with a header row of element names (comma or semicolon).
+The consumption views deliver the values as stored in ECC. If the load program changed values (e.g. new plant
+codes or new numbers), give the tool those old -> new lists as CSV files in a folder (--maps, used with --translate):
+value_map_<name>.csv / key_map_<name>.csv with the columns source,target[,comment], where <name> is the element
+name in lower case (e.g. value_map_maintenanceplanningplant.csv). Exports are CSV files with a header row of
+element names (comma or semicolon separated).
 
   python3 tools/mig_reconcile.py counts  --module equipment --source ecc_counts.csv  --target s4_counts.csv
   python3 tools/mig_reconcile.py records --module equipment --source ecc_extract.csv --target s4_compare.csv \
@@ -76,6 +77,14 @@ class Maps:
             self.cache[key] = table
         return self.cache[key]
 
+    def translate(self, element, value):
+        """Old -> new value from value_map_<element>.csv or key_map_<element>.csv (element in lower case)."""
+        for kind in ("value_map", "key_map"):
+            table = self.get(kind, element.lower())
+            if value in table:
+                return table[value]
+        return value
+
     def apply(self, rule, value):
         kind, _, arg = (rule or "").partition(":")
         if kind not in ("value_map", "key_map") or not arg:
@@ -116,16 +125,8 @@ def scope_filter(expr):
 # ----------------------------------------------------------------------------- counts
 
 def translated(mapping, force=False):
-    """True when the source export carries old values that still need the maps."""
-    return force or mapping["reconciliation"].get("source_values", "source") != "target"
-
-
-def compare_rules(mapping):
-    cmp_ = mapping["reconciliation"].get("compare") or {}
-    for st in mapping.get("structures", []):
-        if st["consumption_view"] == cmp_.get("source_view"):
-            return {f["element"]: f["rule"] for f in st["fields"]}
-    return {f["element"]: f["rule"] for f in mapping.get("fields", []) if f.get("view") == cmp_.get("source_view")}
+    """Maps are applied only on request (--translate) or when the mapping says the source still needs them."""
+    return force or mapping["reconciliation"].get("source_values") == "needs_maps"
 
 
 def counts(mapping, source_rows, target_rows, maps, strip_zeros=False, translate=False):
@@ -139,8 +140,8 @@ def counts(mapping, source_rows, target_rows, maps, strip_zeros=False, translate
     def total(rows, use):
         acc = Counter()
         for r in rows:
-            key = tuple(normalize(maps.apply(f"value_map:{d['value_map']}" if use and do_map and d.get("value_map") else "",
-                                             r[d["element"]]), strip_zeros) for d in rec["dimensions"])
+            key = tuple(normalize(maps.translate(d["element"], r[d["element"]]) if use and do_map else r[d["element"]],
+                                  strip_zeros) for d in rec["dimensions"])
             try:
                 acc[key] += int(float(r[measure] or 0))
             except ValueError as exc:
@@ -171,7 +172,7 @@ def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_ze
     cmp_ = mapping["reconciliation"].get("compare")
     if not cmp_:
         raise InputError(f"module {mapping['module']} has no record comparison in its mapping")
-    rules = compare_rules(mapping) if translated(mapping, translate) else {}
+    do_map = translated(mapping, translate)
     keys, fields = cmp_["key"], cmp_["fields"]
     require(source_rows, keys + fields, "source")
     require(target_rows, keys + fields, "target")
@@ -191,7 +192,7 @@ def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_ze
     def index(rows, use, label):
         out, dupes = {}, 0
         for r in rows:
-            k = tuple(normalize(maps.apply(rules.get(e) if use else "", r[e]), strip_zeros) for e in keys)
+            k = tuple(normalize(maps.translate(e, r[e]) if use and do_map else r[e], strip_zeros) for e in keys)
             if k in out:
                 dupes += 1
             out[k] = r
@@ -205,7 +206,7 @@ def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_ze
     mismatches = {f: [] for f in fields}
     for k in sorted(set(src) & set(tgt)):
         for f in fields:
-            s = normalize(maps.apply(rules.get(f), src[k][f]), strip_zeros)
+            s = normalize(maps.translate(f, src[k][f]) if do_map else src[k][f], strip_zeros)
             t = normalize(tgt[k][f], strip_zeros)
             if s != t:
                 mismatches[f].append((k, s, t))

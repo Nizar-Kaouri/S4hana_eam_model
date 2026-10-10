@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Record count of the class assignments delivered by ZEMX_C_ClassAssignmentMig per ClassType, Class (values already translated); compared with the same count on S/4HANA by tools/mig_reconcile.py.
+Record count of the class assignments delivered by ZEMX_C_ClassAssignmentMig per ClassType, Class; compared with the same count on S/4HANA by tools/mig_reconcile.py.
 
 ## Keys
 

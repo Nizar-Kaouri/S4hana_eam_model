@@ -17,29 +17,20 @@
     "numbering": "new",
     "note": "New document numbers on S/4HANA; one initial reading per measuring point."
   },
-  "provides_key_maps": [],
-  "external_key_maps": [],
-  "value_maps": [
-    "code",
-    "unit_of_measure"
-  ],
-  "key_maps": [
-    "measuring_point"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_MeasReadingMig",
       "source_view": "ZEMX_I_MeasPointLastReading",
       "scope_filter": "",
       "keys": [
-        "LegacyMeasuringPoint"
+        "MeasuringPoint"
       ],
       "fields": [
         {
           "element": "MeasuringPoint",
           "source": "IMRG-POINT",
           "target": "IMRG-POINT",
-          "rule": "key_map:measuring_point",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -88,14 +79,14 @@
           "element": "MsmtEntryUnit",
           "source": "IMRG-RECDU",
           "target": "IMRG-RECDU",
-          "rule": "value_map:unit_of_measure",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MsmtValuationCode",
           "source": "IMRG-VLCOD",
           "target": "IMRG-VLCOD",
-          "rule": "value_map:code",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -117,7 +108,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_MeasReadingMigCount",
     "target_count_view": null,
     "dimensions": [

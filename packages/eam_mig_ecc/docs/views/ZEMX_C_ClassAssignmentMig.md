@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_ClassAssignment`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_ClassAssignment` |
 | Source file | `src/zemx_c_classassignmentmig.ddls.asddls` |
 
 ## Purpose
 
-Class assignments of equipment (002) and functional locations (003) with the object key translated.
+Class assignments of equipment (002) and functional locations (003).
 
 ## Keys
 

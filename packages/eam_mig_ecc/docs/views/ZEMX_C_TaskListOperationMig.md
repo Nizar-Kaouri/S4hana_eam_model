@@ -10,17 +10,17 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_TaskListOperation`, join `ZEMX_I_TaskListCurrent`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_TaskListOperation`, join `ZEMX_I_TaskListCurrent` |
 | Source file | `src/zemx_c_tasklistoperationmig.ddls.asddls` |
 
 ## Purpose
 
-Operations of the task lists in scope (not deleted) with work center, control key and units translated.
+Operations of the task lists in scope (not deleted) with work center, control key and units.
 
 ## Keys
 
-- `TaskListGroup`
 - `TaskListType`
+- `TaskListGroup`
 - `TaskListGroupCounter`
 - `TaskListSequence`
 - `TaskListOperation`

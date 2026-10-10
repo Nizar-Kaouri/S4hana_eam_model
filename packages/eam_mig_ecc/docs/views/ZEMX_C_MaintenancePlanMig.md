@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintenancePlan`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MaintenancePlan` |
 | Source file | `src/zemx_c_maintenanceplanmig.ddls.asddls` |
 
 ## Purpose
 
-Maintenance plans to migrate with scheduling parameters, restart point and codes translated.
+Maintenance plans to migrate with scheduling parameters and restart point.
 
 ## Keys
 

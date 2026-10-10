@@ -4,10 +4,10 @@ Packages that help move data from an old SAP ERP (ECC 6.0) system to SAP S/4HANA
 selective data transition). Per business area there is:
 
 - a **source** product that runs on ECC: classic CDS views in three layers - basic (one table each) → composite
-  (business object) → consumption (`C_*Mig`: migration-ready, scope applied, values translated through a mapping
-  table). The customer's load program reads the consumption views with any technology,
+  (business object) → consumption (`C_*Mig`: migration template, scope applied, values exactly as in ECC).
+  The customer's load program reads the consumption views with any technology and adapts the values,
 - a **mapping model** (every source element → S/4HANA target field with a rule, business keys and numbering,
-  scope filters, load order, value maps and key maps),
+  scope filters, load order),
 - a **reconciliation** product on S/4HANA plus `tools/mig_reconcile.py` (counts and record-by-record field
   comparison after the load).
 
@@ -28,7 +28,7 @@ migration pilot; all other rows are the S/4HANA analytics add-on.
 
 | Product | Folder | Prefix | State |
 |---|---|---|---|
-| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | drafted: 13 migration objects, 101 classic views (basic → composite → consumption), mapping table, 13 mapping files |
+| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | drafted: 13 migration objects, 100 classic views (basic → composite → consumption), 13 mapping files |
 | **EAM migration - S/4HANA reconciliation (pilot)** | [`packages/eam_mig_s4`](packages/eam_mig_s4/README.md) | `ZEMT_` | drafted: 8 objects, 16 views |
 | Analytics add-on: Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
 | Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 14 views |

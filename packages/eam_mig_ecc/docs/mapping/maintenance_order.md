@@ -5,45 +5,45 @@
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `equipment`, `functional_location`, `work_center`, `task_list`, `maintenance_notification`, `maintenance_plan`
 - **Business key:** `MaintenanceOrder` · numbering **new**
-- **Key rule:** Orders get new numbers on S/4HANA unless external numbering is set up; the load program writes old -> new into the key map 'MAINTENANCE_ORDER'.
+- **Key rule:** Orders get new numbers on S/4HANA unless external numbering is set up; the load program keeps the old -> new numbers.
 
 > TODO-VERIFY[M] XOR-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
+The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
 ## `ZEMX_C_MaintOrderMig`
 
 - Source: `ZEMX_I_MaintOrder`
-- Keys: `LegacyMaintenanceOrder`
+- Keys: `MaintenanceOrder`
 - Scope: `src.IsTechnicallyCompleted = '' and src.IsClosed = '' and src.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `MaintenanceOrder` | AUFK-AUFNR | AUFK-AUFNR | key map: `MAINTENANCE_ORDER` | yes |
-| `MaintenanceOrderType` | AUFK-AUART | AUFK-AUART | value map: `ORDER_TYPE` | yes |
+| `MaintenanceOrder` | AUFK-AUFNR | AUFK-AUFNR | copy | yes |
+| `MaintenanceOrderType` | AUFK-AUART | AUFK-AUART | copy | yes |
 | `MaintenanceOrderDesc` | AUFK-KTEXT | AUFK-KTEXT | copy |  |
-| `MaintenanceActivityType` | AFIH-ILART | AFIH-ILART | value map: `ACTIVITY_TYPE_PM` | yes |
-| `MaintPriority` | AFIH-PRIOK | AFIH-PRIOK | value map: `PRIORITY` | yes |
+| `MaintenanceActivityType` | AFIH-ILART | AFIH-ILART | copy | yes |
+| `MaintPriority` | AFIH-PRIOK | AFIH-PRIOK | copy | yes |
 | `MaintOrdBasicStartDate` | AFKO-GSTRP | AFKO-GSTRP | copy | yes |
 | `MaintOrdBasicEndDate` | AFKO-GLTRP | AFKO-GLTRP | copy | yes |
-| `MaintenancePlanningPlant` | AFIH-IWERK | AFIH-IWERK | value map: `PLANT` | yes |
-| `MaintenancePlannerGroup` | AFIH-INGPR | AFIH-INGPR | value map: `PLANNER_GROUP` |  |
-| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | key map: `WORK_CENTER` | yes |
-| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | value map: `PLANT` |  |
-| `MaintenancePlant` | ILOA-SWERK | ILOA-SWERK | value map: `PLANT` |  |
-| `CompanyCode` | AUFK-BUKRS | AUFK-BUKRS | value map: `COMPANY_CODE` |  |
-| `BusinessArea` | AUFK-GSBER | AUFK-GSBER | value map: `BUSINESS_AREA` |  |
-| `ControllingArea` | AUFK-KOKRS | AUFK-KOKRS | value map: `CONTROLLING_AREA` |  |
-| `ResponsibleCostCenter` | AUFK-KOSTV | AUFK-KOSTV | value map: `COST_CENTER` |  |
-| `CostCenter` | ILOA-KOSTL | ILOA-KOSTL | value map: `COST_CENTER` | yes |
-| `MaintenanceNotification` | AFIH-QMNUM | AFIH-QMNUM | key map: `MAINTENANCE_NOTIFICATION` |  |
-| `Equipment` | AFIH-EQUNR | AFIH-EQUNR | key map: `EQUIPMENT` | yes |
-| `FunctionalLocation` | ILOA-TPLNR | ILOA-TPLNR | key map: `FUNCTIONAL_LOCATION` | yes |
-| `MaintenancePlan` | AFIH-WARPL | AFIH-WARPL | key map: `MAINTENANCE_PLAN` |  |
-| `MaintenanceItem` | AFIH-WAPOS | AFIH-WAPOS | key map: `MAINTENANCE_ITEM` |  |
+| `MaintenancePlanningPlant` | AFIH-IWERK | AFIH-IWERK | copy | yes |
+| `MaintenancePlannerGroup` | AFIH-INGPR | AFIH-INGPR | copy |  |
+| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy | yes |
+| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | copy |  |
+| `MaintenancePlant` | ILOA-SWERK | ILOA-SWERK | copy |  |
+| `CompanyCode` | AUFK-BUKRS | AUFK-BUKRS | copy |  |
+| `BusinessArea` | AUFK-GSBER | AUFK-GSBER | copy |  |
+| `ControllingArea` | AUFK-KOKRS | AUFK-KOKRS | copy |  |
+| `ResponsibleCostCenter` | AUFK-KOSTV | AUFK-KOSTV | copy |  |
+| `CostCenter` | ILOA-KOSTL | ILOA-KOSTL | copy | yes |
+| `MaintenanceNotification` | AFIH-QMNUM | AFIH-QMNUM | copy |  |
+| `Equipment` | AFIH-EQUNR | AFIH-EQUNR | copy | yes |
+| `FunctionalLocation` | ILOA-TPLNR | ILOA-TPLNR | copy | yes |
+| `MaintenancePlan` | AFIH-WARPL | AFIH-WARPL | copy |  |
+| `MaintenanceItem` | AFIH-WAPOS | AFIH-WAPOS | copy |  |
 | `MaintObjectSystemCondition` | AFIH-ANLZU | AFIH-ANLZU | copy |  |
 | `TaskListType` | AFKO-PLNTY | AFKO-PLNTY | copy |  |
-| `TaskListGroup` | AFKO-PLNNR | AFKO-PLNNR | key map: `TASK_LIST_GROUP` |  |
+| `TaskListGroup` | AFKO-PLNNR | AFKO-PLNNR | copy |  |
 | `TaskListGroupCounter` | AFKO-PLNAL | AFKO-PLNAL | copy |  |
 | `Currency` | AUFK-WAERS | AUFK-WAERS | copy |  |
 | `LastChangeDate` | AUFK-AEDAT | - | information only |  |
@@ -51,20 +51,20 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 ## `ZEMX_C_MaintOrderOperationMig`
 
 - Source: `ZEMX_I_MaintOrderOperation`
-- Keys: `LegacyMaintenanceOrder`, `MaintenanceOrderOperation`, `MaintenanceOrderSubOperation`
+- Keys: `MaintenanceOrder`, `MaintenanceOrderOperation`, `MaintenanceOrderSubOperation`
 - Scope: `obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
+| `MaintenanceOrder` | AFKO-AUFNR | AFKO-AUFNR | copy |  |
 | `MaintenanceOrderOperation` | AFVC-VORNR | AFVC-VORNR | copy |  |
 | `MaintenanceOrderSubOperation` | AFVC-UVORN | AFVC-UVORN | copy |  |
-| `MaintenanceOrder` | AFKO-AUFNR | AFKO-AUFNR | key map: `MAINTENANCE_ORDER` |  |
 | `OperationDescription` | AFVC-LTXA1 | AFVC-LTXA1 | copy |  |
-| `OperationControlKey` | AFVC-STEUS | AFVC-STEUS | value map: `CONTROL_KEY` |  |
-| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | key map: `WORK_CENTER` |  |
-| `WorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | value map: `PLANT` |  |
-| `Plant` | AFVC-WERKS | AFVC-WERKS | value map: `PLANT` |  |
-| `ActivityType` | AFVC-LARNT | AFVC-LARNT | value map: `ACTIVITY_TYPE` |  |
+| `OperationControlKey` | AFVC-STEUS | AFVC-STEUS | copy |  |
+| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
+| `WorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | copy |  |
+| `Plant` | AFVC-WERKS | AFVC-WERKS | copy |  |
+| `ActivityType` | AFVC-LARNT | AFVC-LARNT | copy |  |
 | `PlannedWorkQuantity` | AFVV-ARBEI | AFVV-ARBEI | copy |  |
 | `PlannedWorkQuantityUnit` | AFVV-ARBEH | AFVV-ARBEH | copy: reference unit of a quantity - unit of measure customizing is transported, not mapped |  |
 | `OperationDuration` | AFVV-DAUNO | AFVV-DAUNO | copy |  |
@@ -73,19 +73,19 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 ## `ZEMX_C_MaintOrderComponentMig`
 
 - Source: `ZEMX_I_MaintOrderComponent`
-- Keys: `LegacyMaintenanceOrder`, `ReservationItem`
+- Keys: `MaintenanceOrder`, `ReservationItem`
 - Scope: `src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
+| `MaintenanceOrder` | RESB-AUFNR | RESB-AUFNR | copy |  |
 | `ReservationItem` | RESB-RSPOS | RESB-RSPOS | copy |  |
-| `MaintenanceOrder` | RESB-AUFNR | RESB-AUFNR | key map: `MAINTENANCE_ORDER` |  |
 | `MaintenanceOrderOperation` | AFVC-VORNR | AFVC-VORNR | copy |  |
 | `BOMItemNumber` | RESB-POSNR | RESB-POSNR | copy |  |
-| `BOMItemCategory` | RESB-POSTP | RESB-POSTP | value map: `ITEM_CATEGORY` |  |
-| `Material` | RESB-MATNR | RESB-MATNR | key map: `MATERIAL` |  |
-| `Plant` | RESB-WERKS | RESB-WERKS | value map: `PLANT` |  |
-| `StorageLocation` | RESB-LGORT | RESB-LGORT | value map: `STORAGE_LOCATION` |  |
+| `BOMItemCategory` | RESB-POSTP | RESB-POSTP | copy |  |
+| `Material` | RESB-MATNR | RESB-MATNR | copy |  |
+| `Plant` | RESB-WERKS | RESB-WERKS | copy |  |
+| `StorageLocation` | RESB-LGORT | RESB-LGORT | copy |  |
 | `MatlCompRequirementDate` | RESB-BDTER | RESB-BDTER | copy |  |
 | `RequirementQuantityInBaseUnit` | RESB-BDMNG | RESB-BDMNG | copy |  |
 | `WithdrawnQuantity` | RESB-ENMNG | RESB-ENMNG | copy |  |
@@ -113,36 +113,9 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 | `ZEMX_I_MaintOrderComponent` | `IsMarkedForDeletion` | RESB-XLOEK | scope flag |
 | `ZEMX_I_MaintOrderComponent` | `IsFinalIssue` | RESB-KZEAR | scope flag |
 
-## Maps
-
-- value map `ACTIVITY_TYPE`
-- value map `ACTIVITY_TYPE_PM`
-- value map `BUSINESS_AREA`
-- value map `COMPANY_CODE`
-- value map `CONTROL_KEY`
-- value map `CONTROLLING_AREA`
-- value map `COST_CENTER`
-- value map `ITEM_CATEGORY`
-- value map `ORDER_TYPE`
-- value map `PLANNER_GROUP`
-- value map `PLANT`
-- value map `PRIORITY`
-- value map `STORAGE_LOCATION`
-- key map `EQUIPMENT`
-- key map `FUNCTIONAL_LOCATION`
-- key map `MAINTENANCE_ITEM`
-- key map `MAINTENANCE_NOTIFICATION`
-- key map `MAINTENANCE_ORDER`
-- key map `MAINTENANCE_PLAN`
-- key map `MATERIAL` (from another migration)
-- key map `TASK_LIST_GROUP`
-- key map `WORK_CENTER`
-
-After loading this object, the key map(s) `MAINTENANCE_ORDER` (old key, new key from the load log) must be written into `ZEMX_MAP` on the ECC system (by the load program via RFC or by uploading the load log) before the objects that use them are extracted.
-
 ## Reconciliation
 
-- Counts: `ZEMX_C_MaintOrderMigCount` (ECC, translated values) vs `ZEMT_I_MaintOrderCount` (S/4HANA) per `MaintenanceOrderType`, `MaintenancePlanningPlant`
+- Counts: `ZEMX_C_MaintOrderMigCount` (ECC) vs `ZEMT_I_MaintOrderCount` (S/4HANA) per `MaintenanceOrderType`, `MaintenancePlanningPlant`
 - Records and fields: `ZEMX_C_MaintOrderMig` vs `ZEMT_I_MaintOrderCompare` on `MaintenanceOrder`; compared: `MaintenanceOrderType`, `MaintenanceActivityType`, `MaintPriority`, `MaintOrdBasicStartDate`, `MaintOrdBasicEndDate`, `MaintenancePlanningPlant`, `MainWorkCenter`, `CostCenter`, `Equipment`, `FunctionalLocation`
 
 ```bash

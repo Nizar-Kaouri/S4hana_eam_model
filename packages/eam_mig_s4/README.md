@@ -18,7 +18,7 @@ Per migrated object (8 modules: work center, functional location, equipment, mea
 maintenance plan, open notification, open order) there are two views on SAP released `I_` views:
 
 - `ZEMT_I_<Object>Compare` (basic) - business key + the fields compared after the load. The element names equal the
-  ECC consumption view (`ZEMX_C_*Mig`, translated values), so `tools/mig_reconcile.py records` compares them by name.
+  ECC consumption view (`ZEMX_C_*Mig`), so `tools/mig_reconcile.py records` compares them by name.
 - `ZEMT_I_<Object>Count` (composite) - record count per the same dimensions as the ECC count view
   (`tools/mig_reconcile.py counts`).
 

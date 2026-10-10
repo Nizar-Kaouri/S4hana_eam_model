@@ -20,37 +20,23 @@
       "PartnerCounter"
     ],
     "numbering": "derived",
-    "note": "Customers and vendors map to business partners through the key map 'BUSINESS_PARTNER' from the business partner migration."
+    "note": "Customers and vendors are business partners on S/4HANA; the load program resolves them."
   },
-  "provides_key_maps": [],
-  "external_key_maps": [
-    "business_partner"
-  ],
-  "value_maps": [
-    "partner_function"
-  ],
-  "key_maps": [
-    "business_partner",
-    "equipment",
-    "functional_location",
-    "maintenance_notification",
-    "maintenance_order"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_ObjectPartnerMig",
       "source_view": "ZEMX_I_ObjectPartner",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyPartnerObjectKey",
-        "LegacyPartnerFunction",
+        "PartnerObjectKey",
+        "PartnerFunction",
         "PartnerCounter"
       ],
       "fields": [
         {
-          "element": "PartnerCounter",
-          "source": "IHPA-COUNTER",
-          "target": "IHPA-COUNTER",
+          "element": "PartnerObjectKey",
+          "source": "IHPA: substring( ihpa.objnr, 3, 30 )",
+          "target": "",
           "rule": "copy",
           "compare": false
         },
@@ -58,7 +44,14 @@
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "IHPA-PARVW",
-          "rule": "value_map:partner_function",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerCounter",
+          "source": "IHPA-COUNTER",
+          "target": "IHPA-COUNTER",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -69,17 +62,10 @@
           "compare": false
         },
         {
-          "element": "PartnerObjectKey",
-          "source": "IHPA: substring( ihpa.objnr, 3, 30 )",
-          "target": "",
-          "rule": "key_map:equipment|functional_location|maintenance_notification|maintenance_order",
-          "compare": false
-        },
-        {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "IHPA-PARNR",
-          "rule": "key_map:business_partner",
+          "rule": "copy",
           "compare": false
         }
       ]
@@ -90,7 +76,7 @@
       "view": "ZEMX_I_ObjectPartner",
       "element": "ObjectNumber",
       "source": "IHPA-OBJNR",
-      "reason": "skip:rebuilt on S/4HANA from the translated object key"
+      "reason": "skip:rebuilt on S/4HANA from the object key"
     },
     {
       "view": "ZEMX_I_ObjectPartner",
@@ -100,7 +86,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_ObjectPartnerMigCount",
     "target_count_view": null,
     "dimensions": [

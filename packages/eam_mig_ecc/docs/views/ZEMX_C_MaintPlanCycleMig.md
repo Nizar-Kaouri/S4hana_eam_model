@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintPlanCycle`, join `ZEMX_I_MaintenancePlan`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MaintPlanCycle`, join `ZEMX_I_MaintenancePlan` |
 | Source file | `src/zemx_c_maintplancyclemig.ddls.asddls` |
 
 ## Purpose
 
-Cycles / packages of the plans in scope with unit and measuring point translated; cycle values in the SI unit.
+Cycles / packages of the plans in scope with unit and measuring point; cycle values in the SI unit.
 
 ## Keys
 

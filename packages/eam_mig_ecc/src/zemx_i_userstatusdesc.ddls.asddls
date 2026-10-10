@@ -1,6 +1,6 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Short and long texts of user statuses per status profile (TJ30T): the basis of the user status value map.
-// Example: List all statuses of profile PM000001 to fill the map 'USER_STATUS'.
+// Purpose: Short and long texts of user statuses per status profile (TJ30T): reference list of the user statuses in use.
+// Example: List all statuses of profile PM000001 .
 @AbapCatalog.sqlViewName: 'ZEMX_TJ30T'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

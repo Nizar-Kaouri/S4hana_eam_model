@@ -20,61 +20,29 @@
       "MaintenanceOrder"
     ],
     "numbering": "new",
-    "note": "Orders get new numbers on S/4HANA unless external numbering is set up; the load program writes old -> new into the key map 'MAINTENANCE_ORDER'."
+    "note": "Orders get new numbers on S/4HANA unless external numbering is set up; the load program keeps the old -> new numbers."
   },
-  "provides_key_maps": [
-    "maintenance_order"
-  ],
-  "external_key_maps": [
-    "material"
-  ],
-  "value_maps": [
-    "activity_type",
-    "activity_type_pm",
-    "business_area",
-    "company_code",
-    "control_key",
-    "controlling_area",
-    "cost_center",
-    "item_category",
-    "order_type",
-    "planner_group",
-    "plant",
-    "priority",
-    "storage_location"
-  ],
-  "key_maps": [
-    "equipment",
-    "functional_location",
-    "maintenance_item",
-    "maintenance_notification",
-    "maintenance_order",
-    "maintenance_plan",
-    "material",
-    "task_list_group",
-    "work_center"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_MaintOrderMig",
       "source_view": "ZEMX_I_MaintOrder",
       "scope_filter": "src.IsTechnicallyCompleted = '' and src.IsClosed = '' and src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyMaintenanceOrder"
+        "MaintenanceOrder"
       ],
       "fields": [
         {
           "element": "MaintenanceOrder",
           "source": "AUFK-AUFNR",
           "target": "AUFK-AUFNR",
-          "rule": "key_map:maintenance_order",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenanceOrderType",
           "source": "AUFK-AUART",
           "target": "AUFK-AUART",
-          "rule": "value_map:order_type",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -88,14 +56,14 @@
           "element": "MaintenanceActivityType",
           "source": "AFIH-ILART",
           "target": "AFIH-ILART",
-          "rule": "value_map:activity_type_pm",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintPriority",
           "source": "AFIH-PRIOK",
           "target": "AFIH-PRIOK",
-          "rule": "value_map:priority",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -116,105 +84,105 @@
           "element": "MaintenancePlanningPlant",
           "source": "AFIH-IWERK",
           "target": "AFIH-IWERK",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "AFIH-INGPR",
           "target": "AFIH-INGPR",
-          "rule": "value_map:planner_group",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "CompanyCode",
           "source": "AUFK-BUKRS",
           "target": "AUFK-BUKRS",
-          "rule": "value_map:company_code",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "BusinessArea",
           "source": "AUFK-GSBER",
           "target": "AUFK-GSBER",
-          "rule": "value_map:business_area",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "ControllingArea",
           "source": "AUFK-KOKRS",
           "target": "AUFK-KOKRS",
-          "rule": "value_map:controlling_area",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "ResponsibleCostCenter",
           "source": "AUFK-KOSTV",
           "target": "AUFK-KOSTV",
-          "rule": "value_map:cost_center",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "CostCenter",
           "source": "ILOA-KOSTL",
           "target": "ILOA-KOSTL",
-          "rule": "value_map:cost_center",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenanceNotification",
           "source": "AFIH-QMNUM",
           "target": "AFIH-QMNUM",
-          "rule": "key_map:maintenance_notification",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "Equipment",
           "source": "AFIH-EQUNR",
           "target": "AFIH-EQUNR",
-          "rule": "key_map:equipment",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "FunctionalLocation",
           "source": "ILOA-TPLNR",
           "target": "ILOA-TPLNR",
-          "rule": "key_map:functional_location",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenancePlan",
           "source": "AFIH-WARPL",
           "target": "AFIH-WARPL",
-          "rule": "key_map:maintenance_plan",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MaintenanceItem",
           "source": "AFIH-WAPOS",
           "target": "AFIH-WAPOS",
-          "rule": "key_map:maintenance_item",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -235,7 +203,7 @@
           "element": "TaskListGroup",
           "source": "AFKO-PLNNR",
           "target": "AFKO-PLNNR",
-          "rule": "key_map:task_list_group",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -266,11 +234,18 @@
       "source_view": "ZEMX_I_MaintOrderOperation",
       "scope_filter": "obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyMaintenanceOrder",
+        "MaintenanceOrder",
         "MaintenanceOrderOperation",
         "MaintenanceOrderSubOperation"
       ],
       "fields": [
+        {
+          "element": "MaintenanceOrder",
+          "source": "AFKO-AUFNR",
+          "target": "AFKO-AUFNR",
+          "rule": "copy",
+          "compare": false
+        },
         {
           "element": "MaintenanceOrderOperation",
           "source": "AFVC-VORNR",
@@ -286,13 +261,6 @@
           "compare": false
         },
         {
-          "element": "MaintenanceOrder",
-          "source": "AFKO-AUFNR",
-          "target": "AFKO-AUFNR",
-          "rule": "key_map:maintenance_order",
-          "compare": false
-        },
-        {
           "element": "OperationDescription",
           "source": "AFVC-LTXA1",
           "target": "AFVC-LTXA1",
@@ -303,35 +271,35 @@
           "element": "OperationControlKey",
           "source": "AFVC-STEUS",
           "target": "AFVC-STEUS",
-          "rule": "value_map:control_key",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "WorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "Plant",
           "source": "AFVC-WERKS",
           "target": "AFVC-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "ActivityType",
           "source": "AFVC-LARNT",
           "target": "AFVC-LARNT",
-          "rule": "value_map:activity_type",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -369,22 +337,22 @@
       "source_view": "ZEMX_I_MaintOrderComponent",
       "scope_filter": "src.IsMarkedForDeletion = '' and src.IsFinalIssue = '' and obj.IsTechnicallyCompleted = '' and obj.IsClosed = '' and obj.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyMaintenanceOrder",
+        "MaintenanceOrder",
         "ReservationItem"
       ],
       "fields": [
+        {
+          "element": "MaintenanceOrder",
+          "source": "RESB-AUFNR",
+          "target": "RESB-AUFNR",
+          "rule": "copy",
+          "compare": false
+        },
         {
           "element": "ReservationItem",
           "source": "RESB-RSPOS",
           "target": "RESB-RSPOS",
           "rule": "copy",
-          "compare": false
-        },
-        {
-          "element": "MaintenanceOrder",
-          "source": "RESB-AUFNR",
-          "target": "RESB-AUFNR",
-          "rule": "key_map:maintenance_order",
           "compare": false
         },
         {
@@ -405,28 +373,28 @@
           "element": "BOMItemCategory",
           "source": "RESB-POSTP",
           "target": "RESB-POSTP",
-          "rule": "value_map:item_category",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "Material",
           "source": "RESB-MATNR",
           "target": "RESB-MATNR",
-          "rule": "key_map:material",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "Plant",
           "source": "RESB-WERKS",
           "target": "RESB-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "StorageLocation",
           "source": "RESB-LGORT",
           "target": "RESB-LGORT",
-          "rule": "value_map:storage_location",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -565,7 +533,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_MaintOrderMigCount",
     "target_count_view": "ZEMT_I_MaintOrderCount",
     "dimensions": [

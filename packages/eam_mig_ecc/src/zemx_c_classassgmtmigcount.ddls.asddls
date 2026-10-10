@@ -1,5 +1,5 @@
 // ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Record count of the class assignments delivered by ZEMX_C_ClassAssignmentMig per ClassType, Class (values already translated); compared with the same count on S/4HANA by tools/mig_reconcile.py.
+// Purpose: Record count of the class assignments delivered by ZEMX_C_ClassAssignmentMig per ClassType, Class; compared with the same count on S/4HANA by tools/mig_reconcile.py.
 // Example: Export this view before the load and the S/4HANA count view after it; the reconcile tool lists every ClassType / Class combination whose counts differ.
 @AbapCatalog.sqlViewName: 'ZEMX_CCLN'
 @AbapCatalog.compiler.compareFilter: true

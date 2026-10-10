@@ -10,17 +10,17 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_TaskListCurrent`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_TaskListCurrent` |
 | Source file | `src/zemx_c_tasklistmig.ddls.asddls` |
 
 ## Purpose
 
-Current, not deleted maintenance task list headers with codes and keys translated.
+Current, not deleted maintenance task list headers.
 
 ## Keys
 
-- `TaskListGroup`
 - `TaskListType`
+- `TaskListGroup`
 - `TaskListGroupCounter`
 
 ## Associations defined here
@@ -33,7 +33,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-The load program creates one task list per row and writes old -> new group numbers into the key map 'TASK_LIST_GROUP'.
+The load program creates one task list per row.
 
 ## Open verification items
 

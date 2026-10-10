@@ -17,49 +17,29 @@
       "MaintenanceNotification"
     ],
     "numbering": "new",
-    "note": "Notifications get new numbers on S/4HANA unless external numbering is set up; the load program writes old -> new into the key map 'MAINTENANCE_NOTIFICATION'."
+    "note": "Notifications get new numbers on S/4HANA unless external numbering is set up; the load program keeps the old -> new numbers."
   },
-  "provides_key_maps": [
-    "maintenance_notification"
-  ],
-  "external_key_maps": [],
-  "value_maps": [
-    "code",
-    "code_group",
-    "notification_type",
-    "planner_group",
-    "plant",
-    "plant_section",
-    "priority",
-    "priority_type"
-  ],
-  "key_maps": [
-    "equipment",
-    "functional_location",
-    "maintenance_notification",
-    "work_center"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_MaintNotificationMig",
       "source_view": "ZEMX_I_MaintNotification",
       "scope_filter": "src.IsCompleted = '' and src.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyMaintenanceNotification"
+        "MaintenanceNotification"
       ],
       "fields": [
         {
           "element": "MaintenanceNotification",
           "source": "QMEL-QMNUM",
           "target": "QMEL-QMNUM",
-          "rule": "key_map:maintenance_notification",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "NotificationType",
           "source": "QMEL-QMART",
           "target": "QMEL-QMART",
-          "rule": "value_map:notification_type",
+          "rule": "copy",
           "compare": true
         },
         {
@@ -73,14 +53,14 @@
           "element": "MaintPriority",
           "source": "QMEL-PRIOK",
           "target": "QMEL-PRIOK",
-          "rule": "value_map:priority",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintPriorityType",
           "source": "QMEL-ARTPR",
           "target": "QMEL-ARTPR",
-          "rule": "value_map:priority_type",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -129,70 +109,70 @@
           "element": "NotificationCodeGroup",
           "source": "QMEL-QMGRP",
           "target": "QMEL-QMGRP",
-          "rule": "value_map:code_group",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "NotificationCode",
           "source": "QMEL-QMCOD",
           "target": "QMEL-QMCOD",
-          "rule": "value_map:code",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "Equipment",
           "source": "QMIH-EQUNR",
           "target": "QMIH-EQUNR",
-          "rule": "key_map:equipment",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "FunctionalLocation",
           "source": "ILOA-TPLNR",
           "target": "ILOA-TPLNR",
-          "rule": "key_map:functional_location",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenancePlanningPlant",
           "source": "QMIH-IWERK",
           "target": "QMIH-IWERK",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": true
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "QMIH-INGRP",
           "target": "QMIH-INGRP",
-          "rule": "value_map:planner_group",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "key_map:work_center",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "value_map:plant",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "PlantSection",
           "source": "ILOA-BEBER",
           "target": "ILOA-BEBER",
-          "rule": "value_map:plant_section",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -244,10 +224,17 @@
       "source_view": "ZEMX_I_MaintNotifItem",
       "scope_filter": "src.IsMarkedForDeletion = '' and obj.IsCompleted = '' and obj.IsMarkedForDeletion = ''",
       "keys": [
-        "LegacyMaintenanceNotification",
+        "MaintenanceNotification",
         "MaintNotificationItem"
       ],
       "fields": [
+        {
+          "element": "MaintenanceNotification",
+          "source": "QMFE-QMNUM",
+          "target": "QMFE-QMNUM",
+          "rule": "copy",
+          "compare": false
+        },
         {
           "element": "MaintNotificationItem",
           "source": "QMFE-FENUM",
@@ -256,38 +243,31 @@
           "compare": false
         },
         {
-          "element": "MaintenanceNotification",
-          "source": "QMFE-QMNUM",
-          "target": "QMFE-QMNUM",
-          "rule": "key_map:maintenance_notification",
-          "compare": false
-        },
-        {
           "element": "ObjectPartCodeGroup",
           "source": "QMFE-OTGRP",
           "target": "QMFE-OTGRP",
-          "rule": "value_map:code_group",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "ObjectPartCode",
           "source": "QMFE-OTEIL",
           "target": "QMFE-OTEIL",
-          "rule": "value_map:code",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "DamageCodeGroup",
           "source": "QMFE-FEGRP",
           "target": "QMFE-FEGRP",
-          "rule": "value_map:code_group",
+          "rule": "copy",
           "compare": false
         },
         {
           "element": "DamageCode",
           "source": "QMFE-FECOD",
           "target": "QMFE-FECOD",
-          "rule": "value_map:code",
+          "rule": "copy",
           "compare": false
         },
         {
@@ -345,7 +325,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_MaintNotifMigCount",
     "target_count_view": "ZEMT_I_MaintNotifCount",
     "dimensions": [

@@ -32,23 +32,18 @@ class BuildMigrationTest(unittest.TestCase):
             names = zf.namelist()
             comp = zf.read("src/zacme_i_equipment.ddls.asddls").decode()
             cons = zf.read("src/zacme_c_equipmentmig.ddls.asddls").decode()
-            mapv = zf.read("src/zacme_i_migrationmap.ddls.asddls").decode()
-            tabl = zf.read("src/zacme_map.tabl.xml").decode()
             mapping = zf.read("mapping/equipment/mapping.json").decode()
-            order = zf.read("ACTIVATION_ORDER.txt").decode().splitlines()
         self.assertIn("@AbapCatalog.sqlViewName: 'ZACME_EQ'", comp)
         self.assertIn("define view ZACME_I_Equipment", comp)
         self.assertIn("as select from ZACME_I_Equipment as src", cons)
-        self.assertIn("left outer join ZACME_I_MigrationMap as map01", cons)
-        self.assertIn("select from zacme_map", mapv)
-        self.assertIn("<TABNAME>ZACME_MAP</TABNAME>", tabl)
-        for text in (comp, cons, mapv, tabl, mapping):
+        self.assertIn("key src.Equipment", cons)
+        self.assertNotIn("coalesce", cons)
+        for text in (comp, cons, mapping):
             self.assertNotIn("ZEMX_", text.upper())
-        self.assertIn("TABL  ZACME_MAP", order[0])
         self.assertIn("mapping/docs/equipment.md", names)
         self.assertIn("mapping/MIGRATION_SEQUENCE.md", names)
         self.assertNotIn("mapping/task_list/mapping.json", names)
-        self.assertNotIn("mapping/core/mapping.json", names)
+        self.assertFalse(any(n.endswith(".tabl.xml") for n in names))
 
     def test_layers_reference_only_lower_layers(self):
         modules = {m["name"]: m for m in (json.loads(p.read_text()) for p in ECC.glob("modules/*/module.json"))}
@@ -57,13 +52,10 @@ class BuildMigrationTest(unittest.TestCase):
         for name, lay in layer.items():
             refs = bp.references("DDLS", name, "ZEMX_", ECC)
             for ref in refs:
-                if ref == "ZEMX_MAP":
-                    self.assertEqual(name, "ZEMX_I_MigrationMap")
-                    continue
                 ref_name = next(n for n in layer if n.upper() == ref)
                 self.assertLessEqual(rank[layer[ref_name]], rank[lay], f"{name} ({lay}) reads {ref_name}")
             if lay == "basic":
-                self.assertEqual(refs - {"ZEMX_MAP"}, set(), f"basic view {name} must read one table only")
+                self.assertEqual(refs, set(), f"basic view {name} must read one table only")
 
     def test_sql_view_name_too_long_for_prefix(self):
         with self.assertRaises(bp.BuildError) as ctx:

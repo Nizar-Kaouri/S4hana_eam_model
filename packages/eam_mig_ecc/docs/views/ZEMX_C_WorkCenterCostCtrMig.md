@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_WorkCenterCostCenter`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_WorkCenterCostCenter` |
 | Source file | `src/zemx_c_workcentercostctrmig.ddls.asddls` |
 
 ## Purpose
 
-Cost center assignments of the work centers in scope with controlling area and cost center translated.
+Cost center assignments of the work centers in scope with controlling area and cost center.
 
 ## Keys
 

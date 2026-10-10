@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_ObjectPartner`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_ObjectPartner` |
 | Source file | `src/zemx_c_objectpartnermig.ddls.asddls` |
 
 ## Purpose
 
-Partner assignments (not deleted) with object key, partner function and partner (business partner) translated.
+Partner assignments (not deleted) with object key, partner function and partner.
 
 ## Keys
 

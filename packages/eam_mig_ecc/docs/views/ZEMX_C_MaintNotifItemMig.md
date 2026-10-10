@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintNotifItem`, join `ZEMX_I_MaintNotification`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MaintNotifItem`, join `ZEMX_I_MaintNotification` |
 | Source file | `src/zemx_c_maintnotifitemmig.ddls.asddls` |
 
 ## Purpose
 
-Items of the open notifications with code groups and codes translated.
+Items of the open notifications with code groups and codes.
 
 ## Keys
 

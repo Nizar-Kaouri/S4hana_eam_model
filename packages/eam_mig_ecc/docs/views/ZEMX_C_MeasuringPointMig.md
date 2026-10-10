@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MeasuringPoint`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MeasuringPoint` |
 | Source file | `src/zemx_c_measuringpointmig.ddls.asddls` |
 
 ## Purpose
 
-Measuring points to migrate with technical object key, characteristic and codes translated; range values stay in the SI unit (converted by the load program).
+Measuring points to migrate with technical object key and characteristic name; range values stay in the SI unit (converted by the load program).
 
 ## Keys
 
@@ -31,7 +31,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-The load program creates the measuring point at the translated technical object.
+The load program creates the measuring point at its technical object.
 
 ## Open verification items
 

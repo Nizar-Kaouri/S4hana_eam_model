@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_WorkCenterHeader`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_WorkCenterHeader` |
 | Source file | `src/zemx_c_workcentermig.ddls.asddls` |
 
 ## Purpose
 
-Work centers to migrate (not flagged for deletion) with plant, category and responsible person translated through the migration map.
+Work centers to migrate (not flagged for deletion) with plant, category and responsible person.
 
 ## Keys
 
@@ -32,7 +32,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-The load program reads all rows and creates one work center per row; LegacyWorkCenter / LegacyPlant identify the source record.
+The load program reads all rows and creates one work center per row; WorkCenter / Plant identify the record.
 
 ## Open verification items
 

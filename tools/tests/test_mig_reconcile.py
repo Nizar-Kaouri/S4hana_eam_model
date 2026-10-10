@@ -33,20 +33,19 @@ class CountsTest(unittest.TestCase):
         self.assertEqual(res["differences"], [])
         self.assertEqual((res["source_total"], res["target_total"]), (7, 7))
 
-    def test_consumption_values_are_not_translated_again(self):
-        self.assertEqual(self.mapping["reconciliation"]["source_values"], "target")
+    def test_values_are_compared_unchanged_by_default(self):
+        self.assertEqual(self.mapping["reconciliation"]["source_values"], "source")
         maps = Path(self.dir) / "maps"
         maps.mkdir()
-        write(maps, "value_map_plant.csv", "source,target\nP100,WRONG\n")
+        write(maps, "value_map_maintenanceplanningplant.csv", "source,target\nP100,WRONG\n")
         csv_ = "MaintenancePlanningPlant,EquipmentCategory,RecordCount\nP100,M,8\n"
         self.assertEqual(self.run_counts(csv_, csv_, maps)["differences"], [])
 
-    def test_value_map_merges_plants_for_old_value_exports(self):
-        self.mapping["reconciliation"]["source_values"] = "source"
-        self.mapping["reconciliation"]["dimensions"][0]["value_map"] = "plant"
+    def test_load_program_value_changes_with_translate(self):
+        self.mapping["reconciliation"]["source_values"] = "needs_maps"
         maps = Path(self.dir) / "maps"
         maps.mkdir()
-        write(maps, "value_map_plant.csv", "source,target,comment\n1000,P100,\n1100,P100,merged\n")
+        write(maps, "value_map_maintenanceplanningplant.csv", "source,target,comment\n1000,P100,\n1100,P100,merged\n")
         src = "MaintenancePlanningPlant,EquipmentCategory,RecordCount\n1000,M,5\n1100,M,3\n"
         tgt = "MaintenancePlanningPlant;EquipmentCategory;RecordCount\nP100;M;8\n"
         self.assertEqual(self.run_counts(src, tgt, maps)["differences"], [])
@@ -93,7 +92,8 @@ class RecordsTest(unittest.TestCase):
         maps = self.dir / "maps"
         maps.mkdir()
         write(maps, "key_map_equipment.csv", "source,target\n10000001,EQ-NEW-1\n")
-        write(maps, "value_map_plant.csv", "source,target\n1000,P100\n")
+        write(maps, "value_map_maintenanceplanningplant.csv", "source,target\n1000,P100\n")
+        write(maps, "value_map_maintenanceplant.csv", "source,target\n1000,P100\n")
         res = self.run_records(self.row("10000001", extra="INV1,"), self.row("EQ-NEW-1", plant="P100", extra="INV1"), maps,
                                translate=True)
         self.assertEqual((res["missing"], res["extra"], res["mismatches"]), ([], [], {}))

@@ -5,47 +5,47 @@
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `work_center`, `functional_location`
 - **Business key:** `Equipment` · numbering **keep**
-- **Key rule:** Keep equipment numbers (external number assignment on S/4HANA) where possible; otherwise maintain the key map 'EQUIPMENT' in ZEMX_MAP.
+- **Key rule:** Keep equipment numbers (external number assignment on S/4HANA) where possible; otherwise the load program assigns and logs the new numbers.
 
 > TODO-VERIFY[M] XEQ-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
-Values are delivered **translated**: every field marked *value map* / *key map* is looked up in the mapping table `ZEMX_MAP` (map name in capitals); without an entry the old value is delivered. `Legacy*` key fields carry the old key of the record.
+The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
 ## `ZEMX_C_EquipmentMig`
 
 - Source: `ZEMX_I_Equipment`
-- Keys: `LegacyEquipment`
+- Keys: `Equipment`
 - Scope: `src.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `Equipment` | EQUI-EQUNR | EQUI-EQUNR | key map: `EQUIPMENT` | yes |
-| `EquipmentCategory` | EQUI-EQTYP | EQUI-EQTYP | value map: `EQUIPMENT_CATEGORY` | yes |
-| `TechnicalObjectType` | EQUI-EQART | EQUI-EQART | value map: `TECHNICAL_OBJECT_TYPE` | yes |
-| `AuthorizationGroup` | EQUI-BEGRU | EQUI-BEGRU | value map: `AUTHORIZATION_GROUP` |  |
+| `Equipment` | EQUI-EQUNR | EQUI-EQUNR | copy | yes |
+| `EquipmentCategory` | EQUI-EQTYP | EQUI-EQTYP | copy | yes |
+| `TechnicalObjectType` | EQUI-EQART | EQUI-EQART | copy | yes |
+| `AuthorizationGroup` | EQUI-BEGRU | EQUI-BEGRU | copy |  |
 | `ValidityStartDate` | EQUZ-DATAB | EQUZ-DATAB | copy |  |
-| `MaintenancePlanningPlant` | EQUZ-IWERK | EQUZ-IWERK | value map: `PLANT` | yes |
-| `MaintenancePlannerGroup` | EQUZ-INGRP | EQUZ-INGRP | value map: `PLANNER_GROUP` |  |
-| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | key map: `WORK_CENTER` |  |
-| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | value map: `PLANT` |  |
-| `FunctionalLocation` | ILOA-TPLNR | ILOA-TPLNR | key map: `FUNCTIONAL_LOCATION` | yes |
-| `SuperordinateEquipment` | EQUZ-HEQUI | EQUZ-HEQUI | key map: `EQUIPMENT` | yes |
+| `MaintenancePlanningPlant` | EQUZ-IWERK | EQUZ-IWERK | copy | yes |
+| `MaintenancePlannerGroup` | EQUZ-INGRP | EQUZ-INGRP | copy |  |
+| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
+| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | copy |  |
+| `FunctionalLocation` | ILOA-TPLNR | ILOA-TPLNR | copy | yes |
+| `SuperordinateEquipment` | EQUZ-HEQUI | EQUZ-HEQUI | copy | yes |
 | `EquipInstallationPositionNmbr` | EQUZ-HEQNR | EQUZ-HEQNR | copy |  |
 | `TechnicalIdentificationNumber` | EQUZ-TIDNR | EQUZ-TIDNR | copy |  |
-| `MaintenancePlant` | ILOA-SWERK | ILOA-SWERK | value map: `PLANT` | yes |
-| `PlantSection` | ILOA-BEBER | ILOA-BEBER | value map: `PLANT_SECTION` |  |
-| `AssetLocation` | ILOA-STORT | ILOA-STORT | value map: `LOCATION` |  |
+| `MaintenancePlant` | ILOA-SWERK | ILOA-SWERK | copy | yes |
+| `PlantSection` | ILOA-BEBER | ILOA-BEBER | copy |  |
+| `AssetLocation` | ILOA-STORT | ILOA-STORT | copy |  |
 | `AssetRoom` | ILOA-MSGRP | ILOA-MSGRP | copy |  |
 | `ABCIndicator` | ILOA-ABCKZ | ILOA-ABCKZ | copy |  |
 | `SortField` | ILOA-EQFNR | ILOA-EQFNR | copy |  |
-| `CompanyCode` | ILOA-BUKRS | ILOA-BUKRS | value map: `COMPANY_CODE` | yes |
-| `BusinessArea` | ILOA-GSBER | ILOA-GSBER | value map: `BUSINESS_AREA` |  |
-| `ControllingArea` | ILOA-KOKRS | ILOA-KOKRS | value map: `CONTROLLING_AREA` |  |
-| `CostCenter` | ILOA-KOSTL | ILOA-KOSTL | value map: `COST_CENTER` | yes |
-| `MasterFixedAsset` | ILOA-ANLNR | ILOA-ANLNR | key map: `FIXED_ASSET` |  |
-| `FixedAsset` | ILOA-ANLUN | ILOA-ANLUN | key map: `FIXED_ASSET` |  |
-| `StandingOrder` | ILOA-DAUFN | - | derived: follow-up step after the order load (key map maintenance_order) |  |
-| `Material` | EQUI-MATNR | EQUI-MATNR | key map: `MATERIAL` | yes |
+| `CompanyCode` | ILOA-BUKRS | ILOA-BUKRS | copy | yes |
+| `BusinessArea` | ILOA-GSBER | ILOA-GSBER | copy |  |
+| `ControllingArea` | ILOA-KOKRS | ILOA-KOKRS | copy |  |
+| `CostCenter` | ILOA-KOSTL | ILOA-KOSTL | copy | yes |
+| `MasterFixedAsset` | ILOA-ANLNR | ILOA-ANLNR | copy |  |
+| `FixedAsset` | ILOA-ANLUN | ILOA-ANLUN | copy |  |
+| `StandingOrder` | ILOA-DAUFN | - | derived: follow-up step after the order load |  |
+| `Material` | EQUI-MATNR | EQUI-MATNR | copy | yes |
 | `SerialNumber` | EQUI-SERNR | EQUI-SERNR | copy | yes |
 | `AssetManufacturerName` | EQUI-HERST | EQUI-HERST | copy |  |
 | `ManufacturerCountry` | EQUI-HERLD | EQUI-HERLD | copy |  |
@@ -67,13 +67,13 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 ## `ZEMX_C_EquipmentTextMig`
 
 - Source: `ZEMX_I_EquipmentDesc`
-- Keys: `LegacyEquipment`, `Language`
+- Keys: `Equipment`, `Language`
 - Scope: `obj.IsMarkedForDeletion = ''`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
+| `Equipment` | EQKT-EQUNR | EQKT-EQUNR | copy |  |
 | `Language` | EQKT-SPRAS | EQKT-SPRAS | copy |  |
-| `Equipment` | EQKT-EQUNR | EQKT-EQUNR | key map: `EQUIPMENT` |  |
 | `EquipmentName` | EQKT-EQKTX | EQKT-EQKTX | copy |  |
 
 ## Not delivered
@@ -86,30 +86,9 @@ Values are delivered **translated**: every field marked *value map* / *key map* 
 | `ZEMX_I_Equipment` | `CreatedByUser` | EQUI-ERNAM | information only |
 | `ZEMX_I_EquipmentDesc` | `HasLongText` | EQKT-KZLTX | information only |
 
-## Maps
-
-- value map `AUTHORIZATION_GROUP`
-- value map `BUSINESS_AREA`
-- value map `COMPANY_CODE`
-- value map `CONTROLLING_AREA`
-- value map `COST_CENTER`
-- value map `EQUIPMENT_CATEGORY`
-- value map `LOCATION`
-- value map `PLANNER_GROUP`
-- value map `PLANT`
-- value map `PLANT_SECTION`
-- value map `TECHNICAL_OBJECT_TYPE`
-- key map `EQUIPMENT`
-- key map `FIXED_ASSET` (from another migration)
-- key map `FUNCTIONAL_LOCATION`
-- key map `MATERIAL` (from another migration)
-- key map `WORK_CENTER`
-
-After loading this object, the key map(s) `EQUIPMENT` (old key, new key from the load log) must be written into `ZEMX_MAP` on the ECC system (by the load program via RFC or by uploading the load log) before the objects that use them are extracted.
-
 ## Reconciliation
 
-- Counts: `ZEMX_C_EquipmentMigCount` (ECC, translated values) vs `ZEMT_I_EquipmentCount` (S/4HANA) per `MaintenancePlanningPlant`, `EquipmentCategory`
+- Counts: `ZEMX_C_EquipmentMigCount` (ECC) vs `ZEMT_I_EquipmentCount` (S/4HANA) per `MaintenancePlanningPlant`, `EquipmentCategory`
 - Records and fields: `ZEMX_C_EquipmentMig` vs `ZEMT_I_EquipmentCompare` on `Equipment`; compared: `EquipmentCategory`, `TechnicalObjectType`, `MaintenancePlanningPlant`, `FunctionalLocation`, `SuperordinateEquipment`, `MaintenancePlant`, `CompanyCode`, `CostCenter`, `Material`, `SerialNumber`, `ManufacturerSerialNumber`, `ConstructionYear`, `InventoryNumber`
 
 ```bash
@@ -120,4 +99,4 @@ python3 tools/mig_reconcile.py records --module equipment --source ecc_extract.c
 ## Open gaps
 
 - TODO-VERIFY[M] XEQ-G01: serial number stock data (EQBS) and material serial profiles are not extracted in the pilot
-- TODO-VERIFY[H] XEQ-G02: material numbers: the key map 'MATERIAL' comes from the material master migration (MM)
+- TODO-VERIFY[H] XEQ-G02: material numbers must exist on S/4HANA (material master migration, MM) before equipment with a material is loaded

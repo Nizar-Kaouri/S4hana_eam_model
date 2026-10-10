@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintNotification`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap`, join `ZEMX_I_MigrationMap` |
+| Data source | `ZEMX_I_MaintNotification` |
 | Source file | `src/zemx_c_maintnotificationmig.ddls.asddls` |
 
 ## Purpose
 
-Open notifications (not completed, not deleted) with codes and keys translated.
+Open notifications (not completed, not deleted).
 
 ## Keys
 
@@ -31,7 +31,7 @@ No DCL by design: Migration view on ECC: it must return every record of the obje
 
 ## Example use case
 
-The load program creates one notification per row and writes old -> new numbers into the key map 'MAINTENANCE_NOTIFICATION'.
+The load program creates one notification per row.
 
 ## Open verification items
 

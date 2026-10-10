@@ -20,24 +20,24 @@
     "numbering": "derived",
     "note": "Classes and characteristics are matched by name; they must exist on S/4HANA (master data / customizing transport) before the load."
   },
-  "provides_key_maps": [],
-  "external_key_maps": [],
-  "value_maps": [],
-  "key_maps": [
-    "equipment",
-    "functional_location"
-  ],
   "structures": [
     {
       "consumption_view": "ZEMX_C_ClassAssignmentMig",
       "source_view": "ZEMX_I_ClassAssignment",
       "scope_filter": "src.IsMarkedForDeletion = '' and ( src.ClassType = '002' or src.ClassType = '003' )",
       "keys": [
-        "LegacyClassifiedObject",
+        "ClassifiedObject",
         "ClassType",
         "Class"
       ],
       "fields": [
+        {
+          "element": "ClassifiedObject",
+          "source": "KSSK-OBJEK",
+          "target": "KSSK-OBJEK",
+          "rule": "copy",
+          "compare": false
+        },
         {
           "element": "ClassType",
           "source": "KSSK-KLART",
@@ -50,13 +50,6 @@
           "source": "KLAH-CLASS",
           "target": "KLAH-CLASS",
           "rule": "copy",
-          "compare": false
-        },
-        {
-          "element": "ClassifiedObject",
-          "source": "KSSK-OBJEK",
-          "target": "KSSK-OBJEK",
-          "rule": "key_map:equipment|functional_location",
           "compare": false
         },
         {
@@ -73,12 +66,19 @@
       "source_view": "ZEMX_I_CharcValue",
       "scope_filter": "src.IsMarkedForDeletion = '' and ( src.ClassType = '002' or src.ClassType = '003' )",
       "keys": [
-        "LegacyClassifiedObject",
+        "ClassifiedObject",
         "ClassType",
         "Characteristic",
         "CharcValuePositionNumber"
       ],
       "fields": [
+        {
+          "element": "ClassifiedObject",
+          "source": "AUSP-OBJEK",
+          "target": "AUSP-OBJEK",
+          "rule": "copy",
+          "compare": false
+        },
         {
           "element": "ClassType",
           "source": "AUSP-KLART",
@@ -98,13 +98,6 @@
           "source": "AUSP-ATZHL",
           "target": "AUSP-ATZHL",
           "rule": "copy",
-          "compare": false
-        },
-        {
-          "element": "ClassifiedObject",
-          "source": "AUSP-OBJEK",
-          "target": "AUSP-OBJEK",
-          "rule": "key_map:equipment|functional_location",
           "compare": false
         },
         {
@@ -177,7 +170,7 @@
     }
   ],
   "reconciliation": {
-    "source_values": "target",
+    "source_values": "source",
     "source_count_view": "ZEMX_C_ClassAssgmtMigCount",
     "target_count_view": null,
     "dimensions": [
