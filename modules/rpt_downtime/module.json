@@ -1,0 +1,42 @@
+{
+  "name": "rpt_downtime",
+  "title": "Report: Downtime and Breakdown",
+  "description": "Downtime per notification (computed from the malfunction period), breakdown counters, cube and query. Needs maintenance_notification.",
+  "batch": 4,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "downtime",
+    "breakdown",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "maintenance_notification"
+  ],
+  "objects": {
+    "basic": [
+      "ZEAM_I_NotifDowntime"
+    ],
+    "composite": [
+      "ZEAM_R_NotifDowntime"
+    ],
+    "consumption": [
+      "ZEAM_C_DowntimeQ"
+    ],
+    "access_controls": [
+      "ZEAM_I_NotifDowntime",
+      "ZEAM_R_NotifDowntime"
+    ],
+    "metadata_extensions": [],
+    "tests": [
+      "ZEAM_CL_NOTIFDOWNTIME_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZEAM_C_DowntimeQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_NotifDowntime (see GEN-Q01)."
+  },
+  "link_views": []
+}

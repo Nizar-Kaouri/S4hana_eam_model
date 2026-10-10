@@ -1,0 +1,38 @@
+{
+  "name": "rpt_reliability",
+  "title": "Report: Reliability (MTBF / MTTR)",
+  "description": "Reliability KPI base per technical object and period (parameters) and MTBF / MTTR query. Needs rpt_downtime.",
+  "batch": 4,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "reliability",
+    "mtbf",
+    "mttr",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "rpt_downtime"
+  ],
+  "objects": {
+    "basic": [],
+    "composite": [
+      "ZEAM_R_ReliabilityKPI"
+    ],
+    "consumption": [
+      "ZEAM_C_ReliabilityQ"
+    ],
+    "access_controls": [
+      "ZEAM_R_ReliabilityKPI"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEAM_C_ReliabilityQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_ReliabilityKPI (see GEN-Q01)."
+  },
+  "link_views": []
+}

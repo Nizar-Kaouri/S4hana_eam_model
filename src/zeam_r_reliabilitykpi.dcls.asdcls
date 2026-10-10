@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the downtime basic view.
+// TODO-VERIFY[H] RPT-D03: the aggregated view only keeps plants, equipment and location; if the inherited notification role uses other elements (e.g. NotificationType, MaintenancePlannerGroup) the role fails and must be replaced
+@EndUserText.label: 'Reliability KPI Base (MTBF / MTTR)'
+@MappingRole: true
+define role ZEAM_R_ReliabilityKPI {
+  grant
+    select
+      on
+        ZEAM_R_ReliabilityKPI
+          where
+            inheriting conditions from entity ZEAM_I_NotifDowntime;
+}

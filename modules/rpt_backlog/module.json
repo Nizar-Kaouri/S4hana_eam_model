@@ -1,0 +1,37 @@
+{
+  "name": "rpt_backlog",
+  "title": "Report: Maintenance Backlog",
+  "description": "Backlog of open maintenance orders on operation level (remaining work, order age, age bucket), cube and query. Needs maintenance_order.",
+  "batch": 4,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "backlog",
+    "work-center",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "maintenance_order"
+  ],
+  "objects": {
+    "basic": [],
+    "composite": [
+      "ZEAM_R_MaintBacklog"
+    ],
+    "consumption": [
+      "ZEAM_C_MaintBacklogQ"
+    ],
+    "access_controls": [
+      "ZEAM_R_MaintBacklog"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEAM_C_MaintBacklogQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintBacklog (see GEN-Q01)."
+  },
+  "link_views": []
+}
