@@ -1,0 +1,38 @@
+{
+  "name": "profit_center",
+  "title": "Profit Center",
+  "description": "Profit centers valid today with texts and value help.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "master-data",
+    "profit-center",
+    "controlling",
+    "value-help"
+  ],
+  "sap_released_views": [
+    "I_ProfitCenter",
+    "I_ProfitCenterText"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZCOV_I_ProfitCenterText",
+      "ZCOV_I_ProfitCenter",
+      "ZCOV_I_ProfitCenterVH"
+    ],
+    "composite": [],
+    "consumption": [],
+    "access_controls": [
+      "ZCOV_I_ProfitCenterText",
+      "ZCOV_I_ProfitCenter",
+      "ZCOV_I_ProfitCenterVH"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {},
+  "link_views": []
+}

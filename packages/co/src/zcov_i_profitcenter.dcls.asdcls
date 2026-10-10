@@ -1,0 +1,13 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_ProfitCenter.
+// TODO-VERIFY[H] CO-D03: I_ProfitCenter has an access control role and every element it references is projected by ZCOV_I_ProfitCenter
+@EndUserText.label: 'Profit Center'
+@MappingRole: true
+define role ZCOV_I_ProfitCenter {
+  grant
+    select
+      on
+        ZCOV_I_ProfitCenter
+          where
+            inheriting conditions from entity I_ProfitCenter;
+}

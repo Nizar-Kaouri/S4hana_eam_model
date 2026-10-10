@@ -1,0 +1,44 @@
+{
+  "name": "cost_actuals",
+  "title": "CO Actual Costs",
+  "description": "Actual cost line items (primary and secondary costs) from the Universal Journal with all CO account assignments; cube and query.",
+  "batch": 2,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "transactional",
+    "controlling",
+    "cost",
+    "universal-journal",
+    "analytics"
+  ],
+  "sap_released_views": [
+    "I_JournalEntryItem",
+    "I_GLAccountInChartOfAccounts"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZCOV_I_COJournalItem"
+    ],
+    "composite": [
+      "ZCOV_R_COActualCost"
+    ],
+    "consumption": [
+      "ZCOV_C_COActualCostQ"
+    ],
+    "access_controls": [
+      "ZCOV_I_COJournalItem",
+      "ZCOV_R_COActualCost"
+    ],
+    "metadata_extensions": [],
+    "tests": [
+      "ZCOV_CL_COACTUAL_TEST"
+    ]
+  },
+  "no_dcl_by_design": {
+    "ZCOV_C_COActualCostQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_R_COActualCost (see GEN-Q01)."
+  },
+  "link_views": []
+}

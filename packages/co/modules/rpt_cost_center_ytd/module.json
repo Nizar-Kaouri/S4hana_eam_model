@@ -1,0 +1,37 @@
+{
+  "name": "rpt_cost_center_ytd",
+  "title": "Report: Cost Center Year to Date",
+  "description": "Cost center costs year to date compared with the same periods of the prior year (parameters). Needs cost_actuals.",
+  "batch": 3,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "report",
+    "cost-center",
+    "controlling",
+    "analytics"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "cost_actuals"
+  ],
+  "objects": {
+    "basic": [],
+    "composite": [
+      "ZCOV_R_CostCenterYTD"
+    ],
+    "consumption": [
+      "ZCOV_C_CostCenterYTDQ"
+    ],
+    "access_controls": [
+      "ZCOV_R_CostCenterYTD"
+    ],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZCOV_C_CostCenterYTDQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_R_CostCenterYTD (see GEN-Q01)."
+  },
+  "link_views": []
+}

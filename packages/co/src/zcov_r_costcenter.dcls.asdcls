@@ -1,0 +1,12 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Cost Center - Cube'
+@MappingRole: true
+define role ZCOV_R_CostCenter {
+  grant
+    select
+      on
+        ZCOV_R_CostCenter
+          where
+            inheriting conditions from entity ZCOV_I_CostCenter;
+}
