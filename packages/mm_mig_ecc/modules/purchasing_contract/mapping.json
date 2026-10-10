@@ -1,0 +1,264 @@
+{
+  "module": "purchasing_contract",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-verified business interface; open-document restrictions apply",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "product"
+  ],
+  "key": {
+    "business_key": [
+      "PurchasingContract"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZMMX_C_ContractHeaderMig",
+      "source_view": "ZMMX_I_ContractHeader",
+      "scope_filter": "",
+      "keys": [
+        "PurchasingContract"
+      ],
+      "fields": [
+        {
+          "element": "PurchasingContract",
+          "source": "EKKO-EBELN",
+          "target": "customer interface field: PurchasingContract (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchasingDocumentCategory",
+          "source": "EKKO-BSTYP",
+          "target": "customer interface field: PurchasingDocumentCategory (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ContractType",
+          "source": "EKKO-BSART",
+          "target": "customer interface field: ContractType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CompanyCode",
+          "source": "EKKO-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Supplier",
+          "source": "EKKO-LIFNR",
+          "target": "customer interface field: Supplier (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchasingOrganization",
+          "source": "EKKO-EKORG",
+          "target": "customer interface field: PurchasingOrganization (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchasingGroup",
+          "source": "EKKO-EKGRP",
+          "target": "customer interface field: PurchasingGroup (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Currency",
+          "source": "EKKO-WAERS",
+          "target": "customer interface field: Currency (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "EKKO-KDATB",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "EKKO-KDATE",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval."
+    },
+    {
+      "consumption_view": "ZMMX_C_ContractItemMig",
+      "source_view": "ZMMX_I_ContractItem",
+      "scope_filter": "",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "fields": [
+        {
+          "element": "PurchasingContract",
+          "source": "EKPO-EBELN",
+          "target": "customer interface field: PurchasingContract (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchasingContractItem",
+          "source": "EKPO-EBELP",
+          "target": "customer interface field: PurchasingContractItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Product",
+          "source": "EKPO-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "EKPO-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "TargetQuantity",
+          "source": "EKPO-KTMNG",
+          "target": "customer interface field: TargetQuantity (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "OrderUnit",
+          "source": "EKPO-MEINS",
+          "target": "customer interface field: OrderUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "NetPrice",
+          "source": "EKPO-NETPR",
+          "target": "customer interface field: NetPrice (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PriceUnit",
+          "source": "EKPO-PEINH",
+          "target": "customer interface field: PriceUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "EKPO-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval."
+    },
+    {
+      "consumption_view": "ZMMX_C_ContractAssignMig",
+      "source_view": "ZMMX_I_ContractAssign",
+      "scope_filter": "",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ],
+      "fields": [
+        {
+          "element": "PurchasingContract",
+          "source": "EKKN-EBELN",
+          "target": "customer interface field: PurchasingContract (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchasingContractItem",
+          "source": "EKKN-EBELP",
+          "target": "customer interface field: PurchasingContractItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AccountAssignmentNumber",
+          "source": "EKKN-ZEKKN",
+          "target": "customer interface field: AccountAssignmentNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CostCenter",
+          "source": "EKKN-KOSTL",
+          "target": "customer interface field: CostCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "InternalOrder",
+          "source": "EKKN-AUFNR",
+          "target": "customer interface field: InternalOrder (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "WBSElementInternalID",
+          "source": "EKKN-PS_PSP_PNR",
+          "target": "customer interface field: WBSElementInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "GLAccount",
+          "source": "EKKN-SAKTO",
+          "target": "customer interface field: GLAccount (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DistributionPercentage",
+          "source": "EKKN-VPROZ",
+          "target": "customer interface field: DistributionPercentage (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.",
+    "Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "PurchasingContract"
+      }
+    ],
+    "source_count_view": "ZMMX_C_ContractHeaderMigCount"
+  },
+  "main_structure": "ZMMX_C_ContractHeaderMig"
+}

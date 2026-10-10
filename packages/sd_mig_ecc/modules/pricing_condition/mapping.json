@@ -1,0 +1,262 @@
+{
+  "module": "pricing_condition",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-verified business interface; master restrictions apply",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "ConditionRecord"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZSDX_C_ConditionHdrMig",
+      "source_view": "ZSDX_I_ConditionHdr",
+      "scope_filter": "",
+      "keys": [
+        "ConditionRecord"
+      ],
+      "fields": [
+        {
+          "element": "ConditionRecord",
+          "source": "KONH-KNUMH",
+          "target": "customer interface field: ConditionRecord (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionUsage",
+          "source": "KONH-KVEWE",
+          "target": "customer interface field: ConditionUsage (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionTableNumber",
+          "source": "KONH-KOTABNR",
+          "target": "customer interface field: ConditionTableNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Application",
+          "source": "KONH-KAPPL",
+          "target": "customer interface field: Application (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionType",
+          "source": "KONH-KSCHL",
+          "target": "customer interface field: ConditionType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "KONH-DATAB",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "KONH-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone. Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor."
+    },
+    {
+      "consumption_view": "ZSDX_C_ConditionItemMig",
+      "source_view": "ZSDX_I_ConditionItem",
+      "scope_filter": "",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem"
+      ],
+      "fields": [
+        {
+          "element": "ConditionRecord",
+          "source": "KONP-KNUMH",
+          "target": "customer interface field: ConditionRecord (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionItem",
+          "source": "KONP-KOPOS",
+          "target": "customer interface field: ConditionItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CalculationType",
+          "source": "KONP-KRECH",
+          "target": "customer interface field: CalculationType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionRate",
+          "source": "KONP-KBETR",
+          "target": "customer interface field: ConditionRate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionCurrency",
+          "source": "KONP-KONWA",
+          "target": "customer interface field: ConditionCurrency (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PricingUnit",
+          "source": "KONP-KPEIN",
+          "target": "customer interface field: PricingUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionUnit",
+          "source": "KONP-KMEIN",
+          "target": "customer interface field: ConditionUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "KONP-LOEVM_KO",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone. Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor."
+    },
+    {
+      "consumption_view": "ZSDX_C_QuantityScaleMig",
+      "source_view": "ZSDX_I_QuantityScale",
+      "scope_filter": "",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "fields": [
+        {
+          "element": "ConditionRecord",
+          "source": "KONM-KNUMH",
+          "target": "customer interface field: ConditionRecord (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionItem",
+          "source": "KONM-KOPOS",
+          "target": "customer interface field: ConditionItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScaleLine",
+          "source": "KONM-KLFN1",
+          "target": "customer interface field: ScaleLine (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScaleQuantity",
+          "source": "KONM-KSTBM",
+          "target": "customer interface field: ScaleQuantity (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionRate",
+          "source": "KONM-KBETR",
+          "target": "customer interface field: ConditionRate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone. Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor."
+    },
+    {
+      "consumption_view": "ZSDX_C_ValueScaleMig",
+      "source_view": "ZSDX_I_ValueScale",
+      "scope_filter": "",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "fields": [
+        {
+          "element": "ConditionRecord",
+          "source": "KONW-KNUMH",
+          "target": "customer interface field: ConditionRecord (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionItem",
+          "source": "KONW-KOPOS",
+          "target": "customer interface field: ConditionItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScaleLine",
+          "source": "KONW-KLFN1",
+          "target": "customer interface field: ScaleLine (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScaleValue",
+          "source": "KONW-KSTBW",
+          "target": "customer interface field: ScaleValue (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ConditionRate",
+          "source": "KONW-KBETR",
+          "target": "customer interface field: ConditionRate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone. Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone.",
+    "Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "ConditionRecord"
+      }
+    ],
+    "source_count_view": "ZSDX_C_ConditionHdrMigCount"
+  },
+  "main_structure": "ZSDX_C_ConditionHdrMig"
+}

@@ -23,3 +23,18 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 ## Beträge und Mengen
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
+
+## Erweiterungen — 0.2.0
+
+### production_version
+
+Gültigkeit, Losgrößen, Sperr-/Prüfstatus sowie wirksame Stücklisten-/Arbeitsplankombination prüfen. Material und Werk sind Voraussetzungen. Verschiedene Fertigungsversionen dürfen sich bewusst überlappen; Gültigkeit pro Version prüfen. REM-Planungsebenen benötigen eine releasespezifische Schnittstellenprüfung.
+
+### production_confirmation
+
+Rückmeldungsnummer/-zähler und Stornobeziehungen erhalten. Stornos nicht einfach entfernen. Zielauftrag/-vorgang und Buchungsperioden prüfen. Erneute Rückmeldung kann Rückspülung, Warenbewegungen, Leistungsverrechnung und Buchhaltung auslösen; Historie nur nach ausdrücklicher Prozessfreigabe erneut buchen.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.

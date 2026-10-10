@@ -1,6 +1,6 @@
 # Supported scope
 
-Project System has 3 modules and 4 extraction structures.
+Project System has 7 modules and 14 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
@@ -34,3 +34,21 @@ Retain both external project/WBS identifiers and internal references. Rebuild hi
 Status: no SAP system has been used.
 
 Test a permitted and a restricted identity, a small parent/child cohort, multiple languages, zero-padded identifiers, deletions, overlapping intervals, changed numbers, nonempty engineering changes and rejected target posts. Prove target compare grain and restrict it to the mapped cohort. Inject a duplicate key, missing field, changed value and missing record; require the corresponding reconciliation failure. Verify source and target quantities and currency totals independently of record counts. Confirm no history is reposted and no subledger is counted twice. Record release, client, transport, input hashes, application logs and every unresolved limitation.
+
+## Coverage additions — 0.2.0
+
+### Project networks and activities (`network`)
+
+AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.
+
+### Project overall and annual budgets (`budget`)
+
+Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface.
+
+### Project commitments (`commitment`)
+
+COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks.
+
+### Investment programs and measures (`investment_measure`)
+
+Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.

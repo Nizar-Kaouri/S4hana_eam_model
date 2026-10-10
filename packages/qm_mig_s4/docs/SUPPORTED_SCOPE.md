@@ -1,9 +1,11 @@
 # Supported scope
 
-Quality Management has 4 modules and 15 extraction structures.
+Quality Management has 6 modules and 18 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
+| Sampling procedures | sampling_procedure | 1 | configuration-reference |
+| Master inspection characteristics | master_inspection_characteristic | 2 | master |
 | Inspection lots | inspection_lot | 2 | process-reference |
 | Inspection results | inspection_result | 3 | reference |
 | Quality notifications | quality_notification | 5 | process-reference |
@@ -14,3 +16,13 @@ The Basic layer preserves native table grain; Composite prepares a stable alias 
 Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
 This scope does not imply every SAP feature is covered. Full-row allowlisted exports retain additional DDIC fields for customer extension. No posting program, customizing migration, business status replay, delta synchronization, clean-core certification or SAP runtime certification is supplied.
+
+## Coverage additions — 0.2.0
+
+### Master inspection characteristics (`master_inspection_characteristic`)
+
+Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.
+
+### Sampling procedures (`sampling_procedure`)
+
+DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.

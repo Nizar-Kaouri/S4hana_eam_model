@@ -105,5 +105,72 @@
     "selection": "selection/ZCOX_C_CostElementAreMig.csv",
     "requires_business_approval": true,
     "mode": "reference"
+  },
+  "ZCOX_C_PrimaryPlanMig": {
+    "module": "planning",
+    "table": "COSP",
+    "keys": [
+      "Ledger",
+      "ObjectNumber",
+      "FiscalYear",
+      "ValueType",
+      "PlanVersion",
+      "CostElement",
+      "OriginGroup",
+      "BusinessTransaction",
+      "TradingPartner",
+      "PartnerBusinessArea",
+      "DebitCreditCode",
+      "PeriodBlock"
+    ],
+    "selection": "selection/ZCOX_C_PrimaryPlanMig.csv",
+    "requires_business_approval": true,
+    "mode": "planning-reference"
+  },
+  "ZCOX_C_SecondaryPlanMig": {
+    "module": "planning",
+    "table": "COSS",
+    "keys": [
+      "Ledger",
+      "ObjectNumber",
+      "FiscalYear",
+      "ValueType",
+      "PlanVersion",
+      "CostElement",
+      "OriginGroup",
+      "BusinessTransaction",
+      "TradingPartner",
+      "PartnerBusinessArea",
+      "DebitCreditCode",
+      "PeriodBlock"
+    ],
+    "selection": "selection/ZCOX_C_SecondaryPlanMig.csv",
+    "requires_business_approval": true,
+    "mode": "planning-reference"
+  },
+  "ZCOX_C_AllocCycleMig": {
+    "module": "allocation_cycle",
+    "table": "T811C",
+    "keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "selection": "selection/ZCOX_C_AllocCycleMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
+  },
+  "ZCOX_C_AllocSegmentMig": {
+    "module": "allocation_cycle",
+    "table": "T811S",
+    "keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate",
+      "SegmentSequence"
+    ],
+    "selection": "selection/ZCOX_C_AllocSegmentMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
   }
 }

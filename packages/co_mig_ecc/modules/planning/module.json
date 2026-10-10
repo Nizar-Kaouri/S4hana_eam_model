@@ -1,0 +1,52 @@
+{
+  "name": "planning",
+  "title": "CO primary and secondary cost planning",
+  "description": "CO primary and secondary cost planning. COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01–16, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types.",
+  "batch": 1,
+  "version": "0.2.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "planning-reference"
+  ],
+  "sap_tables": [
+    "COSP",
+    "COSS"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "cost_center",
+    "internal_order",
+    "cost_element"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZCOX_I_PrimaryPlanData",
+      "ZCOX_I_SecondaryPlanData"
+    ],
+    "composite": [
+      "ZCOX_I_PrimaryPlan",
+      "ZCOX_I_SecondaryPlan"
+    ],
+    "consumption": [
+      "ZCOX_C_PrimaryPlanMig",
+      "ZCOX_C_PrimaryPlanMigCount",
+      "ZCOX_C_SecondaryPlanMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZCOX_I_PrimaryPlanData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_PrimaryPlan": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_PrimaryPlanMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_PrimaryPlanMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_SecondaryPlanData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_SecondaryPlan": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_SecondaryPlanMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

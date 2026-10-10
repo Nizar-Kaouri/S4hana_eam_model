@@ -23,3 +23,18 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 ## Beträge und Mengen
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
+
+## Erweiterungen — 0.2.0
+
+### bank
+
+Bankland und Bankschlüssel identifizieren die Bank. Länderspezifische Formate und Löschstatus erhalten. Hausbanken, Hausbankkonten, Bank Account Management und Partnerbankdaten sind eigenständige Objekte. Bankstamm nicht mit Bankkontostand verwechseln.
+
+### gl_opening_balance
+
+Pro Ledgerpopulation klassisches ODER neues Hauptbuch verwenden, nicht beide vereinigen. Sämtliche DDIC-Schlüsseldimensionen bestätigen. Periode 00 ist Vortrag; Stichtagswerte anhand freigegebener Periodenregeln einschließlich Sonderperioden berechnen. Währungstypen ergänzen und Konten anhand SKB1 klassifizieren. Bereits durch Anlagen, Debitoren, Kreditoren oder offene Posten übernommene Salden ausschließen. Migrationsverrechnungskonten auf null abstimmen.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.

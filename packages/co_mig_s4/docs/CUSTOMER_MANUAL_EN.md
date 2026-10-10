@@ -1,6 +1,6 @@
 # Supported scope
 
-Controlling has 5 modules and 9 extraction structures.
+Controlling has 7 modules and 13 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
@@ -36,3 +36,13 @@ Resolve time intervals at cutover and map controlling areas, cost centers, profi
 Status: no SAP system has been used.
 
 Test a permitted and a restricted identity, a small parent/child cohort, multiple languages, zero-padded identifiers, deletions, overlapping intervals, changed numbers, nonempty engineering changes and rejected target posts. Prove target compare grain and restrict it to the mapped cohort. Inject a duplicate key, missing field, changed value and missing record; require the corresponding reconciliation failure. Verify source and target quantities and currency totals independently of record counts. Confirm no history is reposted and no subledger is counted twice. Record release, client, transport, input hashes, application logs and every unresolved limitation.
+
+## Coverage additions — 0.2.0
+
+### CO primary and secondary cost planning (`planning`)
+
+COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01–16, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types.
+
+### Allocation cycles and segments (`allocation_cycle`)
+
+Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target.

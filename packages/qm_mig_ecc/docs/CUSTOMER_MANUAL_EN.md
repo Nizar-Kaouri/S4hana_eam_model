@@ -1,6 +1,6 @@
 # Supported scope
 
-Quality Management has 4 modules and 15 extraction structures.
+Quality Management has 6 modules and 18 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
@@ -39,3 +39,18 @@ Test a permitted and a restricted identity, a small parent/child cohort, multipl
 ## Business totals
 
 `migration_business.py totals --input source.csv --target target.csv --contract verified-totals.json --out totals.json` uses exact Decimal arithmetic and refuses unknown sign codes, duplicate records and missing currency/unit groupings. Adapt the currency-totals-example.json fields and signs to the verified business contract; it is not a universal posting schema. Enrich units/currencies from approved master data where needed. It does not convert amounts or currencies.
+
+## Coverage additions — 0.2.0
+
+### Master inspection characteristics (`master_inspection_characteristic`)
+
+Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.
+
+### Sampling procedures (`sampling_procedure`)
+
+DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.
+
+
+## Native DDIC preflight
+
+Before using a candidate structure, export its full native table and adjacent `.fields.csv` metadata through the ABAP helper. Run `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json`. A failure means the candidate mapping/source key must be corrected and regenerated before extraction or reconciliation. This checks source field availability and complete native keys, with only a typed MANDT implicit in current-client scope. It does not prove target support, activation, eligibility or currency semantics.

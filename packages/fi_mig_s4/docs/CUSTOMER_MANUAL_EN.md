@@ -1,6 +1,6 @@
 # Supported scope
 
-Financial Accounting has 5 modules and 17 extraction structures.
+Financial Accounting has 7 modules and 20 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
@@ -36,3 +36,13 @@ Customers and suppliers require Business Partner/CVI mapping, roles and numberin
 Status: no SAP system has been used.
 
 Test a permitted and a restricted identity, a small parent/child cohort, multiple languages, zero-padded identifiers, deletions, overlapping intervals, changed numbers, nonempty engineering changes and rejected target posts. Prove target compare grain and restrict it to the mapped cohort. Inject a duplicate key, missing field, changed value and missing record; require the corresponding reconciliation failure. Verify source and target quantities and currency totals independently of record counts. Confirm no history is reposted and no subledger is counted twice. Record release, client, transport, input hashes, application logs and every unresolved limitation.
+
+## Coverage additions — 0.2.0
+
+### Bank master (`bank`)
+
+Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.
+
+### Dedicated G/L opening balances (`gl_opening_balance`)
+
+Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied.

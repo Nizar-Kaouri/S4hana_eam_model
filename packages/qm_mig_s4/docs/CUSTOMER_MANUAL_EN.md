@@ -1,6 +1,6 @@
 # Supported scope
 
-Quality Management has 4 modules and 15 extraction structures.
+Quality Management has 6 modules and 18 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
@@ -35,3 +35,13 @@ Lots, results and usage decisions have process and status prerequisites. Results
 Status: no SAP system has been used.
 
 Test a permitted and a restricted identity, a small parent/child cohort, multiple languages, zero-padded identifiers, deletions, overlapping intervals, changed numbers, nonempty engineering changes and rejected target posts. Prove target compare grain and restrict it to the mapped cohort. Inject a duplicate key, missing field, changed value and missing record; require the corresponding reconciliation failure. Verify source and target quantities and currency totals independently of record counts. Confirm no history is reposted and no subledger is counted twice. Record release, client, transport, input hashes, application logs and every unresolved limitation.
+
+## Coverage additions — 0.2.0
+
+### Master inspection characteristics (`master_inspection_characteristic`)
+
+Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.
+
+### Sampling procedures (`sampling_procedure`)
+
+DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.

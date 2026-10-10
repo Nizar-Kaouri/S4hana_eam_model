@@ -233,5 +233,63 @@
     "selection": "selection/ZFIX_C_ARClearedMig.csv",
     "requires_business_approval": true,
     "mode": "open-item"
+  },
+  "ZFIX_C_BankMig": {
+    "module": "bank",
+    "table": "BNKA",
+    "keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "selection": "selection/ZFIX_C_BankMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_ClassicBalanceMig": {
+    "module": "gl_opening_balance",
+    "table": "GLT0",
+    "keys": [
+      "Ledger",
+      "RecordType",
+      "Version",
+      "CompanyCode",
+      "FiscalYear",
+      "GLAccount",
+      "BusinessArea",
+      "TransactionCurrency",
+      "DebitCreditCode"
+    ],
+    "selection": "selection/ZFIX_C_ClassicBalanceMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZFIX_C_NewGLBalanceMig": {
+    "module": "gl_opening_balance",
+    "table": "FAGLFLEXT",
+    "keys": [
+      "Ledger",
+      "RecordType",
+      "Version",
+      "FiscalYear",
+      "GLAccount",
+      "CompanyCode",
+      "CostCenter",
+      "ProfitCenter",
+      "FunctionalArea",
+      "BusinessArea",
+      "Segment",
+      "PartnerCostCenter",
+      "PartnerProfitCenter",
+      "PartnerFunctionalArea",
+      "PartnerBusinessArea",
+      "TradingPartner",
+      "PartnerSegment",
+      "TransactionCurrency",
+      "BaseUnit",
+      "DebitCreditCode"
+    ],
+    "selection": "selection/ZFIX_C_NewGLBalanceMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
   }
 }

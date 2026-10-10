@@ -1,0 +1,67 @@
+{
+  "module": "sampling_procedure",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-verified business interface; configuration-reference restrictions apply",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "SamplingProcedure"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZQMX_C_SamplingProcMig",
+      "source_view": "ZQMX_I_SamplingProc",
+      "scope_filter": "",
+      "keys": [
+        "SamplingProcedure"
+      ],
+      "fields": [
+        {
+          "element": "SamplingProcedure",
+          "source": "QDSV-STICHPRVER",
+          "target": "customer interface field: SamplingProcedure (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SamplingType",
+          "source": "QDSV-STICHPRART",
+          "target": "customer interface field: SamplingType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValuationMode",
+          "source": "QDSV-BEWERTART",
+          "target": "customer interface field: ValuationMode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "configuration-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions. DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.",
+    "DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "SamplingProcedure"
+      }
+    ],
+    "source_count_view": "ZQMX_C_SamplingProcMigCount"
+  },
+  "main_structure": "ZQMX_C_SamplingProcMig"
+}

@@ -23,3 +23,18 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 ## Beträge und Mengen
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
+
+## Erweiterungen — 0.2.0
+
+### purchasing_info_record
+
+Allgemeine und Einkaufsorganisationsdaten mit getrennten Schlüsseln übernehmen. Lieferanten-/Geschäftspartner- und Mengeneinheitenzuordnung vorbereiten. EINE-Nettopreis ersetzt keine vollständigen zeitabhängigen Konditionen; konfigurierte Konditionstabellen, KONH/KONP und Staffeln samt Gültigkeit und Zugriffsschlüsseln ergänzen.
+
+### purchasing_contract
+
+EKKO-Belegkategorie K und freigegebene Vertragsarten auswählen. Bestellungen und Lieferpläne ausschließen. Gültigkeit, Wert-/Mengenvertrag, Restverpflichtung und Abrufe prüfen. Kontierung und zeitabhängige Konditionen verknüpfen; Abrufhistorie nicht erneut als Bestellung laden.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.

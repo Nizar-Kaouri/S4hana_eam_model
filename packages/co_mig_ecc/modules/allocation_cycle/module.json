@@ -1,0 +1,51 @@
+{
+  "name": "allocation_cycle",
+  "title": "Allocation cycles and segments",
+  "description": "Allocation cycles and segments. Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target.",
+  "batch": 1,
+  "version": "0.2.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "configuration-reference"
+  ],
+  "sap_tables": [
+    "T811C",
+    "T811S"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "cost_center",
+    "cost_element"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZCOX_I_AllocCycleData",
+      "ZCOX_I_AllocSegmentData"
+    ],
+    "composite": [
+      "ZCOX_I_AllocCycle",
+      "ZCOX_I_AllocSegment"
+    ],
+    "consumption": [
+      "ZCOX_C_AllocCycleMig",
+      "ZCOX_C_AllocCycleMigCount",
+      "ZCOX_C_AllocSegmentMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZCOX_I_AllocCycleData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_AllocCycle": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_AllocCycleMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_AllocCycleMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_AllocSegmentData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_AllocSegment": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_AllocSegmentMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

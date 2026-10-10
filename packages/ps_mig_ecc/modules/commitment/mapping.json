@@ -1,0 +1,155 @@
+{
+  "module": "commitment",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-verified business interface; reference restrictions apply",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "wbs_element"
+  ],
+  "key": {
+    "business_key": [
+      "ObjectNumber",
+      "FiscalYear",
+      "ValueType",
+      "Version",
+      "CostElement",
+      "OriginGroup",
+      "BusinessTransaction",
+      "CommitmentDocument",
+      "CommitmentItem"
+    ],
+    "numbering": "derived",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZPSX_C_CommitmentMig",
+      "source_view": "ZPSX_I_Commitment",
+      "scope_filter": "",
+      "keys": [
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "Version",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "CommitmentDocument",
+        "CommitmentItem"
+      ],
+      "fields": [
+        {
+          "element": "ObjectNumber",
+          "source": "COOI-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "FiscalYear",
+          "source": "COOI-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValueType",
+          "source": "COOI-WRTTP",
+          "target": "customer interface field: ValueType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "COOI-VERSN",
+          "target": "customer interface field: Version (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CostElement",
+          "source": "COOI-KSTAR",
+          "target": "customer interface field: CostElement (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "OriginGroup",
+          "source": "COOI-HRKFT",
+          "target": "customer interface field: OriginGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BusinessTransaction",
+          "source": "COOI-VRGNG",
+          "target": "customer interface field: BusinessTransaction (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CommitmentDocument",
+          "source": "COOI-BELNR",
+          "target": "customer interface field: CommitmentDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CommitmentItem",
+          "source": "COOI-BUZEI",
+          "target": "customer interface field: CommitmentItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TransactionCurrency",
+          "source": "COOI-TWAER",
+          "target": "customer interface field: TransactionCurrency (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TransactionAmount",
+          "source": "COOI-WTGBTR",
+          "target": "customer interface field: TransactionAmount (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ObjectCurrencyAmount",
+          "source": "COOI-WOGBTR",
+          "target": "customer interface field: ObjectCurrencyAmount (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ControllingAreaAmount",
+          "source": "COOI-WKGBTR",
+          "target": "customer interface field: ControllingAreaAmount (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement.",
+    "COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "ObjectNumber"
+      }
+    ],
+    "source_count_view": "ZPSX_C_CommitmentMigCount"
+  },
+  "main_structure": "ZPSX_C_CommitmentMig"
+}

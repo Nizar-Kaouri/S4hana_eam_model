@@ -433,9 +433,11 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     text = json.dumps(content, indent=2) + "\n"
                 elif asset.name == "target-adapters.json":
                     text = json.dumps({n: c for n, c in json.loads(text).items() if c["module"] in resolved}, indent=2) + "\n"
+                elif asset.name == "coverage-requirements.json":
+                    text = json.dumps({n: c for n, c in json.loads(text).items() if n in resolved}, indent=2) + "\n"
                 relative = asset.relative_to(root)
                 zf.writestr(asset_path(relative), rewrite_asset(text))
-            for tool in ("mig_reconcile.py", "eam_prepare.py", "eam_run.py", "migration_prepare.py", "migration_run.py", "migration_business.py"):
+            for tool in ("mig_reconcile.py", "eam_prepare.py", "eam_run.py", "migration_prepare.py", "migration_run.py", "migration_business.py", "migration_ddic.py"):
                 zf.writestr("tools/" + tool, (vdm_paths.REPO / "tools" / tool).read_text(encoding="utf-8"))
             # The existing main-object CLI resolves mappings by product/module.
             for mod in resolved:
@@ -448,6 +450,8 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     content = asset.read_text(encoding="utf-8-sig")
                     if asset.name == "target-adapters.json":
                         content = json.dumps({n: c for n, c in json.loads(content).items() if c["module"] in resolved}, indent=2) + "\n"
+                    elif asset.name == "coverage-requirements.json":
+                        content = json.dumps({n: c for n, c in json.loads(content).items() if n in resolved}, indent=2) + "\n"
                     zf.writestr(asset_path(asset.relative_to(root)), rewrite_asset(content))
         if library.get("kind") == "migration-source":
             import csv

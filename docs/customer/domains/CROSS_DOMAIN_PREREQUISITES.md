@@ -19,3 +19,7 @@ Customer customizing, company codes, controlling areas, plants, currencies, unit
 Existing rpt_* analytical modules stay in their original product folders. Asset balance migration has its own asset_balance module; open purchasing and sales populations use the corresponding business module plus customer scope approval. The commercial claim is the explicitly catalogued template scope, not universal coverage of SAP.
 
 EWM, TM, FSCM, EHS and industry candidates remain feasibility items until their business object and interface scopes are defined. They have no existing product folder in this repository and are not included in these eight drafts.
+
+## Coverage additions in 0.2.0
+
+Network and investment-measure assignments follow WBS/internal-order and FI-AA identifier mapping. Budgets and commitments require independent fiscal-year and currency contracts. Production versions follow material, BOM and routing. Master inspection characteristics and sampling configuration precede inspection plans. Purchasing info records/contracts and sales pricing require the configured access-key tables and condition scales. CO allocation cycles also require sender/receiver sets and rules through a native configuration export. G/L opening balances exclude amounts already migrated through subledgers or open items.

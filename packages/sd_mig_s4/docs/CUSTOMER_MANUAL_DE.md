@@ -19,3 +19,9 @@ Exportieren Sie dieselbe Zielpopulation mit den Namen und Schlüsseln aus custom
 Offene Kundenaufträge benötigen Positionsstatus, Absagegründe, Belegfluss und Restmengen. Lieferungen und Fakturen sind Historienreferenzen. Ihre Neuerstellung kann Logistik und Buchhaltung auslösen. Partner, Konditionen, Texte und Steuern benötigen Schnittstellenfreigabe.
 
 Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine ungeprüften SAP CDS Namen als fertige Schnittstellen behauptet. Testen Sie Berechtigungen, geänderte Nummern, fehlende Felder, doppelte Schlüssel und abgewiesene Buchungen. Archivieren Sie Prüfberichte, Eingabehashes, Anwendungsprotokolle und die fachliche Freigabe. Diese Entwürfe sind noch keine SAP geprüften verkaufsfertigen Pakete.
+
+## Erweiterungen — 0.2.0
+
+### pricing_condition
+
+Alle konfigurierten Konditionszugriffstabellen mit tatsächlichem DDIC-Schlüssel exportieren und KNUMH mit KONH/KONP/Staffeln verknüpfen. KONH allein verliert Kunden-/Material-/Vertriebsbereichsschlüssel. Ergänzungen, Ausschlüsse, Löschung, Gültigkeit, Berechnungsart, Währungen/Einheiten und Staffelart prüfen. Stammkonditionen nicht mit Belegkonditionen verwechseln; keinen universellen Ratenfaktor anwenden.

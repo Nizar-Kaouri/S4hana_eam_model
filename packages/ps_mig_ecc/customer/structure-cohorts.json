@@ -40,5 +40,129 @@
     "selection": "selection/ZPSX_C_ProjectCostMig.csv",
     "requires_business_approval": true,
     "mode": "reference"
+  },
+  "ZPSX_C_NetworkHeaderMig": {
+    "module": "network",
+    "table": "AUFK",
+    "keys": [
+      "Network"
+    ],
+    "selection": "selection/ZPSX_C_NetworkHeaderMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZPSX_C_NetworkPlanMig": {
+    "module": "network",
+    "table": "AFKO",
+    "keys": [
+      "Network"
+    ],
+    "selection": "selection/ZPSX_C_NetworkPlanMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZPSX_C_NetworkActivitMig": {
+    "module": "network",
+    "table": "AFVC",
+    "keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "selection": "selection/ZPSX_C_NetworkActivitMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZPSX_C_NetworkQuantitMig": {
+    "module": "network",
+    "table": "AFVV",
+    "keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "selection": "selection/ZPSX_C_NetworkQuantitMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZPSX_C_OverallBudgetMig": {
+    "module": "budget",
+    "table": "BPGE",
+    "keys": [
+      "Ledger",
+      "ObjectNumber",
+      "BudgetItem",
+      "TransactionIndicator",
+      "ValueType",
+      "Version"
+    ],
+    "selection": "selection/ZPSX_C_OverallBudgetMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZPSX_C_AnnualBudgetMig": {
+    "module": "budget",
+    "table": "BPJA",
+    "keys": [
+      "Ledger",
+      "ObjectNumber",
+      "BudgetItem",
+      "TransactionIndicator",
+      "ValueType",
+      "Version",
+      "FiscalYear"
+    ],
+    "selection": "selection/ZPSX_C_AnnualBudgetMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZPSX_C_CommitmentMig": {
+    "module": "commitment",
+    "table": "COOI",
+    "keys": [
+      "ObjectNumber",
+      "FiscalYear",
+      "ValueType",
+      "Version",
+      "CostElement",
+      "OriginGroup",
+      "BusinessTransaction",
+      "CommitmentDocument",
+      "CommitmentItem"
+    ],
+    "selection": "selection/ZPSX_C_CommitmentMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZPSX_C_InvestProgramMig": {
+    "module": "investment_measure",
+    "table": "IMTP",
+    "keys": [
+      "InvestmentProgram",
+      "ApprovalFiscalYear"
+    ],
+    "selection": "selection/ZPSX_C_InvestProgramMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
+  },
+  "ZPSX_C_InvestPositionMig": {
+    "module": "investment_measure",
+    "table": "IMPR",
+    "keys": [
+      "InvestmentPositionInternalID"
+    ],
+    "selection": "selection/ZPSX_C_InvestPositionMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
+  },
+  "ZPSX_C_InvestAssignMig": {
+    "module": "investment_measure",
+    "table": "IMZO",
+    "keys": [
+      "InvestmentPositionInternalID",
+      "AssignedObject",
+      "ApprovalFiscalYear"
+    ],
+    "selection": "selection/ZPSX_C_InvestAssignMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
   }
 }

@@ -24,7 +24,15 @@
     "ZSDX_C_BillingMig": "exports/ZSDX_C_BillingMig.csv",
     "ZSDX_C_BillingMig_Scope": "selection/ZSDX_C_BillingMig.csv",
     "ZSDX_C_BillingItemMig": "exports/ZSDX_C_BillingItemMig.csv",
-    "ZSDX_C_BillingItemMig_Scope": "selection/ZSDX_C_BillingItemMig.csv"
+    "ZSDX_C_BillingItemMig_Scope": "selection/ZSDX_C_BillingItemMig.csv",
+    "ZSDX_C_ConditionHdrMig": "exports/ZSDX_C_ConditionHdrMig.csv",
+    "ZSDX_C_ConditionHdrMig_Scope": "selection/ZSDX_C_ConditionHdrMig.csv",
+    "ZSDX_C_ConditionItemMig": "exports/ZSDX_C_ConditionItemMig.csv",
+    "ZSDX_C_ConditionItemMig_Scope": "selection/ZSDX_C_ConditionItemMig.csv",
+    "ZSDX_C_QuantityScaleMig": "exports/ZSDX_C_QuantityScaleMig.csv",
+    "ZSDX_C_QuantityScaleMig_Scope": "selection/ZSDX_C_QuantityScaleMig.csv",
+    "ZSDX_C_ValueScaleMig": "exports/ZSDX_C_ValueScaleMig.csv",
+    "ZSDX_C_ValueScaleMig_Scope": "selection/ZSDX_C_ValueScaleMig.csv"
   },
   "steps": [
     {
@@ -196,6 +204,64 @@
         "BillingDocument",
         "BillingDocumentItem"
       ]
+    },
+    {
+      "name": "ZSDX_C_ConditionHdrMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_ConditionHdrMig",
+      "parent": "ZSDX_C_ConditionHdrMig_Scope",
+      "child_keys": [
+        "ConditionRecord"
+      ],
+      "parent_keys": [
+        "ConditionRecord"
+      ]
+    },
+    {
+      "name": "ZSDX_C_ConditionItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_ConditionItemMig",
+      "parent": "ZSDX_C_ConditionItemMig_Scope",
+      "child_keys": [
+        "ConditionRecord",
+        "ConditionItem"
+      ],
+      "parent_keys": [
+        "ConditionRecord",
+        "ConditionItem"
+      ]
+    },
+    {
+      "name": "ZSDX_C_QuantityScaleMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_QuantityScaleMig",
+      "parent": "ZSDX_C_QuantityScaleMig_Scope",
+      "child_keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "parent_keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ]
+    },
+    {
+      "name": "ZSDX_C_ValueScaleMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_ValueScaleMig",
+      "parent": "ZSDX_C_ValueScaleMig_Scope",
+      "child_keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "parent_keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ]
     }
   ],
   "outputs": [
@@ -210,6 +276,10 @@
     "ZSDX_C_DeliveryMig_Prepared",
     "ZSDX_C_DeliveryItemMig_Prepared",
     "ZSDX_C_BillingMig_Prepared",
-    "ZSDX_C_BillingItemMig_Prepared"
+    "ZSDX_C_BillingItemMig_Prepared",
+    "ZSDX_C_ConditionHdrMig_Prepared",
+    "ZSDX_C_ConditionItemMig_Prepared",
+    "ZSDX_C_QuantityScaleMig_Prepared",
+    "ZSDX_C_ValueScaleMig_Prepared"
   ]
 }

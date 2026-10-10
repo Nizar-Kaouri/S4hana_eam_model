@@ -34,7 +34,8 @@ START-OF-SELECTION.
   CASE p_table.
     WHEN 'MAPL' OR 'PLAS' OR 'PLKO' OR 'PLMK' OR 'PLPO'
       OR 'QALS' OR 'QAMR' OR 'QAMV' OR 'QASE' OR 'QAVE'
-      OR 'QMEL' OR 'QMFE' OR 'QMMA' OR 'QMSM' OR 'QMUR'.
+      OR 'QDSV' OR 'QMEL' OR 'QMFE' OR 'QMMA' OR 'QMSM'
+      OR 'QMUR' OR 'QPMK' OR 'QPMT'.
       lv_allowed = abap_true.
   ENDCASE.
   IF lv_allowed <> abap_true OR p_max < 1 OR p_max > 1000000.

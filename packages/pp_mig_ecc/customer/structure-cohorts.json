@@ -187,5 +187,28 @@
     "selection": "selection/ZPPX_C_RoutingSequencMig.csv",
     "requires_business_approval": true,
     "mode": "effectivity-reference"
+  },
+  "ZPPX_C_ProdVersionMig": {
+    "module": "production_version",
+    "table": "MKAL",
+    "keys": [
+      "Product",
+      "Plant",
+      "ProductionVersion"
+    ],
+    "selection": "selection/ZPPX_C_ProdVersionMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_ConfirmationMig": {
+    "module": "production_confirmation",
+    "table": "AFRU",
+    "keys": [
+      "ConfirmationNumber",
+      "ConfirmationCounter"
+    ],
+    "selection": "selection/ZPPX_C_ConfirmationMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
   }
 }

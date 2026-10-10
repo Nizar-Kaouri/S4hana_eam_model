@@ -131,5 +131,50 @@
     "selection": "selection/ZSDX_C_BillingItemMig.csv",
     "requires_business_approval": true,
     "mode": "reference"
+  },
+  "ZSDX_C_ConditionHdrMig": {
+    "module": "pricing_condition",
+    "table": "KONH",
+    "keys": [
+      "ConditionRecord"
+    ],
+    "selection": "selection/ZSDX_C_ConditionHdrMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZSDX_C_ConditionItemMig": {
+    "module": "pricing_condition",
+    "table": "KONP",
+    "keys": [
+      "ConditionRecord",
+      "ConditionItem"
+    ],
+    "selection": "selection/ZSDX_C_ConditionItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZSDX_C_QuantityScaleMig": {
+    "module": "pricing_condition",
+    "table": "KONM",
+    "keys": [
+      "ConditionRecord",
+      "ConditionItem",
+      "ScaleLine"
+    ],
+    "selection": "selection/ZSDX_C_QuantityScaleMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZSDX_C_ValueScaleMig": {
+    "module": "pricing_condition",
+    "table": "KONW",
+    "keys": [
+      "ConditionRecord",
+      "ConditionItem",
+      "ScaleLine"
+    ],
+    "selection": "selection/ZSDX_C_ValueScaleMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
   }
 }

@@ -19,3 +19,13 @@ Exportieren Sie dieselbe Zielpopulation mit den Namen und Schlüsseln aus custom
 Bestände benötigen einen eingefrorenen und abgestimmten Stichtag einschließlich Chargen und Sonderbeständen. MARD allein deckt nicht alle Bestände ab. Offene Einkaufsbelege erfordern die Prüfung von Löschung, Wareneingang, Rechnung und Restmengen.
 
 Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine ungeprüften SAP CDS Namen als fertige Schnittstellen behauptet. Testen Sie Berechtigungen, geänderte Nummern, fehlende Felder, doppelte Schlüssel und abgewiesene Buchungen. Archivieren Sie Prüfberichte, Eingabehashes, Anwendungsprotokolle und die fachliche Freigabe. Diese Entwürfe sind noch keine SAP geprüften verkaufsfertigen Pakete.
+
+## Erweiterungen — 0.2.0
+
+### purchasing_info_record
+
+Allgemeine und Einkaufsorganisationsdaten mit getrennten Schlüsseln übernehmen. Lieferanten-/Geschäftspartner- und Mengeneinheitenzuordnung vorbereiten. EINE-Nettopreis ersetzt keine vollständigen zeitabhängigen Konditionen; konfigurierte Konditionstabellen, KONH/KONP und Staffeln samt Gültigkeit und Zugriffsschlüsseln ergänzen.
+
+### purchasing_contract
+
+EKKO-Belegkategorie K und freigegebene Vertragsarten auswählen. Bestellungen und Lieferpläne ausschließen. Gültigkeit, Wert-/Mengenvertrag, Restverpflichtung und Abrufe prüfen. Kontierung und zeitabhängige Konditionen verknüpfen; Abrufhistorie nicht erneut als Bestellung laden.

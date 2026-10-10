@@ -352,5 +352,98 @@
     "target_export": "target/ZMMX_C_PurchaseHistorMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZMMX_C_InfoRecordMig": {
+    "module": "purchasing_info_record",
+    "key": [
+      "PurchasingInfoRecord"
+    ],
+    "fields": [
+      "Product",
+      "Supplier",
+      "ProductGroup",
+      "OrderUnit",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZMMX_C_InfoRecordMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZMMX_C_InfoPurchOrgMig": {
+    "module": "purchasing_info_record",
+    "key": [
+      "PurchasingInfoRecord",
+      "PurchasingOrganization",
+      "InfoRecordCategory",
+      "Plant"
+    ],
+    "fields": [
+      "PurchasingGroup",
+      "Currency",
+      "NetPrice",
+      "PriceUnit",
+      "PriceUnitOfMeasure",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZMMX_C_InfoPurchOrgMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZMMX_C_ContractHeaderMig": {
+    "module": "purchasing_contract",
+    "key": [
+      "PurchasingContract"
+    ],
+    "fields": [
+      "PurchasingDocumentCategory",
+      "ContractType",
+      "CompanyCode",
+      "Supplier",
+      "PurchasingOrganization",
+      "PurchasingGroup",
+      "Currency",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "target_export": "target/ZMMX_C_ContractHeaderMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZMMX_C_ContractItemMig": {
+    "module": "purchasing_contract",
+    "key": [
+      "PurchasingContract",
+      "PurchasingContractItem"
+    ],
+    "fields": [
+      "Product",
+      "Plant",
+      "TargetQuantity",
+      "OrderUnit",
+      "NetPrice",
+      "PriceUnit",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZMMX_C_ContractItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZMMX_C_ContractAssignMig": {
+    "module": "purchasing_contract",
+    "key": [
+      "PurchasingContract",
+      "PurchasingContractItem",
+      "AccountAssignmentNumber"
+    ],
+    "fields": [
+      "CostCenter",
+      "InternalOrder",
+      "WBSElementInternalID",
+      "GLAccount",
+      "DistributionPercentage"
+    ],
+    "target_export": "target/ZMMX_C_ContractAssignMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
   }
 }

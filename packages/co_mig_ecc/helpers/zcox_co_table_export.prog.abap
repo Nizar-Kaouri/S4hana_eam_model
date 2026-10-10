@@ -33,7 +33,8 @@ START-OF-SELECTION.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
     WHEN 'AUFK' OR 'CEPC' OR 'CEPCT' OR 'COBRB' OR 'COEP'
-      OR 'CSKA' OR 'CSKB' OR 'CSKS' OR 'CSKT'.
+      OR 'COSP' OR 'COSS' OR 'CSKA' OR 'CSKB' OR 'CSKS'
+      OR 'CSKT' OR 'T811C' OR 'T811S'.
       lv_allowed = abap_true.
   ENDCASE.
   IF lv_allowed <> abap_true OR p_max < 1 OR p_max > 1000000.

@@ -34,7 +34,13 @@
     "ZFIX_C_AROpenMig": "exports/ZFIX_C_AROpenMig.csv",
     "ZFIX_C_AROpenMig_Scope": "selection/ZFIX_C_AROpenMig.csv",
     "ZFIX_C_ARClearedMig": "exports/ZFIX_C_ARClearedMig.csv",
-    "ZFIX_C_ARClearedMig_Scope": "selection/ZFIX_C_ARClearedMig.csv"
+    "ZFIX_C_ARClearedMig_Scope": "selection/ZFIX_C_ARClearedMig.csv",
+    "ZFIX_C_BankMig": "exports/ZFIX_C_BankMig.csv",
+    "ZFIX_C_BankMig_Scope": "selection/ZFIX_C_BankMig.csv",
+    "ZFIX_C_ClassicBalanceMig": "exports/ZFIX_C_ClassicBalanceMig.csv",
+    "ZFIX_C_ClassicBalanceMig_Scope": "selection/ZFIX_C_ClassicBalanceMig.csv",
+    "ZFIX_C_NewGLBalanceMig": "exports/ZFIX_C_NewGLBalanceMig.csv",
+    "ZFIX_C_NewGLBalanceMig_Scope": "selection/ZFIX_C_NewGLBalanceMig.csv"
   },
   "steps": [
     {
@@ -370,6 +376,98 @@
         "AccountingDocument",
         "AccountingDocumentItem"
       ]
+    },
+    {
+      "name": "ZFIX_C_BankMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_BankMig",
+      "parent": "ZFIX_C_BankMig_Scope",
+      "child_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ClassicBalanceMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_ClassicBalanceMig",
+      "parent": "ZFIX_C_ClassicBalanceMig_Scope",
+      "child_keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "CompanyCode",
+        "FiscalYear",
+        "GLAccount",
+        "BusinessArea",
+        "TransactionCurrency",
+        "DebitCreditCode"
+      ],
+      "parent_keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "CompanyCode",
+        "FiscalYear",
+        "GLAccount",
+        "BusinessArea",
+        "TransactionCurrency",
+        "DebitCreditCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_NewGLBalanceMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_NewGLBalanceMig",
+      "parent": "ZFIX_C_NewGLBalanceMig_Scope",
+      "child_keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "FiscalYear",
+        "GLAccount",
+        "CompanyCode",
+        "CostCenter",
+        "ProfitCenter",
+        "FunctionalArea",
+        "BusinessArea",
+        "Segment",
+        "PartnerCostCenter",
+        "PartnerProfitCenter",
+        "PartnerFunctionalArea",
+        "PartnerBusinessArea",
+        "TradingPartner",
+        "PartnerSegment",
+        "TransactionCurrency",
+        "BaseUnit",
+        "DebitCreditCode"
+      ],
+      "parent_keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "FiscalYear",
+        "GLAccount",
+        "CompanyCode",
+        "CostCenter",
+        "ProfitCenter",
+        "FunctionalArea",
+        "BusinessArea",
+        "Segment",
+        "PartnerCostCenter",
+        "PartnerProfitCenter",
+        "PartnerFunctionalArea",
+        "PartnerBusinessArea",
+        "TradingPartner",
+        "PartnerSegment",
+        "TransactionCurrency",
+        "BaseUnit",
+        "DebitCreditCode"
+      ]
     }
   ],
   "outputs": [
@@ -389,6 +487,9 @@
     "ZFIX_C_APOpenMig_Prepared",
     "ZFIX_C_APClearedMig_Prepared",
     "ZFIX_C_AROpenMig_Prepared",
-    "ZFIX_C_ARClearedMig_Prepared"
+    "ZFIX_C_ARClearedMig_Prepared",
+    "ZFIX_C_BankMig_Prepared",
+    "ZFIX_C_ClassicBalanceMig_Prepared",
+    "ZFIX_C_NewGLBalanceMig_Prepared"
   ]
 }

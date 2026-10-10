@@ -19,3 +19,21 @@ Exportieren Sie dieselbe Zielpopulation mit den Namen und Schlüsseln aus custom
 Externe Projekt und PSP Kennungen sind von internen Schlüsseln zu unterscheiden. Hierarchie und neue interne Nummern benötigen Zuordnungstabellen. Kostenhistorie ist Referenzmaterial; Budget, Netzpläne und Abrechnung benötigen gesonderte Schnittstellen.
 
 Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine ungeprüften SAP CDS Namen als fertige Schnittstellen behauptet. Testen Sie Berechtigungen, geänderte Nummern, fehlende Felder, doppelte Schlüssel und abgewiesene Buchungen. Archivieren Sie Prüfberichte, Eingabehashes, Anwendungsprotokolle und die fachliche Freigabe. Diese Entwürfe sind noch keine SAP geprüften verkaufsfertigen Pakete.
+
+## Erweiterungen — 0.2.0
+
+### network
+
+AUFK enthält auch andere Auftragsarten. Netzplanarten anhand des geprüften Customizings auswählen und AFKO/AFVC/AFVV auf diese Netzpläne begrenzen. Interne Arbeitsplan-, PSP- und Arbeitsplatznummern zuordnen. Beziehungen, Kapazitäten, Termine und Status benötigen eine freigegebene Geschäftsschnittstelle.
+
+### budget
+
+Originalbudget, Nachträge, Rückgaben, Freigaben und Umbuchungen nach Werttyp und Vorgangssemantik trennen. Nicht alle BPGE/BPJA-Zeilen zum verfügbaren Budget addieren. Währung, Objektzuordnung, Geschäftsjahr und Verfügbarkeitskontrolle prüfen. Gesamt- und Jahresbudget getrennt abstimmen.
+
+### commitment
+
+COOI-Schlüssel und Felder vor der Extraktion im DDIC bestätigen. Obligos auf freigegebene Bestellanforderungen und Bestellpositionen mit Restverpflichtung beziehen. Obligos werden aus Einkaufsbelegen neu erzeugt; Historie und Einkaufsursprung nicht doppelt buchen. Objekt- und Kostenrechnungskreiswährungen ergänzen.
+
+### investment_measure
+
+Programmhierarchie, Genehmigungsjahr, PSP-/Auftragszuordnung, Investitionsprofile, Budgetverteilung und Abrechnung auf Anlagen im Bau prüfen. IMTP/IMPR/IMZO sind Kandidaten für Konfigurations- und Referenzdaten. Externe Kennungen erhalten und interne Objektnummern zuordnen.

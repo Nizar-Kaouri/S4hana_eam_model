@@ -183,5 +183,40 @@
     "selection": "selection/ZQMX_C_PlanCharacteriMig.csv",
     "requires_business_approval": true,
     "mode": "effectivity-reference"
+  },
+  "ZQMX_C_MasterCharMig": {
+    "module": "master_inspection_characteristic",
+    "table": "QPMK",
+    "keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "selection": "selection/ZQMX_C_MasterCharMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZQMX_C_MasterCharTextMig": {
+    "module": "master_inspection_characteristic",
+    "table": "QPMT",
+    "keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion",
+      "Language"
+    ],
+    "selection": "selection/ZQMX_C_MasterCharTextMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZQMX_C_SamplingProcMig": {
+    "module": "sampling_procedure",
+    "table": "QDSV",
+    "keys": [
+      "SamplingProcedure"
+    ],
+    "selection": "selection/ZQMX_C_SamplingProcMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
   }
 }

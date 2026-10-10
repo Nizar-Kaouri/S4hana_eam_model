@@ -19,3 +19,13 @@ Exportieren Sie dieselbe Zielpopulation mit den Namen und Schlüsseln aus custom
 Zeitabhängige Kostenstellen und Profitcenter benötigen eine Stichtagsprüfung. Kostenarten werden mit Sachkonten abgestimmt. COEP Historie ist keine Buchungsvorlage für das Universal Journal. Planung und Verrechnung erfordern zusätzliche Schnittstellen.
 
 Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine ungeprüften SAP CDS Namen als fertige Schnittstellen behauptet. Testen Sie Berechtigungen, geänderte Nummern, fehlende Felder, doppelte Schlüssel und abgewiesene Buchungen. Archivieren Sie Prüfberichte, Eingabehashes, Anwendungsprotokolle und die fachliche Freigabe. Diese Entwürfe sind noch keine SAP geprüften verkaufsfertigen Pakete.
+
+## Erweiterungen — 0.2.0
+
+### planning
+
+COSP/COSS enthalten auch Istwerte. Planwerttypen und Versionen ausdrücklich freigeben. Periodenblock, Perioden 01–16, Geschäftsjahresvariante, Währungen und Soll-/Haben-Semantik erhalten. ACDOCP ist keine direkte Kopie dieser Summen; eine unterstützte Planschnittstelle und Perioden-/Währungstypzuordnung festlegen.
+
+### allocation_cycle
+
+Zyklus- und Segmentköpfe reichen nicht aus. Sender-/Empfängerregeln, Sets, Bezugsgrößen, Konten, Plan-/Ist-Kontext, Iterationen und Gesellschaftsgrenzen über einen geprüften nativen Konfigurationsexport ergänzen. T811*-Tabellentyp und Schlüssel prüfen. Keine direkten Tabelleninserts; Zielzyklus fachlich prüfen und testweise ausführen.

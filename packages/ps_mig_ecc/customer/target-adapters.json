@@ -66,5 +66,170 @@
     "target_export": "target/ZPSX_C_ProjectCostMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_NetworkHeaderMig": {
+    "module": "network",
+    "key": [
+      "Network"
+    ],
+    "fields": [
+      "NetworkType",
+      "ControllingArea",
+      "CompanyCode",
+      "Plant",
+      "NetworkDescription",
+      "ObjectNumber"
+    ],
+    "target_export": "target/ZPSX_C_NetworkHeaderMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_NetworkPlanMig": {
+    "module": "network",
+    "key": [
+      "Network"
+    ],
+    "fields": [
+      "RoutingNumber",
+      "BasicStartDate",
+      "BasicFinishDate"
+    ],
+    "target_export": "target/ZPSX_C_NetworkPlanMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_NetworkActivitMig": {
+    "module": "network",
+    "key": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "fields": [
+      "Activity",
+      "Sequence",
+      "WorkCenterInternalID",
+      "ControlKey",
+      "ActivityDescription",
+      "WBSElementInternalID"
+    ],
+    "target_export": "target/ZPSX_C_NetworkActivitMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_NetworkQuantitMig": {
+    "module": "network",
+    "key": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "fields": [
+      "WorkQuantity",
+      "WorkUnit",
+      "Duration",
+      "DurationUnit"
+    ],
+    "target_export": "target/ZPSX_C_NetworkQuantitMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_OverallBudgetMig": {
+    "module": "budget",
+    "key": [
+      "Ledger",
+      "ObjectNumber",
+      "BudgetItem",
+      "TransactionIndicator",
+      "ValueType",
+      "Version"
+    ],
+    "fields": [
+      "OverallBudgetAmount"
+    ],
+    "target_export": "target/ZPSX_C_OverallBudgetMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_AnnualBudgetMig": {
+    "module": "budget",
+    "key": [
+      "Ledger",
+      "ObjectNumber",
+      "BudgetItem",
+      "TransactionIndicator",
+      "ValueType",
+      "Version",
+      "FiscalYear"
+    ],
+    "fields": [
+      "AnnualBudgetAmount"
+    ],
+    "target_export": "target/ZPSX_C_AnnualBudgetMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_CommitmentMig": {
+    "module": "commitment",
+    "key": [
+      "ObjectNumber",
+      "FiscalYear",
+      "ValueType",
+      "Version",
+      "CostElement",
+      "OriginGroup",
+      "BusinessTransaction",
+      "CommitmentDocument",
+      "CommitmentItem"
+    ],
+    "fields": [
+      "TransactionCurrency",
+      "TransactionAmount",
+      "ObjectCurrencyAmount",
+      "ControllingAreaAmount"
+    ],
+    "target_export": "target/ZPSX_C_CommitmentMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_InvestProgramMig": {
+    "module": "investment_measure",
+    "key": [
+      "InvestmentProgram",
+      "ApprovalFiscalYear"
+    ],
+    "fields": [
+      "InvestmentProgramDescription"
+    ],
+    "target_export": "target/ZPSX_C_InvestProgramMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_InvestPositionMig": {
+    "module": "investment_measure",
+    "key": [
+      "InvestmentPositionInternalID"
+    ],
+    "fields": [
+      "InvestmentProgram",
+      "ApprovalFiscalYear",
+      "InvestmentPosition",
+      "ObjectNumber"
+    ],
+    "target_export": "target/ZPSX_C_InvestPositionMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_InvestAssignMig": {
+    "module": "investment_measure",
+    "key": [
+      "InvestmentPositionInternalID",
+      "AssignedObject",
+      "ApprovalFiscalYear"
+    ],
+    "fields": [
+      "AssignmentPercentage"
+    ],
+    "target_export": "target/ZPSX_C_InvestAssignMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
   }
 }

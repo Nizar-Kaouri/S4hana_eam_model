@@ -23,3 +23,18 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 ## Beträge und Mengen
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
+
+## Erweiterungen — 0.2.0
+
+### planning
+
+COSP/COSS enthalten auch Istwerte. Planwerttypen und Versionen ausdrücklich freigeben. Periodenblock, Perioden 01–16, Geschäftsjahresvariante, Währungen und Soll-/Haben-Semantik erhalten. ACDOCP ist keine direkte Kopie dieser Summen; eine unterstützte Planschnittstelle und Perioden-/Währungstypzuordnung festlegen.
+
+### allocation_cycle
+
+Zyklus- und Segmentköpfe reichen nicht aus. Sender-/Empfängerregeln, Sets, Bezugsgrößen, Konten, Plan-/Ist-Kontext, Iterationen und Gesellschaftsgrenzen über einen geprüften nativen Konfigurationsexport ergänzen. T811*-Tabellentyp und Schlüssel prüfen. Keine direkten Tabelleninserts; Zielzyklus fachlich prüfen und testweise ausführen.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.

@@ -18,7 +18,15 @@
     "ZCOX_C_CostElementMig": "exports/ZCOX_C_CostElementMig.csv",
     "ZCOX_C_CostElementMig_Scope": "selection/ZCOX_C_CostElementMig.csv",
     "ZCOX_C_CostElementAreMig": "exports/ZCOX_C_CostElementAreMig.csv",
-    "ZCOX_C_CostElementAreMig_Scope": "selection/ZCOX_C_CostElementAreMig.csv"
+    "ZCOX_C_CostElementAreMig_Scope": "selection/ZCOX_C_CostElementAreMig.csv",
+    "ZCOX_C_PrimaryPlanMig": "exports/ZCOX_C_PrimaryPlanMig.csv",
+    "ZCOX_C_PrimaryPlanMig_Scope": "selection/ZCOX_C_PrimaryPlanMig.csv",
+    "ZCOX_C_SecondaryPlanMig": "exports/ZCOX_C_SecondaryPlanMig.csv",
+    "ZCOX_C_SecondaryPlanMig_Scope": "selection/ZCOX_C_SecondaryPlanMig.csv",
+    "ZCOX_C_AllocCycleMig": "exports/ZCOX_C_AllocCycleMig.csv",
+    "ZCOX_C_AllocCycleMig_Scope": "selection/ZCOX_C_AllocCycleMig.csv",
+    "ZCOX_C_AllocSegmentMig": "exports/ZCOX_C_AllocSegmentMig.csv",
+    "ZCOX_C_AllocSegmentMig_Scope": "selection/ZCOX_C_AllocSegmentMig.csv"
   },
   "steps": [
     {
@@ -162,6 +170,108 @@
         "CostElement",
         "ValidityEndDate"
       ]
+    },
+    {
+      "name": "ZCOX_C_PrimaryPlanMig_Prepared",
+      "operation": "selection",
+      "input": "ZCOX_C_PrimaryPlanMig",
+      "parent": "ZCOX_C_PrimaryPlanMig_Scope",
+      "child_keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "parent_keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ]
+    },
+    {
+      "name": "ZCOX_C_SecondaryPlanMig_Prepared",
+      "operation": "selection",
+      "input": "ZCOX_C_SecondaryPlanMig",
+      "parent": "ZCOX_C_SecondaryPlanMig_Scope",
+      "child_keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "parent_keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ]
+    },
+    {
+      "name": "ZCOX_C_AllocCycleMig_Prepared",
+      "operation": "selection",
+      "input": "ZCOX_C_AllocCycleMig",
+      "parent": "ZCOX_C_AllocCycleMig_Scope",
+      "child_keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate"
+      ],
+      "parent_keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate"
+      ]
+    },
+    {
+      "name": "ZCOX_C_AllocSegmentMig_Prepared",
+      "operation": "selection",
+      "input": "ZCOX_C_AllocSegmentMig",
+      "parent": "ZCOX_C_AllocSegmentMig_Scope",
+      "child_keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate",
+        "SegmentSequence"
+      ],
+      "parent_keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate",
+        "SegmentSequence"
+      ]
     }
   ],
   "outputs": [
@@ -173,6 +283,10 @@
     "ZCOX_C_OrderSettlemenMig_Prepared",
     "ZCOX_C_CostActualMig_Prepared",
     "ZCOX_C_CostElementMig_Prepared",
-    "ZCOX_C_CostElementAreMig_Prepared"
+    "ZCOX_C_CostElementAreMig_Prepared",
+    "ZCOX_C_PrimaryPlanMig_Prepared",
+    "ZCOX_C_SecondaryPlanMig_Prepared",
+    "ZCOX_C_AllocCycleMig_Prepared",
+    "ZCOX_C_AllocSegmentMig_Prepared"
   ]
 }

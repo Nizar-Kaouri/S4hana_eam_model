@@ -1,0 +1,50 @@
+{
+  "name": "gl_opening_balance",
+  "title": "Dedicated G/L opening balances",
+  "description": "Dedicated G/L opening balances. Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied.",
+  "batch": 1,
+  "version": "0.2.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "balance"
+  ],
+  "sap_tables": [
+    "FAGLFLEXT",
+    "GLT0"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "gl_account"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFIX_I_ClassicBalanceData",
+      "ZFIX_I_NewGLBalanceData"
+    ],
+    "composite": [
+      "ZFIX_I_ClassicBalance",
+      "ZFIX_I_NewGLBalance"
+    ],
+    "consumption": [
+      "ZFIX_C_ClassicBalanceMig",
+      "ZFIX_C_ClassicBalanceMigCount",
+      "ZFIX_C_NewGLBalanceMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFIX_I_ClassicBalanceData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_ClassicBalance": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_ClassicBalanceMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_ClassicBalanceMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_NewGLBalanceData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_NewGLBalance": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_NewGLBalanceMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

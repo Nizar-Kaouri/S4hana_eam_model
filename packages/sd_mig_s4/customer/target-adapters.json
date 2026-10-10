@@ -195,5 +195,70 @@
     "target_export": "target/ZSDX_C_BillingItemMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_ConditionHdrMig": {
+    "module": "pricing_condition",
+    "key": [
+      "ConditionRecord"
+    ],
+    "fields": [
+      "ConditionUsage",
+      "ConditionTableNumber",
+      "Application",
+      "ConditionType",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "target_export": "target/ZSDX_C_ConditionHdrMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_ConditionItemMig": {
+    "module": "pricing_condition",
+    "key": [
+      "ConditionRecord",
+      "ConditionItem"
+    ],
+    "fields": [
+      "CalculationType",
+      "ConditionRate",
+      "ConditionCurrency",
+      "PricingUnit",
+      "ConditionUnit",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZSDX_C_ConditionItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_QuantityScaleMig": {
+    "module": "pricing_condition",
+    "key": [
+      "ConditionRecord",
+      "ConditionItem",
+      "ScaleLine"
+    ],
+    "fields": [
+      "ScaleQuantity",
+      "ConditionRate"
+    ],
+    "target_export": "target/ZSDX_C_QuantityScaleMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_ValueScaleMig": {
+    "module": "pricing_condition",
+    "key": [
+      "ConditionRecord",
+      "ConditionItem",
+      "ScaleLine"
+    ],
+    "fields": [
+      "ScaleValue",
+      "ConditionRate"
+    ],
+    "target_export": "target/ZSDX_C_ValueScaleMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
   }
 }

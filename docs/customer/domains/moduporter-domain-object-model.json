@@ -1,6 +1,6 @@
 {
-  "revision": "0.1.0 domain draft 2026-10-10",
-  "version": "0.1.0",
+  "revision": "0.2.0 domain draft 2026-10-11",
+  "version": "0.2.0",
   "nodes": [
     {
       "name": "ZFAX_C_AssetAssignmenMig",
@@ -474,6 +474,138 @@
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_c_batchstockmig.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_C_ContractAssignMig",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "consumption",
+      "label": "ContractAssignMig",
+      "purpose": "Read ContractAssignMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ],
+      "sources": [
+        "ZMMX_I_ContractAssign"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_c_contractassignmig.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_C_ContractHeaderMig",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "consumption",
+      "label": "ContractHeaderMig",
+      "purpose": "Read ContractHeaderMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract"
+      ],
+      "sources": [
+        "ZMMX_I_ContractHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_c_contractheadermig.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_C_ContractHeaderMigCount",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "consumption",
+      "label": "ContractHeaderMigCount",
+      "purpose": "Read ContractHeaderMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract"
+      ],
+      "sources": [
+        "ZMMX_C_ContractHeaderMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_c_contractheadermigcount.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_C_ContractItemMig",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "consumption",
+      "label": "ContractItemMig",
+      "purpose": "Read ContractItemMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "sources": [
+        "ZMMX_I_ContractItem"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_c_contractitemmig.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_C_InfoPurchOrgMig",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_info_record",
+      "layer": "consumption",
+      "label": "InfoPurchOrgMig",
+      "purpose": "Read InfoPurchOrgMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ],
+      "sources": [
+        "ZMMX_I_InfoPurchOrg"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_c_infopurchorgmig.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_C_InfoRecordMig",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_info_record",
+      "layer": "consumption",
+      "label": "InfoRecordMig",
+      "purpose": "Read InfoRecordMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingInfoRecord"
+      ],
+      "sources": [
+        "ZMMX_I_InfoRecord"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_c_inforecordmig.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_C_InfoRecordMigCount",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_info_record",
+      "layer": "consumption",
+      "label": "InfoRecordMigCount",
+      "purpose": "Read InfoRecordMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingInfoRecord"
+      ],
+      "sources": [
+        "ZMMX_C_InfoRecordMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_c_inforecordmigcount.ddls.asddls"
     },
     {
       "name": "ZMMX_C_LocationStockMig",
@@ -1044,6 +1176,198 @@
       "associations": [],
       "checks": 1,
       "file": "packages/mm_mig_ecc/src/zmmx_i_batchstockdata.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_ContractAssign",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "composite",
+      "label": "ContractAssign",
+      "purpose": "Read ContractAssign as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ],
+      "sources": [
+        "ZMMX_I_ContractAssignData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_contractassign.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_ContractAssignData",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "basic",
+      "label": "ContractAssignData",
+      "purpose": "Read ContractAssignData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ],
+      "sources": [
+        "ekkn"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_contractassigndata.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_ContractHeader",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "composite",
+      "label": "ContractHeader",
+      "purpose": "Read ContractHeader as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract"
+      ],
+      "sources": [
+        "ZMMX_I_ContractHeaderData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_contractheader.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_ContractHeaderData",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "basic",
+      "label": "ContractHeaderData",
+      "purpose": "Read ContractHeaderData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract"
+      ],
+      "sources": [
+        "ekko"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_contractheaderdata.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_ContractItem",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "composite",
+      "label": "ContractItem",
+      "purpose": "Read ContractItem as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "sources": [
+        "ZMMX_I_ContractItemData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_contractitem.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_ContractItemData",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_contract",
+      "layer": "basic",
+      "label": "ContractItemData",
+      "purpose": "Read ContractItemData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "sources": [
+        "ekpo"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_contractitemdata.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_InfoPurchOrg",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_info_record",
+      "layer": "composite",
+      "label": "InfoPurchOrg",
+      "purpose": "Read InfoPurchOrg as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ],
+      "sources": [
+        "ZMMX_I_InfoPurchOrgData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_infopurchorg.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_InfoPurchOrgData",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_info_record",
+      "layer": "basic",
+      "label": "InfoPurchOrgData",
+      "purpose": "Read InfoPurchOrgData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ],
+      "sources": [
+        "eine"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_infopurchorgdata.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_InfoRecord",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_info_record",
+      "layer": "composite",
+      "label": "InfoRecord",
+      "purpose": "Read InfoRecord as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingInfoRecord"
+      ],
+      "sources": [
+        "ZMMX_I_InfoRecordData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_inforecord.ddls.asddls"
+    },
+    {
+      "name": "ZMMX_I_InfoRecordData",
+      "product": "mm_mig_ecc",
+      "domain": "mm",
+      "module": "purchasing_info_record",
+      "layer": "basic",
+      "label": "InfoRecordData",
+      "purpose": "Read InfoRecordData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "PurchasingInfoRecord"
+      ],
+      "sources": [
+        "eina"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/mm_mig_ecc/src/zmmx_i_inforecorddata.ddls.asddls"
     },
     {
       "name": "ZMMX_I_LocationStock",
@@ -2075,6 +2399,65 @@
       "file": "packages/qm_mig_ecc/src/zqmx_c_inspectplanselmig.ddls.asddls"
     },
     {
+      "name": "ZQMX_C_MasterCharMig",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "master_inspection_characteristic",
+      "layer": "consumption",
+      "label": "MasterCharMig",
+      "purpose": "Read MasterCharMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "sources": [
+        "ZQMX_I_MasterChar"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/qm_mig_ecc/src/zqmx_c_mastercharmig.ddls.asddls"
+    },
+    {
+      "name": "ZQMX_C_MasterCharMigCount",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "master_inspection_characteristic",
+      "layer": "consumption",
+      "label": "MasterCharMigCount",
+      "purpose": "Read MasterCharMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Plant"
+      ],
+      "sources": [
+        "ZQMX_C_MasterCharMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/qm_mig_ecc/src/zqmx_c_mastercharmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZQMX_C_MasterCharTextMig",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "master_inspection_characteristic",
+      "layer": "consumption",
+      "label": "MasterCharTextMig",
+      "purpose": "Read MasterCharTextMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ],
+      "sources": [
+        "ZQMX_I_MasterCharText"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/qm_mig_ecc/src/zqmx_c_masterchartextmig.ddls.asddls"
+    },
+    {
       "name": "ZQMX_C_PlanCharacteriMig",
       "product": "qm_mig_ecc",
       "domain": "qm",
@@ -2208,6 +2591,42 @@
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_c_qualitytaskmig.ddls.asddls"
+    },
+    {
+      "name": "ZQMX_C_SamplingProcMig",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "sampling_procedure",
+      "layer": "consumption",
+      "label": "SamplingProcMig",
+      "purpose": "Read SamplingProcMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "SamplingProcedure"
+      ],
+      "sources": [
+        "ZQMX_I_SamplingProc"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/qm_mig_ecc/src/zqmx_c_samplingprocmig.ddls.asddls"
+    },
+    {
+      "name": "ZQMX_C_SamplingProcMigCount",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "sampling_procedure",
+      "layer": "consumption",
+      "label": "SamplingProcMigCount",
+      "purpose": "Read SamplingProcMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "SamplingProcedure"
+      ],
+      "sources": [
+        "ZQMX_C_SamplingProcMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/qm_mig_ecc/src/zqmx_c_samplingprocmigcount.ddls.asddls"
     },
     {
       "name": "ZQMX_C_SingleResultMig",
@@ -2544,6 +2963,88 @@
       "file": "packages/qm_mig_ecc/src/zqmx_i_inspectplanseldata.ddls.asddls"
     },
     {
+      "name": "ZQMX_I_MasterChar",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "master_inspection_characteristic",
+      "layer": "composite",
+      "label": "MasterChar",
+      "purpose": "Read MasterChar as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "sources": [
+        "ZQMX_I_MasterCharData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/qm_mig_ecc/src/zqmx_i_masterchar.ddls.asddls"
+    },
+    {
+      "name": "ZQMX_I_MasterCharData",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "master_inspection_characteristic",
+      "layer": "basic",
+      "label": "MasterCharData",
+      "purpose": "Read MasterCharData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "sources": [
+        "qpmk"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/qm_mig_ecc/src/zqmx_i_masterchardata.ddls.asddls"
+    },
+    {
+      "name": "ZQMX_I_MasterCharText",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "master_inspection_characteristic",
+      "layer": "composite",
+      "label": "MasterCharText",
+      "purpose": "Read MasterCharText as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ],
+      "sources": [
+        "ZQMX_I_MasterCharTextData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/qm_mig_ecc/src/zqmx_i_masterchartext.ddls.asddls"
+    },
+    {
+      "name": "ZQMX_I_MasterCharTextData",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "master_inspection_characteristic",
+      "layer": "basic",
+      "label": "MasterCharTextData",
+      "purpose": "Read MasterCharTextData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ],
+      "sources": [
+        "qpmt"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/qm_mig_ecc/src/zqmx_i_masterchartextdata.ddls.asddls"
+    },
+    {
       "name": "ZQMX_I_PlanCharacteri",
       "product": "qm_mig_ecc",
       "domain": "qm",
@@ -2778,6 +3279,42 @@
       "file": "packages/qm_mig_ecc/src/zqmx_i_qualitytaskdata.ddls.asddls"
     },
     {
+      "name": "ZQMX_I_SamplingProc",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "sampling_procedure",
+      "layer": "composite",
+      "label": "SamplingProc",
+      "purpose": "Read SamplingProc as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "SamplingProcedure"
+      ],
+      "sources": [
+        "ZQMX_I_SamplingProcData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/qm_mig_ecc/src/zqmx_i_samplingproc.ddls.asddls"
+    },
+    {
+      "name": "ZQMX_I_SamplingProcData",
+      "product": "qm_mig_ecc",
+      "domain": "qm",
+      "module": "sampling_procedure",
+      "layer": "basic",
+      "label": "SamplingProcData",
+      "purpose": "Read SamplingProcData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "SamplingProcedure"
+      ],
+      "sources": [
+        "qdsv"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/qm_mig_ecc/src/zqmx_i_samplingprocdata.ddls.asddls"
+    },
+    {
       "name": "ZQMX_I_SingleResult",
       "product": "qm_mig_ecc",
       "domain": "qm",
@@ -2934,6 +3471,282 @@
       "file": "packages/qm_mig_s4/src/zqmt_i_qualitynotificcount.ddls.asddls"
     },
     {
+      "name": "ZPSX_C_AnnualBudgetMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "budget",
+      "layer": "consumption",
+      "label": "AnnualBudgetMig",
+      "purpose": "Read AnnualBudgetMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version",
+        "FiscalYear"
+      ],
+      "sources": [
+        "ZPSX_I_AnnualBudget"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_annualbudgetmig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_CommitmentMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "commitment",
+      "layer": "consumption",
+      "label": "CommitmentMig",
+      "purpose": "Read CommitmentMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "Version",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "CommitmentDocument",
+        "CommitmentItem"
+      ],
+      "sources": [
+        "ZPSX_I_Commitment"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_commitmentmig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_CommitmentMigCount",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "commitment",
+      "layer": "consumption",
+      "label": "CommitmentMigCount",
+      "purpose": "Read CommitmentMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ObjectNumber"
+      ],
+      "sources": [
+        "ZPSX_C_CommitmentMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_commitmentmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_InvestAssignMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "consumption",
+      "label": "InvestAssignMig",
+      "purpose": "Read InvestAssignMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentPositionInternalID",
+        "AssignedObject",
+        "ApprovalFiscalYear"
+      ],
+      "sources": [
+        "ZPSX_I_InvestAssign"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_investassignmig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_InvestPositionMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "consumption",
+      "label": "InvestPositionMig",
+      "purpose": "Read InvestPositionMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentPositionInternalID"
+      ],
+      "sources": [
+        "ZPSX_I_InvestPosition"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_investpositionmig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_InvestProgramMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "consumption",
+      "label": "InvestProgramMig",
+      "purpose": "Read InvestProgramMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentProgram",
+        "ApprovalFiscalYear"
+      ],
+      "sources": [
+        "ZPSX_I_InvestProgram"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_investprogrammig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_InvestProgramMigCount",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "consumption",
+      "label": "InvestProgramMigCount",
+      "purpose": "Read InvestProgramMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentProgram"
+      ],
+      "sources": [
+        "ZPSX_C_InvestProgramMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_investprogrammigcount.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_NetworkActivitMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "consumption",
+      "label": "NetworkActivitMig",
+      "purpose": "Read NetworkActivitMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "sources": [
+        "ZPSX_I_NetworkActivit"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_networkactivitmig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_NetworkHeaderMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "consumption",
+      "label": "NetworkHeaderMig",
+      "purpose": "Read NetworkHeaderMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Network"
+      ],
+      "sources": [
+        "ZPSX_I_NetworkHeader"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_networkheadermig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_NetworkHeaderMigCount",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "consumption",
+      "label": "NetworkHeaderMigCount",
+      "purpose": "Read NetworkHeaderMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Network"
+      ],
+      "sources": [
+        "ZPSX_C_NetworkHeaderMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_networkheadermigcount.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_NetworkPlanMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "consumption",
+      "label": "NetworkPlanMig",
+      "purpose": "Read NetworkPlanMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Network"
+      ],
+      "sources": [
+        "ZPSX_I_NetworkPlan"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_networkplanmig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_NetworkQuantitMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "consumption",
+      "label": "NetworkQuantitMig",
+      "purpose": "Read NetworkQuantitMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "sources": [
+        "ZPSX_I_NetworkQuantit"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_networkquantitmig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_OverallBudgetMig",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "budget",
+      "layer": "consumption",
+      "label": "OverallBudgetMig",
+      "purpose": "Read OverallBudgetMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version"
+      ],
+      "sources": [
+        "ZPSX_I_OverallBudget"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_overallbudgetmig.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_C_OverallBudgetMigCount",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "budget",
+      "layer": "consumption",
+      "label": "OverallBudgetMigCount",
+      "purpose": "Read OverallBudgetMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger"
+      ],
+      "sources": [
+        "ZPSX_C_OverallBudgetMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_c_overallbudgetmigcount.ddls.asddls"
+    },
+    {
       "name": "ZPSX_C_ProjectCostMig",
       "product": "ps_mig_ecc",
       "domain": "ps",
@@ -3060,6 +3873,414 @@
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_c_wbsmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_AnnualBudget",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "budget",
+      "layer": "composite",
+      "label": "AnnualBudget",
+      "purpose": "Read AnnualBudget as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version",
+        "FiscalYear"
+      ],
+      "sources": [
+        "ZPSX_I_AnnualBudgetData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_annualbudget.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_AnnualBudgetData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "budget",
+      "layer": "basic",
+      "label": "AnnualBudgetData",
+      "purpose": "Read AnnualBudgetData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version",
+        "FiscalYear"
+      ],
+      "sources": [
+        "bpja"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_annualbudgetdata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_Commitment",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "commitment",
+      "layer": "composite",
+      "label": "Commitment",
+      "purpose": "Read Commitment as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "Version",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "CommitmentDocument",
+        "CommitmentItem"
+      ],
+      "sources": [
+        "ZPSX_I_CommitmentData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_commitment.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_CommitmentData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "commitment",
+      "layer": "basic",
+      "label": "CommitmentData",
+      "purpose": "Read CommitmentData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "Version",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "CommitmentDocument",
+        "CommitmentItem"
+      ],
+      "sources": [
+        "cooi"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_commitmentdata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_InvestAssign",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "composite",
+      "label": "InvestAssign",
+      "purpose": "Read InvestAssign as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentPositionInternalID",
+        "AssignedObject",
+        "ApprovalFiscalYear"
+      ],
+      "sources": [
+        "ZPSX_I_InvestAssignData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_investassign.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_InvestAssignData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "basic",
+      "label": "InvestAssignData",
+      "purpose": "Read InvestAssignData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentPositionInternalID",
+        "AssignedObject",
+        "ApprovalFiscalYear"
+      ],
+      "sources": [
+        "imzo"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_investassigndata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_InvestPosition",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "composite",
+      "label": "InvestPosition",
+      "purpose": "Read InvestPosition as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentPositionInternalID"
+      ],
+      "sources": [
+        "ZPSX_I_InvestPositionData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_investposition.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_InvestPositionData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "basic",
+      "label": "InvestPositionData",
+      "purpose": "Read InvestPositionData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentPositionInternalID"
+      ],
+      "sources": [
+        "impr"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_investpositiondata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_InvestProgram",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "composite",
+      "label": "InvestProgram",
+      "purpose": "Read InvestProgram as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentProgram",
+        "ApprovalFiscalYear"
+      ],
+      "sources": [
+        "ZPSX_I_InvestProgramData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_investprogram.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_InvestProgramData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "investment_measure",
+      "layer": "basic",
+      "label": "InvestProgramData",
+      "purpose": "Read InvestProgramData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "InvestmentProgram",
+        "ApprovalFiscalYear"
+      ],
+      "sources": [
+        "imtp"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_investprogramdata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_NetworkActivit",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "composite",
+      "label": "NetworkActivit",
+      "purpose": "Read NetworkActivit as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "sources": [
+        "ZPSX_I_NetworkActivitData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_networkactivit.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_NetworkActivitData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "basic",
+      "label": "NetworkActivitData",
+      "purpose": "Read NetworkActivitData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "sources": [
+        "afvc"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_networkactivitdata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_NetworkHeader",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "composite",
+      "label": "NetworkHeader",
+      "purpose": "Read NetworkHeader as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Network"
+      ],
+      "sources": [
+        "ZPSX_I_NetworkHeaderData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_networkheader.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_NetworkHeaderData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "basic",
+      "label": "NetworkHeaderData",
+      "purpose": "Read NetworkHeaderData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Network"
+      ],
+      "sources": [
+        "aufk"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_networkheaderdata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_NetworkPlan",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "composite",
+      "label": "NetworkPlan",
+      "purpose": "Read NetworkPlan as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Network"
+      ],
+      "sources": [
+        "ZPSX_I_NetworkPlanData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_networkplan.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_NetworkPlanData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "basic",
+      "label": "NetworkPlanData",
+      "purpose": "Read NetworkPlanData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Network"
+      ],
+      "sources": [
+        "afko"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_networkplandata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_NetworkQuantit",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "composite",
+      "label": "NetworkQuantit",
+      "purpose": "Read NetworkQuantit as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "sources": [
+        "ZPSX_I_NetworkQuantitData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_networkquantit.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_NetworkQuantitData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "network",
+      "layer": "basic",
+      "label": "NetworkQuantitData",
+      "purpose": "Read NetworkQuantitData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "sources": [
+        "afvv"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_networkquantitdata.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_OverallBudget",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "budget",
+      "layer": "composite",
+      "label": "OverallBudget",
+      "purpose": "Read OverallBudget as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version"
+      ],
+      "sources": [
+        "ZPSX_I_OverallBudgetData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_overallbudget.ddls.asddls"
+    },
+    {
+      "name": "ZPSX_I_OverallBudgetData",
+      "product": "ps_mig_ecc",
+      "domain": "ps",
+      "module": "budget",
+      "layer": "basic",
+      "label": "OverallBudgetData",
+      "purpose": "Read OverallBudgetData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version"
+      ],
+      "sources": [
+        "bpge"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/ps_mig_ecc/src/zpsx_i_overallbudgetdata.ddls.asddls"
     },
     {
       "name": "ZPSX_I_Project",
@@ -3346,6 +4567,43 @@
       "file": "packages/pp_mig_ecc/src/zppx_c_bomselectionmig.ddls.asddls"
     },
     {
+      "name": "ZPPX_C_ConfirmationMig",
+      "product": "pp_mig_ecc",
+      "domain": "pp",
+      "module": "production_confirmation",
+      "layer": "consumption",
+      "label": "ConfirmationMig",
+      "purpose": "Read ConfirmationMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConfirmationNumber",
+        "ConfirmationCounter"
+      ],
+      "sources": [
+        "ZPPX_I_Confirmation"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/pp_mig_ecc/src/zppx_c_confirmationmig.ddls.asddls"
+    },
+    {
+      "name": "ZPPX_C_ConfirmationMigCount",
+      "product": "pp_mig_ecc",
+      "domain": "pp",
+      "module": "production_confirmation",
+      "layer": "consumption",
+      "label": "ConfirmationMigCount",
+      "purpose": "Read ConfirmationMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConfirmationNumber"
+      ],
+      "sources": [
+        "ZPPX_C_ConfirmationMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/pp_mig_ecc/src/zppx_c_confirmationmigcount.ddls.asddls"
+    },
+    {
       "name": "ZPPX_C_MaterialBOMMig",
       "product": "pp_mig_ecc",
       "domain": "pp",
@@ -3533,6 +4791,44 @@
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_c_productionordemigcount.ddls.asddls"
+    },
+    {
+      "name": "ZPPX_C_ProdVersionMig",
+      "product": "pp_mig_ecc",
+      "domain": "pp",
+      "module": "production_version",
+      "layer": "consumption",
+      "label": "ProdVersionMig",
+      "purpose": "Read ProdVersionMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Product",
+        "Plant",
+        "ProductionVersion"
+      ],
+      "sources": [
+        "ZPPX_I_ProdVersion"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/pp_mig_ecc/src/zppx_c_prodversionmig.ddls.asddls"
+    },
+    {
+      "name": "ZPPX_C_ProdVersionMigCount",
+      "product": "pp_mig_ecc",
+      "domain": "pp",
+      "module": "production_version",
+      "layer": "consumption",
+      "label": "ProdVersionMigCount",
+      "purpose": "Read ProdVersionMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Product"
+      ],
+      "sources": [
+        "ZPPX_C_ProdVersionMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/pp_mig_ecc/src/zppx_c_prodversionmigcount.ddls.asddls"
     },
     {
       "name": "ZPPX_C_RoutingHeaderMig",
@@ -3789,6 +5085,44 @@
       "associations": [],
       "checks": 1,
       "file": "packages/pp_mig_ecc/src/zppx_i_bomselectiondata.ddls.asddls"
+    },
+    {
+      "name": "ZPPX_I_Confirmation",
+      "product": "pp_mig_ecc",
+      "domain": "pp",
+      "module": "production_confirmation",
+      "layer": "composite",
+      "label": "Confirmation",
+      "purpose": "Read Confirmation as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConfirmationNumber",
+        "ConfirmationCounter"
+      ],
+      "sources": [
+        "ZPPX_I_ConfirmationData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/pp_mig_ecc/src/zppx_i_confirmation.ddls.asddls"
+    },
+    {
+      "name": "ZPPX_I_ConfirmationData",
+      "product": "pp_mig_ecc",
+      "domain": "pp",
+      "module": "production_confirmation",
+      "layer": "basic",
+      "label": "ConfirmationData",
+      "purpose": "Read ConfirmationData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConfirmationNumber",
+        "ConfirmationCounter"
+      ],
+      "sources": [
+        "afru"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/pp_mig_ecc/src/zppx_i_confirmationdata.ddls.asddls"
     },
     {
       "name": "ZPPX_I_MaterialBOM",
@@ -4061,6 +5395,46 @@
       "file": "packages/pp_mig_ecc/src/zppx_i_productionordedata.ddls.asddls"
     },
     {
+      "name": "ZPPX_I_ProdVersion",
+      "product": "pp_mig_ecc",
+      "domain": "pp",
+      "module": "production_version",
+      "layer": "composite",
+      "label": "ProdVersion",
+      "purpose": "Read ProdVersion as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Product",
+        "Plant",
+        "ProductionVersion"
+      ],
+      "sources": [
+        "ZPPX_I_ProdVersionData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/pp_mig_ecc/src/zppx_i_prodversion.ddls.asddls"
+    },
+    {
+      "name": "ZPPX_I_ProdVersionData",
+      "product": "pp_mig_ecc",
+      "domain": "pp",
+      "module": "production_version",
+      "layer": "basic",
+      "label": "ProdVersionData",
+      "purpose": "Read ProdVersionData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Product",
+        "Plant",
+        "ProductionVersion"
+      ],
+      "sources": [
+        "mkal"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/pp_mig_ecc/src/zppx_i_prodversiondata.ddls.asddls"
+    },
+    {
       "name": "ZPPX_I_RoutingHeader",
       "product": "pp_mig_ecc",
       "domain": "pp",
@@ -4317,6 +5691,65 @@
       "file": "packages/pp_mig_s4/src/zppt_i_productionordecount.ddls.asddls"
     },
     {
+      "name": "ZCOX_C_AllocCycleMig",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "allocation_cycle",
+      "layer": "consumption",
+      "label": "AllocCycleMig",
+      "purpose": "Read AllocCycleMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate"
+      ],
+      "sources": [
+        "ZCOX_I_AllocCycle"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_c_alloccyclemig.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_C_AllocCycleMigCount",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "allocation_cycle",
+      "layer": "consumption",
+      "label": "AllocCycleMigCount",
+      "purpose": "Read AllocCycleMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "AllocationTable"
+      ],
+      "sources": [
+        "ZCOX_C_AllocCycleMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_c_alloccyclemigcount.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_C_AllocSegmentMig",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "allocation_cycle",
+      "layer": "consumption",
+      "label": "AllocSegmentMig",
+      "purpose": "Read AllocSegmentMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate",
+        "SegmentSequence"
+      ],
+      "sources": [
+        "ZCOX_I_AllocSegment"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_c_allocsegmentmig.ddls.asddls"
+    },
+    {
       "name": "ZCOX_C_CostActualMig",
       "product": "co_mig_ecc",
       "domain": "co",
@@ -4527,6 +5960,53 @@
       "file": "packages/co_mig_ecc/src/zcox_c_ordersettlemenmig.ddls.asddls"
     },
     {
+      "name": "ZCOX_C_PrimaryPlanMig",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "planning",
+      "layer": "consumption",
+      "label": "PrimaryPlanMig",
+      "purpose": "Read PrimaryPlanMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "sources": [
+        "ZCOX_I_PrimaryPlan"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_c_primaryplanmig.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_C_PrimaryPlanMigCount",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "planning",
+      "layer": "consumption",
+      "label": "PrimaryPlanMigCount",
+      "purpose": "Read PrimaryPlanMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger"
+      ],
+      "sources": [
+        "ZCOX_C_PrimaryPlanMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_c_primaryplanmigcount.ddls.asddls"
+    },
+    {
       "name": "ZCOX_C_ProfitCenterMig",
       "product": "co_mig_ecc",
       "domain": "co",
@@ -4584,6 +6064,117 @@
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_c_profitcentertemig.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_C_SecondaryPlanMig",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "planning",
+      "layer": "consumption",
+      "label": "SecondaryPlanMig",
+      "purpose": "Read SecondaryPlanMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "sources": [
+        "ZCOX_I_SecondaryPlan"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_c_secondaryplanmig.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_I_AllocCycle",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "allocation_cycle",
+      "layer": "composite",
+      "label": "AllocCycle",
+      "purpose": "Read AllocCycle as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate"
+      ],
+      "sources": [
+        "ZCOX_I_AllocCycleData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_i_alloccycle.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_I_AllocCycleData",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "allocation_cycle",
+      "layer": "basic",
+      "label": "AllocCycleData",
+      "purpose": "Read AllocCycleData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate"
+      ],
+      "sources": [
+        "t811c"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/co_mig_ecc/src/zcox_i_alloccycledata.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_I_AllocSegment",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "allocation_cycle",
+      "layer": "composite",
+      "label": "AllocSegment",
+      "purpose": "Read AllocSegment as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate",
+        "SegmentSequence"
+      ],
+      "sources": [
+        "ZCOX_I_AllocSegmentData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_i_allocsegment.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_I_AllocSegmentData",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "allocation_cycle",
+      "layer": "basic",
+      "label": "AllocSegmentData",
+      "purpose": "Read AllocSegmentData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate",
+        "SegmentSequence"
+      ],
+      "sources": [
+        "t811s"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/co_mig_ecc/src/zcox_i_allocsegmentdata.ddls.asddls"
     },
     {
       "name": "ZCOX_I_CostActual",
@@ -4862,6 +6453,64 @@
       "file": "packages/co_mig_ecc/src/zcox_i_ordersettlemendata.ddls.asddls"
     },
     {
+      "name": "ZCOX_I_PrimaryPlan",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "planning",
+      "layer": "composite",
+      "label": "PrimaryPlan",
+      "purpose": "Read PrimaryPlan as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "sources": [
+        "ZCOX_I_PrimaryPlanData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_i_primaryplan.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_I_PrimaryPlanData",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "planning",
+      "layer": "basic",
+      "label": "PrimaryPlanData",
+      "purpose": "Read PrimaryPlanData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "sources": [
+        "cosp"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/co_mig_ecc/src/zcox_i_primaryplandata.ddls.asddls"
+    },
+    {
       "name": "ZCOX_I_ProfitCenter",
       "product": "co_mig_ecc",
       "domain": "co",
@@ -4942,6 +6591,64 @@
       "associations": [],
       "checks": 1,
       "file": "packages/co_mig_ecc/src/zcox_i_profitcentertedata.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_I_SecondaryPlan",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "planning",
+      "layer": "composite",
+      "label": "SecondaryPlan",
+      "purpose": "Read SecondaryPlan as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "sources": [
+        "ZCOX_I_SecondaryPlanData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/co_mig_ecc/src/zcox_i_secondaryplan.ddls.asddls"
+    },
+    {
+      "name": "ZCOX_I_SecondaryPlanData",
+      "product": "co_mig_ecc",
+      "domain": "co",
+      "module": "planning",
+      "layer": "basic",
+      "label": "SecondaryPlanData",
+      "purpose": "Read SecondaryPlanData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "sources": [
+        "coss"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/co_mig_ecc/src/zcox_i_secondaryplandata.ddls.asddls"
     },
     {
       "name": "ZCOT_I_CostCenterCompare",
@@ -5223,6 +6930,87 @@
       "file": "packages/fi_mig_ecc/src/zfix_c_aropenmig.ddls.asddls"
     },
     {
+      "name": "ZFIX_C_BankMig",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "bank",
+      "layer": "consumption",
+      "label": "BankMig",
+      "purpose": "Read BankMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "sources": [
+        "ZFIX_I_Bank"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/fi_mig_ecc/src/zfix_c_bankmig.ddls.asddls"
+    },
+    {
+      "name": "ZFIX_C_BankMigCount",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "bank",
+      "layer": "consumption",
+      "label": "BankMigCount",
+      "purpose": "Read BankMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "BankCountry"
+      ],
+      "sources": [
+        "ZFIX_C_BankMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/fi_mig_ecc/src/zfix_c_bankmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZFIX_C_ClassicBalanceMig",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "gl_opening_balance",
+      "layer": "consumption",
+      "label": "ClassicBalanceMig",
+      "purpose": "Read ClassicBalanceMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "CompanyCode",
+        "FiscalYear",
+        "GLAccount",
+        "BusinessArea",
+        "TransactionCurrency",
+        "DebitCreditCode"
+      ],
+      "sources": [
+        "ZFIX_I_ClassicBalance"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/fi_mig_ecc/src/zfix_c_classicbalancemig.ddls.asddls"
+    },
+    {
+      "name": "ZFIX_C_ClassicBalanceMigCount",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "gl_opening_balance",
+      "layer": "consumption",
+      "label": "ClassicBalanceMigCount",
+      "purpose": "Read ClassicBalanceMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger"
+      ],
+      "sources": [
+        "ZFIX_C_ClassicBalanceMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/fi_mig_ecc/src/zfix_c_classicbalancemigcount.ddls.asddls"
+    },
+    {
       "name": "ZFIX_C_CustomerCompanMig",
       "product": "fi_mig_ecc",
       "domain": "fi",
@@ -5441,6 +7229,43 @@
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_c_glopenmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZFIX_C_NewGLBalanceMig",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "gl_opening_balance",
+      "layer": "consumption",
+      "label": "NewGLBalanceMig",
+      "purpose": "Read NewGLBalanceMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "FiscalYear",
+        "GLAccount",
+        "CompanyCode",
+        "CostCenter",
+        "ProfitCenter",
+        "FunctionalArea",
+        "BusinessArea",
+        "Segment",
+        "PartnerCostCenter",
+        "PartnerProfitCenter",
+        "PartnerFunctionalArea",
+        "PartnerBusinessArea",
+        "TradingPartner",
+        "PartnerSegment",
+        "TransactionCurrency",
+        "BaseUnit",
+        "DebitCreditCode"
+      ],
+      "sources": [
+        "ZFIX_I_NewGLBalance"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/fi_mig_ecc/src/zfix_c_newglbalancemig.ddls.asddls"
     },
     {
       "name": "ZFIX_C_SupplierCompanMig",
@@ -5815,6 +7640,96 @@
       "file": "packages/fi_mig_ecc/src/zfix_i_aropendata.ddls.asddls"
     },
     {
+      "name": "ZFIX_I_Bank",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "bank",
+      "layer": "composite",
+      "label": "Bank",
+      "purpose": "Read Bank as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "sources": [
+        "ZFIX_I_BankData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/fi_mig_ecc/src/zfix_i_bank.ddls.asddls"
+    },
+    {
+      "name": "ZFIX_I_BankData",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "bank",
+      "layer": "basic",
+      "label": "BankData",
+      "purpose": "Read BankData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "sources": [
+        "bnka"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/fi_mig_ecc/src/zfix_i_bankdata.ddls.asddls"
+    },
+    {
+      "name": "ZFIX_I_ClassicBalance",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "gl_opening_balance",
+      "layer": "composite",
+      "label": "ClassicBalance",
+      "purpose": "Read ClassicBalance as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "CompanyCode",
+        "FiscalYear",
+        "GLAccount",
+        "BusinessArea",
+        "TransactionCurrency",
+        "DebitCreditCode"
+      ],
+      "sources": [
+        "ZFIX_I_ClassicBalanceData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/fi_mig_ecc/src/zfix_i_classicbalance.ddls.asddls"
+    },
+    {
+      "name": "ZFIX_I_ClassicBalanceData",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "gl_opening_balance",
+      "layer": "basic",
+      "label": "ClassicBalanceData",
+      "purpose": "Read ClassicBalanceData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "CompanyCode",
+        "FiscalYear",
+        "GLAccount",
+        "BusinessArea",
+        "TransactionCurrency",
+        "DebitCreditCode"
+      ],
+      "sources": [
+        "glt0"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/fi_mig_ecc/src/zfix_i_classicbalancedata.ddls.asddls"
+    },
+    {
       "name": "ZFIX_I_Customer",
       "product": "fi_mig_ecc",
       "domain": "fi",
@@ -6147,6 +8062,80 @@
       "file": "packages/fi_mig_ecc/src/zfix_i_glopendata.ddls.asddls"
     },
     {
+      "name": "ZFIX_I_NewGLBalance",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "gl_opening_balance",
+      "layer": "composite",
+      "label": "NewGLBalance",
+      "purpose": "Read NewGLBalance as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "FiscalYear",
+        "GLAccount",
+        "CompanyCode",
+        "CostCenter",
+        "ProfitCenter",
+        "FunctionalArea",
+        "BusinessArea",
+        "Segment",
+        "PartnerCostCenter",
+        "PartnerProfitCenter",
+        "PartnerFunctionalArea",
+        "PartnerBusinessArea",
+        "TradingPartner",
+        "PartnerSegment",
+        "TransactionCurrency",
+        "BaseUnit",
+        "DebitCreditCode"
+      ],
+      "sources": [
+        "ZFIX_I_NewGLBalanceData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/fi_mig_ecc/src/zfix_i_newglbalance.ddls.asddls"
+    },
+    {
+      "name": "ZFIX_I_NewGLBalanceData",
+      "product": "fi_mig_ecc",
+      "domain": "fi",
+      "module": "gl_opening_balance",
+      "layer": "basic",
+      "label": "NewGLBalanceData",
+      "purpose": "Read NewGLBalanceData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "FiscalYear",
+        "GLAccount",
+        "CompanyCode",
+        "CostCenter",
+        "ProfitCenter",
+        "FunctionalArea",
+        "BusinessArea",
+        "Segment",
+        "PartnerCostCenter",
+        "PartnerProfitCenter",
+        "PartnerFunctionalArea",
+        "PartnerBusinessArea",
+        "TradingPartner",
+        "PartnerSegment",
+        "TransactionCurrency",
+        "BaseUnit",
+        "DebitCreditCode"
+      ],
+      "sources": [
+        "faglflext"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/fi_mig_ecc/src/zfix_i_newglbalancedata.ddls.asddls"
+    },
+    {
       "name": "ZFIX_I_Supplier",
       "product": "fi_mig_ecc",
       "domain": "fi",
@@ -6423,6 +8412,61 @@
       "file": "packages/sd_mig_ecc/src/zsdx_c_billingmigcount.ddls.asddls"
     },
     {
+      "name": "ZSDX_C_ConditionHdrMig",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "consumption",
+      "label": "ConditionHdrMig",
+      "purpose": "Read ConditionHdrMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord"
+      ],
+      "sources": [
+        "ZSDX_I_ConditionHdr"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_c_conditionhdrmig.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_C_ConditionHdrMigCount",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "consumption",
+      "label": "ConditionHdrMigCount",
+      "purpose": "Read ConditionHdrMigCount as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord"
+      ],
+      "sources": [
+        "ZSDX_C_ConditionHdrMig"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_c_conditionhdrmigcount.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_C_ConditionItemMig",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "consumption",
+      "label": "ConditionItemMig",
+      "purpose": "Read ConditionItemMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem"
+      ],
+      "sources": [
+        "ZSDX_I_ConditionItem"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_c_conditionitemmig.ddls.asddls"
+    },
+    {
       "name": "ZSDX_C_DeliveryItemMig",
       "product": "sd_mig_ecc",
       "domain": "sd",
@@ -6476,6 +8520,26 @@
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_c_deliverymigcount.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_C_QuantityScaleMig",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "consumption",
+      "label": "QuantityScaleMig",
+      "purpose": "Read QuantityScaleMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "sources": [
+        "ZSDX_I_QuantityScale"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_c_quantityscalemig.ddls.asddls"
     },
     {
       "name": "ZSDX_C_SalesBusinessMig",
@@ -6651,6 +8715,26 @@
       "file": "packages/sd_mig_ecc/src/zsdx_c_salesschedulemig.ddls.asddls"
     },
     {
+      "name": "ZSDX_C_ValueScaleMig",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "consumption",
+      "label": "ValueScaleMig",
+      "purpose": "Read ValueScaleMig as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "sources": [
+        "ZSDX_I_ValueScale"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_c_valuescalemig.ddls.asddls"
+    },
+    {
       "name": "ZSDX_I_Billing",
       "product": "sd_mig_ecc",
       "domain": "sd",
@@ -6725,6 +8809,80 @@
       "file": "packages/sd_mig_ecc/src/zsdx_i_billingitemdata.ddls.asddls"
     },
     {
+      "name": "ZSDX_I_ConditionHdr",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "composite",
+      "label": "ConditionHdr",
+      "purpose": "Read ConditionHdr as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord"
+      ],
+      "sources": [
+        "ZSDX_I_ConditionHdrData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_i_conditionhdr.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_I_ConditionHdrData",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "basic",
+      "label": "ConditionHdrData",
+      "purpose": "Read ConditionHdrData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord"
+      ],
+      "sources": [
+        "konh"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/sd_mig_ecc/src/zsdx_i_conditionhdrdata.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_I_ConditionItem",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "composite",
+      "label": "ConditionItem",
+      "purpose": "Read ConditionItem as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem"
+      ],
+      "sources": [
+        "ZSDX_I_ConditionItemData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_i_conditionitem.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_I_ConditionItemData",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "basic",
+      "label": "ConditionItemData",
+      "purpose": "Read ConditionItemData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem"
+      ],
+      "sources": [
+        "konp"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/sd_mig_ecc/src/zsdx_i_conditionitemdata.ddls.asddls"
+    },
+    {
       "name": "ZSDX_I_Delivery",
       "product": "sd_mig_ecc",
       "domain": "sd",
@@ -6797,6 +8955,46 @@
       "associations": [],
       "checks": 1,
       "file": "packages/sd_mig_ecc/src/zsdx_i_deliveryitemdata.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_I_QuantityScale",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "composite",
+      "label": "QuantityScale",
+      "purpose": "Read QuantityScale as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "sources": [
+        "ZSDX_I_QuantityScaleData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_i_quantityscale.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_I_QuantityScaleData",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "basic",
+      "label": "QuantityScaleData",
+      "purpose": "Read QuantityScaleData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "sources": [
+        "konm"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/sd_mig_ecc/src/zsdx_i_quantityscaledata.ddls.asddls"
     },
     {
       "name": "ZSDX_I_SalesBusiness",
@@ -7109,6 +9307,46 @@
       "file": "packages/sd_mig_ecc/src/zsdx_i_salesscheduledata.ddls.asddls"
     },
     {
+      "name": "ZSDX_I_ValueScale",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "composite",
+      "label": "ValueScale",
+      "purpose": "Read ValueScale as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "sources": [
+        "ZSDX_I_ValueScaleData"
+      ],
+      "associations": [],
+      "checks": 0,
+      "file": "packages/sd_mig_ecc/src/zsdx_i_valuescale.ddls.asddls"
+    },
+    {
+      "name": "ZSDX_I_ValueScaleData",
+      "product": "sd_mig_ecc",
+      "domain": "sd",
+      "module": "pricing_condition",
+      "layer": "basic",
+      "label": "ValueScaleData",
+      "purpose": "Read ValueScaleData as source candidates; approve the key-date population before posting.",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "sources": [
+        "konw"
+      ],
+      "associations": [],
+      "checks": 1,
+      "file": "packages/sd_mig_ecc/src/zsdx_i_valuescaledata.ddls.asddls"
+    },
+    {
       "name": "ZSDT_I_BillingCompare",
       "product": "sd_mig_s4",
       "domain": "sd",
@@ -7319,6 +9557,26 @@
       "batch": 1
     },
     {
+      "product": "mm_mig_ecc",
+      "name": "purchasing_contract",
+      "title": "Purchasing contracts",
+      "description": "Purchasing contracts. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval.",
+      "dependencies": [
+        "product"
+      ],
+      "batch": 1
+    },
+    {
+      "product": "mm_mig_ecc",
+      "name": "purchasing_info_record",
+      "title": "Purchasing info records",
+      "description": "Purchasing info records. Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone.",
+      "dependencies": [
+        "product"
+      ],
+      "batch": 1
+    },
+    {
       "product": "mm_mig_s4",
       "name": "goods_movement",
       "title": "Goods movement history target comparison",
@@ -7359,6 +9617,22 @@
       "batch": 1
     },
     {
+      "product": "mm_mig_s4",
+      "name": "purchasing_contract",
+      "title": "Purchasing contracts target comparison",
+      "description": "Purchasing contracts. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "mm_mig_s4",
+      "name": "purchasing_info_record",
+      "title": "Purchasing info records target comparison",
+      "description": "Purchasing info records. Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
       "product": "qm_mig_ecc",
       "name": "inspection_lot",
       "title": "Inspection lots",
@@ -7386,9 +9660,25 @@
     },
     {
       "product": "qm_mig_ecc",
+      "name": "master_inspection_characteristic",
+      "title": "Master inspection characteristics",
+      "description": "Master inspection characteristics. Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "qm_mig_ecc",
       "name": "quality_notification",
       "title": "Quality notifications",
       "description": "Quality notifications source candidates, preparation and comparison contracts.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "qm_mig_ecc",
+      "name": "sampling_procedure",
+      "title": "Sampling procedures",
+      "description": "Sampling procedures. DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.",
       "dependencies": [],
       "batch": 1
     },
@@ -7418,10 +9708,66 @@
     },
     {
       "product": "qm_mig_s4",
+      "name": "master_inspection_characteristic",
+      "title": "Master inspection characteristics target comparison",
+      "description": "Master inspection characteristics. Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "qm_mig_s4",
       "name": "quality_notification",
       "title": "Quality notifications target comparison",
       "description": "Quality notifications source candidates, preparation and comparison contracts.",
       "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "qm_mig_s4",
+      "name": "sampling_procedure",
+      "title": "Sampling procedures target comparison",
+      "description": "Sampling procedures. DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "ps_mig_ecc",
+      "name": "budget",
+      "title": "Project overall and annual budgets",
+      "description": "Project overall and annual budgets. Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface.",
+      "dependencies": [
+        "wbs_element"
+      ],
+      "batch": 1
+    },
+    {
+      "product": "ps_mig_ecc",
+      "name": "commitment",
+      "title": "Project commitments",
+      "description": "Project commitments. COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks.",
+      "dependencies": [
+        "wbs_element"
+      ],
+      "batch": 1
+    },
+    {
+      "product": "ps_mig_ecc",
+      "name": "investment_measure",
+      "title": "Investment programs and measures",
+      "description": "Investment programs and measures. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.",
+      "dependencies": [
+        "wbs_element"
+      ],
+      "batch": 1
+    },
+    {
+      "product": "ps_mig_ecc",
+      "name": "network",
+      "title": "Project networks and activities",
+      "description": "Project networks and activities. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.",
+      "dependencies": [
+        "wbs_element"
+      ],
       "batch": 1
     },
     {
@@ -7450,6 +9796,38 @@
       "dependencies": [
         "project"
       ],
+      "batch": 1
+    },
+    {
+      "product": "ps_mig_s4",
+      "name": "budget",
+      "title": "Project overall and annual budgets target comparison",
+      "description": "Project overall and annual budgets. Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "ps_mig_s4",
+      "name": "commitment",
+      "title": "Project commitments target comparison",
+      "description": "Project commitments. COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "ps_mig_s4",
+      "name": "investment_measure",
+      "title": "Investment programs and measures target comparison",
+      "description": "Investment programs and measures. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "ps_mig_s4",
+      "name": "network",
+      "title": "Project networks and activities target comparison",
+      "description": "Project networks and activities. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.",
+      "dependencies": [],
       "batch": 1
     },
     {
@@ -7486,6 +9864,17 @@
     },
     {
       "product": "pp_mig_ecc",
+      "name": "production_confirmation",
+      "title": "Production confirmations",
+      "description": "Production confirmations. Preserve confirmation/counter identity and reversal relationships; do not delete reversals and assume the remaining history is net yield. Target order/operation mapping and posting periods must be approved. Reposting confirmations can trigger backflush, goods movements, activity allocations and accounting; confirmation history is reference-only unless a supported process migration explicitly authorizes those effects.",
+      "dependencies": [
+        "production_order",
+        "production_order_operation"
+      ],
+      "batch": 1
+    },
+    {
+      "product": "pp_mig_ecc",
       "name": "production_order",
       "title": "Production orders",
       "description": "Production orders source candidates, preparation and comparison contracts.",
@@ -7499,6 +9888,17 @@
       "description": "Production order operations source candidates, preparation and comparison contracts.",
       "dependencies": [
         "production_order"
+      ],
+      "batch": 1
+    },
+    {
+      "product": "pp_mig_ecc",
+      "name": "production_version",
+      "title": "Production versions",
+      "description": "Production versions. Verify production-version validity, lot-size ranges, lock/check status and the effective BOM/task-list combination. Materials and plants are cross-domain prerequisites. Distinct production versions may intentionally overlap; evaluate availability for a version identity rather than rejecting every material-level overlap. REM planning levels require release-specific interface review.",
+      "dependencies": [
+        "bill_of_material",
+        "routing"
       ],
       "batch": 1
     },
@@ -7520,6 +9920,14 @@
     },
     {
       "product": "pp_mig_s4",
+      "name": "production_confirmation",
+      "title": "Production confirmations target comparison",
+      "description": "Production confirmations. Preserve confirmation/counter identity and reversal relationships; do not delete reversals and assume the remaining history is net yield. Target order/operation mapping and posting periods must be approved. Reposting confirmations can trigger backflush, goods movements, activity allocations and accounting; confirmation history is reference-only unless a supported process migration explicitly authorizes those effects.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "pp_mig_s4",
       "name": "production_order",
       "title": "Production orders target comparison",
       "description": "Production orders source candidates, preparation and comparison contracts.",
@@ -7536,10 +9944,29 @@
     },
     {
       "product": "pp_mig_s4",
+      "name": "production_version",
+      "title": "Production versions target comparison",
+      "description": "Production versions. Verify production-version validity, lot-size ranges, lock/check status and the effective BOM/task-list combination. Materials and plants are cross-domain prerequisites. Distinct production versions may intentionally overlap; evaluate availability for a version identity rather than rejecting every material-level overlap. REM planning levels require release-specific interface review.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "pp_mig_s4",
       "name": "routing",
       "title": "Routing reference target comparison",
       "description": "Routing reference source candidates, preparation and comparison contracts.",
       "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "co_mig_ecc",
+      "name": "allocation_cycle",
+      "title": "Allocation cycles and segments",
+      "description": "Allocation cycles and segments. Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target.",
+      "dependencies": [
+        "cost_center",
+        "cost_element"
+      ],
       "batch": 1
     },
     {
@@ -7584,9 +10011,29 @@
     },
     {
       "product": "co_mig_ecc",
+      "name": "planning",
+      "title": "CO primary and secondary cost planning",
+      "description": "CO primary and secondary cost planning. COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01–16, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types.",
+      "dependencies": [
+        "cost_center",
+        "internal_order",
+        "cost_element"
+      ],
+      "batch": 1
+    },
+    {
+      "product": "co_mig_ecc",
       "name": "profit_center",
       "title": "Profit centers",
       "description": "Profit centers source candidates, preparation and comparison contracts.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "co_mig_s4",
+      "name": "allocation_cycle",
+      "title": "Allocation cycles and segments target comparison",
+      "description": "Allocation cycles and segments. Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target.",
       "dependencies": [],
       "batch": 1
     },
@@ -7624,9 +10071,25 @@
     },
     {
       "product": "co_mig_s4",
+      "name": "planning",
+      "title": "CO primary and secondary cost planning target comparison",
+      "description": "CO primary and secondary cost planning. COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01–16, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "co_mig_s4",
       "name": "profit_center",
       "title": "Profit centers target comparison",
       "description": "Profit centers source candidates, preparation and comparison contracts.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "fi_mig_ecc",
+      "name": "bank",
+      "title": "Bank master",
+      "description": "Bank master. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.",
       "dependencies": [],
       "batch": 1
     },
@@ -7658,6 +10121,16 @@
     },
     {
       "product": "fi_mig_ecc",
+      "name": "gl_opening_balance",
+      "title": "Dedicated G/L opening balances",
+      "description": "Dedicated G/L opening balances. Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied.",
+      "dependencies": [
+        "gl_account"
+      ],
+      "batch": 1
+    },
+    {
+      "product": "fi_mig_ecc",
       "name": "open_items",
       "title": "Current and cleared item indexes",
       "description": "Current and cleared item indexes source candidates, preparation and comparison contracts.",
@@ -7673,6 +10146,14 @@
       "name": "supplier",
       "title": "Supplier source data",
       "description": "Supplier source data source candidates, preparation and comparison contracts.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "fi_mig_s4",
+      "name": "bank",
+      "title": "Bank master target comparison",
+      "description": "Bank master. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.",
       "dependencies": [],
       "batch": 1
     },
@@ -7697,6 +10178,14 @@
       "name": "gl_line_item",
       "title": "Accounting document history target comparison",
       "description": "Accounting document history source candidates, preparation and comparison contracts.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "fi_mig_s4",
+      "name": "gl_opening_balance",
+      "title": "Dedicated G/L opening balances target comparison",
+      "description": "Dedicated G/L opening balances. Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied.",
       "dependencies": [],
       "batch": 1
     },
@@ -7738,6 +10227,14 @@
     },
     {
       "product": "sd_mig_ecc",
+      "name": "pricing_condition",
+      "title": "Pricing condition records and scales",
+      "description": "Pricing condition records and scales. Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "sd_mig_ecc",
       "name": "sales_order",
       "title": "Sales orders",
       "description": "Sales orders source candidates, preparation and comparison contracts.",
@@ -7757,6 +10254,14 @@
       "name": "outbound_delivery",
       "title": "Outbound delivery reference target comparison",
       "description": "Outbound delivery reference source candidates, preparation and comparison contracts.",
+      "dependencies": [],
+      "batch": 1
+    },
+    {
+      "product": "sd_mig_s4",
+      "name": "pricing_condition",
+      "title": "Pricing condition records and scales target comparison",
+      "description": "Pricing condition records and scales. Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor.",
       "dependencies": [],
       "batch": 1
     },
@@ -8090,6 +10595,62 @@
       "mode": "open-document"
     },
     {
+      "name": "ZMMX_C_ContractHeaderMig",
+      "module": "purchasing_contract",
+      "keys": [
+        "PurchasingContract"
+      ],
+      "fields": 10,
+      "filter": "",
+      "mode": "open-document"
+    },
+    {
+      "name": "ZMMX_C_ContractItemMig",
+      "module": "purchasing_contract",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "fields": 9,
+      "filter": "",
+      "mode": "open-document"
+    },
+    {
+      "name": "ZMMX_C_ContractAssignMig",
+      "module": "purchasing_contract",
+      "keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ],
+      "fields": 8,
+      "filter": "",
+      "mode": "open-document"
+    },
+    {
+      "name": "ZMMX_C_InfoRecordMig",
+      "module": "purchasing_info_record",
+      "keys": [
+        "PurchasingInfoRecord"
+      ],
+      "fields": 6,
+      "filter": "",
+      "mode": "master"
+    },
+    {
+      "name": "ZMMX_C_InfoPurchOrgMig",
+      "module": "purchasing_info_record",
+      "keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ],
+      "fields": 10,
+      "filter": "",
+      "mode": "master"
+    },
+    {
       "name": "ZQMX_C_InspectionLotMig",
       "module": "inspection_lot",
       "keys": [
@@ -8220,6 +10781,31 @@
       "mode": "reference"
     },
     {
+      "name": "ZQMX_C_MasterCharMig",
+      "module": "master_inspection_characteristic",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "fields": 6,
+      "filter": "",
+      "mode": "master"
+    },
+    {
+      "name": "ZQMX_C_MasterCharTextMig",
+      "module": "master_inspection_characteristic",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ],
+      "fields": 5,
+      "filter": "",
+      "mode": "master"
+    },
+    {
       "name": "ZQMX_C_QualityNotificMig",
       "module": "quality_notification",
       "keys": [
@@ -8271,6 +10857,140 @@
         "ActivityNumber"
       ],
       "fields": 5,
+      "filter": "",
+      "mode": "process-reference"
+    },
+    {
+      "name": "ZQMX_C_SamplingProcMig",
+      "module": "sampling_procedure",
+      "keys": [
+        "SamplingProcedure"
+      ],
+      "fields": 3,
+      "filter": "",
+      "mode": "configuration-reference"
+    },
+    {
+      "name": "ZPSX_C_OverallBudgetMig",
+      "module": "budget",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version"
+      ],
+      "fields": 7,
+      "filter": "",
+      "mode": "balance"
+    },
+    {
+      "name": "ZPSX_C_AnnualBudgetMig",
+      "module": "budget",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version",
+        "FiscalYear"
+      ],
+      "fields": 8,
+      "filter": "",
+      "mode": "balance"
+    },
+    {
+      "name": "ZPSX_C_CommitmentMig",
+      "module": "commitment",
+      "keys": [
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "Version",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "CommitmentDocument",
+        "CommitmentItem"
+      ],
+      "fields": 13,
+      "filter": "",
+      "mode": "reference"
+    },
+    {
+      "name": "ZPSX_C_InvestProgramMig",
+      "module": "investment_measure",
+      "keys": [
+        "InvestmentProgram",
+        "ApprovalFiscalYear"
+      ],
+      "fields": 3,
+      "filter": "",
+      "mode": "configuration-reference"
+    },
+    {
+      "name": "ZPSX_C_InvestPositionMig",
+      "module": "investment_measure",
+      "keys": [
+        "InvestmentPositionInternalID"
+      ],
+      "fields": 5,
+      "filter": "",
+      "mode": "configuration-reference"
+    },
+    {
+      "name": "ZPSX_C_InvestAssignMig",
+      "module": "investment_measure",
+      "keys": [
+        "InvestmentPositionInternalID",
+        "AssignedObject",
+        "ApprovalFiscalYear"
+      ],
+      "fields": 4,
+      "filter": "",
+      "mode": "configuration-reference"
+    },
+    {
+      "name": "ZPSX_C_NetworkHeaderMig",
+      "module": "network",
+      "keys": [
+        "Network"
+      ],
+      "fields": 7,
+      "filter": "",
+      "mode": "process-reference"
+    },
+    {
+      "name": "ZPSX_C_NetworkPlanMig",
+      "module": "network",
+      "keys": [
+        "Network"
+      ],
+      "fields": 4,
+      "filter": "",
+      "mode": "process-reference"
+    },
+    {
+      "name": "ZPSX_C_NetworkActivitMig",
+      "module": "network",
+      "keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "fields": 8,
+      "filter": "",
+      "mode": "process-reference"
+    },
+    {
+      "name": "ZPSX_C_NetworkQuantitMig",
+      "module": "network",
+      "keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "fields": 6,
       "filter": "",
       "mode": "process-reference"
     },
@@ -8371,6 +11091,17 @@
       "mode": "effectivity-reference"
     },
     {
+      "name": "ZPPX_C_ConfirmationMig",
+      "module": "production_confirmation",
+      "keys": [
+        "ConfirmationNumber",
+        "ConfirmationCounter"
+      ],
+      "fields": 11,
+      "filter": "",
+      "mode": "process-reference"
+    },
+    {
       "name": "ZPPX_C_ProductionOrdeMig",
       "module": "production_order",
       "keys": [
@@ -8434,6 +11165,18 @@
       "fields": 10,
       "filter": "",
       "mode": "process-reference"
+    },
+    {
+      "name": "ZPPX_C_ProdVersionMig",
+      "module": "production_version",
+      "keys": [
+        "Product",
+        "Plant",
+        "ProductionVersion"
+      ],
+      "fields": 14,
+      "filter": "",
+      "mode": "effectivity-reference"
     },
     {
       "name": "ZPPX_C_RoutingHeaderMig",
@@ -8504,6 +11247,31 @@
       "fields": 7,
       "filter": "",
       "mode": "effectivity-reference"
+    },
+    {
+      "name": "ZCOX_C_AllocCycleMig",
+      "module": "allocation_cycle",
+      "keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate"
+      ],
+      "fields": 4,
+      "filter": "",
+      "mode": "configuration-reference"
+    },
+    {
+      "name": "ZCOX_C_AllocSegmentMig",
+      "module": "allocation_cycle",
+      "keys": [
+        "AllocationTable",
+        "AllocationCycle",
+        "ValidityStartDate",
+        "SegmentSequence"
+      ],
+      "fields": 5,
+      "filter": "",
+      "mode": "configuration-reference"
     },
     {
       "name": "ZCOX_C_CostActualMig",
@@ -8588,6 +11356,48 @@
       "mode": "master"
     },
     {
+      "name": "ZCOX_C_PrimaryPlanMig",
+      "module": "planning",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "fields": 61,
+      "filter": "",
+      "mode": "planning-reference"
+    },
+    {
+      "name": "ZCOX_C_SecondaryPlanMig",
+      "module": "planning",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "PlanVersion",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "TradingPartner",
+        "PartnerBusinessArea",
+        "DebitCreditCode",
+        "PeriodBlock"
+      ],
+      "fields": 61,
+      "filter": "",
+      "mode": "planning-reference"
+    },
+    {
       "name": "ZCOX_C_ProfitCenterMig",
       "module": "profit_center",
       "keys": [
@@ -8609,6 +11419,17 @@
         "ControllingArea"
       ],
       "fields": 6,
+      "filter": "",
+      "mode": "master"
+    },
+    {
+      "name": "ZFIX_C_BankMig",
+      "module": "bank",
+      "keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "fields": 7,
       "filter": "",
       "mode": "master"
     },
@@ -8704,6 +11525,53 @@
       "fields": 11,
       "filter": "",
       "mode": "reference"
+    },
+    {
+      "name": "ZFIX_C_ClassicBalanceMig",
+      "module": "gl_opening_balance",
+      "keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "CompanyCode",
+        "FiscalYear",
+        "GLAccount",
+        "BusinessArea",
+        "TransactionCurrency",
+        "DebitCreditCode"
+      ],
+      "fields": 43,
+      "filter": "",
+      "mode": "balance"
+    },
+    {
+      "name": "ZFIX_C_NewGLBalanceMig",
+      "module": "gl_opening_balance",
+      "keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "FiscalYear",
+        "GLAccount",
+        "CompanyCode",
+        "CostCenter",
+        "ProfitCenter",
+        "FunctionalArea",
+        "BusinessArea",
+        "Segment",
+        "PartnerCostCenter",
+        "PartnerProfitCenter",
+        "PartnerFunctionalArea",
+        "PartnerBusinessArea",
+        "TradingPartner",
+        "PartnerSegment",
+        "TransactionCurrency",
+        "BaseUnit",
+        "DebitCreditCode"
+      ],
+      "fields": 89,
+      "filter": "",
+      "mode": "balance"
     },
     {
       "name": "ZFIX_C_GLOpenMig",
@@ -8888,6 +11756,51 @@
       "fields": 9,
       "filter": "",
       "mode": "reference"
+    },
+    {
+      "name": "ZSDX_C_ConditionHdrMig",
+      "module": "pricing_condition",
+      "keys": [
+        "ConditionRecord"
+      ],
+      "fields": 7,
+      "filter": "",
+      "mode": "master"
+    },
+    {
+      "name": "ZSDX_C_ConditionItemMig",
+      "module": "pricing_condition",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem"
+      ],
+      "fields": 8,
+      "filter": "",
+      "mode": "master"
+    },
+    {
+      "name": "ZSDX_C_QuantityScaleMig",
+      "module": "pricing_condition",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "fields": 5,
+      "filter": "",
+      "mode": "master"
+    },
+    {
+      "name": "ZSDX_C_ValueScaleMig",
+      "module": "pricing_condition",
+      "keys": [
+        "ConditionRecord",
+        "ConditionItem",
+        "ScaleLine"
+      ],
+      "fields": 5,
+      "filter": "",
+      "mode": "master"
     },
     {
       "name": "ZSDX_C_SalesOrderMig",
@@ -9099,6 +12012,7 @@
   "allowlist": [
     "AFKO",
     "AFPO",
+    "AFRU",
     "AFVC",
     "AFVV",
     "ANEP",
@@ -9108,6 +12022,9 @@
     "ANLZ",
     "AUFK",
     "BKPF",
+    "BNKA",
+    "BPGE",
+    "BPJA",
     "BSAD",
     "BSAK",
     "BSAS",
@@ -9119,20 +12036,34 @@
     "CEPCT",
     "COBRB",
     "COEP",
+    "COOI",
+    "COSP",
+    "COSS",
     "CSKA",
     "CSKB",
     "CSKS",
     "CSKT",
     "EBAN",
     "EBKN",
+    "EINA",
+    "EINE",
     "EKBE",
     "EKET",
     "EKKN",
     "EKKO",
     "EKPO",
+    "FAGLFLEXT",
+    "GLT0",
+    "IMPR",
+    "IMTP",
+    "IMZO",
     "KNA1",
     "KNB1",
     "KNVV",
+    "KONH",
+    "KONM",
+    "KONP",
+    "KONW",
     "LFA1",
     "LFB1",
     "LFM1",
@@ -9149,6 +12080,7 @@
     "MCH1",
     "MCHA",
     "MCHB",
+    "MKAL",
     "MKPF",
     "MSEG",
     "MSKA",
@@ -9166,11 +12098,14 @@
     "QAMV",
     "QASE",
     "QAVE",
+    "QDSV",
     "QMEL",
     "QMFE",
     "QMMA",
     "QMSM",
     "QMUR",
+    "QPMK",
+    "QPMT",
     "RESB",
     "SKA1",
     "SKAT",
@@ -9178,6 +12113,8 @@
     "STAS",
     "STKO",
     "STPO",
+    "T811C",
+    "T811S",
     "VBAK",
     "VBAP",
     "VBEP",
@@ -9203,6 +12140,7 @@
     "migration_run.py",
     "migration_prepare.py",
     "migration_business.py",
-    "mig_reconcile.py"
+    "mig_reconcile.py",
+    "migration_ddic.py"
   ]
 }

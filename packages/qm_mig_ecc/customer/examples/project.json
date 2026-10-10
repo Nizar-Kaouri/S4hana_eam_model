@@ -30,7 +30,13 @@
     "ZQMX_C_InspectPlanOpeMig": "exports/ZQMX_C_InspectPlanOpeMig.csv",
     "ZQMX_C_InspectPlanOpeMig_Scope": "selection/ZQMX_C_InspectPlanOpeMig.csv",
     "ZQMX_C_PlanCharacteriMig": "exports/ZQMX_C_PlanCharacteriMig.csv",
-    "ZQMX_C_PlanCharacteriMig_Scope": "selection/ZQMX_C_PlanCharacteriMig.csv"
+    "ZQMX_C_PlanCharacteriMig_Scope": "selection/ZQMX_C_PlanCharacteriMig.csv",
+    "ZQMX_C_MasterCharMig": "exports/ZQMX_C_MasterCharMig.csv",
+    "ZQMX_C_MasterCharMig_Scope": "selection/ZQMX_C_MasterCharMig.csv",
+    "ZQMX_C_MasterCharTextMig": "exports/ZQMX_C_MasterCharTextMig.csv",
+    "ZQMX_C_MasterCharTextMig_Scope": "selection/ZQMX_C_MasterCharTextMig.csv",
+    "ZQMX_C_SamplingProcMig": "exports/ZQMX_C_SamplingProcMig.csv",
+    "ZQMX_C_SamplingProcMig_Scope": "selection/ZQMX_C_SamplingProcMig.csv"
   },
   "steps": [
     {
@@ -282,6 +288,52 @@
         "CharacteristicNumber",
         "InternalCounter"
       ]
+    },
+    {
+      "name": "ZQMX_C_MasterCharMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_MasterCharMig",
+      "parent": "ZQMX_C_MasterCharMig_Scope",
+      "child_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "parent_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ]
+    },
+    {
+      "name": "ZQMX_C_MasterCharTextMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_MasterCharTextMig",
+      "parent": "ZQMX_C_MasterCharTextMig_Scope",
+      "child_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ],
+      "parent_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ]
+    },
+    {
+      "name": "ZQMX_C_SamplingProcMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_SamplingProcMig",
+      "parent": "ZQMX_C_SamplingProcMig_Scope",
+      "child_keys": [
+        "SamplingProcedure"
+      ],
+      "parent_keys": [
+        "SamplingProcedure"
+      ]
     }
   ],
   "outputs": [
@@ -299,6 +351,9 @@
     "ZQMX_C_InspectPlanMatMig_Prepared",
     "ZQMX_C_InspectPlanSelMig_Prepared",
     "ZQMX_C_InspectPlanOpeMig_Prepared",
-    "ZQMX_C_PlanCharacteriMig_Prepared"
+    "ZQMX_C_PlanCharacteriMig_Prepared",
+    "ZQMX_C_MasterCharMig_Prepared",
+    "ZQMX_C_MasterCharTextMig_Prepared",
+    "ZQMX_C_SamplingProcMig_Prepared"
   ]
 }

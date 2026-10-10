@@ -19,3 +19,13 @@ Exportieren Sie dieselbe Zielpopulation mit den Namen und Schlüsseln aus custom
 Kunden und Lieferanten benötigen Geschäftspartner und CVI Zuordnungen. BSEG kann in ECC eine Clustertabelle sein; CDS Zugriff ist nicht vorausgesetzt. Für offene Posten am Stichtag sind auch später ausgeglichene Posten relevant. Währungen, Vorzeichen und Nebenbuchabgrenzung müssen abgestimmt werden.
 
 Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine ungeprüften SAP CDS Namen als fertige Schnittstellen behauptet. Testen Sie Berechtigungen, geänderte Nummern, fehlende Felder, doppelte Schlüssel und abgewiesene Buchungen. Archivieren Sie Prüfberichte, Eingabehashes, Anwendungsprotokolle und die fachliche Freigabe. Diese Entwürfe sind noch keine SAP geprüften verkaufsfertigen Pakete.
+
+## Erweiterungen — 0.2.0
+
+### bank
+
+Bankland und Bankschlüssel identifizieren die Bank. Länderspezifische Formate und Löschstatus erhalten. Hausbanken, Hausbankkonten, Bank Account Management und Partnerbankdaten sind eigenständige Objekte. Bankstamm nicht mit Bankkontostand verwechseln.
+
+### gl_opening_balance
+
+Pro Ledgerpopulation klassisches ODER neues Hauptbuch verwenden, nicht beide vereinigen. Sämtliche DDIC-Schlüsseldimensionen bestätigen. Periode 00 ist Vortrag; Stichtagswerte anhand freigegebener Periodenregeln einschließlich Sonderperioden berechnen. Währungstypen ergänzen und Konten anhand SKB1 klassifizieren. Bereits durch Anlagen, Debitoren, Kreditoren oder offene Posten übernommene Salden ausschließen. Migrationsverrechnungskonten auf null abstimmen.

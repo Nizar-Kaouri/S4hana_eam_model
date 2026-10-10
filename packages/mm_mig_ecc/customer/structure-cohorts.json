@@ -250,5 +250,61 @@
     "selection": "selection/ZMMX_C_PurchaseHistorMig.csv",
     "requires_business_approval": true,
     "mode": "open-document"
+  },
+  "ZMMX_C_InfoRecordMig": {
+    "module": "purchasing_info_record",
+    "table": "EINA",
+    "keys": [
+      "PurchasingInfoRecord"
+    ],
+    "selection": "selection/ZMMX_C_InfoRecordMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_InfoPurchOrgMig": {
+    "module": "purchasing_info_record",
+    "table": "EINE",
+    "keys": [
+      "PurchasingInfoRecord",
+      "PurchasingOrganization",
+      "InfoRecordCategory",
+      "Plant"
+    ],
+    "selection": "selection/ZMMX_C_InfoPurchOrgMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_ContractHeaderMig": {
+    "module": "purchasing_contract",
+    "table": "EKKO",
+    "keys": [
+      "PurchasingContract"
+    ],
+    "selection": "selection/ZMMX_C_ContractHeaderMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZMMX_C_ContractItemMig": {
+    "module": "purchasing_contract",
+    "table": "EKPO",
+    "keys": [
+      "PurchasingContract",
+      "PurchasingContractItem"
+    ],
+    "selection": "selection/ZMMX_C_ContractItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZMMX_C_ContractAssignMig": {
+    "module": "purchasing_contract",
+    "table": "EKKN",
+    "keys": [
+      "PurchasingContract",
+      "PurchasingContractItem",
+      "AccountAssignmentNumber"
+    ],
+    "selection": "selection/ZMMX_C_ContractAssignMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
   }
 }

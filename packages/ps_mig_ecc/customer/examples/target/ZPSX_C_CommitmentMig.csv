@@ -1,0 +1,2 @@
+﻿ObjectNumber,FiscalYear,ValueType,Version,CostElement,OriginGroup,BusinessTransaction,CommitmentDocument,CommitmentItem,TransactionCurrency,TransactionAmount,ObjectCurrencyAmount,ControllingAreaAmount
+01,01,01,01,01,01,01,01,01,sample,sample,sample,sample

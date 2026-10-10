@@ -1,0 +1,8 @@
+{
+  "mode": "interval",
+  "identity": [
+    "PurchasingContract"
+  ],
+  "valid_from": "ValidityStartDate",
+  "valid_to": "ValidityEndDate"
+}

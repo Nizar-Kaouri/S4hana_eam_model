@@ -19,3 +19,13 @@ Exportieren Sie dieselbe Zielpopulation mit den Namen und Schlüsseln aus custom
 Prüflose, Ergebnisse und Verwendungsentscheide benötigen passende Prozesszustände. Prüfpläne benötigen wirksame Vorgänge, Merkmale und Materialzuordnungen. Ergebnisse bleiben Referenzdaten bis zur Freigabe einer unterstützten Schnittstelle.
 
 Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine ungeprüften SAP CDS Namen als fertige Schnittstellen behauptet. Testen Sie Berechtigungen, geänderte Nummern, fehlende Felder, doppelte Schlüssel und abgewiesene Buchungen. Archivieren Sie Prüfberichte, Eingabehashes, Anwendungsprotokolle und die fachliche Freigabe. Diese Entwürfe sind noch keine SAP geprüften verkaufsfertigen Pakete.
+
+## Erweiterungen — 0.2.0
+
+### master_inspection_characteristic
+
+Werk, Stammprüfmerkmal, Version und Sprache erhalten. Freigabestatus, quantitative/qualitative Steuerung, Grenzen, Einheiten, Prüfmethoden und Katalogabhängigkeiten im vollständigen Export prüfen. Kurztexte sind enthalten; Langtexte über die native Textschnittstelle ergänzen. Aktive Version nicht allein aus höchster Versionsnummer ableiten.
+
+### sampling_procedure
+
+QDSV-Schlüssel und Stichproben-/Bewertungsfelder im DDIC bestätigen. Stichprobenumfang, Stichprobenpläne, Dynamisierung und Bewertung über die native QM-Konfiguration ergänzen. Ein Verfahrenskopf ist kein vollständiger statistischer Stichprobenplan.

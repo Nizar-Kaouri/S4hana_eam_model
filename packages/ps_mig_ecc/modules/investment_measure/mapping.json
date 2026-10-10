@@ -1,0 +1,160 @@
+{
+  "module": "investment_measure",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-verified business interface; configuration-reference restrictions apply",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "wbs_element"
+  ],
+  "key": {
+    "business_key": [
+      "InvestmentProgram",
+      "ApprovalFiscalYear"
+    ],
+    "numbering": "derived",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZPSX_C_InvestProgramMig",
+      "source_view": "ZPSX_I_InvestProgram",
+      "scope_filter": "",
+      "keys": [
+        "InvestmentProgram",
+        "ApprovalFiscalYear"
+      ],
+      "fields": [
+        {
+          "element": "InvestmentProgram",
+          "source": "IMTP-PRNAM",
+          "target": "customer interface field: InvestmentProgram (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ApprovalFiscalYear",
+          "source": "IMTP-GJAHR",
+          "target": "customer interface field: ApprovalFiscalYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InvestmentProgramDescription",
+          "source": "IMTP-TXT50",
+          "target": "customer interface field: InvestmentProgramDescription (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "configuration-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers."
+    },
+    {
+      "consumption_view": "ZPSX_C_InvestPositionMig",
+      "source_view": "ZPSX_I_InvestPosition",
+      "scope_filter": "",
+      "keys": [
+        "InvestmentPositionInternalID"
+      ],
+      "fields": [
+        {
+          "element": "InvestmentPositionInternalID",
+          "source": "IMPR-POSNR",
+          "target": "customer interface field: InvestmentPositionInternalID (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InvestmentProgram",
+          "source": "IMPR-PRNAM",
+          "target": "customer interface field: InvestmentProgram (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ApprovalFiscalYear",
+          "source": "IMPR-GJAHR",
+          "target": "customer interface field: ApprovalFiscalYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InvestmentPosition",
+          "source": "IMPR-POSID",
+          "target": "customer interface field: InvestmentPosition (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "IMPR-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "configuration-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers."
+    },
+    {
+      "consumption_view": "ZPSX_C_InvestAssignMig",
+      "source_view": "ZPSX_I_InvestAssign",
+      "scope_filter": "",
+      "keys": [
+        "InvestmentPositionInternalID",
+        "AssignedObject",
+        "ApprovalFiscalYear"
+      ],
+      "fields": [
+        {
+          "element": "InvestmentPositionInternalID",
+          "source": "IMZO-POSNR",
+          "target": "customer interface field: InvestmentPositionInternalID (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AssignedObject",
+          "source": "IMZO-OBJNR",
+          "target": "customer interface field: AssignedObject (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ApprovalFiscalYear",
+          "source": "IMZO-GJAHR",
+          "target": "customer interface field: ApprovalFiscalYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AssignmentPercentage",
+          "source": "IMZO-PROZU",
+          "target": "customer interface field: AssignmentPercentage (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "configuration-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement.",
+    "Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "InvestmentProgram"
+      }
+    ],
+    "source_count_view": "ZPSX_C_InvestProgramMigCount"
+  },
+  "main_structure": "ZPSX_C_InvestProgramMig"
+}

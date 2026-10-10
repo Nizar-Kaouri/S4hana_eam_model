@@ -19,3 +19,13 @@ Exportieren Sie dieselbe Zielpopulation mit den Namen und Schlüsseln aus custom
 Stücklisten und Arbeitspläne benötigen Stichtag, Änderungsdienst, Alternativen und Knotenauswahl. Fertigungsaufträge sind Prozessreferenzen bis zur Schnittstellenfreigabe. Rückmeldungen und Warenbewegungen dürfen nicht als Stammdaten erneut gebucht werden.
 
 Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine ungeprüften SAP CDS Namen als fertige Schnittstellen behauptet. Testen Sie Berechtigungen, geänderte Nummern, fehlende Felder, doppelte Schlüssel und abgewiesene Buchungen. Archivieren Sie Prüfberichte, Eingabehashes, Anwendungsprotokolle und die fachliche Freigabe. Diese Entwürfe sind noch keine SAP geprüften verkaufsfertigen Pakete.
+
+## Erweiterungen — 0.2.0
+
+### production_version
+
+Gültigkeit, Losgrößen, Sperr-/Prüfstatus sowie wirksame Stücklisten-/Arbeitsplankombination prüfen. Material und Werk sind Voraussetzungen. Verschiedene Fertigungsversionen dürfen sich bewusst überlappen; Gültigkeit pro Version prüfen. REM-Planungsebenen benötigen eine releasespezifische Schnittstellenprüfung.
+
+### production_confirmation
+
+Rückmeldungsnummer/-zähler und Stornobeziehungen erhalten. Stornos nicht einfach entfernen. Zielauftrag/-vorgang und Buchungsperioden prüfen. Erneute Rückmeldung kann Rückspülung, Warenbewegungen, Leistungsverrechnung und Buchhaltung auslösen; Historie nur nach ausdrücklicher Prozessfreigabe erneut buchen.

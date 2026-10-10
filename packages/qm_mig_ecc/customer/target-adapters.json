@@ -246,5 +246,49 @@
     "target_export": "target/ZQMX_C_PlanCharacteriMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_MasterCharMig": {
+    "module": "master_inspection_characteristic",
+    "key": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "fields": [
+      "ValidityStartDate",
+      "DeletionFlag",
+      "ControlIndicators"
+    ],
+    "target_export": "target/ZQMX_C_MasterCharMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_MasterCharTextMig": {
+    "module": "master_inspection_characteristic",
+    "key": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion",
+      "Language"
+    ],
+    "fields": [
+      "CharacteristicDescription"
+    ],
+    "target_export": "target/ZQMX_C_MasterCharTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_SamplingProcMig": {
+    "module": "sampling_procedure",
+    "key": [
+      "SamplingProcedure"
+    ],
+    "fields": [
+      "SamplingType",
+      "ValuationMode"
+    ],
+    "target_export": "target/ZQMX_C_SamplingProcMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
   }
 }

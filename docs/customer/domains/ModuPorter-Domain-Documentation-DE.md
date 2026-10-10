@@ -1,6 +1,6 @@
 # ModuPorter SAP Domain Migration Guides DE
 
-Version 0.1.0. KAOURI INNOVATECH. Eight domain drafts. No SAP runtime validation.
+Version 0.2.0. KAOURI INNOVATECH. Eight domain drafts. No SAP runtime validation.
 
 
 # ModuPorter Asset Accounting Migrationspaket
@@ -29,6 +29,10 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
 
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.
+
 
 # ModuPorter Materials Management Migrationspaket
 
@@ -55,6 +59,21 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 ## Beträge und Mengen
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
+
+## Erweiterungen — 0.2.0
+
+### purchasing_info_record
+
+Allgemeine und Einkaufsorganisationsdaten mit getrennten Schlüsseln übernehmen. Lieferanten-/Geschäftspartner- und Mengeneinheitenzuordnung vorbereiten. EINE-Nettopreis ersetzt keine vollständigen zeitabhängigen Konditionen; konfigurierte Konditionstabellen, KONH/KONP und Staffeln samt Gültigkeit und Zugriffsschlüsseln ergänzen.
+
+### purchasing_contract
+
+EKKO-Belegkategorie K und freigegebene Vertragsarten auswählen. Bestellungen und Lieferpläne ausschließen. Gültigkeit, Wert-/Mengenvertrag, Restverpflichtung und Abrufe prüfen. Kontierung und zeitabhängige Konditionen verknüpfen; Abrufhistorie nicht erneut als Bestellung laden.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.
 
 
 # ModuPorter Quality Management Migrationspaket
@@ -83,6 +102,21 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
 
+## Erweiterungen — 0.2.0
+
+### master_inspection_characteristic
+
+Werk, Stammprüfmerkmal, Version und Sprache erhalten. Freigabestatus, quantitative/qualitative Steuerung, Grenzen, Einheiten, Prüfmethoden und Katalogabhängigkeiten im vollständigen Export prüfen. Kurztexte sind enthalten; Langtexte über die native Textschnittstelle ergänzen. Aktive Version nicht allein aus höchster Versionsnummer ableiten.
+
+### sampling_procedure
+
+QDSV-Schlüssel und Stichproben-/Bewertungsfelder im DDIC bestätigen. Stichprobenumfang, Stichprobenpläne, Dynamisierung und Bewertung über die native QM-Konfiguration ergänzen. Ein Verfahrenskopf ist kein vollständiger statistischer Stichprobenplan.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.
+
 
 # ModuPorter Project System Migrationspaket
 
@@ -109,6 +143,29 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 ## Beträge und Mengen
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
+
+## Erweiterungen — 0.2.0
+
+### network
+
+AUFK enthält auch andere Auftragsarten. Netzplanarten anhand des geprüften Customizings auswählen und AFKO/AFVC/AFVV auf diese Netzpläne begrenzen. Interne Arbeitsplan-, PSP- und Arbeitsplatznummern zuordnen. Beziehungen, Kapazitäten, Termine und Status benötigen eine freigegebene Geschäftsschnittstelle.
+
+### budget
+
+Originalbudget, Nachträge, Rückgaben, Freigaben und Umbuchungen nach Werttyp und Vorgangssemantik trennen. Nicht alle BPGE/BPJA-Zeilen zum verfügbaren Budget addieren. Währung, Objektzuordnung, Geschäftsjahr und Verfügbarkeitskontrolle prüfen. Gesamt- und Jahresbudget getrennt abstimmen.
+
+### commitment
+
+COOI-Schlüssel und Felder vor der Extraktion im DDIC bestätigen. Obligos auf freigegebene Bestellanforderungen und Bestellpositionen mit Restverpflichtung beziehen. Obligos werden aus Einkaufsbelegen neu erzeugt; Historie und Einkaufsursprung nicht doppelt buchen. Objekt- und Kostenrechnungskreiswährungen ergänzen.
+
+### investment_measure
+
+Programmhierarchie, Genehmigungsjahr, PSP-/Auftragszuordnung, Investitionsprofile, Budgetverteilung und Abrechnung auf Anlagen im Bau prüfen. IMTP/IMPR/IMZO sind Kandidaten für Konfigurations- und Referenzdaten. Externe Kennungen erhalten und interne Objektnummern zuordnen.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.
 
 
 # ModuPorter Production Planning Migrationspaket
@@ -137,6 +194,21 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
 
+## Erweiterungen — 0.2.0
+
+### production_version
+
+Gültigkeit, Losgrößen, Sperr-/Prüfstatus sowie wirksame Stücklisten-/Arbeitsplankombination prüfen. Material und Werk sind Voraussetzungen. Verschiedene Fertigungsversionen dürfen sich bewusst überlappen; Gültigkeit pro Version prüfen. REM-Planungsebenen benötigen eine releasespezifische Schnittstellenprüfung.
+
+### production_confirmation
+
+Rückmeldungsnummer/-zähler und Stornobeziehungen erhalten. Stornos nicht einfach entfernen. Zielauftrag/-vorgang und Buchungsperioden prüfen. Erneute Rückmeldung kann Rückspülung, Warenbewegungen, Leistungsverrechnung und Buchhaltung auslösen; Historie nur nach ausdrücklicher Prozessfreigabe erneut buchen.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.
+
 
 # ModuPorter Controlling Migrationspaket
 
@@ -163,6 +235,21 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 ## Beträge und Mengen
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
+
+## Erweiterungen — 0.2.0
+
+### planning
+
+COSP/COSS enthalten auch Istwerte. Planwerttypen und Versionen ausdrücklich freigeben. Periodenblock, Perioden 01–16, Geschäftsjahresvariante, Währungen und Soll-/Haben-Semantik erhalten. ACDOCP ist keine direkte Kopie dieser Summen; eine unterstützte Planschnittstelle und Perioden-/Währungstypzuordnung festlegen.
+
+### allocation_cycle
+
+Zyklus- und Segmentköpfe reichen nicht aus. Sender-/Empfängerregeln, Sets, Bezugsgrößen, Konten, Plan-/Ist-Kontext, Iterationen und Gesellschaftsgrenzen über einen geprüften nativen Konfigurationsexport ergänzen. T811*-Tabellentyp und Schlüssel prüfen. Keine direkten Tabelleninserts; Zielzyklus fachlich prüfen und testweise ausführen.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.
 
 
 # ModuPorter Financial Accounting Migrationspaket
@@ -191,6 +278,21 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
 
+## Erweiterungen — 0.2.0
+
+### bank
+
+Bankland und Bankschlüssel identifizieren die Bank. Länderspezifische Formate und Löschstatus erhalten. Hausbanken, Hausbankkonten, Bank Account Management und Partnerbankdaten sind eigenständige Objekte. Bankstamm nicht mit Bankkontostand verwechseln.
+
+### gl_opening_balance
+
+Pro Ledgerpopulation klassisches ODER neues Hauptbuch verwenden, nicht beide vereinigen. Sämtliche DDIC-Schlüsseldimensionen bestätigen. Periode 00 ist Vortrag; Stichtagswerte anhand freigegebener Periodenregeln einschließlich Sonderperioden berechnen. Währungstypen ergänzen und Konten anhand SKB1 klassifizieren. Bereits durch Anlagen, Debitoren, Kreditoren oder offene Posten übernommene Salden ausschließen. Migrationsverrechnungskonten auf null abstimmen.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.
+
 
 # ModuPorter Sales and Distribution Migrationspaket
 
@@ -217,3 +319,14 @@ Unterstützende Strukturen haben CSV Vergleichsverträge; dafür werden keine un
 ## Beträge und Mengen
 
 Das Werkzeug migration_business.py totals verwendet Dezimalarithmetik und getrennte Währungs oder Einheitengruppen. Doppelte Schlüssel, unbekannte Vorzeichen und ungültige Zahlen werden abgewiesen. Passen Sie currency-totals-example.json an Ihre geprüften Felder, Vorzeichen und Gruppierungen an. Fehlende Einheiten oder Währungen müssen aus freigegebenen Stammdaten ergänzt werden. Es erfolgt keine Währungsumrechnung.
+
+## Erweiterungen — 0.2.0
+
+### pricing_condition
+
+Alle konfigurierten Konditionszugriffstabellen mit tatsächlichem DDIC-Schlüssel exportieren und KNUMH mit KONH/KONP/Staffeln verknüpfen. KONH allein verliert Kunden-/Material-/Vertriebsbereichsschlüssel. Ergänzungen, Ausschlüsse, Löschung, Gültigkeit, Berechnungsart, Währungen/Einheiten und Staffelart prüfen. Stammkonditionen nicht mit Belegkonditionen verwechseln; keinen universellen Ratenfaktor anwenden.
+
+
+## Native DDIC Vorprüfung
+
+Vor der Nutzung einer Kandidatenstruktur die native Tabelle und `.fields.csv`-Metadaten mit dem ABAP Bericht exportieren. `python tools/migration_ddic.py --mapping mapping/<module>/mapping.json --view <consumption view> --schema <table.csv.fields.csv> --out ddic-report.json` ausführen. Bei Fehlern zuerst Quellfelder und vollständige Schlüssel korrigieren und regenerieren. Nur ein als CLNT typisiertes MANDT darf im aktuellen Mandanten implizit bleiben. Die Prüfung bestätigt keine Zielunterstützung, Aktivierung oder fachliche Buchungsfreigabe.

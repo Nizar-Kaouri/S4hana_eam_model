@@ -42,7 +42,17 @@
     "ZMMX_C_PurchaseAssignMig": "exports/ZMMX_C_PurchaseAssignMig.csv",
     "ZMMX_C_PurchaseAssignMig_Scope": "selection/ZMMX_C_PurchaseAssignMig.csv",
     "ZMMX_C_PurchaseHistorMig": "exports/ZMMX_C_PurchaseHistorMig.csv",
-    "ZMMX_C_PurchaseHistorMig_Scope": "selection/ZMMX_C_PurchaseHistorMig.csv"
+    "ZMMX_C_PurchaseHistorMig_Scope": "selection/ZMMX_C_PurchaseHistorMig.csv",
+    "ZMMX_C_InfoRecordMig": "exports/ZMMX_C_InfoRecordMig.csv",
+    "ZMMX_C_InfoRecordMig_Scope": "selection/ZMMX_C_InfoRecordMig.csv",
+    "ZMMX_C_InfoPurchOrgMig": "exports/ZMMX_C_InfoPurchOrgMig.csv",
+    "ZMMX_C_InfoPurchOrgMig_Scope": "selection/ZMMX_C_InfoPurchOrgMig.csv",
+    "ZMMX_C_ContractHeaderMig": "exports/ZMMX_C_ContractHeaderMig.csv",
+    "ZMMX_C_ContractHeaderMig_Scope": "selection/ZMMX_C_ContractHeaderMig.csv",
+    "ZMMX_C_ContractItemMig": "exports/ZMMX_C_ContractItemMig.csv",
+    "ZMMX_C_ContractItemMig_Scope": "selection/ZMMX_C_ContractItemMig.csv",
+    "ZMMX_C_ContractAssignMig": "exports/ZMMX_C_ContractAssignMig.csv",
+    "ZMMX_C_ContractAssignMig_Scope": "selection/ZMMX_C_ContractAssignMig.csv"
   },
   "steps": [
     {
@@ -380,6 +390,78 @@
         "DocumentNumber",
         "DocumentItem"
       ]
+    },
+    {
+      "name": "ZMMX_C_InfoRecordMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_InfoRecordMig",
+      "parent": "ZMMX_C_InfoRecordMig_Scope",
+      "child_keys": [
+        "PurchasingInfoRecord"
+      ],
+      "parent_keys": [
+        "PurchasingInfoRecord"
+      ]
+    },
+    {
+      "name": "ZMMX_C_InfoPurchOrgMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_InfoPurchOrgMig",
+      "parent": "ZMMX_C_InfoPurchOrgMig_Scope",
+      "child_keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ],
+      "parent_keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractHeaderMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_ContractHeaderMig",
+      "parent": "ZMMX_C_ContractHeaderMig_Scope",
+      "child_keys": [
+        "PurchasingContract"
+      ],
+      "parent_keys": [
+        "PurchasingContract"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_ContractItemMig",
+      "parent": "ZMMX_C_ContractItemMig_Scope",
+      "child_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "parent_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractAssignMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_ContractAssignMig",
+      "parent": "ZMMX_C_ContractAssignMig_Scope",
+      "child_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ],
+      "parent_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ]
     }
   ],
   "outputs": [
@@ -403,6 +485,11 @@
     "ZMMX_C_PurchaseItemMig_Prepared",
     "ZMMX_C_PurchaseScheduMig_Prepared",
     "ZMMX_C_PurchaseAssignMig_Prepared",
-    "ZMMX_C_PurchaseHistorMig_Prepared"
+    "ZMMX_C_PurchaseHistorMig_Prepared",
+    "ZMMX_C_InfoRecordMig_Prepared",
+    "ZMMX_C_InfoPurchOrgMig_Prepared",
+    "ZMMX_C_ContractHeaderMig_Prepared",
+    "ZMMX_C_ContractItemMig_Prepared",
+    "ZMMX_C_ContractAssignMig_Prepared"
   ]
 }

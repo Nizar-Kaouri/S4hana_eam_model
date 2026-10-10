@@ -1,0 +1,97 @@
+{
+  "module": "bank",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-verified business interface; master restrictions apply",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFIX_C_BankMig",
+      "source_view": "ZFIX_I_Bank",
+      "scope_filter": "",
+      "keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "fields": [
+        {
+          "element": "BankCountry",
+          "source": "BNKA-BANKS",
+          "target": "customer interface field: BankCountry (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "BankKey",
+          "source": "BNKA-BANKL",
+          "target": "customer interface field: BankKey (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "BankName",
+          "source": "BNKA-BANKA",
+          "target": "customer interface field: BankName (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "City",
+          "source": "BNKA-ORT01",
+          "target": "customer interface field: City (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Street",
+          "source": "BNKA-STRAS",
+          "target": "customer interface field: Street (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SWIFTCode",
+          "source": "BNKA-SWIFT",
+          "target": "customer interface field: SWIFTCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "BNKA-LOEVM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.",
+    "Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "BankCountry"
+      }
+    ],
+    "source_count_view": "ZFIX_C_BankMigCount"
+  },
+  "main_structure": "ZFIX_C_BankMig"
+}

@@ -1054,6 +1054,244 @@
           "product"
         ],
         "mode": "open-document"
+      },
+      {
+        "name": "purchasing_info_record",
+        "title": "Purchasing info records",
+        "target": "",
+        "structures": [
+          {
+            "table": "EINA",
+            "stem": "InfoRecord",
+            "keys": [
+              [
+                "INFNR",
+                "PurchasingInfoRecord"
+              ]
+            ],
+            "fields": [
+              [
+                "MATNR",
+                "Product"
+              ],
+              [
+                "LIFNR",
+                "Supplier"
+              ],
+              [
+                "MATKL",
+                "ProductGroup"
+              ],
+              [
+                "MEINS",
+                "OrderUnit"
+              ],
+              [
+                "LOEKZ",
+                "DeletionFlag"
+              ]
+            ]
+          },
+          {
+            "table": "EINE",
+            "stem": "InfoPurchOrg",
+            "keys": [
+              [
+                "INFNR",
+                "PurchasingInfoRecord"
+              ],
+              [
+                "EKORG",
+                "PurchasingOrganization"
+              ],
+              [
+                "ESOKZ",
+                "InfoRecordCategory"
+              ],
+              [
+                "WERKS",
+                "Plant"
+              ]
+            ],
+            "fields": [
+              [
+                "EKGRP",
+                "PurchasingGroup"
+              ],
+              [
+                "WAERS",
+                "Currency"
+              ],
+              [
+                "NETPR",
+                "NetPrice"
+              ],
+              [
+                "PEINH",
+                "PriceUnit"
+              ],
+              [
+                "BPRME",
+                "PriceUnitOfMeasure"
+              ],
+              [
+                "LOEKZ",
+                "DeletionFlag"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "product"
+        ],
+        "mode": "master",
+        "boundary": "Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone.",
+        "boundary_de": "Allgemeine und Einkaufsorganisationsdaten mit getrennten Schl\u00fcsseln \u00fcbernehmen. Lieferanten-/Gesch\u00e4ftspartner- und Mengeneinheitenzuordnung vorbereiten. EINE-Nettopreis ersetzt keine vollst\u00e4ndigen zeitabh\u00e4ngigen Konditionen; konfigurierte Konditionstabellen, KONH/KONP und Staffeln samt G\u00fcltigkeit und Zugriffsschl\u00fcsseln erg\u00e4nzen."
+      },
+      {
+        "name": "purchasing_contract",
+        "title": "Purchasing contracts",
+        "target": "",
+        "structures": [
+          {
+            "table": "EKKO",
+            "stem": "ContractHeader",
+            "keys": [
+              [
+                "EBELN",
+                "PurchasingContract"
+              ]
+            ],
+            "fields": [
+              [
+                "BSTYP",
+                "PurchasingDocumentCategory"
+              ],
+              [
+                "BSART",
+                "ContractType"
+              ],
+              [
+                "BUKRS",
+                "CompanyCode"
+              ],
+              [
+                "LIFNR",
+                "Supplier"
+              ],
+              [
+                "EKORG",
+                "PurchasingOrganization"
+              ],
+              [
+                "EKGRP",
+                "PurchasingGroup"
+              ],
+              [
+                "WAERS",
+                "Currency"
+              ],
+              [
+                "KDATB",
+                "ValidityStartDate"
+              ],
+              [
+                "KDATE",
+                "ValidityEndDate"
+              ]
+            ]
+          },
+          {
+            "table": "EKPO",
+            "stem": "ContractItem",
+            "keys": [
+              [
+                "EBELN",
+                "PurchasingContract"
+              ],
+              [
+                "EBELP",
+                "PurchasingContractItem"
+              ]
+            ],
+            "fields": [
+              [
+                "MATNR",
+                "Product"
+              ],
+              [
+                "WERKS",
+                "Plant"
+              ],
+              [
+                "KTMNG",
+                "TargetQuantity"
+              ],
+              [
+                "MEINS",
+                "OrderUnit"
+              ],
+              [
+                "NETPR",
+                "NetPrice"
+              ],
+              [
+                "PEINH",
+                "PriceUnit"
+              ],
+              [
+                "LOEKZ",
+                "DeletionFlag"
+              ]
+            ]
+          },
+          {
+            "table": "EKKN",
+            "stem": "ContractAssign",
+            "keys": [
+              [
+                "EBELN",
+                "PurchasingContract"
+              ],
+              [
+                "EBELP",
+                "PurchasingContractItem"
+              ],
+              [
+                "ZEKKN",
+                "AccountAssignmentNumber"
+              ]
+            ],
+            "fields": [
+              [
+                "KOSTL",
+                "CostCenter"
+              ],
+              [
+                "AUFNR",
+                "InternalOrder"
+              ],
+              [
+                "PS_PSP_PNR",
+                "WBSElementInternalID"
+              ],
+              [
+                "SAKTO",
+                "GLAccount"
+              ],
+              [
+                "VPROZ",
+                "DistributionPercentage"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "product"
+        ],
+        "mode": "open-document",
+        "boundary": "Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval.",
+        "boundary_de": "EKKO-Belegkategorie K und freigegebene Vertragsarten ausw\u00e4hlen. Bestellungen und Lieferpl\u00e4ne ausschlie\u00dfen. G\u00fcltigkeit, Wert-/Mengenvertrag, Restverpflichtung und Abrufe pr\u00fcfen. Kontierung und zeitabh\u00e4ngige Konditionen verkn\u00fcpfen; Abrufhistorie nicht erneut als Bestellung laden."
       }
     ]
   },
@@ -1611,6 +1849,108 @@
         ],
         "deps": [],
         "mode": "effectivity-reference"
+      },
+      {
+        "name": "master_inspection_characteristic",
+        "title": "Master inspection characteristics",
+        "target": "",
+        "structures": [
+          {
+            "table": "QPMK",
+            "stem": "MasterChar",
+            "keys": [
+              [
+                "WERKS",
+                "Plant"
+              ],
+              [
+                "MKMNR",
+                "MasterInspectionCharacteristic"
+              ],
+              [
+                "VERSION",
+                "CharacteristicVersion"
+              ]
+            ],
+            "fields": [
+              [
+                "GUELTIGAB",
+                "ValidityStartDate"
+              ],
+              [
+                "LOEKZ",
+                "DeletionFlag"
+              ],
+              [
+                "STEUERKZ",
+                "ControlIndicators"
+              ]
+            ]
+          },
+          {
+            "table": "QPMT",
+            "stem": "MasterCharText",
+            "keys": [
+              [
+                "WERKS",
+                "Plant"
+              ],
+              [
+                "MKMNR",
+                "MasterInspectionCharacteristic"
+              ],
+              [
+                "VERSION",
+                "CharacteristicVersion"
+              ],
+              [
+                "SPRACHE",
+                "Language"
+              ]
+            ],
+            "fields": [
+              [
+                "KURZTEXT",
+                "CharacteristicDescription"
+              ]
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master",
+        "boundary": "Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.",
+        "boundary_de": "Werk, Stammpr\u00fcfmerkmal, Version und Sprache erhalten. Freigabestatus, quantitative/qualitative Steuerung, Grenzen, Einheiten, Pr\u00fcfmethoden und Katalogabh\u00e4ngigkeiten im vollst\u00e4ndigen Export pr\u00fcfen. Kurztexte sind enthalten; Langtexte \u00fcber die native Textschnittstelle erg\u00e4nzen. Aktive Version nicht allein aus h\u00f6chster Versionsnummer ableiten."
+      },
+      {
+        "name": "sampling_procedure",
+        "title": "Sampling procedures",
+        "target": "",
+        "structures": [
+          {
+            "table": "QDSV",
+            "stem": "SamplingProc",
+            "keys": [
+              [
+                "STICHPRVER",
+                "SamplingProcedure"
+              ]
+            ],
+            "fields": [
+              [
+                "STICHPRART",
+                "SamplingType"
+              ],
+              [
+                "BEWERTART",
+                "ValuationMode"
+              ]
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "configuration-reference",
+        "boundary": "DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.",
+        "boundary_de": "QDSV-Schl\u00fcssel und Stichproben-/Bewertungsfelder im DDIC best\u00e4tigen. Stichprobenumfang, Stichprobenpl\u00e4ne, Dynamisierung und Bewertung \u00fcber die native QM-Konfiguration erg\u00e4nzen. Ein Verfahrenskopf ist kein vollst\u00e4ndiger statistischer Stichprobenplan."
       }
     ]
   },
@@ -1793,6 +2133,398 @@
           "wbs_element"
         ],
         "mode": "reference"
+      },
+      {
+        "name": "network",
+        "title": "Project networks and activities",
+        "target": "",
+        "structures": [
+          {
+            "table": "AUFK",
+            "stem": "NetworkHeader",
+            "keys": [
+              [
+                "AUFNR",
+                "Network"
+              ]
+            ],
+            "fields": [
+              [
+                "AUART",
+                "NetworkType"
+              ],
+              [
+                "KOKRS",
+                "ControllingArea"
+              ],
+              [
+                "BUKRS",
+                "CompanyCode"
+              ],
+              [
+                "WERKS",
+                "Plant"
+              ],
+              [
+                "KTEXT",
+                "NetworkDescription"
+              ],
+              [
+                "OBJNR",
+                "ObjectNumber"
+              ]
+            ]
+          },
+          {
+            "table": "AFKO",
+            "stem": "NetworkPlan",
+            "keys": [
+              [
+                "AUFNR",
+                "Network"
+              ]
+            ],
+            "fields": [
+              [
+                "AUFPL",
+                "RoutingNumber"
+              ],
+              [
+                "GSTRP",
+                "BasicStartDate"
+              ],
+              [
+                "GLTRP",
+                "BasicFinishDate"
+              ]
+            ]
+          },
+          {
+            "table": "AFVC",
+            "stem": "NetworkActivit",
+            "keys": [
+              [
+                "AUFPL",
+                "RoutingNumber"
+              ],
+              [
+                "APLZL",
+                "OperationInternalID"
+              ]
+            ],
+            "fields": [
+              [
+                "VORNR",
+                "Activity"
+              ],
+              [
+                "PLNFL",
+                "Sequence"
+              ],
+              [
+                "ARBID",
+                "WorkCenterInternalID"
+              ],
+              [
+                "STEUS",
+                "ControlKey"
+              ],
+              [
+                "LTXA1",
+                "ActivityDescription"
+              ],
+              [
+                "PROJN",
+                "WBSElementInternalID"
+              ]
+            ]
+          },
+          {
+            "table": "AFVV",
+            "stem": "NetworkQuantit",
+            "keys": [
+              [
+                "AUFPL",
+                "RoutingNumber"
+              ],
+              [
+                "APLZL",
+                "OperationInternalID"
+              ]
+            ],
+            "fields": [
+              [
+                "ARBEI",
+                "WorkQuantity"
+              ],
+              [
+                "ARBEH",
+                "WorkUnit"
+              ],
+              [
+                "DAUNO",
+                "Duration"
+              ],
+              [
+                "DAUNE",
+                "DurationUnit"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "wbs_element"
+        ],
+        "mode": "process-reference",
+        "boundary": "AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.",
+        "boundary_de": "AUFK enth\u00e4lt auch andere Auftragsarten. Netzplanarten anhand des gepr\u00fcften Customizings ausw\u00e4hlen und AFKO/AFVC/AFVV auf diese Netzpl\u00e4ne begrenzen. Interne Arbeitsplan-, PSP- und Arbeitsplatznummern zuordnen. Beziehungen, Kapazit\u00e4ten, Termine und Status ben\u00f6tigen eine freigegebene Gesch\u00e4ftsschnittstelle."
+      },
+      {
+        "name": "budget",
+        "title": "Project overall and annual budgets",
+        "target": "",
+        "structures": [
+          {
+            "table": "BPGE",
+            "stem": "OverallBudget",
+            "keys": [
+              [
+                "LEDNR",
+                "Ledger"
+              ],
+              [
+                "OBJNR",
+                "ObjectNumber"
+              ],
+              [
+                "POSIT",
+                "BudgetItem"
+              ],
+              [
+                "TRGKZ",
+                "TransactionIndicator"
+              ],
+              [
+                "WRTTP",
+                "ValueType"
+              ],
+              [
+                "VERSN",
+                "Version"
+              ]
+            ],
+            "fields": [
+              [
+                "WLGES",
+                "OverallBudgetAmount"
+              ]
+            ]
+          },
+          {
+            "table": "BPJA",
+            "stem": "AnnualBudget",
+            "keys": [
+              [
+                "LEDNR",
+                "Ledger"
+              ],
+              [
+                "OBJNR",
+                "ObjectNumber"
+              ],
+              [
+                "POSIT",
+                "BudgetItem"
+              ],
+              [
+                "TRGKZ",
+                "TransactionIndicator"
+              ],
+              [
+                "WRTTP",
+                "ValueType"
+              ],
+              [
+                "VERSN",
+                "Version"
+              ],
+              [
+                "GJAHR",
+                "FiscalYear"
+              ]
+            ],
+            "fields": [
+              [
+                "WTJHR",
+                "AnnualBudgetAmount"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "wbs_element"
+        ],
+        "mode": "balance",
+        "boundary": "Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface.",
+        "boundary_de": "Originalbudget, Nachtr\u00e4ge, R\u00fcckgaben, Freigaben und Umbuchungen nach Werttyp und Vorgangssemantik trennen. Nicht alle BPGE/BPJA-Zeilen zum verf\u00fcgbaren Budget addieren. W\u00e4hrung, Objektzuordnung, Gesch\u00e4ftsjahr und Verf\u00fcgbarkeitskontrolle pr\u00fcfen. Gesamt- und Jahresbudget getrennt abstimmen."
+      },
+      {
+        "name": "commitment",
+        "title": "Project commitments",
+        "target": "",
+        "structures": [
+          {
+            "table": "COOI",
+            "stem": "Commitment",
+            "keys": [
+              [
+                "OBJNR",
+                "ObjectNumber"
+              ],
+              [
+                "GJAHR",
+                "FiscalYear"
+              ],
+              [
+                "WRTTP",
+                "ValueType"
+              ],
+              [
+                "VERSN",
+                "Version"
+              ],
+              [
+                "KSTAR",
+                "CostElement"
+              ],
+              [
+                "HRKFT",
+                "OriginGroup"
+              ],
+              [
+                "VRGNG",
+                "BusinessTransaction"
+              ],
+              [
+                "BELNR",
+                "CommitmentDocument"
+              ],
+              [
+                "BUZEI",
+                "CommitmentItem"
+              ]
+            ],
+            "fields": [
+              [
+                "TWAER",
+                "TransactionCurrency"
+              ],
+              [
+                "WTGBTR",
+                "TransactionAmount"
+              ],
+              [
+                "WOGBTR",
+                "ObjectCurrencyAmount"
+              ],
+              [
+                "WKGBTR",
+                "ControllingAreaAmount"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "wbs_element"
+        ],
+        "mode": "reference",
+        "boundary": "COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks.",
+        "boundary_de": "COOI-Schl\u00fcssel und Felder vor der Extraktion im DDIC best\u00e4tigen. Obligos auf freigegebene Bestellanforderungen und Bestellpositionen mit Restverpflichtung beziehen. Obligos werden aus Einkaufsbelegen neu erzeugt; Historie und Einkaufsursprung nicht doppelt buchen. Objekt- und Kostenrechnungskreisw\u00e4hrungen erg\u00e4nzen."
+      },
+      {
+        "name": "investment_measure",
+        "title": "Investment programs and measures",
+        "target": "",
+        "structures": [
+          {
+            "table": "IMTP",
+            "stem": "InvestProgram",
+            "keys": [
+              [
+                "PRNAM",
+                "InvestmentProgram"
+              ],
+              [
+                "GJAHR",
+                "ApprovalFiscalYear"
+              ]
+            ],
+            "fields": [
+              [
+                "TXT50",
+                "InvestmentProgramDescription"
+              ]
+            ]
+          },
+          {
+            "table": "IMPR",
+            "stem": "InvestPosition",
+            "keys": [
+              [
+                "POSNR",
+                "InvestmentPositionInternalID"
+              ]
+            ],
+            "fields": [
+              [
+                "PRNAM",
+                "InvestmentProgram"
+              ],
+              [
+                "GJAHR",
+                "ApprovalFiscalYear"
+              ],
+              [
+                "POSID",
+                "InvestmentPosition"
+              ],
+              [
+                "OBJNR",
+                "ObjectNumber"
+              ]
+            ]
+          },
+          {
+            "table": "IMZO",
+            "stem": "InvestAssign",
+            "keys": [
+              [
+                "POSNR",
+                "InvestmentPositionInternalID"
+              ],
+              [
+                "OBJNR",
+                "AssignedObject"
+              ],
+              [
+                "GJAHR",
+                "ApprovalFiscalYear"
+              ]
+            ],
+            "fields": [
+              [
+                "PROZU",
+                "AssignmentPercentage"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "wbs_element"
+        ],
+        "mode": "configuration-reference",
+        "boundary": "Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.",
+        "boundary_de": "Programmhierarchie, Genehmigungsjahr, PSP-/Auftragszuordnung, Investitionsprofile, Budgetverteilung und Abrechnung auf Anlagen im Bau pr\u00fcfen. IMTP/IMPR/IMZO sind Kandidaten f\u00fcr Konfigurations- und Referenzdaten. Externe Kennungen erhalten und interne Objektnummern zuordnen."
       }
     ]
   },
@@ -2422,6 +3154,150 @@
         ],
         "deps": [],
         "mode": "effectivity-reference"
+      },
+      {
+        "name": "production_version",
+        "title": "Production versions",
+        "target": "",
+        "structures": [
+          {
+            "table": "MKAL",
+            "stem": "ProdVersion",
+            "keys": [
+              [
+                "MATNR",
+                "Product"
+              ],
+              [
+                "WERKS",
+                "Plant"
+              ],
+              [
+                "VERID",
+                "ProductionVersion"
+              ]
+            ],
+            "fields": [
+              [
+                "TEXT1",
+                "ProductionVersionText"
+              ],
+              [
+                "ADATU",
+                "ValidityStartDate"
+              ],
+              [
+                "BDATU",
+                "ValidityEndDate"
+              ],
+              [
+                "BSTMI",
+                "MinimumLotSize"
+              ],
+              [
+                "BSTMA",
+                "MaximumLotSize"
+              ],
+              [
+                "STLAL",
+                "BOMAlternative"
+              ],
+              [
+                "STLAN",
+                "BOMUsage"
+              ],
+              [
+                "PLNTY",
+                "TaskListType"
+              ],
+              [
+                "PLNNR",
+                "TaskListGroup"
+              ],
+              [
+                "ALNAL",
+                "TaskListGroupCounter"
+              ],
+              [
+                "MKSP",
+                "ProductionVersionLock"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "bill_of_material",
+          "routing"
+        ],
+        "mode": "effectivity-reference",
+        "boundary": "Verify production-version validity, lot-size ranges, lock/check status and the effective BOM/task-list combination. Materials and plants are cross-domain prerequisites. Distinct production versions may intentionally overlap; evaluate availability for a version identity rather than rejecting every material-level overlap. REM planning levels require release-specific interface review.",
+        "boundary_de": "G\u00fcltigkeit, Losgr\u00f6\u00dfen, Sperr-/Pr\u00fcfstatus sowie wirksame St\u00fccklisten-/Arbeitsplankombination pr\u00fcfen. Material und Werk sind Voraussetzungen. Verschiedene Fertigungsversionen d\u00fcrfen sich bewusst \u00fcberlappen; G\u00fcltigkeit pro Version pr\u00fcfen. REM-Planungsebenen ben\u00f6tigen eine releasespezifische Schnittstellenpr\u00fcfung."
+      },
+      {
+        "name": "production_confirmation",
+        "title": "Production confirmations",
+        "target": "",
+        "structures": [
+          {
+            "table": "AFRU",
+            "stem": "Confirmation",
+            "keys": [
+              [
+                "RUECK",
+                "ConfirmationNumber"
+              ],
+              [
+                "RMZHL",
+                "ConfirmationCounter"
+              ]
+            ],
+            "fields": [
+              [
+                "AUFNR",
+                "ManufacturingOrder"
+              ],
+              [
+                "VORNR",
+                "Operation"
+              ],
+              [
+                "BUDAT",
+                "PostingDate"
+              ],
+              [
+                "AUERU",
+                "FinalConfirmation"
+              ],
+              [
+                "STOKZ",
+                "ReversalFlag"
+              ],
+              [
+                "STZHL",
+                "ReversalCounter"
+              ],
+              [
+                "LMNGA",
+                "YieldQuantity"
+              ],
+              [
+                "XMNGA",
+                "ScrapQuantity"
+              ],
+              [
+                "GMEIN",
+                "ConfirmationUnit"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "production_order",
+          "production_order_operation"
+        ],
+        "mode": "process-reference",
+        "boundary": "Preserve confirmation/counter identity and reversal relationships; do not delete reversals and assume the remaining history is net yield. Target order/operation mapping and posting periods must be approved. Reposting confirmations can trigger backflush, goods movements, activity allocations and accounting; confirmation history is reference-only unless a supported process migration explicitly authorizes those effects.",
+        "boundary_de": "R\u00fcckmeldungsnummer/-z\u00e4hler und Stornobeziehungen erhalten. Stornos nicht einfach entfernen. Zielauftrag/-vorgang und Buchungsperioden pr\u00fcfen. Erneute R\u00fcckmeldung kann R\u00fccksp\u00fclung, Warenbewegungen, Leistungsverrechnung und Buchhaltung ausl\u00f6sen; Historie nur nach ausdr\u00fccklicher Prozessfreigabe erneut buchen."
       }
     ]
   },
@@ -2794,6 +3670,591 @@
         ],
         "deps": [],
         "mode": "reference"
+      },
+      {
+        "name": "planning",
+        "title": "CO primary and secondary cost planning",
+        "target": "",
+        "structures": [
+          {
+            "table": "COSP",
+            "stem": "PrimaryPlan",
+            "keys": [
+              [
+                "LEDNR",
+                "Ledger"
+              ],
+              [
+                "OBJNR",
+                "ObjectNumber"
+              ],
+              [
+                "GJAHR",
+                "FiscalYear"
+              ],
+              [
+                "WRTTP",
+                "ValueType"
+              ],
+              [
+                "VERSN",
+                "PlanVersion"
+              ],
+              [
+                "KSTAR",
+                "CostElement"
+              ],
+              [
+                "HRKFT",
+                "OriginGroup"
+              ],
+              [
+                "VRGNG",
+                "BusinessTransaction"
+              ],
+              [
+                "VBUND",
+                "TradingPartner"
+              ],
+              [
+                "PARGB",
+                "PartnerBusinessArea"
+              ],
+              [
+                "BEKNZ",
+                "DebitCreditCode"
+              ],
+              [
+                "PERBL",
+                "PeriodBlock"
+              ]
+            ],
+            "fields": [
+              [
+                "TWAER",
+                "TransactionCurrency"
+              ],
+              [
+                "WKG001",
+                "ControllingAmount01"
+              ],
+              [
+                "WOG001",
+                "ObjectAmount01"
+              ],
+              [
+                "WTG001",
+                "TransactionAmount01"
+              ],
+              [
+                "WKG002",
+                "ControllingAmount02"
+              ],
+              [
+                "WOG002",
+                "ObjectAmount02"
+              ],
+              [
+                "WTG002",
+                "TransactionAmount02"
+              ],
+              [
+                "WKG003",
+                "ControllingAmount03"
+              ],
+              [
+                "WOG003",
+                "ObjectAmount03"
+              ],
+              [
+                "WTG003",
+                "TransactionAmount03"
+              ],
+              [
+                "WKG004",
+                "ControllingAmount04"
+              ],
+              [
+                "WOG004",
+                "ObjectAmount04"
+              ],
+              [
+                "WTG004",
+                "TransactionAmount04"
+              ],
+              [
+                "WKG005",
+                "ControllingAmount05"
+              ],
+              [
+                "WOG005",
+                "ObjectAmount05"
+              ],
+              [
+                "WTG005",
+                "TransactionAmount05"
+              ],
+              [
+                "WKG006",
+                "ControllingAmount06"
+              ],
+              [
+                "WOG006",
+                "ObjectAmount06"
+              ],
+              [
+                "WTG006",
+                "TransactionAmount06"
+              ],
+              [
+                "WKG007",
+                "ControllingAmount07"
+              ],
+              [
+                "WOG007",
+                "ObjectAmount07"
+              ],
+              [
+                "WTG007",
+                "TransactionAmount07"
+              ],
+              [
+                "WKG008",
+                "ControllingAmount08"
+              ],
+              [
+                "WOG008",
+                "ObjectAmount08"
+              ],
+              [
+                "WTG008",
+                "TransactionAmount08"
+              ],
+              [
+                "WKG009",
+                "ControllingAmount09"
+              ],
+              [
+                "WOG009",
+                "ObjectAmount09"
+              ],
+              [
+                "WTG009",
+                "TransactionAmount09"
+              ],
+              [
+                "WKG010",
+                "ControllingAmount10"
+              ],
+              [
+                "WOG010",
+                "ObjectAmount10"
+              ],
+              [
+                "WTG010",
+                "TransactionAmount10"
+              ],
+              [
+                "WKG011",
+                "ControllingAmount11"
+              ],
+              [
+                "WOG011",
+                "ObjectAmount11"
+              ],
+              [
+                "WTG011",
+                "TransactionAmount11"
+              ],
+              [
+                "WKG012",
+                "ControllingAmount12"
+              ],
+              [
+                "WOG012",
+                "ObjectAmount12"
+              ],
+              [
+                "WTG012",
+                "TransactionAmount12"
+              ],
+              [
+                "WKG013",
+                "ControllingAmount13"
+              ],
+              [
+                "WOG013",
+                "ObjectAmount13"
+              ],
+              [
+                "WTG013",
+                "TransactionAmount13"
+              ],
+              [
+                "WKG014",
+                "ControllingAmount14"
+              ],
+              [
+                "WOG014",
+                "ObjectAmount14"
+              ],
+              [
+                "WTG014",
+                "TransactionAmount14"
+              ],
+              [
+                "WKG015",
+                "ControllingAmount15"
+              ],
+              [
+                "WOG015",
+                "ObjectAmount15"
+              ],
+              [
+                "WTG015",
+                "TransactionAmount15"
+              ],
+              [
+                "WKG016",
+                "ControllingAmount16"
+              ],
+              [
+                "WOG016",
+                "ObjectAmount16"
+              ],
+              [
+                "WTG016",
+                "TransactionAmount16"
+              ]
+            ]
+          },
+          {
+            "table": "COSS",
+            "stem": "SecondaryPlan",
+            "keys": [
+              [
+                "LEDNR",
+                "Ledger"
+              ],
+              [
+                "OBJNR",
+                "ObjectNumber"
+              ],
+              [
+                "GJAHR",
+                "FiscalYear"
+              ],
+              [
+                "WRTTP",
+                "ValueType"
+              ],
+              [
+                "VERSN",
+                "PlanVersion"
+              ],
+              [
+                "KSTAR",
+                "CostElement"
+              ],
+              [
+                "HRKFT",
+                "OriginGroup"
+              ],
+              [
+                "VRGNG",
+                "BusinessTransaction"
+              ],
+              [
+                "VBUND",
+                "TradingPartner"
+              ],
+              [
+                "PARGB",
+                "PartnerBusinessArea"
+              ],
+              [
+                "BEKNZ",
+                "DebitCreditCode"
+              ],
+              [
+                "PERBL",
+                "PeriodBlock"
+              ]
+            ],
+            "fields": [
+              [
+                "TWAER",
+                "TransactionCurrency"
+              ],
+              [
+                "WKG001",
+                "ControllingAmount01"
+              ],
+              [
+                "WOG001",
+                "ObjectAmount01"
+              ],
+              [
+                "WTG001",
+                "TransactionAmount01"
+              ],
+              [
+                "WKG002",
+                "ControllingAmount02"
+              ],
+              [
+                "WOG002",
+                "ObjectAmount02"
+              ],
+              [
+                "WTG002",
+                "TransactionAmount02"
+              ],
+              [
+                "WKG003",
+                "ControllingAmount03"
+              ],
+              [
+                "WOG003",
+                "ObjectAmount03"
+              ],
+              [
+                "WTG003",
+                "TransactionAmount03"
+              ],
+              [
+                "WKG004",
+                "ControllingAmount04"
+              ],
+              [
+                "WOG004",
+                "ObjectAmount04"
+              ],
+              [
+                "WTG004",
+                "TransactionAmount04"
+              ],
+              [
+                "WKG005",
+                "ControllingAmount05"
+              ],
+              [
+                "WOG005",
+                "ObjectAmount05"
+              ],
+              [
+                "WTG005",
+                "TransactionAmount05"
+              ],
+              [
+                "WKG006",
+                "ControllingAmount06"
+              ],
+              [
+                "WOG006",
+                "ObjectAmount06"
+              ],
+              [
+                "WTG006",
+                "TransactionAmount06"
+              ],
+              [
+                "WKG007",
+                "ControllingAmount07"
+              ],
+              [
+                "WOG007",
+                "ObjectAmount07"
+              ],
+              [
+                "WTG007",
+                "TransactionAmount07"
+              ],
+              [
+                "WKG008",
+                "ControllingAmount08"
+              ],
+              [
+                "WOG008",
+                "ObjectAmount08"
+              ],
+              [
+                "WTG008",
+                "TransactionAmount08"
+              ],
+              [
+                "WKG009",
+                "ControllingAmount09"
+              ],
+              [
+                "WOG009",
+                "ObjectAmount09"
+              ],
+              [
+                "WTG009",
+                "TransactionAmount09"
+              ],
+              [
+                "WKG010",
+                "ControllingAmount10"
+              ],
+              [
+                "WOG010",
+                "ObjectAmount10"
+              ],
+              [
+                "WTG010",
+                "TransactionAmount10"
+              ],
+              [
+                "WKG011",
+                "ControllingAmount11"
+              ],
+              [
+                "WOG011",
+                "ObjectAmount11"
+              ],
+              [
+                "WTG011",
+                "TransactionAmount11"
+              ],
+              [
+                "WKG012",
+                "ControllingAmount12"
+              ],
+              [
+                "WOG012",
+                "ObjectAmount12"
+              ],
+              [
+                "WTG012",
+                "TransactionAmount12"
+              ],
+              [
+                "WKG013",
+                "ControllingAmount13"
+              ],
+              [
+                "WOG013",
+                "ObjectAmount13"
+              ],
+              [
+                "WTG013",
+                "TransactionAmount13"
+              ],
+              [
+                "WKG014",
+                "ControllingAmount14"
+              ],
+              [
+                "WOG014",
+                "ObjectAmount14"
+              ],
+              [
+                "WTG014",
+                "TransactionAmount14"
+              ],
+              [
+                "WKG015",
+                "ControllingAmount15"
+              ],
+              [
+                "WOG015",
+                "ObjectAmount15"
+              ],
+              [
+                "WTG015",
+                "TransactionAmount15"
+              ],
+              [
+                "WKG016",
+                "ControllingAmount16"
+              ],
+              [
+                "WOG016",
+                "ObjectAmount16"
+              ],
+              [
+                "WTG016",
+                "TransactionAmount16"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "cost_center",
+          "internal_order",
+          "cost_element"
+        ],
+        "mode": "planning-reference",
+        "boundary": "COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01\u201316, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types.",
+        "boundary_de": "COSP/COSS enthalten auch Istwerte. Planwerttypen und Versionen ausdr\u00fccklich freigeben. Periodenblock, Perioden 01\u201316, Gesch\u00e4ftsjahresvariante, W\u00e4hrungen und Soll-/Haben-Semantik erhalten. ACDOCP ist keine direkte Kopie dieser Summen; eine unterst\u00fctzte Planschnittstelle und Perioden-/W\u00e4hrungstypzuordnung festlegen."
+      },
+      {
+        "name": "allocation_cycle",
+        "title": "Allocation cycles and segments",
+        "target": "",
+        "structures": [
+          {
+            "table": "T811C",
+            "stem": "AllocCycle",
+            "keys": [
+              [
+                "TAB",
+                "AllocationTable"
+              ],
+              [
+                "CYCLE",
+                "AllocationCycle"
+              ],
+              [
+                "SDATE",
+                "ValidityStartDate"
+              ]
+            ],
+            "fields": [
+              [
+                "EDATE",
+                "ValidityEndDate"
+              ]
+            ]
+          },
+          {
+            "table": "T811S",
+            "stem": "AllocSegment",
+            "keys": [
+              [
+                "TAB",
+                "AllocationTable"
+              ],
+              [
+                "CYCLE",
+                "AllocationCycle"
+              ],
+              [
+                "SDATE",
+                "ValidityStartDate"
+              ],
+              [
+                "SEQNR",
+                "SegmentSequence"
+              ]
+            ],
+            "fields": [
+              [
+                "SEGMENT",
+                "SegmentName"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "cost_center",
+          "cost_element"
+        ],
+        "mode": "configuration-reference",
+        "boundary": "Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target.",
+        "boundary_de": "Zyklus- und Segmentk\u00f6pfe reichen nicht aus. Sender-/Empf\u00e4ngerregeln, Sets, Bezugsgr\u00f6\u00dfen, Konten, Plan-/Ist-Kontext, Iterationen und Gesellschaftsgrenzen \u00fcber einen gepr\u00fcften nativen Konfigurationsexport erg\u00e4nzen. T811*-Tabellentyp und Schl\u00fcssel pr\u00fcfen. Keine direkten Tabelleninserts; Zielzyklus fachlich pr\u00fcfen und testweise ausf\u00fchren."
       }
     ]
   },
@@ -3608,6 +5069,610 @@
           "customer"
         ],
         "mode": "open-item"
+      },
+      {
+        "name": "bank",
+        "title": "Bank master",
+        "target": "",
+        "structures": [
+          {
+            "table": "BNKA",
+            "stem": "Bank",
+            "keys": [
+              [
+                "BANKS",
+                "BankCountry"
+              ],
+              [
+                "BANKL",
+                "BankKey"
+              ]
+            ],
+            "fields": [
+              [
+                "BANKA",
+                "BankName"
+              ],
+              [
+                "ORT01",
+                "City"
+              ],
+              [
+                "STRAS",
+                "Street"
+              ],
+              [
+                "SWIFT",
+                "SWIFTCode"
+              ],
+              [
+                "LOEVM",
+                "DeletionFlag"
+              ]
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master",
+        "boundary": "Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.",
+        "boundary_de": "Bankland und Bankschl\u00fcssel identifizieren die Bank. L\u00e4nderspezifische Formate und L\u00f6schstatus erhalten. Hausbanken, Hausbankkonten, Bank Account Management und Partnerbankdaten sind eigenst\u00e4ndige Objekte. Bankstamm nicht mit Bankkontostand verwechseln."
+      },
+      {
+        "name": "gl_opening_balance",
+        "title": "Dedicated G/L opening balances",
+        "target": "",
+        "structures": [
+          {
+            "table": "GLT0",
+            "stem": "ClassicBalance",
+            "keys": [
+              [
+                "RLDNR",
+                "Ledger"
+              ],
+              [
+                "RRCTY",
+                "RecordType"
+              ],
+              [
+                "RVERS",
+                "Version"
+              ],
+              [
+                "BUKRS",
+                "CompanyCode"
+              ],
+              [
+                "RYEAR",
+                "FiscalYear"
+              ],
+              [
+                "RACCT",
+                "GLAccount"
+              ],
+              [
+                "RBUSA",
+                "BusinessArea"
+              ],
+              [
+                "RTCUR",
+                "TransactionCurrency"
+              ],
+              [
+                "DRCRK",
+                "DebitCreditCode"
+              ]
+            ],
+            "fields": [
+              [
+                "TSL00",
+                "TransactionAmount00"
+              ],
+              [
+                "HSL00",
+                "LocalAmount00"
+              ],
+              [
+                "TSL01",
+                "TransactionAmount01"
+              ],
+              [
+                "HSL01",
+                "LocalAmount01"
+              ],
+              [
+                "TSL02",
+                "TransactionAmount02"
+              ],
+              [
+                "HSL02",
+                "LocalAmount02"
+              ],
+              [
+                "TSL03",
+                "TransactionAmount03"
+              ],
+              [
+                "HSL03",
+                "LocalAmount03"
+              ],
+              [
+                "TSL04",
+                "TransactionAmount04"
+              ],
+              [
+                "HSL04",
+                "LocalAmount04"
+              ],
+              [
+                "TSL05",
+                "TransactionAmount05"
+              ],
+              [
+                "HSL05",
+                "LocalAmount05"
+              ],
+              [
+                "TSL06",
+                "TransactionAmount06"
+              ],
+              [
+                "HSL06",
+                "LocalAmount06"
+              ],
+              [
+                "TSL07",
+                "TransactionAmount07"
+              ],
+              [
+                "HSL07",
+                "LocalAmount07"
+              ],
+              [
+                "TSL08",
+                "TransactionAmount08"
+              ],
+              [
+                "HSL08",
+                "LocalAmount08"
+              ],
+              [
+                "TSL09",
+                "TransactionAmount09"
+              ],
+              [
+                "HSL09",
+                "LocalAmount09"
+              ],
+              [
+                "TSL10",
+                "TransactionAmount10"
+              ],
+              [
+                "HSL10",
+                "LocalAmount10"
+              ],
+              [
+                "TSL11",
+                "TransactionAmount11"
+              ],
+              [
+                "HSL11",
+                "LocalAmount11"
+              ],
+              [
+                "TSL12",
+                "TransactionAmount12"
+              ],
+              [
+                "HSL12",
+                "LocalAmount12"
+              ],
+              [
+                "TSL13",
+                "TransactionAmount13"
+              ],
+              [
+                "HSL13",
+                "LocalAmount13"
+              ],
+              [
+                "TSL14",
+                "TransactionAmount14"
+              ],
+              [
+                "HSL14",
+                "LocalAmount14"
+              ],
+              [
+                "TSL15",
+                "TransactionAmount15"
+              ],
+              [
+                "HSL15",
+                "LocalAmount15"
+              ],
+              [
+                "TSL16",
+                "TransactionAmount16"
+              ],
+              [
+                "HSL16",
+                "LocalAmount16"
+              ]
+            ]
+          },
+          {
+            "table": "FAGLFLEXT",
+            "stem": "NewGLBalance",
+            "keys": [
+              [
+                "RLDNR",
+                "Ledger"
+              ],
+              [
+                "RRCTY",
+                "RecordType"
+              ],
+              [
+                "RVERS",
+                "Version"
+              ],
+              [
+                "RYEAR",
+                "FiscalYear"
+              ],
+              [
+                "RACCT",
+                "GLAccount"
+              ],
+              [
+                "RBUKRS",
+                "CompanyCode"
+              ],
+              [
+                "RCNTR",
+                "CostCenter"
+              ],
+              [
+                "PRCTR",
+                "ProfitCenter"
+              ],
+              [
+                "RFAREA",
+                "FunctionalArea"
+              ],
+              [
+                "RBUSA",
+                "BusinessArea"
+              ],
+              [
+                "SEGMENT",
+                "Segment"
+              ],
+              [
+                "SCNTR",
+                "PartnerCostCenter"
+              ],
+              [
+                "PPRCTR",
+                "PartnerProfitCenter"
+              ],
+              [
+                "SFAREA",
+                "PartnerFunctionalArea"
+              ],
+              [
+                "SBUSA",
+                "PartnerBusinessArea"
+              ],
+              [
+                "RASSC",
+                "TradingPartner"
+              ],
+              [
+                "PSEGMENT",
+                "PartnerSegment"
+              ],
+              [
+                "RTCUR",
+                "TransactionCurrency"
+              ],
+              [
+                "RUNIT",
+                "BaseUnit"
+              ],
+              [
+                "DRCRK",
+                "DebitCreditCode"
+              ]
+            ],
+            "fields": [
+              [
+                "ACTIV",
+                "BusinessTransaction"
+              ],
+              [
+                "TSL00",
+                "TransactionAmount00"
+              ],
+              [
+                "HSL00",
+                "LocalAmount00"
+              ],
+              [
+                "KSL00",
+                "GroupAmount00"
+              ],
+              [
+                "OSL00",
+                "OtherAmount00"
+              ],
+              [
+                "TSL01",
+                "TransactionAmount01"
+              ],
+              [
+                "HSL01",
+                "LocalAmount01"
+              ],
+              [
+                "KSL01",
+                "GroupAmount01"
+              ],
+              [
+                "OSL01",
+                "OtherAmount01"
+              ],
+              [
+                "TSL02",
+                "TransactionAmount02"
+              ],
+              [
+                "HSL02",
+                "LocalAmount02"
+              ],
+              [
+                "KSL02",
+                "GroupAmount02"
+              ],
+              [
+                "OSL02",
+                "OtherAmount02"
+              ],
+              [
+                "TSL03",
+                "TransactionAmount03"
+              ],
+              [
+                "HSL03",
+                "LocalAmount03"
+              ],
+              [
+                "KSL03",
+                "GroupAmount03"
+              ],
+              [
+                "OSL03",
+                "OtherAmount03"
+              ],
+              [
+                "TSL04",
+                "TransactionAmount04"
+              ],
+              [
+                "HSL04",
+                "LocalAmount04"
+              ],
+              [
+                "KSL04",
+                "GroupAmount04"
+              ],
+              [
+                "OSL04",
+                "OtherAmount04"
+              ],
+              [
+                "TSL05",
+                "TransactionAmount05"
+              ],
+              [
+                "HSL05",
+                "LocalAmount05"
+              ],
+              [
+                "KSL05",
+                "GroupAmount05"
+              ],
+              [
+                "OSL05",
+                "OtherAmount05"
+              ],
+              [
+                "TSL06",
+                "TransactionAmount06"
+              ],
+              [
+                "HSL06",
+                "LocalAmount06"
+              ],
+              [
+                "KSL06",
+                "GroupAmount06"
+              ],
+              [
+                "OSL06",
+                "OtherAmount06"
+              ],
+              [
+                "TSL07",
+                "TransactionAmount07"
+              ],
+              [
+                "HSL07",
+                "LocalAmount07"
+              ],
+              [
+                "KSL07",
+                "GroupAmount07"
+              ],
+              [
+                "OSL07",
+                "OtherAmount07"
+              ],
+              [
+                "TSL08",
+                "TransactionAmount08"
+              ],
+              [
+                "HSL08",
+                "LocalAmount08"
+              ],
+              [
+                "KSL08",
+                "GroupAmount08"
+              ],
+              [
+                "OSL08",
+                "OtherAmount08"
+              ],
+              [
+                "TSL09",
+                "TransactionAmount09"
+              ],
+              [
+                "HSL09",
+                "LocalAmount09"
+              ],
+              [
+                "KSL09",
+                "GroupAmount09"
+              ],
+              [
+                "OSL09",
+                "OtherAmount09"
+              ],
+              [
+                "TSL10",
+                "TransactionAmount10"
+              ],
+              [
+                "HSL10",
+                "LocalAmount10"
+              ],
+              [
+                "KSL10",
+                "GroupAmount10"
+              ],
+              [
+                "OSL10",
+                "OtherAmount10"
+              ],
+              [
+                "TSL11",
+                "TransactionAmount11"
+              ],
+              [
+                "HSL11",
+                "LocalAmount11"
+              ],
+              [
+                "KSL11",
+                "GroupAmount11"
+              ],
+              [
+                "OSL11",
+                "OtherAmount11"
+              ],
+              [
+                "TSL12",
+                "TransactionAmount12"
+              ],
+              [
+                "HSL12",
+                "LocalAmount12"
+              ],
+              [
+                "KSL12",
+                "GroupAmount12"
+              ],
+              [
+                "OSL12",
+                "OtherAmount12"
+              ],
+              [
+                "TSL13",
+                "TransactionAmount13"
+              ],
+              [
+                "HSL13",
+                "LocalAmount13"
+              ],
+              [
+                "KSL13",
+                "GroupAmount13"
+              ],
+              [
+                "OSL13",
+                "OtherAmount13"
+              ],
+              [
+                "TSL14",
+                "TransactionAmount14"
+              ],
+              [
+                "HSL14",
+                "LocalAmount14"
+              ],
+              [
+                "KSL14",
+                "GroupAmount14"
+              ],
+              [
+                "OSL14",
+                "OtherAmount14"
+              ],
+              [
+                "TSL15",
+                "TransactionAmount15"
+              ],
+              [
+                "HSL15",
+                "LocalAmount15"
+              ],
+              [
+                "KSL15",
+                "GroupAmount15"
+              ],
+              [
+                "OSL15",
+                "OtherAmount15"
+              ],
+              [
+                "TSL16",
+                "TransactionAmount16"
+              ],
+              [
+                "HSL16",
+                "LocalAmount16"
+              ],
+              [
+                "KSL16",
+                "GroupAmount16"
+              ],
+              [
+                "OSL16",
+                "OtherAmount16"
+              ]
+            ]
+          }
+        ],
+        "deps": [
+          "gl_account"
+        ],
+        "mode": "balance",
+        "boundary": "Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied.",
+        "boundary_de": "Pro Ledgerpopulation klassisches ODER neues Hauptbuch verwenden, nicht beide vereinigen. S\u00e4mtliche DDIC-Schl\u00fcsseldimensionen best\u00e4tigen. Periode 00 ist Vortrag; Stichtagswerte anhand freigegebener Periodenregeln einschlie\u00dflich Sonderperioden berechnen. W\u00e4hrungstypen erg\u00e4nzen und Konten anhand SKB1 klassifizieren. Bereits durch Anlagen, Debitoren, Kreditoren oder offene Posten \u00fcbernommene Salden ausschlie\u00dfen. Migrationsverrechnungskonten auf null abstimmen."
       }
     ]
   },
@@ -4050,6 +6115,149 @@
           "sales_order"
         ],
         "mode": "reference"
+      },
+      {
+        "name": "pricing_condition",
+        "title": "Pricing condition records and scales",
+        "target": "",
+        "structures": [
+          {
+            "table": "KONH",
+            "stem": "ConditionHdr",
+            "keys": [
+              [
+                "KNUMH",
+                "ConditionRecord"
+              ]
+            ],
+            "fields": [
+              [
+                "KVEWE",
+                "ConditionUsage"
+              ],
+              [
+                "KOTABNR",
+                "ConditionTableNumber"
+              ],
+              [
+                "KAPPL",
+                "Application"
+              ],
+              [
+                "KSCHL",
+                "ConditionType"
+              ],
+              [
+                "DATAB",
+                "ValidityStartDate"
+              ],
+              [
+                "DATBI",
+                "ValidityEndDate"
+              ]
+            ]
+          },
+          {
+            "table": "KONP",
+            "stem": "ConditionItem",
+            "keys": [
+              [
+                "KNUMH",
+                "ConditionRecord"
+              ],
+              [
+                "KOPOS",
+                "ConditionItem"
+              ]
+            ],
+            "fields": [
+              [
+                "KRECH",
+                "CalculationType"
+              ],
+              [
+                "KBETR",
+                "ConditionRate"
+              ],
+              [
+                "KONWA",
+                "ConditionCurrency"
+              ],
+              [
+                "KPEIN",
+                "PricingUnit"
+              ],
+              [
+                "KMEIN",
+                "ConditionUnit"
+              ],
+              [
+                "LOEVM_KO",
+                "DeletionFlag"
+              ]
+            ]
+          },
+          {
+            "table": "KONM",
+            "stem": "QuantityScale",
+            "keys": [
+              [
+                "KNUMH",
+                "ConditionRecord"
+              ],
+              [
+                "KOPOS",
+                "ConditionItem"
+              ],
+              [
+                "KLFN1",
+                "ScaleLine"
+              ]
+            ],
+            "fields": [
+              [
+                "KSTBM",
+                "ScaleQuantity"
+              ],
+              [
+                "KBETR",
+                "ConditionRate"
+              ]
+            ]
+          },
+          {
+            "table": "KONW",
+            "stem": "ValueScale",
+            "keys": [
+              [
+                "KNUMH",
+                "ConditionRecord"
+              ],
+              [
+                "KOPOS",
+                "ConditionItem"
+              ],
+              [
+                "KLFN1",
+                "ScaleLine"
+              ]
+            ],
+            "fields": [
+              [
+                "KSTBW",
+                "ScaleValue"
+              ],
+              [
+                "KBETR",
+                "ConditionRate"
+              ]
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master",
+        "boundary": "Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor.",
+        "boundary_de": "Alle konfigurierten Konditionszugriffstabellen mit tats\u00e4chlichem DDIC-Schl\u00fcssel exportieren und KNUMH mit KONH/KONP/Staffeln verkn\u00fcpfen. KONH allein verliert Kunden-/Material-/Vertriebsbereichsschl\u00fcssel. Erg\u00e4nzungen, Ausschl\u00fcsse, L\u00f6schung, G\u00fcltigkeit, Berechnungsart, W\u00e4hrungen/Einheiten und Staffelart pr\u00fcfen. Stammkonditionen nicht mit Belegkonditionen verwechseln; keinen universellen Ratenfaktor anwenden."
       }
     ]
   }

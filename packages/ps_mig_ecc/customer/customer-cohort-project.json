@@ -8,7 +8,27 @@
     "ZPSX_C_WBSHierarchyMig": "exports/ZPSX_C_WBSHierarchyMig.csv",
     "ZPSX_C_WBSHierarchyMig_Scope": "selection/ZPSX_C_WBSHierarchyMig.csv",
     "ZPSX_C_ProjectCostMig": "exports/ZPSX_C_ProjectCostMig.csv",
-    "ZPSX_C_ProjectCostMig_Scope": "selection/ZPSX_C_ProjectCostMig.csv"
+    "ZPSX_C_ProjectCostMig_Scope": "selection/ZPSX_C_ProjectCostMig.csv",
+    "ZPSX_C_NetworkHeaderMig": "exports/ZPSX_C_NetworkHeaderMig.csv",
+    "ZPSX_C_NetworkHeaderMig_Scope": "selection/ZPSX_C_NetworkHeaderMig.csv",
+    "ZPSX_C_NetworkPlanMig": "exports/ZPSX_C_NetworkPlanMig.csv",
+    "ZPSX_C_NetworkPlanMig_Scope": "selection/ZPSX_C_NetworkPlanMig.csv",
+    "ZPSX_C_NetworkActivitMig": "exports/ZPSX_C_NetworkActivitMig.csv",
+    "ZPSX_C_NetworkActivitMig_Scope": "selection/ZPSX_C_NetworkActivitMig.csv",
+    "ZPSX_C_NetworkQuantitMig": "exports/ZPSX_C_NetworkQuantitMig.csv",
+    "ZPSX_C_NetworkQuantitMig_Scope": "selection/ZPSX_C_NetworkQuantitMig.csv",
+    "ZPSX_C_OverallBudgetMig": "exports/ZPSX_C_OverallBudgetMig.csv",
+    "ZPSX_C_OverallBudgetMig_Scope": "selection/ZPSX_C_OverallBudgetMig.csv",
+    "ZPSX_C_AnnualBudgetMig": "exports/ZPSX_C_AnnualBudgetMig.csv",
+    "ZPSX_C_AnnualBudgetMig_Scope": "selection/ZPSX_C_AnnualBudgetMig.csv",
+    "ZPSX_C_CommitmentMig": "exports/ZPSX_C_CommitmentMig.csv",
+    "ZPSX_C_CommitmentMig_Scope": "selection/ZPSX_C_CommitmentMig.csv",
+    "ZPSX_C_InvestProgramMig": "exports/ZPSX_C_InvestProgramMig.csv",
+    "ZPSX_C_InvestProgramMig_Scope": "selection/ZPSX_C_InvestProgramMig.csv",
+    "ZPSX_C_InvestPositionMig": "exports/ZPSX_C_InvestPositionMig.csv",
+    "ZPSX_C_InvestPositionMig_Scope": "selection/ZPSX_C_InvestPositionMig.csv",
+    "ZPSX_C_InvestAssignMig": "exports/ZPSX_C_InvestAssignMig.csv",
+    "ZPSX_C_InvestAssignMig_Scope": "selection/ZPSX_C_InvestAssignMig.csv"
   },
   "steps": [
     {
@@ -62,12 +82,190 @@
         "COAccountingDocument",
         "COAccountingDocumentItem"
       ]
+    },
+    {
+      "name": "ZPSX_C_NetworkHeaderMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkHeaderMig",
+      "parent": "ZPSX_C_NetworkHeaderMig_Scope",
+      "child_keys": [
+        "Network"
+      ],
+      "parent_keys": [
+        "Network"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkPlanMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkPlanMig",
+      "parent": "ZPSX_C_NetworkPlanMig_Scope",
+      "child_keys": [
+        "Network"
+      ],
+      "parent_keys": [
+        "Network"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkActivitMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkActivitMig",
+      "parent": "ZPSX_C_NetworkActivitMig_Scope",
+      "child_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkQuantitMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkQuantitMig",
+      "parent": "ZPSX_C_NetworkQuantitMig_Scope",
+      "child_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_OverallBudgetMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_OverallBudgetMig",
+      "parent": "ZPSX_C_OverallBudgetMig_Scope",
+      "child_keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version"
+      ],
+      "parent_keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZPSX_C_AnnualBudgetMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_AnnualBudgetMig",
+      "parent": "ZPSX_C_AnnualBudgetMig_Scope",
+      "child_keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version",
+        "FiscalYear"
+      ],
+      "parent_keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version",
+        "FiscalYear"
+      ]
+    },
+    {
+      "name": "ZPSX_C_CommitmentMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_CommitmentMig",
+      "parent": "ZPSX_C_CommitmentMig_Scope",
+      "child_keys": [
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "Version",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "CommitmentDocument",
+        "CommitmentItem"
+      ],
+      "parent_keys": [
+        "ObjectNumber",
+        "FiscalYear",
+        "ValueType",
+        "Version",
+        "CostElement",
+        "OriginGroup",
+        "BusinessTransaction",
+        "CommitmentDocument",
+        "CommitmentItem"
+      ]
+    },
+    {
+      "name": "ZPSX_C_InvestProgramMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_InvestProgramMig",
+      "parent": "ZPSX_C_InvestProgramMig_Scope",
+      "child_keys": [
+        "InvestmentProgram",
+        "ApprovalFiscalYear"
+      ],
+      "parent_keys": [
+        "InvestmentProgram",
+        "ApprovalFiscalYear"
+      ]
+    },
+    {
+      "name": "ZPSX_C_InvestPositionMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_InvestPositionMig",
+      "parent": "ZPSX_C_InvestPositionMig_Scope",
+      "child_keys": [
+        "InvestmentPositionInternalID"
+      ],
+      "parent_keys": [
+        "InvestmentPositionInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_InvestAssignMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_InvestAssignMig",
+      "parent": "ZPSX_C_InvestAssignMig_Scope",
+      "child_keys": [
+        "InvestmentPositionInternalID",
+        "AssignedObject",
+        "ApprovalFiscalYear"
+      ],
+      "parent_keys": [
+        "InvestmentPositionInternalID",
+        "AssignedObject",
+        "ApprovalFiscalYear"
+      ]
     }
   ],
   "outputs": [
     "ZPSX_C_ProjectMig_Prepared",
     "ZPSX_C_WBSMig_Prepared",
     "ZPSX_C_WBSHierarchyMig_Prepared",
-    "ZPSX_C_ProjectCostMig_Prepared"
+    "ZPSX_C_ProjectCostMig_Prepared",
+    "ZPSX_C_NetworkHeaderMig_Prepared",
+    "ZPSX_C_NetworkPlanMig_Prepared",
+    "ZPSX_C_NetworkActivitMig_Prepared",
+    "ZPSX_C_NetworkQuantitMig_Prepared",
+    "ZPSX_C_OverallBudgetMig_Prepared",
+    "ZPSX_C_AnnualBudgetMig_Prepared",
+    "ZPSX_C_CommitmentMig_Prepared",
+    "ZPSX_C_InvestProgramMig_Prepared",
+    "ZPSX_C_InvestPositionMig_Prepared",
+    "ZPSX_C_InvestAssignMig_Prepared"
   ]
 }
