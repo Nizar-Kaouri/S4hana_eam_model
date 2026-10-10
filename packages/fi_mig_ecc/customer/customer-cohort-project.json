@@ -1,0 +1,394 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "ZFIX_C_GLAccountMig": "exports/ZFIX_C_GLAccountMig.csv",
+    "ZFIX_C_GLAccountMig_Scope": "selection/ZFIX_C_GLAccountMig.csv",
+    "ZFIX_C_GLAccountTextMig": "exports/ZFIX_C_GLAccountTextMig.csv",
+    "ZFIX_C_GLAccountTextMig_Scope": "selection/ZFIX_C_GLAccountTextMig.csv",
+    "ZFIX_C_GLCompanyMig": "exports/ZFIX_C_GLCompanyMig.csv",
+    "ZFIX_C_GLCompanyMig_Scope": "selection/ZFIX_C_GLCompanyMig.csv",
+    "ZFIX_C_SupplierMig": "exports/ZFIX_C_SupplierMig.csv",
+    "ZFIX_C_SupplierMig_Scope": "selection/ZFIX_C_SupplierMig.csv",
+    "ZFIX_C_SupplierCompanMig": "exports/ZFIX_C_SupplierCompanMig.csv",
+    "ZFIX_C_SupplierCompanMig_Scope": "selection/ZFIX_C_SupplierCompanMig.csv",
+    "ZFIX_C_SupplierPurchaMig": "exports/ZFIX_C_SupplierPurchaMig.csv",
+    "ZFIX_C_SupplierPurchaMig_Scope": "selection/ZFIX_C_SupplierPurchaMig.csv",
+    "ZFIX_C_CustomerMig": "exports/ZFIX_C_CustomerMig.csv",
+    "ZFIX_C_CustomerMig_Scope": "selection/ZFIX_C_CustomerMig.csv",
+    "ZFIX_C_CustomerCompanMig": "exports/ZFIX_C_CustomerCompanMig.csv",
+    "ZFIX_C_CustomerCompanMig_Scope": "selection/ZFIX_C_CustomerCompanMig.csv",
+    "ZFIX_C_CustomerSalesMig": "exports/ZFIX_C_CustomerSalesMig.csv",
+    "ZFIX_C_CustomerSalesMig_Scope": "selection/ZFIX_C_CustomerSalesMig.csv",
+    "ZFIX_C_AccountingHeadMig": "exports/ZFIX_C_AccountingHeadMig.csv",
+    "ZFIX_C_AccountingHeadMig_Scope": "selection/ZFIX_C_AccountingHeadMig.csv",
+    "ZFIX_C_AccountingItemMig": "exports/ZFIX_C_AccountingItemMig.csv",
+    "ZFIX_C_AccountingItemMig_Scope": "selection/ZFIX_C_AccountingItemMig.csv",
+    "ZFIX_C_GLOpenMig": "exports/ZFIX_C_GLOpenMig.csv",
+    "ZFIX_C_GLOpenMig_Scope": "selection/ZFIX_C_GLOpenMig.csv",
+    "ZFIX_C_GLClearedMig": "exports/ZFIX_C_GLClearedMig.csv",
+    "ZFIX_C_GLClearedMig_Scope": "selection/ZFIX_C_GLClearedMig.csv",
+    "ZFIX_C_APOpenMig": "exports/ZFIX_C_APOpenMig.csv",
+    "ZFIX_C_APOpenMig_Scope": "selection/ZFIX_C_APOpenMig.csv",
+    "ZFIX_C_APClearedMig": "exports/ZFIX_C_APClearedMig.csv",
+    "ZFIX_C_APClearedMig_Scope": "selection/ZFIX_C_APClearedMig.csv",
+    "ZFIX_C_AROpenMig": "exports/ZFIX_C_AROpenMig.csv",
+    "ZFIX_C_AROpenMig_Scope": "selection/ZFIX_C_AROpenMig.csv",
+    "ZFIX_C_ARClearedMig": "exports/ZFIX_C_ARClearedMig.csv",
+    "ZFIX_C_ARClearedMig_Scope": "selection/ZFIX_C_ARClearedMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZFIX_C_GLAccountMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_GLAccountMig",
+      "parent": "ZFIX_C_GLAccountMig_Scope",
+      "child_keys": [
+        "ChartOfAccounts",
+        "GLAccount"
+      ],
+      "parent_keys": [
+        "ChartOfAccounts",
+        "GLAccount"
+      ]
+    },
+    {
+      "name": "ZFIX_C_GLAccountTextMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_GLAccountTextMig",
+      "parent": "ZFIX_C_GLAccountTextMig_Scope",
+      "child_keys": [
+        "Language",
+        "ChartOfAccounts",
+        "GLAccount"
+      ],
+      "parent_keys": [
+        "Language",
+        "ChartOfAccounts",
+        "GLAccount"
+      ]
+    },
+    {
+      "name": "ZFIX_C_GLCompanyMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_GLCompanyMig",
+      "parent": "ZFIX_C_GLCompanyMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "GLAccount"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "GLAccount"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierMig",
+      "parent": "ZFIX_C_SupplierMig_Scope",
+      "child_keys": [
+        "Supplier"
+      ],
+      "parent_keys": [
+        "Supplier"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierCompanMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierCompanMig",
+      "parent": "ZFIX_C_SupplierCompanMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "CompanyCode"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "CompanyCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierPurchaMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierPurchaMig",
+      "parent": "ZFIX_C_SupplierPurchaMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "PurchasingOrganization"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "PurchasingOrganization"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerMig",
+      "parent": "ZFIX_C_CustomerMig_Scope",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerCompanMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerCompanMig",
+      "parent": "ZFIX_C_CustomerCompanMig_Scope",
+      "child_keys": [
+        "Customer",
+        "CompanyCode"
+      ],
+      "parent_keys": [
+        "Customer",
+        "CompanyCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerSalesMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerSalesMig",
+      "parent": "ZFIX_C_CustomerSalesMig_Scope",
+      "child_keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ],
+      "parent_keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ]
+    },
+    {
+      "name": "ZFIX_C_AccountingHeadMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_AccountingHeadMig",
+      "parent": "ZFIX_C_AccountingHeadMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear"
+      ]
+    },
+    {
+      "name": "ZFIX_C_AccountingItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_AccountingItemMig",
+      "parent": "ZFIX_C_AccountingItemMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear",
+        "AccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear",
+        "AccountingDocumentItem"
+      ]
+    },
+    {
+      "name": "ZFIX_C_GLOpenMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_GLOpenMig",
+      "parent": "ZFIX_C_GLOpenMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "GLAccount",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "GLAccount",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ]
+    },
+    {
+      "name": "ZFIX_C_GLClearedMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_GLClearedMig",
+      "parent": "ZFIX_C_GLClearedMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "GLAccount",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "GLAccount",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ]
+    },
+    {
+      "name": "ZFIX_C_APOpenMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_APOpenMig",
+      "parent": "ZFIX_C_APOpenMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "Supplier",
+        "SpecialGLTransactionType",
+        "SpecialGLCode",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "Supplier",
+        "SpecialGLTransactionType",
+        "SpecialGLCode",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ]
+    },
+    {
+      "name": "ZFIX_C_APClearedMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_APClearedMig",
+      "parent": "ZFIX_C_APClearedMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "Supplier",
+        "SpecialGLTransactionType",
+        "SpecialGLCode",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "Supplier",
+        "SpecialGLTransactionType",
+        "SpecialGLCode",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ]
+    },
+    {
+      "name": "ZFIX_C_AROpenMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_AROpenMig",
+      "parent": "ZFIX_C_AROpenMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "Customer",
+        "SpecialGLTransactionType",
+        "SpecialGLCode",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "Customer",
+        "SpecialGLTransactionType",
+        "SpecialGLCode",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ARClearedMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_ARClearedMig",
+      "parent": "ZFIX_C_ARClearedMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "Customer",
+        "SpecialGLTransactionType",
+        "SpecialGLCode",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "Customer",
+        "SpecialGLTransactionType",
+        "SpecialGLCode",
+        "ClearingDate",
+        "ClearingDocument",
+        "AssignmentReference",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingDocumentItem"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZFIX_C_GLAccountMig_Prepared",
+    "ZFIX_C_GLAccountTextMig_Prepared",
+    "ZFIX_C_GLCompanyMig_Prepared",
+    "ZFIX_C_SupplierMig_Prepared",
+    "ZFIX_C_SupplierCompanMig_Prepared",
+    "ZFIX_C_SupplierPurchaMig_Prepared",
+    "ZFIX_C_CustomerMig_Prepared",
+    "ZFIX_C_CustomerCompanMig_Prepared",
+    "ZFIX_C_CustomerSalesMig_Prepared",
+    "ZFIX_C_AccountingHeadMig_Prepared",
+    "ZFIX_C_AccountingItemMig_Prepared",
+    "ZFIX_C_GLOpenMig_Prepared",
+    "ZFIX_C_GLClearedMig_Prepared",
+    "ZFIX_C_APOpenMig_Prepared",
+    "ZFIX_C_APClearedMig_Prepared",
+    "ZFIX_C_AROpenMig_Prepared",
+    "ZFIX_C_ARClearedMig_Prepared"
+  ]
+}

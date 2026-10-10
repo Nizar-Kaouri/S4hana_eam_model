@@ -19,8 +19,8 @@ Order operations (AFVC): number, control key, text, work center, plant, activity
 
 ## Keys
 
-- `aufpl`
-- `aplzl`
+- `OrderRoutingNumber`
+- `OrderOperationInternalID`
 
 ## Associations defined here
 

@@ -19,9 +19,9 @@ Short and long texts of user statuses per status profile (TJ30T): reference list
 
 ## Keys
 
-- `stsma`
-- `estat`
-- `spras`
+- `StatusProfile`
+- `StatusCode`
+- `Language`
 
 ## Associations defined here
 

@@ -19,12 +19,12 @@ Task-list object allocation change states; customer resolves validity at cutover
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnal`
-- `tplnr`
-- `zkriz`
-- `zaehl`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListGroupCounter`
+- `FunctionalLocation`
+- `AdditionalCriteriaCounter`
+- `AssignmentCounter`
 
 ## Associations defined here
 

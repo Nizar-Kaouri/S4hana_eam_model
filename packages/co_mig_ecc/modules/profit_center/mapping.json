@@ -1,0 +1,162 @@
+{
+  "module": "profit_center",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZCOX_C_ProfitCenterMig",
+      "source_view": "ZCOX_I_ProfitCenter",
+      "scope_filter": "",
+      "keys": [
+        "ProfitCenter",
+        "ValidityEndDate",
+        "ControllingArea"
+      ],
+      "fields": [
+        {
+          "element": "ProfitCenter",
+          "source": "CEPC-PRCTR",
+          "target": "customer interface field: ProfitCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CEPC-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ControllingArea",
+          "source": "CEPC-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "CEPC-DATAB",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ResponsiblePerson",
+          "source": "CEPC-VERAK",
+          "target": "customer interface field: ResponsiblePerson (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Segment",
+          "source": "CEPC-SEGMENT",
+          "target": "customer interface field: Segment (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_ProfitCenterTeMig",
+      "source_view": "ZCOX_I_ProfitCenterTe",
+      "scope_filter": "",
+      "keys": [
+        "Language",
+        "ProfitCenter",
+        "ValidityEndDate",
+        "ControllingArea"
+      ],
+      "fields": [
+        {
+          "element": "Language",
+          "source": "CEPCT-SPRAS",
+          "target": "customer interface field: Language (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProfitCenter",
+          "source": "CEPCT-PRCTR",
+          "target": "customer interface field: ProfitCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CEPCT-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ControllingArea",
+          "source": "CEPCT-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProfitCenterName",
+          "source": "CEPCT-KTEXT",
+          "target": "customer interface field: ProfitCenterName (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProfitCenterDescription",
+          "source": "CEPCT-LTEXT",
+          "target": "customer interface field: ProfitCenterDescription (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZCOT_I_ProfitCenterCount",
+    "dimensions": [
+      {
+        "element": "ProfitCenter"
+      }
+    ],
+    "source_count_view": "ZCOX_C_ProfitCenterMigCount",
+    "compare": {
+      "source_view": "ZCOX_C_ProfitCenterMig",
+      "target_view": "ZCOT_I_ProfitCenterCompare",
+      "key": [
+        "ProfitCenter",
+        "ValidityEndDate",
+        "ControllingArea"
+      ],
+      "fields": [
+        "ValidityStartDate",
+        "ResponsiblePerson",
+        "Segment"
+      ]
+    }
+  },
+  "main_structure": "ZCOX_C_ProfitCenterMig"
+}

@@ -19,8 +19,8 @@ Quantities and durations of order operations (AFVV).
 
 ## Keys
 
-- `aufpl`
-- `aplzl`
+- `OrderRoutingNumber`
+- `OrderOperationInternalID`
 
 ## Associations defined here
 

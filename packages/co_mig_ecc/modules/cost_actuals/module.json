@@ -1,0 +1,44 @@
+{
+  "name": "cost_actuals",
+  "title": "Actual cost history",
+  "description": "Actual cost history source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "reference"
+  ],
+  "sap_tables": [
+    "COEP"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "cost_center",
+    "internal_order"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZCOX_I_CostActualData"
+    ],
+    "composite": [
+      "ZCOX_I_CostActual"
+    ],
+    "consumption": [
+      "ZCOX_C_CostActualMig",
+      "ZCOX_C_CostActualMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZCOX_I_CostActualData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_CostActual": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_CostActualMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_CostActualMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

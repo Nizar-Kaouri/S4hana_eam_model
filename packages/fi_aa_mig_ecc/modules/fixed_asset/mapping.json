@@ -1,0 +1,270 @@
+{
+  "module": "fixed_asset",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFAX_C_AssetMig",
+      "source_view": "ZFAX_I_Asset",
+      "scope_filter": "",
+      "keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "fields": [
+        {
+          "element": "CompanyCode",
+          "source": "ANLA-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "MasterFixedAsset",
+          "source": "ANLA-ANLN1",
+          "target": "customer interface field: MasterFixedAsset (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FixedAsset",
+          "source": "ANLA-ANLN2",
+          "target": "customer interface field: FixedAsset (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AssetClass",
+          "source": "ANLA-ANLKL",
+          "target": "customer interface field: AssetClass (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FixedAssetDescription",
+          "source": "ANLA-TXT50",
+          "target": "customer interface field: FixedAssetDescription (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "InventoryNumber",
+          "source": "ANLA-INVNR",
+          "target": "customer interface field: InventoryNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AssetCapitalizationDate",
+          "source": "ANLA-AKTIV",
+          "target": "customer interface field: AssetCapitalizationDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AssetDeactivationDate",
+          "source": "ANLA-DEAKT",
+          "target": "customer interface field: AssetDeactivationDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
+    },
+    {
+      "consumption_view": "ZFAX_C_AssetAssignmenMig",
+      "source_view": "ZFAX_I_AssetAssignmen",
+      "scope_filter": "",
+      "keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "ValidityEndDate"
+      ],
+      "fields": [
+        {
+          "element": "CompanyCode",
+          "source": "ANLZ-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "MasterFixedAsset",
+          "source": "ANLZ-ANLN1",
+          "target": "customer interface field: MasterFixedAsset (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FixedAsset",
+          "source": "ANLZ-ANLN2",
+          "target": "customer interface field: FixedAsset (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ANLZ-BDATU",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ANLZ-ADATU",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CostCenter",
+          "source": "ANLZ-KOSTL",
+          "target": "customer interface field: CostCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "ANLZ-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AssetLocation",
+          "source": "ANLZ-STORT",
+          "target": "customer interface field: AssetLocation (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "BusinessArea",
+          "source": "ANLZ-GSBER",
+          "target": "customer interface field: BusinessArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
+    },
+    {
+      "consumption_view": "ZFAX_C_DepreciationMig",
+      "source_view": "ZFAX_I_Depreciation",
+      "scope_filter": "",
+      "keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "DepreciationArea"
+      ],
+      "fields": [
+        {
+          "element": "CompanyCode",
+          "source": "ANLB-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "MasterFixedAsset",
+          "source": "ANLB-ANLN1",
+          "target": "customer interface field: MasterFixedAsset (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FixedAsset",
+          "source": "ANLB-ANLN2",
+          "target": "customer interface field: FixedAsset (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DepreciationArea",
+          "source": "ANLB-AFABE",
+          "target": "customer interface field: DepreciationArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DepreciationKey",
+          "source": "ANLB-AFASL",
+          "target": "customer interface field: DepreciationKey (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "UsefulLifeYears",
+          "source": "ANLB-NDJAR",
+          "target": "customer interface field: UsefulLifeYears (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "UsefulLifePeriods",
+          "source": "ANLB-NDPER",
+          "target": "customer interface field: UsefulLifePeriods (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DepreciationStartDate",
+          "source": "ANLB-AFABG",
+          "target": "customer interface field: DepreciationStartDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZFAT_I_AssetCount",
+    "dimensions": [
+      {
+        "element": "CompanyCode"
+      }
+    ],
+    "source_count_view": "ZFAX_C_AssetMigCount",
+    "compare": {
+      "source_view": "ZFAX_C_AssetMig",
+      "target_view": "ZFAT_I_AssetCompare",
+      "key": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "fields": [
+        "AssetClass",
+        "FixedAssetDescription",
+        "InventoryNumber",
+        "AssetCapitalizationDate",
+        "AssetDeactivationDate"
+      ]
+    }
+  },
+  "main_structure": "ZFAX_C_AssetMig"
+}

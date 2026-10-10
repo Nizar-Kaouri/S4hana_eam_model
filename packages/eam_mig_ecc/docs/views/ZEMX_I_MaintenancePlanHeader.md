@@ -19,7 +19,7 @@ Maintenance plans (MPLA) with category, strategy and scheduling parameters.
 
 ## Keys
 
-- `warpl`
+- `MaintenancePlan`
 
 ## Associations defined here
 

@@ -325,6 +325,21 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
     order = activation_order(objects, old_prefix, root)
     rewrite = make_rewriter(old_prefix, new_prefix, old_package, new_package)
 
+    def rewrite_asset(text):
+        # Object references use /ACME/; filenames use #ACME# so namespaces do
+        # not accidentally become directories. JSON paths and ZIP names agree.
+        flat_prefix = new_prefix.replace("/", "#")
+        text = re.sub(r"(?<=[/\\])" + re.escape(old_prefix), flat_prefix, text, flags=re.IGNORECASE)
+        return rewrite(text)
+
+    def asset_path(path):
+        parts = []
+        for part in path.parts:
+            if part.upper().startswith(old_prefix.upper()):
+                part = new_prefix.replace("/", "#") + part[len(old_prefix):]
+            parts.append(part)
+        return "/".join(parts)
+
     out = Path(out) if out else vdm_paths.REPO / "dist" / root.name / f"{file_base(new_package)}_{'_'.join(resolved)[:80]}.zip"
     out.parent.mkdir(parents=True, exist_ok=True)
 
@@ -347,14 +362,14 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
     }
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as zf:
         if (root / "docs" / "CUSTOMER_TEST.md").exists():
-            zf.writestr("README.md", "# ModuPorter EAM customer package\n\n"
+            zf.writestr("README.md", rewrite((root / "README.md").read_text(encoding="utf-8")) if library.get("kind") == "migration-target" else ("# ModuPorter migration customer package\n\n"
                 + f"Product: {root.name}. Package: {new_package}. Prefix: {new_prefix}.\n\n"
                 + "Start with docs/CUSTOMER_TEST.md and docs/SUPPORTED_SCOPE.md. Import the src/ library through abapGit on the appropriate system. "
                 + "Optional SAP reports live in helpers/ and are created separately in SE38. "
                 + "Python tools require Python 3.10+ and no extra dependencies; run commands from this extracted directory.\n\n"
                 + "Read OPEN_CHECKS.md, DDIC_REQUIREMENTS.csv (source), BUILD_MANIFEST.json and ACTIVATION_ORDER.txt before activation. "
                 + "For historical cutover use docs/CUSTOMER_WORKFLOW.md in the source package; current CDS previews do not recover past states. "
-                + "This candidate is system-unverified pending the customer's activation/extraction trial.\n")
+                + "This candidate is system-unverified pending the customer's activation/extraction trial.\n"))
         zf.writestr(".abapgit.xml", (root / ".abapgit.xml").read_text(encoding="utf-8"))
         devc = (root / "src" / "package.devc.xml").read_text(encoding="utf-8")
         zf.writestr("src/package.devc.xml", rewrite(devc))
@@ -389,7 +404,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     line = f"| {cells[1].strip()} | {links} | " + ", ".join(f"`{v}`" for v in views) + " |"
                 lines.append(line)
             zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite("\n".join(lines) + "\n"))
-        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md"):
+        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md", "CUSTOMER_MANUAL_EN.md", "CUSTOMER_MANUAL_DE.md"):
             extra = root / "docs" / doc
             if extra.exists():
                 zf.writestr("docs/" + doc, rewrite(extra.read_text(encoding="utf-8")))
@@ -401,11 +416,13 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
             for asset in sorted((root / "customer").rglob("*")):
                 if not asset.is_file():
                     continue
+                if asset.suffix == ".csv" and asset.stem.startswith(old_prefix) and asset.stem not in shipped_views:
+                    continue
                 text = asset.read_text(encoding="utf-8")
                 if asset.name == "structure-cohorts.json":
                     content = json.loads(text)
                     text = json.dumps({n: v for n, v in content.items() if n in shipped_views}, indent=2) + "\n"
-                elif asset.name == "customer-cohort-project.json":
+                elif asset.name in ("customer-cohort-project.json", "project.json"):
                     content = json.loads(text)
                     content["steps"] = [s for s in content["steps"] if s["input"] in shipped_views]
                     needed = {s[k] for s in content["steps"] for k in ("input", "parent")}
@@ -414,15 +431,24 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     content["inputs"] = {n: p for n, p in content["inputs"].items() if n in needed}
                     content["outputs"] = roots + [s["name"] for s in content["steps"]]
                     text = json.dumps(content, indent=2) + "\n"
+                elif asset.name == "target-adapters.json":
+                    text = json.dumps({n: c for n, c in json.loads(text).items() if c["module"] in resolved}, indent=2) + "\n"
                 relative = asset.relative_to(root)
-                zf.writestr(relative.as_posix(), rewrite(text))
-            for tool in ("mig_reconcile.py", "eam_prepare.py", "eam_run.py"):
+                zf.writestr(asset_path(relative), rewrite_asset(text))
+            for tool in ("mig_reconcile.py", "eam_prepare.py", "eam_run.py", "migration_prepare.py", "migration_run.py", "migration_business.py"):
                 zf.writestr("tools/" + tool, (vdm_paths.REPO / "tools" / tool).read_text(encoding="utf-8"))
             # The existing main-object CLI resolves mappings by product/module.
             for mod in resolved:
                 mp = root / "modules" / mod / "mapping.json"
                 if mp.exists():
                     zf.writestr(f"packages/{root.name}/modules/{mod}/mapping.json", rewrite(mp.read_text(encoding="utf-8")))
+        if library.get("kind") == "migration-target" and (root / "customer").exists():
+            for asset in sorted((root / "customer").rglob("*")):
+                if asset.is_file():
+                    content = asset.read_text(encoding="utf-8-sig")
+                    if asset.name == "target-adapters.json":
+                        content = json.dumps({n: c for n, c in json.loads(content).items() if c["module"] in resolved}, indent=2) + "\n"
+                    zf.writestr(asset_path(asset.relative_to(root)), rewrite_asset(content))
         if library.get("kind") == "migration-source":
             import csv
             import io

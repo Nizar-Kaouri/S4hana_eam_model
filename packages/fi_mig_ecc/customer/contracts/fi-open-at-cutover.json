@@ -1,0 +1,10 @@
+{
+  "key": [
+    "CompanyCode",
+    "FiscalYear",
+    "AccountingDocument",
+    "AccountingDocumentItem"
+  ],
+  "posting_date": "PostingDate",
+  "clearing_date": "ClearingDate"
+}

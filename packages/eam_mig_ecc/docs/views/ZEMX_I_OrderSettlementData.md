@@ -19,8 +19,8 @@ OrderSettlement source data
 
 ## Keys
 
-- `objnr`
-- `lfdnr`
+- `ObjectNumber`
+- `DistributionRuleNumber`
 
 ## Associations defined here
 

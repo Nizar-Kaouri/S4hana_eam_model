@@ -1,0 +1,50 @@
+{
+  "name": "outbound_delivery",
+  "title": "Outbound delivery reference",
+  "description": "Outbound delivery reference source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "reference"
+  ],
+  "sap_tables": [
+    "LIKP",
+    "LIPS"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "sales_order"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZSDX_I_DeliveryData",
+      "ZSDX_I_DeliveryItemData"
+    ],
+    "composite": [
+      "ZSDX_I_Delivery",
+      "ZSDX_I_DeliveryItem"
+    ],
+    "consumption": [
+      "ZSDX_C_DeliveryMig",
+      "ZSDX_C_DeliveryMigCount",
+      "ZSDX_C_DeliveryItemMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZSDX_I_DeliveryData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_Delivery": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_DeliveryMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_DeliveryMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_DeliveryItemData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_DeliveryItem": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_DeliveryItemMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

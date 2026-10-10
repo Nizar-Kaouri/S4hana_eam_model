@@ -1,0 +1,135 @@
+{
+  "ZSDX_C_SalesOrderMig": {
+    "module": "sales_order",
+    "table": "VBAK",
+    "keys": [
+      "SalesDocument"
+    ],
+    "selection": "selection/ZSDX_C_SalesOrderMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZSDX_C_SalesItemMig": {
+    "module": "sales_order",
+    "table": "VBAP",
+    "keys": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "selection": "selection/ZSDX_C_SalesItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZSDX_C_SalesScheduleMig": {
+    "module": "sales_order",
+    "table": "VBEP",
+    "keys": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "ScheduleLine"
+    ],
+    "selection": "selection/ZSDX_C_SalesScheduleMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZSDX_C_SalesBusinessMig": {
+    "module": "sales_order",
+    "table": "VBKD",
+    "keys": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "selection": "selection/ZSDX_C_SalesBusinessMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZSDX_C_SalesPartnerMig": {
+    "module": "sales_order",
+    "table": "VBPA",
+    "keys": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "PartnerFunction"
+    ],
+    "selection": "selection/ZSDX_C_SalesPartnerMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZSDX_C_SalesHeaderStaMig": {
+    "module": "sales_order",
+    "table": "VBUK",
+    "keys": [
+      "SalesDocument"
+    ],
+    "selection": "selection/ZSDX_C_SalesHeaderStaMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZSDX_C_SalesItemStatuMig": {
+    "module": "sales_order",
+    "table": "VBUP",
+    "keys": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "selection": "selection/ZSDX_C_SalesItemStatuMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZSDX_C_SalesFlowMig": {
+    "module": "sales_order",
+    "table": "VBFA",
+    "keys": [
+      "PrecedingDocument",
+      "PrecedingDocumentItem",
+      "SubsequentDocument",
+      "SubsequentDocumentItem",
+      "SubsequentDocumentCategory"
+    ],
+    "selection": "selection/ZSDX_C_SalesFlowMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZSDX_C_DeliveryMig": {
+    "module": "outbound_delivery",
+    "table": "LIKP",
+    "keys": [
+      "DeliveryDocument"
+    ],
+    "selection": "selection/ZSDX_C_DeliveryMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZSDX_C_DeliveryItemMig": {
+    "module": "outbound_delivery",
+    "table": "LIPS",
+    "keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ],
+    "selection": "selection/ZSDX_C_DeliveryItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZSDX_C_BillingMig": {
+    "module": "billing_document",
+    "table": "VBRK",
+    "keys": [
+      "BillingDocument"
+    ],
+    "selection": "selection/ZSDX_C_BillingMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZSDX_C_BillingItemMig": {
+    "module": "billing_document",
+    "table": "VBRP",
+    "keys": [
+      "BillingDocument",
+      "BillingDocumentItem"
+    ],
+    "selection": "selection/ZSDX_C_BillingItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  }
+}

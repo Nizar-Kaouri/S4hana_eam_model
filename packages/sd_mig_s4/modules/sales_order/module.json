@@ -1,0 +1,36 @@
+{
+  "name": "sales_order",
+  "title": "Sales orders target comparison",
+  "description": "Sales orders source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "open-document"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [
+    "I_SalesDocument"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZSDT_I_SalesOrderCompare"
+    ],
+    "composite": [
+      "ZSDT_I_SalesOrderCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZSDT_I_SalesOrderCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDT_I_SalesOrderCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

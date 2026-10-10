@@ -19,7 +19,7 @@ Functional location master records (IFLOT) with category, hierarchy, planning da
 
 ## Keys
 
-- `tplnr`
+- `FunctionalLocation`
 
 ## Associations defined here
 

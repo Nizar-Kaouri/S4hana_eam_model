@@ -1,0 +1,39 @@
+{
+  "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
+  "phase": "no-system",
+  "prefix": "ZCOX_",
+  "package": "ZCOX_MIG",
+  "package_description": "Controlling Migration - ECC source extraction views",
+  "product_title": "Controlling Migration - ECC Source Extraction",
+  "sap_area": "CO-MIG",
+  "target_release": "SAP ECC 6.0 on SAP NetWeaver 7.40 SP08 or higher (classic CDS views on tables)",
+  "max_object_name_length": {
+    "DDLS": 30,
+    "DCLS": 30,
+    "DDLX": 30,
+    "CLAS": 30,
+    "DEVC": 30,
+    "SQLVIEW": 16,
+    "TABL": 16
+  },
+  "reserve_prefix_chars": 1,
+  "kind": "migration-source",
+  "system": "ecc",
+  "migration_pair": "co_mig_s4",
+  "map_title": "ZCOX Controlling Migration - ECC Source Map",
+  "map_area": "Controlling migration source (ECC tables)",
+  "map_initial": "ZCOX_I_CostCenterData",
+  "map_external_title": "ECC tables",
+  "draft_tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "map_release": "SAP ECC 6.0 (source)",
+  "map_external_sub": "tables (read directly, never copied)",
+  "layer_prefixes": {
+    "basic": "I_",
+    "composite": "I_",
+    "consumption": "C_"
+  },
+  "consumption_suffixes": [
+    "Mig",
+    "MigCount"
+  ]
+}

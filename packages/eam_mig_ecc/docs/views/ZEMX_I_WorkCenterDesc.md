@@ -19,8 +19,8 @@ Work center descriptions (CRTX) per language for object type 'A'.
 
 ## Keys
 
-- `objid`
-- `spras`
+- `WorkCenterInternalID`
+- `Language`
 
 ## Associations defined here
 

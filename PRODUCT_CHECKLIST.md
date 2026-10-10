@@ -4,18 +4,18 @@
 
 The packages are sold as **migration models** for moving data from an old SAP ERP (ECC 6.0) system to
 SAP S/4HANA: ECC extraction views + mapping model + S/4HANA reconciliation (see `README.md`). Agreed
-assumptions: source ECC 6.0 on NetWeaver 7.40 SP08 or higher (classic CDS); load with the SAP S/4HANA
-Migration Cockpit; EAM first, then the other areas with the same pattern.
+assumptions: source ECC 6.0 on NetWeaver 7.40 SP08 or higher (classic CDS); load through a verified customer-selected target business interface; EAM first, then the other areas with the same pattern.
 
 | Step | EAM migration (pilot) |
 |---|---|
-| ECC views drafted in 3 layers (`packages/eam_mig_ecc`: 41 basic, 21 composite, 38 consumption) | [x] |
-| Mapping model drafted (13 mapping files: field lists, scope, load sequence) | [x] |
+| ECC views drafted in 3 layers (`packages/eam_mig_ecc`: 158 source views, 41 canonical structures) | [x] |
+| Mapping model drafted (14 mapping files: field lists, scope, load sequence) | [x] |
 | S/4HANA reconciliation views drafted (`packages/eam_mig_s4`, 8 objects, 16 views) | [x] |
 | Reconcile tool with unit tests (`tools/mig_reconcile.py`) | [x] |
 | Offline checks clean (`tools/check_all.py`) | [x] |
 | Migration Cockpit objects and structure fields confirmed (`M01` items) | [ ] |
-| Added draft BOM, task-list details, notification details, settlement/permit and capacity-reference structures | [x] |\n| Real DDIC verification, effective-date resolution, capacity intervals and customer READ_TEXT integration | [ ] |
+| Added draft BOM, task-list details, notification details, settlement/permit and capacity-reference structures | [x] |
+| Real DDIC verification, effective-date resolution, capacity intervals and customer READ_TEXT integration | [ ] |
 | Activated on an ECC test system and on S/4HANA 2025 | [ ] |
 | Test migration with reconciliation report | [ ] |
 | Ready to sell | [ ] |
@@ -117,3 +117,7 @@ Bridge links (18 objects): equipment â†” fixed asset (+ asset value cube/qu
 product (I/R/Q), maintenance order â†” goods movements, maintenance cost â†” cost center (R/Q), production
 operation â†” work center, PO item â†” supplier (R/Q), revenue â†” customer (R/Q), inspection lot â†” product (R/Q),
 production order â†” product (R/Q). Not yet bridged: PS (maintenance order â†” WBS element), QM â†” EAM notifications.
+
+## Additional domain migration implementation
+
+The eight existing non-EAM domains have draft ECC and S/4HANA migration counterparts. See docs/customer/domains/README.md for exact coverage. Offline checks, mappings, audited scope projects, synthetic scenarios, bilingual guides and VDM maps are delivered. SAP activation, target adapter implementation, posting-interface confirmation and business acceptance remain open for every domain.

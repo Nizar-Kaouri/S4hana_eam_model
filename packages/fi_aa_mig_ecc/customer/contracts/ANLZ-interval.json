@@ -1,0 +1,10 @@
+{
+  "mode": "interval",
+  "identity": [
+    "CompanyCode",
+    "MasterFixedAsset",
+    "FixedAsset"
+  ],
+  "valid_from": "ValidityStartDate",
+  "valid_to": "ValidityEndDate"
+}

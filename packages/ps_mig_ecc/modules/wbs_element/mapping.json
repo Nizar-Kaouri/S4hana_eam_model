@@ -1,0 +1,154 @@
+{
+  "module": "wbs_element",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "project"
+  ],
+  "key": {
+    "business_key": [
+      "WBSElementInternalID"
+    ],
+    "numbering": "derived",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZPSX_C_WBSMig",
+      "source_view": "ZPSX_I_WBS",
+      "scope_filter": "",
+      "keys": [
+        "WBSElementInternalID"
+      ],
+      "fields": [
+        {
+          "element": "WBSElementInternalID",
+          "source": "PRPS-PSPNR",
+          "target": "customer interface field: WBSElementInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "WBSElementExternalID",
+          "source": "PRPS-POSID",
+          "target": "customer interface field: WBSElementExternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "WBSElementDescription",
+          "source": "PRPS-POST1",
+          "target": "customer interface field: WBSElementDescription (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProjectInternalID",
+          "source": "PRPS-PSPHI",
+          "target": "customer interface field: ProjectInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CompanyCode",
+          "source": "PRPS-PBUKR",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ControllingArea",
+          "source": "PRPS-PKOKR",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "PRPS-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement."
+    },
+    {
+      "consumption_view": "ZPSX_C_WBSHierarchyMig",
+      "source_view": "ZPSX_I_WBSHierarchy",
+      "scope_filter": "",
+      "keys": [
+        "WBSElementInternalID"
+      ],
+      "fields": [
+        {
+          "element": "WBSElementInternalID",
+          "source": "PRHI-POSNR",
+          "target": "customer interface field: WBSElementInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ParentWBSElementInternalID",
+          "source": "PRHI-UP",
+          "target": "customer interface field: ParentWBSElementInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FirstChildInternalID",
+          "source": "PRHI-DOWN",
+          "target": "customer interface field: FirstChildInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PreviousSiblingInternalID",
+          "source": "PRHI-LEFT",
+          "target": "customer interface field: PreviousSiblingInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "NextSiblingInternalID",
+          "source": "PRHI-RIGHT",
+          "target": "customer interface field: NextSiblingInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZPST_I_WBSCount",
+    "dimensions": [
+      {
+        "element": "WBSElementInternalID"
+      }
+    ],
+    "source_count_view": "ZPSX_C_WBSMigCount",
+    "compare": {
+      "source_view": "ZPSX_C_WBSMig",
+      "target_view": "ZPST_I_WBSCompare",
+      "key": [
+        "WBSElementInternalID"
+      ],
+      "fields": [
+        "WBSElementExternalID",
+        "WBSElementDescription"
+      ]
+    }
+  },
+  "main_structure": "ZPSX_C_WBSMig"
+}

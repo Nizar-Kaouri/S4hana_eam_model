@@ -19,7 +19,7 @@ Measuring points and counters (IMPTT) with object number, characteristic, ranges
 
 ## Keys
 
-- `point`
+- `MeasuringPoint`
 
 ## Associations defined here
 

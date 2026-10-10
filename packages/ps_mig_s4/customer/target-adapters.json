@@ -1,0 +1,70 @@
+{
+  "ZPSX_C_ProjectMig": {
+    "module": "project",
+    "key": [
+      "ProjectInternalID"
+    ],
+    "fields": [
+      "ProjectExternalID",
+      "ProjectDescription",
+      "CompanyCode",
+      "ControllingArea",
+      "ObjectNumber"
+    ],
+    "target_export": "target/ZPSX_C_ProjectMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_WBSMig": {
+    "module": "wbs_element",
+    "key": [
+      "WBSElementInternalID"
+    ],
+    "fields": [
+      "WBSElementExternalID",
+      "WBSElementDescription",
+      "ProjectInternalID",
+      "CompanyCode",
+      "ControllingArea",
+      "ObjectNumber"
+    ],
+    "target_export": "target/ZPSX_C_WBSMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_WBSHierarchyMig": {
+    "module": "wbs_element",
+    "key": [
+      "WBSElementInternalID"
+    ],
+    "fields": [
+      "ParentWBSElementInternalID",
+      "FirstChildInternalID",
+      "PreviousSiblingInternalID",
+      "NextSiblingInternalID"
+    ],
+    "target_export": "target/ZPSX_C_WBSHierarchyMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPSX_C_ProjectCostMig": {
+    "module": "project_cost",
+    "key": [
+      "ControllingArea",
+      "COAccountingDocument",
+      "COAccountingDocumentItem"
+    ],
+    "fields": [
+      "FiscalYear",
+      "ObjectNumber",
+      "CostElement",
+      "ValueType",
+      "BusinessTransaction",
+      "TransactionAmount",
+      "TransactionCurrency"
+    ],
+    "target_export": "target/ZPSX_C_ProjectCostMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  }
+}

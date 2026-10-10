@@ -53,8 +53,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Records and fields: `ZEMX_C_MeasuringPointMig` vs `ZEMT_I_MeasPointCompare` on `MeasuringPoint`; compared: `MeasuringPointCategory`, `MeasuringPointIsCounter`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module measuring_point --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --module measuring_point --source ecc_extract.csv --target s4_compare.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module measuring_point --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --product eam_mig_ecc --module measuring_point --source ecc_extract.csv --target s4_compare.csv
 ```
 
 ## Open gaps

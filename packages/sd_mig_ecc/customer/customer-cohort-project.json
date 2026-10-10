@@ -1,0 +1,215 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "ZSDX_C_SalesOrderMig": "exports/ZSDX_C_SalesOrderMig.csv",
+    "ZSDX_C_SalesOrderMig_Scope": "selection/ZSDX_C_SalesOrderMig.csv",
+    "ZSDX_C_SalesItemMig": "exports/ZSDX_C_SalesItemMig.csv",
+    "ZSDX_C_SalesItemMig_Scope": "selection/ZSDX_C_SalesItemMig.csv",
+    "ZSDX_C_SalesScheduleMig": "exports/ZSDX_C_SalesScheduleMig.csv",
+    "ZSDX_C_SalesScheduleMig_Scope": "selection/ZSDX_C_SalesScheduleMig.csv",
+    "ZSDX_C_SalesBusinessMig": "exports/ZSDX_C_SalesBusinessMig.csv",
+    "ZSDX_C_SalesBusinessMig_Scope": "selection/ZSDX_C_SalesBusinessMig.csv",
+    "ZSDX_C_SalesPartnerMig": "exports/ZSDX_C_SalesPartnerMig.csv",
+    "ZSDX_C_SalesPartnerMig_Scope": "selection/ZSDX_C_SalesPartnerMig.csv",
+    "ZSDX_C_SalesHeaderStaMig": "exports/ZSDX_C_SalesHeaderStaMig.csv",
+    "ZSDX_C_SalesHeaderStaMig_Scope": "selection/ZSDX_C_SalesHeaderStaMig.csv",
+    "ZSDX_C_SalesItemStatuMig": "exports/ZSDX_C_SalesItemStatuMig.csv",
+    "ZSDX_C_SalesItemStatuMig_Scope": "selection/ZSDX_C_SalesItemStatuMig.csv",
+    "ZSDX_C_SalesFlowMig": "exports/ZSDX_C_SalesFlowMig.csv",
+    "ZSDX_C_SalesFlowMig_Scope": "selection/ZSDX_C_SalesFlowMig.csv",
+    "ZSDX_C_DeliveryMig": "exports/ZSDX_C_DeliveryMig.csv",
+    "ZSDX_C_DeliveryMig_Scope": "selection/ZSDX_C_DeliveryMig.csv",
+    "ZSDX_C_DeliveryItemMig": "exports/ZSDX_C_DeliveryItemMig.csv",
+    "ZSDX_C_DeliveryItemMig_Scope": "selection/ZSDX_C_DeliveryItemMig.csv",
+    "ZSDX_C_BillingMig": "exports/ZSDX_C_BillingMig.csv",
+    "ZSDX_C_BillingMig_Scope": "selection/ZSDX_C_BillingMig.csv",
+    "ZSDX_C_BillingItemMig": "exports/ZSDX_C_BillingItemMig.csv",
+    "ZSDX_C_BillingItemMig_Scope": "selection/ZSDX_C_BillingItemMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZSDX_C_SalesOrderMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_SalesOrderMig",
+      "parent": "ZSDX_C_SalesOrderMig_Scope",
+      "child_keys": [
+        "SalesDocument"
+      ],
+      "parent_keys": [
+        "SalesDocument"
+      ]
+    },
+    {
+      "name": "ZSDX_C_SalesItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_SalesItemMig",
+      "parent": "ZSDX_C_SalesItemMig_Scope",
+      "child_keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ],
+      "parent_keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ]
+    },
+    {
+      "name": "ZSDX_C_SalesScheduleMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_SalesScheduleMig",
+      "parent": "ZSDX_C_SalesScheduleMig_Scope",
+      "child_keys": [
+        "SalesDocument",
+        "SalesDocumentItem",
+        "ScheduleLine"
+      ],
+      "parent_keys": [
+        "SalesDocument",
+        "SalesDocumentItem",
+        "ScheduleLine"
+      ]
+    },
+    {
+      "name": "ZSDX_C_SalesBusinessMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_SalesBusinessMig",
+      "parent": "ZSDX_C_SalesBusinessMig_Scope",
+      "child_keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ],
+      "parent_keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ]
+    },
+    {
+      "name": "ZSDX_C_SalesPartnerMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_SalesPartnerMig",
+      "parent": "ZSDX_C_SalesPartnerMig_Scope",
+      "child_keys": [
+        "SalesDocument",
+        "SalesDocumentItem",
+        "PartnerFunction"
+      ],
+      "parent_keys": [
+        "SalesDocument",
+        "SalesDocumentItem",
+        "PartnerFunction"
+      ]
+    },
+    {
+      "name": "ZSDX_C_SalesHeaderStaMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_SalesHeaderStaMig",
+      "parent": "ZSDX_C_SalesHeaderStaMig_Scope",
+      "child_keys": [
+        "SalesDocument"
+      ],
+      "parent_keys": [
+        "SalesDocument"
+      ]
+    },
+    {
+      "name": "ZSDX_C_SalesItemStatuMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_SalesItemStatuMig",
+      "parent": "ZSDX_C_SalesItemStatuMig_Scope",
+      "child_keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ],
+      "parent_keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ]
+    },
+    {
+      "name": "ZSDX_C_SalesFlowMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_SalesFlowMig",
+      "parent": "ZSDX_C_SalesFlowMig_Scope",
+      "child_keys": [
+        "PrecedingDocument",
+        "PrecedingDocumentItem",
+        "SubsequentDocument",
+        "SubsequentDocumentItem",
+        "SubsequentDocumentCategory"
+      ],
+      "parent_keys": [
+        "PrecedingDocument",
+        "PrecedingDocumentItem",
+        "SubsequentDocument",
+        "SubsequentDocumentItem",
+        "SubsequentDocumentCategory"
+      ]
+    },
+    {
+      "name": "ZSDX_C_DeliveryMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_DeliveryMig",
+      "parent": "ZSDX_C_DeliveryMig_Scope",
+      "child_keys": [
+        "DeliveryDocument"
+      ],
+      "parent_keys": [
+        "DeliveryDocument"
+      ]
+    },
+    {
+      "name": "ZSDX_C_DeliveryItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_DeliveryItemMig",
+      "parent": "ZSDX_C_DeliveryItemMig_Scope",
+      "child_keys": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ],
+      "parent_keys": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ]
+    },
+    {
+      "name": "ZSDX_C_BillingMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_BillingMig",
+      "parent": "ZSDX_C_BillingMig_Scope",
+      "child_keys": [
+        "BillingDocument"
+      ],
+      "parent_keys": [
+        "BillingDocument"
+      ]
+    },
+    {
+      "name": "ZSDX_C_BillingItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZSDX_C_BillingItemMig",
+      "parent": "ZSDX_C_BillingItemMig_Scope",
+      "child_keys": [
+        "BillingDocument",
+        "BillingDocumentItem"
+      ],
+      "parent_keys": [
+        "BillingDocument",
+        "BillingDocumentItem"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZSDX_C_SalesOrderMig_Prepared",
+    "ZSDX_C_SalesItemMig_Prepared",
+    "ZSDX_C_SalesScheduleMig_Prepared",
+    "ZSDX_C_SalesBusinessMig_Prepared",
+    "ZSDX_C_SalesPartnerMig_Prepared",
+    "ZSDX_C_SalesHeaderStaMig_Prepared",
+    "ZSDX_C_SalesItemStatuMig_Prepared",
+    "ZSDX_C_SalesFlowMig_Prepared",
+    "ZSDX_C_DeliveryMig_Prepared",
+    "ZSDX_C_DeliveryItemMig_Prepared",
+    "ZSDX_C_BillingMig_Prepared",
+    "ZSDX_C_BillingItemMig_Prepared"
+  ]
+}

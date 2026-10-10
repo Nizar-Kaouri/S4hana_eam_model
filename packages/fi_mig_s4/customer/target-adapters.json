@@ -1,0 +1,327 @@
+{
+  "ZFIX_C_GLAccountMig": {
+    "module": "gl_account",
+    "key": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "fields": [
+      "AccountGroup",
+      "BalanceSheetAccount",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZFIX_C_GLAccountMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_GLAccountTextMig": {
+    "module": "gl_account",
+    "key": [
+      "Language",
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "fields": [
+      "GLAccountName",
+      "GLAccountDescription"
+    ],
+    "target_export": "target/ZFIX_C_GLAccountTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_GLCompanyMig": {
+    "module": "gl_account",
+    "key": [
+      "CompanyCode",
+      "GLAccount"
+    ],
+    "fields": [
+      "AccountCurrency",
+      "OpenItemManagement",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZFIX_C_GLCompanyMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_SupplierMig": {
+    "module": "supplier",
+    "key": [
+      "Supplier"
+    ],
+    "fields": [
+      "SupplierName",
+      "Country",
+      "Region",
+      "AccountGroup",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZFIX_C_SupplierMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_SupplierCompanMig": {
+    "module": "supplier",
+    "key": [
+      "Supplier",
+      "CompanyCode"
+    ],
+    "fields": [
+      "ReconciliationAccount",
+      "PaymentTerms",
+      "PaymentMethods",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZFIX_C_SupplierCompanMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_SupplierPurchaMig": {
+    "module": "supplier",
+    "key": [
+      "Supplier",
+      "PurchasingOrganization"
+    ],
+    "fields": [
+      "OrderCurrency",
+      "PaymentTerms",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZFIX_C_SupplierPurchaMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_CustomerMig": {
+    "module": "customer",
+    "key": [
+      "Customer"
+    ],
+    "fields": [
+      "CustomerName",
+      "Country",
+      "Region",
+      "AccountGroup",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZFIX_C_CustomerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_CustomerCompanMig": {
+    "module": "customer",
+    "key": [
+      "Customer",
+      "CompanyCode"
+    ],
+    "fields": [
+      "ReconciliationAccount",
+      "PaymentTerms",
+      "PaymentMethods",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZFIX_C_CustomerCompanMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_CustomerSalesMig": {
+    "module": "customer",
+    "key": [
+      "Customer",
+      "SalesOrganization",
+      "DistributionChannel",
+      "Division"
+    ],
+    "fields": [
+      "Currency",
+      "PaymentTerms",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZFIX_C_CustomerSalesMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_AccountingHeadMig": {
+    "module": "gl_line_item",
+    "key": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ],
+    "fields": [
+      "AccountingDocumentType",
+      "DocumentDate",
+      "PostingDate",
+      "DocumentCurrency"
+    ],
+    "target_export": "target/ZFIX_C_AccountingHeadMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_AccountingItemMig": {
+    "module": "gl_line_item",
+    "key": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear",
+      "AccountingDocumentItem"
+    ],
+    "fields": [
+      "GLAccount",
+      "AccountType",
+      "DebitCreditCode",
+      "DocumentAmount",
+      "CompanyCodeAmount",
+      "ClearingDate",
+      "ClearingDocument"
+    ],
+    "target_export": "target/ZFIX_C_AccountingItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_GLOpenMig": {
+    "module": "open_items",
+    "key": [
+      "CompanyCode",
+      "GLAccount",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "fields": [
+      "PostingDate",
+      "DebitCreditCode",
+      "DocumentAmount",
+      "CompanyCodeAmount",
+      "DocumentCurrency"
+    ],
+    "target_export": "target/ZFIX_C_GLOpenMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_GLClearedMig": {
+    "module": "open_items",
+    "key": [
+      "CompanyCode",
+      "GLAccount",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "fields": [
+      "PostingDate",
+      "DebitCreditCode",
+      "DocumentAmount",
+      "CompanyCodeAmount",
+      "DocumentCurrency"
+    ],
+    "target_export": "target/ZFIX_C_GLClearedMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_APOpenMig": {
+    "module": "open_items",
+    "key": [
+      "CompanyCode",
+      "Supplier",
+      "SpecialGLTransactionType",
+      "SpecialGLCode",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "fields": [
+      "PostingDate",
+      "DebitCreditCode",
+      "DocumentAmount",
+      "CompanyCodeAmount",
+      "DocumentCurrency"
+    ],
+    "target_export": "target/ZFIX_C_APOpenMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_APClearedMig": {
+    "module": "open_items",
+    "key": [
+      "CompanyCode",
+      "Supplier",
+      "SpecialGLTransactionType",
+      "SpecialGLCode",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "fields": [
+      "PostingDate",
+      "DebitCreditCode",
+      "DocumentAmount",
+      "CompanyCodeAmount",
+      "DocumentCurrency"
+    ],
+    "target_export": "target/ZFIX_C_APClearedMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_AROpenMig": {
+    "module": "open_items",
+    "key": [
+      "CompanyCode",
+      "Customer",
+      "SpecialGLTransactionType",
+      "SpecialGLCode",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "fields": [
+      "PostingDate",
+      "DebitCreditCode",
+      "DocumentAmount",
+      "CompanyCodeAmount",
+      "DocumentCurrency"
+    ],
+    "target_export": "target/ZFIX_C_AROpenMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZFIX_C_ARClearedMig": {
+    "module": "open_items",
+    "key": [
+      "CompanyCode",
+      "Customer",
+      "SpecialGLTransactionType",
+      "SpecialGLCode",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "fields": [
+      "PostingDate",
+      "DebitCreditCode",
+      "DocumentAmount",
+      "CompanyCodeAmount",
+      "DocumentCurrency"
+    ],
+    "target_export": "target/ZFIX_C_ARClearedMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  }
+}

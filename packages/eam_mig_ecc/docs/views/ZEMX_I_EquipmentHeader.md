@@ -19,7 +19,7 @@ Equipment master records (EQUI): category, object type, manufacturer, acquisitio
 
 ## Keys
 
-- `equnr`
+- `Equipment`
 
 ## Associations defined here
 

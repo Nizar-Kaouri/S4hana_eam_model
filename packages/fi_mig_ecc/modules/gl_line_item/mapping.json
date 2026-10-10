@@ -1,0 +1,192 @@
+{
+  "module": "gl_line_item",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "gl_account"
+  ],
+  "key": {
+    "business_key": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFIX_C_AccountingHeadMig",
+      "source_view": "ZFIX_I_AccountingHead",
+      "scope_filter": "",
+      "keys": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear"
+      ],
+      "fields": [
+        {
+          "element": "CompanyCode",
+          "source": "BKPF-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AccountingDocument",
+          "source": "BKPF-BELNR",
+          "target": "customer interface field: AccountingDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "FiscalYear",
+          "source": "BKPF-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AccountingDocumentType",
+          "source": "BKPF-BLART",
+          "target": "customer interface field: AccountingDocumentType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DocumentDate",
+          "source": "BKPF-BLDAT",
+          "target": "customer interface field: DocumentDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PostingDate",
+          "source": "BKPF-BUDAT",
+          "target": "customer interface field: PostingDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DocumentCurrency",
+          "source": "BKPF-WAERS",
+          "target": "customer interface field: DocumentCurrency (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_AccountingItemMig",
+      "source_view": "ZFIX_I_AccountingItem",
+      "scope_filter": "",
+      "keys": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear",
+        "AccountingDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "CompanyCode",
+          "source": "BSEG-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AccountingDocument",
+          "source": "BSEG-BELNR",
+          "target": "customer interface field: AccountingDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "FiscalYear",
+          "source": "BSEG-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AccountingDocumentItem",
+          "source": "BSEG-BUZEI",
+          "target": "customer interface field: AccountingDocumentItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "GLAccount",
+          "source": "BSEG-HKONT",
+          "target": "customer interface field: GLAccount (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AccountType",
+          "source": "BSEG-KOART",
+          "target": "customer interface field: AccountType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DebitCreditCode",
+          "source": "BSEG-SHKZG",
+          "target": "customer interface field: DebitCreditCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DocumentAmount",
+          "source": "BSEG-WRBTR",
+          "target": "customer interface field: DocumentAmount (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CompanyCodeAmount",
+          "source": "BSEG-DMBTR",
+          "target": "customer interface field: CompanyCodeAmount (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ClearingDate",
+          "source": "BSEG-AUGDT",
+          "target": "customer interface field: ClearingDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ClearingDocument",
+          "source": "BSEG-AUGBL",
+          "target": "customer interface field: ClearingDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "CompanyCode"
+      }
+    ],
+    "source_count_view": "ZFIX_C_AccountingHeadMigCount"
+  },
+  "main_structure": "ZFIX_C_AccountingHeadMig"
+}

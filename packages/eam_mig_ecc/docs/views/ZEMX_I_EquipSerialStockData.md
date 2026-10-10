@@ -19,7 +19,7 @@ EquipSerialStock source data
 
 ## Keys
 
-- `equnr`
+- `Equipment`
 
 ## Associations defined here
 

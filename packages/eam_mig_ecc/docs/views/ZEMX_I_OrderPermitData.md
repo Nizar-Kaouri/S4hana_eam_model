@@ -19,8 +19,8 @@ OrderPermit source data
 
 ## Keys
 
-- `objnr`
-- `pmps`
+- `ObjectNumber`
+- `Permit`
 
 ## Associations defined here
 

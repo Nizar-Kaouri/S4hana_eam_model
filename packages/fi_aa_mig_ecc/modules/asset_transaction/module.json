@@ -1,0 +1,43 @@
+{
+  "name": "asset_transaction",
+  "title": "Asset transaction history",
+  "description": "Asset transaction history source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "reference"
+  ],
+  "sap_tables": [
+    "ANEP"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "fixed_asset"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFAX_I_AssetPostingData"
+    ],
+    "composite": [
+      "ZFAX_I_AssetPosting"
+    ],
+    "consumption": [
+      "ZFAX_C_AssetPostingMig",
+      "ZFAX_C_AssetPostingMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFAX_I_AssetPostingData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_I_AssetPosting": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_C_AssetPostingMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_C_AssetPostingMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

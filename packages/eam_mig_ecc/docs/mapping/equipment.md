@@ -108,8 +108,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Records and fields: `ZEMX_C_EquipmentMig` vs `ZEMT_I_EquipmentCompare` on `Equipment`; compared: `EquipmentCategory`, `TechnicalObjectType`, `MaintenancePlanningPlant`, `FunctionalLocation`, `SuperordinateEquipment`, `MaintenancePlant`, `CompanyCode`, `CostCenter`, `Material`, `SerialNumber`, `ManufacturerSerialNumber`, `ConstructionYear`, `InventoryNumber`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module equipment --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --module equipment --source ecc_extract.csv --target s4_compare.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module equipment --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --product eam_mig_ecc --module equipment --source ecc_extract.csv --target s4_compare.csv
 ```
 
 ## Open gaps

@@ -19,7 +19,7 @@ CapacityHeader source data
 
 ## Keys
 
-- `kapid`
+- `CapacityInternalID`
 
 ## Associations defined here
 

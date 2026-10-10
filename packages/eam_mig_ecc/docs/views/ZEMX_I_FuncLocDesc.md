@@ -19,8 +19,8 @@ Functional location descriptions (IFLOTX) per language with the long-text indica
 
 ## Keys
 
-- `tplnr`
-- `spras`
+- `FunctionalLocation`
+- `Language`
 
 ## Associations defined here
 

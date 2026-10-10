@@ -19,8 +19,8 @@ NotifTask source data
 
 ## Keys
 
-- `qmnum`
-- `manum`
+- `MaintenanceNotification`
+- `TaskNumber`
 
 ## Associations defined here
 

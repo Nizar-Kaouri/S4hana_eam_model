@@ -1,0 +1,100 @@
+{
+  "module": "project",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "ProjectInternalID"
+    ],
+    "numbering": "derived",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZPSX_C_ProjectMig",
+      "source_view": "ZPSX_I_Project",
+      "scope_filter": "",
+      "keys": [
+        "ProjectInternalID"
+      ],
+      "fields": [
+        {
+          "element": "ProjectInternalID",
+          "source": "PROJ-PSPNR",
+          "target": "customer interface field: ProjectInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProjectExternalID",
+          "source": "PROJ-PSPID",
+          "target": "customer interface field: ProjectExternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProjectDescription",
+          "source": "PROJ-POST1",
+          "target": "customer interface field: ProjectDescription (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CompanyCode",
+          "source": "PROJ-VBUKR",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ControllingArea",
+          "source": "PROJ-VKOKR",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "PROJ-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZPST_I_ProjectCount",
+    "dimensions": [
+      {
+        "element": "ProjectInternalID"
+      }
+    ],
+    "source_count_view": "ZPSX_C_ProjectMigCount",
+    "compare": {
+      "source_view": "ZPSX_C_ProjectMig",
+      "target_view": "ZPST_I_ProjectCompare",
+      "key": [
+        "ProjectInternalID"
+      ],
+      "fields": [
+        "ProjectExternalID",
+        "ProjectDescription",
+        "CompanyCode",
+        "ControllingArea"
+      ]
+    }
+  },
+  "main_structure": "ZPSX_C_ProjectMig"
+}

@@ -19,10 +19,10 @@ EquipBOMAssign source data
 
 ## Keys
 
-- `equnr`
-- `werks`
-- `stlan`
-- `stlal`
+- `Equipment`
+- `Plant`
+- `BOMUsage`
+- `BOMAlternative`
 
 ## Associations defined here
 

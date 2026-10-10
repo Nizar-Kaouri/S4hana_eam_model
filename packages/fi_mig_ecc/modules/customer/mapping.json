@@ -1,0 +1,218 @@
+{
+  "module": "customer",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "Customer"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFIX_C_CustomerMig",
+      "source_view": "ZFIX_I_Customer",
+      "scope_filter": "",
+      "keys": [
+        "Customer"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNA1-KUNNR",
+          "target": "customer interface field: Customer (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CustomerName",
+          "source": "KNA1-NAME1",
+          "target": "customer interface field: CustomerName (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Country",
+          "source": "KNA1-LAND1",
+          "target": "customer interface field: Country (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Region",
+          "source": "KNA1-REGIO",
+          "target": "customer interface field: Region (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AccountGroup",
+          "source": "KNA1-KTOKD",
+          "target": "customer interface field: AccountGroup (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "KNA1-LOEVM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerCompanMig",
+      "source_view": "ZFIX_I_CustomerCompan",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "CompanyCode"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNB1-KUNNR",
+          "target": "customer interface field: Customer (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CompanyCode",
+          "source": "KNB1-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ReconciliationAccount",
+          "source": "KNB1-AKONT",
+          "target": "customer interface field: ReconciliationAccount (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PaymentTerms",
+          "source": "KNB1-ZTERM",
+          "target": "customer interface field: PaymentTerms (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PaymentMethods",
+          "source": "KNB1-ZWELS",
+          "target": "customer interface field: PaymentMethods (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "KNB1-LOEVM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerSalesMig",
+      "source_view": "ZFIX_I_CustomerSales",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNVV-KUNNR",
+          "target": "customer interface field: Customer (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SalesOrganization",
+          "source": "KNVV-VKORG",
+          "target": "customer interface field: SalesOrganization (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DistributionChannel",
+          "source": "KNVV-VTWEG",
+          "target": "customer interface field: DistributionChannel (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Division",
+          "source": "KNVV-SPART",
+          "target": "customer interface field: Division (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Currency",
+          "source": "KNVV-WAERS",
+          "target": "customer interface field: Currency (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PaymentTerms",
+          "source": "KNVV-ZTERM",
+          "target": "customer interface field: PaymentTerms (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "KNVV-LOEVM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZFIT_I_CustomerCount",
+    "dimensions": [
+      {
+        "element": "Customer"
+      }
+    ],
+    "source_count_view": "ZFIX_C_CustomerMigCount",
+    "compare": {
+      "source_view": "ZFIX_C_CustomerMig",
+      "target_view": "ZFIT_I_CustomerCompare",
+      "key": [
+        "Customer"
+      ],
+      "fields": [
+        "CustomerName",
+        "Country",
+        "Region"
+      ]
+    }
+  },
+  "main_structure": "ZFIX_C_CustomerMig"
+}

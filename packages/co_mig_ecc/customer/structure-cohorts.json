@@ -1,0 +1,109 @@
+{
+  "ZCOX_C_CostCenterMig": {
+    "module": "cost_center",
+    "table": "CSKS",
+    "keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "selection": "selection/ZCOX_C_CostCenterMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_CostCenterTextMig": {
+    "module": "cost_center",
+    "table": "CSKT",
+    "keys": [
+      "Language",
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "selection": "selection/ZCOX_C_CostCenterTextMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_ProfitCenterMig": {
+    "module": "profit_center",
+    "table": "CEPC",
+    "keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "selection": "selection/ZCOX_C_ProfitCenterMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_ProfitCenterTeMig": {
+    "module": "profit_center",
+    "table": "CEPCT",
+    "keys": [
+      "Language",
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "selection": "selection/ZCOX_C_ProfitCenterTeMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_InternalOrderMig": {
+    "module": "internal_order",
+    "table": "AUFK",
+    "keys": [
+      "InternalOrder"
+    ],
+    "selection": "selection/ZCOX_C_InternalOrderMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_OrderSettlemenMig": {
+    "module": "internal_order",
+    "table": "COBRB",
+    "keys": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "selection": "selection/ZCOX_C_OrderSettlemenMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_CostActualMig": {
+    "module": "cost_actuals",
+    "table": "COEP",
+    "keys": [
+      "ControllingArea",
+      "COAccountingDocument",
+      "COAccountingDocumentItem"
+    ],
+    "selection": "selection/ZCOX_C_CostActualMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZCOX_C_CostElementMig": {
+    "module": "cost_element",
+    "table": "CSKA",
+    "keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "selection": "selection/ZCOX_C_CostElementMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZCOX_C_CostElementAreMig": {
+    "module": "cost_element",
+    "table": "CSKB",
+    "keys": [
+      "ControllingArea",
+      "CostElement",
+      "ValidityEndDate"
+    ],
+    "selection": "selection/ZCOX_C_CostElementAreMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  }
+}

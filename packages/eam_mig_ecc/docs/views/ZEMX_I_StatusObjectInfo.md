@@ -19,7 +19,7 @@ Status profile per object number (JSTO).
 
 ## Keys
 
-- `objnr`
+- `ObjectNumber`
 
 ## Associations defined here
 

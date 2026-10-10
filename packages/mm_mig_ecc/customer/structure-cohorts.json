@@ -1,0 +1,254 @@
+{
+  "ZMMX_C_MaterialMig": {
+    "module": "product",
+    "table": "MARA",
+    "keys": [
+      "Product"
+    ],
+    "selection": "selection/ZMMX_C_MaterialMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_MaterialTextMig": {
+    "module": "product",
+    "table": "MAKT",
+    "keys": [
+      "Product",
+      "Language"
+    ],
+    "selection": "selection/ZMMX_C_MaterialTextMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_MaterialPlantMig": {
+    "module": "product",
+    "table": "MARC",
+    "keys": [
+      "Product",
+      "Plant"
+    ],
+    "selection": "selection/ZMMX_C_MaterialPlantMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_MaterialLocatiMig": {
+    "module": "product",
+    "table": "MARD",
+    "keys": [
+      "Product",
+      "Plant",
+      "StorageLocation"
+    ],
+    "selection": "selection/ZMMX_C_MaterialLocatiMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_MaterialUnitMig": {
+    "module": "product",
+    "table": "MARM",
+    "keys": [
+      "Product",
+      "AlternativeUnit"
+    ],
+    "selection": "selection/ZMMX_C_MaterialUnitMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_MaterialValueMig": {
+    "module": "product",
+    "table": "MBEW",
+    "keys": [
+      "Product",
+      "ValuationArea",
+      "ValuationType"
+    ],
+    "selection": "selection/ZMMX_C_MaterialValueMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_BatchGeneralMig": {
+    "module": "product",
+    "table": "MCH1",
+    "keys": [
+      "Product",
+      "Batch"
+    ],
+    "selection": "selection/ZMMX_C_BatchGeneralMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_BatchPlantMig": {
+    "module": "product",
+    "table": "MCHA",
+    "keys": [
+      "Product",
+      "Plant",
+      "Batch"
+    ],
+    "selection": "selection/ZMMX_C_BatchPlantMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZMMX_C_LocationStockMig": {
+    "module": "material_stock",
+    "table": "MARD",
+    "keys": [
+      "Product",
+      "Plant",
+      "StorageLocation"
+    ],
+    "selection": "selection/ZMMX_C_LocationStockMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZMMX_C_BatchStockMig": {
+    "module": "material_stock",
+    "table": "MCHB",
+    "keys": [
+      "Product",
+      "Plant",
+      "StorageLocation",
+      "Batch"
+    ],
+    "selection": "selection/ZMMX_C_BatchStockMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZMMX_C_SalesOrderStocMig": {
+    "module": "material_stock",
+    "table": "MSKA",
+    "keys": [
+      "Product",
+      "Plant",
+      "StorageLocation",
+      "Batch",
+      "SpecialStock",
+      "SalesOrder",
+      "SalesOrderItem"
+    ],
+    "selection": "selection/ZMMX_C_SalesOrderStocMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZMMX_C_SupplierStockMig": {
+    "module": "material_stock",
+    "table": "MSLB",
+    "keys": [
+      "Product",
+      "Plant",
+      "Batch",
+      "SpecialStock",
+      "Supplier"
+    ],
+    "selection": "selection/ZMMX_C_SupplierStockMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZMMX_C_MatDocHeaderMig": {
+    "module": "goods_movement",
+    "table": "MKPF",
+    "keys": [
+      "MaterialDocument",
+      "MaterialDocumentYear"
+    ],
+    "selection": "selection/ZMMX_C_MatDocHeaderMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZMMX_C_MatDocItemMig": {
+    "module": "goods_movement",
+    "table": "MSEG",
+    "keys": [
+      "MaterialDocument",
+      "MaterialDocumentYear",
+      "MaterialDocumentItem"
+    ],
+    "selection": "selection/ZMMX_C_MatDocItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZMMX_C_RequisitionMig": {
+    "module": "purchase_requisition",
+    "table": "EBAN",
+    "keys": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "selection": "selection/ZMMX_C_RequisitionMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZMMX_C_ReqAssignmentMig": {
+    "module": "purchase_requisition",
+    "table": "EBKN",
+    "keys": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem",
+      "AccountAssignmentNumber"
+    ],
+    "selection": "selection/ZMMX_C_ReqAssignmentMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZMMX_C_PurchaseOrderMig": {
+    "module": "purchase_order",
+    "table": "EKKO",
+    "keys": [
+      "PurchaseOrder"
+    ],
+    "selection": "selection/ZMMX_C_PurchaseOrderMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZMMX_C_PurchaseItemMig": {
+    "module": "purchase_order",
+    "table": "EKPO",
+    "keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "selection": "selection/ZMMX_C_PurchaseItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZMMX_C_PurchaseScheduMig": {
+    "module": "purchase_order",
+    "table": "EKET",
+    "keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem",
+      "ScheduleLine"
+    ],
+    "selection": "selection/ZMMX_C_PurchaseScheduMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZMMX_C_PurchaseAssignMig": {
+    "module": "purchase_order",
+    "table": "EKKN",
+    "keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem",
+      "AccountAssignmentNumber"
+    ],
+    "selection": "selection/ZMMX_C_PurchaseAssignMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  },
+  "ZMMX_C_PurchaseHistorMig": {
+    "module": "purchase_order",
+    "table": "EKBE",
+    "keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem",
+      "AccountAssignmentNumber",
+      "HistoryCategory",
+      "FiscalYear",
+      "DocumentNumber",
+      "DocumentItem"
+    ],
+    "selection": "selection/ZMMX_C_PurchaseHistorMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-document"
+  }
+}

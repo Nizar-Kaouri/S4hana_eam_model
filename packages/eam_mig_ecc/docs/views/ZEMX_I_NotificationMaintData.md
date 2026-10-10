@@ -19,7 +19,7 @@ Maintenance data of PM notifications (QMIH): reference object, planning plant, p
 
 ## Keys
 
-- `qmnum`
+- `MaintenanceNotification`
 
 ## Associations defined here
 

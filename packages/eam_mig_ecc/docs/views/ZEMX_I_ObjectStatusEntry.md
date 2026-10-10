@@ -19,8 +19,8 @@ Active system and user statuses of all objects (JEST, INACT = space) with the ob
 
 ## Keys
 
-- `objnr`
-- `stat`
+- `ObjectNumber`
+- `StatusCode`
 
 ## Associations defined here
 

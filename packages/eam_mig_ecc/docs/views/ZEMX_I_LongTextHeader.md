@@ -19,10 +19,10 @@ Index of the SAPscript long texts of EAM objects (STXH): which texts exist, in w
 
 ## Keys
 
-- `tdobject`
-- `tdname`
-- `tdid`
-- `tdspras`
+- `TextObject`
+- `TextName`
+- `TextID`
+- `Language`
 
 ## Associations defined here
 

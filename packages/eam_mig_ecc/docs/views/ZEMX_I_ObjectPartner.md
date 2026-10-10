@@ -19,9 +19,9 @@ Partners of technical objects, notifications and orders (IHPA) with the object t
 
 ## Keys
 
-- `objnr`
-- `parvw`
-- `counter`
+- `ObjectNumber`
+- `PartnerFunction`
+- `PartnerCounter`
 
 ## Associations defined here
 

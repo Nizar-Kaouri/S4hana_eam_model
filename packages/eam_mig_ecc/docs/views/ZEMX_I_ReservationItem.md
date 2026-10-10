@@ -19,9 +19,9 @@ Reservation / dependent requirement items (RESB) with order and operation link, 
 
 ## Keys
 
-- `rsnum`
-- `rspos`
-- `rsart`
+- `Reservation`
+- `ReservationItem`
+- `ReservationRecordType`
 
 ## Associations defined here
 

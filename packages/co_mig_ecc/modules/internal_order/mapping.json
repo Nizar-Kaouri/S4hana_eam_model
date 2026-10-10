@@ -1,0 +1,189 @@
+{
+  "module": "internal_order",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "cost_center",
+    "profit_center"
+  ],
+  "key": {
+    "business_key": [
+      "InternalOrder"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZCOX_C_InternalOrderMig",
+      "source_view": "ZCOX_I_InternalOrder",
+      "scope_filter": "",
+      "keys": [
+        "InternalOrder"
+      ],
+      "fields": [
+        {
+          "element": "InternalOrder",
+          "source": "AUFK-AUFNR",
+          "target": "customer interface field: InternalOrder (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "InternalOrderType",
+          "source": "AUFK-AUART",
+          "target": "customer interface field: InternalOrderType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "OrderCategory",
+          "source": "AUFK-AUTYP",
+          "target": "customer interface field: OrderCategory (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "InternalOrderDescription",
+          "source": "AUFK-KTEXT",
+          "target": "customer interface field: InternalOrderDescription (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CompanyCode",
+          "source": "AUFK-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ControllingArea",
+          "source": "AUFK-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ResponsibleCostCenter",
+          "source": "AUFK-KOSTV",
+          "target": "customer interface field: ResponsibleCostCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProfitCenter",
+          "source": "AUFK-PRCTR",
+          "target": "customer interface field: ProfitCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "AUFK-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_OrderSettlemenMig",
+      "source_view": "ZCOX_I_OrderSettlemen",
+      "scope_filter": "",
+      "keys": [
+        "ObjectNumber",
+        "DistributionRuleGroup",
+        "DistributionRule"
+      ],
+      "fields": [
+        {
+          "element": "ObjectNumber",
+          "source": "COBRB-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DistributionRuleGroup",
+          "source": "COBRB-BUREG",
+          "target": "customer interface field: DistributionRuleGroup (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DistributionRule",
+          "source": "COBRB-LFDNR",
+          "target": "customer interface field: DistributionRule (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SettlementType",
+          "source": "COBRB-PERBZ",
+          "target": "customer interface field: SettlementType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SettlementPercentage",
+          "source": "COBRB-PROZS",
+          "target": "customer interface field: SettlementPercentage (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ReceiverCostCenter",
+          "source": "COBRB-KOSTL",
+          "target": "customer interface field: ReceiverCostCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ReceiverOrder",
+          "source": "COBRB-AUFNR",
+          "target": "customer interface field: ReceiverOrder (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZCOT_I_InternalOrderCount",
+    "dimensions": [
+      {
+        "element": "InternalOrder"
+      }
+    ],
+    "source_count_view": "ZCOX_C_InternalOrderMigCount",
+    "compare": {
+      "source_view": "ZCOX_C_InternalOrderMig",
+      "target_view": "ZCOT_I_InternalOrderCompare",
+      "key": [
+        "InternalOrder"
+      ],
+      "fields": [
+        "InternalOrderType",
+        "InternalOrderDescription",
+        "CompanyCode",
+        "ControllingArea",
+        "ResponsibleCostCenter",
+        "ProfitCenter"
+      ]
+    }
+  },
+  "main_structure": "ZCOX_C_InternalOrderMig"
+}

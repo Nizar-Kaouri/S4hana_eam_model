@@ -89,7 +89,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Counts: `ZEMX_C_EquipBOMMigCount` (ECC) vs `-` (S/4HANA) per `Plant`, `BOMUsage`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module equipment_bom --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module equipment_bom --source ecc_counts.csv --target s4_counts.csv
 ```
 
 ## Open gaps

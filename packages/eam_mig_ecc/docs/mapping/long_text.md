@@ -38,7 +38,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Counts: `ZEMX_C_LongTextMigCount` (ECC) vs `-` (S/4HANA) per `TextObject`, `TextID`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module long_text --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module long_text --source ecc_counts.csv --target s4_counts.csv
 ```
 
 ## Open gaps

@@ -19,7 +19,7 @@ Object numbers whose system status I0072 - notification completed (NOCO) - is ac
 
 ## Keys
 
-- `objnr`
+- `ObjectNumber`
 
 ## Associations defined here
 

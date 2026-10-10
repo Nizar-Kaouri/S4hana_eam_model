@@ -1,0 +1,344 @@
+{
+  "module": "bill_of_material",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "Material",
+      "Plant",
+      "BillOfMaterialUsage",
+      "BillOfMaterial",
+      "BillOfMaterialVariant"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZPPX_C_MaterialBOMMig",
+      "source_view": "ZPPX_I_MaterialBOM",
+      "scope_filter": "",
+      "keys": [
+        "Material",
+        "Plant",
+        "BillOfMaterialUsage",
+        "BillOfMaterial",
+        "BillOfMaterialVariant"
+      ],
+      "fields": [
+        {
+          "element": "Material",
+          "source": "MAST-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "MAST-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BillOfMaterialUsage",
+          "source": "MAST-STLAN",
+          "target": "customer interface field: BillOfMaterialUsage (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "MAST-STLNR",
+          "target": "customer interface field: BillOfMaterial (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BillOfMaterialVariant",
+          "source": "MAST-STLAL",
+          "target": "customer interface field: BillOfMaterialVariant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "LotSizeFrom",
+          "source": "MAST-LOSVN",
+          "target": "customer interface field: LotSizeFrom (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "LotSizeTo",
+          "source": "MAST-LOSBS",
+          "target": "customer interface field: LotSizeTo (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+    },
+    {
+      "consumption_view": "ZPPX_C_BOMHeaderMig",
+      "source_view": "ZPPX_I_BOMHeader",
+      "scope_filter": "",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BillOfMaterialVariant",
+        "InternalCounter"
+      ],
+      "fields": [
+        {
+          "element": "BOMCategory",
+          "source": "STKO-STLTY",
+          "target": "customer interface field: BOMCategory (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "STKO-STLNR",
+          "target": "customer interface field: BillOfMaterial (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BillOfMaterialVariant",
+          "source": "STKO-STLAL",
+          "target": "customer interface field: BillOfMaterialVariant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InternalCounter",
+          "source": "STKO-STKOZ",
+          "target": "customer interface field: InternalCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidFromDate",
+          "source": "STKO-DATUV",
+          "target": "customer interface field: ValidFromDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ChangeNumber",
+          "source": "STKO-AENNR",
+          "target": "customer interface field: ChangeNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "STKO-LKENZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BaseQuantity",
+          "source": "STKO-BMENG",
+          "target": "customer interface field: BaseQuantity (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BaseUnit",
+          "source": "STKO-BMEIN",
+          "target": "customer interface field: BaseUnit (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+    },
+    {
+      "consumption_view": "ZPPX_C_BOMSelectionMig",
+      "source_view": "ZPPX_I_BOMSelection",
+      "scope_filter": "",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BillOfMaterialVariant",
+        "BOMNode",
+        "InternalCounter"
+      ],
+      "fields": [
+        {
+          "element": "BOMCategory",
+          "source": "STAS-STLTY",
+          "target": "customer interface field: BOMCategory (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "STAS-STLNR",
+          "target": "customer interface field: BillOfMaterial (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BillOfMaterialVariant",
+          "source": "STAS-STLAL",
+          "target": "customer interface field: BillOfMaterialVariant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BOMNode",
+          "source": "STAS-STLKN",
+          "target": "customer interface field: BOMNode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InternalCounter",
+          "source": "STAS-STASZ",
+          "target": "customer interface field: InternalCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidFromDate",
+          "source": "STAS-DATUV",
+          "target": "customer interface field: ValidFromDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ChangeNumber",
+          "source": "STAS-AENNR",
+          "target": "customer interface field: ChangeNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "STAS-LKENZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+    },
+    {
+      "consumption_view": "ZPPX_C_BOMItemMig",
+      "source_view": "ZPPX_I_BOMItem",
+      "scope_filter": "",
+      "keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BOMNode",
+        "InternalCounter"
+      ],
+      "fields": [
+        {
+          "element": "BOMCategory",
+          "source": "STPO-STLTY",
+          "target": "customer interface field: BOMCategory (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "STPO-STLNR",
+          "target": "customer interface field: BillOfMaterial (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BOMNode",
+          "source": "STPO-STLKN",
+          "target": "customer interface field: BOMNode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InternalCounter",
+          "source": "STPO-STPOZ",
+          "target": "customer interface field: InternalCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidFromDate",
+          "source": "STPO-DATUV",
+          "target": "customer interface field: ValidFromDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ChangeNumber",
+          "source": "STPO-AENNR",
+          "target": "customer interface field: ChangeNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "STPO-LKENZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Component",
+          "source": "STPO-IDNRK",
+          "target": "customer interface field: Component (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ItemNumber",
+          "source": "STPO-POSNR",
+          "target": "customer interface field: ItemNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ComponentQuantity",
+          "source": "STPO-MENGE",
+          "target": "customer interface field: ComponentQuantity (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Unit",
+          "source": "STPO-MEINS",
+          "target": "customer interface field: Unit (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "Material"
+      }
+    ],
+    "source_count_view": "ZPPX_C_MaterialBOMMigCount"
+  },
+  "main_structure": "ZPPX_C_MaterialBOMMig"
+}

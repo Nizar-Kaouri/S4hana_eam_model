@@ -1,0 +1,179 @@
+{
+  "module": "cost_center",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "profit_center"
+  ],
+  "key": {
+    "business_key": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZCOX_C_CostCenterMig",
+      "source_view": "ZCOX_I_CostCenter",
+      "scope_filter": "",
+      "keys": [
+        "ControllingArea",
+        "CostCenter",
+        "ValidityEndDate"
+      ],
+      "fields": [
+        {
+          "element": "ControllingArea",
+          "source": "CSKS-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CostCenter",
+          "source": "CSKS-KOSTL",
+          "target": "customer interface field: CostCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CSKS-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "CSKS-DATAB",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CompanyCode",
+          "source": "CSKS-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProfitCenter",
+          "source": "CSKS-PRCTR",
+          "target": "customer interface field: ProfitCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CostCenterCategory",
+          "source": "CSKS-KOSAR",
+          "target": "customer interface field: CostCenterCategory (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ResponsiblePerson",
+          "source": "CSKS-VERAK",
+          "target": "customer interface field: ResponsiblePerson (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_CostCenterTextMig",
+      "source_view": "ZCOX_I_CostCenterText",
+      "scope_filter": "",
+      "keys": [
+        "Language",
+        "ControllingArea",
+        "CostCenter",
+        "ValidityEndDate"
+      ],
+      "fields": [
+        {
+          "element": "Language",
+          "source": "CSKT-SPRAS",
+          "target": "customer interface field: Language (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ControllingArea",
+          "source": "CSKT-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CostCenter",
+          "source": "CSKT-KOSTL",
+          "target": "customer interface field: CostCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CSKT-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CostCenterName",
+          "source": "CSKT-KTEXT",
+          "target": "customer interface field: CostCenterName (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CostCenterDescription",
+          "source": "CSKT-LTEXT",
+          "target": "customer interface field: CostCenterDescription (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZCOT_I_CostCenterCount",
+    "dimensions": [
+      {
+        "element": "ControllingArea"
+      }
+    ],
+    "source_count_view": "ZCOX_C_CostCenterMigCount",
+    "compare": {
+      "source_view": "ZCOX_C_CostCenterMig",
+      "target_view": "ZCOT_I_CostCenterCompare",
+      "key": [
+        "ControllingArea",
+        "CostCenter",
+        "ValidityEndDate"
+      ],
+      "fields": [
+        "ValidityStartDate",
+        "CompanyCode",
+        "ProfitCenter",
+        "CostCenterCategory"
+      ]
+    }
+  },
+  "main_structure": "ZCOX_C_CostCenterMig"
+}

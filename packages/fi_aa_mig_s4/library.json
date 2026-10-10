@@ -1,0 +1,30 @@
+{
+  "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
+  "phase": "no-system",
+  "prefix": "ZFAT_",
+  "package": "ZFAT_MIG",
+  "package_description": "Asset Accounting Migration - S/4HANA reconciliation views",
+  "product_title": "Asset Accounting Migration - S/4HANA Reconciliation",
+  "sap_area": "FI_AA-MIG",
+  "target_release": "SAP S/4HANA 2025 (on-premise / Private Cloud Edition)",
+  "max_object_name_length": {
+    "DDLS": 30,
+    "DCLS": 30,
+    "DDLX": 30,
+    "CLAS": 30,
+    "DEVC": 30
+  },
+  "reserve_prefix_chars": 1,
+  "kind": "migration-target",
+  "system": "s4",
+  "migration_pair": "fi_aa_mig_ecc",
+  "map_title": "ZFAT Asset Accounting Migration - S/4HANA Reconciliation Map",
+  "map_area": "Asset Accounting migration target (S/4HANA)",
+  "map_initial": "ZFAT_I_ASSETCOMPARE",
+  "layer_prefixes": {
+    "basic": "I_",
+    "composite": "I_",
+    "consumption": "C_"
+  },
+  "draft_tested_release": "none (draft, S/4HANA 2025 assumed)"
+}

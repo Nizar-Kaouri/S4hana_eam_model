@@ -1,0 +1,178 @@
+{
+  "module": "inspection_lot",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "InspectionLot"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZQMX_C_InspectionLotMig",
+      "source_view": "ZQMX_I_InspectionLot",
+      "scope_filter": "",
+      "keys": [
+        "InspectionLot"
+      ],
+      "fields": [
+        {
+          "element": "InspectionLot",
+          "source": "QALS-PRUEFLOS",
+          "target": "customer interface field: InspectionLot (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "QALS-WERK",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Material",
+          "source": "QALS-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Batch",
+          "source": "QALS-CHARG",
+          "target": "customer interface field: Batch (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InspectionType",
+          "source": "QALS-ART",
+          "target": "customer interface field: InspectionType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InspectionLotOrigin",
+          "source": "QALS-HERKUNFT",
+          "target": "customer interface field: InspectionLotOrigin (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InspectionLotQuantity",
+          "source": "QALS-LOSMENGE",
+          "target": "customer interface field: InspectionLotQuantity (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Unit",
+          "source": "QALS-MENGENEINH",
+          "target": "customer interface field: Unit (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "QALS-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_UsageDecisionMig",
+      "source_view": "ZQMX_I_UsageDecision",
+      "scope_filter": "",
+      "keys": [
+        "InspectionLot",
+        "UsageDecisionType",
+        "UsageDecisionCounter"
+      ],
+      "fields": [
+        {
+          "element": "InspectionLot",
+          "source": "QAVE-PRUEFLOS",
+          "target": "customer interface field: InspectionLot (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "UsageDecisionType",
+          "source": "QAVE-KZART",
+          "target": "customer interface field: UsageDecisionType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "UsageDecisionCounter",
+          "source": "QAVE-ZAEHLER",
+          "target": "customer interface field: UsageDecisionCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "UsageDecisionCode",
+          "source": "QAVE-VCODE",
+          "target": "customer interface field: UsageDecisionCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "UsageDecisionCodeGroup",
+          "source": "QAVE-VCODEGRP",
+          "target": "customer interface field: UsageDecisionCodeGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "UsageDecisionDate",
+          "source": "QAVE-VDATUM",
+          "target": "customer interface field: UsageDecisionDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZQMT_I_InspectionLotCount",
+    "dimensions": [
+      {
+        "element": "InspectionLot"
+      }
+    ],
+    "source_count_view": "ZQMX_C_InspectionLotMigCount",
+    "compare": {
+      "source_view": "ZQMX_C_InspectionLotMig",
+      "target_view": "ZQMT_I_InspectionLotCompare",
+      "key": [
+        "InspectionLot"
+      ],
+      "fields": [
+        "Plant",
+        "Material",
+        "Batch",
+        "InspectionType",
+        "InspectionLotOrigin"
+      ]
+    }
+  },
+  "main_structure": "ZQMX_C_InspectionLotMig"
+}

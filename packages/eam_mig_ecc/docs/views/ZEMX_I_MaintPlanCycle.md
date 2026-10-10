@@ -19,8 +19,8 @@ Cycles of single-cycle and multiple-counter plans and packages of strategy plans
 
 ## Keys
 
-- `warpl`
-- `nummer`
+- `MaintenancePlan`
+- `MaintenancePlanCycle`
 
 ## Associations defined here
 

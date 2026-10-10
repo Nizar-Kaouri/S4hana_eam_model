@@ -1,0 +1,118 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "ZFAX_C_AssetMig": "exports/ZFAX_C_AssetMig.csv",
+    "ZFAX_C_AssetMig_Scope": "selection/ZFAX_C_AssetMig.csv",
+    "ZFAX_C_AssetAssignmenMig": "exports/ZFAX_C_AssetAssignmenMig.csv",
+    "ZFAX_C_AssetAssignmenMig_Scope": "selection/ZFAX_C_AssetAssignmenMig.csv",
+    "ZFAX_C_DepreciationMig": "exports/ZFAX_C_DepreciationMig.csv",
+    "ZFAX_C_DepreciationMig_Scope": "selection/ZFAX_C_DepreciationMig.csv",
+    "ZFAX_C_AssetPostingMig": "exports/ZFAX_C_AssetPostingMig.csv",
+    "ZFAX_C_AssetPostingMig_Scope": "selection/ZFAX_C_AssetPostingMig.csv",
+    "ZFAX_C_AssetBalanceMig": "exports/ZFAX_C_AssetBalanceMig.csv",
+    "ZFAX_C_AssetBalanceMig_Scope": "selection/ZFAX_C_AssetBalanceMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZFAX_C_AssetMig_Prepared",
+      "operation": "selection",
+      "input": "ZFAX_C_AssetMig",
+      "parent": "ZFAX_C_AssetMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ]
+    },
+    {
+      "name": "ZFAX_C_AssetAssignmenMig_Prepared",
+      "operation": "selection",
+      "input": "ZFAX_C_AssetAssignmenMig",
+      "parent": "ZFAX_C_AssetAssignmenMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "ValidityEndDate"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "ValidityEndDate"
+      ]
+    },
+    {
+      "name": "ZFAX_C_DepreciationMig_Prepared",
+      "operation": "selection",
+      "input": "ZFAX_C_DepreciationMig",
+      "parent": "ZFAX_C_DepreciationMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "DepreciationArea"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "DepreciationArea"
+      ]
+    },
+    {
+      "name": "ZFAX_C_AssetPostingMig_Prepared",
+      "operation": "selection",
+      "input": "ZFAX_C_AssetPostingMig",
+      "parent": "ZFAX_C_AssetPostingMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "FiscalYear",
+        "AssetLineItem",
+        "DepreciationArea"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "FiscalYear",
+        "AssetLineItem",
+        "DepreciationArea"
+      ]
+    },
+    {
+      "name": "ZFAX_C_AssetBalanceMig_Prepared",
+      "operation": "selection",
+      "input": "ZFAX_C_AssetBalanceMig",
+      "parent": "ZFAX_C_AssetBalanceMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "FiscalYear",
+        "DepreciationArea"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "FiscalYear",
+        "DepreciationArea"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZFAX_C_AssetMig_Prepared",
+    "ZFAX_C_AssetAssignmenMig_Prepared",
+    "ZFAX_C_DepreciationMig_Prepared",
+    "ZFAX_C_AssetPostingMig_Prepared",
+    "ZFAX_C_AssetBalanceMig_Prepared"
+  ]
+}

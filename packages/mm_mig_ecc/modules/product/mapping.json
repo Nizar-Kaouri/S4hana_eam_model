@@ -1,0 +1,462 @@
+{
+  "module": "product",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "Product"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZMMX_C_MaterialMig",
+      "source_view": "ZMMX_I_Material",
+      "scope_filter": "",
+      "keys": [
+        "Product"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MARA-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProductType",
+          "source": "MARA-MTART",
+          "target": "customer interface field: ProductType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProductGroup",
+          "source": "MARA-MATKL",
+          "target": "customer interface field: ProductGroup (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "BaseUnit",
+          "source": "MARA-MEINS",
+          "target": "customer interface field: BaseUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "GrossWeight",
+          "source": "MARA-BRGEW",
+          "target": "customer interface field: GrossWeight (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "NetWeight",
+          "source": "MARA-NTGEW",
+          "target": "customer interface field: NetWeight (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "WeightUnit",
+          "source": "MARA-GEWEI",
+          "target": "customer interface field: WeightUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "MARA-LVORM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialTextMig",
+      "source_view": "ZMMX_I_MaterialText",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MAKT-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Language",
+          "source": "MAKT-SPRAS",
+          "target": "customer interface field: Language (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProductDescription",
+          "source": "MAKT-MAKTX",
+          "target": "customer interface field: ProductDescription (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialPlantMig",
+      "source_view": "ZMMX_I_MaterialPlant",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Plant"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MARC-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "MARC-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "MRPType",
+          "source": "MARC-DISMM",
+          "target": "customer interface field: MRPType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "MRPController",
+          "source": "MARC-DISPO",
+          "target": "customer interface field: MRPController (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ProcurementType",
+          "source": "MARC-BESKZ",
+          "target": "customer interface field: ProcurementType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchasingGroup",
+          "source": "MARC-EKGRP",
+          "target": "customer interface field: PurchasingGroup (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "MARC-LVORM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialLocatiMig",
+      "source_view": "ZMMX_I_MaterialLocati",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Plant",
+        "StorageLocation"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MARD-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "MARD-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "StorageLocation",
+          "source": "MARD-LGORT",
+          "target": "customer interface field: StorageLocation (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "MARD-LVORM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialUnitMig",
+      "source_view": "ZMMX_I_MaterialUnit",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "AlternativeUnit"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MARM-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AlternativeUnit",
+          "source": "MARM-MEINH",
+          "target": "customer interface field: AlternativeUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Numerator",
+          "source": "MARM-UMREZ",
+          "target": "customer interface field: Numerator (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Denominator",
+          "source": "MARM-UMREN",
+          "target": "customer interface field: Denominator (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "InternationalArticleNumber",
+          "source": "MARM-EAN11",
+          "target": "customer interface field: InternationalArticleNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialValueMig",
+      "source_view": "ZMMX_I_MaterialValue",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "ValuationArea",
+        "ValuationType"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MBEW-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValuationArea",
+          "source": "MBEW-BWKEY",
+          "target": "customer interface field: ValuationArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValuationType",
+          "source": "MBEW-BWTAR",
+          "target": "customer interface field: ValuationType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValuationClass",
+          "source": "MBEW-BKLAS",
+          "target": "customer interface field: ValuationClass (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PriceControl",
+          "source": "MBEW-VPRSV",
+          "target": "customer interface field: PriceControl (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "StandardPrice",
+          "source": "MBEW-STPRS",
+          "target": "customer interface field: StandardPrice (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "MovingAveragePrice",
+          "source": "MBEW-VERPR",
+          "target": "customer interface field: MovingAveragePrice (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PriceUnit",
+          "source": "MBEW-PEINH",
+          "target": "customer interface field: PriceUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_BatchGeneralMig",
+      "source_view": "ZMMX_I_BatchGeneral",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Batch"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MCH1-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Batch",
+          "source": "MCH1-CHARG",
+          "target": "customer interface field: Batch (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ManufactureDate",
+          "source": "MCH1-HSDAT",
+          "target": "customer interface field: ManufactureDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExpirationDate",
+          "source": "MCH1-VFDAT",
+          "target": "customer interface field: ExpirationDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_BatchPlantMig",
+      "source_view": "ZMMX_I_BatchPlant",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Plant",
+        "Batch"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MCHA-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "MCHA-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Batch",
+          "source": "MCHA-CHARG",
+          "target": "customer interface field: Batch (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ManufactureDate",
+          "source": "MCHA-HSDAT",
+          "target": "customer interface field: ManufactureDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExpirationDate",
+          "source": "MCHA-VFDAT",
+          "target": "customer interface field: ExpirationDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZMMT_I_MaterialCount",
+    "dimensions": [
+      {
+        "element": "Product"
+      }
+    ],
+    "source_count_view": "ZMMX_C_MaterialMigCount",
+    "compare": {
+      "source_view": "ZMMX_C_MaterialMig",
+      "target_view": "ZMMT_I_MaterialCompare",
+      "key": [
+        "Product"
+      ],
+      "fields": [
+        "ProductType",
+        "ProductGroup",
+        "BaseUnit",
+        "GrossWeight",
+        "NetWeight",
+        "WeightUnit"
+      ]
+    }
+  },
+  "main_structure": "ZMMX_C_MaterialMig"
+}

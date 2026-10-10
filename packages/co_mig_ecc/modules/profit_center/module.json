@@ -1,0 +1,48 @@
+{
+  "name": "profit_center",
+  "title": "Profit centers",
+  "description": "Profit centers source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "master"
+  ],
+  "sap_tables": [
+    "CEPC",
+    "CEPCT"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZCOX_I_ProfitCenterData",
+      "ZCOX_I_ProfitCenterTeData"
+    ],
+    "composite": [
+      "ZCOX_I_ProfitCenter",
+      "ZCOX_I_ProfitCenterTe"
+    ],
+    "consumption": [
+      "ZCOX_C_ProfitCenterMig",
+      "ZCOX_C_ProfitCenterMigCount",
+      "ZCOX_C_ProfitCenterTeMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZCOX_I_ProfitCenterData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_ProfitCenter": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_ProfitCenterMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_ProfitCenterMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_ProfitCenterTeData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_ProfitCenterTe": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_ProfitCenterTeMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

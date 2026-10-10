@@ -1,0 +1,117 @@
+{
+  "module": "cost_element",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZCOX_C_CostElementMig",
+      "source_view": "ZCOX_I_CostElement",
+      "scope_filter": "",
+      "keys": [
+        "ChartOfAccounts",
+        "CostElement"
+      ],
+      "fields": [
+        {
+          "element": "ChartOfAccounts",
+          "source": "CSKA-KTOPL",
+          "target": "customer interface field: ChartOfAccounts (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CostElement",
+          "source": "CSKA-KSTAR",
+          "target": "customer interface field: CostElement (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CreationDate",
+          "source": "CSKA-ERSDA",
+          "target": "customer interface field: CreationDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_CostElementAreMig",
+      "source_view": "ZCOX_I_CostElementAre",
+      "scope_filter": "",
+      "keys": [
+        "ControllingArea",
+        "CostElement",
+        "ValidityEndDate"
+      ],
+      "fields": [
+        {
+          "element": "ControllingArea",
+          "source": "CSKB-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CostElement",
+          "source": "CSKB-KSTAR",
+          "target": "customer interface field: CostElement (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CSKB-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "CSKB-DATAB",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CostElementCategory",
+          "source": "CSKB-KATYP",
+          "target": "customer interface field: CostElementCategory (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "ChartOfAccounts"
+      }
+    ],
+    "source_count_view": "ZCOX_C_CostElementMigCount"
+  },
+  "main_structure": "ZCOX_C_CostElementMig"
+}

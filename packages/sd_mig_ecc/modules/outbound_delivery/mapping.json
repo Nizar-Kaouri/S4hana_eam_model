@@ -1,0 +1,177 @@
+{
+  "module": "outbound_delivery",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "sales_order"
+  ],
+  "key": {
+    "business_key": [
+      "DeliveryDocument"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZSDX_C_DeliveryMig",
+      "source_view": "ZSDX_I_Delivery",
+      "scope_filter": "",
+      "keys": [
+        "DeliveryDocument"
+      ],
+      "fields": [
+        {
+          "element": "DeliveryDocument",
+          "source": "LIKP-VBELN",
+          "target": "customer interface field: DeliveryDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeliveryDocumentType",
+          "source": "LIKP-LFART",
+          "target": "customer interface field: DeliveryDocumentType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ShippingPoint",
+          "source": "LIKP-VSTEL",
+          "target": "customer interface field: ShippingPoint (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ShipToParty",
+          "source": "LIKP-KUNNR",
+          "target": "customer interface field: ShipToParty (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PlannedGoodsIssueDate",
+          "source": "LIKP-WADAT",
+          "target": "customer interface field: PlannedGoodsIssueDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActualGoodsIssueDate",
+          "source": "LIKP-WADAT_IST",
+          "target": "customer interface field: ActualGoodsIssueDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_DeliveryItemMig",
+      "source_view": "ZSDX_I_DeliveryItem",
+      "scope_filter": "",
+      "keys": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "DeliveryDocument",
+          "source": "LIPS-VBELN",
+          "target": "customer interface field: DeliveryDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeliveryDocumentItem",
+          "source": "LIPS-POSNR",
+          "target": "customer interface field: DeliveryDocumentItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Material",
+          "source": "LIPS-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "LIPS-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StorageLocation",
+          "source": "LIPS-LGORT",
+          "target": "customer interface field: StorageLocation (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeliveryQuantity",
+          "source": "LIPS-LFIMG",
+          "target": "customer interface field: DeliveryQuantity (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SalesUnit",
+          "source": "LIPS-VRKME",
+          "target": "customer interface field: SalesUnit (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ReferenceDocument",
+          "source": "LIPS-VGBEL",
+          "target": "customer interface field: ReferenceDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ReferenceDocumentItem",
+          "source": "LIPS-VGPOS",
+          "target": "customer interface field: ReferenceDocumentItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZSDT_I_DeliveryCount",
+    "dimensions": [
+      {
+        "element": "DeliveryDocument"
+      }
+    ],
+    "source_count_view": "ZSDX_C_DeliveryMigCount",
+    "compare": {
+      "source_view": "ZSDX_C_DeliveryMig",
+      "target_view": "ZSDT_I_DeliveryCompare",
+      "key": [
+        "DeliveryDocument"
+      ],
+      "fields": [
+        "DeliveryDocumentType",
+        "ShippingPoint",
+        "ShipToParty"
+      ]
+    }
+  },
+  "main_structure": "ZSDX_C_DeliveryMig"
+}

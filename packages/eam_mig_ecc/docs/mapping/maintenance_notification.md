@@ -136,8 +136,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Records and fields: `ZEMX_C_MaintNotificationMig` vs `ZEMT_I_MaintNotifCompare` on `MaintenanceNotification`; compared: `NotificationType`, `MaintPriority`, `RequiredStartDate`, `RequiredEndDate`, `Equipment`, `FunctionalLocation`, `MaintenancePlanningPlant`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module maintenance_notification --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --module maintenance_notification --source ecc_extract.csv --target s4_compare.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module maintenance_notification --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --product eam_mig_ecc --module maintenance_notification --source ecc_extract.csv --target s4_compare.csv
 ```
 
 ## Open gaps

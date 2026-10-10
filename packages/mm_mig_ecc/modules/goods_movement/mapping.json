@@ -1,0 +1,175 @@
+{
+  "module": "goods_movement",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "product"
+  ],
+  "key": {
+    "business_key": [
+      "MaterialDocument",
+      "MaterialDocumentYear"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZMMX_C_MatDocHeaderMig",
+      "source_view": "ZMMX_I_MatDocHeader",
+      "scope_filter": "",
+      "keys": [
+        "MaterialDocument",
+        "MaterialDocumentYear"
+      ],
+      "fields": [
+        {
+          "element": "MaterialDocument",
+          "source": "MKPF-MBLNR",
+          "target": "customer interface field: MaterialDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "MaterialDocumentYear",
+          "source": "MKPF-MJAHR",
+          "target": "customer interface field: MaterialDocumentYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DocumentDate",
+          "source": "MKPF-BLDAT",
+          "target": "customer interface field: DocumentDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PostingDate",
+          "source": "MKPF-BUDAT",
+          "target": "customer interface field: PostingDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ReferenceDocument",
+          "source": "MKPF-XBLNR",
+          "target": "customer interface field: ReferenceDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_MatDocItemMig",
+      "source_view": "ZMMX_I_MatDocItem",
+      "scope_filter": "",
+      "keys": [
+        "MaterialDocument",
+        "MaterialDocumentYear",
+        "MaterialDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "MaterialDocument",
+          "source": "MSEG-MBLNR",
+          "target": "customer interface field: MaterialDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "MaterialDocumentYear",
+          "source": "MSEG-MJAHR",
+          "target": "customer interface field: MaterialDocumentYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "MaterialDocumentItem",
+          "source": "MSEG-ZEILE",
+          "target": "customer interface field: MaterialDocumentItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Product",
+          "source": "MSEG-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "MSEG-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StorageLocation",
+          "source": "MSEG-LGORT",
+          "target": "customer interface field: StorageLocation (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "GoodsMovementType",
+          "source": "MSEG-BWART",
+          "target": "customer interface field: GoodsMovementType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Quantity",
+          "source": "MSEG-MENGE",
+          "target": "customer interface field: Quantity (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Unit",
+          "source": "MSEG-MEINS",
+          "target": "customer interface field: Unit (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "LocalAmount",
+          "source": "MSEG-DMBTR",
+          "target": "customer interface field: LocalAmount (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DebitCreditCode",
+          "source": "MSEG-SHKZG",
+          "target": "customer interface field: DebitCreditCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "MaterialDocument"
+      }
+    ],
+    "source_count_view": "ZMMX_C_MatDocHeaderMigCount"
+  },
+  "main_structure": "ZMMX_C_MatDocHeaderMig"
+}

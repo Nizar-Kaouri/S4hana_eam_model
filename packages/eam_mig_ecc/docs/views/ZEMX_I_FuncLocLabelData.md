@@ -19,8 +19,8 @@ FuncLocLabel source data
 
 ## Keys
 
-- `tplnr`
-- `altnr`
+- `FunctionalLocation`
+- `LabelingSystem`
 
 ## Associations defined here
 

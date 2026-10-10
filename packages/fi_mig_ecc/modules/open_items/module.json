@@ -1,0 +1,80 @@
+{
+  "name": "open_items",
+  "title": "Current and cleared item indexes",
+  "description": "Current and cleared item indexes source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "open-item"
+  ],
+  "sap_tables": [
+    "BSAD",
+    "BSAK",
+    "BSAS",
+    "BSID",
+    "BSIK",
+    "BSIS"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "gl_account",
+    "supplier",
+    "customer"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFIX_I_GLOpenData",
+      "ZFIX_I_GLClearedData",
+      "ZFIX_I_APOpenData",
+      "ZFIX_I_APClearedData",
+      "ZFIX_I_AROpenData",
+      "ZFIX_I_ARClearedData"
+    ],
+    "composite": [
+      "ZFIX_I_GLOpen",
+      "ZFIX_I_GLCleared",
+      "ZFIX_I_APOpen",
+      "ZFIX_I_APCleared",
+      "ZFIX_I_AROpen",
+      "ZFIX_I_ARCleared"
+    ],
+    "consumption": [
+      "ZFIX_C_GLOpenMig",
+      "ZFIX_C_GLOpenMigCount",
+      "ZFIX_C_GLClearedMig",
+      "ZFIX_C_APOpenMig",
+      "ZFIX_C_APClearedMig",
+      "ZFIX_C_AROpenMig",
+      "ZFIX_C_ARClearedMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFIX_I_GLOpenData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_GLOpen": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_GLOpenMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_GLOpenMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_GLClearedData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_GLCleared": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_GLClearedMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_APOpenData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_APOpen": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_APOpenMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_APClearedData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_APCleared": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_APClearedMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_AROpenData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_AROpen": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_AROpenMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_ARClearedData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_ARCleared": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_ARClearedMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

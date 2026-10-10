@@ -1,0 +1,237 @@
+{
+  "ZFIX_C_GLAccountMig": {
+    "module": "gl_account",
+    "table": "SKA1",
+    "keys": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "selection": "selection/ZFIX_C_GLAccountMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_GLAccountTextMig": {
+    "module": "gl_account",
+    "table": "SKAT",
+    "keys": [
+      "Language",
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "selection": "selection/ZFIX_C_GLAccountTextMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_GLCompanyMig": {
+    "module": "gl_account",
+    "table": "SKB1",
+    "keys": [
+      "CompanyCode",
+      "GLAccount"
+    ],
+    "selection": "selection/ZFIX_C_GLCompanyMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_SupplierMig": {
+    "module": "supplier",
+    "table": "LFA1",
+    "keys": [
+      "Supplier"
+    ],
+    "selection": "selection/ZFIX_C_SupplierMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_SupplierCompanMig": {
+    "module": "supplier",
+    "table": "LFB1",
+    "keys": [
+      "Supplier",
+      "CompanyCode"
+    ],
+    "selection": "selection/ZFIX_C_SupplierCompanMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_SupplierPurchaMig": {
+    "module": "supplier",
+    "table": "LFM1",
+    "keys": [
+      "Supplier",
+      "PurchasingOrganization"
+    ],
+    "selection": "selection/ZFIX_C_SupplierPurchaMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_CustomerMig": {
+    "module": "customer",
+    "table": "KNA1",
+    "keys": [
+      "Customer"
+    ],
+    "selection": "selection/ZFIX_C_CustomerMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_CustomerCompanMig": {
+    "module": "customer",
+    "table": "KNB1",
+    "keys": [
+      "Customer",
+      "CompanyCode"
+    ],
+    "selection": "selection/ZFIX_C_CustomerCompanMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_CustomerSalesMig": {
+    "module": "customer",
+    "table": "KNVV",
+    "keys": [
+      "Customer",
+      "SalesOrganization",
+      "DistributionChannel",
+      "Division"
+    ],
+    "selection": "selection/ZFIX_C_CustomerSalesMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFIX_C_AccountingHeadMig": {
+    "module": "gl_line_item",
+    "table": "BKPF",
+    "keys": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ],
+    "selection": "selection/ZFIX_C_AccountingHeadMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZFIX_C_AccountingItemMig": {
+    "module": "gl_line_item",
+    "table": "BSEG",
+    "keys": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear",
+      "AccountingDocumentItem"
+    ],
+    "selection": "selection/ZFIX_C_AccountingItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZFIX_C_GLOpenMig": {
+    "module": "open_items",
+    "table": "BSIS",
+    "keys": [
+      "CompanyCode",
+      "GLAccount",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "selection": "selection/ZFIX_C_GLOpenMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-item"
+  },
+  "ZFIX_C_GLClearedMig": {
+    "module": "open_items",
+    "table": "BSAS",
+    "keys": [
+      "CompanyCode",
+      "GLAccount",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "selection": "selection/ZFIX_C_GLClearedMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-item"
+  },
+  "ZFIX_C_APOpenMig": {
+    "module": "open_items",
+    "table": "BSIK",
+    "keys": [
+      "CompanyCode",
+      "Supplier",
+      "SpecialGLTransactionType",
+      "SpecialGLCode",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "selection": "selection/ZFIX_C_APOpenMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-item"
+  },
+  "ZFIX_C_APClearedMig": {
+    "module": "open_items",
+    "table": "BSAK",
+    "keys": [
+      "CompanyCode",
+      "Supplier",
+      "SpecialGLTransactionType",
+      "SpecialGLCode",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "selection": "selection/ZFIX_C_APClearedMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-item"
+  },
+  "ZFIX_C_AROpenMig": {
+    "module": "open_items",
+    "table": "BSID",
+    "keys": [
+      "CompanyCode",
+      "Customer",
+      "SpecialGLTransactionType",
+      "SpecialGLCode",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "selection": "selection/ZFIX_C_AROpenMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-item"
+  },
+  "ZFIX_C_ARClearedMig": {
+    "module": "open_items",
+    "table": "BSAD",
+    "keys": [
+      "CompanyCode",
+      "Customer",
+      "SpecialGLTransactionType",
+      "SpecialGLCode",
+      "ClearingDate",
+      "ClearingDocument",
+      "AssignmentReference",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingDocumentItem"
+    ],
+    "selection": "selection/ZFIX_C_ARClearedMig.csv",
+    "requires_business_approval": true,
+    "mode": "open-item"
+  }
+}

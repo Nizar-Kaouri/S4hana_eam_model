@@ -1,0 +1,50 @@
+{
+  "name": "purchase_requisition",
+  "title": "Purchase requisitions",
+  "description": "Purchase requisitions source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "open-document"
+  ],
+  "sap_tables": [
+    "EBAN",
+    "EBKN"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "product"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZMMX_I_RequisitionData",
+      "ZMMX_I_ReqAssignmentData"
+    ],
+    "composite": [
+      "ZMMX_I_Requisition",
+      "ZMMX_I_ReqAssignment"
+    ],
+    "consumption": [
+      "ZMMX_C_RequisitionMig",
+      "ZMMX_C_RequisitionMigCount",
+      "ZMMX_C_ReqAssignmentMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMX_I_RequisitionData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_Requisition": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_RequisitionMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_RequisitionMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_ReqAssignmentData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_ReqAssignment": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_ReqAssignmentMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

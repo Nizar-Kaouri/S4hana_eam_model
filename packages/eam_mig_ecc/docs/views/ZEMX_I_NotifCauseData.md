@@ -19,9 +19,9 @@ NotifCause source data
 
 ## Keys
 
-- `qmnum`
-- `fenum`
-- `urnum`
+- `MaintenanceNotification`
+- `MaintNotificationItem`
+- `CauseNumber`
 
 ## Associations defined here
 

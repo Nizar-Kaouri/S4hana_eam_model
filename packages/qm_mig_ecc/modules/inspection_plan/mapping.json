@@ -1,0 +1,396 @@
+{
+  "module": "inspection_plan",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZQMX_C_InspectPlanHeaMig",
+      "source_view": "ZQMX_I_InspectPlanHea",
+      "scope_filter": "",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "InternalCounter"
+      ],
+      "fields": [
+        {
+          "element": "TaskListType",
+          "source": "PLKO-PLNTY",
+          "target": "customer interface field: TaskListType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "PLKO-PLNNR",
+          "target": "customer interface field: TaskListGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListGroupCounter",
+          "source": "PLKO-PLNAL",
+          "target": "customer interface field: TaskListGroupCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InternalCounter",
+          "source": "PLKO-ZAEHL",
+          "target": "customer interface field: InternalCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidFromDate",
+          "source": "PLKO-DATUV",
+          "target": "customer interface field: ValidFromDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ChangeNumber",
+          "source": "PLKO-AENNR",
+          "target": "customer interface field: ChangeNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "PLKO-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListDescription",
+          "source": "PLKO-KTEXT",
+          "target": "customer interface field: TaskListDescription (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_InspectPlanMatMig",
+      "source_view": "ZQMX_I_InspectPlanMat",
+      "scope_filter": "",
+      "keys": [
+        "Material",
+        "Plant",
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "InternalCounter"
+      ],
+      "fields": [
+        {
+          "element": "Material",
+          "source": "MAPL-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "MAPL-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListType",
+          "source": "MAPL-PLNTY",
+          "target": "customer interface field: TaskListType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "MAPL-PLNNR",
+          "target": "customer interface field: TaskListGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListGroupCounter",
+          "source": "MAPL-PLNAL",
+          "target": "customer interface field: TaskListGroupCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InternalCounter",
+          "source": "MAPL-ZAEHL",
+          "target": "customer interface field: InternalCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidFromDate",
+          "source": "MAPL-DATUV",
+          "target": "customer interface field: ValidFromDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "MAPL-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_InspectPlanSelMig",
+      "source_view": "ZQMX_I_InspectPlanSel",
+      "scope_filter": "",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "Sequence",
+        "TaskListNode",
+        "InternalCounter"
+      ],
+      "fields": [
+        {
+          "element": "TaskListType",
+          "source": "PLAS-PLNTY",
+          "target": "customer interface field: TaskListType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "PLAS-PLNNR",
+          "target": "customer interface field: TaskListGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListGroupCounter",
+          "source": "PLAS-PLNAL",
+          "target": "customer interface field: TaskListGroupCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Sequence",
+          "source": "PLAS-PLNFL",
+          "target": "customer interface field: Sequence (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListNode",
+          "source": "PLAS-PLNKN",
+          "target": "customer interface field: TaskListNode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InternalCounter",
+          "source": "PLAS-ZAEHL",
+          "target": "customer interface field: InternalCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidFromDate",
+          "source": "PLAS-DATUV",
+          "target": "customer interface field: ValidFromDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "PLAS-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_InspectPlanOpeMig",
+      "source_view": "ZQMX_I_InspectPlanOpe",
+      "scope_filter": "",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListNode",
+        "InternalCounter"
+      ],
+      "fields": [
+        {
+          "element": "TaskListType",
+          "source": "PLPO-PLNTY",
+          "target": "customer interface field: TaskListType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "PLPO-PLNNR",
+          "target": "customer interface field: TaskListGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListNode",
+          "source": "PLPO-PLNKN",
+          "target": "customer interface field: TaskListNode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InternalCounter",
+          "source": "PLPO-ZAEHL",
+          "target": "customer interface field: InternalCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidFromDate",
+          "source": "PLPO-DATUV",
+          "target": "customer interface field: ValidFromDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "PLPO-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Operation",
+          "source": "PLPO-VORNR",
+          "target": "customer interface field: Operation (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "OperationText",
+          "source": "PLPO-KTEXT",
+          "target": "customer interface field: OperationText (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_PlanCharacteriMig",
+      "source_view": "ZQMX_I_PlanCharacteri",
+      "scope_filter": "",
+      "keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListNode",
+        "CharacteristicNumber",
+        "InternalCounter"
+      ],
+      "fields": [
+        {
+          "element": "TaskListType",
+          "source": "PLMK-PLNTY",
+          "target": "customer interface field: TaskListType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListGroup",
+          "source": "PLMK-PLNNR",
+          "target": "customer interface field: TaskListGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskListNode",
+          "source": "PLMK-PLNKN",
+          "target": "customer interface field: TaskListNode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CharacteristicNumber",
+          "source": "PLMK-MERKNR",
+          "target": "customer interface field: CharacteristicNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "InternalCounter",
+          "source": "PLMK-ZAEHL",
+          "target": "customer interface field: InternalCounter (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidFromDate",
+          "source": "PLMK-DATUV",
+          "target": "customer interface field: ValidFromDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "PLMK-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CharacteristicDescription",
+          "source": "PLMK-KURZTEXT",
+          "target": "customer interface field: CharacteristicDescription (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "effectivity-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "TaskListType"
+      }
+    ],
+    "source_count_view": "ZQMX_C_InspectPlanHeaMigCount"
+  },
+  "main_structure": "ZQMX_C_InspectPlanHeaMig"
+}

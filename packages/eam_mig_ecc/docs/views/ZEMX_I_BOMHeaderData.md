@@ -19,10 +19,10 @@ BOMHeader equipment-category state ledger
 
 ## Keys
 
-- `stlty`
-- `stlnr`
-- `stlal`
-- `stkoz`
+- `BOMCategory`
+- `BillOfMaterial`
+- `BOMAlternative`
+- `HeaderCounter`
 
 ## Associations defined here
 

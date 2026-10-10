@@ -19,12 +19,12 @@ TaskListComp source data
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnal`
-- `plnkn`
-- `zaehl`
-- `zuonr`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListGroupCounter`
+- `OperationInternalID`
+- `VersionCounter`
+- `AllocationNumber`
 
 ## Associations defined here
 

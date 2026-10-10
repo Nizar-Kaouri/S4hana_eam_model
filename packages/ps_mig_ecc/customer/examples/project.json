@@ -1,0 +1,73 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "ZPSX_C_ProjectMig": "exports/ZPSX_C_ProjectMig.csv",
+    "ZPSX_C_ProjectMig_Scope": "selection/ZPSX_C_ProjectMig.csv",
+    "ZPSX_C_WBSMig": "exports/ZPSX_C_WBSMig.csv",
+    "ZPSX_C_WBSMig_Scope": "selection/ZPSX_C_WBSMig.csv",
+    "ZPSX_C_WBSHierarchyMig": "exports/ZPSX_C_WBSHierarchyMig.csv",
+    "ZPSX_C_WBSHierarchyMig_Scope": "selection/ZPSX_C_WBSHierarchyMig.csv",
+    "ZPSX_C_ProjectCostMig": "exports/ZPSX_C_ProjectCostMig.csv",
+    "ZPSX_C_ProjectCostMig_Scope": "selection/ZPSX_C_ProjectCostMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZPSX_C_ProjectMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_ProjectMig",
+      "parent": "ZPSX_C_ProjectMig_Scope",
+      "child_keys": [
+        "ProjectInternalID"
+      ],
+      "parent_keys": [
+        "ProjectInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_WBSMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_WBSMig",
+      "parent": "ZPSX_C_WBSMig_Scope",
+      "child_keys": [
+        "WBSElementInternalID"
+      ],
+      "parent_keys": [
+        "WBSElementInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_WBSHierarchyMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_WBSHierarchyMig",
+      "parent": "ZPSX_C_WBSHierarchyMig_Scope",
+      "child_keys": [
+        "WBSElementInternalID"
+      ],
+      "parent_keys": [
+        "WBSElementInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_ProjectCostMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_ProjectCostMig",
+      "parent": "ZPSX_C_ProjectCostMig_Scope",
+      "child_keys": [
+        "ControllingArea",
+        "COAccountingDocument",
+        "COAccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "ControllingArea",
+        "COAccountingDocument",
+        "COAccountingDocumentItem"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZPSX_C_ProjectMig_Prepared",
+    "ZPSX_C_WBSMig_Prepared",
+    "ZPSX_C_WBSHierarchyMig_Prepared",
+    "ZPSX_C_ProjectCostMig_Prepared"
+  ]
+}

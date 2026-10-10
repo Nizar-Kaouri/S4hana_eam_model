@@ -1,0 +1,29 @@
+// ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Purpose: Read GLCleared as source candidates; approve the key-date population before posting.
+// Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
+@AbapCatalog.sqlViewName: 'ZFIX_V013R'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'GLCleared'
+@ObjectModel.usageType.dataClass: #MIXED
+@ObjectModel.usageType.serviceQuality: #D
+@ObjectModel.usageType.sizeCategory: #L
+@VDM.viewType: #COMPOSITE
+define view ZFIX_I_GLCleared
+  as select from ZFIX_I_GLClearedData as src
+{
+  key src.CompanyCode as CompanyCode,
+  key src.GLAccount as GLAccount,
+  key src.ClearingDate as ClearingDate,
+  key src.ClearingDocument as ClearingDocument,
+  key src.AssignmentReference as AssignmentReference,
+  key src.FiscalYear as FiscalYear,
+  key src.AccountingDocument as AccountingDocument,
+  key src.AccountingDocumentItem as AccountingDocumentItem,
+      src.PostingDate as PostingDate,
+      src.DebitCreditCode as DebitCreditCode,
+      src.DocumentAmount as DocumentAmount,
+      src.CompanyCodeAmount as CompanyCodeAmount,
+      src.DocumentCurrency as DocumentCurrency
+}

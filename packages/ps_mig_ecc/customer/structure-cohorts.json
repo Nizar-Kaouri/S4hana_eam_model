@@ -1,0 +1,44 @@
+{
+  "ZPSX_C_ProjectMig": {
+    "module": "project",
+    "table": "PROJ",
+    "keys": [
+      "ProjectInternalID"
+    ],
+    "selection": "selection/ZPSX_C_ProjectMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZPSX_C_WBSMig": {
+    "module": "wbs_element",
+    "table": "PRPS",
+    "keys": [
+      "WBSElementInternalID"
+    ],
+    "selection": "selection/ZPSX_C_WBSMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZPSX_C_WBSHierarchyMig": {
+    "module": "wbs_element",
+    "table": "PRHI",
+    "keys": [
+      "WBSElementInternalID"
+    ],
+    "selection": "selection/ZPSX_C_WBSHierarchyMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZPSX_C_ProjectCostMig": {
+    "module": "project_cost",
+    "table": "COEP",
+    "keys": [
+      "ControllingArea",
+      "COAccountingDocument",
+      "COAccountingDocumentItem"
+    ],
+    "selection": "selection/ZPSX_C_ProjectCostMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  }
+}

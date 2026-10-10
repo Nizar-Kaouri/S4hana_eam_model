@@ -19,10 +19,10 @@ Class assignments of objects (KSSK, object indicator 'O').
 
 ## Keys
 
-- `objek`
-- `klart`
-- `clint`
-- `adzhl`
+- `ClassifiedObject`
+- `ClassType`
+- `ClassInternalID`
+- `ChangeCounter`
 
 ## Associations defined here
 

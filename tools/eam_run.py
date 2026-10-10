@@ -8,7 +8,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from eam_prepare import aliases, closure, cohort, join, snapshot, write_csv
+from eam_prepare import aliases, closure, cohort, identity, join, snapshot, unique, write_csv
 from mig_reconcile import CsvRows, InputError, read_csv, require
 
 
@@ -33,6 +33,13 @@ def run(project_path, output_path):
         op = step["operation"]
         if op == "snapshot":
             rows = snapshot(source, step["contract"], project["cutover"])
+        elif op == "selection":
+            # A complete approved key must occur exactly once in the export.
+            approved = unique(datasets[step["parent"]], step["parent_keys"], "approved selection")
+            exported = unique(source, step["child_keys"], "source selection")
+            if approved - exported:
+                raise InputError(f"approved identities absent from export: {sorted(approved - exported)[:5]}")
+            rows = cohort(source, datasets[step["parent"]], step["child_keys"], step["parent_keys"])
         elif op == "cohort":
             rows = cohort(source, datasets[step["parent"]], step["child_keys"], step["parent_keys"])
         elif op == "join":

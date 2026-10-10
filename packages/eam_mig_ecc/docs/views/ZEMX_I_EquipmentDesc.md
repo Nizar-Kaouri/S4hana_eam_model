@@ -19,8 +19,8 @@ Equipment descriptions (EQKT) per language with the long-text indicator.
 
 ## Keys
 
-- `equnr`
-- `spras`
+- `Equipment`
+- `Language`
 
 ## Associations defined here
 

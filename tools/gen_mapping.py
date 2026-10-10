@@ -67,9 +67,9 @@ def module_doc(m, lib, status):
         lines.append(f"- Records and fields: `{c['source_view']}` vs `{c['target_view']}` on "
                      f"{', '.join(f'`{k}`' for k in c['key'])}; compared: {', '.join(f'`{x}`' for x in c['fields']) or '-'}")
     lines += ["", "```bash",
-              f"python3 tools/mig_reconcile.py counts --module {m['module']} --source ecc_counts.csv --target s4_counts.csv"]
+              f"python3 tools/mig_reconcile.py counts --product {ROOT.name} --module {m['module']} --source ecc_counts.csv --target s4_counts.csv"]
     if rec.get("compare"):
-        lines.append(f"python3 tools/mig_reconcile.py records --module {m['module']} --source ecc_extract.csv --target s4_compare.csv")
+        lines.append(f"python3 tools/mig_reconcile.py records --product {ROOT.name} --module {m['module']} --source ecc_extract.csv --target s4_compare.csv")
     lines += ["```", "", "## Open gaps", ""]
     lines += [f"- {g}" for g in m["gaps"]] or ["None known."]
     return "\n".join(lines) + "\n"

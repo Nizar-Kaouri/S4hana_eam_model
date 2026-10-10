@@ -1,0 +1,394 @@
+{
+  "module": "purchase_order",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "product"
+  ],
+  "key": {
+    "business_key": [
+      "PurchaseOrder"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZMMX_C_PurchaseOrderMig",
+      "source_view": "ZMMX_I_PurchaseOrder",
+      "scope_filter": "",
+      "keys": [
+        "PurchaseOrder"
+      ],
+      "fields": [
+        {
+          "element": "PurchaseOrder",
+          "source": "EKKO-EBELN",
+          "target": "customer interface field: PurchaseOrder (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CompanyCode",
+          "source": "EKKO-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchaseOrderType",
+          "source": "EKKO-BSART",
+          "target": "customer interface field: PurchaseOrderType (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Supplier",
+          "source": "EKKO-LIFNR",
+          "target": "customer interface field: Supplier (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchasingOrganization",
+          "source": "EKKO-EKORG",
+          "target": "customer interface field: PurchasingOrganization (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchasingGroup",
+          "source": "EKKO-EKGRP",
+          "target": "customer interface field: PurchasingGroup (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DocumentCurrency",
+          "source": "EKKO-WAERS",
+          "target": "customer interface field: DocumentCurrency (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_PurchaseItemMig",
+      "source_view": "ZMMX_I_PurchaseItem",
+      "scope_filter": "",
+      "keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ],
+      "fields": [
+        {
+          "element": "PurchaseOrder",
+          "source": "EKPO-EBELN",
+          "target": "customer interface field: PurchaseOrder (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchaseOrderItem",
+          "source": "EKPO-EBELP",
+          "target": "customer interface field: PurchaseOrderItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Material",
+          "source": "EKPO-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "EKPO-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "OrderQuantity",
+          "source": "EKPO-MENGE",
+          "target": "customer interface field: OrderQuantity (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "OrderUnit",
+          "source": "EKPO-MEINS",
+          "target": "customer interface field: OrderUnit (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "EKPO-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeliveryCompleted",
+          "source": "EKPO-ELIKZ",
+          "target": "customer interface field: DeliveryCompleted (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FinalInvoice",
+          "source": "EKPO-EREKZ",
+          "target": "customer interface field: FinalInvoice (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_PurchaseScheduMig",
+      "source_view": "ZMMX_I_PurchaseSchedu",
+      "scope_filter": "",
+      "keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "ScheduleLine"
+      ],
+      "fields": [
+        {
+          "element": "PurchaseOrder",
+          "source": "EKET-EBELN",
+          "target": "customer interface field: PurchaseOrder (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchaseOrderItem",
+          "source": "EKET-EBELP",
+          "target": "customer interface field: PurchaseOrderItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScheduleLine",
+          "source": "EKET-ETENR",
+          "target": "customer interface field: ScheduleLine (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DeliveryDate",
+          "source": "EKET-EINDT",
+          "target": "customer interface field: DeliveryDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScheduledQuantity",
+          "source": "EKET-MENGE",
+          "target": "customer interface field: ScheduledQuantity (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ReceivedQuantity",
+          "source": "EKET-WEMNG",
+          "target": "customer interface field: ReceivedQuantity (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_PurchaseAssignMig",
+      "source_view": "ZMMX_I_PurchaseAssign",
+      "scope_filter": "",
+      "keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "AccountAssignmentNumber"
+      ],
+      "fields": [
+        {
+          "element": "PurchaseOrder",
+          "source": "EKKN-EBELN",
+          "target": "customer interface field: PurchaseOrder (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchaseOrderItem",
+          "source": "EKKN-EBELP",
+          "target": "customer interface field: PurchaseOrderItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AccountAssignmentNumber",
+          "source": "EKKN-ZEKKN",
+          "target": "customer interface field: AccountAssignmentNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CostCenter",
+          "source": "EKKN-KOSTL",
+          "target": "customer interface field: CostCenter (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "OrderID",
+          "source": "EKKN-AUFNR",
+          "target": "customer interface field: OrderID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "GLAccount",
+          "source": "EKKN-SAKTO",
+          "target": "customer interface field: GLAccount (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "WBSElementInternalID",
+          "source": "EKKN-PS_PSP_PNR",
+          "target": "customer interface field: WBSElementInternalID (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_PurchaseHistorMig",
+      "source_view": "ZMMX_I_PurchaseHistor",
+      "scope_filter": "",
+      "keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "AccountAssignmentNumber",
+        "HistoryCategory",
+        "FiscalYear",
+        "DocumentNumber",
+        "DocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "PurchaseOrder",
+          "source": "EKBE-EBELN",
+          "target": "customer interface field: PurchaseOrder (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PurchaseOrderItem",
+          "source": "EKBE-EBELP",
+          "target": "customer interface field: PurchaseOrderItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AccountAssignmentNumber",
+          "source": "EKBE-ZEKKN",
+          "target": "customer interface field: AccountAssignmentNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "HistoryCategory",
+          "source": "EKBE-VGABE",
+          "target": "customer interface field: HistoryCategory (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FiscalYear",
+          "source": "EKBE-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DocumentNumber",
+          "source": "EKBE-BELNR",
+          "target": "customer interface field: DocumentNumber (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DocumentItem",
+          "source": "EKBE-BUZEI",
+          "target": "customer interface field: DocumentItem (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PostingDate",
+          "source": "EKBE-BUDAT",
+          "target": "customer interface field: PostingDate (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Quantity",
+          "source": "EKBE-MENGE",
+          "target": "customer interface field: Quantity (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DebitCreditCode",
+          "source": "EKBE-SHKZG",
+          "target": "customer interface field: DebitCreditCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZMMT_I_PurchaseOrderCount",
+    "dimensions": [
+      {
+        "element": "PurchaseOrder"
+      }
+    ],
+    "source_count_view": "ZMMX_C_PurchaseOrderMigCount",
+    "compare": {
+      "source_view": "ZMMX_C_PurchaseOrderMig",
+      "target_view": "ZMMT_I_PurchaseOrderCompare",
+      "key": [
+        "PurchaseOrder"
+      ],
+      "fields": [
+        "CompanyCode",
+        "PurchaseOrderType",
+        "Supplier",
+        "PurchasingOrganization",
+        "PurchasingGroup",
+        "DocumentCurrency"
+      ]
+    }
+  },
+  "main_structure": "ZMMX_C_PurchaseOrderMig"
+}

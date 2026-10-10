@@ -19,12 +19,12 @@ Assignment of operations to task list sequences (PLAS) for maintenance task list
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnal`
-- `plnfl`
-- `plnkn`
-- `zaehl`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListGroupCounter`
+- `TaskListSequence`
+- `TaskListOperationInternalId`
+- `TaskListOpAssgmtVersion`
 
 ## Associations defined here
 

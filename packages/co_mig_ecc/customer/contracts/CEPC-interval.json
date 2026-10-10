@@ -1,0 +1,9 @@
+{
+  "mode": "interval",
+  "identity": [
+    "ProfitCenter",
+    "ControllingArea"
+  ],
+  "valid_from": "ValidityStartDate",
+  "valid_to": "ValidityEndDate"
+}

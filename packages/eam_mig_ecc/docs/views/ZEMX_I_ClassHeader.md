@@ -19,7 +19,7 @@ Classes (KLAH) by internal number.
 
 ## Keys
 
-- `clint`
+- `ClassInternalID`
 
 ## Associations defined here
 

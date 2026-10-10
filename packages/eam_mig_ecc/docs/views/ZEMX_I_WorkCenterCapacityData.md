@@ -19,9 +19,9 @@ WorkCenterCapacity source data
 
 ## Keys
 
-- `objty`
-- `objid`
-- `canum`
+- `ObjectType`
+- `WorkCenterInternalID`
+- `CapacityAssignment`
 
 ## Associations defined here
 

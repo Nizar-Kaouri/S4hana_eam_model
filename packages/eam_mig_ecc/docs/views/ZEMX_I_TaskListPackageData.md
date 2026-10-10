@@ -19,12 +19,12 @@ TaskListPackage source data
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnal`
-- `plnkn`
-- `zaehl`
-- `paket`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListGroupCounter`
+- `OperationInternalID`
+- `VersionCounter`
+- `MaintenancePackage`
 
 ## Associations defined here
 

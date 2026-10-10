@@ -1,0 +1,216 @@
+{
+  "module": "production_order",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "ManufacturingOrder"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZPPX_C_ProductionOrdeMig",
+      "source_view": "ZPPX_I_ProductionOrde",
+      "scope_filter": "",
+      "keys": [
+        "ManufacturingOrder"
+      ],
+      "fields": [
+        {
+          "element": "ManufacturingOrder",
+          "source": "AUFK-AUFNR",
+          "target": "customer interface field: ManufacturingOrder (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ManufacturingOrderType",
+          "source": "AUFK-AUART",
+          "target": "customer interface field: ManufacturingOrderType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "OrderCategory",
+          "source": "AUFK-AUTYP",
+          "target": "customer interface field: OrderCategory (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ManufacturingOrderText",
+          "source": "AUFK-KTEXT",
+          "target": "customer interface field: ManufacturingOrderText (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CompanyCode",
+          "source": "AUFK-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ProductionPlant",
+          "source": "AUFK-WERKS",
+          "target": "customer interface field: ProductionPlant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "AUFK-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+    },
+    {
+      "consumption_view": "ZPPX_C_ProductionHeadMig",
+      "source_view": "ZPPX_I_ProductionHead",
+      "scope_filter": "",
+      "keys": [
+        "ManufacturingOrder"
+      ],
+      "fields": [
+        {
+          "element": "ManufacturingOrder",
+          "source": "AFKO-AUFNR",
+          "target": "customer interface field: ManufacturingOrder (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "OperationRoutingNumber",
+          "source": "AFKO-AUFPL",
+          "target": "customer interface field: OperationRoutingNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TotalQuantity",
+          "source": "AFKO-GAMNG",
+          "target": "customer interface field: TotalQuantity (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Unit",
+          "source": "AFKO-GMEIN",
+          "target": "customer interface field: Unit (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BasicStartDate",
+          "source": "AFKO-GSTRP",
+          "target": "customer interface field: BasicStartDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BasicEndDate",
+          "source": "AFKO-GLTRP",
+          "target": "customer interface field: BasicEndDate (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+    },
+    {
+      "consumption_view": "ZPPX_C_ProductionItemMig",
+      "source_view": "ZPPX_I_ProductionItem",
+      "scope_filter": "",
+      "keys": [
+        "ManufacturingOrder",
+        "ManufacturingOrderItem"
+      ],
+      "fields": [
+        {
+          "element": "ManufacturingOrder",
+          "source": "AFPO-AUFNR",
+          "target": "customer interface field: ManufacturingOrder (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ManufacturingOrderItem",
+          "source": "AFPO-POSNR",
+          "target": "customer interface field: ManufacturingOrderItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Material",
+          "source": "AFPO-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ProductionPlant",
+          "source": "AFPO-DWERK",
+          "target": "customer interface field: ProductionPlant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PlannedQuantity",
+          "source": "AFPO-PSMNG",
+          "target": "customer interface field: PlannedQuantity (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Unit",
+          "source": "AFPO-MEINS",
+          "target": "customer interface field: Unit (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZPPT_I_ProductionOrdeCount",
+    "dimensions": [
+      {
+        "element": "ManufacturingOrder"
+      }
+    ],
+    "source_count_view": "ZPPX_C_ProductionOrdeMigCount",
+    "compare": {
+      "source_view": "ZPPX_C_ProductionOrdeMig",
+      "target_view": "ZPPT_I_ProductionOrdeCompare",
+      "key": [
+        "ManufacturingOrder"
+      ],
+      "fields": [
+        "ManufacturingOrderType",
+        "ManufacturingOrderText",
+        "CompanyCode",
+        "ProductionPlant"
+      ]
+    }
+  },
+  "main_structure": "ZPPX_C_ProductionOrdeMig"
+}

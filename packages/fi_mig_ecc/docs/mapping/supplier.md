@@ -1,0 +1,74 @@
+# Migration interface: supplier
+
+> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+
+- **Read by:** customer-selected supported posting interface; reference data is not posted
+- **Load after:** - (first level)
+- **Business key:** `Supplier` · numbering **keep**
+- **Key rule:** Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration.
+
+The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
+
+## `ZFIX_C_SupplierMig`
+
+- Source: `ZFIX_I_Supplier`
+- Keys: `Supplier`
+- Scope: `all rows`
+- Delivery mode: **master**
+- Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Supplier` | LFA1-LIFNR | customer interface field: Supplier (unconfirmed) | copy | yes |
+| `SupplierName` | LFA1-NAME1 | customer interface field: SupplierName (unconfirmed) | copy | yes |
+| `Country` | LFA1-LAND1 | customer interface field: Country (unconfirmed) | copy | yes |
+| `Region` | LFA1-REGIO | customer interface field: Region (unconfirmed) | copy | yes |
+| `AccountGroup` | LFA1-KTOKK | customer interface field: AccountGroup (unconfirmed) | copy | yes |
+| `DeletionFlag` | LFA1-LOEVM | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
+
+## `ZFIX_C_SupplierCompanMig`
+
+- Source: `ZFIX_I_SupplierCompan`
+- Keys: `Supplier`, `CompanyCode`
+- Scope: `all rows`
+- Delivery mode: **master**
+- Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Supplier` | LFB1-LIFNR | customer interface field: Supplier (unconfirmed) | copy | yes |
+| `CompanyCode` | LFB1-BUKRS | customer interface field: CompanyCode (unconfirmed) | copy | yes |
+| `ReconciliationAccount` | LFB1-AKONT | customer interface field: ReconciliationAccount (unconfirmed) | copy | yes |
+| `PaymentTerms` | LFB1-ZTERM | customer interface field: PaymentTerms (unconfirmed) | copy | yes |
+| `PaymentMethods` | LFB1-ZWELS | customer interface field: PaymentMethods (unconfirmed) | copy | yes |
+| `DeletionFlag` | LFB1-LOEVM | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
+
+## `ZFIX_C_SupplierPurchaMig`
+
+- Source: `ZFIX_I_SupplierPurcha`
+- Keys: `Supplier`, `PurchasingOrganization`
+- Scope: `all rows`
+- Delivery mode: **master**
+- Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Supplier` | LFM1-LIFNR | customer interface field: Supplier (unconfirmed) | copy | yes |
+| `PurchasingOrganization` | LFM1-EKORG | customer interface field: PurchasingOrganization (unconfirmed) | copy | yes |
+| `OrderCurrency` | LFM1-WAERS | customer interface field: OrderCurrency (unconfirmed) | copy | yes |
+| `PaymentTerms` | LFM1-ZTERM | customer interface field: PaymentTerms (unconfirmed) | copy | yes |
+| `DeletionFlag` | LFM1-LOEVM | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
+
+## Reconciliation
+
+- Counts: `ZFIX_C_SupplierMigCount` (ECC) vs `ZFIT_I_SupplierCount` (S/4HANA) per `Supplier`
+- Records and fields: `ZFIX_C_SupplierMig` vs `ZFIT_I_SupplierCompare` on `Supplier`; compared: `SupplierName`, `Country`, `Region`
+
+```bash
+python3 tools/mig_reconcile.py counts --product fi_mig_ecc --module supplier --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --product fi_mig_ecc --module supplier --source ecc_extract.csv --target s4_compare.csv
+```
+
+## Open gaps
+
+- Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.

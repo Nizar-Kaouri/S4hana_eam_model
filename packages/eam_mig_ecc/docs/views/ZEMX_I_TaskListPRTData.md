@@ -19,12 +19,12 @@ TaskListPRT source data
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnal`
-- `plnkn`
-- `zaehl`
-- `psnfh`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListGroupCounter`
+- `OperationInternalID`
+- `VersionCounter`
+- `PRTItem`
 
 ## Associations defined here
 

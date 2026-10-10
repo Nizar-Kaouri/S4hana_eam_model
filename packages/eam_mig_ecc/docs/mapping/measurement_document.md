@@ -41,7 +41,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Counts: `ZEMX_C_MeasReadingMigCount` (ECC) vs `-` (S/4HANA) per `MsmtEntryUnit`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module measurement_document --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module measurement_document --source ecc_counts.csv --target s4_counts.csv
 ```
 
 ## Open gaps

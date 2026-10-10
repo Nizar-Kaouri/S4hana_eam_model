@@ -1,0 +1,152 @@
+{
+  "ZCOX_C_CostCenterMig": {
+    "module": "cost_center",
+    "key": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "fields": [
+      "ValidityStartDate",
+      "CompanyCode",
+      "ProfitCenter",
+      "CostCenterCategory",
+      "ResponsiblePerson"
+    ],
+    "target_export": "target/ZCOX_C_CostCenterMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZCOX_C_CostCenterTextMig": {
+    "module": "cost_center",
+    "key": [
+      "Language",
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "fields": [
+      "CostCenterName",
+      "CostCenterDescription"
+    ],
+    "target_export": "target/ZCOX_C_CostCenterTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZCOX_C_ProfitCenterMig": {
+    "module": "profit_center",
+    "key": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "fields": [
+      "ValidityStartDate",
+      "ResponsiblePerson",
+      "Segment"
+    ],
+    "target_export": "target/ZCOX_C_ProfitCenterMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZCOX_C_ProfitCenterTeMig": {
+    "module": "profit_center",
+    "key": [
+      "Language",
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "fields": [
+      "ProfitCenterName",
+      "ProfitCenterDescription"
+    ],
+    "target_export": "target/ZCOX_C_ProfitCenterTeMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZCOX_C_InternalOrderMig": {
+    "module": "internal_order",
+    "key": [
+      "InternalOrder"
+    ],
+    "fields": [
+      "InternalOrderType",
+      "OrderCategory",
+      "InternalOrderDescription",
+      "CompanyCode",
+      "ControllingArea",
+      "ResponsibleCostCenter",
+      "ProfitCenter",
+      "ObjectNumber"
+    ],
+    "target_export": "target/ZCOX_C_InternalOrderMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZCOX_C_OrderSettlemenMig": {
+    "module": "internal_order",
+    "key": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "fields": [
+      "SettlementType",
+      "SettlementPercentage",
+      "ReceiverCostCenter",
+      "ReceiverOrder"
+    ],
+    "target_export": "target/ZCOX_C_OrderSettlemenMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZCOX_C_CostActualMig": {
+    "module": "cost_actuals",
+    "key": [
+      "ControllingArea",
+      "COAccountingDocument",
+      "COAccountingDocumentItem"
+    ],
+    "fields": [
+      "FiscalYear",
+      "ObjectNumber",
+      "CostElement",
+      "ValueType",
+      "BusinessTransaction",
+      "TransactionAmount",
+      "TransactionCurrency"
+    ],
+    "target_export": "target/ZCOX_C_CostActualMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZCOX_C_CostElementMig": {
+    "module": "cost_element",
+    "key": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "fields": [
+      "CreationDate"
+    ],
+    "target_export": "target/ZCOX_C_CostElementMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZCOX_C_CostElementAreMig": {
+    "module": "cost_element",
+    "key": [
+      "ControllingArea",
+      "CostElement",
+      "ValidityEndDate"
+    ],
+    "fields": [
+      "ValidityStartDate",
+      "CostElementCategory"
+    ],
+    "target_export": "target/ZCOX_C_CostElementAreMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  }
+}

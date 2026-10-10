@@ -1,0 +1,90 @@
+{
+  "name": "product",
+  "title": "Material master",
+  "description": "Material master source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "master"
+  ],
+  "sap_tables": [
+    "MAKT",
+    "MARA",
+    "MARC",
+    "MARD",
+    "MARM",
+    "MBEW",
+    "MCH1",
+    "MCHA"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZMMX_I_MaterialData",
+      "ZMMX_I_MaterialTextData",
+      "ZMMX_I_MaterialPlantData",
+      "ZMMX_I_MaterialLocatiData",
+      "ZMMX_I_MaterialUnitData",
+      "ZMMX_I_MaterialValueData",
+      "ZMMX_I_BatchGeneralData",
+      "ZMMX_I_BatchPlantData"
+    ],
+    "composite": [
+      "ZMMX_I_Material",
+      "ZMMX_I_MaterialText",
+      "ZMMX_I_MaterialPlant",
+      "ZMMX_I_MaterialLocati",
+      "ZMMX_I_MaterialUnit",
+      "ZMMX_I_MaterialValue",
+      "ZMMX_I_BatchGeneral",
+      "ZMMX_I_BatchPlant"
+    ],
+    "consumption": [
+      "ZMMX_C_MaterialMig",
+      "ZMMX_C_MaterialMigCount",
+      "ZMMX_C_MaterialTextMig",
+      "ZMMX_C_MaterialPlantMig",
+      "ZMMX_C_MaterialLocatiMig",
+      "ZMMX_C_MaterialUnitMig",
+      "ZMMX_C_MaterialValueMig",
+      "ZMMX_C_BatchGeneralMig",
+      "ZMMX_C_BatchPlantMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMX_I_MaterialData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_Material": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MaterialMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MaterialMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialTextData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MaterialTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialPlantData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialPlant": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MaterialPlantMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialLocatiData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialLocati": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MaterialLocatiMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialUnitData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialUnit": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MaterialUnitMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialValueData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MaterialValue": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MaterialValueMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_BatchGeneralData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_BatchGeneral": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_BatchGeneralMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_BatchPlantData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_BatchPlant": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_BatchPlantMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

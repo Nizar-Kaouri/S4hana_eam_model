@@ -19,7 +19,7 @@ Object numbers whose system status I0076 - deletion flag (DLFL) - is active; joi
 
 ## Keys
 
-- `objnr`
+- `ObjectNumber`
 
 ## Associations defined here
 

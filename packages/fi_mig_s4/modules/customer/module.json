@@ -1,0 +1,36 @@
+{
+  "name": "customer",
+  "title": "Customer source data target comparison",
+  "description": "Customer source data source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [
+    "I_Customer"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFIT_I_CustomerCompare"
+    ],
+    "composite": [
+      "ZFIT_I_CustomerCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFIT_I_CustomerCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIT_I_CustomerCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

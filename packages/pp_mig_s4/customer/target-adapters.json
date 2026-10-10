@@ -1,0 +1,268 @@
+{
+  "ZPPX_C_ProductionOrdeMig": {
+    "module": "production_order",
+    "key": [
+      "ManufacturingOrder"
+    ],
+    "fields": [
+      "ManufacturingOrderType",
+      "OrderCategory",
+      "ManufacturingOrderText",
+      "CompanyCode",
+      "ProductionPlant",
+      "ObjectNumber"
+    ],
+    "target_export": "target/ZPPX_C_ProductionOrdeMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_ProductionHeadMig": {
+    "module": "production_order",
+    "key": [
+      "ManufacturingOrder"
+    ],
+    "fields": [
+      "OperationRoutingNumber",
+      "TotalQuantity",
+      "Unit",
+      "BasicStartDate",
+      "BasicEndDate"
+    ],
+    "target_export": "target/ZPPX_C_ProductionHeadMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_ProductionItemMig": {
+    "module": "production_order",
+    "key": [
+      "ManufacturingOrder",
+      "ManufacturingOrderItem"
+    ],
+    "fields": [
+      "Material",
+      "ProductionPlant",
+      "PlannedQuantity",
+      "Unit"
+    ],
+    "target_export": "target/ZPPX_C_ProductionItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_ProductionOperMig": {
+    "module": "production_order_operation",
+    "key": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "fields": [
+      "Operation",
+      "OperationText",
+      "WorkCenterInternalID",
+      "Plant"
+    ],
+    "target_export": "target/ZPPX_C_ProductionOperMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_OperationQuantMig": {
+    "module": "production_order_operation",
+    "key": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "fields": [
+      "OperationQuantity",
+      "Unit",
+      "StandardValue1",
+      "StandardValueUnit1"
+    ],
+    "target_export": "target/ZPPX_C_OperationQuantMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_OrderComponentMig": {
+    "module": "production_order_operation",
+    "key": [
+      "Reservation",
+      "ReservationItem",
+      "RecordType"
+    ],
+    "fields": [
+      "ManufacturingOrder",
+      "Material",
+      "Plant",
+      "StorageLocation",
+      "RequiredQuantity",
+      "Unit",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZPPX_C_OrderComponentMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_MaterialBOMMig": {
+    "module": "bill_of_material",
+    "key": [
+      "Material",
+      "Plant",
+      "BillOfMaterialUsage",
+      "BillOfMaterial",
+      "BillOfMaterialVariant"
+    ],
+    "fields": [
+      "LotSizeFrom",
+      "LotSizeTo"
+    ],
+    "target_export": "target/ZPPX_C_MaterialBOMMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_BOMHeaderMig": {
+    "module": "bill_of_material",
+    "key": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BillOfMaterialVariant",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "ChangeNumber",
+      "DeletionFlag",
+      "BaseQuantity",
+      "BaseUnit"
+    ],
+    "target_export": "target/ZPPX_C_BOMHeaderMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_BOMSelectionMig": {
+    "module": "bill_of_material",
+    "key": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BillOfMaterialVariant",
+      "BOMNode",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "ChangeNumber",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZPPX_C_BOMSelectionMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_BOMItemMig": {
+    "module": "bill_of_material",
+    "key": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BOMNode",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "ChangeNumber",
+      "DeletionFlag",
+      "Component",
+      "ItemNumber",
+      "ComponentQuantity",
+      "Unit"
+    ],
+    "target_export": "target/ZPPX_C_BOMItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_RoutingHeaderMig": {
+    "module": "routing",
+    "key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "ChangeNumber",
+      "DeletionFlag",
+      "TaskListDescription"
+    ],
+    "target_export": "target/ZPPX_C_RoutingHeaderMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_RoutingMateriaMig": {
+    "module": "routing",
+    "key": [
+      "Material",
+      "Plant",
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZPPX_C_RoutingMateriaMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_RoutingSelectiMig": {
+    "module": "routing",
+    "key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "Sequence",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZPPX_C_RoutingSelectiMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_RoutingOperatiMig": {
+    "module": "routing",
+    "key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "ChangeNumber",
+      "DeletionFlag",
+      "Operation",
+      "OperationText"
+    ],
+    "target_export": "target/ZPPX_C_RoutingOperatiMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZPPX_C_RoutingSequencMig": {
+    "module": "routing",
+    "key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "Sequence",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZPPX_C_RoutingSequencMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  }
+}

@@ -19,7 +19,7 @@ Notification headers (QMEL): type, texts, dates, priority, coding, order referen
 
 ## Keys
 
-- `qmnum`
+- `MaintenanceNotification`
 
 ## Associations defined here
 

@@ -1,0 +1,36 @@
+{
+  "name": "gl_account",
+  "title": "G/L accounts target comparison",
+  "description": "G/L accounts source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [
+    "I_GLAccountInChartOfAccounts"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFIT_I_GLAccountCompare"
+    ],
+    "composite": [
+      "ZFIT_I_GLAccountCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFIT_I_GLAccountCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIT_I_GLAccountCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

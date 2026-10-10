@@ -19,7 +19,7 @@ Maintenance data of orders (AFIH): reference object, planning data, notification
 
 ## Keys
 
-- `aufnr`
+- `MaintenanceOrder`
 
 ## Associations defined here
 

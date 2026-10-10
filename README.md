@@ -107,3 +107,9 @@ Every product has its own `.abapgit.xml` (starting folder `/src/` *inside the pr
 delivered as ZIPs from `build_package.py` (abapGit *offline* import), which puts that `.abapgit.xml` at
 the ZIP root. Linking this repository directly as an abapGit *online* repo is not supported, because
 abapGit expects one `.abapgit.xml` at the repository root.
+
+## Additional domain migration drafts
+
+FI-AA, MM, QM, PS, PP, CO, FI and SD now have separate `<domain>_mig_ecc` and `<domain>_mig_s4` packages. They contain 32 business modules, 98 source structures, 326 source views and 36 target comparison/count candidates. Existing analytics remain separate. Every source structure has a mapping and an explicit target CSV adapter contract. Histories and balances are not assumed to be directly postable.
+
+See [customer guides and all-object VDM map](docs/customer/domains/README.md) and [cross-domain prerequisites](docs/customer/domains/CROSS_DOMAIN_PREREQUISITES.md). All drafts require actual SAP DDIC, activation and business acceptance tests.

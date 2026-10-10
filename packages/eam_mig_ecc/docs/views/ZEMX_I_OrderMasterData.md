@@ -19,7 +19,7 @@ Order master data (AUFK) of maintenance orders (order category 30).
 
 ## Keys
 
-- `aufnr`
+- `MaintenanceOrder`
 
 ## Associations defined here
 

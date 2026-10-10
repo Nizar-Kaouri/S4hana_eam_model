@@ -1,0 +1,12 @@
+{
+  "global": {
+    "files": "/helpers/**/*.prog.abap"
+  },
+  "syntax": {
+    "version": "v740sp08",
+    "errorNamespace": "^ZQMX_"
+  },
+  "rules": {
+    "parser_error": true
+  }
+}

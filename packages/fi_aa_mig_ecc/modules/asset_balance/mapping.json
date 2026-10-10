@@ -1,0 +1,118 @@
+{
+  "module": "asset_balance",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "fixed_asset"
+  ],
+  "key": {
+    "business_key": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset",
+      "FiscalYear",
+      "DepreciationArea"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFAX_C_AssetBalanceMig",
+      "source_view": "ZFAX_I_AssetBalance",
+      "scope_filter": "",
+      "keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "FiscalYear",
+        "DepreciationArea"
+      ],
+      "fields": [
+        {
+          "element": "CompanyCode",
+          "source": "ANLC-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "MasterFixedAsset",
+          "source": "ANLC-ANLN1",
+          "target": "customer interface field: MasterFixedAsset (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FixedAsset",
+          "source": "ANLC-ANLN2",
+          "target": "customer interface field: FixedAsset (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FiscalYear",
+          "source": "ANLC-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DepreciationArea",
+          "source": "ANLC-AFABE",
+          "target": "customer interface field: DepreciationArea (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CumulativeAcquisition",
+          "source": "ANLC-KANSW",
+          "target": "customer interface field: CumulativeAcquisition (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CumulativeDepreciation",
+          "source": "ANLC-KNAFA",
+          "target": "customer interface field: CumulativeDepreciation (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CurrentYearAcquisition",
+          "source": "ANLC-ANSWL",
+          "target": "customer interface field: CurrentYearAcquisition (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PostedDepreciation",
+          "source": "ANLC-NAFAG",
+          "target": "customer interface field: PostedDepreciation (unconfirmed)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "balance",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "CompanyCode"
+      }
+    ],
+    "source_count_view": "ZFAX_C_AssetBalanceMigCount"
+  },
+  "main_structure": "ZFAX_C_AssetBalanceMig"
+}

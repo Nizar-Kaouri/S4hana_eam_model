@@ -19,10 +19,10 @@ BOMItem equipment-category state ledger
 
 ## Keys
 
-- `stlty`
-- `stlnr`
-- `stlkn`
-- `stpoz`
+- `BOMCategory`
+- `BillOfMaterial`
+- `BOMItemNode`
+- `ItemCounter`
 
 ## Associations defined here
 

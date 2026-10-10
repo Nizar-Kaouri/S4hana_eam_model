@@ -19,7 +19,7 @@ Work centers of object type 'A' (CRHD) with plant, category, responsible person,
 
 ## Keys
 
-- `objid`
+- `WorkCenterInternalID`
 
 ## Associations defined here
 

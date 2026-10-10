@@ -1,0 +1,9 @@
+{
+  "mode": "interval",
+  "identity": [
+    "ControllingArea",
+    "CostElement"
+  ],
+  "valid_from": "ValidityStartDate",
+  "valid_to": "ValidityEndDate"
+}

@@ -1,0 +1,187 @@
+{
+  "ZQMX_C_InspectionLotMig": {
+    "module": "inspection_lot",
+    "table": "QALS",
+    "keys": [
+      "InspectionLot"
+    ],
+    "selection": "selection/ZQMX_C_InspectionLotMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_UsageDecisionMig": {
+    "module": "inspection_lot",
+    "table": "QAVE",
+    "keys": [
+      "InspectionLot",
+      "UsageDecisionType",
+      "UsageDecisionCounter"
+    ],
+    "selection": "selection/ZQMX_C_UsageDecisionMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_InspectCharactMig": {
+    "module": "inspection_result",
+    "table": "QAMV",
+    "keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "selection": "selection/ZQMX_C_InspectCharactMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZQMX_C_CharacteristicMig": {
+    "module": "inspection_result",
+    "table": "QAMR",
+    "keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "selection": "selection/ZQMX_C_CharacteristicMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZQMX_C_SingleResultMig": {
+    "module": "inspection_result",
+    "table": "QASE",
+    "keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber",
+      "SampleNumber",
+      "ResultNumber"
+    ],
+    "selection": "selection/ZQMX_C_SingleResultMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZQMX_C_QualityNotificMig": {
+    "module": "quality_notification",
+    "table": "QMEL",
+    "keys": [
+      "QualityNotification"
+    ],
+    "selection": "selection/ZQMX_C_QualityNotificMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_QualityItemMig": {
+    "module": "quality_notification",
+    "table": "QMFE",
+    "keys": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "selection": "selection/ZQMX_C_QualityItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_QualityCauseMig": {
+    "module": "quality_notification",
+    "table": "QMUR",
+    "keys": [
+      "QualityNotification",
+      "NotificationItem",
+      "CauseNumber"
+    ],
+    "selection": "selection/ZQMX_C_QualityCauseMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_QualityTaskMig": {
+    "module": "quality_notification",
+    "table": "QMSM",
+    "keys": [
+      "QualityNotification",
+      "TaskNumber"
+    ],
+    "selection": "selection/ZQMX_C_QualityTaskMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_QualityActivitMig": {
+    "module": "quality_notification",
+    "table": "QMMA",
+    "keys": [
+      "QualityNotification",
+      "ActivityNumber"
+    ],
+    "selection": "selection/ZQMX_C_QualityActivitMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_InspectPlanHeaMig": {
+    "module": "inspection_plan",
+    "table": "PLKO",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_InspectPlanHeaMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_InspectPlanMatMig": {
+    "module": "inspection_plan",
+    "table": "MAPL",
+    "keys": [
+      "Material",
+      "Plant",
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_InspectPlanMatMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_InspectPlanSelMig": {
+    "module": "inspection_plan",
+    "table": "PLAS",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "Sequence",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_InspectPlanSelMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_InspectPlanOpeMig": {
+    "module": "inspection_plan",
+    "table": "PLPO",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_InspectPlanOpeMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_PlanCharacteriMig": {
+    "module": "inspection_plan",
+    "table": "PLMK",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListNode",
+      "CharacteristicNumber",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_PlanCharacteriMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  }
+}

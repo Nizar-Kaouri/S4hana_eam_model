@@ -19,8 +19,8 @@ NotifActivity source data
 
 ## Keys
 
-- `qmnum`
-- `manum`
+- `MaintenanceNotification`
+- `ActivityNumber`
 
 ## Associations defined here
 

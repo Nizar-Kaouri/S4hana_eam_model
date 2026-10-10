@@ -19,7 +19,7 @@ Measurement documents (IMRG): readings and counter readings with date, time, val
 
 ## Keys
 
-- `mdocm`
+- `MeasurementDocument`
 
 ## Associations defined here
 

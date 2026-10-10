@@ -1,0 +1,250 @@
+{
+  "ZQMX_C_InspectionLotMig": {
+    "module": "inspection_lot",
+    "key": [
+      "InspectionLot"
+    ],
+    "fields": [
+      "Plant",
+      "Material",
+      "Batch",
+      "InspectionType",
+      "InspectionLotOrigin",
+      "InspectionLotQuantity",
+      "Unit",
+      "ObjectNumber"
+    ],
+    "target_export": "target/ZQMX_C_InspectionLotMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_UsageDecisionMig": {
+    "module": "inspection_lot",
+    "key": [
+      "InspectionLot",
+      "UsageDecisionType",
+      "UsageDecisionCounter"
+    ],
+    "fields": [
+      "UsageDecisionCode",
+      "UsageDecisionCodeGroup",
+      "UsageDecisionDate"
+    ],
+    "target_export": "target/ZQMX_C_UsageDecisionMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_InspectCharactMig": {
+    "module": "inspection_result",
+    "key": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "fields": [
+      "CharacteristicDescription"
+    ],
+    "target_export": "target/ZQMX_C_InspectCharactMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_CharacteristicMig": {
+    "module": "inspection_result",
+    "key": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "fields": [
+      "MeanValue",
+      "MinimumValue",
+      "MaximumValue"
+    ],
+    "target_export": "target/ZQMX_C_CharacteristicMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_SingleResultMig": {
+    "module": "inspection_result",
+    "key": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber",
+      "SampleNumber",
+      "ResultNumber"
+    ],
+    "fields": [
+      "MeasuredValue"
+    ],
+    "target_export": "target/ZQMX_C_SingleResultMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_QualityNotificMig": {
+    "module": "quality_notification",
+    "key": [
+      "QualityNotification"
+    ],
+    "fields": [
+      "NotificationType",
+      "NotificationText",
+      "Material",
+      "Plant",
+      "ObjectNumber"
+    ],
+    "target_export": "target/ZQMX_C_QualityNotificMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_QualityItemMig": {
+    "module": "quality_notification",
+    "key": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "fields": [
+      "DefectCodeGroup",
+      "DefectCode",
+      "DefectText"
+    ],
+    "target_export": "target/ZQMX_C_QualityItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_QualityCauseMig": {
+    "module": "quality_notification",
+    "key": [
+      "QualityNotification",
+      "NotificationItem",
+      "CauseNumber"
+    ],
+    "fields": [
+      "CauseCodeGroup",
+      "CauseCode",
+      "CauseText"
+    ],
+    "target_export": "target/ZQMX_C_QualityCauseMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_QualityTaskMig": {
+    "module": "quality_notification",
+    "key": [
+      "QualityNotification",
+      "TaskNumber"
+    ],
+    "fields": [
+      "TaskCodeGroup",
+      "TaskCode",
+      "TaskText"
+    ],
+    "target_export": "target/ZQMX_C_QualityTaskMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_QualityActivitMig": {
+    "module": "quality_notification",
+    "key": [
+      "QualityNotification",
+      "ActivityNumber"
+    ],
+    "fields": [
+      "ActivityCodeGroup",
+      "ActivityCode",
+      "ActivityText"
+    ],
+    "target_export": "target/ZQMX_C_QualityActivitMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_InspectPlanHeaMig": {
+    "module": "inspection_plan",
+    "key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "ChangeNumber",
+      "DeletionFlag",
+      "TaskListDescription"
+    ],
+    "target_export": "target/ZQMX_C_InspectPlanHeaMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_InspectPlanMatMig": {
+    "module": "inspection_plan",
+    "key": [
+      "Material",
+      "Plant",
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZQMX_C_InspectPlanMatMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_InspectPlanSelMig": {
+    "module": "inspection_plan",
+    "key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "Sequence",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "DeletionFlag"
+    ],
+    "target_export": "target/ZQMX_C_InspectPlanSelMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_InspectPlanOpeMig": {
+    "module": "inspection_plan",
+    "key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "DeletionFlag",
+      "Operation",
+      "OperationText"
+    ],
+    "target_export": "target/ZQMX_C_InspectPlanOpeMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZQMX_C_PlanCharacteriMig": {
+    "module": "inspection_plan",
+    "key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListNode",
+      "CharacteristicNumber",
+      "InternalCounter"
+    ],
+    "fields": [
+      "ValidFromDate",
+      "DeletionFlag",
+      "CharacteristicDescription"
+    ],
+    "target_export": "target/ZQMX_C_PlanCharacteriMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  }
+}

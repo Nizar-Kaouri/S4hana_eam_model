@@ -19,10 +19,10 @@ All versions (change-number states) of maintenance task list headers of type A (
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnal`
-- `zaehl`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListGroupCounter`
+- `TaskListVersionCounter`
 
 ## Associations defined here
 

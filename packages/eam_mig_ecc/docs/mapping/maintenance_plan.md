@@ -98,8 +98,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Records and fields: `ZEMX_C_MaintenancePlanMig` vs `ZEMT_I_MaintPlanCompare` on `MaintenancePlan`; compared: `MaintenancePlanDesc`, `MaintenancePlanCategory`, `MaintenanceStrategy`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module maintenance_plan --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --module maintenance_plan --source ecc_extract.csv --target s4_compare.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module maintenance_plan --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --product eam_mig_ecc --module maintenance_plan --source ecc_extract.csv --target s4_compare.csv
 ```
 
 ## Open gaps

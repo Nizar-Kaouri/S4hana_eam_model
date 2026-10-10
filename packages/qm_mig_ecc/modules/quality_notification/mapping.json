@@ -1,0 +1,299 @@
+{
+  "module": "quality_notification",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "QualityNotification"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZQMX_C_QualityNotificMig",
+      "source_view": "ZQMX_I_QualityNotific",
+      "scope_filter": "",
+      "keys": [
+        "QualityNotification"
+      ],
+      "fields": [
+        {
+          "element": "QualityNotification",
+          "source": "QMEL-QMNUM",
+          "target": "customer interface field: QualityNotification (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "NotificationType",
+          "source": "QMEL-QMART",
+          "target": "customer interface field: NotificationType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "NotificationText",
+          "source": "QMEL-QMTXT",
+          "target": "customer interface field: NotificationText (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Material",
+          "source": "QMEL-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "QMEL-WERK",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "QMEL-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_QualityItemMig",
+      "source_view": "ZQMX_I_QualityItem",
+      "scope_filter": "",
+      "keys": [
+        "QualityNotification",
+        "NotificationItem"
+      ],
+      "fields": [
+        {
+          "element": "QualityNotification",
+          "source": "QMFE-QMNUM",
+          "target": "customer interface field: QualityNotification (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "NotificationItem",
+          "source": "QMFE-FENUM",
+          "target": "customer interface field: NotificationItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DefectCodeGroup",
+          "source": "QMFE-FEGRP",
+          "target": "customer interface field: DefectCodeGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DefectCode",
+          "source": "QMFE-FECOD",
+          "target": "customer interface field: DefectCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DefectText",
+          "source": "QMFE-FETXT",
+          "target": "customer interface field: DefectText (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_QualityCauseMig",
+      "source_view": "ZQMX_I_QualityCause",
+      "scope_filter": "",
+      "keys": [
+        "QualityNotification",
+        "NotificationItem",
+        "CauseNumber"
+      ],
+      "fields": [
+        {
+          "element": "QualityNotification",
+          "source": "QMUR-QMNUM",
+          "target": "customer interface field: QualityNotification (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "NotificationItem",
+          "source": "QMUR-FENUM",
+          "target": "customer interface field: NotificationItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CauseNumber",
+          "source": "QMUR-URNUM",
+          "target": "customer interface field: CauseNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CauseCodeGroup",
+          "source": "QMUR-URGRP",
+          "target": "customer interface field: CauseCodeGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CauseCode",
+          "source": "QMUR-URCOD",
+          "target": "customer interface field: CauseCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CauseText",
+          "source": "QMUR-URTXT",
+          "target": "customer interface field: CauseText (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_QualityTaskMig",
+      "source_view": "ZQMX_I_QualityTask",
+      "scope_filter": "",
+      "keys": [
+        "QualityNotification",
+        "TaskNumber"
+      ],
+      "fields": [
+        {
+          "element": "QualityNotification",
+          "source": "QMSM-QMNUM",
+          "target": "customer interface field: QualityNotification (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskNumber",
+          "source": "QMSM-MANUM",
+          "target": "customer interface field: TaskNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskCodeGroup",
+          "source": "QMSM-MNGRP",
+          "target": "customer interface field: TaskCodeGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskCode",
+          "source": "QMSM-MNCOD",
+          "target": "customer interface field: TaskCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskText",
+          "source": "QMSM-MATXT",
+          "target": "customer interface field: TaskText (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_QualityActivitMig",
+      "source_view": "ZQMX_I_QualityActivit",
+      "scope_filter": "",
+      "keys": [
+        "QualityNotification",
+        "ActivityNumber"
+      ],
+      "fields": [
+        {
+          "element": "QualityNotification",
+          "source": "QMMA-QMNUM",
+          "target": "customer interface field: QualityNotification (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActivityNumber",
+          "source": "QMMA-MANUM",
+          "target": "customer interface field: ActivityNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActivityCodeGroup",
+          "source": "QMMA-MNGRP",
+          "target": "customer interface field: ActivityCodeGroup (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActivityCode",
+          "source": "QMMA-MNCOD",
+          "target": "customer interface field: ActivityCode (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActivityText",
+          "source": "QMMA-MATXT",
+          "target": "customer interface field: ActivityText (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": "ZQMT_I_QualityNotificCount",
+    "dimensions": [
+      {
+        "element": "QualityNotification"
+      }
+    ],
+    "source_count_view": "ZQMX_C_QualityNotificMigCount",
+    "compare": {
+      "source_view": "ZQMX_C_QualityNotificMig",
+      "target_view": "ZQMT_I_QualityNotificCompare",
+      "key": [
+        "QualityNotification"
+      ],
+      "fields": [
+        "NotificationType",
+        "NotificationText",
+        "Material"
+      ]
+    }
+  },
+  "main_structure": "ZQMX_C_QualityNotificMig"
+}

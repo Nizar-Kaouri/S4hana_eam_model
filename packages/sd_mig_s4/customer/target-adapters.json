@@ -1,0 +1,199 @@
+{
+  "ZSDX_C_SalesOrderMig": {
+    "module": "sales_order",
+    "key": [
+      "SalesDocument"
+    ],
+    "fields": [
+      "SalesDocumentType",
+      "SalesOrganization",
+      "DistributionChannel",
+      "Division",
+      "SoldToParty",
+      "TransactionCurrency"
+    ],
+    "target_export": "target/ZSDX_C_SalesOrderMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_SalesItemMig": {
+    "module": "sales_order",
+    "key": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "fields": [
+      "Material",
+      "Plant",
+      "OrderQuantity",
+      "SalesUnit",
+      "RejectionReason"
+    ],
+    "target_export": "target/ZSDX_C_SalesItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_SalesScheduleMig": {
+    "module": "sales_order",
+    "key": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "ScheduleLine"
+    ],
+    "fields": [
+      "DeliveryDate",
+      "OrderQuantity",
+      "ConfirmedQuantity"
+    ],
+    "target_export": "target/ZSDX_C_SalesScheduleMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_SalesBusinessMig": {
+    "module": "sales_order",
+    "key": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "fields": [
+      "CustomerPurchaseOrder",
+      "PaymentTerms",
+      "IncotermsClassification",
+      "IncotermsLocation"
+    ],
+    "target_export": "target/ZSDX_C_SalesBusinessMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_SalesPartnerMig": {
+    "module": "sales_order",
+    "key": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "PartnerFunction"
+    ],
+    "fields": [
+      "Customer",
+      "Supplier",
+      "PersonnelNumber"
+    ],
+    "target_export": "target/ZSDX_C_SalesPartnerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_SalesHeaderStaMig": {
+    "module": "sales_order",
+    "key": [
+      "SalesDocument"
+    ],
+    "fields": [
+      "OverallProcessingStatus",
+      "DeliveryStatus",
+      "BillingStatus"
+    ],
+    "target_export": "target/ZSDX_C_SalesHeaderStaMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_SalesItemStatuMig": {
+    "module": "sales_order",
+    "key": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "fields": [
+      "OverallProcessingStatus",
+      "DeliveryStatus",
+      "BillingStatus"
+    ],
+    "target_export": "target/ZSDX_C_SalesItemStatuMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_SalesFlowMig": {
+    "module": "sales_order",
+    "key": [
+      "PrecedingDocument",
+      "PrecedingDocumentItem",
+      "SubsequentDocument",
+      "SubsequentDocumentItem",
+      "SubsequentDocumentCategory"
+    ],
+    "fields": [
+      "PrecedingDocumentCategory",
+      "ReferencedQuantity"
+    ],
+    "target_export": "target/ZSDX_C_SalesFlowMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_DeliveryMig": {
+    "module": "outbound_delivery",
+    "key": [
+      "DeliveryDocument"
+    ],
+    "fields": [
+      "DeliveryDocumentType",
+      "ShippingPoint",
+      "ShipToParty",
+      "PlannedGoodsIssueDate",
+      "ActualGoodsIssueDate"
+    ],
+    "target_export": "target/ZSDX_C_DeliveryMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_DeliveryItemMig": {
+    "module": "outbound_delivery",
+    "key": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ],
+    "fields": [
+      "Material",
+      "Plant",
+      "StorageLocation",
+      "DeliveryQuantity",
+      "SalesUnit",
+      "ReferenceDocument",
+      "ReferenceDocumentItem"
+    ],
+    "target_export": "target/ZSDX_C_DeliveryItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_BillingMig": {
+    "module": "billing_document",
+    "key": [
+      "BillingDocument"
+    ],
+    "fields": [
+      "BillingDocumentType",
+      "BillingDocumentDate",
+      "CompanyCode",
+      "TransactionCurrency",
+      "Payer"
+    ],
+    "target_export": "target/ZSDX_C_BillingMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  },
+  "ZSDX_C_BillingItemMig": {
+    "module": "billing_document",
+    "key": [
+      "BillingDocument",
+      "BillingDocumentItem"
+    ],
+    "fields": [
+      "Material",
+      "BillingQuantity",
+      "SalesUnit",
+      "NetAmount",
+      "ReferenceDocument",
+      "ReferenceDocumentItem"
+    ],
+    "target_export": "target/ZSDX_C_BillingItemMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+  }
+}

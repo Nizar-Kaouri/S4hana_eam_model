@@ -1,0 +1,36 @@
+{
+  "name": "product",
+  "title": "Material master target comparison",
+  "description": "Material master source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [
+    "I_Product"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZMMT_I_MaterialCompare"
+    ],
+    "composite": [
+      "ZMMT_I_MaterialCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMT_I_MaterialCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMT_I_MaterialCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

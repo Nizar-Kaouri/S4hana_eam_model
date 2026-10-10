@@ -161,8 +161,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Records and fields: `ZEMX_C_TaskListMig` vs `ZEMT_I_TaskListCompare` on `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`; compared: `TaskListDesc`, `Plant`, `TaskListUsage`, `TaskListStatus`, `MaintenancePlannerGroup`, `MaintenanceStrategy`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module task_list --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --module task_list --source ecc_extract.csv --target s4_compare.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module task_list --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --product eam_mig_ecc --module task_list --source ecc_extract.csv --target s4_compare.csv
 ```
 
 ## Open gaps

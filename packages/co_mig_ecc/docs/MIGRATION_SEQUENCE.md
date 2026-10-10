@@ -1,0 +1,12 @@
+# Migration sequence
+
+> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+
+Load order derived from `sequence_after`. Objects on the same level can be loaded in parallel; objects that refer to other objects load after them.
+
+| Level | Modules | Consumption views read by the load program |
+|---|---|---|
+| 1 | [`cost_element`](mapping/cost_element.md), [`profit_center`](mapping/profit_center.md) | `ZCOX_C_CostElementMig`, `ZCOX_C_CostElementAreMig`, `ZCOX_C_ProfitCenterMig`, `ZCOX_C_ProfitCenterTeMig` |
+| 2 | [`cost_center`](mapping/cost_center.md) | `ZCOX_C_CostCenterMig`, `ZCOX_C_CostCenterTextMig` |
+| 3 | [`internal_order`](mapping/internal_order.md) | `ZCOX_C_InternalOrderMig`, `ZCOX_C_OrderSettlemenMig` |
+| 4 | [`cost_actuals`](mapping/cost_actuals.md) | `ZCOX_C_CostActualMig` |

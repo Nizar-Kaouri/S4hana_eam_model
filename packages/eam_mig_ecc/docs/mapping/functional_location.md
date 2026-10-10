@@ -90,8 +90,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Records and fields: `ZEMX_C_FuncLocMig` vs `ZEMT_I_FuncLocCompare` on `FunctionalLocation`; compared: `FunctionalLocationCategory`, `SuperiorFunctionalLocation`, `TechnicalObjectType`, `MaintenancePlanningPlant`, `MaintenancePlant`, `ABCIndicator`, `CompanyCode`, `CostCenter`
 
 ```bash
-python3 tools/mig_reconcile.py counts --module functional_location --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --module functional_location --source ecc_extract.csv --target s4_compare.csv
+python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module functional_location --source ecc_counts.csv --target s4_counts.csv
+python3 tools/mig_reconcile.py records --product eam_mig_ecc --module functional_location --source ecc_extract.csv --target s4_compare.csv
 ```
 
 ## Open gaps

@@ -19,9 +19,9 @@ Time segments of equipment (EQUZ): planning plant, planner group, main work cent
 
 ## Keys
 
-- `equnr`
-- `datbi`
-- `eqlfn`
+- `Equipment`
+- `ValidityEndDate`
+- `TimeSegmentCounter`
 
 ## Associations defined here
 

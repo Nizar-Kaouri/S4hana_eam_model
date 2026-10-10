@@ -1,0 +1,90 @@
+{
+  "name": "sales_order",
+  "title": "Sales orders",
+  "description": "Sales orders source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "migration",
+    "open-document"
+  ],
+  "sap_tables": [
+    "VBAK",
+    "VBAP",
+    "VBEP",
+    "VBFA",
+    "VBKD",
+    "VBPA",
+    "VBUK",
+    "VBUP"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZSDX_I_SalesOrderData",
+      "ZSDX_I_SalesItemData",
+      "ZSDX_I_SalesScheduleData",
+      "ZSDX_I_SalesBusinessData",
+      "ZSDX_I_SalesPartnerData",
+      "ZSDX_I_SalesHeaderStaData",
+      "ZSDX_I_SalesItemStatuData",
+      "ZSDX_I_SalesFlowData"
+    ],
+    "composite": [
+      "ZSDX_I_SalesOrder",
+      "ZSDX_I_SalesItem",
+      "ZSDX_I_SalesSchedule",
+      "ZSDX_I_SalesBusiness",
+      "ZSDX_I_SalesPartner",
+      "ZSDX_I_SalesHeaderSta",
+      "ZSDX_I_SalesItemStatu",
+      "ZSDX_I_SalesFlow"
+    ],
+    "consumption": [
+      "ZSDX_C_SalesOrderMig",
+      "ZSDX_C_SalesOrderMigCount",
+      "ZSDX_C_SalesItemMig",
+      "ZSDX_C_SalesScheduleMig",
+      "ZSDX_C_SalesBusinessMig",
+      "ZSDX_C_SalesPartnerMig",
+      "ZSDX_C_SalesHeaderStaMig",
+      "ZSDX_C_SalesItemStatuMig",
+      "ZSDX_C_SalesFlowMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZSDX_I_SalesOrderData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesOrder": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesOrderMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesOrderMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesItemData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesItem": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesItemMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesScheduleData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesSchedule": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesScheduleMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesBusinessData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesBusiness": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesBusinessMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesPartnerData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesPartner": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesPartnerMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesHeaderStaData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesHeaderSta": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesHeaderStaMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesItemStatuData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesItemStatu": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesItemStatuMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesFlowData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_SalesFlow": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_SalesFlowMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

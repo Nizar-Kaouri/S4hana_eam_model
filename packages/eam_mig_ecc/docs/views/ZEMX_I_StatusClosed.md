@@ -19,7 +19,7 @@ Object numbers whose system status I0046 - closed (CLSD) - is active; joined by 
 
 ## Keys
 
-- `objnr`
+- `ObjectNumber`
 
 ## Associations defined here
 

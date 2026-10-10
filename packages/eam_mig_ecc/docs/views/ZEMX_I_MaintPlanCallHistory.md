@@ -19,8 +19,8 @@ Scheduled and completed calls per maintenance plan (MHIS).
 
 ## Keys
 
-- `warpl`
-- `abnum`
+- `MaintenancePlan`
+- `MaintPlanCallNumber`
 
 ## Associations defined here
 

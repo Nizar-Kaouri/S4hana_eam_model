@@ -19,7 +19,7 @@ Order header planning data (AFKO): basic dates, routing number and the task list
 
 ## Keys
 
-- `aufnr`
+- `MaintenanceOrder`
 
 ## Associations defined here
 

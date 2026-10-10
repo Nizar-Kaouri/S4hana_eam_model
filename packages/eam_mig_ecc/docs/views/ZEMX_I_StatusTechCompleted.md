@@ -19,7 +19,7 @@ Object numbers whose system status I0045 - technically completed (TECO) - is act
 
 ## Keys
 
-- `objnr`
+- `ObjectNumber`
 
 ## Associations defined here
 

@@ -19,8 +19,8 @@ Notification items (QMFE): object part and damage codes with text.
 
 ## Keys
 
-- `qmnum`
-- `fenum`
+- `MaintenanceNotification`
+- `MaintNotificationItem`
 
 ## Associations defined here
 

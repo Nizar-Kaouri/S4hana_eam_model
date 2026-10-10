@@ -19,10 +19,10 @@ Cost center assignments of work centers per validity period (CRCO).
 
 ## Keys
 
-- `objid`
-- `laset`
-- `endda`
-- `lanum`
+- `WorkCenterInternalID`
+- `ActivityTypeSet`
+- `ValidityEndDate`
+- `CostCenterAssgmtCounter`
 
 ## Associations defined here
 

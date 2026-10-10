@@ -19,7 +19,7 @@ Characteristic names by internal number (current version): the name is the key u
 
 ## Keys
 
-- `atinn`
+- `CharcInternalID`
 
 ## Associations defined here
 

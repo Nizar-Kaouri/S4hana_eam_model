@@ -19,11 +19,11 @@ BOMSelection equipment-category state ledger
 
 ## Keys
 
-- `stlty`
-- `stlnr`
-- `stlal`
-- `stlkn`
-- `stasz`
+- `BOMCategory`
+- `BillOfMaterial`
+- `BOMAlternative`
+- `BOMItemNode`
+- `SelectionCounter`
 
 ## Associations defined here
 

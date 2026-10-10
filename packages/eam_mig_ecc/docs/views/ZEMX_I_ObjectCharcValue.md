@@ -19,11 +19,11 @@ Characteristic values of objects (AUSP, object indicator 'O').
 
 ## Keys
 
-- `objek`
-- `atinn`
-- `atzhl`
-- `klart`
-- `adzhl`
+- `ClassifiedObject`
+- `CharcInternalID`
+- `CharcValuePositionNumber`
+- `ClassType`
+- `ChangeCounter`
 
 ## Associations defined here
 

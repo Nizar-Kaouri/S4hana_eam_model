@@ -19,7 +19,7 @@ Maintenance items (MPOS) with reference object, planning data, order / notificat
 
 ## Keys
 
-- `wapos`
+- `MaintenanceItem`
 
 ## Associations defined here
 

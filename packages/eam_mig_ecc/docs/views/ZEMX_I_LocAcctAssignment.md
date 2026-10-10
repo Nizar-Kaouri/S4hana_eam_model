@@ -19,7 +19,7 @@ Location and account assignment data (ILOA) shared by functional locations, equi
 
 ## Keys
 
-- `iloan`
+- `LocAcctAssignment`
 
 ## Associations defined here
 

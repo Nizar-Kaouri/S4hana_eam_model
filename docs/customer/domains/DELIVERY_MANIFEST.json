@@ -1,0 +1,80 @@
+{
+  "packages": [
+    {
+      "domain": "fi_aa",
+      "title": "Asset Accounting",
+      "archive": "ModuPorter-FI_AA-Customer-Pack-0.1.0.zip",
+      "sha256": "b997b882d85bc5dc5dd700e9f3930670e65a6a2e92b21434f7c7f6d6c2fde5ba",
+      "status": "draft-unverified",
+      "modules": 3,
+      "structures": 5
+    },
+    {
+      "domain": "mm",
+      "title": "Materials Management",
+      "archive": "ModuPorter-MM-Customer-Pack-0.1.0.zip",
+      "sha256": "b920c44471b07b24674740fde458a982ec5efe40724019be34cbdf80a8628d6d",
+      "status": "draft-unverified",
+      "modules": 5,
+      "structures": 21
+    },
+    {
+      "domain": "qm",
+      "title": "Quality Management",
+      "archive": "ModuPorter-QM-Customer-Pack-0.1.0.zip",
+      "sha256": "49077097886a8aa69b28bc934b29b7e5bddfd1f28dac5c8d67698662b64a925b",
+      "status": "draft-unverified",
+      "modules": 4,
+      "structures": 15
+    },
+    {
+      "domain": "ps",
+      "title": "Project System",
+      "archive": "ModuPorter-PS-Customer-Pack-0.1.0.zip",
+      "sha256": "ce4bc01949484e3b8071ef814aa034ba4647aacc89547ff328a62a4476df2880",
+      "status": "draft-unverified",
+      "modules": 3,
+      "structures": 4
+    },
+    {
+      "domain": "pp",
+      "title": "Production Planning",
+      "archive": "ModuPorter-PP-Customer-Pack-0.1.0.zip",
+      "sha256": "22471d343f1917e703251ee3652952df53ae342bd1271f04fc11421a14edbd23",
+      "status": "draft-unverified",
+      "modules": 4,
+      "structures": 15
+    },
+    {
+      "domain": "co",
+      "title": "Controlling",
+      "archive": "ModuPorter-CO-Customer-Pack-0.1.0.zip",
+      "sha256": "e507552aed6d3c12ddaefaca046831c7c218b1521e5f61a8dabd92d2191fc1e2",
+      "status": "draft-unverified",
+      "modules": 5,
+      "structures": 9
+    },
+    {
+      "domain": "fi",
+      "title": "Financial Accounting",
+      "archive": "ModuPorter-FI-Customer-Pack-0.1.0.zip",
+      "sha256": "2abbcc704dbbe53edd7353efcb6d5146abf8d09c251f8b6798be2fedbb8cd2b9",
+      "status": "draft-unverified",
+      "modules": 5,
+      "structures": 17
+    },
+    {
+      "domain": "sd",
+      "title": "Sales and Distribution",
+      "archive": "ModuPorter-SD-Customer-Pack-0.1.0.zip",
+      "sha256": "bd6ee51f3591d6e6d3e6f7db10c184a3050705a9e213cfdcf4a9ac1010c933c5",
+      "status": "draft-unverified",
+      "modules": 3,
+      "structures": 12
+    }
+  ],
+  "bundle": "ModuPorter-All-Domain-Packs-0.1.0.zip",
+  "bundle_sha256": "cedac6f739bccb65728b5973f584740c39cf414957ba7a3564a203f3cd9360d9",
+  "offline_unit_tests": 71,
+  "SAP_runtime_verified": false
+}

@@ -1,0 +1,22 @@
+// ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Purpose: Read MatDocHeaderData as source candidates; approve the key-date population before posting.
+// Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
+// TODO-VERIFY[H] MMX-013: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
+@AbapCatalog.sqlViewName: 'ZMMX_V013'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'MatDocHeaderData'
+@ObjectModel.usageType.dataClass: #MIXED
+@ObjectModel.usageType.serviceQuality: #D
+@ObjectModel.usageType.sizeCategory: #L
+@VDM.viewType: #BASIC
+define view ZMMX_I_MatDocHeaderData
+  as select from mkpf as src
+{
+  key src.mblnr as MaterialDocument,
+  key src.mjahr as MaterialDocumentYear,
+      src.bldat as DocumentDate,
+      src.budat as PostingDate,
+      src.xblnr as ReferenceDocument
+}

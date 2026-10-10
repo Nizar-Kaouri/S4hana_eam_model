@@ -1,0 +1,36 @@
+{
+  "name": "internal_order",
+  "title": "Internal orders target comparison",
+  "description": "Internal orders source candidates, preparation and comparison contracts.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [
+    "I_InternalOrder"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZCOT_I_InternalOrderCompare"
+    ],
+    "composite": [
+      "ZCOT_I_InternalOrderCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZCOT_I_InternalOrderCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOT_I_InternalOrderCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

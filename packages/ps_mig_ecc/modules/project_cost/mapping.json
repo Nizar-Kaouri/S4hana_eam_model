@@ -1,0 +1,121 @@
+{
+  "module": "project_cost",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "wbs_element"
+  ],
+  "key": {
+    "business_key": [
+      "ControllingArea",
+      "COAccountingDocument",
+      "COAccountingDocumentItem"
+    ],
+    "numbering": "derived",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZPSX_C_ProjectCostMig",
+      "source_view": "ZPSX_I_ProjectCost",
+      "scope_filter": "",
+      "keys": [
+        "ControllingArea",
+        "COAccountingDocument",
+        "COAccountingDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "ControllingArea",
+          "source": "COEP-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "COAccountingDocument",
+          "source": "COEP-BELNR",
+          "target": "customer interface field: COAccountingDocument (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "COAccountingDocumentItem",
+          "source": "COEP-BUZEI",
+          "target": "customer interface field: COAccountingDocumentItem (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "FiscalYear",
+          "source": "COEP-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "COEP-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CostElement",
+          "source": "COEP-KSTAR",
+          "target": "customer interface field: CostElement (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValueType",
+          "source": "COEP-WRTTP",
+          "target": "customer interface field: ValueType (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BusinessTransaction",
+          "source": "COEP-VRGNG",
+          "target": "customer interface field: BusinessTransaction (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TransactionAmount",
+          "source": "COEP-WTGBTR",
+          "target": "customer interface field: TransactionAmount (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TransactionCurrency",
+          "source": "COEP-TWAER",
+          "target": "customer interface field: TransactionCurrency (unconfirmed)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "ControllingArea"
+      }
+    ],
+    "source_count_view": "ZPSX_C_ProjectCostMigCount"
+  },
+  "main_structure": "ZPSX_C_ProjectCostMig"
+}

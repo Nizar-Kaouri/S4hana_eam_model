@@ -19,10 +19,10 @@ Operation details of task lists (PLPO): operation number, control key, work cent
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnkn`
-- `zaehl`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListOperationInternalId`
+- `TaskListOpVersionCounter`
 
 ## Associations defined here
 
