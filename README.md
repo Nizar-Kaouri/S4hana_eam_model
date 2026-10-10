@@ -16,13 +16,13 @@ stands is tracked in **[`PRODUCT_CHECKLIST.md`](PRODUCT_CHECKLIST.md)**.
 |---|---|---|---|
 | Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
 | Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 14 views |
-| Materials Management (MM) | [`packages/mm`](packages/mm/README.md) | `ZMMV_` | skeleton |
-| Quality Management (QM) | [`packages/qm`](packages/qm/README.md) | `ZQMV_` | skeleton |
-| Project System (PS) | [`packages/ps`](packages/ps/README.md) | `ZPSV_` | skeleton |
-| Production Planning (PP) | [`packages/pp`](packages/pp/README.md) | `ZPPV_` | skeleton |
-| Controlling (CO) | [`packages/co`](packages/co/README.md) | `ZCOV_` | skeleton |
-| Financial Accounting (FI) | [`packages/fi`](packages/fi/README.md) | `ZFIV_` | skeleton |
-| Sales and Distribution (SD) | [`packages/sd`](packages/sd/README.md) | `ZSDV_` | skeleton |
+| Materials Management (MM) | [`packages/mm`](packages/mm/README.md) | `ZMMV_` | drafted: 7 modules, 24 views |
+| Quality Management (QM) | [`packages/qm`](packages/qm/README.md) | `ZQMV_` | drafted: 4 modules, 13 views |
+| Project System (PS) | [`packages/ps`](packages/ps/README.md) | `ZPSV_` | drafted: 4 modules, 13 views |
+| Production Planning (PP) | [`packages/pp`](packages/pp/README.md) | `ZPPV_` | drafted: 4 modules, 13 views |
+| Controlling (CO) | [`packages/co`](packages/co/README.md) | `ZCOV_` | drafted: 5 modules, 17 views |
+| Financial Accounting (FI) | [`packages/fi`](packages/fi/README.md) | `ZFIV_` | drafted: 5 modules, 13 views |
+| Sales and Distribution (SD) | [`packages/sd`](packages/sd/README.md) | `ZSDV_` | drafted: 4 modules, 15 views |
 
 ## Repository layout
 
