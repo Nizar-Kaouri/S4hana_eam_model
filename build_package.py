@@ -179,7 +179,10 @@ def strip_comments(text, obj_type):
     if obj_type == "CLAS":
         return "\n".join(line.split('"', 1)[0] if not line.lstrip().startswith("*") else ""
                          for line in text.splitlines())
-    return re.sub(r"//[^\n]*", " ", text)
+    text = re.sub(r"//[^\n]*", " ", text)
+    if obj_type == "DDLS":  # the SQL view name of a classic view is a name of the view itself, not a reference
+        text = re.sub(r"@AbapCatalog\.sqlViewName\s*:\s*'[^']*'", " ", text, flags=re.IGNORECASE)
+    return text
 
 
 def prefix_pattern(prefix):
@@ -278,12 +281,24 @@ def target_name(name, old_prefix, new_prefix):
     return new_prefix + name[len(old_prefix):]
 
 
-def check_lengths(objects, old_prefix, new_prefix, limits):
+def sql_view_name(name, root=ROOT):
+    """SQL view name of a classic DDLS (None for view entities)."""
+    main = object_files("DDLS", name, root)[0]
+    m = re.search(r"@AbapCatalog\.sqlViewName\s*:\s*'([^']*)'", main.read_text(encoding="utf-8"))
+    return m.group(1) if m else None
+
+
+def check_lengths(objects, old_prefix, new_prefix, limits, root=ROOT):
     too_long = []
     for t, n, _ in objects:
         new = target_name(n, old_prefix, new_prefix)
         if len(new) > limits.get(t, 30):
             too_long.append(f"{t} {new} ({len(new)} > {limits.get(t, 30)})")
+        sv = sql_view_name(n, root) if t == "DDLS" else None
+        if sv:
+            new_sv = target_name(sv, old_prefix, new_prefix)
+            if len(new_sv) > limits.get("SQLVIEW", 16):
+                too_long.append(f"SQL view name {new_sv} of {new} ({len(new_sv)} > {limits.get('SQLVIEW', 16)})")
     if too_long:
         raise BuildError("object names exceed the SAP length limit with this prefix:\n  " + "\n  ".join(too_long))
 
@@ -302,7 +317,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
     if not objects:
         raise BuildError("nothing selected")
     check_closure(objects, old_prefix, root)
-    check_lengths(objects, old_prefix, new_prefix, library.get("max_object_name_length", {}))
+    check_lengths(objects, old_prefix, new_prefix, library.get("max_object_name_length", {}), root)
     order = activation_order(objects, old_prefix, root)
     rewrite = make_rewriter(old_prefix, new_prefix, old_package, new_package)
 
@@ -334,6 +349,14 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
             for path in object_files(t, n, root):
                 suffix = path.name[len(file_base(n)):]
                 zf.writestr(f"src/{new_base}{suffix}", rewrite(path.read_text(encoding="utf-8")))
+        for mod in resolved:  # migration products: field mapping and generated mapping docs travel with the views
+            for extra in [root / "modules" / mod / "mapping.json", root / "docs" / "mapping" / f"{mod}.md"]:
+                if extra.exists():
+                    zf.writestr(f"mapping/{extra.parent.name if extra.name == 'mapping.json' else 'docs'}/{extra.name}",
+                                rewrite(extra.read_text(encoding="utf-8")))
+        seq = root / "docs" / "MIGRATION_SEQUENCE.md"
+        if seq.exists():
+            zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite(seq.read_text(encoding="utf-8")))
         zf.writestr("BUILD_MANIFEST.json", json.dumps(manifest, indent=2) + "\n")
         zf.writestr("ACTIVATION_ORDER.txt", "\n".join(
             f"{i:3d}  {o['type']}  {o['name']}  ({o['module']})" for i, o in enumerate(manifest["objects"], 1)) + "\n")

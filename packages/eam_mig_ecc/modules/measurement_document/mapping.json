@@ -1,0 +1,171 @@
+{
+  "module": "measurement_document",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Measurement document",
+    "todo_verify": [
+      "TODO-VERIFY[H] XMD-M01: Migration Cockpit object for 'Measurement document' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "measuring_point"
+  ],
+  "key": {
+    "business_key": [
+      "MeasuringPoint",
+      "MsmtRdngDate",
+      "MsmtRdngTime"
+    ],
+    "numbering": "new",
+    "note": "New document numbers on S/4HANA; compare by measuring point and reading date / time."
+  },
+  "scope": {
+    "filter": "extract ZEMX_R_MeasPointLastReading (default) or ZEMX_I_MeasurementDocument with MsmtDocumentIsCancelled = '' and a date limit (history option)",
+    "note": "Most projects migrate only the last counter reading; full history is optional and large."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MeasurementDocument",
+      "source": "IMRG-MDOCM",
+      "target": "",
+      "rule": "skip:new document numbers on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MeasuringPoint",
+      "source": "IMRG-POINT",
+      "target": "IMRG-POINT",
+      "rule": "key_map:measuring_point",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MsmtRdngDate",
+      "source": "IMRG-IDATE",
+      "target": "IMRG-IDATE",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MsmtRdngTime",
+      "source": "IMRG-ITIME",
+      "target": "IMRG-ITIME",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MsmtRdngByUser",
+      "source": "IMRG-READR",
+      "target": "IMRG-READR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MeasurementReading",
+      "source": "IMRG-READG",
+      "target": "IMRG-READG",
+      "rule": "convert:float_si_to_unit",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MeasurementCounterReading",
+      "source": "IMRG-CNTRR",
+      "target": "IMRG-CNTRR",
+      "rule": "convert:float_si_to_unit",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MeasurementCounterDifference",
+      "source": "IMRG-CDIFF",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MsmtReadingInEntryUnit",
+      "source": "IMRG-RECDV",
+      "target": "IMRG-RECDV",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MsmtEntryUnit",
+      "source": "IMRG-RECDU",
+      "target": "IMRG-RECDU",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MsmtValuationCode",
+      "source": "IMRG-VLCOD",
+      "target": "IMRG-VLCOD",
+      "rule": "value_map:code",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MeasurementDocumentText",
+      "source": "IMRG-MDTXT",
+      "target": "IMRG-MDTXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "MsmtDocumentIsCancelled",
+      "source": "IMRG-CANCL",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "CreationDate",
+      "source": "IMRG-ERDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasurementDocument",
+      "element": "CreatedByUser",
+      "source": "IMRG-ERNAM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "code",
+    "unit_of_measure"
+  ],
+  "key_maps": [
+    "measuring_point"
+  ],
+  "provides_key_maps": [],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_MeasDocCount",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "MsmtDocumentIsCancelled",
+        "value_map": null
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": null
+  },
+  "gaps": []
+}

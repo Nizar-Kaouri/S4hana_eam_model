@@ -1,0 +1,412 @@
+{
+  "module": "maintenance_notification",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Maintenance notification",
+    "todo_verify": [
+      "TODO-VERIFY[H] XNO-M01: Migration Cockpit object for 'Maintenance notification' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "equipment",
+    "functional_location",
+    "work_center"
+  ],
+  "key": {
+    "business_key": [
+      "MaintenanceNotification"
+    ],
+    "numbering": "new",
+    "note": "Notifications get new numbers on S/4HANA unless external numbering is set up; keep the key map 'maintenance_notification' (old,new). Put the old number into a reference field if users need it."
+  },
+  "scope": {
+    "filter": "IsCompleted = '' and IsMarkedForDeletion = ''",
+    "note": "Only open notifications are migrated; completed history stays in the archive / old system."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MaintenanceNotification",
+      "source": "QMEL-QMNUM",
+      "target": "QMEL-QMNUM",
+      "rule": "key_map:maintenance_notification",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "NotificationType",
+      "source": "QMEL-QMART",
+      "target": "QMEL-QMART",
+      "rule": "value_map:notification_type",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "NotificationText",
+      "source": "QMEL-QMTXT",
+      "target": "QMEL-QMTXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MaintPriority",
+      "source": "QMEL-PRIOK",
+      "target": "QMEL-PRIOK",
+      "rule": "value_map:priority",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MaintPriorityType",
+      "source": "QMEL-ARTPR",
+      "target": "QMEL-ARTPR",
+      "rule": "value_map:priority_type",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "NotificationDate",
+      "source": "QMEL-QMDAT",
+      "target": "QMEL-QMDAT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "NotificationTime",
+      "source": "QMEL-MZEIT",
+      "target": "QMEL-MZEIT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "ReportedByUser",
+      "source": "QMEL-QMNAM",
+      "target": "QMEL-QMNAM",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "RequiredStartDate",
+      "source": "QMEL-STRMN",
+      "target": "QMEL-STRMN",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "RequiredEndDate",
+      "source": "QMEL-LTRMN",
+      "target": "QMEL-LTRMN",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "NotificationCatalog",
+      "source": "QMEL-QMKAT",
+      "target": "QMEL-QMKAT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "NotificationCodeGroup",
+      "source": "QMEL-QMGRP",
+      "target": "QMEL-QMGRP",
+      "rule": "value_map:code_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "NotificationCode",
+      "source": "QMEL-QMCOD",
+      "target": "QMEL-QMCOD",
+      "rule": "value_map:code",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MaintenanceOrder",
+      "source": "QMEL-AUFNR",
+      "target": "QMEL-AUFNR",
+      "rule": "derive:set by the order load - the migrated order references the notification",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "Equipment",
+      "source": "QMIH-EQUNR",
+      "target": "QMIH-EQUNR",
+      "rule": "key_map:equipment",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "FunctionalLocation",
+      "source": "ILOA-TPLNR",
+      "target": "ILOA-TPLNR",
+      "rule": "key_map:functional_location",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MaintenancePlanningPlant",
+      "source": "QMIH-IWERK",
+      "target": "QMIH-IWERK",
+      "rule": "value_map:plant",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MaintenancePlannerGroup",
+      "source": "QMIH-INGRP",
+      "target": "QMIH-INGRP",
+      "rule": "value_map:planner_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MainWorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "QMEL-ARBPL (via work center)",
+      "rule": "key_map:work_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MainWorkCenterPlant",
+      "source": "CRHD-WERKS",
+      "target": "QMEL-ARBPL (via work center)",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MaintenancePlant",
+      "source": "ILOA-SWERK",
+      "target": "ILOA-SWERK",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "PlantSection",
+      "source": "ILOA-BEBER",
+      "target": "ILOA-BEBER",
+      "rule": "value_map:plant_section",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MaintenanceObjectIsDown",
+      "source": "QMIH-MSAUS",
+      "target": "QMIH-MSAUS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MalfunctionStartDate",
+      "source": "QMIH-AUSVN",
+      "target": "QMIH-AUSVN",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MalfunctionStartTime",
+      "source": "QMIH-AUZTV",
+      "target": "QMIH-AUZTV",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MalfunctionEndDate",
+      "source": "QMIH-AUSBS",
+      "target": "QMIH-AUSBS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "MalfunctionEndTime",
+      "source": "QMIH-AUZTB",
+      "target": "QMIH-AUZTB",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "ObjectNumber",
+      "source": "QMEL-OBJNR",
+      "target": "",
+      "rule": "skip:status object number - regenerated on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "IsCompleted",
+      "source": "case noco.stat when 'I0072' then 'X' else '' end",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "IsMarkedForDeletion",
+      "source": "case dlfl.stat when 'I0076' then 'X' else '' end",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "CreationDate",
+      "source": "QMEL-ERDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "CreatedByUser",
+      "source": "QMEL-ERNAM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotification",
+      "element": "LastChangeDate",
+      "source": "QMEL-AEDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotifItem",
+      "element": "MaintenanceNotification",
+      "source": "QMFE-QMNUM",
+      "target": "QMFE-QMNUM",
+      "rule": "key_map:maintenance_notification",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotifItem",
+      "element": "MaintNotificationItem",
+      "source": "QMFE-FENUM",
+      "target": "QMFE-FENUM",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotifItem",
+      "element": "ObjectPartCodeGroup",
+      "source": "QMFE-OTGRP",
+      "target": "QMFE-OTGRP",
+      "rule": "value_map:code_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotifItem",
+      "element": "ObjectPartCode",
+      "source": "QMFE-OTEIL",
+      "target": "QMFE-OTEIL",
+      "rule": "value_map:code",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotifItem",
+      "element": "DamageCodeGroup",
+      "source": "QMFE-FEGRP",
+      "target": "QMFE-FEGRP",
+      "rule": "value_map:code_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotifItem",
+      "element": "DamageCode",
+      "source": "QMFE-FECOD",
+      "target": "QMFE-FECOD",
+      "rule": "value_map:code",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotifItem",
+      "element": "MaintNotifItemText",
+      "source": "QMFE-FETXT",
+      "target": "QMFE-FETXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintNotifItem",
+      "element": "IsMarkedForDeletion",
+      "source": "QMFE-KZLOESCH",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "code",
+    "code_group",
+    "notification_type",
+    "planner_group",
+    "plant",
+    "plant_section",
+    "priority",
+    "priority_type"
+  ],
+  "key_maps": [
+    "equipment",
+    "functional_location",
+    "maintenance_notification",
+    "work_center"
+  ],
+  "provides_key_maps": [
+    "maintenance_notification"
+  ],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_MaintNotifCount",
+    "target_count_view": "ZEMT_R_MaintNotifCount",
+    "dimensions": [
+      {
+        "element": "NotificationType",
+        "value_map": "notification_type"
+      },
+      {
+        "element": "MaintenancePlanningPlant",
+        "value_map": "plant"
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": {
+      "source_view": "ZEMX_I_MaintNotification",
+      "target_view": "ZEMT_I_MaintNotifCompare",
+      "key": [
+        "MaintenanceNotification"
+      ],
+      "key_map": "maintenance_notification",
+      "fields": [
+        "NotificationType",
+        "MaintPriority",
+        "RequiredStartDate",
+        "RequiredEndDate",
+        "Equipment",
+        "FunctionalLocation",
+        "MaintenancePlanningPlant"
+      ]
+    }
+  },
+  "gaps": [
+    "TODO-VERIFY[M] XNO-G01: causes (QMUR), tasks (QMSM) and activities (QMMA) are not extracted in the pilot"
+  ]
+}

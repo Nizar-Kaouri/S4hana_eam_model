@@ -1,0 +1,384 @@
+{
+  "module": "functional_location",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Functional location",
+    "todo_verify": [
+      "TODO-VERIFY[H] XFL-M01: Migration Cockpit object for 'Functional location' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "work_center"
+  ],
+  "key": {
+    "business_key": [
+      "FunctionalLocation"
+    ],
+    "numbering": "keep",
+    "note": "Functional location labels are external keys. Load superior locations before their children."
+  },
+  "scope": {
+    "filter": "IsMarkedForDeletion = ''",
+    "note": "Locations flagged for deletion are not migrated."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "FunctionalLocation",
+      "source": "IFLOT-TPLNR",
+      "target": "IFLOT-TPLNR",
+      "rule": "key_map:functional_location",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "FunctionalLocationCategory",
+      "source": "IFLOT-FLTYP",
+      "target": "IFLOT-FLTYP",
+      "rule": "value_map:functional_location_category",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "FuncLocationStructure",
+      "source": "IFLOT-TPLKZ",
+      "target": "IFLOT-TPLKZ",
+      "rule": "value_map:structure_indicator",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "SuperiorFunctionalLocation",
+      "source": "IFLOT-TPLMA",
+      "target": "IFLOT-TPLMA",
+      "rule": "key_map:functional_location",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "TechnicalObjectType",
+      "source": "IFLOT-EQART",
+      "target": "IFLOT-EQART",
+      "rule": "value_map:technical_object_type",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "AuthorizationGroup",
+      "source": "IFLOT-BEGRU",
+      "target": "IFLOT-BEGRU",
+      "rule": "value_map:authorization_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "MaintenancePlanningPlant",
+      "source": "IFLOT-IWERK",
+      "target": "IFLOT-IWERK",
+      "rule": "value_map:plant",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "MaintenancePlannerGroup",
+      "source": "IFLOT-INGRP",
+      "target": "IFLOT-INGRP",
+      "rule": "value_map:planner_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "EquipInstallationIsAllowed",
+      "source": "IFLOT-IEQUI",
+      "target": "IFLOT-IEQUI",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "EquipIsSingleInstallation",
+      "source": "IFLOT-EINZL",
+      "target": "IFLOT-EINZL",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "ConstructionType",
+      "source": "IFLOT-SUBMT",
+      "target": "IFLOT-SUBMT",
+      "rule": "convert:material_number",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "AssetManufacturerName",
+      "source": "IFLOT-HERST",
+      "target": "IFLOT-HERST",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "ConstructionYear",
+      "source": "IFLOT-BAUJJ",
+      "target": "IFLOT-BAUJJ",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "InventoryNumber",
+      "source": "IFLOT-INVNR",
+      "target": "IFLOT-INVNR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "OperationStartDate",
+      "source": "IFLOT-INBDT",
+      "target": "IFLOT-INBDT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "ObjectNumber",
+      "source": "IFLOT-OBJNR",
+      "target": "",
+      "rule": "skip:status object number - regenerated on S/4HANA; used to join status and partners",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "MaintenancePlant",
+      "source": "ILOA-SWERK",
+      "target": "ILOA-SWERK",
+      "rule": "value_map:plant",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "PlantSection",
+      "source": "ILOA-BEBER",
+      "target": "ILOA-BEBER",
+      "rule": "value_map:plant_section",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "AssetLocation",
+      "source": "ILOA-STORT",
+      "target": "ILOA-STORT",
+      "rule": "value_map:location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "AssetRoom",
+      "source": "ILOA-MSGRP",
+      "target": "ILOA-MSGRP",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "ABCIndicator",
+      "source": "ILOA-ABCKZ",
+      "target": "ILOA-ABCKZ",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "SortField",
+      "source": "ILOA-EQFNR",
+      "target": "ILOA-EQFNR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "CompanyCode",
+      "source": "ILOA-BUKRS",
+      "target": "ILOA-BUKRS",
+      "rule": "value_map:company_code",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "BusinessArea",
+      "source": "ILOA-GSBER",
+      "target": "ILOA-GSBER",
+      "rule": "value_map:business_area",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "ControllingArea",
+      "source": "ILOA-KOKRS",
+      "target": "ILOA-KOKRS",
+      "rule": "value_map:controlling_area",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "CostCenter",
+      "source": "ILOA-KOSTL",
+      "target": "ILOA-KOSTL",
+      "rule": "value_map:cost_center",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "MasterFixedAsset",
+      "source": "ILOA-ANLNR",
+      "target": "ILOA-ANLNR",
+      "rule": "key_map:fixed_asset",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "FixedAsset",
+      "source": "ILOA-ANLUN",
+      "target": "ILOA-ANLUN",
+      "rule": "key_map:fixed_asset",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "StandingOrder",
+      "source": "ILOA-DAUFN",
+      "target": "ILOA-DAUFN",
+      "rule": "derive:follow-up step after the order load - set with the key map maintenance_order",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "IsMarkedForDeletion",
+      "source": "case dlfl.stat when 'I0076' then 'X' else '' end",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "CreationDate",
+      "source": "IFLOT-ERDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "CreatedByUser",
+      "source": "IFLOT-ERNAM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLoc",
+      "element": "LastChangeDate",
+      "source": "IFLOT-AEDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLocText",
+      "element": "FunctionalLocation",
+      "source": "IFLOTX-TPLNR",
+      "target": "IFLOTX-TPLNR",
+      "rule": "key_map:functional_location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLocText",
+      "element": "Language",
+      "source": "IFLOTX-SPRAS",
+      "target": "IFLOTX-SPRAS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLocText",
+      "element": "FunctionalLocationName",
+      "source": "IFLOTX-PLTXT",
+      "target": "IFLOTX-PLTXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_FuncLocText",
+      "element": "HasLongText",
+      "source": "IFLOTX-KZLTX",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "authorization_group",
+    "business_area",
+    "company_code",
+    "controlling_area",
+    "cost_center",
+    "functional_location_category",
+    "location",
+    "planner_group",
+    "plant",
+    "plant_section",
+    "structure_indicator",
+    "technical_object_type"
+  ],
+  "key_maps": [
+    "fixed_asset",
+    "functional_location"
+  ],
+  "provides_key_maps": [
+    "functional_location"
+  ],
+  "external_key_maps": [
+    "fixed_asset"
+  ],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_FuncLocCount",
+    "target_count_view": "ZEMT_R_FuncLocCount",
+    "dimensions": [
+      {
+        "element": "MaintenancePlanningPlant",
+        "value_map": "plant"
+      },
+      {
+        "element": "FunctionalLocationCategory",
+        "value_map": "functional_location_category"
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": {
+      "source_view": "ZEMX_I_FuncLoc",
+      "target_view": "ZEMT_I_FuncLocCompare",
+      "key": [
+        "FunctionalLocation"
+      ],
+      "key_map": "functional_location",
+      "fields": [
+        "FunctionalLocationCategory",
+        "SuperiorFunctionalLocation",
+        "TechnicalObjectType",
+        "MaintenancePlanningPlant",
+        "MaintenancePlant",
+        "ABCIndicator",
+        "CompanyCode",
+        "CostCenter"
+      ]
+    }
+  },
+  "gaps": [
+    "TODO-VERIFY[H] XFL-G01: alternative labeling (IFLOS) and structure indicator edit masks must match on S/4HANA before the load",
+    "TODO-VERIFY[M] XFL-G02: classification, status and partners come from the generic modules classification, object_status and object_partner"
+  ]
+}

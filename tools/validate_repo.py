@@ -16,7 +16,10 @@ module rules of this library, so this script enforces:
   M8  DDLX: annotates an existing view that has @Metadata.allowExtensions: true
   M9  object names within length limits minus reserve_prefix_chars (library.json)
   M10 abapGit XML and docs/views in sync with sources (tools/sync_xml.py, tools/gen_docs.py)
-  M11 TODO-VERIFY markers well-formed with unique IDs
+  M11 TODO-VERIFY markers well-formed with unique IDs (sources, tests, module/mapping files, tools)
+  M12 classic views: @AbapCatalog.sqlViewName starts with the prefix, is unique, differs from the DDL name and
+      fits max_object_name_length.SQLVIEW minus reserve_prefix_chars; products with system 'ecc' use classic
+      views only (no view entities, no DCL - CDS access control needs a newer release)
 
 Usage: python3 tools/validate_repo.py      (exit code 1 on any error)
 """
@@ -64,8 +67,9 @@ def main():
         if library.get("phase") == "no-system":
             if m.get("status") != "draft-unverified":
                 err(f"M1 module {m['name']}: phase 'no-system' requires status draft-unverified")
-            if m.get("tested_release") != "none (draft, 2025 assumed)":
-                err(f"M1 module {m['name']}: phase 'no-system' requires tested_release 'none (draft, 2025 assumed)'")
+            draft = library.get("draft_tested_release", "none (draft, 2025 assumed)")
+            if m.get("tested_release") != draft:
+                err(f"M1 module {m['name']}: phase 'no-system' requires tested_release '{draft}'")
         for dep in m.get("hard_dependencies", []):
             if dep not in modules:
                 err(f"M1 module {m['name']}: unknown hard dependency '{dep}'")
@@ -246,6 +250,31 @@ def main():
             err(f"M9 {t} {n_upper}: {len(n_upper)} characters > {limits.get(t, 30)} - {reserve} "
                 f"(reserved so that a customer prefix of {len(prefix) + reserve} characters fits)")
 
+    # M12 - classic views / source system
+    sql_limit = limits.get("SQLVIEW", 16) - reserve
+    sql_seen = {}
+    for n_upper, text in ddls_text.items():
+        sv = re.search(r"@AbapCatalog\.sqlViewName\s*:\s*'([^']*)'", text)
+        is_entity = re.search(r"^\s*define\s+(transient\s+)?(root\s+)?view\s+entity\b", text, re.MULTILINE | re.IGNORECASE)
+        if library.get("system") == "ecc" and (is_entity or not sv):
+            err(f"M12 {n_upper}: products for system 'ecc' need classic views (define view + @AbapCatalog.sqlViewName)")
+        if not sv:
+            continue
+        name = sv.group(1).upper()
+        if not name.startswith(prefix.upper()):
+            err(f"M12 {n_upper}: SQL view name {name} must start with {prefix}")
+        if len(name) > sql_limit:
+            err(f"M12 {n_upper}: SQL view name {name} has {len(name)} characters > {sql_limit}")
+        if name == n_upper:
+            err(f"M12 {n_upper}: SQL view name must differ from the DDL name")
+        if name in sql_seen:
+            err(f"M12 {n_upper}: SQL view name {name} already used by {sql_seen[name]}")
+        sql_seen[name] = n_upper
+    if library.get("system") == "ecc":
+        for (t, n_upper) in owner:
+            if t == "DCLS":
+                err(f"M12 DCLS {n_upper}: no CDS access control in products for system 'ecc'")
+
     # M10 - XML sync
     for path, content in sync_xml.expected_files().items():
         if not path.exists() or path.read_text(encoding="utf-8") != content:
@@ -257,7 +286,7 @@ def main():
 
     # M11 - markers
     seen = {}
-    for base in (ROOT / "src", ROOT / "tests", vdm_paths.TOOLS):
+    for base in (ROOT / "src", ROOT / "tests", ROOT / "modules", vdm_paths.TOOLS):
         for path in sorted(base.rglob("*")):
             if not path.is_file() or path.suffix == ".pyc" or path.name in ("validate_repo.py", "validate_bridge.py", "todo_verify_report.py"):
                 continue

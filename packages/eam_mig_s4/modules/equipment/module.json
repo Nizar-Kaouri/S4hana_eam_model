@@ -1,0 +1,36 @@
+{
+  "name": "equipment",
+  "title": "Equipment reconciliation",
+  "description": "Target-side reconciliation of the equipment migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "migration",
+    "reconciliation",
+    "equipment"
+  ],
+  "sap_released_views": [
+    "I_Equipment"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZEMT_I_EquipmentCompare"
+    ],
+    "composite": [
+      "ZEMT_R_EquipmentCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEMT_I_EquipmentCompare": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design.",
+    "ZEMT_R_EquipmentCount": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design."
+  },
+  "migration_source_module": "eam_mig_ecc:equipment",
+  "link_views": []
+}

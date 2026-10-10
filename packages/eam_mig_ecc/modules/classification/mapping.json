@@ -1,0 +1,198 @@
+{
+  "module": "classification",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Classification (part of the equipment / functional location objects)",
+    "todo_verify": [
+      "TODO-VERIFY[H] XCL-M01: Migration Cockpit object for 'Classification (part of the equipment / functional location objects)' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "equipment",
+    "functional_location"
+  ],
+  "key": {
+    "business_key": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class"
+    ],
+    "numbering": "derived",
+    "note": "Classes and characteristics are matched by name; they must exist on S/4HANA (master data / customizing transport) before the load."
+  },
+  "scope": {
+    "filter": "IsMarkedForDeletion = '' and ClassType in ('002', '003')",
+    "note": "Only the class types of the technical objects in scope."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_ClassAssignment",
+      "element": "ClassifiedObject",
+      "source": "KSSK-OBJEK",
+      "target": "KSSK-OBJEK",
+      "rule": "key_map:equipment|functional_location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ClassAssignment",
+      "element": "ClassType",
+      "source": "KSSK-KLART",
+      "target": "KSSK-KLART",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ClassAssignment",
+      "element": "ClassInternalID",
+      "source": "KSSK-CLINT",
+      "target": "",
+      "rule": "skip:internal class number - mapped by class name",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ClassAssignment",
+      "element": "ChangeCounter",
+      "source": "KSSK-ADZHL",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ClassAssignment",
+      "element": "Class",
+      "source": "KLAH-CLASS",
+      "target": "KSSK-CLINT (via class name)",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ClassAssignment",
+      "element": "ClassificationStatus",
+      "source": "KSSK-STATU",
+      "target": "KSSK-STATU",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ClassAssignment",
+      "element": "IsMarkedForDeletion",
+      "source": "KSSK-LKENZ",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "ClassifiedObject",
+      "source": "AUSP-OBJEK",
+      "target": "AUSP-OBJEK",
+      "rule": "key_map:equipment|functional_location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "CharcInternalID",
+      "source": "AUSP-ATINN",
+      "target": "",
+      "rule": "skip:internal characteristic number - mapped by characteristic name",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "CharcValuePositionNumber",
+      "source": "AUSP-ATZHL",
+      "target": "AUSP-ATZHL",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "ClassType",
+      "source": "AUSP-KLART",
+      "target": "AUSP-KLART",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "ChangeCounter",
+      "source": "AUSP-ADZHL",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "Characteristic",
+      "source": "CABN-ATNAM",
+      "target": "AUSP-ATINN (via characteristic name)",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "CharcValue",
+      "source": "AUSP-ATWRT",
+      "target": "AUSP-ATWRT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "CharcFromNumericValue",
+      "source": "AUSP-ATFLV",
+      "target": "AUSP-ATFLV",
+      "rule": "convert:float_si_to_unit",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "CharcToNumericValue",
+      "source": "AUSP-ATFLB",
+      "target": "AUSP-ATFLB",
+      "rule": "convert:float_si_to_unit",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "CharcValueDependency",
+      "source": "AUSP-ATCOD",
+      "target": "AUSP-ATCOD",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_CharcValue",
+      "element": "IsMarkedForDeletion",
+      "source": "AUSP-LKENZ",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    }
+  ],
+  "value_maps": [],
+  "key_maps": [
+    "equipment",
+    "functional_location"
+  ],
+  "provides_key_maps": [],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_ClassAssgmtCount",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "ClassType",
+        "value_map": null
+      },
+      {
+        "element": "Class",
+        "value_map": null
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": null
+  },
+  "gaps": []
+}

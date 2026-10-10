@@ -1,0 +1,37 @@
+{
+  "name": "measuring_point",
+  "title": "Measuring point",
+  "description": "Measuring points and counters of equipment and functional locations.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "master-data",
+    "measuring-point",
+    "migration"
+  ],
+  "sap_tables": [
+    "IMPTT",
+    "CABN"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZEMX_I_MeasuringPoint"
+    ],
+    "composite": [
+      "ZEMX_R_MeasPointCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEMX_I_MeasuringPoint": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_R_MeasPointCount": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01)."
+  },
+  "link_views": []
+}

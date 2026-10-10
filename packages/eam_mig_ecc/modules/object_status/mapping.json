@@ -1,0 +1,145 @@
+{
+  "module": "object_status",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "User status (part of the object migration)",
+    "todo_verify": [
+      "TODO-VERIFY[H] XST-M01: Migration Cockpit object for 'User status (part of the object migration)' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "equipment",
+    "functional_location",
+    "maintenance_notification",
+    "maintenance_order"
+  ],
+  "key": {
+    "business_key": [
+      "ObjectNumber",
+      "StatusCode"
+    ],
+    "numbering": "derived",
+    "note": "Object numbers are rebuilt on S/4HANA from the new object keys (key maps of the objects)."
+  },
+  "scope": {
+    "filter": "StatusKind = 'E' (user statuses); system statuses are set by S/4HANA",
+    "note": "System statuses (CRTD, REL, ...) result from the load and follow-up actions; compare them in the reconciliation instead of loading them."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_ObjectStatus",
+      "element": "ObjectNumber",
+      "source": "JEST-OBJNR",
+      "target": "JEST-OBJNR",
+      "rule": "derive:object key from the object number (IE + equipment, IF + functional location, QM + notification, OR + order)",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectStatus",
+      "element": "StatusCode",
+      "source": "JEST-STAT",
+      "target": "JEST-STAT",
+      "rule": "value_map:user_status",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectStatus",
+      "element": "StatusObjectType",
+      "source": "substring( jest.objnr, 1, 2 )",
+      "target": "",
+      "rule": "derive:selection helper - object type of the object number",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectStatus",
+      "element": "StatusKind",
+      "source": "substring( jest.stat, 1, 1 )",
+      "target": "",
+      "rule": "derive:I = system status (set by S/4HANA, not migrated), E = user status (migrated)",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectStatus",
+      "element": "StatusProfile",
+      "source": "JSTO-STSMA",
+      "target": "JSTO-STSMA",
+      "rule": "value_map:status_profile",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectStatus",
+      "element": "StatusChangeNumber",
+      "source": "JEST-CHGNR",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_UserStatusText",
+      "element": "StatusProfile",
+      "source": "TJ30T-STSMA",
+      "target": "TJ30T-STSMA",
+      "rule": "value_map:status_profile",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_UserStatusText",
+      "element": "StatusCode",
+      "source": "TJ30T-ESTAT",
+      "target": "TJ30T-ESTAT",
+      "rule": "value_map:user_status",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_UserStatusText",
+      "element": "Language",
+      "source": "TJ30T-SPRAS",
+      "target": "TJ30T-SPRAS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_UserStatusText",
+      "element": "StatusShortName",
+      "source": "TJ30T-TXT04",
+      "target": "TJ30T-TXT04",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_UserStatusText",
+      "element": "StatusName",
+      "source": "TJ30T-TXT30",
+      "target": "TJ30T-TXT30",
+      "rule": "copy",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "status_profile",
+    "user_status"
+  ],
+  "key_maps": [],
+  "provides_key_maps": [],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_ObjectStatusCount",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "StatusObjectType",
+        "value_map": null
+      },
+      {
+        "element": "StatusCode",
+        "value_map": null
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": null
+  },
+  "gaps": [
+    "TODO-VERIFY[H] XST-G01: how the Migration Cockpit objects take user statuses (field in the object template vs. separate step)"
+  ]
+}

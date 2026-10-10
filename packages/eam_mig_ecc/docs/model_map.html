@@ -1,0 +1,500 @@
+<title>ZEMX EAM Migration - ECC Source Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600&display=swap">
+<style>
+/* Layout: a layered lane diagram (SAP -> basic -> composite -> consumption) with one band per module,
+   a module map above it and a sticky detail panel to the right. */
+:root {
+  --bg: #f3f5f3;
+  --surface: #ffffff;
+  --ink: #1b2320;
+  --muted: #5a6661;
+  --line: #d3d9d5;
+  --band: #e9ede9;
+  --sap: #56677a;
+  --basic: #0e7565;
+  --composite: #a86300;
+  --consumption: #7b3e9e;
+  --risk: #c2352a;
+  --focus: #1d5fd1;
+  --font-display: "IBM Plex Sans Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111614; --surface: #19201d; --ink: #e2e8e4; --muted: #98a59f; --line: #2d3733; --band: #161c19;
+    --sap: #9aaabd; --basic: #43c3ac; --composite: #e5a443; --consumption: #c88fe6; --risk: #ff6d5e; --focus: #7aa7ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111614; --surface: #19201d; --ink: #e2e8e4; --muted: #98a59f; --line: #2d3733; --band: #161c19;
+  --sap: #9aaabd; --basic: #43c3ac; --composite: #e5a443; --consumption: #c88fe6; --risk: #ff6d5e; --focus: #7aa7ff;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.5; }
+.wrap { max-width: 1480px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 56px; display: grid; gap: 28px; }
+header { display: grid; gap: 10px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 4vw, 40px); line-height: 1.05; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--font-display); font-weight: 600; font-size: 22px; margin: 0; text-wrap: balance; }
+.lede { max-width: 72ch; color: var(--muted); margin: 0; }
+.status { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; border: 1px dashed var(--risk); color: var(--risk); padding: 3px 10px; border-radius: 3px; width: fit-content; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 4px 0 0; padding: 0; list-style: none; }
+.stats li { display: grid; }
+.stats b { font-family: var(--font-display); font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.stats span { font-size: 12px; color: var(--muted); }
+section { display: grid; gap: 12px; min-width: 0; }
+.section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+.section-head p { margin: 0; color: var(--muted); max-width: 80ch; }
+figure { margin: 0; min-width: 0; }
+figcaption { color: var(--muted); font-size: 13px; margin-top: 8px; max-width: 90ch; }
+.scroller { overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+.scroller svg { display: block; }
+#modmap-scroller { max-height: none; }
+#map-scroller { max-height: 78vh; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; }
+.controls label { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+.controls input[type="search"] { font: inherit; font-family: var(--font-mono); font-size: 13px; padding: 6px 10px; width: min(320px, 100%); border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); }
+.controls button { font: inherit; font-size: 13px; padding: 5px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.controls button:hover { border-color: var(--muted); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 14px; height: 10px; border: 2px solid; border-radius: 2px; display: inline-block; }
+.sw.sap { border-color: var(--sap); } .sw.basic { border-color: var(--basic); } .sw.composite { border-color: var(--composite); } .sw.consumption { border-color: var(--consumption); }
+.sw.link { border-color: var(--muted); border-style: dashed; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--risk); display: inline-block; }
+.ln { width: 22px; height: 0; border-top: 1.5px solid var(--muted); display: inline-block; }
+.ln.dash { border-top-style: dashed; }
+.explorer { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 16px; align-items: start; }
+@media (max-width: 980px) { .explorer { grid-template-columns: minmax(0, 1fr); } #map-scroller { max-height: 70vh; } }
+aside { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; display: grid; gap: 12px; min-width: 0; max-height: 86vh; overflow: auto; }
+@media (max-width: 980px) { aside { position: static; max-height: none; } }
+aside h3 { font-family: var(--font-mono); font-weight: 500; font-size: 15px; margin: 0; word-break: break-all; }
+aside .sub { color: var(--muted); font-size: 13px; margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--font-mono); font-size: 11px; padding: 2px 7px; border-radius: 3px; border: 1px solid var(--line); color: var(--muted); }
+.chip.layer-sap { color: var(--sap); border-color: var(--sap); }
+.chip.layer-basic { color: var(--basic); border-color: var(--basic); }
+.chip.layer-composite { color: var(--composite); border-color: var(--composite); }
+.chip.layer-consumption { color: var(--consumption); border-color: var(--consumption); }
+.chip.risk { color: var(--risk); border-color: var(--risk); }
+dl { margin: 0; display: grid; gap: 10px; }
+dt { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+dd { margin: 2px 0 0; }
+dd ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 2px; }
+dd p { margin: 0; }
+.ref { font-family: var(--font-mono); font-size: 12px; background: none; border: 0; padding: 0; color: var(--ink); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; cursor: pointer; text-align: left; word-break: break-all; }
+.ref:hover { text-decoration-color: var(--ink); }
+.ref.sapref { color: var(--sap); }
+.mono { font-family: var(--font-mono); font-size: 12px; }
+.muted { color: var(--muted); }
+/* SVG styling (tokens only) */
+svg text { font-family: var(--font-mono); }
+.band-bg { fill: var(--band); }
+.band-title { font-family: var(--font-display); font-size: 14px; font-weight: 600; fill: var(--ink); }
+.band-sub { font-family: var(--font-body); font-size: 11px; fill: var(--muted); }
+.col-head { font-family: var(--font-display); font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+.col-sub { font-size: 11px; fill: var(--muted); }
+.node rect.box { fill: var(--surface); stroke-width: 1.5; }
+.node.sap rect.box { stroke: var(--sap); } .node.basic rect.box { stroke: var(--basic); }
+.node.composite rect.box { stroke: var(--composite); } .node.consumption rect.box { stroke: var(--consumption); }
+.node.link rect.box { stroke-dasharray: 4 3; }
+.node text.nm { font-size: 11px; fill: var(--ink); }
+.node text.tag { font-size: 9.5px; fill: var(--muted); letter-spacing: .04em; }
+.node .riskdot { fill: var(--risk); }
+.node { cursor: pointer; }
+.node:hover rect.box { stroke-width: 2.5; }
+.node.sel rect.box { stroke-width: 3; fill: var(--band); }
+.node.dim { opacity: .22; }
+.edge { fill: none; stroke: var(--muted); stroke-width: 1.1; opacity: .38; }
+.edge.assoc { stroke-dasharray: 4 3; opacity: .28; }
+.edge.hl { opacity: 1; stroke-width: 1.8; stroke: var(--ink); }
+.edge.hl.in { stroke: var(--basic); }
+.edge.hl.out { stroke: var(--consumption); }
+.edge.dim { opacity: .06; }
+.elabel { font-size: 10px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+.mk-src { fill: var(--muted); } .mk-in { fill: var(--basic); } .mk-out { fill: var(--consumption); }
+.mod rect { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.mod.rpt rect { stroke-dasharray: 5 3; }
+.mod:hover rect, .mod.hot rect { stroke: var(--ink); stroke-width: 2; }
+.mod text.t { font-family: var(--font-display); font-weight: 600; font-size: 13px; fill: var(--ink); }
+.mod text.s { font-size: 10.5px; fill: var(--muted); }
+.mod { cursor: pointer; }
+.dep { fill: none; stroke: var(--ink); stroke-width: 1.6; }
+.dep-label { font-size: 10px; fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.lk { fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 3 3; opacity: .35; }
+.lk.hot { opacity: 1; stroke: var(--consumption); stroke-width: 1.8; }
+.lk.cold { opacity: .08; }
+.lk-label { font-size: 10px; fill: var(--consumption); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; }
+.batch-head { font-family: var(--font-display); font-size: 13px; font-weight: 600; fill: var(--muted); letter-spacing: .04em; }
+.mk-dep { fill: var(--ink); }
+@media (prefers-reduced-motion: no-preference) { .node, .edge, .lk { transition: opacity .15s; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">SAP ECC 6.0 (source) · EAM migration source (ECC tables) · CDS virtual data model</div>
+    <h1>ZEMX EAM Migration - ECC Source Map</h1>
+    <p class="lede">Every CDS entity in the library and every SAP view or table it builds on, generated from the repository sources.
+      Data flows left to right: SAP released views feed the basic layer (<span class="mono">ZEMX_I_</span>), which feeds cubes
+      (<span class="mono">ZEMX_R_</span>) and analytical queries (<span class="mono">ZEMX_C_…Q</span>).</p>
+    <div class="status">draft-unverified · nothing has been activated on an SAP system</div>
+    <ul class="stats" id="stats"></ul>
+  </header>
+
+  <section aria-labelledby="mod-h">
+    <div class="section-head">
+      <h2 id="mod-h">Modules and how they connect</h2>
+      <p>Hover a module to see its link views; click it to jump to its band below.</p>
+    </div>
+    <figure>
+      <div class="scroller" id="modmap-scroller"><svg id="modmap" role="img" aria-label="Module map: all modules arranged by dependency depth; arrows show which modules need which, link views appear on hover."></svg></div>
+      <figcaption>Arrows point from a module to the modules that need it; selecting the right-hand module makes the build add the
+        left-hand one automatically. Hover a module to draw its link views, which ship only when every module they connect is
+        selected. Report modules have dashed borders.</figcaption>
+    </figure>
+  </section>
+
+  <section aria-labelledby="ent-h">
+    <div class="section-head">
+      <h2 id="ent-h">Entities</h2>
+      <p>Click any entity to trace its sources, associations and consumers. Red dots mark entities with HIGH-risk verification items.</p>
+    </div>
+    <div class="controls">
+      <label for="find">Find
+        <input type="search" id="find" list="names" placeholder="e.g. ZEMX_I_CharcValue" autocomplete="off">
+        <datalist id="names"></datalist>
+      </label>
+      <label for="assoc"><input type="checkbox" id="assoc"> Show all associations</label>
+      <button type="button" id="clear">Clear selection</button>
+      <div class="legend" aria-hidden="true">
+        <span><i class="sw sap"></i>SAP released</span>
+        <span><i class="sw basic"></i>Basic</span>
+        <span><i class="sw composite"></i>Composite</span>
+        <span><i class="sw consumption"></i>Consumption</span>
+        <span><i class="sw link"></i>Link view</span>
+        <span><i class="ln"></i>data source</span>
+        <span><i class="ln dash"></i>association</span>
+        <span><i class="dot"></i>HIGH risk item</span>
+      </div>
+    </div>
+    <div class="explorer">
+      <figure>
+        <div class="scroller" id="map-scroller"><svg id="map" role="img" aria-label="Entity map: SAP released views, basic, composite and consumption views per module, with data-source edges."></svg></div>
+        <figcaption>Columns are VDM layers, bands are modules (in batch order), the last band holds the cross-module link views.
+          Tags: TXT text, DIM dimension, VH value help, VIEW other basic view, HIER hierarchy, CUBE cube, Q query.</figcaption>
+      </figure>
+      <aside id="panel" aria-live="polite"></aside>
+    </div>
+  </section>
+</div>
+
+<script>
+const D = {"nodes":[{"name":"ZEMX_I_CharcValue","label":"Characteristic value (migration extract)","module":"classification","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Characteristic values of classified objects with the characteristic name instead of the internal number.","example":"Extract the values of equipment 10000001: filter ClassType = '002' and ClassifiedObject = '000000000010000001'.","keys":["objek","atinn","atzhl","klart","adzhl"],"params":[],"sources":["ausp","cabn"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":1,"L":0},"file":"src/zemx_i_charcvalue.ddls.asddls"},{"name":"ZEMX_I_ClassAssignment","label":"Class assignment (migration extract)","module":"classification","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"Class assignments of objects (class type 002 equipment, 003 functional location, ...) with the class name instead of the internal class number.","example":"Extract the equipment classes: filter ClassType = '002'.","keys":["objek","klart","clint","adzhl"],"params":[],"sources":["kssk","klah"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":1,"L":0},"file":"src/zemx_i_classassignment.ddls.asddls"},{"name":"ZEMX_I_Equipment","label":"Equipment (migration extract)","module":"equipment","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"One row per equipment (current time segment) with installation location, superordinate equipment, main work center, location / account assignment and manufacturer data; source for the equipment migration object.","example":"Extract the equipment of plant 1000 in installation order: filter MaintenancePlanningPlant = '1000', load superordinate equipment first.","keys":["equnr"],"params":[],"sources":["equi","equz","iloa","crhd","jest"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":2,"M":3,"L":0},"file":"src/zemx_i_equipment.ddls.asddls"},{"name":"ZEMX_I_EquipmentText","label":"Equipment text (migration extract)","module":"equipment","layer":"basic","kind":"text","batch":1,"link":false,"requires":[],"purpose":"Equipment descriptions in every maintained language and the long-text indicator.","example":"Extract the texts of the equipment in scope: join on Equipment with ZEMX_I_Equipment.","keys":["equnr","spras"],"params":[],"sources":["eqkt"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_i_equipmenttext.ddls.asddls"},{"name":"ZEMX_I_FuncLoc","label":"Functional location (migration extract)","module":"functional_location","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"One row per functional location with hierarchy (superior location), category, planning data and location / account assignment from ILOA; source for the functional location migration object.","example":"Extract the hierarchy of plant 1000 top-down: filter MaintenancePlanningPlant = '1000' and load parents before children (SuperiorFunctionalLocation).","keys":["tplnr"],"params":[],"sources":["iflot","iloa","jest"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":2,"M":4,"L":1},"file":"src/zemx_i_funcloc.ddls.asddls"},{"name":"ZEMX_I_FuncLocText","label":"Functional location text (migration extract)","module":"functional_location","layer":"basic","kind":"text","batch":1,"link":false,"requires":[],"purpose":"Functional location descriptions in every maintained language and the long-text indicator.","example":"Extract all texts of the locations in scope: join on FunctionalLocation with ZEMX_I_FuncLoc.","keys":["tplnr","spras"],"params":[],"sources":["iflotx"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_i_funcloctext.ddls.asddls"},{"name":"ZEMX_I_LongTextHeader","label":"Long text header (migration extract)","module":"long_text","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Index of the SAPscript long texts of EAM objects (equipment, functional location, notification, order, task list, maintenance plan / item): which texts exist, in which language, when changed.","example":"Count the equipment long texts to migrate: filter TextObject = 'EQUI'.","keys":["tdobject","tdname","tdid","tdspras"],"params":[],"sources":["stxh"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":0,"L":0},"file":"src/zemx_i_longtextheader.ddls.asddls"},{"name":"ZEMX_I_MaintenanceItem","label":"Maintenance item (migration extract)","module":"maintenance_plan","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"Maintenance items with reference object, planning data, order / notification type and the assigned task list.","example":"Extract the items of the plans in scope: join on MaintenancePlan with ZEMX_I_MaintenancePlan.","keys":["wapos"],"params":[],"sources":["mpos","iloa","crhd"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":1,"L":0},"file":"src/zemx_i_maintenanceitem.ddls.asddls"},{"name":"ZEMX_I_MaintenancePlan","label":"Maintenance plan (migration extract)","module":"maintenance_plan","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"One row per maintenance plan with category, strategy and the scheduling parameters needed to continue the schedule on S/4HANA.","example":"Extract all strategy plans: filter MaintenanceStrategy <> ''.","keys":["warpl"],"params":[],"sources":["mpla","jest"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":2,"L":0},"file":"src/zemx_i_maintenanceplan.ddls.asddls"},{"name":"ZEMX_I_MaintNotification","label":"Maintenance notification (migration extract)","module":"maintenance_notification","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"One row per PM notification (QMEL with maintenance data QMIH) with reference object, planning data, malfunction data and completion / deletion flags for the migration scope.","example":"Extract the open notifications: filter IsCompleted = '' and IsMarkedForDeletion = ''.","keys":["qmnum"],"params":[],"sources":["qmel","qmih","iloa","crhd","jest","jest"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":2,"L":0},"file":"src/zemx_i_maintnotification.ddls.asddls"},{"name":"ZEMX_I_MaintNotifItem","label":"Maintenance notification item (migration extract)","module":"maintenance_notification","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Items of PM notifications (object part and damage codes with text).","example":"Extract the items of the open notifications: join on MaintenanceNotification with ZEMX_I_MaintNotification.","keys":["qmnum","fenum"],"params":[],"sources":["qmfe","qmih"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":1,"L":0},"file":"src/zemx_i_maintnotifitem.ddls.asddls"},{"name":"ZEMX_I_MaintOrder","label":"Maintenance order (migration extract)","module":"maintenance_order","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"One row per maintenance order (order category 30) with planning data, reference object, account assignment and the status flags that decide the migration scope.","example":"Extract the open orders: filter IsTechnicallyCompleted = '', IsClosed = '' and IsMarkedForDeletion = ''.","keys":["aufnr"],"params":[],"sources":["aufk","afih","afko","iloa","crhd","jest","jest","jest"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":2,"L":0},"file":"src/zemx_i_maintorder.ddls.asddls"},{"name":"ZEMX_I_MaintOrderComponent","label":"Maintenance order component (migration extract)","module":"maintenance_order","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Material components (reservation items) of maintenance orders with operation link, requirement and withdrawn quantity.","example":"Extract the open components: filter IsMarkedForDeletion = '' and IsFinalIssue = '' for the orders in scope.","keys":["rsnum","rspos","rsart"],"params":[],"sources":["resb","afih"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":1,"L":0},"file":"src/zemx_i_maintordercomponent.ddls.asddls"},{"name":"ZEMX_I_MaintOrderOperation","label":"Maintenance order operation (migration extract)","module":"maintenance_order","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Operations and sub-operations of maintenance orders with control key, work center, activity type, planned work and duration.","example":"Extract the operations of the open orders: join on MaintenanceOrder with ZEMX_I_MaintOrder.","keys":["aufnr","aplzl"],"params":[],"sources":["afvc","afvv","afko","afih","crhd"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":1,"L":0},"file":"src/zemx_i_maintorderoperation.ddls.asddls"},{"name":"ZEMX_I_MaintPlanCallHistory","label":"Maintenance plan call history (migration extract)","module":"maintenance_plan","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Scheduled and completed calls per maintenance plan: needed to set the start / last completion date so that the schedule continues seamlessly after go-live.","example":"Find the last completed call of plan 100: filter MaintenancePlan = '000000000100', highest CallNumber with a CompletionDate.","keys":["warpl","abnum"],"params":[],"sources":["mhis"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":0,"L":0},"file":"src/zemx_i_maintplancallhistory.ddls.asddls"},{"name":"ZEMX_I_MaintPlanCycle","label":"Maintenance plan cycle (migration extract)","module":"maintenance_plan","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"Cycles of single-cycle and multiple-counter plans and packages of strategy plans: cycle value, unit, text and counter (measuring point) for performance-based cycles.","example":"Extract the performance-based cycles: filter MeasuringPoint <> ''.","keys":["warpl","nummer"],"params":[],"sources":["mmpt"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":0,"L":0},"file":"src/zemx_i_maintplancycle.ddls.asddls"},{"name":"ZEMX_I_MeasurementDocument","label":"Measurement document (migration extract)","module":"measurement_document","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"One row per measurement document (reading or counter reading) with reading date / time, values in SI and entry unit, valuation code and cancellation flag.","example":"Extract the readings of the last two years: filter MsmtRdngDate >= '20240101' and MsmtDocumentIsCancelled = ''.","keys":["mdocm"],"params":[],"sources":["imrg"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":2,"L":0},"file":"src/zemx_i_measurementdocument.ddls.asddls"},{"name":"ZEMX_I_MeasuringPoint","label":"Measuring point (migration extract)","module":"measuring_point","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"One row per measuring point / counter with the technical object it belongs to (decoded from the object number), characteristic name, ranges and counter indicator.","example":"Extract the counters of equipment: filter MeasuringPointObjectType = 'IE' and MeasuringPointIsCounter = 'X'.","keys":["point"],"params":[],"sources":["imptt","cabn"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":2,"M":2,"L":0},"file":"src/zemx_i_measuringpoint.ddls.asddls"},{"name":"ZEMX_I_ObjectPartner","label":"Object partner (migration extract)","module":"object_partner","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Partners of technical objects, notifications and orders (partner function and partner number).","example":"Extract the partners of equipment: filter PartnerObjectType = 'IE'.","keys":["objnr","parvw","counter"],"params":[],"sources":["ihpa"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":1,"L":0},"file":"src/zemx_i_objectpartner.ddls.asddls"},{"name":"ZEMX_I_ObjectStatus","label":"Object status (migration extract)","module":"object_status","layer":"basic","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Active system and user statuses of all objects (equipment IE, functional location IF, notification QM, order OR, ...) with the status profile for user statuses.","example":"Extract the user statuses of equipment: filter StatusObjectType = 'IE' and StatusKind = 'E'.","keys":["objnr","stat"],"params":[],"sources":["jest","jsto"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":1,"L":0},"file":"src/zemx_i_objectstatus.ddls.asddls"},{"name":"ZEMX_I_TaskList","label":"Maintenance task list header (migration extract)","module":"task_list","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"All versions (change-number states) of maintenance task list headers of type A (general), E (equipment) and T (functional location).","example":"See every version of task list group 4711: filter TaskListGroup = '00004711'.","keys":["plnty","plnnr","plnal","zaehl"],"params":[],"sources":["plko","crhd"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":2,"M":1,"L":0},"file":"src/zemx_i_tasklist.ddls.asddls"},{"name":"ZEMX_I_TaskListAllocation","label":"Task list object allocation (migration extract)","module":"task_list","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"Assignment of equipment task lists (type E) to equipment and of functional location task lists (type T) to functional locations.","example":"Find the task lists of equipment 10000001: filter Equipment = '000000000010000001'.","keys":["plnty","plnnr","plnal"],"params":[],"sources":["eapl"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":0,"L":0},"file":"src/zemx_i_tasklistallocation.ddls.asddls"},{"name":"ZEMX_I_TaskListOperation","label":"Task list operation (migration extract)","module":"task_list","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"Operations of maintenance task lists (sequence assignment PLAS joined with operation PLPO) with work center, control key, work and duration.","example":"Extract the operations of the task lists in scope: join on TaskListType / TaskListGroup / TaskListGroupCounter with ZEMX_R_TaskListCurrent.","keys":["plnty","plnnr","plnal","plnfl","plnkn","zaehl","zaehl"],"params":[],"sources":["plas","plpo","crhd"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":1,"L":0},"file":"src/zemx_i_tasklistoperation.ddls.asddls"},{"name":"ZEMX_I_UserStatusText","label":"User status text (migration extract)","module":"object_status","layer":"basic","kind":"text","batch":1,"link":false,"requires":[],"purpose":"Short and long texts of user statuses per status profile: the basis of the user status value map.","example":"Build the value map 'user_status': list all statuses of profile PM000001.","keys":["stsma","estat","spras"],"params":[],"sources":["tj30t"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":1},"file":"src/zemx_i_userstatustext.ddls.asddls"},{"name":"ZEMX_I_WorkCenter","label":"Work center (migration extract)","module":"work_center","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"One row per work center of type 'A' (resource / work center) with plant, category, responsible person and validity; source for the work center migration object.","example":"Extract all maintenance work centers of plant 1000: filter Plant = '1000' and WorkCenterCategoryCode = '0005'.","keys":["objid"],"params":[],"sources":["crhd"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":3,"L":0},"file":"src/zemx_i_workcenter.ddls.asddls"},{"name":"ZEMX_I_WorkCenterCostCtr","label":"Work center cost center (migration extract)","module":"work_center","layer":"basic","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"Cost center assignments of work centers per validity period (needed to load the costing view of the work center).","example":"Find work centers without a valid cost center: compare this view with ZEMX_I_WorkCenter.","keys":["objid","laset","endda","lanum"],"params":[],"sources":["crco","crhd"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":0,"L":0},"file":"src/zemx_i_workcentercostctr.ddls.asddls"},{"name":"ZEMX_I_WorkCenterText","label":"Work center text (migration extract)","module":"work_center","layer":"basic","kind":"text","batch":1,"link":false,"requires":[],"purpose":"Work center descriptions in every maintained language, with the business key (work center + plant) the target system needs.","example":"Extract the German and English texts: filter Language = 'D' or 'E'.","keys":["objid","spras"],"params":[],"sources":["crtx","crhd"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_i_workcentertext.ddls.asddls"},{"name":"ZEMX_R_ClassAssgmtCount","label":"Class assignment count (reconciliation)","module":"classification","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of class assignments per ClassType, Class on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every ClassType / Class combination whose counts differ.","keys":["ClassType","Class"],"params":[],"sources":["ZEMX_I_ClassAssignment"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_classassgmtcount.ddls.asddls"},{"name":"ZEMX_R_EquipmentCount","label":"Equipment count (reconciliation)","module":"equipment","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of equipment per MaintenancePlanningPlant, EquipmentCategory on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every MaintenancePlanningPlant / EquipmentCategory combination whose counts differ.","keys":["MaintenancePlanningPlant","EquipmentCategory"],"params":[],"sources":["ZEMX_I_Equipment"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_equipmentcount.ddls.asddls"},{"name":"ZEMX_R_FuncLocCount","label":"Functional location count (reconciliation)","module":"functional_location","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of functional locations per MaintenancePlanningPlant, FunctionalLocationCategory on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every MaintenancePlanningPlant / FunctionalLocationCategory combination whose counts differ.","keys":["MaintenancePlanningPlant","FunctionalLocationCategory"],"params":[],"sources":["ZEMX_I_FuncLoc"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_funcloccount.ddls.asddls"},{"name":"ZEMX_R_LongTextCount","label":"Long text count (reconciliation)","module":"long_text","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of long texts per TextObject, TextID on the ECC source; compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every TextObject / TextID combination whose counts differ.","keys":["TextObject","TextID"],"params":[],"sources":["ZEMX_I_LongTextHeader"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_longtextcount.ddls.asddls"},{"name":"ZEMX_R_MaintNotifCount","label":"Open notification count (reconciliation)","module":"maintenance_notification","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of open maintenance notifications per NotificationType, MaintenancePlanningPlant on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every NotificationType / MaintenancePlanningPlant combination whose counts differ.","keys":["NotificationType","MaintenancePlanningPlant"],"params":[],"sources":["ZEMX_I_MaintNotification"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_maintnotifcount.ddls.asddls"},{"name":"ZEMX_R_MaintOrderCount","label":"Open maintenance order count (reconciliation)","module":"maintenance_order","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of open maintenance orders per MaintenanceOrderType, MaintenancePlanningPlant on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every MaintenanceOrderType / MaintenancePlanningPlant combination whose counts differ.","keys":["MaintenanceOrderType","MaintenancePlanningPlant"],"params":[],"sources":["ZEMX_I_MaintOrder"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_maintordercount.ddls.asddls"},{"name":"ZEMX_R_MaintPlanCount","label":"Maintenance plan count (reconciliation)","module":"maintenance_plan","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of maintenance plans per MaintenancePlanCategory, MaintenanceStrategy on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every MaintenancePlanCategory / MaintenanceStrategy combination whose counts differ.","keys":["MaintenancePlanCategory","MaintenanceStrategy"],"params":[],"sources":["ZEMX_I_MaintenancePlan"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_maintplancount.ddls.asddls"},{"name":"ZEMX_R_MeasDocCount","label":"Measurement document count (reconciliation)","module":"measurement_document","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of measurement documents per MsmtDocumentIsCancelled on the ECC source; compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every MsmtDocumentIsCancelled / MsmtDocumentIsCancelled combination whose counts differ.","keys":["MsmtDocumentIsCancelled"],"params":[],"sources":["ZEMX_I_MeasurementDocument"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_measdoccount.ddls.asddls"},{"name":"ZEMX_R_MeasPointCount","label":"Measuring point count (reconciliation)","module":"measuring_point","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of measuring points per MeasuringPointCategory, MeasuringPointIsCounter on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every MeasuringPointCategory / MeasuringPointIsCounter combination whose counts differ.","keys":["MeasuringPointCategory","MeasuringPointIsCounter"],"params":[],"sources":["ZEMX_I_MeasuringPoint"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_measpointcount.ddls.asddls"},{"name":"ZEMX_R_MeasPointLastDoc","label":"Last measurement document per point","module":"measurement_document","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Highest non-cancelled measurement document number per measuring point (helper for the last reading).","example":"Read LastMeasurementDocument for measuring point 1234 to see which reading becomes the initial counter reading on S/4HANA.","keys":["MeasuringPoint"],"params":[],"sources":["ZEMX_I_MeasurementDocument"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":1,"M":0,"L":0},"file":"src/zemx_r_measpointlastdoc.ddls.asddls"},{"name":"ZEMX_R_MeasPointLastReading","label":"Last reading per measuring point","module":"measurement_document","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Latest valid reading per measuring point: the default migration scope (initial counter readings so that performance-based maintenance plans continue).","example":"Extract all rows and load them as the first measurement document of each counter on S/4HANA.","keys":["MeasuringPoint"],"params":[],"sources":["ZEMX_R_MeasPointLastDoc","ZEMX_I_MeasurementDocument"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_measpointlastreading.ddls.asddls"},{"name":"ZEMX_R_ObjectPartnerCount","label":"Object partner count (reconciliation)","module":"object_partner","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of partner assignments per PartnerObjectType, PartnerFunction on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every PartnerObjectType / PartnerFunction combination whose counts differ.","keys":["PartnerObjectType","PartnerFunction"],"params":[],"sources":["ZEMX_I_ObjectPartner"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_objectpartnercount.ddls.asddls"},{"name":"ZEMX_R_ObjectStatusCount","label":"Object status count (reconciliation)","module":"object_status","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of active statuses per StatusObjectType, StatusCode on the ECC source; compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every StatusObjectType / StatusCode combination whose counts differ.","keys":["StatusObjectType","StatusCode"],"params":[],"sources":["ZEMX_I_ObjectStatus"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_objectstatuscount.ddls.asddls"},{"name":"ZEMX_R_TaskListCount","label":"Task list count (reconciliation)","module":"task_list","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of current task lists per TaskListType, Plant on the ECC source; compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every TaskListType / Plant combination whose counts differ.","keys":["TaskListType","Plant"],"params":[],"sources":["ZEMX_R_TaskListCurrent"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_tasklistcount.ddls.asddls"},{"name":"ZEMX_R_TaskListCurrent","label":"Current maintenance task list (migration scope)","module":"task_list","layer":"composite","kind":"dimension","batch":1,"link":false,"requires":[],"purpose":"Current, not deleted version of each maintenance task list header: the migration scope of the task list object.","example":"Extract all rows of plant 1000: filter Plant = '1000'.","keys":["TaskListType","TaskListGroup","TaskListGroupCounter"],"params":[],"sources":["ZEMX_I_TaskList","ZEMX_R_TaskListLatestVersion"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_tasklistcurrent.ddls.asddls"},{"name":"ZEMX_R_TaskListLatestVersion","label":"Task list latest version (helper)","module":"task_list","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Highest version counter per task list group and group counter (helper for the current task list).","example":"Read the current version of task list group 4711 / counter 1.","keys":["TaskListType","TaskListGroup","TaskListGroupCounter"],"params":[],"sources":["ZEMX_I_TaskList"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_tasklistlatestversion.ddls.asddls"},{"name":"ZEMX_R_WorkCenterCount","label":"Work center count (reconciliation)","module":"work_center","layer":"composite","kind":"view","batch":1,"link":false,"requires":[],"purpose":"Record count of work centers per Plant, WorkCenterCategoryCode on the ECC source (migration scope only); compared with the same count on S/4HANA by tools/mig_reconcile.py.","example":"Export this view before the load and the S/4HANA count view after it; the reconcile tool reports every Plant / WorkCenterCategoryCode combination whose counts differ.","keys":["Plant","WorkCenterCategoryCode"],"params":[],"sources":["ZEMX_I_WorkCenter"],"assocs":[],"dcl":"No DCL by design: Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).","risk":{"H":0,"M":0,"L":0},"file":"src/zemx_r_workcentercount.ddls.asddls"},{"name":"afih","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintOrder","ZEMX_I_MaintOrderComponent","ZEMX_I_MaintOrderOperation"]},{"name":"afko","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintOrder","ZEMX_I_MaintOrderOperation"]},{"name":"afvc","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintOrderOperation"]},{"name":"afvv","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintOrderOperation"]},{"name":"aufk","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintOrder"]},{"name":"ausp","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_CharcValue"]},{"name":"cabn","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_CharcValue","ZEMX_I_MeasuringPoint"]},{"name":"crco","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_WorkCenterCostCtr"]},{"name":"crhd","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_Equipment","ZEMX_I_MaintenanceItem","ZEMX_I_MaintNotification","ZEMX_I_MaintOrder","ZEMX_I_MaintOrderOperation","ZEMX_I_TaskList","ZEMX_I_TaskListOperation","ZEMX_I_WorkCenter","ZEMX_I_WorkCenterCostCtr","ZEMX_I_WorkCenterText"]},{"name":"crtx","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_WorkCenterText"]},{"name":"eapl","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_TaskListAllocation"]},{"name":"eqkt","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_EquipmentText"]},{"name":"equi","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_Equipment"]},{"name":"equz","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_Equipment"]},{"name":"iflot","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_FuncLoc"]},{"name":"iflotx","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_FuncLocText"]},{"name":"ihpa","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_ObjectPartner"]},{"name":"iloa","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_Equipment","ZEMX_I_FuncLoc","ZEMX_I_MaintenanceItem","ZEMX_I_MaintNotification","ZEMX_I_MaintOrder"]},{"name":"imptt","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MeasuringPoint"]},{"name":"imrg","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MeasurementDocument"]},{"name":"jest","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_Equipment","ZEMX_I_FuncLoc","ZEMX_I_MaintenancePlan","ZEMX_I_MaintNotification","ZEMX_I_MaintNotification","ZEMX_I_MaintOrder","ZEMX_I_MaintOrder","ZEMX_I_MaintOrder","ZEMX_I_ObjectStatus"]},{"name":"jsto","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_ObjectStatus"]},{"name":"klah","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_ClassAssignment"]},{"name":"kssk","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_ClassAssignment"]},{"name":"mhis","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintPlanCallHistory"]},{"name":"mmpt","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintPlanCycle"]},{"name":"mpla","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintenancePlan"]},{"name":"mpos","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintenanceItem"]},{"name":"plas","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_TaskListOperation"]},{"name":"plko","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_TaskList"]},{"name":"plpo","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_TaskListOperation"]},{"name":"qmel","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintNotification"]},{"name":"qmfe","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintNotifItem"]},{"name":"qmih","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintNotification","ZEMX_I_MaintNotifItem"]},{"name":"resb","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_MaintOrderComponent"]},{"name":"stxh","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_LongTextHeader"]},{"name":"tj30t","label":"ECC table (read directly)","module":"sap","layer":"sap","kind":"ECC table","batch":"-","link":false,"requires":[],"purpose":"","example":"","keys":[],"params":[],"sources":[],"assocs":[],"dcl":"SAP ECC table; no CDS access control on the source system.","risk":{"H":0,"M":0,"L":0},"file":"","usedBy":["ZEMX_I_UserStatusText"]}],"modules":[{"name":"classification","title":"Classification","batch":1,"deps":[],"tags":["classification","migration"],"status":"draft-unverified"},{"name":"equipment","title":"Equipment","batch":1,"deps":[],"tags":["master-data","technical-object","equipment","migration"],"status":"draft-unverified"},{"name":"functional_location","title":"Functional location","batch":1,"deps":[],"tags":["master-data","technical-object","functional-location","migration"],"status":"draft-unverified"},{"name":"long_text","title":"Long text","batch":1,"deps":[],"tags":["text","migration"],"status":"draft-unverified"},{"name":"maintenance_notification","title":"Maintenance notification","batch":1,"deps":[],"tags":["transactional","notification","migration"],"status":"draft-unverified"},{"name":"maintenance_order","title":"Maintenance order","batch":1,"deps":[],"tags":["transactional","order","migration"],"status":"draft-unverified"},{"name":"maintenance_plan","title":"Maintenance plan","batch":1,"deps":[],"tags":["master-data","maintenance-plan","migration"],"status":"draft-unverified"},{"name":"measurement_document","title":"Measurement document","batch":1,"deps":[],"tags":["transactional","measurement-document","migration"],"status":"draft-unverified"},{"name":"measuring_point","title":"Measuring point","batch":1,"deps":[],"tags":["master-data","measuring-point","migration"],"status":"draft-unverified"},{"name":"object_partner","title":"Object partner","batch":1,"deps":[],"tags":["partner","migration"],"status":"draft-unverified"},{"name":"object_status","title":"Object status","batch":1,"deps":[],"tags":["status","migration"],"status":"draft-unverified"},{"name":"task_list","title":"Maintenance task list","batch":1,"deps":[],"tags":["master-data","task-list","migration"],"status":"draft-unverified"},{"name":"work_center","title":"Work center","batch":1,"deps":[],"tags":["master-data","work-center","migration"],"status":"draft-unverified"}],"links":[],"meta":{"prefix":"ZEMX_","package":"ZEMX_MIG","release":"SAP ECC 6.0 on SAP NetWeaver 7.40 SP08 or higher (classic CDS views on tables)","title":"ZEMX EAM Migration - ECC Source Map","area":"EAM migration source (ECC tables)","initial":"ZEMX_I_Equipment","ext_title":"ECC tables","ext_sub":"tables (read directly, never copied)"}};
+const NS = "http://www.w3.org/2000/svg";
+const byName = Object.fromEntries(D.nodes.map(n => [n.name, n]));
+const modByName = Object.fromEntries(D.modules.map(m => [m.name, m]));
+D.nodes.forEach(n => { n.usedBy = new Set(); });
+D.nodes.forEach(n => {
+  [...n.sources, ...n.assocs.map(a => a.target)].forEach(t => {
+    const tn = byName[t];
+    if (tn && tn !== n) tn.usedBy.add(n.name);
+  });
+});
+const zeam = D.nodes.filter(n => n.layer !== "sap");
+const sapNodes = D.nodes.filter(n => n.layer === "sap");
+
+function el(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+/* ---------- stats ---------- */
+const statItems = [
+  [D.modules.length, "modules"],
+  [zeam.length, "CDS entities"],
+  [zeam.filter(n => n.link).length, "link views"],
+  [sapNodes.length, D.meta.ext_title],
+  [zeam.filter(n => n.kind === "cube").length, "cubes"],
+  [zeam.filter(n => n.kind === "query").length, "queries"],
+  [zeam.reduce((s, n) => s + n.risk.H, 0), "HIGH-risk items in these entities"],
+];
+document.getElementById("stats").innerHTML = statItems.map(([v, l]) => `<li><b>${v}</b><span>${l}</span></li>`).join("");
+
+/* ---------- module map ---------- */
+(function moduleMap() {
+  if (!D.modules.length) { document.getElementById("mod-h").closest("section").hidden = true; return; }
+  const svg = document.getElementById("modmap");
+  const W = 232, H = 52, CG = 96, RG = 14, TOP = 44, LEFT = 16;
+  // columns = dependency depth, so every "needs" arrow spans exactly one gap
+  const depth = {};
+  const depthOf = m => depth[m.name] ?? (depth[m.name] = m.deps.length ? 1 + Math.max(...m.deps.map(d => depthOf(modByName[d]))) : 0);
+  D.modules.forEach(depthOf);
+  const maxDepth = Math.max(...Object.values(depth));
+  const heads = ["Business objects (no dependencies)", "Need one module", "Need a report module"];
+  const pos = {}, rowOf = {};
+  for (let c = 0; c <= maxDepth; c++) {
+    let ms = D.modules.filter(m => depth[m.name] === c);
+    if (c > 0) ms.sort((a, b) => Math.min(...a.deps.map(d => rowOf[d])) - Math.min(...b.deps.map(d => rowOf[d])) || a.name.localeCompare(b.name));
+    let next = 0;
+    ms.forEach(m => {
+      const want = c > 0 ? Math.min(...m.deps.map(d => rowOf[d])) : next;
+      const r = Math.max(want, next); rowOf[m.name] = r; next = r + 1;
+      pos[m.name] = { x: LEFT + c * (W + CG), y: TOP + r * (H + RG), m };
+    });
+    el("text", { x: LEFT + c * (W + CG), y: 24, class: "batch-head" }, svg).textContent = heads[c] || `Depth ${c}`;
+  }
+  const rows = Math.max(...Object.values(rowOf)) + 1;
+  const width = LEFT * 2 + (maxDepth + 1) * W + maxDepth * CG + 120;
+  const height = TOP + rows * (H + RG) + 6;
+  svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+  svg.setAttribute("width", width); svg.setAttribute("height", height);
+  const defs = el("defs", {}, svg);
+  const mk = el("marker", { id: "mk-dep", viewBox: "0 0 10 10", refX: "9", refY: "5", markerWidth: "7", markerHeight: "7", orient: "auto-start-reverse" }, defs);
+  el("path", { d: "M0,0 L10,5 L0,10 z", class: "mk-dep" }, mk);
+  const gLinks = el("g", {}, svg), gDeps = el("g", {}, svg), gMods = el("g", {}, svg);
+  // link views per module pair, drawn only while a module is hovered or focused
+  const pairs = {};
+  D.links.forEach(l => {
+    for (let i = 0; i < l.requires.length; i++) for (let j = i + 1; j < l.requires.length; j++) {
+      const k = [l.requires[i], l.requires[j]].sort().join("|");
+      (pairs[k] = pairs[k] || []).push(l.name);
+    }
+  });
+  const linkCount = {};
+  D.links.forEach(l => l.requires.forEach(r => { linkCount[r] = (linkCount[r] || 0) + 1; }));
+  const lkEls = [];
+  Object.entries(pairs).forEach(([k, names]) => {
+    const [a, b] = k.split("|"); const pa = pos[a], pb = pos[b];
+    let d, tx, ty;
+    if (Math.abs(pa.x - pb.x) < 1) {
+      const x = pa.x + W, ya = pa.y + H / 2, yb = pb.y + H / 2, bend = 28 + Math.abs(ya - yb) * .12;
+      d = `M${x},${ya} C${x + bend},${ya} ${x + bend},${yb} ${x},${yb}`; tx = x + bend * .75 + 4; ty = (ya + yb) / 2 + 4;
+    } else {
+      const [l, r] = pa.x < pb.x ? [pa, pb] : [pb, pa];
+      const x1 = l.x + W, y1 = l.y + H / 2, x2 = r.x, y2 = r.y + H / 2, mx = (x1 + x2) / 2;
+      d = `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`; tx = mx; ty = (y1 + y2) / 2 - 4;
+    }
+    const p = el("path", { d, class: "lk" }, gLinks); p.style.display = "none";
+    const t = el("text", { x: tx, y: ty, class: "lk-label", "text-anchor": "middle" }, gLinks);
+    t.textContent = names.length > 1 ? `${names.length} links` : names[0].slice(D.meta.prefix.length);
+    t.style.display = "none";
+    lkEls.push({ a, b, p, t });
+  });
+  D.modules.forEach(m => m.deps.forEach(dep => {
+    const s = pos[dep], t = pos[m.name];
+    const x1 = s.x + W, y1 = s.y + H / 2, x2 = t.x - 2, y2 = t.y + H / 2, mx = (x1 + x2) / 2;
+    el("path", { d: `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`, class: "dep", "marker-end": "url(#mk-dep)" }, gDeps);
+  }));
+  Object.values(pos).forEach(({ x, y, m }) => {
+    const g = el("g", { class: "mod" + (m.name.startsWith("rpt_") ? " rpt" : ""), transform: `translate(${x},${y})`, tabindex: "0", role: "button", "aria-label": `${m.title}: jump to its entities` }, gMods);
+    el("rect", { width: W, height: H, rx: 5 }, g);
+    el("text", { x: 12, y: 21, class: "t" }, g).textContent = m.title.replace(/^Report: /, "");
+    const n = zeam.filter(z => z.module === m.name).length;
+    el("text", { x: 12, y: 39, class: "s" }, g).textContent = `batch ${m.batch} · ${n} entities · ${linkCount[m.name] || 0} link views`;
+    const hot = on => {
+      g.classList.toggle("hot", on);
+      lkEls.forEach(l => {
+        const mine = on && (l.a === m.name || l.b === m.name);
+        l.p.style.display = mine ? "" : "none"; l.t.style.display = mine ? "" : "none";
+        l.p.classList.toggle("hot", mine);
+      });
+    };
+    g.addEventListener("mouseenter", () => hot(true)); g.addEventListener("mouseleave", () => hot(false));
+    g.addEventListener("focus", () => hot(true)); g.addEventListener("blur", () => hot(false));
+    const go = () => scrollToBand(m.name);
+    g.addEventListener("click", go);
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
+  });
+})();
+
+/* ---------- entity map ---------- */
+const COLS = ["sap", "basic", "composite", "consumption"];
+const COL_HEAD = { sap: [D.meta.ext_title, D.meta.ext_sub || (D.meta.ext_title === "SAP released views" ? "I_* (consumed, never copied)" : "other products (not shipped here)")], basic: ["Basic", D.meta.prefix + "I_*"], composite: ["Composite", D.meta.prefix + "R_* (cubes)"], consumption: ["Consumption", D.meta.prefix + "C_*Q (queries)"] };
+const KIND_ORDER = ["text", "dimension", "view", "value help", "hierarchy", "cube", "query", "SAP view", "product view"];
+const TAG = { text: "TXT", dimension: "DIM", view: "VIEW", "value help": "VH", hierarchy: "HIER", cube: "CUBE", query: "Q", "SAP view": "SAP", "product view": "EXT" };
+const G = { left: 176, colW: 228, colGap: 92, nodeH: 24, rowGap: 8, bandPad: 14, top: 58 };
+const colX = c => G.left + COLS.indexOf(c) * (G.colW + G.colGap);
+const state = { sel: null, assoc: false };
+const layout = {};
+const bandTop = {};
+
+(function buildBands() {
+  const sapUse = {};
+  sapNodes.forEach(s => { sapUse[s.name] = new Set([...s.usedBy].map(u => byName[u].module)); });
+  const shared = sapNodes.filter(s => sapUse[s.name].size > 1 || !D.modules.length).map(s => s.name);
+  const bands = [{ id: "shared", title: D.modules.length ? "Shared SAP views" : "Other products", sub: D.modules.length ? "used by several modules" : "views the bridge links" }];
+  D.modules.forEach(m => bands.push({ id: m.name, title: m.title, sub: `batch ${m.batch}` + (m.deps.length ? ` · needs ${m.deps.join(", ")}` : "") }));
+  bands.push({ id: "link", title: "Link views", sub: "ship only with all their modules" });
+  const placed = new Set(shared);
+  let y = G.top;
+  const svg = document.getElementById("map");
+  const gBands = el("g", {}, svg);
+  window.__gEdges = el("g", {}, svg);
+  window.__gLabels = null;
+  const gNodes = el("g", {}, svg);
+  window.__gLabels = el("g", {}, svg);
+  bands.forEach((b, bi) => {
+    const cols = { sap: [], basic: [], composite: [], consumption: [] };
+    if (b.id === "shared") shared.forEach(n => cols.sap.push(byName[n]));
+    else {
+      zeam.filter(n => n.module === b.id).forEach(n => cols[n.layer].push(n));
+      if (b.id !== "link") sapNodes.forEach(s => { if (!placed.has(s.name) && sapUse[s.name].has(b.id)) { cols.sap.push(s); placed.add(s.name); } });
+    }
+    Object.values(cols).forEach(list => list.sort((a, c) => KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(c.kind) || a.name.localeCompare(c.name)));
+    const rows = Math.max(1, ...Object.values(cols).map(l => l.length));
+    const h = G.bandPad * 2 + rows * G.nodeH + (rows - 1) * G.rowGap;
+    bandTop[b.id] = y;
+    if (bi % 2 === 0) el("rect", { x: 0, y, width: "100%", height: h, class: "band-bg" }, gBands);
+    el("text", { x: 14, y: y + 24, class: "band-title" }, gBands).textContent = b.title;
+    const words = b.sub.split(" "); let line = "", ly = y + 41;
+    words.forEach(w => { if ((line + " " + w).length > 26) { el("text", { x: 14, y: ly, class: "band-sub" }, gBands).textContent = line.trim(); line = ""; ly += 14; } line += " " + w; });
+    if (line.trim()) el("text", { x: 14, y: ly, class: "band-sub" }, gBands).textContent = line.trim();
+    COLS.forEach(c => cols[c].forEach((n, i) => {
+      const x = colX(c), ny = y + G.bandPad + i * (G.nodeH + G.rowGap);
+      layout[n.name] = { x, y: ny, w: G.colW, h: G.nodeH, col: COLS.indexOf(c) };
+      const g = el("g", { class: `node ${n.layer}${n.link ? " link" : ""}`, transform: `translate(${x},${ny})`, tabindex: "0", role: "button", "aria-label": `${n.name}, ${n.kind}` }, gNodes);
+      el("rect", { class: "box", width: G.colW, height: G.nodeH, rx: 3 }, g);
+      el("text", { x: 8, y: 16, class: "nm" }, g).textContent = n.name;
+      el("text", { x: G.colW - 8, y: 16, class: "tag", "text-anchor": "end" }, g).textContent = TAG[n.kind] || "";
+      if (n.risk.H) el("circle", { cx: G.colW - 6, cy: 5, r: 3.2, class: "riskdot" }, g);
+      el("title", {}, g).textContent = `${n.name} - ${n.label}`;
+      n.__g = g;
+      g.addEventListener("click", () => select(n.name));
+      g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(n.name); } });
+    }));
+    y += h + 6;
+  });
+  const width = G.left + 4 * G.colW + 3 * G.colGap + 70;
+  COLS.forEach(c => {
+    el("text", { x: colX(c), y: 24, class: "col-head", fill: `var(--${c})` }, svg).textContent = COL_HEAD[c][0].toUpperCase();
+    el("text", { x: colX(c), y: 41, class: "col-sub" }, svg).textContent = COL_HEAD[c][1];
+  });
+  svg.setAttribute("viewBox", `0 0 ${width} ${y + 10}`);
+  svg.setAttribute("width", width); svg.setAttribute("height", y + 10);
+  const defs = el("defs", {}, svg);
+  [["mk-src", "mk-src"], ["mk-in", "mk-in"], ["mk-out", "mk-out"]].forEach(([id, cls]) => {
+    const m = el("marker", { id, viewBox: "0 0 10 10", refX: "9", refY: "5", markerWidth: "6", markerHeight: "6", orient: "auto-start-reverse" }, defs);
+    el("path", { d: "M0,0 L10,5 L0,10 z", class: cls }, m);
+  });
+})();
+
+function edgePath(from, to) {
+  const a = layout[from], b = layout[to];
+  let x1, y1 = a.y + a.h / 2, x2, y2 = b.y + b.h / 2, c1x, c2x;
+  if (b.col > a.col) { x1 = a.x + a.w; x2 = b.x - 1; const dx = (x2 - x1) / 2; c1x = x1 + dx; c2x = x2 - dx; }
+  else if (b.col < a.col) { x1 = a.x; x2 = b.x + b.w + 1; const dx = (x1 - x2) / 2; c1x = x1 - dx; c2x = x2 + dx; }
+  else { x1 = a.x + a.w; x2 = b.x + b.w + 1; const bend = Math.min(150, 26 + Math.abs(y2 - y1) * .06); c1x = x1 + bend; c2x = x2 + bend; }
+  const d = `M${x1},${y1} C${c1x},${y1} ${c2x},${y2} ${x2},${y2}`;
+  // label anchors: just outside each end, on the side the edge leaves / enters
+  const startOut = c1x >= x1 ? 1 : -1, endOut = c2x >= x2 ? 1 : -1;
+  return { d, from: { x: x1 + startOut * 6, y: y1 - 6, anchor: startOut > 0 ? "start" : "end" },
+           to: { x: x2 + endOut * 10, y: y2 - 6, anchor: endOut > 0 ? "start" : "end" } };
+}
+
+function drawEdges() {
+  const g = window.__gEdges, gl = window.__gLabels;
+  g.replaceChildren(); gl.replaceChildren();
+  const sel = state.sel ? byName[state.sel] : null;
+  const related = new Set();
+  const hlEdges = [];
+  if (sel) {
+    related.add(sel.name);
+    sel.sources.forEach(s => { related.add(s); hlEdges.push({ from: s, to: sel.name, label: "source", dir: "in" }); });
+    sel.assocs.forEach(a => { if (a.target !== sel.name) { related.add(a.target); hlEdges.push({ from: sel.name, to: a.target, label: `${a.name} ${a.card}`, dir: "out", assoc: true }); } });
+    sel.usedBy.forEach(u => {
+      related.add(u); const un = byName[u];
+      if (un.sources.includes(sel.name)) hlEdges.push({ from: sel.name, to: u, label: "source of", dir: "out" });
+      un.assocs.filter(a => a.target === sel.name).forEach(a => hlEdges.push({ from: u, to: sel.name, label: `${a.name}`, dir: "in", assoc: true }));
+    });
+  }
+  // background edges: data sources always, associations on demand
+  zeam.forEach(n => {
+    n.sources.forEach(s => { if (layout[s]) { const p = edgePath(s, n.name); el("path", { d: p.d, class: "edge" + (sel ? " dim" : ""), "marker-end": "url(#mk-src)" }, g); } });
+    if (state.assoc) n.assocs.forEach(a => { if (a.target !== n.name && layout[a.target]) { const p = edgePath(n.name, a.target); el("path", { d: p.d, class: "edge assoc" + (sel ? " dim" : ""), "marker-end": "url(#mk-src)" }, g); } });
+  });
+  hlEdges.forEach(e => {
+    if (!layout[e.from] || !layout[e.to]) return;
+    const p = edgePath(e.from, e.to);
+    el("path", { d: p.d, class: `edge hl ${e.dir}${e.assoc ? " assoc" : ""}`, "marker-end": `url(#mk-${e.dir})` }, g);
+    const at = e.from === state.sel ? p.to : p.from;
+    el("text", { x: at.x, y: at.y, class: "elabel", "text-anchor": at.anchor }, gl).textContent = e.label;
+  });
+  D.nodes.forEach(n => {
+    if (!n.__g) return;
+    n.__g.classList.toggle("sel", !!sel && n.name === sel.name);
+    n.__g.classList.toggle("dim", !!sel && !related.has(n.name));
+  });
+}
+
+function refBtn(name) {
+  const n = byName[name];
+  return n ? `<button type="button" class="ref${n.layer === "sap" ? " sapref" : ""}" data-ref="${esc(name)}">${esc(name)}</button>` : `<span class="mono">${esc(name)}</span>`;
+}
+
+function renderPanel() {
+  const p = document.getElementById("panel");
+  const n = state.sel ? byName[state.sel] : null;
+  if (!n) {
+    p.innerHTML = `<h3>No entity selected</h3><p class="sub">Click an entity in the map, or use Find, to see its purpose, keys, sources, associations, consumers and access control.</p>`;
+    return;
+  }
+  const layerName = { sap: "SAP released", basic: "Basic", composite: "Composite", consumption: "Consumption" }[n.layer];
+  const mod = n.layer === "sap" ? "SAP standard" : n.link ? "link: " + n.requires.join(" + ") : n.module;
+  const risk = n.risk.H + n.risk.M + n.risk.L ? `<span class="chip risk">verify: ${n.risk.H} high · ${n.risk.M} medium · ${n.risk.L} low</span>` : "";
+  const used = [...n.usedBy].sort();
+  const sec = (t, body) => body ? `<div><dt>${t}</dt><dd>${body}</dd></div>` : "";
+  const list = arr => arr.length ? `<ul>${arr.map(x => `<li>${x}</li>`).join("")}</ul>` : "";
+  p.innerHTML = `
+    <div><h3>${esc(n.name)}</h3><p class="sub">${esc(n.label)}</p></div>
+    <div class="chips"><span class="chip layer-${n.layer}">${layerName}</span><span class="chip">${esc(n.kind)}</span>
+      <span class="chip">${esc(mod)}</span>${n.batch !== "-" ? `<span class="chip">batch ${esc(n.batch)}</span>` : ""}${risk}</div>
+    <dl>
+      ${sec("Purpose", n.purpose ? `<p>${esc(n.purpose)}</p>` : "")}
+      ${sec("Example", n.example ? `<p>${esc(n.example)}</p>` : "")}
+      ${sec("Keys", n.keys.length ? `<span class="mono">${n.keys.map(esc).join(", ")}</span>` : "")}
+      ${sec("Parameters", n.params.length ? `<span class="mono">${n.params.map(esc).join(", ")}</span>` : "")}
+      ${sec("Built on", list(n.sources.map(refBtn)))}
+      ${sec("Associations", list(n.assocs.map(a => `<span class="mono">${esc(a.name)} ${esc(a.card)}</span> → ${refBtn(a.target)}`)))}
+      ${sec(n.layer === "sap" ? "Used by" : "Consumed by", list(used.map(refBtn)))}
+      ${sec("Access control", `<p>${esc(n.dcl)}</p>`)}
+      ${sec("Source file", n.file ? `<span class="mono">${esc(n.file)}</span>` : "")}
+    </dl>`;
+  p.querySelectorAll("[data-ref]").forEach(b => b.addEventListener("click", () => select(b.dataset.ref, true)));
+}
+
+function select(name, scroll) {
+  state.sel = name && byName[name] ? name : null;
+  drawEdges(); renderPanel();
+  if (state.sel && scroll) {
+    const l = layout[state.sel], sc = document.getElementById("map-scroller");
+    if (l) sc.scrollTo({ top: Math.max(0, l.y - sc.clientHeight / 3), left: Math.max(0, l.x - 200), behavior: "smooth" });
+  }
+}
+
+function scrollToBand(id) {
+  const sc = document.getElementById("map-scroller");
+  document.getElementById("ent-h").scrollIntoView({ behavior: "smooth", block: "start" });
+  sc.scrollTo({ top: Math.max(0, (bandTop[id] || 0) - 50), left: 0, behavior: "smooth" });
+}
+
+document.getElementById("names").innerHTML = D.nodes.map(n => `<option value="${esc(n.name)}"></option>`).join("");
+document.getElementById("find").addEventListener("change", e => {
+  const v = e.target.value.trim();
+  const hit = byName[v] || D.nodes.find(n => n.name.toLowerCase().includes(v.toLowerCase()));
+  if (hit) select(hit.name, true);
+});
+document.getElementById("assoc").addEventListener("change", e => { state.assoc = e.target.checked; drawEdges(); });
+document.getElementById("clear").addEventListener("click", () => select(null));
+
+const initial = decodeURIComponent((location.hash || "").slice(1));
+select(byName[initial] ? initial : (byName[D.meta.initial] ? D.meta.initial : zeam[0].name), !!byName[initial]);
+</script>

@@ -1,0 +1,490 @@
+{
+  "module": "maintenance_plan",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Maintenance plan",
+    "todo_verify": [
+      "TODO-VERIFY[H] XPL-M01: Migration Cockpit object for 'Maintenance plan' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "equipment",
+    "functional_location",
+    "task_list",
+    "measuring_point",
+    "measurement_document"
+  ],
+  "key": {
+    "business_key": [
+      "MaintenancePlan"
+    ],
+    "numbering": "new",
+    "note": "Plans and items are usually renumbered: keep the key maps 'maintenance_plan' and 'maintenance_item' (old,new)."
+  },
+  "scope": {
+    "filter": "IsMarkedForDeletion = '' (and not inactive, see object_status)",
+    "note": "Start the plans on S/4HANA from the last completion date in ZEMX_I_MaintPlanCallHistory; do not migrate open calls (they are recreated by scheduling)."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "MaintenancePlan",
+      "source": "MPLA-WARPL",
+      "target": "MPLA-WARPL",
+      "rule": "key_map:maintenance_plan",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "MaintenancePlanDesc",
+      "source": "MPLA-WPTXT",
+      "target": "MPLA-WPTXT",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "MaintenancePlanCategory",
+      "source": "MPLA-MPTYP",
+      "target": "MPLA-MPTYP",
+      "rule": "value_map:maintenance_plan_category",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "MaintenanceStrategy",
+      "source": "MPLA-STRAT",
+      "target": "MPLA-STRAT",
+      "rule": "value_map:maintenance_strategy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "AuthorizationGroup",
+      "source": "MPLA-BEGRU",
+      "target": "MPLA-BEGRU",
+      "rule": "value_map:authorization_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "SchedulingPeriod",
+      "source": "MPLA-ABRHO",
+      "target": "MPLA-ABRHO",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "SchedulingPeriodUnit",
+      "source": "MPLA-HUNIT",
+      "target": "MPLA-HUNIT",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "CallHorizonPercent",
+      "source": "MPLA-HORIZ",
+      "target": "MPLA-HORIZ",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "CycleModificationFactor",
+      "source": "MPLA-SFAKT",
+      "target": "MPLA-SFAKT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "SchedulingIndicator",
+      "source": "MPLA-STICH",
+      "target": "MPLA-STICH",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "LateCompletionShiftFactor",
+      "source": "MPLA-VSPOS",
+      "target": "MPLA-VSPOS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "LateCompletionTolerance",
+      "source": "MPLA-TOPOS",
+      "target": "MPLA-TOPOS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "EarlyCompletionShiftFactor",
+      "source": "MPLA-VSNEG",
+      "target": "MPLA-VSNEG",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "EarlyCompletionTolerance",
+      "source": "MPLA-TONEG",
+      "target": "MPLA-TONEG",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "FactoryCalendar",
+      "source": "MPLA-FABKL",
+      "target": "MPLA-FABKL",
+      "rule": "value_map:factory_calendar",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "ObjectNumber",
+      "source": "MPLA-OBJNR",
+      "target": "",
+      "rule": "skip:status object number - regenerated on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "IsMarkedForDeletion",
+      "source": "case dlfl.stat when 'I0076' then 'X' else '' end",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "CreationDate",
+      "source": "MPLA-ERSDT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "CreatedByUser",
+      "source": "MPLA-ERNAM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenancePlan",
+      "element": "LastChangeDate",
+      "source": "MPLA-AEDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MaintenanceItem",
+      "source": "MPOS-WAPOS",
+      "target": "MPOS-WAPOS",
+      "rule": "key_map:maintenance_item",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MaintenancePlan",
+      "source": "MPOS-WARPL",
+      "target": "MPOS-WARPL",
+      "rule": "key_map:maintenance_plan",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MaintenanceItemDescription",
+      "source": "MPOS-PSTXT",
+      "target": "MPOS-PSTXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "Equipment",
+      "source": "MPOS-EQUNR",
+      "target": "MPOS-EQUNR",
+      "rule": "key_map:equipment",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "FunctionalLocation",
+      "source": "MPOS-TPLNR",
+      "target": "MPOS-TPLNR",
+      "rule": "key_map:functional_location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MaintenancePlanningPlant",
+      "source": "MPOS-IWERK",
+      "target": "MPOS-IWERK",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MaintenancePlannerGroup",
+      "source": "MPOS-WPGRP",
+      "target": "MPOS-WPGRP",
+      "rule": "value_map:planner_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MainWorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "MPOS-GEWRK (via work center)",
+      "rule": "key_map:work_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MainWorkCenterPlant",
+      "source": "CRHD-WERKS",
+      "target": "MPOS-GEWRK (via work center)",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MaintenanceOrderType",
+      "source": "MPOS-AUART",
+      "target": "MPOS-AUART",
+      "rule": "value_map:order_type",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "NotificationType",
+      "source": "MPOS-QMART",
+      "target": "MPOS-QMART",
+      "rule": "value_map:notification_type",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MaintenanceActivityType",
+      "source": "MPOS-ILART",
+      "target": "MPOS-ILART",
+      "rule": "value_map:activity_type_pm",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "MaintPriority",
+      "source": "MPOS-PRIOK",
+      "target": "MPOS-PRIOK",
+      "rule": "value_map:priority",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "TaskListType",
+      "source": "MPOS-PLNTY",
+      "target": "MPOS-PLNTY",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "TaskListGroup",
+      "source": "MPOS-PLNNR",
+      "target": "MPOS-PLNNR",
+      "rule": "key_map:task_list_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "TaskListGroupCounter",
+      "source": "MPOS-PLNAL",
+      "target": "MPOS-PLNAL",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "BusinessArea",
+      "source": "ILOA-GSBER",
+      "target": "ILOA-GSBER",
+      "rule": "value_map:business_area",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "CreationDate",
+      "source": "MPOS-ERSDT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintenanceItem",
+      "element": "LastChangeDate",
+      "source": "MPOS-AEDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCycle",
+      "element": "MaintenancePlan",
+      "source": "MMPT-WARPL",
+      "target": "MMPT-WARPL",
+      "rule": "key_map:maintenance_plan",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCycle",
+      "element": "MaintenancePlanCycle",
+      "source": "MMPT-NUMMER",
+      "target": "MMPT-NUMMER",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCycle",
+      "element": "CycleValue",
+      "source": "MMPT-ZYKL1",
+      "target": "MMPT-ZYKL1",
+      "rule": "convert:float_si_to_unit",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCycle",
+      "element": "CycleUnit",
+      "source": "MMPT-ZEIEH",
+      "target": "MMPT-ZEIEH",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCycle",
+      "element": "CycleText",
+      "source": "MMPT-PAK_TEXT",
+      "target": "MMPT-PAK_TEXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCycle",
+      "element": "MeasuringPoint",
+      "source": "MMPT-POINT",
+      "target": "MMPT-POINT",
+      "rule": "key_map:measuring_point",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCallHistory",
+      "element": "MaintenancePlan",
+      "source": "MHIS-WARPL",
+      "target": "MHIS-WARPL",
+      "rule": "key_map:maintenance_plan",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCallHistory",
+      "element": "MaintPlanCallNumber",
+      "source": "MHIS-ABNUM",
+      "target": "MHIS-ABNUM",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCallHistory",
+      "element": "PlannedDate",
+      "source": "MHIS-NPLDA",
+      "target": "MHIS-NPLDA",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCallHistory",
+      "element": "CallDate",
+      "source": "MHIS-HORDA",
+      "target": "MHIS-HORDA",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintPlanCallHistory",
+      "element": "CompletionDate",
+      "source": "MHIS-LRMDT",
+      "target": "MHIS-LRMDT",
+      "rule": "copy",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "activity_type_pm",
+    "authorization_group",
+    "business_area",
+    "factory_calendar",
+    "maintenance_plan_category",
+    "maintenance_strategy",
+    "notification_type",
+    "order_type",
+    "planner_group",
+    "plant",
+    "priority",
+    "unit_of_measure"
+  ],
+  "key_maps": [
+    "equipment",
+    "functional_location",
+    "maintenance_item",
+    "maintenance_plan",
+    "measuring_point",
+    "task_list_group",
+    "work_center"
+  ],
+  "provides_key_maps": [
+    "maintenance_plan",
+    "maintenance_item"
+  ],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_MaintPlanCount",
+    "target_count_view": "ZEMT_R_MaintPlanCount",
+    "dimensions": [
+      {
+        "element": "MaintenancePlanCategory",
+        "value_map": "maintenance_plan_category"
+      },
+      {
+        "element": "MaintenanceStrategy",
+        "value_map": "maintenance_strategy"
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": {
+      "source_view": "ZEMX_I_MaintenancePlan",
+      "target_view": "ZEMT_I_MaintPlanCompare",
+      "key": [
+        "MaintenancePlan"
+      ],
+      "key_map": "maintenance_plan",
+      "fields": [
+        "MaintenancePlanDesc",
+        "MaintenancePlanCategory",
+        "MaintenanceStrategy"
+      ]
+    }
+  },
+  "gaps": [
+    "TODO-VERIFY[H] XPL-G01: open calls (orders / notifications created by scheduling) must be completed or migrated as open orders before the plan is restarted, otherwise calls are duplicated"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "measurement_document",
+  "title": "Measurement document",
+  "description": "Measurement documents; by default only the last reading per measuring point is migrated.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "transactional",
+    "measurement-document",
+    "migration"
+  ],
+  "sap_tables": [
+    "IMRG"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZEMX_I_MeasurementDocument"
+    ],
+    "composite": [
+      "ZEMX_R_MeasPointLastDoc",
+      "ZEMX_R_MeasPointLastReading",
+      "ZEMX_R_MeasDocCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEMX_I_MeasurementDocument": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_R_MeasPointLastDoc": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_R_MeasPointLastReading": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_R_MeasDocCount": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01)."
+  },
+  "link_views": []
+}

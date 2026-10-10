@@ -1,0 +1,40 @@
+{
+  "name": "classification",
+  "title": "Classification",
+  "description": "Class assignments and characteristic values of technical objects.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "classification",
+    "migration"
+  ],
+  "sap_tables": [
+    "KSSK",
+    "KLAH",
+    "AUSP",
+    "CABN"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZEMX_I_ClassAssignment",
+      "ZEMX_I_CharcValue"
+    ],
+    "composite": [
+      "ZEMX_R_ClassAssgmtCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEMX_I_ClassAssignment": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_I_CharcValue": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_R_ClassAssgmtCount": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01)."
+  },
+  "link_views": []
+}

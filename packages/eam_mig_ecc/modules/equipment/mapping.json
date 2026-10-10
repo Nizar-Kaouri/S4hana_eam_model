@@ -1,0 +1,512 @@
+{
+  "module": "equipment",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Equipment",
+    "todo_verify": [
+      "TODO-VERIFY[H] XEQ-M01: Migration Cockpit object for 'Equipment' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "work_center",
+    "functional_location"
+  ],
+  "key": {
+    "business_key": [
+      "Equipment"
+    ],
+    "numbering": "keep",
+    "note": "Keep equipment numbers (external number assignment on S/4HANA) where possible; otherwise supply a key map 'equipment' (old,new)."
+  },
+  "scope": {
+    "filter": "IsMarkedForDeletion = ''",
+    "note": "Equipment flagged for deletion is not migrated."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "Equipment",
+      "source": "EQUI-EQUNR",
+      "target": "EQUI-EQUNR",
+      "rule": "key_map:equipment",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "EquipmentCategory",
+      "source": "EQUI-EQTYP",
+      "target": "EQUI-EQTYP",
+      "rule": "value_map:equipment_category",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "TechnicalObjectType",
+      "source": "EQUI-EQART",
+      "target": "EQUI-EQART",
+      "rule": "value_map:technical_object_type",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "AuthorizationGroup",
+      "source": "EQUI-BEGRU",
+      "target": "EQUI-BEGRU",
+      "rule": "value_map:authorization_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ValidityStartDate",
+      "source": "EQUZ-DATAB",
+      "target": "EQUZ-DATAB",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "MaintenancePlanningPlant",
+      "source": "EQUZ-IWERK",
+      "target": "EQUZ-IWERK",
+      "rule": "value_map:plant",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "MaintenancePlannerGroup",
+      "source": "EQUZ-INGRP",
+      "target": "EQUZ-INGRP",
+      "rule": "value_map:planner_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "MainWorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "EQUZ-GEWRK (via work center)",
+      "rule": "key_map:work_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "MainWorkCenterPlant",
+      "source": "CRHD-WERKS",
+      "target": "EQUZ-GEWRK (via work center)",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "FunctionalLocation",
+      "source": "ILOA-TPLNR",
+      "target": "ILOA-TPLNR",
+      "rule": "key_map:functional_location",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "SuperordinateEquipment",
+      "source": "EQUZ-HEQUI",
+      "target": "EQUZ-HEQUI",
+      "rule": "key_map:equipment",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "EquipInstallationPositionNmbr",
+      "source": "EQUZ-HEQNR",
+      "target": "EQUZ-HEQNR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "TechnicalIdentificationNumber",
+      "source": "EQUZ-TIDNR",
+      "target": "EQUZ-TIDNR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "MaintenancePlant",
+      "source": "ILOA-SWERK",
+      "target": "ILOA-SWERK",
+      "rule": "value_map:plant",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "PlantSection",
+      "source": "ILOA-BEBER",
+      "target": "ILOA-BEBER",
+      "rule": "value_map:plant_section",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "AssetLocation",
+      "source": "ILOA-STORT",
+      "target": "ILOA-STORT",
+      "rule": "value_map:location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "AssetRoom",
+      "source": "ILOA-MSGRP",
+      "target": "ILOA-MSGRP",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ABCIndicator",
+      "source": "ILOA-ABCKZ",
+      "target": "ILOA-ABCKZ",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "SortField",
+      "source": "ILOA-EQFNR",
+      "target": "ILOA-EQFNR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "CompanyCode",
+      "source": "ILOA-BUKRS",
+      "target": "ILOA-BUKRS",
+      "rule": "value_map:company_code",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "BusinessArea",
+      "source": "ILOA-GSBER",
+      "target": "ILOA-GSBER",
+      "rule": "value_map:business_area",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ControllingArea",
+      "source": "ILOA-KOKRS",
+      "target": "ILOA-KOKRS",
+      "rule": "value_map:controlling_area",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "CostCenter",
+      "source": "ILOA-KOSTL",
+      "target": "ILOA-KOSTL",
+      "rule": "value_map:cost_center",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "MasterFixedAsset",
+      "source": "ILOA-ANLNR",
+      "target": "ILOA-ANLNR",
+      "rule": "key_map:fixed_asset",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "FixedAsset",
+      "source": "ILOA-ANLUN",
+      "target": "ILOA-ANLUN",
+      "rule": "key_map:fixed_asset",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "StandingOrder",
+      "source": "ILOA-DAUFN",
+      "target": "ILOA-DAUFN",
+      "rule": "derive:follow-up step after the order load - set with the key map maintenance_order",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "Material",
+      "source": "EQUI-MATNR",
+      "target": "EQUI-MATNR",
+      "rule": "convert:material_number",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "SerialNumber",
+      "source": "EQUI-SERNR",
+      "target": "EQUI-SERNR",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "AssetManufacturerName",
+      "source": "EQUI-HERST",
+      "target": "EQUI-HERST",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ManufacturerCountry",
+      "source": "EQUI-HERLD",
+      "target": "EQUI-HERLD",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ManufacturerModelNumber",
+      "source": "EQUI-TYPBZ",
+      "target": "EQUI-TYPBZ",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ManufacturerPartNmbr",
+      "source": "EQUI-MAPAR",
+      "target": "EQUI-MAPAR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ManufacturerSerialNumber",
+      "source": "EQUI-SERGE",
+      "target": "EQUI-SERGE",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ConstructionYear",
+      "source": "EQUI-BAUJJ",
+      "target": "EQUI-BAUJJ",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ConstructionMonth",
+      "source": "EQUI-BAUMM",
+      "target": "EQUI-BAUMM",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "InventoryNumber",
+      "source": "EQUI-INVNR",
+      "target": "EQUI-INVNR",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "OperationStartDate",
+      "source": "EQUI-INBDT",
+      "target": "EQUI-INBDT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "EquipmentSizeDimension",
+      "source": "EQUI-GROES",
+      "target": "EQUI-GROES",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "GrossWeight",
+      "source": "EQUI-BRGEW",
+      "target": "EQUI-BRGEW",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "WeightUnit",
+      "source": "EQUI-GEWEI",
+      "target": "EQUI-GEWEI",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "AcquisitionDate",
+      "source": "EQUI-ANSDT",
+      "target": "EQUI-ANSDT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "AcquisitionValue",
+      "source": "EQUI-ANSWT",
+      "target": "EQUI-ANSWT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "Currency",
+      "source": "EQUI-WAERS",
+      "target": "EQUI-WAERS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "ObjectNumber",
+      "source": "EQUI-OBJNR",
+      "target": "",
+      "rule": "skip:status object number - regenerated on S/4HANA; used to join status, partners and classification",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "IsMarkedForDeletion",
+      "source": "case dlfl.stat when 'I0076' then 'X' else '' end",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "CreationDate",
+      "source": "EQUI-ERDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "CreatedByUser",
+      "source": "EQUI-ERNAM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_Equipment",
+      "element": "LastChangeDate",
+      "source": "EQUI-AEDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_EquipmentText",
+      "element": "Equipment",
+      "source": "EQKT-EQUNR",
+      "target": "EQKT-EQUNR",
+      "rule": "key_map:equipment",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_EquipmentText",
+      "element": "Language",
+      "source": "EQKT-SPRAS",
+      "target": "EQKT-SPRAS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_EquipmentText",
+      "element": "EquipmentName",
+      "source": "EQKT-EQKTX",
+      "target": "EQKT-EQKTX",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_EquipmentText",
+      "element": "HasLongText",
+      "source": "EQKT-KZLTX",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "authorization_group",
+    "business_area",
+    "company_code",
+    "controlling_area",
+    "cost_center",
+    "equipment_category",
+    "location",
+    "planner_group",
+    "plant",
+    "plant_section",
+    "technical_object_type",
+    "unit_of_measure"
+  ],
+  "key_maps": [
+    "equipment",
+    "fixed_asset",
+    "functional_location",
+    "work_center"
+  ],
+  "provides_key_maps": [
+    "equipment"
+  ],
+  "external_key_maps": [
+    "fixed_asset"
+  ],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_EquipmentCount",
+    "target_count_view": "ZEMT_R_EquipmentCount",
+    "dimensions": [
+      {
+        "element": "MaintenancePlanningPlant",
+        "value_map": "plant"
+      },
+      {
+        "element": "EquipmentCategory",
+        "value_map": "equipment_category"
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": {
+      "source_view": "ZEMX_I_Equipment",
+      "target_view": "ZEMT_I_EquipmentCompare",
+      "key": [
+        "Equipment"
+      ],
+      "key_map": "equipment",
+      "fields": [
+        "EquipmentCategory",
+        "TechnicalObjectType",
+        "MaintenancePlanningPlant",
+        "FunctionalLocation",
+        "SuperordinateEquipment",
+        "MaintenancePlant",
+        "CompanyCode",
+        "CostCenter",
+        "Material",
+        "SerialNumber",
+        "ManufacturerSerialNumber",
+        "ConstructionYear",
+        "InventoryNumber"
+      ]
+    }
+  },
+  "gaps": [
+    "TODO-VERIFY[M] XEQ-G01: serial number stock data (EQBS) and material serial profiles are not extracted in the pilot",
+    "TODO-VERIFY[H] XEQ-G02: Material numbers longer than 18 characters on S/4HANA: convert:material_number assumes the material master is migrated first and a material key map exists"
+  ]
+}

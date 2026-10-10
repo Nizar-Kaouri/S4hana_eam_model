@@ -2,8 +2,9 @@
 """Run every offline quality gate for every product (or one product with --only <name>).
 
 Per product: abaplint (with the product's abaplint.json), sync_xml, gen_docs, gen_checklist,
-gen_model_map (--check), validate_repo, todo_verify_report (--check).
-Once: unit tests of the shared build script (tools/tests).
+gen_model_map (--check), validate_repo (validate_bridge for the bridge), todo_verify_report (--check);
+migration-source products also gen_mapping (--check) and validate_mapping.
+Once: unit tests of the shared tools (tools/tests).
 
 abaplint is taken from node_modules/.bin/abaplint (run `npm install` once) or from $ABAPLINT.
 Use --fix to regenerate the generated files instead of only checking them.
@@ -59,6 +60,10 @@ def main():
         lib = json.loads((root / "library.json").read_text(encoding="utf-8"))
         validator = "validate_bridge" if lib.get("kind") == "bridge" else "validate_repo"
         ok &= run([sys.executable, str(REPO / "tools" / f"{validator}.py")], REPO, env, validator)
+        if lib.get("kind") == "migration-source":
+            cmd = [sys.executable, str(REPO / "tools" / "gen_mapping.py")] + ([] if fix else ["--check"])
+            ok &= run(cmd, REPO, env, "gen_mapping" + ("" if fix else " --check"))
+            ok &= run([sys.executable, str(REPO / "tools" / "validate_mapping.py")], REPO, env, "validate_mapping")
         if lint:
             ok &= run(lint, root, env, "abaplint")
         else:
@@ -66,7 +71,7 @@ def main():
             ok = False
     if not only or only == "eam":
         print("shared:")
-        ok &= run([sys.executable, "-m", "unittest", "discover", "-s", "tools/tests"], REPO, dict(os.environ), "build_package unit tests")
+        ok &= run([sys.executable, "-m", "unittest", "discover", "-s", "tools/tests"], REPO, dict(os.environ), "unit tests (tools/tests)")
     print("ALL CHECKS PASSED" if ok else "CHECKS FAILED")
     sys.exit(0 if ok else 1)
 

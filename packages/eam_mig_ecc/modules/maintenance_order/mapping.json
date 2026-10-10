@@ -1,0 +1,645 @@
+{
+  "module": "maintenance_order",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Maintenance order",
+    "todo_verify": [
+      "TODO-VERIFY[H] XOR-M01: Migration Cockpit object for 'Maintenance order' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "equipment",
+    "functional_location",
+    "work_center",
+    "task_list",
+    "maintenance_notification",
+    "maintenance_plan"
+  ],
+  "key": {
+    "business_key": [
+      "MaintenanceOrder"
+    ],
+    "numbering": "new",
+    "note": "Orders get new numbers on S/4HANA unless external numbering is set up; keep the key map 'maintenance_order' (old,new)."
+  },
+  "scope": {
+    "filter": "IsTechnicallyCompleted = '' and IsClosed = '' and IsMarkedForDeletion = ''",
+    "note": "Only open orders are migrated, as released or created orders without actual costs (actual costs, confirmations and goods movements stay in the old system / FI-CO migration)."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenanceOrder",
+      "source": "AUFK-AUFNR",
+      "target": "AUFK-AUFNR",
+      "rule": "key_map:maintenance_order",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenanceOrderType",
+      "source": "AUFK-AUART",
+      "target": "AUFK-AUART",
+      "rule": "value_map:order_type",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenanceOrderDesc",
+      "source": "AUFK-KTEXT",
+      "target": "AUFK-KTEXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenanceActivityType",
+      "source": "AFIH-ILART",
+      "target": "AFIH-ILART",
+      "rule": "value_map:activity_type_pm",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintPriority",
+      "source": "AFIH-PRIOK",
+      "target": "AFIH-PRIOK",
+      "rule": "value_map:priority",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintOrdBasicStartDate",
+      "source": "AFKO-GSTRP",
+      "target": "AFKO-GSTRP",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintOrdBasicEndDate",
+      "source": "AFKO-GLTRP",
+      "target": "AFKO-GLTRP",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenancePlanningPlant",
+      "source": "AFIH-IWERK",
+      "target": "AFIH-IWERK",
+      "rule": "value_map:plant",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenancePlannerGroup",
+      "source": "AFIH-INGPR",
+      "target": "AFIH-INGPR",
+      "rule": "value_map:planner_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MainWorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "AFIH-GEWRK (via work center)",
+      "rule": "key_map:work_center",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MainWorkCenterPlant",
+      "source": "CRHD-WERKS",
+      "target": "AFIH-GEWRK (via work center)",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenancePlant",
+      "source": "ILOA-SWERK",
+      "target": "ILOA-SWERK",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "CompanyCode",
+      "source": "AUFK-BUKRS",
+      "target": "AUFK-BUKRS",
+      "rule": "value_map:company_code",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "BusinessArea",
+      "source": "AUFK-GSBER",
+      "target": "AUFK-GSBER",
+      "rule": "value_map:business_area",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "ControllingArea",
+      "source": "AUFK-KOKRS",
+      "target": "AUFK-KOKRS",
+      "rule": "value_map:controlling_area",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "ResponsibleCostCenter",
+      "source": "AUFK-KOSTV",
+      "target": "AUFK-KOSTV",
+      "rule": "value_map:cost_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "CostCenter",
+      "source": "ILOA-KOSTL",
+      "target": "ILOA-KOSTL",
+      "rule": "value_map:cost_center",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenanceNotification",
+      "source": "AFIH-QMNUM",
+      "target": "AFIH-QMNUM",
+      "rule": "key_map:maintenance_notification",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "Equipment",
+      "source": "AFIH-EQUNR",
+      "target": "AFIH-EQUNR",
+      "rule": "key_map:equipment",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "FunctionalLocation",
+      "source": "ILOA-TPLNR",
+      "target": "ILOA-TPLNR",
+      "rule": "key_map:functional_location",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenancePlan",
+      "source": "AFIH-WARPL",
+      "target": "AFIH-WARPL",
+      "rule": "key_map:maintenance_plan",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintenanceItem",
+      "source": "AFIH-WAPOS",
+      "target": "AFIH-WAPOS",
+      "rule": "key_map:maintenance_item",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "MaintObjectSystemCondition",
+      "source": "AFIH-ANLZU",
+      "target": "AFIH-ANLZU",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "OrderRoutingNumber",
+      "source": "AFKO-AUFPL",
+      "target": "",
+      "rule": "skip:internal routing number - regenerated on S/4HANA; joins operations and components",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "TaskListType",
+      "source": "AFKO-PLNTY",
+      "target": "AFKO-PLNTY",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "TaskListGroup",
+      "source": "AFKO-PLNNR",
+      "target": "AFKO-PLNNR",
+      "rule": "key_map:task_list_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "TaskListGroupCounter",
+      "source": "AFKO-PLNAL",
+      "target": "AFKO-PLNAL",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "Currency",
+      "source": "AUFK-WAERS",
+      "target": "AUFK-WAERS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "ObjectNumber",
+      "source": "AUFK-OBJNR",
+      "target": "",
+      "rule": "skip:status object number - regenerated on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "IsTechnicallyCompleted",
+      "source": "case teco.stat when 'I0045' then 'X' else '' end",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "IsClosed",
+      "source": "case clsd.stat when 'I0046' then 'X' else '' end",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "IsMarkedForDeletion",
+      "source": "case dlfl.stat when 'I0076' then 'X' else '' end",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "CreationDate",
+      "source": "AUFK-ERDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "CreatedByUser",
+      "source": "AUFK-ERNAM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrder",
+      "element": "LastChangeDate",
+      "source": "AUFK-AEDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "MaintenanceOrder",
+      "source": "AFKO-AUFNR",
+      "target": "AFKO-AUFNR",
+      "rule": "key_map:maintenance_order",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "OrderOperationInternalID",
+      "source": "AFVC-APLZL",
+      "target": "",
+      "rule": "skip:internal counter - regenerated on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "OrderRoutingNumber",
+      "source": "AFVC-AUFPL",
+      "target": "",
+      "rule": "skip:internal routing number",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "MaintenanceOrderOperation",
+      "source": "AFVC-VORNR",
+      "target": "AFVC-VORNR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "MaintenanceOrderSubOperation",
+      "source": "AFVC-UVORN",
+      "target": "AFVC-UVORN",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "OperationDescription",
+      "source": "AFVC-LTXA1",
+      "target": "AFVC-LTXA1",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "OperationControlKey",
+      "source": "AFVC-STEUS",
+      "target": "AFVC-STEUS",
+      "rule": "value_map:control_key",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "WorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "AFVC-ARBID (via work center)",
+      "rule": "key_map:work_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "WorkCenterPlant",
+      "source": "CRHD-WERKS",
+      "target": "AFVC-ARBID (via work center)",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "Plant",
+      "source": "AFVC-WERKS",
+      "target": "AFVC-WERKS",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "ActivityType",
+      "source": "AFVC-LARNT",
+      "target": "AFVC-LARNT",
+      "rule": "value_map:activity_type",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "PlannedWorkQuantity",
+      "source": "AFVV-ARBEI",
+      "target": "AFVV-ARBEI",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "PlannedWorkQuantityUnit",
+      "source": "AFVV-ARBEH",
+      "target": "AFVV-ARBEH",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "OperationDuration",
+      "source": "AFVV-DAUNO",
+      "target": "AFVV-DAUNO",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "OperationDurationUnit",
+      "source": "AFVV-DAUNE",
+      "target": "AFVV-DAUNE",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderOperation",
+      "element": "ObjectNumber",
+      "source": "AFVC-OBJNR",
+      "target": "",
+      "rule": "skip:status object number - regenerated on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "Reservation",
+      "source": "RESB-RSNUM",
+      "target": "",
+      "rule": "skip:new reservation numbers on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "ReservationItem",
+      "source": "RESB-RSPOS",
+      "target": "",
+      "rule": "skip:new reservation numbers on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "ReservationRecordType",
+      "source": "RESB-RSART",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "MaintenanceOrder",
+      "source": "RESB-AUFNR",
+      "target": "RESB-AUFNR",
+      "rule": "key_map:maintenance_order",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "OrderRoutingNumber",
+      "source": "RESB-AUFPL",
+      "target": "",
+      "rule": "skip:internal routing number",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "OrderOperationInternalID",
+      "source": "RESB-APLZL",
+      "target": "RESB-APLZL",
+      "rule": "derive:operation number via ZEMX_I_MaintOrderOperation",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "BOMItemNumber",
+      "source": "RESB-POSNR",
+      "target": "RESB-POSNR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "BOMItemCategory",
+      "source": "RESB-POSTP",
+      "target": "RESB-POSTP",
+      "rule": "value_map:item_category",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "Material",
+      "source": "RESB-MATNR",
+      "target": "RESB-MATNR",
+      "rule": "convert:material_number",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "Plant",
+      "source": "RESB-WERKS",
+      "target": "RESB-WERKS",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "StorageLocation",
+      "source": "RESB-LGORT",
+      "target": "RESB-LGORT",
+      "rule": "value_map:storage_location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "MatlCompRequirementDate",
+      "source": "RESB-BDTER",
+      "target": "RESB-BDTER",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "RequirementQuantityInBaseUnit",
+      "source": "RESB-BDMNG",
+      "target": "RESB-BDMNG",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "WithdrawnQuantity",
+      "source": "RESB-ENMNG",
+      "target": "RESB-ENMNG",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "BaseUnit",
+      "source": "RESB-MEINS",
+      "target": "RESB-MEINS",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "IsMarkedForDeletion",
+      "source": "RESB-XLOEK",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MaintOrderComponent",
+      "element": "IsFinalIssue",
+      "source": "RESB-KZEAR",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "activity_type",
+    "activity_type_pm",
+    "business_area",
+    "company_code",
+    "control_key",
+    "controlling_area",
+    "cost_center",
+    "item_category",
+    "order_type",
+    "planner_group",
+    "plant",
+    "priority",
+    "storage_location",
+    "unit_of_measure"
+  ],
+  "key_maps": [
+    "equipment",
+    "functional_location",
+    "maintenance_item",
+    "maintenance_notification",
+    "maintenance_order",
+    "maintenance_plan",
+    "task_list_group",
+    "work_center"
+  ],
+  "provides_key_maps": [
+    "maintenance_order"
+  ],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_MaintOrderCount",
+    "target_count_view": "ZEMT_R_MaintOrderCount",
+    "dimensions": [
+      {
+        "element": "MaintenanceOrderType",
+        "value_map": "order_type"
+      },
+      {
+        "element": "MaintenancePlanningPlant",
+        "value_map": "plant"
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": {
+      "source_view": "ZEMX_I_MaintOrder",
+      "target_view": "ZEMT_I_MaintOrderCompare",
+      "key": [
+        "MaintenanceOrder"
+      ],
+      "key_map": "maintenance_order",
+      "fields": [
+        "MaintenanceOrderType",
+        "MaintenanceActivityType",
+        "MaintPriority",
+        "MaintOrdBasicStartDate",
+        "MaintOrdBasicEndDate",
+        "MaintenancePlanningPlant",
+        "MainWorkCenter",
+        "CostCenter",
+        "Equipment",
+        "FunctionalLocation"
+      ]
+    }
+  },
+  "gaps": [
+    "TODO-VERIFY[H] XOR-G01: settlement rules (COBRA/COBRB), partner and permit data are not extracted in the pilot",
+    "TODO-VERIFY[H] XOR-G02: open orders with partial confirmations or goods issues need a cut-off decision (complete in ECC or migrate remaining work only)"
+  ]
+}

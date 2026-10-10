@@ -50,7 +50,7 @@ def batch_map():
 def collect():
     batches = batch_map()
     items = []
-    for base in (ROOT / "src", ROOT / "tests", vdm_paths.TOOLS):
+    for base in (ROOT / "src", ROOT / "tests", ROOT / "modules", vdm_paths.TOOLS):
         for path in sorted(base.rglob("*")):
             if not path.is_file() or path.suffix == ".pyc" or path.name in ("todo_verify_report.py", "validate_repo.py"):
                 continue

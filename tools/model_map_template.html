@@ -138,9 +138,9 @@ svg text { font-family: var(--font-mono); }
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">SAP S/4HANA 2025 · __AREA__ · CDS virtual data model</div>
+    <div class="eyebrow">__RELEASE__ · __AREA__ · CDS virtual data model</div>
     <h1>__TITLE__</h1>
-    <p class="lede">Every CDS entity in the library and every SAP released view it builds on, generated from the repository sources.
+    <p class="lede">Every CDS entity in the library and every SAP view or table it builds on, generated from the repository sources.
       Data flows left to right: SAP released views feed the basic layer (<span class="mono">__PREFIX__I_</span>), which feeds cubes
       (<span class="mono">__PREFIX__R_</span>) and analytical queries (<span class="mono">__PREFIX__C_…Q</span>).</p>
     <div class="status">draft-unverified · nothing has been activated on an SAP system</div>
@@ -222,7 +222,7 @@ const statItems = [
   [D.modules.length, "modules"],
   [zeam.length, "CDS entities"],
   [zeam.filter(n => n.link).length, "link views"],
-  [sapNodes.length, "SAP released views"],
+  [sapNodes.length, D.meta.ext_title],
   [zeam.filter(n => n.kind === "cube").length, "cubes"],
   [zeam.filter(n => n.kind === "query").length, "queries"],
   [zeam.reduce((s, n) => s + n.risk.H, 0), "HIGH-risk items in these entities"],
@@ -318,7 +318,7 @@ document.getElementById("stats").innerHTML = statItems.map(([v, l]) => `<li><b>$
 
 /* ---------- entity map ---------- */
 const COLS = ["sap", "basic", "composite", "consumption"];
-const COL_HEAD = { sap: [D.meta.ext_title, D.meta.ext_title === "SAP released views" ? "I_* (consumed, never copied)" : "other products (not shipped here)"], basic: ["Basic", D.meta.prefix + "I_*"], composite: ["Composite", D.meta.prefix + "R_* (cubes)"], consumption: ["Consumption", D.meta.prefix + "C_*Q (queries)"] };
+const COL_HEAD = { sap: [D.meta.ext_title, D.meta.ext_sub || (D.meta.ext_title === "SAP released views" ? "I_* (consumed, never copied)" : "other products (not shipped here)")], basic: ["Basic", D.meta.prefix + "I_*"], composite: ["Composite", D.meta.prefix + "R_* (cubes)"], consumption: ["Consumption", D.meta.prefix + "C_*Q (queries)"] };
 const KIND_ORDER = ["text", "dimension", "view", "value help", "hierarchy", "cube", "query", "SAP view", "product view"];
 const TAG = { text: "TXT", dimension: "DIM", view: "VIEW", "value help": "VH", hierarchy: "HIER", cube: "CUBE", query: "Q", "SAP view": "SAP", "product view": "EXT" };
 const G = { left: 176, colW: 228, colGap: 92, nodeH: 24, rowGap: 8, bandPad: 14, top: 58 };

@@ -1,10 +1,37 @@
 # Product checklist
 
-Which SAP S/4HANA areas can get a CDS VDM package built like the EAM package, and where each one stands.
+## Direction: migration models (ECC → S/4HANA)
+
+The packages are sold as **migration models** for moving data from an old SAP ERP (ECC 6.0) system to
+SAP S/4HANA: ECC extraction views + mapping model + S/4HANA reconciliation (see `README.md`). Agreed
+assumptions: source ECC 6.0 on NetWeaver 7.40 SP08 or higher (classic CDS); load with the SAP S/4HANA
+Migration Cockpit; EAM first, then the other areas with the same pattern.
+
+| Step | EAM migration (pilot) |
+|---|---|
+| ECC extraction views drafted (`packages/eam_mig_ecc`, 13 objects, 44 views) | [x] |
+| Mapping model drafted (13 mapping files, load sequence, value / key map templates) | [x] |
+| S/4HANA reconciliation views drafted (`packages/eam_mig_s4`, 8 objects, 16 views) | [x] |
+| Reconcile tool with unit tests (`tools/mig_reconcile.py`) | [x] |
+| Offline checks clean (`tools/check_all.py`) | [x] |
+| Migration Cockpit objects and structure fields confirmed (`M01` items) | [ ] |
+| Gaps closed: long text content (READ_TEXT extractor), capacities, task list components, notification causes / tasks / activities, settlement rules | [ ] |
+| Activated on an ECC test system and on S/4HANA 2025 | [ ] |
+| Test migration with reconciliation report | [ ] |
+| Ready to sell | [ ] |
+
+Next migration areas (same pattern, source tables on ECC, reconciliation on the released views already
+identified below): FI-AA, MM (material master, stock), CO / FI master data, QM, PS, PP, SD. Open items for
+data that the Migration Cockpit migrates from other areas but EAM needs (material master, fixed assets,
+business partners) are handled through key maps marked as external.
+
+## Analytics add-on (S/4HANA)
+
+Which SAP S/4HANA areas can get an analytics CDS VDM package built like the EAM package, and where each one stands.
 One product = one folder under `packages/` with its own prefix, ABAP package, modules and reports.
 
-> **No product has been activated or tested.** All nine products are drafted (`draft-unverified`).
-> Link views inside the new products and across products are not built yet (planned for the end). SAP view names in the "candidate SAP views" column are **unverified candidates**
+> **No product has been activated or tested.** All nine analytics products are drafted (`draft-unverified`),
+> including intra-product and cross-product link views. SAP view names in the "candidate SAP views" column are **unverified candidates**
 > from memory. Confirming them on an S/4HANA 2025 system is the first task for every product.
 
 ## How feasibility was rated

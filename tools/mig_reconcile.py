@@ -1,0 +1,260 @@
+#!/usr/bin/env python3
+"""Reconcile a migration: compare exports of the ECC source views with exports of the S/4HANA views.
+
+Two checks, both driven by modules/<module>/mapping.json of the migration-source product:
+
+  counts   ECC count view vs S/4HANA count view. The source dimensions are translated with the value maps
+           named in reconciliation.dimensions, then the counts are compared per dimension combination.
+  records  ECC extract (basic view) vs S/4HANA compare view, record by record on the business key (translated
+           with the key map) and field by field for the compared fields (translated with each field's value /
+           key map). Reports records missing on S/4HANA, extra records on S/4HANA and field differences.
+
+Maps are CSV files in a folder (--maps): value_map_<name>.csv / key_map_<name>.csv with the columns
+source,target[,comment] - the templates come from docs/mapping/templates/. A value without an entry stays as
+it is. Exports are CSV files with a header row of element names (comma or semicolon separated).
+
+  python3 tools/mig_reconcile.py counts  --module equipment --source ecc_counts.csv --target s4_counts.csv --maps maps/
+  python3 tools/mig_reconcile.py records --module equipment --source ecc_extract.csv --target s4_compare.csv \
+          --maps maps/ [--apply-scope] [--strip-zeros] [--out report.md]
+
+Exit code: 0 = no differences, 1 = differences found, 2 = usage / input error.
+"""
+import argparse
+import csv
+import json
+import re
+import sys
+from collections import Counter
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+DEFAULT_PRODUCT = "eam_mig_ecc"
+MAX_EXAMPLES = 20
+
+
+class InputError(Exception):
+    pass
+
+
+def load_mapping(product, module):
+    p = REPO / "packages" / product / "modules" / module / "mapping.json"
+    if not p.exists():
+        raise InputError(f"no mapping for {product}:{module} ({p})")
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def read_csv(path):
+    path = Path(path)
+    if not path.exists():
+        raise InputError(f"file not found: {path}")
+    text = path.read_text(encoding="utf-8-sig")
+    try:
+        dialect = csv.Sniffer().sniff(text.splitlines()[0] if text else ",", delimiters=",;\t")
+    except csv.Error:
+        dialect = csv.excel
+    rows = list(csv.DictReader(text.splitlines(), dialect=dialect))
+    return [{(k or "").strip(): (v or "").strip() for k, v in r.items()} for r in rows]
+
+
+class Maps:
+    def __init__(self, folder):
+        self.folder = Path(folder) if folder else None
+        self.cache = {}
+
+    def get(self, kind, name):
+        key = (kind, name)
+        if key not in self.cache:
+            table = {}
+            f = self.folder / f"{kind}_{name}.csv" if self.folder else None
+            if f and f.exists():
+                for r in read_csv(f):
+                    if "source" not in r or "target" not in r:
+                        raise InputError(f"{f}: columns source,target expected")
+                    if r["source"] in table and table[r["source"]] != r["target"]:
+                        raise InputError(f"{f}: source value '{r['source']}' mapped twice")
+                    table[r["source"]] = r["target"]
+            self.cache[key] = table
+        return self.cache[key]
+
+    def apply(self, rule, value):
+        kind, _, arg = (rule or "").partition(":")
+        if kind not in ("value_map", "key_map") or not arg:
+            return value
+        for name in arg.split("|"):
+            table = self.get(kind, name)
+            if value in table:
+                return table[value]
+        return value
+
+
+def normalize(value, strip_zeros):
+    value = (value or "").strip()
+    if strip_zeros and value.isdigit():
+        value = value.lstrip("0") or "0"
+    return value
+
+
+def require(rows, columns, label):
+    if rows and (missing := [c for c in columns if c not in rows[0]]):
+        raise InputError(f"{label}: columns missing: {', '.join(missing)}")
+
+
+SCOPE_RE = re.compile(r"^\s*(\w+)\s*=\s*'([^']*)'\s*$")
+
+
+def scope_filter(expr):
+    """'A = '' and B = 'X'' -> predicate; None if the expression is not a simple AND of equalities."""
+    conds = []
+    for part in re.split(r"\s+and\s+", expr.strip(), flags=re.IGNORECASE):
+        m = SCOPE_RE.match(part)
+        if not m:
+            return None
+        conds.append((m.group(1), m.group(2)))
+    return lambda r: all(r.get(c, "") == v for c, v in conds)
+
+
+# ----------------------------------------------------------------------------- counts
+
+def counts(mapping, source_rows, target_rows, maps, strip_zeros=False):
+    rec = mapping["reconciliation"]
+    dims = [d["element"] for d in rec["dimensions"]]
+    measure = rec.get("measure", "RecordCount")
+    require(source_rows, dims + [measure], "source")
+    require(target_rows, dims + [measure], "target")
+
+    def total(rows, translate):
+        acc = Counter()
+        for r in rows:
+            key = tuple(normalize(maps.apply(f"value_map:{d['value_map']}" if translate and d.get("value_map") else "",
+                                             r[d["element"]]), strip_zeros) for d in rec["dimensions"])
+            try:
+                acc[key] += int(float(r[measure] or 0))
+            except ValueError as exc:
+                raise InputError(f"{measure} is not a number: {r[measure]!r}") from exc
+        return acc
+
+    src, tgt = total(source_rows, True), total(target_rows, False)
+    diffs = [(k, src.get(k, 0), tgt.get(k, 0)) for k in sorted(set(src) | set(tgt)) if src.get(k, 0) != tgt.get(k, 0)]
+    return {"dimensions": dims, "source_total": sum(src.values()), "target_total": sum(tgt.values()), "differences": diffs}
+
+
+def counts_report(module, res):
+    ok = not res["differences"]
+    lines = [f"# Count reconciliation: {module}", "",
+             f"- Source (ECC) total: **{res['source_total']}**", f"- Target (S/4HANA) total: **{res['target_total']}**",
+             f"- Result: **{'OK - all counts match' if ok else str(len(res['differences'])) + ' difference(s)'}**", ""]
+    if not ok:
+        lines += ["| " + " | ".join(res["dimensions"]) + " | ECC | S/4HANA | Difference |",
+                  "|" + "---|" * (len(res["dimensions"]) + 3)]
+        for key, s, t in res["differences"]:
+            lines.append("| " + " | ".join(k or "(empty)" for k in key) + f" | {s} | {t} | {t - s:+d} |")
+    return "\n".join(lines) + "\n"
+
+
+# ----------------------------------------------------------------------------- records
+
+def records(mapping, source_rows, target_rows, maps, apply_scope=False, strip_zeros=False):
+    cmp_ = mapping["reconciliation"].get("compare")
+    if not cmp_:
+        raise InputError(f"module {mapping['module']} has no record comparison in its mapping")
+    rules = {f["element"]: f["rule"] for f in mapping["fields"] if f["view"] == cmp_["source_view"]}
+    keys, fields = cmp_["key"], cmp_["fields"]
+    require(source_rows, keys + fields, "source")
+    require(target_rows, keys + fields, "target")
+    notes = []
+    if apply_scope:
+        pred = scope_filter(mapping["scope"]["filter"])
+        if pred is None:
+            notes.append(f"scope filter not applied (not a simple condition): {mapping['scope']['filter']}")
+        else:
+            before = len(source_rows)
+            source_rows = [r for r in source_rows if pred(r)]
+            notes.append(f"scope filter `{mapping['scope']['filter']}` kept {len(source_rows)} of {before} source rows")
+
+    def index(rows, translate, label):
+        out, dupes = {}, 0
+        for r in rows:
+            k = tuple(normalize(maps.apply(rules.get(e) if translate else "", r[e]), strip_zeros) for e in keys)
+            if k in out:
+                dupes += 1
+            out[k] = r
+        if dupes:
+            notes.append(f"{label}: {dupes} duplicate key(s) - the last row wins")
+        return out
+
+    src, tgt = index(source_rows, True, "source"), index(target_rows, False, "target")
+    missing = sorted(set(src) - set(tgt))
+    extra = sorted(set(tgt) - set(src))
+    mismatches = {f: [] for f in fields}
+    for k in sorted(set(src) & set(tgt)):
+        for f in fields:
+            s = normalize(maps.apply(rules.get(f), src[k][f]), strip_zeros)
+            t = normalize(tgt[k][f], strip_zeros)
+            if s != t:
+                mismatches[f].append((k, s, t))
+    return {"key": keys, "source_records": len(src), "target_records": len(tgt), "matched": len(set(src) & set(tgt)),
+            "missing": missing, "extra": extra, "mismatches": {f: v for f, v in mismatches.items() if v}, "notes": notes}
+
+
+def records_report(module, res):
+    n_mis = sum(len(v) for v in res["mismatches"].values())
+    ok = not (res["missing"] or res["extra"] or n_mis)
+    key = " / ".join(res["key"])
+    lines = [f"# Record reconciliation: {module}", "",
+             f"- Records ECC: **{res['source_records']}** · S/4HANA: **{res['target_records']}** · matched: **{res['matched']}**",
+             f"- Missing on S/4HANA: **{len(res['missing'])}** · only on S/4HANA: **{len(res['extra'])}** · field differences: **{n_mis}**",
+             f"- Result: **{'OK - complete and equal' if ok else 'DIFFERENCES FOUND'}**", ""]
+    lines += [f"> {n}" for n in res["notes"]] + ([""] if res["notes"] else [])
+    for title, items in (("Missing on S/4HANA", res["missing"]), ("Only on S/4HANA", res["extra"])):
+        if items:
+            lines += [f"## {title} ({len(items)})", "", f"| {key} |", "|---|"]
+            lines += [f"| {' / '.join(k)} |" for k in items[:MAX_EXAMPLES]]
+            if len(items) > MAX_EXAMPLES:
+                lines.append(f"| ... {len(items) - MAX_EXAMPLES} more |")
+            lines.append("")
+    if res["mismatches"]:
+        lines += ["## Field differences", "", "| Field | Count |", "|---|---|"]
+        lines += [f"| {f} | {len(v)} |" for f, v in res["mismatches"].items()] + [""]
+        for f, v in res["mismatches"].items():
+            lines += [f"### {f}", "", f"| {key} | ECC (mapped) | S/4HANA |", "|---|---|---|"]
+            lines += [f"| {' / '.join(k)} | {s or '(empty)'} | {t or '(empty)'} |" for k, s, t in v[:MAX_EXAMPLES]]
+            if len(v) > MAX_EXAMPLES:
+                lines.append(f"| ... {len(v) - MAX_EXAMPLES} more | | |")
+            lines.append("")
+    return "\n".join(lines).rstrip() + "\n", ok
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap.add_argument("check", choices=["counts", "records"])
+    ap.add_argument("--module", required=True)
+    ap.add_argument("--product", default=DEFAULT_PRODUCT, help=f"migration-source product (default {DEFAULT_PRODUCT})")
+    ap.add_argument("--source", required=True, help="CSV export of the ECC view")
+    ap.add_argument("--target", required=True, help="CSV export of the S/4HANA view")
+    ap.add_argument("--maps", help="folder with value_map_*.csv / key_map_*.csv")
+    ap.add_argument("--apply-scope", action="store_true", help="records: apply the mapping's scope filter to the source")
+    ap.add_argument("--strip-zeros", action="store_true", help="ignore leading zeros of numeric values (external formats)")
+    ap.add_argument("--out", help="write the Markdown report to this file (default: stdout)")
+    args = ap.parse_args(argv)
+    try:
+        mapping = load_mapping(args.product, args.module)
+        maps = Maps(args.maps)
+        src, tgt = read_csv(args.source), read_csv(args.target)
+        if args.check == "counts":
+            res = counts(mapping, src, tgt, maps, args.strip_zeros)
+            report, ok = counts_report(args.module, res), not res["differences"]
+        else:
+            report, ok = records_report(args.module, records(mapping, src, tgt, maps, args.apply_scope, args.strip_zeros))
+    except InputError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 2
+    if args.out:
+        Path(args.out).write_text(report, encoding="utf-8")
+        print(f"{'OK' if ok else 'DIFFERENCES'} - report written to {args.out}")
+    else:
+        print(report, end="")
+    return 0 if ok else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

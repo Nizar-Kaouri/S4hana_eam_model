@@ -21,7 +21,8 @@ sys.path.insert(0, str(vdm_paths.REPO))
 import build_package as bp  # noqa: E402
 
 DOCS = ROOT / "docs" / "views"
-STATUS = ("> Status: **draft-unverified** · tested release: none (draft, 2025 assumed). "
+STATUS = ("> Status: **draft-unverified** · tested release: "
+          + bp.load_library().get("draft_tested_release", "none (draft, 2025 assumed)") + ". "
           "Nothing below has been activated on a system.")
 MARKER_RE = re.compile(r"TODO-VERIFY\[[HML]\]\s+([A-Z]+-[A-Z0-9]+):")
 REF_RE = re.compile(r"\b([A-Z]{2,4}-[A-Z]?[0-9]{2,3})\b")

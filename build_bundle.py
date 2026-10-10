@@ -41,7 +41,7 @@ def parse_selection(args, cat):
     sel = {}
     if args.all:
         for p in cat.values():
-            if not p.is_bridge:
+            if not p.is_bridge and p.lib.get("system", "s4") == "s4":  # --all = every S/4HANA product
                 sel[p.name] = set(p.modules)
     for pn in args.product_all or []:
         if pn not in cat or cat[pn].is_bridge:
@@ -56,6 +56,10 @@ def parse_selection(args, cat):
         sel.setdefault(pn, set()).add(mn)
     if not sel:
         raise BundleError("nothing selected (use product:module, --product-all <product> or --all)")
+    systems = {cat[pn].lib.get("system", "s4") for pn in sel}
+    if len(systems) > 1:
+        raise BundleError("a bundle installs on one system; selected products target " + ", ".join(sorted(systems))
+                          + " (build the ECC migration extract separately)")
     return sel
 
 

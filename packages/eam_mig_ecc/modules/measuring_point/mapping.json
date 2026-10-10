@@ -1,0 +1,233 @@
+{
+  "module": "measuring_point",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Measuring point",
+    "todo_verify": [
+      "TODO-VERIFY[H] XMP-M01: Migration Cockpit object for 'Measuring point' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "equipment",
+    "functional_location"
+  ],
+  "key": {
+    "business_key": [
+      "MeasuringPoint"
+    ],
+    "numbering": "new",
+    "note": "Measuring point numbers are usually assigned internally on S/4HANA: keep the key map 'measuring_point' (old,new) from the load log; maintenance plan cycles and measurement documents use it."
+  },
+  "scope": {
+    "filter": "IsMarkedForDeletion = ''",
+    "note": "Measuring points flagged for deletion are not migrated."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasuringPoint",
+      "source": "IMPTT-POINT",
+      "target": "IMPTT-POINT",
+      "rule": "key_map:measuring_point",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasuringPointDescription",
+      "source": "IMPTT-PTTXT",
+      "target": "IMPTT-PTTXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasuringPointCategory",
+      "source": "IMPTT-MPTYP",
+      "target": "IMPTT-MPTYP",
+      "rule": "value_map:measuring_point_category",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasuringPointPositionNumber",
+      "source": "IMPTT-PSORT",
+      "target": "IMPTT-PSORT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasuringPointObjectType",
+      "source": "substring( imptt.mpobj, 1, 2 )",
+      "target": "",
+      "rule": "derive:IE = equipment, IF = functional location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "TechnicalObjectKey",
+      "source": "substring( imptt.mpobj, 3, 30 )",
+      "target": "IMPTT-MPOBJ (rebuilt from the new key)",
+      "rule": "key_map:equipment|functional_location",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "Characteristic",
+      "source": "CABN-ATNAM",
+      "target": "IMPTT-ATINN (via characteristic name)",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasuringPointIsCounter",
+      "source": "IMPTT-INDCT",
+      "target": "IMPTT-INDCT",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasuringPointDecimalPlaces",
+      "source": "IMPTT-DECIM",
+      "target": "IMPTT-DECIM",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasurementRangeUnit",
+      "source": "IMPTT-MRNGU",
+      "target": "IMPTT-MRNGU",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "LowerRangeLimit",
+      "source": "IMPTT-MRMIN",
+      "target": "IMPTT-MRMIN",
+      "rule": "convert:float_si_to_unit",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "UpperRangeLimit",
+      "source": "IMPTT-MRMAX",
+      "target": "IMPTT-MRMAX",
+      "rule": "convert:float_si_to_unit",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "TargetValue",
+      "source": "IMPTT-DESIR",
+      "target": "IMPTT-DESIR",
+      "rule": "convert:float_si_to_unit",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "CodeGroup",
+      "source": "IMPTT-CODGR",
+      "target": "IMPTT-CODGR",
+      "rule": "value_map:code_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "MeasuringPointIsInactive",
+      "source": "IMPTT-INACT",
+      "target": "IMPTT-INACT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "AuthorizationGroup",
+      "source": "IMPTT-BEGRU",
+      "target": "IMPTT-BEGRU",
+      "rule": "value_map:authorization_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "IsMarkedForDeletion",
+      "source": "IMPTT-LVORM",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "CreationDate",
+      "source": "IMPTT-ERDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "CreatedByUser",
+      "source": "IMPTT-ERNAM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_MeasuringPoint",
+      "element": "LastChangeDate",
+      "source": "IMPTT-AEDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "authorization_group",
+    "code_group",
+    "measuring_point_category",
+    "unit_of_measure"
+  ],
+  "key_maps": [
+    "equipment",
+    "functional_location",
+    "measuring_point"
+  ],
+  "provides_key_maps": [
+    "measuring_point"
+  ],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_MeasPointCount",
+    "target_count_view": "ZEMT_R_MeasPointCount",
+    "dimensions": [
+      {
+        "element": "MeasuringPointCategory",
+        "value_map": "measuring_point_category"
+      },
+      {
+        "element": "MeasuringPointIsCounter",
+        "value_map": null
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": {
+      "source_view": "ZEMX_I_MeasuringPoint",
+      "target_view": "ZEMT_I_MeasPointCompare",
+      "key": [
+        "MeasuringPoint"
+      ],
+      "key_map": "measuring_point",
+      "fields": [
+        "MeasuringPointCategory",
+        "MeasuringPointIsCounter"
+      ]
+    }
+  },
+  "gaps": [
+    "TODO-VERIFY[M] XMP-G01: characteristics (CABN) must exist on S/4HANA with the same name and unit before the load"
+  ]
+}

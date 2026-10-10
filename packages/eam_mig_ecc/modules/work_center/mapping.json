@@ -1,0 +1,272 @@
+{
+  "module": "work_center",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Work center",
+    "todo_verify": [
+      "TODO-VERIFY[H] XWC-M01: Migration Cockpit object for 'Work center' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "WorkCenter",
+      "Plant"
+    ],
+    "numbering": "keep",
+    "note": "Work center names are external keys; keep them unless plants are renamed (value map 'plant')."
+  },
+  "scope": {
+    "filter": "IsMarkedForDeletion = ''",
+    "note": "Work centers flagged for deletion are not migrated."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "WorkCenterInternalID",
+      "source": "CRHD-OBJID",
+      "target": "",
+      "rule": "skip:internal object ID - regenerated on S/4HANA; the business key is WorkCenter + Plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "WorkCenterTypeCode",
+      "source": "CRHD-OBJTY",
+      "target": "CRHD-OBJTY",
+      "rule": "constant:A",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "WorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "CRHD-ARBPL",
+      "rule": "key_map:work_center",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "Plant",
+      "source": "CRHD-WERKS",
+      "target": "CRHD-WERKS",
+      "rule": "value_map:plant",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "WorkCenterCategoryCode",
+      "source": "CRHD-VERWE",
+      "target": "CRHD-VERWE",
+      "rule": "value_map:work_center_category",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "WorkCenterResponsible",
+      "source": "CRHD-VERAN",
+      "target": "CRHD-VERAN",
+      "rule": "value_map:work_center_responsible",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "TaskListUsage",
+      "source": "CRHD-PLANV",
+      "target": "CRHD-PLANV",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "ValidityStartDate",
+      "source": "CRHD-BEGDA",
+      "target": "CRHD-BEGDA",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "ValidityEndDate",
+      "source": "CRHD-ENDDA",
+      "target": "CRHD-ENDDA",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "IsMarkedForDeletion",
+      "source": "CRHD-LVORM",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "LastChangeDate",
+      "source": "CRHD-AEDAT_GRND",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterText",
+      "element": "WorkCenterInternalID",
+      "source": "CRTX-OBJID",
+      "target": "",
+      "rule": "skip:internal object ID",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterText",
+      "element": "Language",
+      "source": "CRTX-SPRAS",
+      "target": "CRTX-SPRAS",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterText",
+      "element": "WorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "CRHD-ARBPL",
+      "rule": "key_map:work_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterText",
+      "element": "Plant",
+      "source": "CRHD-WERKS",
+      "target": "CRHD-WERKS",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterText",
+      "element": "WorkCenterText",
+      "source": "CRTX-KTEXT",
+      "target": "CRTX-KTEXT",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "WorkCenterInternalID",
+      "source": "CRCO-OBJID",
+      "target": "",
+      "rule": "skip:internal object ID",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "ActivityTypeSet",
+      "source": "CRCO-LASET",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "ValidityEndDate",
+      "source": "CRCO-ENDDA",
+      "target": "CRCO-ENDDA",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "CostCenterAssgmtCounter",
+      "source": "CRCO-LANUM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "WorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "CRHD-ARBPL",
+      "rule": "key_map:work_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "Plant",
+      "source": "CRHD-WERKS",
+      "target": "CRHD-WERKS",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "ValidityStartDate",
+      "source": "CRCO-BEGDA",
+      "target": "CRCO-BEGDA",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "ControllingArea",
+      "source": "CRCO-KOKRS",
+      "target": "CRCO-KOKRS",
+      "rule": "value_map:controlling_area",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_WorkCenterCostCtr",
+      "element": "CostCenter",
+      "source": "CRCO-KOSTL",
+      "target": "CRCO-KOSTL",
+      "rule": "value_map:cost_center",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "controlling_area",
+    "cost_center",
+    "plant",
+    "work_center_category",
+    "work_center_responsible"
+  ],
+  "key_maps": [
+    "work_center"
+  ],
+  "provides_key_maps": [
+    "work_center"
+  ],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_WorkCenterCount",
+    "target_count_view": "ZEMT_R_WorkCenterCount",
+    "dimensions": [
+      {
+        "element": "Plant",
+        "value_map": "plant"
+      },
+      {
+        "element": "WorkCenterCategoryCode",
+        "value_map": "work_center_category"
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": {
+      "source_view": "ZEMX_I_WorkCenter",
+      "target_view": "ZEMT_I_WorkCenterCompare",
+      "key": [
+        "WorkCenter",
+        "Plant"
+      ],
+      "key_map": "work_center",
+      "fields": [
+        "WorkCenterCategoryCode",
+        "WorkCenterResponsible",
+        "ValidityStartDate"
+      ]
+    }
+  },
+  "gaps": [
+    "TODO-VERIFY[M] XWC-G01: capacities (KAKO/CRCA), scheduling formulas and default values are not extracted in the pilot"
+  ]
+}

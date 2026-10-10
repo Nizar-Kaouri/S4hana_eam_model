@@ -40,6 +40,7 @@ def kind_of(info, name):
 
 def collect():
     modules = bp.load_modules()
+    lib = bp.load_library()
     links = bp.collect_link_views(modules)
     prefix = bp.load_library()["prefix"]
     bridges = {b["name"]: b["requires_modules"] for b in bp.load_bridge_links()}
@@ -81,11 +82,15 @@ def collect():
         for ref in n["sources"] + [a["target"] for a in n["assocs"]]:
             if not ref.upper().startswith(prefix.upper()) and ref not in nodes:
                 ext = next((pr for pf, pr in other.items() if ref.upper().startswith(pf)), None)
-                sap.setdefault(ref, {"name": ref, "label": f"View of product {ext}" if ext else "SAP released view",
-                                     "module": "sap", "layer": "sap", "kind": "product view" if ext else "SAP view",
+                table = lib.get("system") == "ecc" and ref.islower()
+                sap.setdefault(ref, {"name": ref, "label": f"View of product {ext}" if ext else (
+                                         "ECC table (read directly)" if table else "SAP released view"),
+                                     "module": "sap", "layer": "sap",
+                                     "kind": "product view" if ext else ("ECC table" if table else "SAP view"),
                                      "batch": "-", "link": False, "requires": [], "purpose": "", "example": "", "keys": [],
                                      "params": [], "sources": [], "assocs": [],
                                      "dcl": (f"Shipped with product {ext} (packages/{ext})." if ext else
+                                             "SAP ECC table; no CDS access control on the source system." if table else
                                              "Shipped by SAP (C1-released view assumed; see ACTIVATION_CHECKLIST.md)."),
                                      "risk": {"H": 0, "M": 0, "L": 0}, "file": "", "usedBy": []})
                 sap[ref]["usedBy"].append(n["name"])
@@ -101,7 +106,8 @@ def collect():
                      "title": lib.get("map_title", f"{lib['prefix'].rstrip('_')} Model Map"),
                      "area": lib.get("map_area", lib.get("product_title", "")),
                      "initial": lib.get("map_initial", ""),
-                     "ext_title": lib.get("map_external_title", "SAP released views")}}
+                     "ext_title": lib.get("map_external_title", "SAP released views"),
+                     "ext_sub": lib.get("map_external_sub", "")}}
 
 
 def render():
@@ -110,6 +116,7 @@ def render():
     data = json.dumps(model, separators=(",", ":")).replace("</", "<\\/")
     example = next((n["name"] for n in model["nodes"] if n["kind"] == "cube"), model["nodes"][0]["name"])
     html = TEMPLATE.read_text(encoding="utf-8")
+    html = html.replace("__RELEASE__", bp.load_library().get("map_release", "SAP S/4HANA 2025"))
     for key, value in (("__TITLE__", meta["title"]), ("__AREA__", meta["area"]), ("__PREFIX__", meta["prefix"]),
                        ("__EXAMPLE__", example)):
         html = html.replace(key, value)

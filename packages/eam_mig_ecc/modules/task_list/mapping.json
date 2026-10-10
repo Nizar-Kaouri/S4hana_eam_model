@@ -1,0 +1,446 @@
+{
+  "module": "task_list",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Maintenance task list",
+    "todo_verify": [
+      "TODO-VERIFY[H] XTL-M01: Migration Cockpit object for 'Maintenance task list' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "work_center",
+    "equipment",
+    "functional_location"
+  ],
+  "key": {
+    "business_key": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "numbering": "new",
+    "note": "Task list groups are usually renumbered: keep the key map 'task_list_group' (old,new); maintenance plan items refer to it."
+  },
+  "scope": {
+    "filter": "extract ZEMX_R_TaskListCurrent; operations of the current version only",
+    "note": "Historical change-number states are not migrated."
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "TaskListType",
+      "source": "PLKO-PLNTY",
+      "target": "PLKO-PLNTY",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "TaskListGroup",
+      "source": "PLKO-PLNNR",
+      "target": "PLKO-PLNNR",
+      "rule": "key_map:task_list_group",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "TaskListGroupCounter",
+      "source": "PLKO-PLNAL",
+      "target": "PLKO-PLNAL",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "TaskListVersionCounter",
+      "source": "PLKO-ZAEHL",
+      "target": "",
+      "rule": "skip:only the latest version is migrated",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "ValidityStartDate",
+      "source": "PLKO-DATUV",
+      "target": "PLKO-DATUV",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "TaskListDesc",
+      "source": "PLKO-KTEXT",
+      "target": "PLKO-KTEXT",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "Plant",
+      "source": "PLKO-WERKS",
+      "target": "PLKO-WERKS",
+      "rule": "value_map:plant",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "TaskListUsage",
+      "source": "PLKO-VERWE",
+      "target": "PLKO-VERWE",
+      "rule": "value_map:task_list_usage",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "TaskListStatus",
+      "source": "PLKO-STATU",
+      "target": "PLKO-STATU",
+      "rule": "copy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "MaintenancePlannerGroup",
+      "source": "PLKO-VAGRP",
+      "target": "PLKO-VAGRP",
+      "rule": "value_map:planner_group",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "MainWorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "PLKO-ARBID (via work center)",
+      "rule": "key_map:work_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "MainWorkCenterPlant",
+      "source": "CRHD-WERKS",
+      "target": "PLKO-ARBID (via work center)",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "MaintenanceStrategy",
+      "source": "PLKO-STRAT",
+      "target": "PLKO-STRAT",
+      "rule": "value_map:maintenance_strategy",
+      "compare": true
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "MaintObjectSystemCondition",
+      "source": "PLKO-ANLZU",
+      "target": "PLKO-ANLZU",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "IsMarkedForDeletion",
+      "source": "PLKO-LOEKZ",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "CreationDate",
+      "source": "PLKO-ANDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "CreatedByUser",
+      "source": "PLKO-ANNAM",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskList",
+      "element": "LastChangeDate",
+      "source": "PLKO-AEDAT",
+      "target": "",
+      "rule": "info",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListType",
+      "source": "PLAS-PLNTY",
+      "target": "PLAS-PLNTY",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListGroup",
+      "source": "PLAS-PLNNR",
+      "target": "PLAS-PLNNR",
+      "rule": "key_map:task_list_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListGroupCounter",
+      "source": "PLAS-PLNAL",
+      "target": "PLAS-PLNAL",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListSequence",
+      "source": "PLAS-PLNFL",
+      "target": "PLAS-PLNFL",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListOperationInternalId",
+      "source": "PLAS-PLNKN",
+      "target": "",
+      "rule": "skip:internal node number - regenerated on S/4HANA",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListOpAssgmtVersion",
+      "source": "PLAS-ZAEHL",
+      "target": "",
+      "rule": "skip:only the latest version is migrated",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListOpVersionCounter",
+      "source": "PLPO-ZAEHL",
+      "target": "",
+      "rule": "skip:only the latest version is migrated",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListOperation",
+      "source": "PLPO-VORNR",
+      "target": "PLPO-VORNR",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "TaskListSubOperation",
+      "source": "PLPO-UVORN",
+      "target": "PLPO-UVORN",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "OperationControlKey",
+      "source": "PLPO-STEUS",
+      "target": "PLPO-STEUS",
+      "rule": "value_map:control_key",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "OperationText",
+      "source": "PLPO-LTXA1",
+      "target": "PLPO-LTXA1",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "WorkCenter",
+      "source": "CRHD-ARBPL",
+      "target": "PLPO-ARBID (via work center)",
+      "rule": "key_map:work_center",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "WorkCenterPlant",
+      "source": "CRHD-WERKS",
+      "target": "PLPO-ARBID (via work center)",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "Plant",
+      "source": "PLPO-WERKS",
+      "target": "PLPO-WERKS",
+      "rule": "value_map:plant",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "ActivityType",
+      "source": "PLPO-LARNT",
+      "target": "PLPO-LARNT",
+      "rule": "value_map:activity_type",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "PlannedWorkQuantity",
+      "source": "PLPO-ARBEI",
+      "target": "PLPO-ARBEI",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "PlannedWorkQuantityUnit",
+      "source": "PLPO-ARBEH",
+      "target": "PLPO-ARBEH",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "OperationDuration",
+      "source": "PLPO-DAUNO",
+      "target": "PLPO-DAUNO",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "OperationDurationUnit",
+      "source": "PLPO-DAUNE",
+      "target": "PLPO-DAUNE",
+      "rule": "value_map:unit_of_measure",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "NumberOfCapacities",
+      "source": "PLPO-ANZZL",
+      "target": "PLPO-ANZZL",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "OpAssignmentIsDeleted",
+      "source": "PLAS-LOEKZ",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListOperation",
+      "element": "IsMarkedForDeletion",
+      "source": "PLPO-LOEKZ",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListAllocation",
+      "element": "TaskListType",
+      "source": "EAPL-PLNTY",
+      "target": "EAPL-PLNTY",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListAllocation",
+      "element": "TaskListGroup",
+      "source": "EAPL-PLNNR",
+      "target": "EAPL-PLNNR",
+      "rule": "key_map:task_list_group",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListAllocation",
+      "element": "TaskListGroupCounter",
+      "source": "EAPL-PLNAL",
+      "target": "EAPL-PLNAL",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListAllocation",
+      "element": "Equipment",
+      "source": "EAPL-EQUNR",
+      "target": "EAPL-EQUNR",
+      "rule": "key_map:equipment",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_TaskListAllocation",
+      "element": "FunctionalLocation",
+      "source": "EAPL-TPLNR",
+      "target": "EAPL-TPLNR",
+      "rule": "key_map:functional_location",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "activity_type",
+    "control_key",
+    "maintenance_strategy",
+    "planner_group",
+    "plant",
+    "task_list_usage",
+    "unit_of_measure"
+  ],
+  "key_maps": [
+    "equipment",
+    "functional_location",
+    "task_list_group",
+    "work_center"
+  ],
+  "provides_key_maps": [
+    "task_list_group"
+  ],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_TaskListCount",
+    "target_count_view": "ZEMT_R_TaskListCount",
+    "dimensions": [
+      {
+        "element": "TaskListType",
+        "value_map": null
+      },
+      {
+        "element": "Plant",
+        "value_map": "plant"
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": {
+      "source_view": "ZEMX_I_TaskList",
+      "target_view": "ZEMT_I_TaskListCompare",
+      "key": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "key_map": "task_list_group",
+      "fields": [
+        "TaskListDesc",
+        "Plant",
+        "TaskListUsage",
+        "TaskListStatus",
+        "MaintenancePlannerGroup",
+        "MaintenanceStrategy"
+      ]
+    }
+  },
+  "gaps": [
+    "TODO-VERIFY[M] XTL-G01: component allocation (PLMZ), production resources/tools (PLFH) and maintenance packages per operation (PLWP) are not extracted in the pilot"
+  ]
+}

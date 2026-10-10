@@ -1,0 +1,103 @@
+{
+  "module": "object_partner",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "SAP S/4HANA Migration Cockpit",
+    "migration_object": "Partner (part of the object migration)",
+    "todo_verify": [
+      "TODO-VERIFY[H] XPA-M01: Migration Cockpit object for 'Partner (part of the object migration)' (name, approach staging tables / direct transfer) and its structure field names; targets below are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance"
+    ]
+  },
+  "sequence_after": [
+    "equipment",
+    "functional_location",
+    "maintenance_notification",
+    "maintenance_order"
+  ],
+  "key": {
+    "business_key": [
+      "ObjectNumber",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "numbering": "derived",
+    "note": "Partner numbers of customers and vendors map to business partners (key map 'business_partner' from the customer / vendor integration)."
+  },
+  "scope": {
+    "filter": "IsMarkedForDeletion = ''",
+    "note": ""
+  },
+  "fields": [
+    {
+      "view": "ZEMX_I_ObjectPartner",
+      "element": "ObjectNumber",
+      "source": "IHPA-OBJNR",
+      "target": "IHPA-OBJNR",
+      "rule": "derive:object key from the object number",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectPartner",
+      "element": "PartnerFunction",
+      "source": "IHPA-PARVW",
+      "target": "IHPA-PARVW",
+      "rule": "value_map:partner_function",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectPartner",
+      "element": "PartnerCounter",
+      "source": "IHPA-COUNTER",
+      "target": "IHPA-COUNTER",
+      "rule": "copy",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectPartner",
+      "element": "PartnerObjectType",
+      "source": "substring( ihpa.objnr, 1, 2 )",
+      "target": "",
+      "rule": "derive:selection helper - object type of the object number",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectPartner",
+      "element": "Partner",
+      "source": "IHPA-PARNR",
+      "target": "IHPA-PARNR",
+      "rule": "convert:partner_to_business_partner",
+      "compare": false
+    },
+    {
+      "view": "ZEMX_I_ObjectPartner",
+      "element": "IsMarkedForDeletion",
+      "source": "IHPA-KZLOESCH",
+      "target": "",
+      "rule": "scope",
+      "compare": false
+    }
+  ],
+  "value_maps": [
+    "partner_function"
+  ],
+  "key_maps": [],
+  "provides_key_maps": [],
+  "external_key_maps": [],
+  "reconciliation": {
+    "source_count_view": "ZEMX_R_ObjectPartnerCount",
+    "target_count_view": null,
+    "dimensions": [
+      {
+        "element": "PartnerObjectType",
+        "value_map": null
+      },
+      {
+        "element": "PartnerFunction",
+        "value_map": null
+      }
+    ],
+    "measure": "RecordCount",
+    "compare": null
+  },
+  "gaps": []
+}

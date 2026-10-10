@@ -1,0 +1,36 @@
+{
+  "name": "work_center",
+  "title": "Work center reconciliation",
+  "description": "Target-side reconciliation of the work center migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, 2025 assumed)",
+  "tags": [
+    "migration",
+    "reconciliation",
+    "work-center"
+  ],
+  "sap_released_views": [
+    "I_WorkCenter"
+  ],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZEMT_I_WorkCenterCompare"
+    ],
+    "composite": [
+      "ZEMT_R_WorkCenterCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEMT_I_WorkCenterCompare": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design.",
+    "ZEMT_R_WorkCenterCount": "Reconciliation view: it must see every migrated record to prove completeness. Grant it only to the migration / reconciliation role (decision TGEN-D01); no CDS access control by design."
+  },
+  "migration_source_module": "eam_mig_ecc:work_center",
+  "link_views": []
+}

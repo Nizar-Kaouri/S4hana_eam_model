@@ -1,0 +1,48 @@
+{
+  "name": "maintenance_order",
+  "title": "Maintenance order",
+  "description": "Open maintenance orders with operations and components.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "transactional",
+    "order",
+    "migration"
+  ],
+  "sap_tables": [
+    "AUFK",
+    "AFIH",
+    "AFKO",
+    "AFVC",
+    "AFVV",
+    "RESB",
+    "ILOA",
+    "CRHD",
+    "JEST"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZEMX_I_MaintOrder",
+      "ZEMX_I_MaintOrderOperation",
+      "ZEMX_I_MaintOrderComponent"
+    ],
+    "composite": [
+      "ZEMX_R_MaintOrderCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEMX_I_MaintOrder": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_I_MaintOrderOperation": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_I_MaintOrderComponent": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_R_MaintOrderCount": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01)."
+  },
+  "link_views": []
+}

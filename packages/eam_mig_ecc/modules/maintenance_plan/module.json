@@ -1,0 +1,48 @@
+{
+  "name": "maintenance_plan",
+  "title": "Maintenance plan",
+  "description": "Maintenance plans with items, cycles and call history for schedule continuation.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "tags": [
+    "master-data",
+    "maintenance-plan",
+    "migration"
+  ],
+  "sap_tables": [
+    "MPLA",
+    "MPOS",
+    "MMPT",
+    "MHIS",
+    "ILOA",
+    "CRHD",
+    "JEST"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "basic": [
+      "ZEMX_I_MaintenancePlan",
+      "ZEMX_I_MaintenanceItem",
+      "ZEMX_I_MaintPlanCycle",
+      "ZEMX_I_MaintPlanCallHistory"
+    ],
+    "composite": [
+      "ZEMX_R_MaintPlanCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEMX_I_MaintenancePlan": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_I_MaintenanceItem": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_I_MaintPlanCycle": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_I_MaintPlanCallHistory": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01).",
+    "ZEMX_R_MaintPlanCount": "Migration extraction/reconciliation view on ECC: it must return every record of the object. Access is controlled by the extraction channel (ODP/RFC user, S_TABU_NAM / S_TABU_DIS), not by CDS access control (decision XGEN-D01)."
+  },
+  "link_views": []
+}
