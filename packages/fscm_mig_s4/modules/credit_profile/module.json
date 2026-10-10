@@ -1,0 +1,40 @@
+{
+  "name": "credit_profile",
+  "title": "Credit profiles and relationships target staged comparison",
+  "description": "Canonical Credit profiles and relationships exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [
+      "ZFCT_FCT001",
+      "ZFCT_FCT002"
+    ],
+    "basic": [
+      "ZFCT_I_CreditProfileCompare",
+      "ZFCT_I_CreditRelationCompare"
+    ],
+    "composite": [
+      "ZFCT_I_CreditProfileCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFCT_I_CreditProfileCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCT_I_CreditProfileCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCT_I_CreditRelationCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

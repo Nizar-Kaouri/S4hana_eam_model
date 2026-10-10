@@ -1,0 +1,396 @@
+{
+  "ZFCX_C_CreditProfileMig": {
+    "module": "credit_profile",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "RiskClass",
+      "CheckRule",
+      "Score",
+      "ScoreDate",
+      "CreditGroup"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  },
+  "ZFCX_C_CreditRelationMig": {
+    "module": "credit_profile",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "RelatedPartner",
+      "RelationType",
+      "ValidityStartDate"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "RelatedPartner",
+      "RelationType",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  },
+  "ZFCX_C_CreditSegmentMig": {
+    "module": "credit_segment",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CreditSegment"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CreditSegment",
+      "CreditLimit",
+      "Currency",
+      "LimitValidTo",
+      "Blocked",
+      "CreditControlArea"
+    ],
+    "parent_modules": [
+      "credit_profile"
+    ],
+    "mode": "master"
+  },
+  "ZFCX_C_CreditExposureMig": {
+    "module": "credit_exposure",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "SourceDocument",
+      "SourceItem"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "SourceDocument",
+      "SourceItem",
+      "ExposureAmount",
+      "Currency",
+      "AsOfUTC"
+    ],
+    "parent_modules": [
+      "credit_segment"
+    ],
+    "mode": "reference"
+  },
+  "ZFCX_C_CollectProfileMig": {
+    "module": "collections_profile",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "ProfileID",
+      "CompanyCode",
+      "CollectionStrategy"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  },
+  "ZFCX_C_CollectSegmentMig": {
+    "module": "collections_profile",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "CollectionGroup",
+      "Specialist",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  },
+  "ZFCX_C_CollectContactMig": {
+    "module": "collection_activity",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "ContactID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "ContactID",
+      "ContactAtUTC",
+      "ContactType",
+      "ContactResult",
+      "Specialist"
+    ],
+    "parent_modules": [
+      "collections_profile"
+    ],
+    "mode": "process-reference"
+  },
+  "ZFCX_C_CollectTaskMig": {
+    "module": "collection_activity",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "TaskID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "TaskID",
+      "Reason",
+      "DueAtUTC",
+      "TaskStatus",
+      "RelatedContact"
+    ],
+    "parent_modules": [
+      "collections_profile"
+    ],
+    "mode": "process-reference"
+  },
+  "ZFCX_C_PaymentPromiseMig": {
+    "module": "promise_to_pay",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "PromiseID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "PromiseID",
+      "PromiseDate",
+      "DueDate",
+      "PromisedAmount",
+      "Currency",
+      "PromiseStatus"
+    ],
+    "parent_modules": [
+      "collections_profile"
+    ],
+    "mode": "process-reference"
+  },
+  "ZFCX_C_PromiseItemMig": {
+    "module": "promise_to_pay",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "PromiseID",
+      "CompanyCode",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingItem"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "PromiseID",
+      "CompanyCode",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingItem",
+      "AssignedAmount",
+      "Currency"
+    ],
+    "parent_modules": [
+      "collections_profile"
+    ],
+    "mode": "process-reference"
+  },
+  "ZFCX_C_DisputeCaseMig": {
+    "module": "dispute_case",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "NativeGUID",
+      "BusinessPartner",
+      "CaseType",
+      "Reason",
+      "CaseStatus",
+      "Priority",
+      "DisputedAmount",
+      "Currency",
+      "CreatedAtUTC"
+    ],
+    "parent_modules": [],
+    "mode": "process-reference"
+  },
+  "ZFCX_C_DisputeItemMig": {
+    "module": "dispute_case",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "CompanyCode",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingItem"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "CompanyCode",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingItem",
+      "DisputedAmount",
+      "Currency"
+    ],
+    "parent_modules": [],
+    "mode": "process-reference"
+  },
+  "ZFCX_C_CaseAttributeMig": {
+    "module": "dispute_case",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "AttributeID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "AttributeID",
+      "AttributeValue"
+    ],
+    "parent_modules": [],
+    "mode": "process-reference"
+  },
+  "ZFCX_C_CaseAttachmentMig": {
+    "module": "dispute_case",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "AttachmentID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "AttachmentID",
+      "DocumentType",
+      "FileName",
+      "ContentHash",
+      "RepositoryReference"
+    ],
+    "parent_modules": [],
+    "mode": "process-reference"
+  }
+}

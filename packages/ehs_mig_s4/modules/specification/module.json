@@ -1,0 +1,43 @@
+{
+  "name": "specification",
+  "title": "Specifications identifiers and property values target staged comparison",
+  "description": "Canonical Specifications identifiers and property values exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [
+      "ZEHT_EHT005",
+      "ZEHT_EHT006",
+      "ZEHT_EHT007"
+    ],
+    "basic": [
+      "ZEHT_I_SpecificationCompare",
+      "ZEHT_I_SpecIdentifierCompare",
+      "ZEHT_I_SpecPropertyCompare"
+    ],
+    "composite": [
+      "ZEHT_I_SpecificationCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZEHT_I_SpecificationCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZEHT_I_SpecificationCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZEHT_I_SpecIdentifierCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZEHT_I_SpecPropertyCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

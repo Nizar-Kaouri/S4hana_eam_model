@@ -1,0 +1,326 @@
+{
+  "module": "freight_unit",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "transport_location"
+  ],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightUnitID"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZTMX_C_FreightUnitMig",
+      "source_view": "ZTMX_I_FreightUnit",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS011-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS011-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS011-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "FreightUnitID",
+          "source": "ZTMX_TMS011-F004",
+          "target": "Customer native interface: FreightUnitID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "NativeGUID",
+          "source": "ZTMX_TMS011-F005",
+          "target": "Customer native interface: NativeGUID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "UnitType",
+          "source": "ZTMX_TMS011-F006",
+          "target": "Customer native interface: UnitType (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DocumentStatus",
+          "source": "ZTMX_TMS011-F007",
+          "target": "Customer native interface: DocumentStatus (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceLocation",
+          "source": "ZTMX_TMS011-F008",
+          "target": "Customer native interface: SourceLocation (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DestinationLocation",
+          "source": "ZTMX_TMS011-F009",
+          "target": "Customer native interface: DestinationLocation (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    },
+    {
+      "consumption_view": "ZTMX_C_FreightUnitIteMig",
+      "source_view": "ZTMX_I_FreightUnitIte",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID",
+        "ItemID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS012-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS012-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS012-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "FreightUnitID",
+          "source": "ZTMX_TMS012-F004",
+          "target": "Customer native interface: FreightUnitID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ItemID",
+          "source": "ZTMX_TMS012-F005",
+          "target": "Customer native interface: ItemID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Product",
+          "source": "ZTMX_TMS012-F006",
+          "target": "Customer native interface: Product (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Quantity",
+          "source": "ZTMX_TMS012-F007",
+          "target": "Customer native interface: Quantity (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "QuantityUnit",
+          "source": "ZTMX_TMS012-F008",
+          "target": "Customer native interface: QuantityUnit (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "GrossWeight",
+          "source": "ZTMX_TMS012-F009",
+          "target": "Customer native interface: GrossWeight (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "WeightUnit",
+          "source": "ZTMX_TMS012-F010",
+          "target": "Customer native interface: WeightUnit (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ReferenceDocument",
+          "source": "ZTMX_TMS012-F011",
+          "target": "Customer native interface: ReferenceDocument (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ReferenceItem",
+          "source": "ZTMX_TMS012-F012",
+          "target": "Customer native interface: ReferenceItem (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    },
+    {
+      "consumption_view": "ZTMX_C_FreightUnitStoMig",
+      "source_view": "ZTMX_I_FreightUnitSto",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID",
+        "StopID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS013-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS013-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS013-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "FreightUnitID",
+          "source": "ZTMX_TMS013-F004",
+          "target": "Customer native interface: FreightUnitID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StopID",
+          "source": "ZTMX_TMS013-F005",
+          "target": "Customer native interface: StopID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "LocationID",
+          "source": "ZTMX_TMS013-F006",
+          "target": "Customer native interface: LocationID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Sequence",
+          "source": "ZTMX_TMS013-F007",
+          "target": "Customer native interface: Sequence (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StopRole",
+          "source": "ZTMX_TMS013-F008",
+          "target": "Customer native interface: StopRole (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PlannedAtUTC",
+          "source": "ZTMX_TMS013-F009",
+          "target": "Customer native interface: PlannedAtUTC (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TimeZone",
+          "source": "ZTMX_TMS013-F010",
+          "target": "Customer native interface: TimeZone (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZTMX_C_FreightUnitMigCount",
+    "target_count_view": "ZTMT_I_FreightUnitCount",
+    "compare": {
+      "source_view": "ZTMX_C_FreightUnitMig",
+      "target_view": "ZTMT_I_FreightUnitCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID"
+      ],
+      "fields": [
+        "NativeGUID",
+        "UnitType",
+        "DocumentStatus",
+        "SourceLocation",
+        "DestinationLocation"
+      ]
+    }
+  },
+  "main_structure": "ZTMX_C_FreightUnitMig"
+}

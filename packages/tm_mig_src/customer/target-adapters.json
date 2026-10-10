@@ -1,0 +1,388 @@
+{
+  "ZTMX_C_TransportLocMig": {
+    "module": "transport_location",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "LocationID"
+    ],
+    "fields": [
+      "LocationType",
+      "Description",
+      "BusinessPartner",
+      "Country",
+      "PostalCode",
+      "City",
+      "TimeZone",
+      "Latitude",
+      "Longitude"
+    ],
+    "target_export": "target/ZTMX_C_TransportLocMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_TransportResMig": {
+    "module": "transport_resource",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ResourceID"
+    ],
+    "fields": [
+      "ResourceType",
+      "Description",
+      "Carrier",
+      "VehicleType",
+      "TimeZone"
+    ],
+    "target_export": "target/ZTMX_C_TransportResMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_ResCapacityMig": {
+    "module": "transport_resource",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ResourceID",
+      "CapacityID"
+    ],
+    "fields": [
+      "CapacityType",
+      "CapacityValue",
+      "CapacityUnit"
+    ],
+    "target_export": "target/ZTMX_C_ResCapacityMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_TransportLaneMig": {
+    "module": "transport_lane",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "LaneID"
+    ],
+    "fields": [
+      "SourceLocation",
+      "DestinationLocation",
+      "TransportMode",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "target_export": "target/ZTMX_C_TransportLaneMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_LaneCarrierMig": {
+    "module": "transport_lane",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "LaneID",
+      "CarrierID"
+    ],
+    "fields": [
+      "Priority",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "target_export": "target/ZTMX_C_LaneCarrierMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_ScheduleMig": {
+    "module": "transport_schedule",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ScheduleID",
+      "Version"
+    ],
+    "fields": [
+      "Description",
+      "TransportMode",
+      "Carrier",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "target_export": "target/ZTMX_C_ScheduleMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_ScheduleStopMig": {
+    "module": "transport_schedule",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ScheduleID",
+      "Version",
+      "StopID"
+    ],
+    "fields": [
+      "LocationID",
+      "Sequence",
+      "ArrivalLocal",
+      "DepartureLocal",
+      "TimeZone"
+    ],
+    "target_export": "target/ZTMX_C_ScheduleStopMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightAgreeMig": {
+    "module": "freight_agreement",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AgreementID",
+      "Version"
+    ],
+    "fields": [
+      "AgreementType",
+      "Carrier",
+      "Currency",
+      "ValidityStartDate",
+      "ValidityEndDate",
+      "ReleaseStatus"
+    ],
+    "target_export": "target/ZTMX_C_FreightAgreeMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightRateMig": {
+    "module": "freight_agreement",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AgreementID",
+      "Version",
+      "RateID"
+    ],
+    "fields": [
+      "ChargeType",
+      "CalculationBasis",
+      "Rate",
+      "Currency",
+      "PricingUnit",
+      "QuantityUnit"
+    ],
+    "target_export": "target/ZTMX_C_FreightRateMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightScaleMig": {
+    "module": "freight_agreement",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AgreementID",
+      "Version",
+      "RateID",
+      "ScaleLine"
+    ],
+    "fields": [
+      "FromValue",
+      "ToValue",
+      "ScaleUnit",
+      "ScaleRate",
+      "Currency"
+    ],
+    "target_export": "target/ZTMX_C_FreightScaleMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightUnitMig": {
+    "module": "freight_unit",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightUnitID"
+    ],
+    "fields": [
+      "NativeGUID",
+      "UnitType",
+      "DocumentStatus",
+      "SourceLocation",
+      "DestinationLocation"
+    ],
+    "target_export": "target/ZTMX_C_FreightUnitMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightUnitIteMig": {
+    "module": "freight_unit",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightUnitID",
+      "ItemID"
+    ],
+    "fields": [
+      "Product",
+      "Quantity",
+      "QuantityUnit",
+      "GrossWeight",
+      "WeightUnit",
+      "ReferenceDocument",
+      "ReferenceItem"
+    ],
+    "target_export": "target/ZTMX_C_FreightUnitIteMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightUnitStoMig": {
+    "module": "freight_unit",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightUnitID",
+      "StopID"
+    ],
+    "fields": [
+      "LocationID",
+      "Sequence",
+      "StopRole",
+      "PlannedAtUTC",
+      "TimeZone"
+    ],
+    "target_export": "target/ZTMX_C_FreightUnitStoMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightOrderMig": {
+    "module": "freight_order",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightOrderID"
+    ],
+    "fields": [
+      "NativeGUID",
+      "DocumentCategory",
+      "OrderType",
+      "Carrier",
+      "ResourceID",
+      "ExecutionStatus",
+      "SettlementStatus"
+    ],
+    "target_export": "target/ZTMX_C_FreightOrderMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightOrdItemMig": {
+    "module": "freight_order",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightOrderID",
+      "ItemID"
+    ],
+    "fields": [
+      "FreightUnitID",
+      "Product",
+      "Quantity",
+      "QuantityUnit"
+    ],
+    "target_export": "target/ZTMX_C_FreightOrdItemMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightOrdStopMig": {
+    "module": "freight_order",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightOrderID",
+      "StopID"
+    ],
+    "fields": [
+      "LocationID",
+      "Sequence",
+      "StopRole",
+      "PlannedAtUTC",
+      "ActualAtUTC",
+      "TimeZone"
+    ],
+    "target_export": "target/ZTMX_C_FreightOrdStopMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightStageMig": {
+    "module": "freight_order",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightOrderID",
+      "StageID"
+    ],
+    "fields": [
+      "FromStop",
+      "ToStop",
+      "Distance",
+      "DistanceUnit",
+      "TransportMode"
+    ],
+    "target_export": "target/ZTMX_C_FreightStageMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_FreightSettleMig": {
+    "module": "freight_settlement",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "SettlementID"
+    ],
+    "fields": [
+      "FreightOrderID",
+      "Carrier",
+      "CompanyCode",
+      "Currency",
+      "TotalAmount",
+      "SettlementStatus",
+      "AccountingDocument"
+    ],
+    "target_export": "target/ZTMX_C_FreightSettleMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZTMX_C_SettleItemMig": {
+    "module": "freight_settlement",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "SettlementID",
+      "SettlementItem"
+    ],
+    "fields": [
+      "ChargeType",
+      "Amount",
+      "Currency",
+      "TaxCode",
+      "ReferenceItem"
+    ],
+    "target_export": "target/ZTMX_C_SettleItemMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  }
+}

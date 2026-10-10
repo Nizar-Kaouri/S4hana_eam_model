@@ -1,0 +1,42 @@
+{
+  "name": "transport_location",
+  "title": "Transportation locations",
+  "description": "Canonical Transportation locations exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [
+      "ZTMX_TMS001"
+    ],
+    "basic": [
+      "ZTMX_I_TransportLocData"
+    ],
+    "composite": [
+      "ZTMX_I_TransportLoc"
+    ],
+    "consumption": [
+      "ZTMX_C_TransportLocMig",
+      "ZTMX_C_TransportLocMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZTMX_I_TransportLocData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_I_TransportLoc": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_C_TransportLocMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_C_TransportLocMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

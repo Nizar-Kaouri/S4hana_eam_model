@@ -1,0 +1,49 @@
+{
+  "name": "collections_profile",
+  "title": "Collections profiles and segment assignments",
+  "description": "Canonical Collections profiles and segment assignments exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [
+      "ZFCX_FCS005",
+      "ZFCX_FCS006"
+    ],
+    "basic": [
+      "ZFCX_I_CollectProfileData",
+      "ZFCX_I_CollectSegmentData"
+    ],
+    "composite": [
+      "ZFCX_I_CollectProfile",
+      "ZFCX_I_CollectSegment"
+    ],
+    "consumption": [
+      "ZFCX_C_CollectProfileMig",
+      "ZFCX_C_CollectProfileMigCount",
+      "ZFCX_C_CollectSegmentMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFCX_I_CollectProfileData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_I_CollectProfile": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_C_CollectProfileMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_C_CollectProfileMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_I_CollectSegmentData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_I_CollectSegment": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_C_CollectSegmentMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

@@ -64,7 +64,10 @@ def read_csv(path, preserve_values=False):
         dialect = csv.Sniffer().sniff(text.splitlines()[0], delimiters=",;\t")
     except csv.Error:
         dialect = csv.excel
-    reader = csv.DictReader(io.StringIO(text, newline=""), dialect=dialect, strict=True)
+    # A header cannot establish whether body values contain escaped quotes.
+    # Infer only the separator; SAP/our exports use standard doubled quotes.
+    reader = csv.DictReader(io.StringIO(text, newline=""), delimiter=dialect.delimiter,
+                            quotechar='"', doublequote=True, strict=True)
     try:
         columns = [c.strip() for c in (reader.fieldnames or [])]
         if not columns or any(not c for c in columns) or len(set(columns)) != len(columns):

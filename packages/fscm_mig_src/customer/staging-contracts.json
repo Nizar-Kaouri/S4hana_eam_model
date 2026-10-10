@@ -1,0 +1,888 @@
+{
+  "ZFCX_C_CreditProfileMig": {
+    "module": "credit_profile",
+    "table": "ZFCX_FCS001",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "RiskClass",
+        "length": 132
+      },
+      {
+        "native": "F006",
+        "element": "CheckRule",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Score",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ScoreDate",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "CreditGroup",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CreditRelationMig": {
+    "module": "credit_profile",
+    "table": "ZFCX_FCS002",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "RelatedPartner",
+      "RelationType",
+      "ValidityStartDate"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "RelatedPartner",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "RelationType",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ValidityStartDate",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "ValidityEndDate",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CreditSegmentMig": {
+    "module": "credit_segment",
+    "table": "ZFCX_FCS003",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CreditSegment"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "CreditSegment",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "CreditLimit",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Currency",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "LimitValidTo",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "Blocked",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "CreditControlArea",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CreditExposureMig": {
+    "module": "credit_exposure",
+    "table": "ZFCX_FCS004",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "SourceDocument",
+      "SourceItem"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "CreditSegment",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ExposureCategory",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "SourceDocument",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "SourceItem",
+        "length": 64
+      },
+      {
+        "native": "F009",
+        "element": "ExposureAmount",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "Currency",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "AsOfUTC",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CollectProfileMig": {
+    "module": "collections_profile",
+    "table": "ZFCX_FCS005",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "ProfileID",
+        "length": 132
+      },
+      {
+        "native": "F006",
+        "element": "CompanyCode",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "CollectionStrategy",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CollectSegmentMig": {
+    "module": "collections_profile",
+    "table": "ZFCX_FCS006",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "CollectionSegment",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "CollectionGroup",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Specialist",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ValidityStartDate",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "ValidityEndDate",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CollectContactMig": {
+    "module": "collection_activity",
+    "table": "ZFCX_FCS007",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "ContactID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "CollectionSegment",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ContactID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ContactAtUTC",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ContactType",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "ContactResult",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "Specialist",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CollectTaskMig": {
+    "module": "collection_activity",
+    "table": "ZFCX_FCS008",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "TaskID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "CollectionSegment",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "TaskID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "Reason",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "DueAtUTC",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "TaskStatus",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "RelatedContact",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_PaymentPromiseMig": {
+    "module": "promise_to_pay",
+    "table": "ZFCX_FCS009",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "PromiseID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "PromiseID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "PromiseDate",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "DueDate",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "PromisedAmount",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "Currency",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "PromiseStatus",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_PromiseItemMig": {
+    "module": "promise_to_pay",
+    "table": "ZFCX_FCS010",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "PromiseID",
+      "CompanyCode",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingItem"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "BusinessPartner",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "PromiseID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "CompanyCode",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "FiscalYear",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "AccountingDocument",
+        "length": 64
+      },
+      {
+        "native": "F009",
+        "element": "AccountingItem",
+        "length": 64
+      },
+      {
+        "native": "F010",
+        "element": "AssignedAmount",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "Currency",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_DisputeCaseMig": {
+    "module": "dispute_case",
+    "table": "ZFCX_FCS011",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "CaseID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "NativeGUID",
+        "length": 132
+      },
+      {
+        "native": "F006",
+        "element": "BusinessPartner",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "CaseType",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Reason",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "CaseStatus",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "Priority",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "DisputedAmount",
+        "length": 132
+      },
+      {
+        "native": "F012",
+        "element": "Currency",
+        "length": 132
+      },
+      {
+        "native": "F013",
+        "element": "CreatedAtUTC",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_DisputeItemMig": {
+    "module": "dispute_case",
+    "table": "ZFCX_FCS012",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "CompanyCode",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingItem"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "CaseID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "CompanyCode",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "FiscalYear",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "AccountingDocument",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "AccountingItem",
+        "length": 64
+      },
+      {
+        "native": "F009",
+        "element": "DisputedAmount",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "Currency",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CaseAttributeMig": {
+    "module": "dispute_case",
+    "table": "ZFCX_FCS013",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "AttributeID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "CaseID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "AttributeID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "AttributeValue",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  },
+  "ZFCX_C_CaseAttachmentMig": {
+    "module": "dispute_case",
+    "table": "ZFCX_FCS014",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "AttachmentID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "CaseID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "AttachmentID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "DocumentType",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "FileName",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ContentHash",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "RepositoryReference",
+        "length": 132
+      }
+    ],
+    "origin": "source export cohort",
+    "status": "native adapter required"
+  }
+}

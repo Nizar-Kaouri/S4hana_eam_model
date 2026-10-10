@@ -1,0 +1,49 @@
+{
+  "name": "storage_bin",
+  "title": "Storage bins and sorting",
+  "description": "Canonical Storage bins and sorting exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [
+      "ZWMX_WMS001",
+      "ZWMX_WMS002"
+    ],
+    "basic": [
+      "ZWMX_I_StorageBinData",
+      "ZWMX_I_BinSortingData"
+    ],
+    "composite": [
+      "ZWMX_I_StorageBin",
+      "ZWMX_I_BinSorting"
+    ],
+    "consumption": [
+      "ZWMX_C_StorageBinMig",
+      "ZWMX_C_StorageBinMigCount",
+      "ZWMX_C_BinSortingMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZWMX_I_StorageBinData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZWMX_I_StorageBin": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZWMX_C_StorageBinMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZWMX_C_StorageBinMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZWMX_I_BinSortingData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZWMX_I_BinSorting": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZWMX_C_BinSortingMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

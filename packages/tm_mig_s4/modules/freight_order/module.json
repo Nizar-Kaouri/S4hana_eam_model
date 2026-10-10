@@ -1,0 +1,46 @@
+{
+  "name": "freight_order",
+  "title": "Freight orders and bookings target staged comparison",
+  "description": "Canonical Freight orders and bookings exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "process-reference"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [
+      "ZTMT_TMT014",
+      "ZTMT_TMT015",
+      "ZTMT_TMT016",
+      "ZTMT_TMT017"
+    ],
+    "basic": [
+      "ZTMT_I_FreightOrderCompare",
+      "ZTMT_I_FreightOrdItemCompare",
+      "ZTMT_I_FreightOrdStopCompare",
+      "ZTMT_I_FreightStageCompare"
+    ],
+    "composite": [
+      "ZTMT_I_FreightOrderCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZTMT_I_FreightOrderCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMT_I_FreightOrderCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMT_I_FreightOrdItemCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMT_I_FreightOrdStopCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMT_I_FreightStageCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

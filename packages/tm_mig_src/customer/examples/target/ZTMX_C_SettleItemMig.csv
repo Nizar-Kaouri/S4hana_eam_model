@@ -1,0 +1,2 @@
+﻿SourceSystem,SourceClient,ExportBatch,SettlementID,SettlementItem,ChargeType,Amount,Currency,TaxCode,ReferenceItem
+ERP_DEMO,100,DEMO001,0001,0001,sample,10.00,EUR,sample,sample

@@ -1,0 +1,40 @@
+{
+  "name": "collections_profile",
+  "title": "Collections profiles and segment assignments target staged comparison",
+  "description": "Canonical Collections profiles and segment assignments exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [
+      "ZFCT_FCT005",
+      "ZFCT_FCT006"
+    ],
+    "basic": [
+      "ZFCT_I_CollectProfileCompare",
+      "ZFCT_I_CollectSegmentCompare"
+    ],
+    "composite": [
+      "ZFCT_I_CollectProfileCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFCT_I_CollectProfileCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCT_I_CollectProfileCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCT_I_CollectSegmentCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

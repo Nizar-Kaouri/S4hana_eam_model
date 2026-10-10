@@ -1,0 +1,238 @@
+{
+  "ZWMX_C_StorageBinMig": {
+    "module": "storage_bin",
+    "table": "ZWMX_WMS001",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StorageBin"
+    ],
+    "selection": "selection/ZWMX_C_StorageBinMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZWMX_C_BinSortingMig": {
+    "module": "storage_bin",
+    "table": "ZWMX_WMS002",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StorageBin",
+      "SortSequence"
+    ],
+    "selection": "selection/ZWMX_C_BinSortingMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZWMX_C_WarehouseProdMig": {
+    "module": "warehouse_product",
+    "table": "ZWMX_WMS003",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "Product",
+      "EntitledParty"
+    ],
+    "selection": "selection/ZWMX_C_WarehouseProdMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZWMX_C_FixedBinMig": {
+    "module": "warehouse_product",
+    "table": "ZWMX_WMS004",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "Product",
+      "EntitledParty",
+      "StorageType",
+      "StorageBin"
+    ],
+    "selection": "selection/ZWMX_C_FixedBinMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZWMX_C_WarehouseStockMig": {
+    "module": "warehouse_stock",
+    "table": "ZWMX_WMS005",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StockIdentity"
+    ],
+    "selection": "selection/ZWMX_C_WarehouseStockMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZWMX_C_StockSerialMig": {
+    "module": "warehouse_stock",
+    "table": "ZWMX_WMS006",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StockIdentity",
+      "SerialNumber"
+    ],
+    "selection": "selection/ZWMX_C_StockSerialMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZWMX_C_HandlingUnitMig": {
+    "module": "handling_unit",
+    "table": "ZWMX_WMS007",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit"
+    ],
+    "selection": "selection/ZWMX_C_HandlingUnitMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_HUContentMig": {
+    "module": "handling_unit",
+    "table": "ZWMX_WMS008",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit",
+      "ContentItem"
+    ],
+    "selection": "selection/ZWMX_C_HUContentMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WarehouseTaskMig": {
+    "module": "warehouse_task",
+    "table": "ZWMX_WMS009",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseTask"
+    ],
+    "selection": "selection/ZWMX_C_WarehouseTaskMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_TaskConfirmMig": {
+    "module": "warehouse_task",
+    "table": "ZWMX_WMS010",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseTask",
+      "ConfirmationID"
+    ],
+    "selection": "selection/ZWMX_C_TaskConfirmMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WarehouseOrderMig": {
+    "module": "warehouse_order",
+    "table": "ZWMX_WMS011",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseOrder"
+    ],
+    "selection": "selection/ZWMX_C_WarehouseOrderMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WhDeliveryMig": {
+    "module": "warehouse_delivery",
+    "table": "ZWMX_WMS012",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "DeliveryID"
+    ],
+    "selection": "selection/ZWMX_C_WhDeliveryMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WhDeliveryItemMig": {
+    "module": "warehouse_delivery",
+    "table": "ZWMX_WMS013",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "DeliveryID",
+      "DeliveryItem"
+    ],
+    "selection": "selection/ZWMX_C_WhDeliveryItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_PackSpecMig": {
+    "module": "pack_specification",
+    "table": "ZWMX_WMS014",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version"
+    ],
+    "selection": "selection/ZWMX_C_PackSpecMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZWMX_C_PackLevelMig": {
+    "module": "pack_specification",
+    "table": "ZWMX_WMS015",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "LevelID"
+    ],
+    "selection": "selection/ZWMX_C_PackLevelMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZWMX_C_PackElementMig": {
+    "module": "pack_specification",
+    "table": "ZWMX_WMS016",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "LevelID",
+      "ElementID"
+    ],
+    "selection": "selection/ZWMX_C_PackElementMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  }
+}

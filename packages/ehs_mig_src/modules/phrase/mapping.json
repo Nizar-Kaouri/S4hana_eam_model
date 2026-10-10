@@ -1,0 +1,200 @@
+{
+  "module": "phrase",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PhraseCatalog",
+      "PhraseID",
+      "Language"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZEHX_C_PhraseMig",
+      "source_view": "ZEHX_I_Phrase",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PhraseCatalog",
+        "PhraseID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS008-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS008-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS008-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PhraseCatalog",
+          "source": "ZEHX_EHS008-F004",
+          "target": "Customer native interface: PhraseCatalog (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PhraseID",
+          "source": "ZEHX_EHS008-F005",
+          "target": "Customer native interface: PhraseID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Language",
+          "source": "ZEHX_EHS008-F006",
+          "target": "Customer native interface: Language (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PhraseText",
+          "source": "ZEHX_EHS008-F007",
+          "target": "Customer native interface: PhraseText (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PhraseCode",
+          "source": "ZEHX_EHS008-F008",
+          "target": "Customer native interface: PhraseCode (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    },
+    {
+      "consumption_view": "ZEHX_C_PhraseSetMig",
+      "source_view": "ZEHX_I_PhraseSet",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PhraseSetID",
+        "PhraseCatalog",
+        "PhraseID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS009-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS009-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS009-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PhraseSetID",
+          "source": "ZEHX_EHS009-F004",
+          "target": "Customer native interface: PhraseSetID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PhraseCatalog",
+          "source": "ZEHX_EHS009-F005",
+          "target": "Customer native interface: PhraseCatalog (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PhraseID",
+          "source": "ZEHX_EHS009-F006",
+          "target": "Customer native interface: PhraseID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SortSequence",
+          "source": "ZEHX_EHS009-F007",
+          "target": "Customer native interface: SortSequence (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZEHX_C_PhraseMigCount",
+    "target_count_view": "ZEHT_I_PhraseCount",
+    "compare": {
+      "source_view": "ZEHX_C_PhraseMig",
+      "target_view": "ZEHT_I_PhraseCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PhraseCatalog",
+        "PhraseID",
+        "Language"
+      ],
+      "fields": [
+        "PhraseText",
+        "PhraseCode"
+      ]
+    }
+  },
+  "main_structure": "ZEHX_C_PhraseMig"
+}

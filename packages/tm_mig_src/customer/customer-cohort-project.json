@@ -1,0 +1,442 @@
+{
+  "cutover": "20261011",
+  "inputs": {
+    "ZTMX_C_TransportLocMig": "exports/ZTMX_C_TransportLocMig.csv",
+    "ZTMX_C_TransportLocMig_Scope": "selection/ZTMX_C_TransportLocMig.csv",
+    "ZTMX_C_TransportResMig": "exports/ZTMX_C_TransportResMig.csv",
+    "ZTMX_C_TransportResMig_Scope": "selection/ZTMX_C_TransportResMig.csv",
+    "ZTMX_C_ResCapacityMig": "exports/ZTMX_C_ResCapacityMig.csv",
+    "ZTMX_C_ResCapacityMig_Scope": "selection/ZTMX_C_ResCapacityMig.csv",
+    "ZTMX_C_TransportLaneMig": "exports/ZTMX_C_TransportLaneMig.csv",
+    "ZTMX_C_TransportLaneMig_Scope": "selection/ZTMX_C_TransportLaneMig.csv",
+    "ZTMX_C_LaneCarrierMig": "exports/ZTMX_C_LaneCarrierMig.csv",
+    "ZTMX_C_LaneCarrierMig_Scope": "selection/ZTMX_C_LaneCarrierMig.csv",
+    "ZTMX_C_ScheduleMig": "exports/ZTMX_C_ScheduleMig.csv",
+    "ZTMX_C_ScheduleMig_Scope": "selection/ZTMX_C_ScheduleMig.csv",
+    "ZTMX_C_ScheduleStopMig": "exports/ZTMX_C_ScheduleStopMig.csv",
+    "ZTMX_C_ScheduleStopMig_Scope": "selection/ZTMX_C_ScheduleStopMig.csv",
+    "ZTMX_C_FreightAgreeMig": "exports/ZTMX_C_FreightAgreeMig.csv",
+    "ZTMX_C_FreightAgreeMig_Scope": "selection/ZTMX_C_FreightAgreeMig.csv",
+    "ZTMX_C_FreightRateMig": "exports/ZTMX_C_FreightRateMig.csv",
+    "ZTMX_C_FreightRateMig_Scope": "selection/ZTMX_C_FreightRateMig.csv",
+    "ZTMX_C_FreightScaleMig": "exports/ZTMX_C_FreightScaleMig.csv",
+    "ZTMX_C_FreightScaleMig_Scope": "selection/ZTMX_C_FreightScaleMig.csv",
+    "ZTMX_C_FreightUnitMig": "exports/ZTMX_C_FreightUnitMig.csv",
+    "ZTMX_C_FreightUnitMig_Scope": "selection/ZTMX_C_FreightUnitMig.csv",
+    "ZTMX_C_FreightUnitIteMig": "exports/ZTMX_C_FreightUnitIteMig.csv",
+    "ZTMX_C_FreightUnitIteMig_Scope": "selection/ZTMX_C_FreightUnitIteMig.csv",
+    "ZTMX_C_FreightUnitStoMig": "exports/ZTMX_C_FreightUnitStoMig.csv",
+    "ZTMX_C_FreightUnitStoMig_Scope": "selection/ZTMX_C_FreightUnitStoMig.csv",
+    "ZTMX_C_FreightOrderMig": "exports/ZTMX_C_FreightOrderMig.csv",
+    "ZTMX_C_FreightOrderMig_Scope": "selection/ZTMX_C_FreightOrderMig.csv",
+    "ZTMX_C_FreightOrdItemMig": "exports/ZTMX_C_FreightOrdItemMig.csv",
+    "ZTMX_C_FreightOrdItemMig_Scope": "selection/ZTMX_C_FreightOrdItemMig.csv",
+    "ZTMX_C_FreightOrdStopMig": "exports/ZTMX_C_FreightOrdStopMig.csv",
+    "ZTMX_C_FreightOrdStopMig_Scope": "selection/ZTMX_C_FreightOrdStopMig.csv",
+    "ZTMX_C_FreightStageMig": "exports/ZTMX_C_FreightStageMig.csv",
+    "ZTMX_C_FreightStageMig_Scope": "selection/ZTMX_C_FreightStageMig.csv",
+    "ZTMX_C_FreightSettleMig": "exports/ZTMX_C_FreightSettleMig.csv",
+    "ZTMX_C_FreightSettleMig_Scope": "selection/ZTMX_C_FreightSettleMig.csv",
+    "ZTMX_C_SettleItemMig": "exports/ZTMX_C_SettleItemMig.csv",
+    "ZTMX_C_SettleItemMig_Scope": "selection/ZTMX_C_SettleItemMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZTMX_C_TransportLocMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_TransportLocMig",
+      "parent": "ZTMX_C_TransportLocMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LocationID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LocationID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_TransportResMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_TransportResMig",
+      "parent": "ZTMX_C_TransportResMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ResourceID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ResourceID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_ResCapacityMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_ResCapacityMig",
+      "parent": "ZTMX_C_ResCapacityMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ResourceID",
+        "CapacityID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ResourceID",
+        "CapacityID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_TransportLaneMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_TransportLaneMig",
+      "parent": "ZTMX_C_TransportLaneMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LaneID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LaneID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_LaneCarrierMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_LaneCarrierMig",
+      "parent": "ZTMX_C_LaneCarrierMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LaneID",
+        "CarrierID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LaneID",
+        "CarrierID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_ScheduleMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_ScheduleMig",
+      "parent": "ZTMX_C_ScheduleMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScheduleID",
+        "Version"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScheduleID",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZTMX_C_ScheduleStopMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_ScheduleStopMig",
+      "parent": "ZTMX_C_ScheduleStopMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScheduleID",
+        "Version",
+        "StopID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScheduleID",
+        "Version",
+        "StopID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightAgreeMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightAgreeMig",
+      "parent": "ZTMX_C_FreightAgreeMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightRateMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightRateMig",
+      "parent": "ZTMX_C_FreightRateMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version",
+        "RateID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version",
+        "RateID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightScaleMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightScaleMig",
+      "parent": "ZTMX_C_FreightScaleMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version",
+        "RateID",
+        "ScaleLine"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version",
+        "RateID",
+        "ScaleLine"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightUnitMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightUnitMig",
+      "parent": "ZTMX_C_FreightUnitMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightUnitIteMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightUnitIteMig",
+      "parent": "ZTMX_C_FreightUnitIteMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID",
+        "ItemID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID",
+        "ItemID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightUnitStoMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightUnitStoMig",
+      "parent": "ZTMX_C_FreightUnitStoMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID",
+        "StopID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightUnitID",
+        "StopID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightOrderMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightOrderMig",
+      "parent": "ZTMX_C_FreightOrderMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightOrderID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightOrderID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightOrdItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightOrdItemMig",
+      "parent": "ZTMX_C_FreightOrdItemMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightOrderID",
+        "ItemID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightOrderID",
+        "ItemID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightOrdStopMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightOrdStopMig",
+      "parent": "ZTMX_C_FreightOrdStopMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightOrderID",
+        "StopID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightOrderID",
+        "StopID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightStageMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightStageMig",
+      "parent": "ZTMX_C_FreightStageMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightOrderID",
+        "StageID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "FreightOrderID",
+        "StageID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightSettleMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightSettleMig",
+      "parent": "ZTMX_C_FreightSettleMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SettlementID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SettlementID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_SettleItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_SettleItemMig",
+      "parent": "ZTMX_C_SettleItemMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SettlementID",
+        "SettlementItem"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SettlementID",
+        "SettlementItem"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZTMX_C_TransportLocMig_Prepared",
+    "ZTMX_C_TransportResMig_Prepared",
+    "ZTMX_C_ResCapacityMig_Prepared",
+    "ZTMX_C_TransportLaneMig_Prepared",
+    "ZTMX_C_LaneCarrierMig_Prepared",
+    "ZTMX_C_ScheduleMig_Prepared",
+    "ZTMX_C_ScheduleStopMig_Prepared",
+    "ZTMX_C_FreightAgreeMig_Prepared",
+    "ZTMX_C_FreightRateMig_Prepared",
+    "ZTMX_C_FreightScaleMig_Prepared",
+    "ZTMX_C_FreightUnitMig_Prepared",
+    "ZTMX_C_FreightUnitIteMig_Prepared",
+    "ZTMX_C_FreightUnitStoMig_Prepared",
+    "ZTMX_C_FreightOrderMig_Prepared",
+    "ZTMX_C_FreightOrdItemMig_Prepared",
+    "ZTMX_C_FreightOrdStopMig_Prepared",
+    "ZTMX_C_FreightStageMig_Prepared",
+    "ZTMX_C_FreightSettleMig_Prepared",
+    "ZTMX_C_SettleItemMig_Prepared"
+  ]
+}

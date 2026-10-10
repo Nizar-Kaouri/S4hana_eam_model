@@ -121,3 +121,9 @@ production order â†” product (R/Q). Not yet bridged: PS (maintenance order 
 ## Additional domain migration implementation
 
 The eight existing non-EAM domains have draft ECC and S/4HANA migration counterparts. See docs/customer/domains/README.md for exact coverage. Offline checks, mappings, audited scope projects, synthetic scenarios, bilingual guides and VDM maps are delivered. SAP activation, target adapter implementation, posting-interface confirmation and business acceptance remain open for every domain.
+
+## EWM TM FSCM EHS adapter drafts
+
+EWM, TM, FSCM and EHS now have eight additional source/target products with 32 modules, 72 canonical structures, 352 CDS views and 144 customer-owned staging tables. These products use `<domain>_mig_src` and `<domain>_mig_s4`. Their Basic → Composite → Consumption layers read staged exports; native read and business posting adapters remain customer implementation work. This is an explicit staging exception to the native-table/released-view convention used by earlier packs. All SAP runtime behavior remains unverified.
+
+See [bilingual customer guides and VDM maps](docs/customer/new-domains/README.md). Industry solutions remain out of scope.

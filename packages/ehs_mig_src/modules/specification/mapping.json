@@ -1,0 +1,360 @@
+{
+  "module": "specification",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "chemical_property"
+  ],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "SpecificationID",
+      "Version"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZEHX_C_SpecificationMig",
+      "source_view": "ZEHX_I_Specification",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS005-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS005-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS005-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SpecificationID",
+          "source": "ZEHX_EHS005-F004",
+          "target": "Customer native interface: SpecificationID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZEHX_EHS005-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SpecificationType",
+          "source": "ZEHX_EHS005-F006",
+          "target": "Customer native interface: SpecificationType (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Description",
+          "source": "ZEHX_EHS005-F007",
+          "target": "Customer native interface: Description (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AuthorizationGroup",
+          "source": "ZEHX_EHS005-F008",
+          "target": "Customer native interface: AuthorizationGroup (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ZEHX_EHS005-F009",
+          "target": "Customer native interface: ValidityStartDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ZEHX_EHS005-F010",
+          "target": "Customer native interface: ValidityEndDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    },
+    {
+      "consumption_view": "ZEHX_C_SpecIdentifierMig",
+      "source_view": "ZEHX_I_SpecIdentifier",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version",
+        "IdentifierID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS006-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS006-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS006-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SpecificationID",
+          "source": "ZEHX_EHS006-F004",
+          "target": "Customer native interface: SpecificationID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZEHX_EHS006-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "IdentifierID",
+          "source": "ZEHX_EHS006-F006",
+          "target": "Customer native interface: IdentifierID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "IdentifierType",
+          "source": "ZEHX_EHS006-F007",
+          "target": "Customer native interface: IdentifierType (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "IdentifierCategory",
+          "source": "ZEHX_EHS006-F008",
+          "target": "Customer native interface: IdentifierCategory (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "IdentifierValue",
+          "source": "ZEHX_EHS006-F009",
+          "target": "Customer native interface: IdentifierValue (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Language",
+          "source": "ZEHX_EHS006-F010",
+          "target": "Customer native interface: Language (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    },
+    {
+      "consumption_view": "ZEHX_C_SpecPropertyMig",
+      "source_view": "ZEHX_I_SpecProperty",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version",
+        "PropertyID",
+        "ValueID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS007-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS007-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS007-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SpecificationID",
+          "source": "ZEHX_EHS007-F004",
+          "target": "Customer native interface: SpecificationID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZEHX_EHS007-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PropertyID",
+          "source": "ZEHX_EHS007-F006",
+          "target": "Customer native interface: PropertyID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValueID",
+          "source": "ZEHX_EHS007-F007",
+          "target": "Customer native interface: ValueID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValueText",
+          "source": "ZEHX_EHS007-F008",
+          "target": "Customer native interface: ValueText (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValueLow",
+          "source": "ZEHX_EHS007-F009",
+          "target": "Customer native interface: ValueLow (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValueHigh",
+          "source": "ZEHX_EHS007-F010",
+          "target": "Customer native interface: ValueHigh (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "QuantityUnit",
+          "source": "ZEHX_EHS007-F011",
+          "target": "Customer native interface: QuantityUnit (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "UsageRating",
+          "source": "ZEHX_EHS007-F012",
+          "target": "Customer native interface: UsageRating (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "RegulatoryArea",
+          "source": "ZEHX_EHS007-F013",
+          "target": "Customer native interface: RegulatoryArea (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ZEHX_EHS007-F014",
+          "target": "Customer native interface: ValidityStartDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ZEHX_EHS007-F015",
+          "target": "Customer native interface: ValidityEndDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZEHX_C_SpecificationMigCount",
+    "target_count_view": "ZEHT_I_SpecificationCount",
+    "compare": {
+      "source_view": "ZEHX_C_SpecificationMig",
+      "target_view": "ZEHT_I_SpecificationCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version"
+      ],
+      "fields": [
+        "SpecificationType",
+        "Description",
+        "AuthorizationGroup",
+        "ValidityStartDate",
+        "ValidityEndDate"
+      ]
+    }
+  },
+  "main_structure": "ZEHX_C_SpecificationMig"
+}

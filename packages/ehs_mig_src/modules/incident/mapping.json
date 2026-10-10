@@ -1,0 +1,300 @@
+{
+  "module": "incident",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "ehs_location"
+  ],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "IncidentID"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZEHX_C_IncidentMig",
+      "source_view": "ZEHX_I_Incident",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS010-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS010-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS010-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "IncidentID",
+          "source": "ZEHX_EHS010-F004",
+          "target": "Customer native interface: IncidentID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "IncidentType",
+          "source": "ZEHX_EHS010-F005",
+          "target": "Customer native interface: IncidentType (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "LocationID",
+          "source": "ZEHX_EHS010-F006",
+          "target": "Customer native interface: LocationID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "OccurredAtUTC",
+          "source": "ZEHX_EHS010-F007",
+          "target": "Customer native interface: OccurredAtUTC (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TimeZone",
+          "source": "ZEHX_EHS010-F008",
+          "target": "Customer native interface: TimeZone (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "IncidentStatus",
+          "source": "ZEHX_EHS010-F009",
+          "target": "Customer native interface: IncidentStatus (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Description",
+          "source": "ZEHX_EHS010-F010",
+          "target": "Customer native interface: Description (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    },
+    {
+      "consumption_view": "ZEHX_C_IncidentPersonMig",
+      "source_view": "ZEHX_I_IncidentPerson",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID",
+        "PersonRole",
+        "PersonID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS011-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS011-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS011-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "IncidentID",
+          "source": "ZEHX_EHS011-F004",
+          "target": "Customer native interface: IncidentID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PersonRole",
+          "source": "ZEHX_EHS011-F005",
+          "target": "Customer native interface: PersonRole (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PersonID",
+          "source": "ZEHX_EHS011-F006",
+          "target": "Customer native interface: PersonID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BusinessPartner",
+          "source": "ZEHX_EHS011-F007",
+          "target": "Customer native interface: BusinessPartner (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "RestrictedRecordReference",
+          "source": "ZEHX_EHS011-F008",
+          "target": "Customer native interface: RestrictedRecordReference (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    },
+    {
+      "consumption_view": "ZEHX_C_IncidentActionMig",
+      "source_view": "ZEHX_I_IncidentAction",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID",
+        "ActionID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS012-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS012-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS012-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "IncidentID",
+          "source": "ZEHX_EHS012-F004",
+          "target": "Customer native interface: IncidentID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActionID",
+          "source": "ZEHX_EHS012-F005",
+          "target": "Customer native interface: ActionID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActionType",
+          "source": "ZEHX_EHS012-F006",
+          "target": "Customer native interface: ActionType (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ResponsiblePartner",
+          "source": "ZEHX_EHS012-F007",
+          "target": "Customer native interface: ResponsiblePartner (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DueDate",
+          "source": "ZEHX_EHS012-F008",
+          "target": "Customer native interface: DueDate (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActionStatus",
+          "source": "ZEHX_EHS012-F009",
+          "target": "Customer native interface: ActionStatus (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZEHX_C_IncidentMigCount",
+    "target_count_view": "ZEHT_I_IncidentCount",
+    "compare": {
+      "source_view": "ZEHX_C_IncidentMig",
+      "target_view": "ZEHT_I_IncidentCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID"
+      ],
+      "fields": [
+        "IncidentType",
+        "LocationID",
+        "OccurredAtUTC",
+        "TimeZone",
+        "IncidentStatus",
+        "Description"
+      ]
+    }
+  },
+  "main_structure": "ZEHX_C_IncidentMig"
+}

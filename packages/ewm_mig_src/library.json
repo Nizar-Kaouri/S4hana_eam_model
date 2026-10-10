@@ -1,0 +1,39 @@
+{
+  "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
+  "phase": "no-system",
+  "prefix": "ZWMX_",
+  "package": "ZWMX_MIG",
+  "package_description": "Extended Warehouse Management canonical staging",
+  "product_title": "Extended Warehouse Management migration source",
+  "sap_area": "EWM-MIG",
+  "target_release": "Administrative NetWeaver 7.40 SP08+ stage",
+  "max_object_name_length": {
+    "DDLS": 30,
+    "DCLS": 30,
+    "DDLX": 30,
+    "CLAS": 30,
+    "DEVC": 30,
+    "SQLVIEW": 16,
+    "TABL": 16
+  },
+  "reserve_prefix_chars": 1,
+  "kind": "migration-source",
+  "system": "source",
+  "migration_pair": "ewm_mig_s4",
+  "map_title": "Extended Warehouse Management staged evidence",
+  "map_area": "Customer-owned stages",
+  "map_initial": "ZWMX_I_StorageBinData",
+  "map_external_title": "Native adapters",
+  "draft_tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "map_release": "Customer staging on ABAP NW 7.40 SP08+ (assumed)",
+  "map_external_sub": "customer implementation required",
+  "layer_prefixes": {
+    "basic": "I_",
+    "composite": "I_",
+    "consumption": "C_"
+  },
+  "consumption_suffixes": [
+    "Mig",
+    "MigCount"
+  ]
+}

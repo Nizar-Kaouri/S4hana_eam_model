@@ -1,0 +1,51 @@
+{
+  "name": "promise_to_pay",
+  "title": "Promises to pay and related receivables",
+  "description": "Canonical Promises to pay and related receivables exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "process-reference"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "collections_profile"
+  ],
+  "objects": {
+    "tables": [
+      "ZFCX_FCS009",
+      "ZFCX_FCS010"
+    ],
+    "basic": [
+      "ZFCX_I_PaymentPromiseData",
+      "ZFCX_I_PromiseItemData"
+    ],
+    "composite": [
+      "ZFCX_I_PaymentPromise",
+      "ZFCX_I_PromiseItem"
+    ],
+    "consumption": [
+      "ZFCX_C_PaymentPromiseMig",
+      "ZFCX_C_PaymentPromiseMigCount",
+      "ZFCX_C_PromiseItemMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFCX_I_PaymentPromiseData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_I_PaymentPromise": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_C_PaymentPromiseMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_C_PaymentPromiseMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_I_PromiseItemData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_I_PromiseItem": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZFCX_C_PromiseItemMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

@@ -1,0 +1,39 @@
+{
+  "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
+  "phase": "no-system",
+  "prefix": "ZEHX_",
+  "package": "ZEHX_MIG",
+  "package_description": "Environment Health and Safety canonical staging",
+  "product_title": "Environment Health and Safety migration source",
+  "sap_area": "EHS-MIG",
+  "target_release": "Administrative NetWeaver 7.40 SP08+ stage",
+  "max_object_name_length": {
+    "DDLS": 30,
+    "DCLS": 30,
+    "DDLX": 30,
+    "CLAS": 30,
+    "DEVC": 30,
+    "SQLVIEW": 16,
+    "TABL": 16
+  },
+  "reserve_prefix_chars": 1,
+  "kind": "migration-source",
+  "system": "source",
+  "migration_pair": "ehs_mig_s4",
+  "map_title": "Environment Health and Safety staged evidence",
+  "map_area": "Customer-owned stages",
+  "map_initial": "ZEHX_I_EHSLocationData",
+  "map_external_title": "Native adapters",
+  "draft_tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "map_release": "Customer staging on ABAP NW 7.40 SP08+ (assumed)",
+  "map_external_sub": "customer implementation required",
+  "layer_prefixes": {
+    "basic": "I_",
+    "composite": "I_",
+    "consumption": "C_"
+  },
+  "consumption_suffixes": [
+    "Mig",
+    "MigCount"
+  ]
+}

@@ -1,0 +1,1 @@
+SourceSystem,SourceClient,ExportBatch,FreightOrderID,StopID,LocationID,Sequence,StopRole,PlannedAtUTC,ActualAtUTC,TimeZone

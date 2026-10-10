@@ -1,0 +1,33 @@
+{
+  "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
+  "phase": "no-system",
+  "prefix": "ZFCT_",
+  "package": "ZFCT_MIG",
+  "package_description": "Financial Supply Chain Management canonical staging",
+  "product_title": "Financial Supply Chain Management migration s4",
+  "sap_area": "FSCM-MIG",
+  "target_release": "S/4HANA 2025 customer stage",
+  "max_object_name_length": {
+    "DDLS": 30,
+    "DCLS": 30,
+    "DDLX": 30,
+    "CLAS": 30,
+    "DEVC": 30
+  },
+  "reserve_prefix_chars": 1,
+  "kind": "migration-target",
+  "system": "s4",
+  "migration_pair": "fscm_mig_src",
+  "map_title": "Financial Supply Chain Management staged evidence",
+  "map_area": "Customer-owned stages",
+  "map_initial": "ZFCT_I_CreditProfileCompare",
+  "layer_prefixes": {
+    "basic": "I_",
+    "composite": "I_",
+    "consumption": "C_"
+  },
+  "map_external_title": "Native adapters",
+  "map_external_sub": "customer implementation required",
+  "draft_tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "map_release": "Customer evidence staging on S/4HANA 2025 (assumed)"
+}

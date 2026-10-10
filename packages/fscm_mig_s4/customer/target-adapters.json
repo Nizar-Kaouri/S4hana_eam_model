@@ -1,0 +1,275 @@
+{
+  "ZFCX_C_CreditProfileMig": {
+    "module": "credit_profile",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner"
+    ],
+    "fields": [
+      "RiskClass",
+      "CheckRule",
+      "Score",
+      "ScoreDate",
+      "CreditGroup"
+    ],
+    "target_export": "target/ZFCX_C_CreditProfileMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CreditRelationMig": {
+    "module": "credit_profile",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "RelatedPartner",
+      "RelationType",
+      "ValidityStartDate"
+    ],
+    "fields": [
+      "ValidityEndDate"
+    ],
+    "target_export": "target/ZFCX_C_CreditRelationMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CreditSegmentMig": {
+    "module": "credit_segment",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CreditSegment"
+    ],
+    "fields": [
+      "CreditLimit",
+      "Currency",
+      "LimitValidTo",
+      "Blocked",
+      "CreditControlArea"
+    ],
+    "target_export": "target/ZFCX_C_CreditSegmentMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CreditExposureMig": {
+    "module": "credit_exposure",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "SourceDocument",
+      "SourceItem"
+    ],
+    "fields": [
+      "ExposureAmount",
+      "Currency",
+      "AsOfUTC"
+    ],
+    "target_export": "target/ZFCX_C_CreditExposureMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CollectProfileMig": {
+    "module": "collections_profile",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner"
+    ],
+    "fields": [
+      "ProfileID",
+      "CompanyCode",
+      "CollectionStrategy"
+    ],
+    "target_export": "target/ZFCX_C_CollectProfileMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CollectSegmentMig": {
+    "module": "collections_profile",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment"
+    ],
+    "fields": [
+      "CollectionGroup",
+      "Specialist",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "target_export": "target/ZFCX_C_CollectSegmentMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CollectContactMig": {
+    "module": "collection_activity",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "ContactID"
+    ],
+    "fields": [
+      "ContactAtUTC",
+      "ContactType",
+      "ContactResult",
+      "Specialist"
+    ],
+    "target_export": "target/ZFCX_C_CollectContactMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CollectTaskMig": {
+    "module": "collection_activity",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "TaskID"
+    ],
+    "fields": [
+      "Reason",
+      "DueAtUTC",
+      "TaskStatus",
+      "RelatedContact"
+    ],
+    "target_export": "target/ZFCX_C_CollectTaskMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_PaymentPromiseMig": {
+    "module": "promise_to_pay",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "PromiseID"
+    ],
+    "fields": [
+      "PromiseDate",
+      "DueDate",
+      "PromisedAmount",
+      "Currency",
+      "PromiseStatus"
+    ],
+    "target_export": "target/ZFCX_C_PaymentPromiseMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_PromiseItemMig": {
+    "module": "promise_to_pay",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "PromiseID",
+      "CompanyCode",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingItem"
+    ],
+    "fields": [
+      "AssignedAmount",
+      "Currency"
+    ],
+    "target_export": "target/ZFCX_C_PromiseItemMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_DisputeCaseMig": {
+    "module": "dispute_case",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID"
+    ],
+    "fields": [
+      "NativeGUID",
+      "BusinessPartner",
+      "CaseType",
+      "Reason",
+      "CaseStatus",
+      "Priority",
+      "DisputedAmount",
+      "Currency",
+      "CreatedAtUTC"
+    ],
+    "target_export": "target/ZFCX_C_DisputeCaseMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_DisputeItemMig": {
+    "module": "dispute_case",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "CompanyCode",
+      "FiscalYear",
+      "AccountingDocument",
+      "AccountingItem"
+    ],
+    "fields": [
+      "DisputedAmount",
+      "Currency"
+    ],
+    "target_export": "target/ZFCX_C_DisputeItemMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CaseAttributeMig": {
+    "module": "dispute_case",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "AttributeID"
+    ],
+    "fields": [
+      "AttributeValue"
+    ],
+    "target_export": "target/ZFCX_C_CaseAttributeMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  },
+  "ZFCX_C_CaseAttachmentMig": {
+    "module": "dispute_case",
+    "key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CaseID",
+      "AttachmentID"
+    ],
+    "fields": [
+      "DocumentType",
+      "FileName",
+      "ContentHash",
+      "RepositoryReference"
+    ],
+    "target_export": "target/ZFCX_C_CaseAttachmentMig.csv",
+    "adapter_status": "customer native target implementation required",
+    "notes": "Stages and target CDS contain only provided evidence. Export business objects through verified native interfaces and normalize mapped IDs and original cohort metadata."
+  }
+}

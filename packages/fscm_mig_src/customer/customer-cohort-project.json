@@ -1,0 +1,353 @@
+{
+  "cutover": "20261011",
+  "inputs": {
+    "ZFCX_C_CreditProfileMig": "exports/ZFCX_C_CreditProfileMig.csv",
+    "ZFCX_C_CreditProfileMig_Scope": "selection/ZFCX_C_CreditProfileMig.csv",
+    "ZFCX_C_CreditRelationMig": "exports/ZFCX_C_CreditRelationMig.csv",
+    "ZFCX_C_CreditRelationMig_Scope": "selection/ZFCX_C_CreditRelationMig.csv",
+    "ZFCX_C_CreditSegmentMig": "exports/ZFCX_C_CreditSegmentMig.csv",
+    "ZFCX_C_CreditSegmentMig_Scope": "selection/ZFCX_C_CreditSegmentMig.csv",
+    "ZFCX_C_CreditExposureMig": "exports/ZFCX_C_CreditExposureMig.csv",
+    "ZFCX_C_CreditExposureMig_Scope": "selection/ZFCX_C_CreditExposureMig.csv",
+    "ZFCX_C_CollectProfileMig": "exports/ZFCX_C_CollectProfileMig.csv",
+    "ZFCX_C_CollectProfileMig_Scope": "selection/ZFCX_C_CollectProfileMig.csv",
+    "ZFCX_C_CollectSegmentMig": "exports/ZFCX_C_CollectSegmentMig.csv",
+    "ZFCX_C_CollectSegmentMig_Scope": "selection/ZFCX_C_CollectSegmentMig.csv",
+    "ZFCX_C_CollectContactMig": "exports/ZFCX_C_CollectContactMig.csv",
+    "ZFCX_C_CollectContactMig_Scope": "selection/ZFCX_C_CollectContactMig.csv",
+    "ZFCX_C_CollectTaskMig": "exports/ZFCX_C_CollectTaskMig.csv",
+    "ZFCX_C_CollectTaskMig_Scope": "selection/ZFCX_C_CollectTaskMig.csv",
+    "ZFCX_C_PaymentPromiseMig": "exports/ZFCX_C_PaymentPromiseMig.csv",
+    "ZFCX_C_PaymentPromiseMig_Scope": "selection/ZFCX_C_PaymentPromiseMig.csv",
+    "ZFCX_C_PromiseItemMig": "exports/ZFCX_C_PromiseItemMig.csv",
+    "ZFCX_C_PromiseItemMig_Scope": "selection/ZFCX_C_PromiseItemMig.csv",
+    "ZFCX_C_DisputeCaseMig": "exports/ZFCX_C_DisputeCaseMig.csv",
+    "ZFCX_C_DisputeCaseMig_Scope": "selection/ZFCX_C_DisputeCaseMig.csv",
+    "ZFCX_C_DisputeItemMig": "exports/ZFCX_C_DisputeItemMig.csv",
+    "ZFCX_C_DisputeItemMig_Scope": "selection/ZFCX_C_DisputeItemMig.csv",
+    "ZFCX_C_CaseAttributeMig": "exports/ZFCX_C_CaseAttributeMig.csv",
+    "ZFCX_C_CaseAttributeMig_Scope": "selection/ZFCX_C_CaseAttributeMig.csv",
+    "ZFCX_C_CaseAttachmentMig": "exports/ZFCX_C_CaseAttachmentMig.csv",
+    "ZFCX_C_CaseAttachmentMig_Scope": "selection/ZFCX_C_CaseAttachmentMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZFCX_C_CreditProfileMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CreditProfileMig",
+      "parent": "ZFCX_C_CreditProfileMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CreditRelationMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CreditRelationMig",
+      "parent": "ZFCX_C_CreditRelationMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "RelatedPartner",
+        "RelationType",
+        "ValidityStartDate"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "RelatedPartner",
+        "RelationType",
+        "ValidityStartDate"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CreditSegmentMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CreditSegmentMig",
+      "parent": "ZFCX_C_CreditSegmentMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CreditSegment"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CreditSegment"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CreditExposureMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CreditExposureMig",
+      "parent": "ZFCX_C_CreditExposureMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "SourceDocument",
+        "SourceItem"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "SourceDocument",
+        "SourceItem"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CollectProfileMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CollectProfileMig",
+      "parent": "ZFCX_C_CollectProfileMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CollectSegmentMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CollectSegmentMig",
+      "parent": "ZFCX_C_CollectSegmentMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CollectContactMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CollectContactMig",
+      "parent": "ZFCX_C_CollectContactMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment",
+        "ContactID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment",
+        "ContactID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CollectTaskMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CollectTaskMig",
+      "parent": "ZFCX_C_CollectTaskMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment",
+        "TaskID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment",
+        "TaskID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_PaymentPromiseMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_PaymentPromiseMig",
+      "parent": "ZFCX_C_PaymentPromiseMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "PromiseID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "PromiseID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_PromiseItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_PromiseItemMig",
+      "parent": "ZFCX_C_PromiseItemMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "PromiseID",
+        "CompanyCode",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingItem"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "PromiseID",
+        "CompanyCode",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingItem"
+      ]
+    },
+    {
+      "name": "ZFCX_C_DisputeCaseMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_DisputeCaseMig",
+      "parent": "ZFCX_C_DisputeCaseMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CaseID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CaseID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_DisputeItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_DisputeItemMig",
+      "parent": "ZFCX_C_DisputeItemMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CaseID",
+        "CompanyCode",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingItem"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CaseID",
+        "CompanyCode",
+        "FiscalYear",
+        "AccountingDocument",
+        "AccountingItem"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CaseAttributeMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CaseAttributeMig",
+      "parent": "ZFCX_C_CaseAttributeMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CaseID",
+        "AttributeID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CaseID",
+        "AttributeID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CaseAttachmentMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CaseAttachmentMig",
+      "parent": "ZFCX_C_CaseAttachmentMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CaseID",
+        "AttachmentID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CaseID",
+        "AttachmentID"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZFCX_C_CreditProfileMig_Prepared",
+    "ZFCX_C_CreditRelationMig_Prepared",
+    "ZFCX_C_CreditSegmentMig_Prepared",
+    "ZFCX_C_CreditExposureMig_Prepared",
+    "ZFCX_C_CollectProfileMig_Prepared",
+    "ZFCX_C_CollectSegmentMig_Prepared",
+    "ZFCX_C_CollectContactMig_Prepared",
+    "ZFCX_C_CollectTaskMig_Prepared",
+    "ZFCX_C_PaymentPromiseMig_Prepared",
+    "ZFCX_C_PromiseItemMig_Prepared",
+    "ZFCX_C_DisputeCaseMig_Prepared",
+    "ZFCX_C_DisputeItemMig_Prepared",
+    "ZFCX_C_CaseAttributeMig_Prepared",
+    "ZFCX_C_CaseAttachmentMig_Prepared"
+  ]
+}

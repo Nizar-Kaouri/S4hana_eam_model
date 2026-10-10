@@ -435,9 +435,11 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     text = json.dumps({n: c for n, c in json.loads(text).items() if c["module"] in resolved}, indent=2) + "\n"
                 elif asset.name == "coverage-requirements.json":
                     text = json.dumps({n: c for n, c in json.loads(text).items() if n in resolved}, indent=2) + "\n"
+                elif asset.name in ("staging-contracts.json", "source-adapters.json"):
+                    text = json.dumps({n: c for n, c in json.loads(text).items() if c["module"] in resolved}, indent=2) + "\n"
                 relative = asset.relative_to(root)
                 zf.writestr(asset_path(relative), rewrite_asset(text))
-            for tool in ("mig_reconcile.py", "eam_prepare.py", "eam_run.py", "migration_prepare.py", "migration_run.py", "migration_business.py", "migration_ddic.py"):
+            for tool in ("mig_reconcile.py", "eam_prepare.py", "eam_run.py", "migration_prepare.py", "migration_run.py", "migration_business.py", "migration_ddic.py", "migration_stage.py"):
                 zf.writestr("tools/" + tool, (vdm_paths.REPO / "tools" / tool).read_text(encoding="utf-8"))
             # The existing main-object CLI resolves mappings by product/module.
             for mod in resolved:
@@ -452,7 +454,15 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                         content = json.dumps({n: c for n, c in json.loads(content).items() if c["module"] in resolved}, indent=2) + "\n"
                     elif asset.name == "coverage-requirements.json":
                         content = json.dumps({n: c for n, c in json.loads(content).items() if n in resolved}, indent=2) + "\n"
+                    elif asset.name == "staging-contracts.json":
+                        content = json.dumps({n: c for n, c in json.loads(content).items() if c["module"] in resolved}, indent=2) + "\n"
                     zf.writestr(asset_path(asset.relative_to(root)), rewrite_asset(content))
+            if (root / "customer" / "staging-contracts.json").exists():
+                for helper in sorted((root / "helpers").glob("*")):
+                    if helper.is_file():
+                        zf.writestr("helpers/" + rewrite(helper.name), rewrite(helper.read_text(encoding="utf-8")))
+                for tool in ("migration_stage.py", "migration_ddic.py", "eam_prepare.py", "mig_reconcile.py"):
+                    zf.writestr("tools/" + tool, (vdm_paths.REPO / "tools" / tool).read_text(encoding="utf-8"))
         if library.get("kind") == "migration-source":
             import csv
             import io

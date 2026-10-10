@@ -1,0 +1,212 @@
+{
+  "module": "credit_profile",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFCX_C_CreditProfileMig",
+      "source_view": "ZFCX_I_CreditProfile",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZFCX_FCS001-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZFCX_FCS001-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZFCX_FCS001-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "BusinessPartner",
+          "source": "ZFCX_FCS001-F004",
+          "target": "Customer native interface: BusinessPartner (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "RiskClass",
+          "source": "ZFCX_FCS001-F005",
+          "target": "Customer native interface: RiskClass (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CheckRule",
+          "source": "ZFCX_FCS001-F006",
+          "target": "Customer native interface: CheckRule (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Score",
+          "source": "ZFCX_FCS001-F007",
+          "target": "Customer native interface: Score (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScoreDate",
+          "source": "ZFCX_FCS001-F008",
+          "target": "Customer native interface: ScoreDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CreditGroup",
+          "source": "ZFCX_FCS001-F009",
+          "target": "Customer native interface: CreditGroup (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter."
+    },
+    {
+      "consumption_view": "ZFCX_C_CreditRelationMig",
+      "source_view": "ZFCX_I_CreditRelation",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "RelatedPartner",
+        "RelationType",
+        "ValidityStartDate"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZFCX_FCS002-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZFCX_FCS002-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZFCX_FCS002-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "BusinessPartner",
+          "source": "ZFCX_FCS002-F004",
+          "target": "Customer native interface: BusinessPartner (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "RelatedPartner",
+          "source": "ZFCX_FCS002-F005",
+          "target": "Customer native interface: RelatedPartner (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "RelationType",
+          "source": "ZFCX_FCS002-F006",
+          "target": "Customer native interface: RelationType (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ZFCX_FCS002-F007",
+          "target": "Customer native interface: ValidityStartDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ZFCX_FCS002-F008",
+          "target": "Customer native interface: ValidityEndDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZFCX_C_CreditProfileMigCount",
+    "target_count_view": "ZFCT_I_CreditProfileCount",
+    "compare": {
+      "source_view": "ZFCX_C_CreditProfileMig",
+      "target_view": "ZFCT_I_CreditProfileCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner"
+      ],
+      "fields": [
+        "RiskClass",
+        "CheckRule",
+        "Score",
+        "ScoreDate",
+        "CreditGroup"
+      ]
+    }
+  },
+  "main_structure": "ZFCX_C_CreditProfileMig"
+}

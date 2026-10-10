@@ -1,0 +1,212 @@
+{
+  "module": "transport_lane",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "transport_location"
+  ],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "LaneID"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZTMX_C_TransportLaneMig",
+      "source_view": "ZTMX_I_TransportLane",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LaneID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS004-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS004-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS004-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "LaneID",
+          "source": "ZTMX_TMS004-F004",
+          "target": "Customer native interface: LaneID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceLocation",
+          "source": "ZTMX_TMS004-F005",
+          "target": "Customer native interface: SourceLocation (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DestinationLocation",
+          "source": "ZTMX_TMS004-F006",
+          "target": "Customer native interface: DestinationLocation (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "TransportMode",
+          "source": "ZTMX_TMS004-F007",
+          "target": "Customer native interface: TransportMode (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ZTMX_TMS004-F008",
+          "target": "Customer native interface: ValidityStartDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ZTMX_TMS004-F009",
+          "target": "Customer native interface: ValidityEndDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    },
+    {
+      "consumption_view": "ZTMX_C_LaneCarrierMig",
+      "source_view": "ZTMX_I_LaneCarrier",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LaneID",
+        "CarrierID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS005-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS005-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS005-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "LaneID",
+          "source": "ZTMX_TMS005-F004",
+          "target": "Customer native interface: LaneID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CarrierID",
+          "source": "ZTMX_TMS005-F005",
+          "target": "Customer native interface: CarrierID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Priority",
+          "source": "ZTMX_TMS005-F006",
+          "target": "Customer native interface: Priority (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ZTMX_TMS005-F007",
+          "target": "Customer native interface: ValidityStartDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ZTMX_TMS005-F008",
+          "target": "Customer native interface: ValidityEndDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZTMX_C_TransportLaneMigCount",
+    "target_count_view": "ZTMT_I_TransportLaneCount",
+    "compare": {
+      "source_view": "ZTMX_C_TransportLaneMig",
+      "target_view": "ZTMT_I_TransportLaneCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LaneID"
+      ],
+      "fields": [
+        "SourceLocation",
+        "DestinationLocation",
+        "TransportMode",
+        "ValidityStartDate",
+        "ValidityEndDate"
+      ]
+    }
+  },
+  "main_structure": "ZTMX_C_TransportLaneMig"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "freight_settlement",
+  "title": "Freight settlement references",
+  "description": "Canonical Freight settlement references exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, customer staging on NetWeaver 7.40 SP08+ assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "reference"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "freight_order"
+  ],
+  "objects": {
+    "tables": [
+      "ZTMX_TMS018",
+      "ZTMX_TMS019"
+    ],
+    "basic": [
+      "ZTMX_I_FreightSettleData",
+      "ZTMX_I_SettleItemData"
+    ],
+    "composite": [
+      "ZTMX_I_FreightSettle",
+      "ZTMX_I_SettleItem"
+    ],
+    "consumption": [
+      "ZTMX_C_FreightSettleMig",
+      "ZTMX_C_FreightSettleMigCount",
+      "ZTMX_C_SettleItemMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZTMX_I_FreightSettleData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_I_FreightSettle": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_C_FreightSettleMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_C_FreightSettleMigCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_I_SettleItemData": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_I_SettleItem": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMX_C_SettleItemMig": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

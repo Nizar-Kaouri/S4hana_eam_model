@@ -1,0 +1,37 @@
+{
+  "name": "transport_location",
+  "title": "Transportation locations target staged comparison",
+  "description": "Canonical Transportation locations exports over customer stages; native business adapters required.",
+  "batch": 1,
+  "version": "0.1.0",
+  "status": "draft-unverified",
+  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "tags": [
+    "migration",
+    "adapter-backed",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [
+      "ZTMT_TMT001"
+    ],
+    "basic": [
+      "ZTMT_I_TransportLocCompare"
+    ],
+    "composite": [
+      "ZTMT_I_TransportLocCount"
+    ],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZTMT_I_TransportLocCompare": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service.",
+    "ZTMT_I_TransportLocCount": "Administrative staging only. No DCL supplied: restrict table and CDS access to authorized migration users in an isolated client. These views do not inherit native EWM/TM/FSCM/EHS business authorizations. Never expose sensitive staging data through an unrestricted service."
+  },
+  "link_views": []
+}

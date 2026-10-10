@@ -1,0 +1,2 @@
+﻿SourceSystem,SourceClient,ExportBatch,FreightOrderID,StopID,LocationID,Sequence,StopRole,PlannedAtUTC,ActualAtUTC,TimeZone
+ERP_DEMO,100,DEMO001,0001,0001,sample,sample,sample,20261011100000,20261011100000,sample

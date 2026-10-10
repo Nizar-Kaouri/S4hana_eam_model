@@ -1,0 +1,1438 @@
+{
+  "ZEHX_C_EHSLocationMig": {
+    "module": "ehs_location",
+    "table": "ZEHT_EHT001",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "LocationID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "LocationID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "LocationType",
+        "length": 132
+      },
+      {
+        "native": "F006",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Plant",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Country",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "TimeZone",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "ValidityStartDate",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "ValidityEndDate",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_EHSLocHierarchMig": {
+    "module": "ehs_location",
+    "table": "ZEHT_EHT002",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "HierarchyID",
+      "ParentLocation",
+      "ChildLocation",
+      "ValidityStartDate"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "HierarchyID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "ParentLocation",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ChildLocation",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ValidityStartDate",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "ValidityEndDate",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_ChemicalPropMig": {
+    "module": "chemical_property",
+    "table": "ZEHT_EHT003",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PropertyID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "PropertyID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F006",
+        "element": "PropertyType",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "DefaultUnit",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Dimension",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_PropertyUnitMig": {
+    "module": "chemical_property",
+    "table": "ZEHT_EHT004",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PropertyID",
+      "UnitID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "PropertyID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "UnitID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ConversionNumerator",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "ConversionDenominator",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_SpecificationMig": {
+    "module": "specification",
+    "table": "ZEHT_EHT005",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "SpecificationID",
+      "Version"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "SpecificationID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "SpecificationType",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "AuthorizationGroup",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "ValidityStartDate",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "ValidityEndDate",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_SpecIdentifierMig": {
+    "module": "specification",
+    "table": "ZEHT_EHT006",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "SpecificationID",
+      "Version",
+      "IdentifierID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "SpecificationID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "IdentifierID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "IdentifierType",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "IdentifierCategory",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "IdentifierValue",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "Language",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_SpecPropertyMig": {
+    "module": "specification",
+    "table": "ZEHT_EHT007",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "SpecificationID",
+      "Version",
+      "PropertyID",
+      "ValueID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "SpecificationID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "PropertyID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ValueID",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "ValueText",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "ValueLow",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "ValueHigh",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F012",
+        "element": "UsageRating",
+        "length": 132
+      },
+      {
+        "native": "F013",
+        "element": "RegulatoryArea",
+        "length": 132
+      },
+      {
+        "native": "F014",
+        "element": "ValidityStartDate",
+        "length": 132
+      },
+      {
+        "native": "F015",
+        "element": "ValidityEndDate",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_PhraseMig": {
+    "module": "phrase",
+    "table": "ZEHT_EHT008",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PhraseCatalog",
+      "PhraseID",
+      "Language"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "PhraseCatalog",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "PhraseID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "Language",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "PhraseText",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "PhraseCode",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_PhraseSetMig": {
+    "module": "phrase",
+    "table": "ZEHT_EHT009",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PhraseSetID",
+      "PhraseCatalog",
+      "PhraseID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "PhraseSetID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "PhraseCatalog",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "PhraseID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "SortSequence",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_IncidentMig": {
+    "module": "incident",
+    "table": "ZEHT_EHT010",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "IncidentID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "IncidentID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "IncidentType",
+        "length": 132
+      },
+      {
+        "native": "F006",
+        "element": "LocationID",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "OccurredAtUTC",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "TimeZone",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "IncidentStatus",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "Description",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_IncidentPersonMig": {
+    "module": "incident",
+    "table": "ZEHT_EHT011",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "IncidentID",
+      "PersonRole",
+      "PersonID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "IncidentID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "PersonRole",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "PersonID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "BusinessPartner",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "RestrictedRecordReference",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_IncidentActionMig": {
+    "module": "incident",
+    "table": "ZEHT_EHT012",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "IncidentID",
+      "ActionID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "IncidentID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "ActionID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ActionType",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "ResponsiblePartner",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "DueDate",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "ActionStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_RiskAssessmentMig": {
+    "module": "risk_assessment",
+    "table": "ZEHT_EHT013",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AssessmentID",
+      "Version"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "AssessmentID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "LocationID",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "ValidityStartDate",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ValidityEndDate",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "AssessmentStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_RiskHazardMig": {
+    "module": "risk_assessment",
+    "table": "ZEHT_EHT014",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AssessmentID",
+      "Version",
+      "HazardID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "AssessmentID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "HazardID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "HazardType",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Likelihood",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "Severity",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "RiskRating",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "RatingScheme",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_RiskControlMig": {
+    "module": "risk_assessment",
+    "table": "ZEHT_EHT015",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AssessmentID",
+      "Version",
+      "HazardID",
+      "ControlID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "AssessmentID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "HazardID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ControlID",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "ControlType",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "ResponsiblePartner",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "ControlStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_DataClassifierMig": {
+    "module": "environmental_data",
+    "table": "ZEHT_EHT016",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ClassifierID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "ClassifierID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F006",
+        "element": "ClassifierType",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "PropertyID",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_DataCollectionMig": {
+    "module": "environmental_data",
+    "table": "ZEHT_EHT017",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CollectionID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "CollectionID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "LocationID",
+        "length": 132
+      },
+      {
+        "native": "F006",
+        "element": "ClassifierID",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ScheduleType",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "TimeZone",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_MeasurementMig": {
+    "module": "environmental_data",
+    "table": "ZEHT_EHT018",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "CollectionID",
+      "MeasurementID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "CollectionID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "MeasurementID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "MeasuredAtUTC",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Value",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "MethodID",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "QualityStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_ComplianceReqMig": {
+    "module": "compliance",
+    "table": "ZEHT_EHT019",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "RequirementID",
+      "Version"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "RequirementID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "RegulatoryArea",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ValidityStartDate",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "ValidityEndDate",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_ComplianceScenMig": {
+    "module": "compliance",
+    "table": "ZEHT_EHT020",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ScenarioID",
+      "Version"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "ScenarioID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "LocationID",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ScenarioStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_ComplianceLinkMig": {
+    "module": "compliance",
+    "table": "ZEHT_EHT021",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ScenarioID",
+      "Version",
+      "RequirementID",
+      "RequirementVersion"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "ScenarioID",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "RequirementID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "RequirementVersion",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "ClassifierID",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "PropertyID",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_DangerousGoodsMig": {
+    "module": "dangerous_goods",
+    "table": "ZEHT_EHT022",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Product",
+      "RegulationID",
+      "Version"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Product",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "RegulationID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "UNNumber",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ProperShippingName",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "HazardClass",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "PackingGroup",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "ValidityStartDate",
+        "length": 132
+      },
+      {
+        "native": "F012",
+        "element": "ValidityEndDate",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZEHX_C_DGTransportMig": {
+    "module": "dangerous_goods",
+    "table": "ZEHT_EHT023",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Product",
+      "RegulationID",
+      "Version",
+      "TransportMode"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Product",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "RegulationID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "TransportMode",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "LimitedQuantity",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "ExemptionCode",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  }
+}

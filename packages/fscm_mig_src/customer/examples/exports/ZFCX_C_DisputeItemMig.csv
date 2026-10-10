@@ -1,0 +1,3 @@
+﻿SourceSystem,SourceClient,ExportBatch,CaseID,CompanyCode,FiscalYear,AccountingDocument,AccountingItem,DisputedAmount,Currency
+ERP_DEMO,100,DEMO001,0001,0001,0001,0001,0001,10.00,EUR
+ERP_DEMO,100,DEMO001,0002,0002,0002,0002,0002,10.00,EUR

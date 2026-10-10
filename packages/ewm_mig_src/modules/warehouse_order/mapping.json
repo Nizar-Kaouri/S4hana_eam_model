@@ -1,0 +1,148 @@
+{
+  "module": "warehouse_order",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseOrder"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZWMX_C_WarehouseOrderMig",
+      "source_view": "ZWMX_I_WarehouseOrder",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "WarehouseOrder"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZWMX_WMS011-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZWMX_WMS011-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZWMX_WMS011-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Warehouse",
+          "source": "ZWMX_WMS011-F004",
+          "target": "Customer native interface: Warehouse (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "WarehouseOrder",
+          "source": "ZWMX_WMS011-F005",
+          "target": "Customer native interface: WarehouseOrder (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ActivityArea",
+          "source": "ZWMX_WMS011-F006",
+          "target": "Customer native interface: ActivityArea (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Queue",
+          "source": "ZWMX_WMS011-F007",
+          "target": "Customer native interface: Queue (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Resource",
+          "source": "ZWMX_WMS011-F008",
+          "target": "Customer native interface: Resource (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "OrderStatus",
+          "source": "ZWMX_WMS011-F009",
+          "target": "Customer native interface: OrderStatus (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CreatedAtUTC",
+          "source": "ZWMX_WMS011-F010",
+          "target": "Customer native interface: CreatedAtUTC (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZWMX_C_WarehouseOrderMigCount",
+    "target_count_view": "ZWMT_I_WarehouseOrderCount",
+    "compare": {
+      "source_view": "ZWMX_C_WarehouseOrderMig",
+      "target_view": "ZWMT_I_WarehouseOrderCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "WarehouseOrder"
+      ],
+      "fields": [
+        "ActivityArea",
+        "Queue",
+        "Resource",
+        "OrderStatus",
+        "CreatedAtUTC"
+      ]
+    }
+  },
+  "main_structure": "ZWMX_C_WarehouseOrderMig"
+}

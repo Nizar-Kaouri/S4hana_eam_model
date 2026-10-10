@@ -1,0 +1,3 @@
+﻿SourceSystem,SourceClient,ExportBatch,BusinessPartner,RiskClass,CheckRule,Score,ScoreDate,CreditGroup
+ERP_DEMO,100,DEMO001,0001,sample,sample,sample,20261011,sample
+ERP_DEMO,100,DEMO001,0002,sample,sample,sample,20261011,sample

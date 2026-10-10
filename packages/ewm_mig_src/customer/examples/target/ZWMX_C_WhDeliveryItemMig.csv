@@ -1,0 +1,2 @@
+﻿SourceSystem,SourceClient,ExportBatch,Warehouse,DeliveryID,DeliveryItem,Product,Batch,Quantity,QuantityUnit,HandlingUnit,ReferenceDocument,ReferenceItem
+ERP_DEMO,100,DEMO001,0001,0001,0001,sample,sample,10.00,EA,EA,sample,sample

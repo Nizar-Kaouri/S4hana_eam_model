@@ -1,0 +1,650 @@
+[
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_HandlingUnitMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_HUContentMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_PackSpecMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_PackLevelMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_PackElementMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_StorageBinMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_BinSortingMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_WhDeliveryMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_WhDeliveryItemMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_WarehouseOrderMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_WarehouseProdMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_FixedBinMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_WarehouseStockMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_StockSerialMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_WarehouseTaskMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ewm",
+    "structure": "ZWMX_C_TaskConfirmMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightAgreeMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightRateMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightScaleMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightOrderMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightOrdItemMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightOrdStopMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightStageMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightSettleMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_SettleItemMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightUnitMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightUnitIteMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_FreightUnitStoMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_TransportLaneMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_LaneCarrierMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_TransportLocMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_TransportResMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_ResCapacityMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_ScheduleMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "tm",
+    "structure": "ZTMX_C_ScheduleStopMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CollectProfileMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CollectSegmentMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CollectContactMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CollectTaskMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CreditExposureMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CreditProfileMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CreditRelationMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CreditSegmentMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_DisputeCaseMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_DisputeItemMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CaseAttributeMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_CaseAttachmentMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_PaymentPromiseMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "fscm",
+    "structure": "ZFCX_C_PromiseItemMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_ChemicalPropMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_PropertyUnitMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_ComplianceReqMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_ComplianceScenMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_ComplianceLinkMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_DangerousGoodsMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_DGTransportMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_EHSLocationMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_EHSLocHierarchMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_DataClassifierMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_DataCollectionMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_MeasurementMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_IncidentMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_IncidentPersonMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_IncidentActionMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_PhraseMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_PhraseSetMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_RiskAssessmentMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_RiskHazardMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_RiskControlMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_SpecificationMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_SpecIdentifierMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  },
+  {
+    "domain": "ehs",
+    "structure": "ZEHX_C_SpecPropertyMig",
+    "isolated_zip_pipeline": "PASS",
+    "source_target_comparison": "PASS",
+    "source_stage_roundtrip": "PASS",
+    "target_stage_roundtrip": "PASS",
+    "SAP_runtime_verified": false
+  }
+]

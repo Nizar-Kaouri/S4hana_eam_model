@@ -1,0 +1,2 @@
+﻿SourceSystem,SourceClient,ExportBatch,Warehouse,DeliveryID,DeliveryCategory,ExternalDelivery,Partner,DeliveryStatus,PlannedAtUTC
+ERP_DEMO,100,DEMO001,0001,0001,sample,sample,sample,sample,20261011100000

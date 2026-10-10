@@ -1,0 +1,560 @@
+{
+  "cutover": "20261011",
+  "inputs": {
+    "ZEHX_C_EHSLocationMig": "exports/ZEHX_C_EHSLocationMig.csv",
+    "ZEHX_C_EHSLocationMig_Scope": "selection/ZEHX_C_EHSLocationMig.csv",
+    "ZEHX_C_EHSLocHierarchMig": "exports/ZEHX_C_EHSLocHierarchMig.csv",
+    "ZEHX_C_EHSLocHierarchMig_Scope": "selection/ZEHX_C_EHSLocHierarchMig.csv",
+    "ZEHX_C_ChemicalPropMig": "exports/ZEHX_C_ChemicalPropMig.csv",
+    "ZEHX_C_ChemicalPropMig_Scope": "selection/ZEHX_C_ChemicalPropMig.csv",
+    "ZEHX_C_PropertyUnitMig": "exports/ZEHX_C_PropertyUnitMig.csv",
+    "ZEHX_C_PropertyUnitMig_Scope": "selection/ZEHX_C_PropertyUnitMig.csv",
+    "ZEHX_C_SpecificationMig": "exports/ZEHX_C_SpecificationMig.csv",
+    "ZEHX_C_SpecificationMig_Scope": "selection/ZEHX_C_SpecificationMig.csv",
+    "ZEHX_C_SpecIdentifierMig": "exports/ZEHX_C_SpecIdentifierMig.csv",
+    "ZEHX_C_SpecIdentifierMig_Scope": "selection/ZEHX_C_SpecIdentifierMig.csv",
+    "ZEHX_C_SpecPropertyMig": "exports/ZEHX_C_SpecPropertyMig.csv",
+    "ZEHX_C_SpecPropertyMig_Scope": "selection/ZEHX_C_SpecPropertyMig.csv",
+    "ZEHX_C_PhraseMig": "exports/ZEHX_C_PhraseMig.csv",
+    "ZEHX_C_PhraseMig_Scope": "selection/ZEHX_C_PhraseMig.csv",
+    "ZEHX_C_PhraseSetMig": "exports/ZEHX_C_PhraseSetMig.csv",
+    "ZEHX_C_PhraseSetMig_Scope": "selection/ZEHX_C_PhraseSetMig.csv",
+    "ZEHX_C_IncidentMig": "exports/ZEHX_C_IncidentMig.csv",
+    "ZEHX_C_IncidentMig_Scope": "selection/ZEHX_C_IncidentMig.csv",
+    "ZEHX_C_IncidentPersonMig": "exports/ZEHX_C_IncidentPersonMig.csv",
+    "ZEHX_C_IncidentPersonMig_Scope": "selection/ZEHX_C_IncidentPersonMig.csv",
+    "ZEHX_C_IncidentActionMig": "exports/ZEHX_C_IncidentActionMig.csv",
+    "ZEHX_C_IncidentActionMig_Scope": "selection/ZEHX_C_IncidentActionMig.csv",
+    "ZEHX_C_RiskAssessmentMig": "exports/ZEHX_C_RiskAssessmentMig.csv",
+    "ZEHX_C_RiskAssessmentMig_Scope": "selection/ZEHX_C_RiskAssessmentMig.csv",
+    "ZEHX_C_RiskHazardMig": "exports/ZEHX_C_RiskHazardMig.csv",
+    "ZEHX_C_RiskHazardMig_Scope": "selection/ZEHX_C_RiskHazardMig.csv",
+    "ZEHX_C_RiskControlMig": "exports/ZEHX_C_RiskControlMig.csv",
+    "ZEHX_C_RiskControlMig_Scope": "selection/ZEHX_C_RiskControlMig.csv",
+    "ZEHX_C_DataClassifierMig": "exports/ZEHX_C_DataClassifierMig.csv",
+    "ZEHX_C_DataClassifierMig_Scope": "selection/ZEHX_C_DataClassifierMig.csv",
+    "ZEHX_C_DataCollectionMig": "exports/ZEHX_C_DataCollectionMig.csv",
+    "ZEHX_C_DataCollectionMig_Scope": "selection/ZEHX_C_DataCollectionMig.csv",
+    "ZEHX_C_MeasurementMig": "exports/ZEHX_C_MeasurementMig.csv",
+    "ZEHX_C_MeasurementMig_Scope": "selection/ZEHX_C_MeasurementMig.csv",
+    "ZEHX_C_ComplianceReqMig": "exports/ZEHX_C_ComplianceReqMig.csv",
+    "ZEHX_C_ComplianceReqMig_Scope": "selection/ZEHX_C_ComplianceReqMig.csv",
+    "ZEHX_C_ComplianceScenMig": "exports/ZEHX_C_ComplianceScenMig.csv",
+    "ZEHX_C_ComplianceScenMig_Scope": "selection/ZEHX_C_ComplianceScenMig.csv",
+    "ZEHX_C_ComplianceLinkMig": "exports/ZEHX_C_ComplianceLinkMig.csv",
+    "ZEHX_C_ComplianceLinkMig_Scope": "selection/ZEHX_C_ComplianceLinkMig.csv",
+    "ZEHX_C_DangerousGoodsMig": "exports/ZEHX_C_DangerousGoodsMig.csv",
+    "ZEHX_C_DangerousGoodsMig_Scope": "selection/ZEHX_C_DangerousGoodsMig.csv",
+    "ZEHX_C_DGTransportMig": "exports/ZEHX_C_DGTransportMig.csv",
+    "ZEHX_C_DGTransportMig_Scope": "selection/ZEHX_C_DGTransportMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZEHX_C_EHSLocationMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_EHSLocationMig",
+      "parent": "ZEHX_C_EHSLocationMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LocationID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "LocationID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_EHSLocHierarchMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_EHSLocHierarchMig",
+      "parent": "ZEHX_C_EHSLocHierarchMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "HierarchyID",
+        "ParentLocation",
+        "ChildLocation",
+        "ValidityStartDate"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "HierarchyID",
+        "ParentLocation",
+        "ChildLocation",
+        "ValidityStartDate"
+      ]
+    },
+    {
+      "name": "ZEHX_C_ChemicalPropMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_ChemicalPropMig",
+      "parent": "ZEHX_C_ChemicalPropMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PropertyID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PropertyID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_PropertyUnitMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_PropertyUnitMig",
+      "parent": "ZEHX_C_PropertyUnitMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PropertyID",
+        "UnitID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PropertyID",
+        "UnitID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_SpecificationMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_SpecificationMig",
+      "parent": "ZEHX_C_SpecificationMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZEHX_C_SpecIdentifierMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_SpecIdentifierMig",
+      "parent": "ZEHX_C_SpecIdentifierMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version",
+        "IdentifierID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version",
+        "IdentifierID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_SpecPropertyMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_SpecPropertyMig",
+      "parent": "ZEHX_C_SpecPropertyMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version",
+        "PropertyID",
+        "ValueID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "SpecificationID",
+        "Version",
+        "PropertyID",
+        "ValueID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_PhraseMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_PhraseMig",
+      "parent": "ZEHX_C_PhraseMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PhraseCatalog",
+        "PhraseID",
+        "Language"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PhraseCatalog",
+        "PhraseID",
+        "Language"
+      ]
+    },
+    {
+      "name": "ZEHX_C_PhraseSetMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_PhraseSetMig",
+      "parent": "ZEHX_C_PhraseSetMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PhraseSetID",
+        "PhraseCatalog",
+        "PhraseID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PhraseSetID",
+        "PhraseCatalog",
+        "PhraseID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_IncidentMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_IncidentMig",
+      "parent": "ZEHX_C_IncidentMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_IncidentPersonMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_IncidentPersonMig",
+      "parent": "ZEHX_C_IncidentPersonMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID",
+        "PersonRole",
+        "PersonID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID",
+        "PersonRole",
+        "PersonID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_IncidentActionMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_IncidentActionMig",
+      "parent": "ZEHX_C_IncidentActionMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID",
+        "ActionID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "IncidentID",
+        "ActionID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_RiskAssessmentMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_RiskAssessmentMig",
+      "parent": "ZEHX_C_RiskAssessmentMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZEHX_C_RiskHazardMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_RiskHazardMig",
+      "parent": "ZEHX_C_RiskHazardMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version",
+        "HazardID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version",
+        "HazardID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_RiskControlMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_RiskControlMig",
+      "parent": "ZEHX_C_RiskControlMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version",
+        "HazardID",
+        "ControlID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version",
+        "HazardID",
+        "ControlID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_DataClassifierMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_DataClassifierMig",
+      "parent": "ZEHX_C_DataClassifierMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ClassifierID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ClassifierID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_DataCollectionMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_DataCollectionMig",
+      "parent": "ZEHX_C_DataCollectionMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CollectionID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CollectionID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_MeasurementMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_MeasurementMig",
+      "parent": "ZEHX_C_MeasurementMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CollectionID",
+        "MeasurementID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "CollectionID",
+        "MeasurementID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_ComplianceReqMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_ComplianceReqMig",
+      "parent": "ZEHX_C_ComplianceReqMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "RequirementID",
+        "Version"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "RequirementID",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZEHX_C_ComplianceScenMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_ComplianceScenMig",
+      "parent": "ZEHX_C_ComplianceScenMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScenarioID",
+        "Version"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScenarioID",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZEHX_C_ComplianceLinkMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_ComplianceLinkMig",
+      "parent": "ZEHX_C_ComplianceLinkMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScenarioID",
+        "Version",
+        "RequirementID",
+        "RequirementVersion"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScenarioID",
+        "Version",
+        "RequirementID",
+        "RequirementVersion"
+      ]
+    },
+    {
+      "name": "ZEHX_C_DangerousGoodsMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_DangerousGoodsMig",
+      "parent": "ZEHX_C_DangerousGoodsMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Product",
+        "RegulationID",
+        "Version"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Product",
+        "RegulationID",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZEHX_C_DGTransportMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_DGTransportMig",
+      "parent": "ZEHX_C_DGTransportMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Product",
+        "RegulationID",
+        "Version",
+        "TransportMode"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Product",
+        "RegulationID",
+        "Version",
+        "TransportMode"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZEHX_C_EHSLocationMig_Prepared",
+    "ZEHX_C_EHSLocHierarchMig_Prepared",
+    "ZEHX_C_ChemicalPropMig_Prepared",
+    "ZEHX_C_PropertyUnitMig_Prepared",
+    "ZEHX_C_SpecificationMig_Prepared",
+    "ZEHX_C_SpecIdentifierMig_Prepared",
+    "ZEHX_C_SpecPropertyMig_Prepared",
+    "ZEHX_C_PhraseMig_Prepared",
+    "ZEHX_C_PhraseSetMig_Prepared",
+    "ZEHX_C_IncidentMig_Prepared",
+    "ZEHX_C_IncidentPersonMig_Prepared",
+    "ZEHX_C_IncidentActionMig_Prepared",
+    "ZEHX_C_RiskAssessmentMig_Prepared",
+    "ZEHX_C_RiskHazardMig_Prepared",
+    "ZEHX_C_RiskControlMig_Prepared",
+    "ZEHX_C_DataClassifierMig_Prepared",
+    "ZEHX_C_DataCollectionMig_Prepared",
+    "ZEHX_C_MeasurementMig_Prepared",
+    "ZEHX_C_ComplianceReqMig_Prepared",
+    "ZEHX_C_ComplianceScenMig_Prepared",
+    "ZEHX_C_ComplianceLinkMig_Prepared",
+    "ZEHX_C_DangerousGoodsMig_Prepared",
+    "ZEHX_C_DGTransportMig_Prepared"
+  ]
+}

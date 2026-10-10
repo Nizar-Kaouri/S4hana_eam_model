@@ -1,0 +1,493 @@
+{
+  "ZWMX_C_StorageBinMig": {
+    "module": "storage_bin",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StorageBin"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StorageBin",
+      "StorageType",
+      "StorageSection",
+      "BinType",
+      "Capacity",
+      "CapacityUnit",
+      "Blocked"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  },
+  "ZWMX_C_BinSortingMig": {
+    "module": "storage_bin",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StorageBin",
+      "SortSequence"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StorageBin",
+      "SortSequence",
+      "ActivityArea",
+      "Activity",
+      "SortDirection"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  },
+  "ZWMX_C_WarehouseProdMig": {
+    "module": "warehouse_product",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "Product",
+      "EntitledParty"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "Product",
+      "EntitledParty",
+      "WarehouseUoM",
+      "PutawayControl",
+      "RemovalControl",
+      "CycleCountIndicator"
+    ],
+    "parent_modules": [
+      "storage_bin"
+    ],
+    "mode": "master"
+  },
+  "ZWMX_C_FixedBinMig": {
+    "module": "warehouse_product",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "Product",
+      "EntitledParty",
+      "StorageType",
+      "StorageBin"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "Product",
+      "EntitledParty",
+      "StorageType",
+      "StorageBin",
+      "MinimumQuantity",
+      "MaximumQuantity",
+      "QuantityUnit"
+    ],
+    "parent_modules": [
+      "storage_bin"
+    ],
+    "mode": "master"
+  },
+  "ZWMX_C_WarehouseStockMig": {
+    "module": "warehouse_stock",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StockIdentity"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StockIdentity",
+      "Product",
+      "StorageBin",
+      "Batch",
+      "Owner",
+      "EntitledParty",
+      "StockType",
+      "SpecialStock",
+      "ReferenceDocument",
+      "ReferenceItem",
+      "HandlingUnit",
+      "Quantity",
+      "QuantityUnit",
+      "InventoryDate"
+    ],
+    "parent_modules": [
+      "storage_bin",
+      "warehouse_product"
+    ],
+    "mode": "balance"
+  },
+  "ZWMX_C_StockSerialMig": {
+    "module": "warehouse_stock",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StockIdentity",
+      "SerialNumber"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StockIdentity",
+      "SerialNumber",
+      "Product",
+      "HandlingUnit"
+    ],
+    "parent_modules": [
+      "storage_bin",
+      "warehouse_product"
+    ],
+    "mode": "balance"
+  },
+  "ZWMX_C_HandlingUnitMig": {
+    "module": "handling_unit",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit",
+      "ExternalHU",
+      "ParentHU",
+      "PackagingProduct",
+      "GrossWeight",
+      "NetWeight",
+      "WeightUnit",
+      "StorageBin",
+      "HUStatus"
+    ],
+    "parent_modules": [
+      "storage_bin",
+      "warehouse_product"
+    ],
+    "mode": "process-reference"
+  },
+  "ZWMX_C_HUContentMig": {
+    "module": "handling_unit",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit",
+      "ContentItem"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit",
+      "ContentItem",
+      "Product",
+      "Batch",
+      "StockIdentity",
+      "Quantity",
+      "QuantityUnit",
+      "Owner",
+      "EntitledParty"
+    ],
+    "parent_modules": [
+      "storage_bin",
+      "warehouse_product"
+    ],
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WarehouseTaskMig": {
+    "module": "warehouse_task",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseTask"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseTask",
+      "WarehouseOrder",
+      "Product",
+      "SourceBin",
+      "DestinationBin",
+      "HandlingUnit",
+      "PlannedQuantity",
+      "QuantityUnit",
+      "ProcessType",
+      "TaskStatus"
+    ],
+    "parent_modules": [
+      "storage_bin",
+      "warehouse_product"
+    ],
+    "mode": "process-reference"
+  },
+  "ZWMX_C_TaskConfirmMig": {
+    "module": "warehouse_task",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseTask",
+      "ConfirmationID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseTask",
+      "ConfirmationID",
+      "ConfirmedQuantity",
+      "DifferenceQuantity",
+      "QuantityUnit",
+      "ConfirmedAtUTC",
+      "ReversalStatus"
+    ],
+    "parent_modules": [
+      "storage_bin",
+      "warehouse_product"
+    ],
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WarehouseOrderMig": {
+    "module": "warehouse_order",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseOrder"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseOrder",
+      "ActivityArea",
+      "Queue",
+      "Resource",
+      "OrderStatus",
+      "CreatedAtUTC"
+    ],
+    "parent_modules": [],
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WhDeliveryMig": {
+    "module": "warehouse_delivery",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "DeliveryID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "DeliveryID",
+      "DeliveryCategory",
+      "ExternalDelivery",
+      "Partner",
+      "DeliveryStatus",
+      "PlannedAtUTC"
+    ],
+    "parent_modules": [
+      "warehouse_product"
+    ],
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WhDeliveryItemMig": {
+    "module": "warehouse_delivery",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "DeliveryID",
+      "DeliveryItem"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "DeliveryID",
+      "DeliveryItem",
+      "Product",
+      "Batch",
+      "Quantity",
+      "QuantityUnit",
+      "HandlingUnit",
+      "ReferenceDocument",
+      "ReferenceItem"
+    ],
+    "parent_modules": [
+      "warehouse_product"
+    ],
+    "mode": "process-reference"
+  },
+  "ZWMX_C_PackSpecMig": {
+    "module": "pack_specification",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "Description",
+      "ValidityStartDate",
+      "ValidityEndDate",
+      "ReleaseStatus"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  },
+  "ZWMX_C_PackLevelMig": {
+    "module": "pack_specification",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "LevelID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "LevelID",
+      "ParentLevel",
+      "PackagingProduct",
+      "TargetQuantity",
+      "QuantityUnit"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  },
+  "ZWMX_C_PackElementMig": {
+    "module": "pack_specification",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "status": "CUSTOMER_IMPLEMENTATION_REQUIRED",
+    "native_interface": null,
+    "required_keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "LevelID",
+      "ElementID"
+    ],
+    "columns": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "LevelID",
+      "ElementID",
+      "Product",
+      "Quantity",
+      "QuantityUnit",
+      "ElementType"
+    ],
+    "parent_modules": [],
+    "mode": "master"
+  }
+}

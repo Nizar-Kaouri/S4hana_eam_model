@@ -113,3 +113,9 @@ abapGit expects one `.abapgit.xml` at the repository root.
 FI-AA, MM, QM, PS, PP, CO, FI and SD now have separate `<domain>_mig_ecc` and `<domain>_mig_s4` packages. They contain 47 business modules, 129 source structures, 434 source views and 36 target comparison/count candidates. Existing analytics remain separate. Every source structure has a mapping and an explicit target CSV adapter contract. Histories and balances are not assumed to be directly postable.
 
 See [customer guides and all-object VDM map](docs/customer/domains/README.md) and [cross-domain prerequisites](docs/customer/domains/CROSS_DOMAIN_PREREQUISITES.md). All drafts require actual SAP DDIC, activation and business acceptance tests.
+
+## EWM TM FSCM EHS adapter drafts
+
+EWM, TM, FSCM and EHS now have eight additional source/target products with 32 modules, 72 canonical structures, 352 CDS views and 144 customer-owned staging tables. These products use `<domain>_mig_src` and `<domain>_mig_s4`. Their Basic → Composite → Consumption layers read staged exports; native read and business posting adapters remain customer implementation work. This is an explicit staging exception to the native-table/released-view convention used by earlier packs. All SAP runtime behavior remains unverified.
+
+See [bilingual customer guides and VDM maps](docs/customer/new-domains/README.md). Industry solutions remain out of scope.

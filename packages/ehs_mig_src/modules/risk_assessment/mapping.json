@@ -1,0 +1,331 @@
+{
+  "module": "risk_assessment",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "ehs_location"
+  ],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AssessmentID",
+      "Version"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZEHX_C_RiskAssessmentMig",
+      "source_view": "ZEHX_I_RiskAssessment",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS013-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS013-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS013-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AssessmentID",
+          "source": "ZEHX_EHS013-F004",
+          "target": "Customer native interface: AssessmentID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZEHX_EHS013-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "LocationID",
+          "source": "ZEHX_EHS013-F006",
+          "target": "Customer native interface: LocationID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ZEHX_EHS013-F007",
+          "target": "Customer native interface: ValidityStartDate (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ZEHX_EHS013-F008",
+          "target": "Customer native interface: ValidityEndDate (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AssessmentStatus",
+          "source": "ZEHX_EHS013-F009",
+          "target": "Customer native interface: AssessmentStatus (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    },
+    {
+      "consumption_view": "ZEHX_C_RiskHazardMig",
+      "source_view": "ZEHX_I_RiskHazard",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version",
+        "HazardID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS014-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS014-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS014-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AssessmentID",
+          "source": "ZEHX_EHS014-F004",
+          "target": "Customer native interface: AssessmentID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZEHX_EHS014-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "HazardID",
+          "source": "ZEHX_EHS014-F006",
+          "target": "Customer native interface: HazardID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "HazardType",
+          "source": "ZEHX_EHS014-F007",
+          "target": "Customer native interface: HazardType (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Likelihood",
+          "source": "ZEHX_EHS014-F008",
+          "target": "Customer native interface: Likelihood (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Severity",
+          "source": "ZEHX_EHS014-F009",
+          "target": "Customer native interface: Severity (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "RiskRating",
+          "source": "ZEHX_EHS014-F010",
+          "target": "Customer native interface: RiskRating (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "RatingScheme",
+          "source": "ZEHX_EHS014-F011",
+          "target": "Customer native interface: RatingScheme (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    },
+    {
+      "consumption_view": "ZEHX_C_RiskControlMig",
+      "source_view": "ZEHX_I_RiskControl",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version",
+        "HazardID",
+        "ControlID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZEHX_EHS015-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZEHX_EHS015-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZEHX_EHS015-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "AssessmentID",
+          "source": "ZEHX_EHS015-F004",
+          "target": "Customer native interface: AssessmentID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZEHX_EHS015-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "HazardID",
+          "source": "ZEHX_EHS015-F006",
+          "target": "Customer native interface: HazardID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ControlID",
+          "source": "ZEHX_EHS015-F007",
+          "target": "Customer native interface: ControlID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ControlType",
+          "source": "ZEHX_EHS015-F008",
+          "target": "Customer native interface: ControlType (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Description",
+          "source": "ZEHX_EHS015-F009",
+          "target": "Customer native interface: Description (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ResponsiblePartner",
+          "source": "ZEHX_EHS015-F010",
+          "target": "Customer native interface: ResponsiblePartner (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ControlStatus",
+          "source": "ZEHX_EHS015-F011",
+          "target": "Customer native interface: ControlStatus (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZEHX_C_RiskAssessmentMigCount",
+    "target_count_view": "ZEHT_I_RiskAssessmentCount",
+    "compare": {
+      "source_view": "ZEHX_C_RiskAssessmentMig",
+      "target_view": "ZEHT_I_RiskAssessmentCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AssessmentID",
+        "Version"
+      ],
+      "fields": [
+        "LocationID",
+        "ValidityStartDate",
+        "ValidityEndDate",
+        "AssessmentStatus"
+      ]
+    }
+  },
+  "main_structure": "ZEHX_C_RiskAssessmentMig"
+}

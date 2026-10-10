@@ -1,0 +1,1159 @@
+{
+  "ZWMX_C_StorageBinMig": {
+    "module": "storage_bin",
+    "table": "ZWMT_WMT001",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StorageBin"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "StorageBin",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "StorageType",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "StorageSection",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "BinType",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "Capacity",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "CapacityUnit",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "Blocked",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_BinSortingMig": {
+    "module": "storage_bin",
+    "table": "ZWMT_WMT002",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StorageBin",
+      "SortSequence"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "StorageBin",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "SortSequence",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ActivityArea",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Activity",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "SortDirection",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_WarehouseProdMig": {
+    "module": "warehouse_product",
+    "table": "ZWMT_WMT003",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "Product",
+      "EntitledParty"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Product",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "EntitledParty",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "WarehouseUoM",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "PutawayControl",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "RemovalControl",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "CycleCountIndicator",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_FixedBinMig": {
+    "module": "warehouse_product",
+    "table": "ZWMT_WMT004",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "Product",
+      "EntitledParty",
+      "StorageType",
+      "StorageBin"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Product",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "EntitledParty",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "StorageType",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "StorageBin",
+        "length": 64
+      },
+      {
+        "native": "F009",
+        "element": "MinimumQuantity",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "MaximumQuantity",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "QuantityUnit",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_WarehouseStockMig": {
+    "module": "warehouse_stock",
+    "table": "ZWMT_WMT005",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StockIdentity"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "StockIdentity",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "Product",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "StorageBin",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Batch",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "Owner",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "EntitledParty",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "StockType",
+        "length": 132
+      },
+      {
+        "native": "F012",
+        "element": "SpecialStock",
+        "length": 132
+      },
+      {
+        "native": "F013",
+        "element": "ReferenceDocument",
+        "length": 132
+      },
+      {
+        "native": "F014",
+        "element": "ReferenceItem",
+        "length": 132
+      },
+      {
+        "native": "F015",
+        "element": "HandlingUnit",
+        "length": 132
+      },
+      {
+        "native": "F016",
+        "element": "Quantity",
+        "length": 132
+      },
+      {
+        "native": "F017",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F018",
+        "element": "InventoryDate",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_StockSerialMig": {
+    "module": "warehouse_stock",
+    "table": "ZWMT_WMT006",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "StockIdentity",
+      "SerialNumber"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "StockIdentity",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "SerialNumber",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "Product",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "HandlingUnit",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_HandlingUnitMig": {
+    "module": "handling_unit",
+    "table": "ZWMT_WMT007",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "HandlingUnit",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ExternalHU",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "ParentHU",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "PackagingProduct",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "GrossWeight",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "NetWeight",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "WeightUnit",
+        "length": 132
+      },
+      {
+        "native": "F012",
+        "element": "StorageBin",
+        "length": 132
+      },
+      {
+        "native": "F013",
+        "element": "HUStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_HUContentMig": {
+    "module": "handling_unit",
+    "table": "ZWMT_WMT008",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit",
+      "ContentItem"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "HandlingUnit",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ContentItem",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "Product",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Batch",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "StockIdentity",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "Quantity",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F012",
+        "element": "Owner",
+        "length": 132
+      },
+      {
+        "native": "F013",
+        "element": "EntitledParty",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_WarehouseTaskMig": {
+    "module": "warehouse_task",
+    "table": "ZWMT_WMT009",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseTask"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "WarehouseTask",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "WarehouseOrder",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Product",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "SourceBin",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "DestinationBin",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "HandlingUnit",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "PlannedQuantity",
+        "length": 132
+      },
+      {
+        "native": "F012",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F013",
+        "element": "ProcessType",
+        "length": 132
+      },
+      {
+        "native": "F014",
+        "element": "TaskStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_TaskConfirmMig": {
+    "module": "warehouse_task",
+    "table": "ZWMT_WMT010",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseTask",
+      "ConfirmationID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "WarehouseTask",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ConfirmationID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ConfirmedQuantity",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "DifferenceQuantity",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "ConfirmedAtUTC",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "ReversalStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_WarehouseOrderMig": {
+    "module": "warehouse_order",
+    "table": "ZWMT_WMT011",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "WarehouseOrder"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "WarehouseOrder",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "ActivityArea",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "Queue",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Resource",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "OrderStatus",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "CreatedAtUTC",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_WhDeliveryMig": {
+    "module": "warehouse_delivery",
+    "table": "ZWMT_WMT012",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "DeliveryID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "DeliveryID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "DeliveryCategory",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "ExternalDelivery",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Partner",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "DeliveryStatus",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "PlannedAtUTC",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_WhDeliveryItemMig": {
+    "module": "warehouse_delivery",
+    "table": "ZWMT_WMT013",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "DeliveryID",
+      "DeliveryItem"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "Warehouse",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "DeliveryID",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "DeliveryItem",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "Product",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "Batch",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "Quantity",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "HandlingUnit",
+        "length": 132
+      },
+      {
+        "native": "F012",
+        "element": "ReferenceDocument",
+        "length": 132
+      },
+      {
+        "native": "F013",
+        "element": "ReferenceItem",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_PackSpecMig": {
+    "module": "pack_specification",
+    "table": "ZWMT_WMT014",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "PackSpecification",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "Description",
+        "length": 132
+      },
+      {
+        "native": "F007",
+        "element": "ValidityStartDate",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "ValidityEndDate",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "ReleaseStatus",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_PackLevelMig": {
+    "module": "pack_specification",
+    "table": "ZWMT_WMT015",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "LevelID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "PackSpecification",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "LevelID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ParentLevel",
+        "length": 132
+      },
+      {
+        "native": "F008",
+        "element": "PackagingProduct",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "TargetQuantity",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "QuantityUnit",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  },
+  "ZWMX_C_PackElementMig": {
+    "module": "pack_specification",
+    "table": "ZWMT_WMT016",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "PackSpecification",
+      "Version",
+      "LevelID",
+      "ElementID"
+    ],
+    "fields": [
+      {
+        "native": "F001",
+        "element": "SourceSystem",
+        "length": 16
+      },
+      {
+        "native": "F002",
+        "element": "SourceClient",
+        "length": 3
+      },
+      {
+        "native": "F003",
+        "element": "ExportBatch",
+        "length": 32
+      },
+      {
+        "native": "F004",
+        "element": "PackSpecification",
+        "length": 64
+      },
+      {
+        "native": "F005",
+        "element": "Version",
+        "length": 64
+      },
+      {
+        "native": "F006",
+        "element": "LevelID",
+        "length": 64
+      },
+      {
+        "native": "F007",
+        "element": "ElementID",
+        "length": 64
+      },
+      {
+        "native": "F008",
+        "element": "Product",
+        "length": 132
+      },
+      {
+        "native": "F009",
+        "element": "Quantity",
+        "length": 132
+      },
+      {
+        "native": "F010",
+        "element": "QuantityUnit",
+        "length": 132
+      },
+      {
+        "native": "F011",
+        "element": "ElementType",
+        "length": 132
+      }
+    ],
+    "origin": "target evidence normalized to source origin keys",
+    "status": "native adapter required"
+  }
+}

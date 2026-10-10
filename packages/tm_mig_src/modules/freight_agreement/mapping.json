@@ -1,0 +1,359 @@
+{
+  "module": "freight_agreement",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AgreementID",
+      "Version"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZTMX_C_FreightAgreeMig",
+      "source_view": "ZTMX_I_FreightAgree",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS008-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS008-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS008-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AgreementID",
+          "source": "ZTMX_TMS008-F004",
+          "target": "Customer native interface: AgreementID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZTMX_TMS008-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AgreementType",
+          "source": "ZTMX_TMS008-F006",
+          "target": "Customer native interface: AgreementType (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Carrier",
+          "source": "ZTMX_TMS008-F007",
+          "target": "Customer native interface: Carrier (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Currency",
+          "source": "ZTMX_TMS008-F008",
+          "target": "Customer native interface: Currency (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ZTMX_TMS008-F009",
+          "target": "Customer native interface: ValidityStartDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ZTMX_TMS008-F010",
+          "target": "Customer native interface: ValidityEndDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ReleaseStatus",
+          "source": "ZTMX_TMS008-F011",
+          "target": "Customer native interface: ReleaseStatus (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    },
+    {
+      "consumption_view": "ZTMX_C_FreightRateMig",
+      "source_view": "ZTMX_I_FreightRate",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version",
+        "RateID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS009-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS009-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS009-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AgreementID",
+          "source": "ZTMX_TMS009-F004",
+          "target": "Customer native interface: AgreementID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZTMX_TMS009-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "RateID",
+          "source": "ZTMX_TMS009-F006",
+          "target": "Customer native interface: RateID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ChargeType",
+          "source": "ZTMX_TMS009-F007",
+          "target": "Customer native interface: ChargeType (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "CalculationBasis",
+          "source": "ZTMX_TMS009-F008",
+          "target": "Customer native interface: CalculationBasis (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Rate",
+          "source": "ZTMX_TMS009-F009",
+          "target": "Customer native interface: Rate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Currency",
+          "source": "ZTMX_TMS009-F010",
+          "target": "Customer native interface: Currency (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "PricingUnit",
+          "source": "ZTMX_TMS009-F011",
+          "target": "Customer native interface: PricingUnit (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "QuantityUnit",
+          "source": "ZTMX_TMS009-F012",
+          "target": "Customer native interface: QuantityUnit (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    },
+    {
+      "consumption_view": "ZTMX_C_FreightScaleMig",
+      "source_view": "ZTMX_I_FreightScale",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version",
+        "RateID",
+        "ScaleLine"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS010-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS010-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS010-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "AgreementID",
+          "source": "ZTMX_TMS010-F004",
+          "target": "Customer native interface: AgreementID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZTMX_TMS010-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "RateID",
+          "source": "ZTMX_TMS010-F006",
+          "target": "Customer native interface: RateID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScaleLine",
+          "source": "ZTMX_TMS010-F007",
+          "target": "Customer native interface: ScaleLine (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "FromValue",
+          "source": "ZTMX_TMS010-F008",
+          "target": "Customer native interface: FromValue (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ToValue",
+          "source": "ZTMX_TMS010-F009",
+          "target": "Customer native interface: ToValue (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScaleUnit",
+          "source": "ZTMX_TMS010-F010",
+          "target": "Customer native interface: ScaleUnit (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScaleRate",
+          "source": "ZTMX_TMS010-F011",
+          "target": "Customer native interface: ScaleRate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Currency",
+          "source": "ZTMX_TMS010-F012",
+          "target": "Customer native interface: Currency (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZTMX_C_FreightAgreeMigCount",
+    "target_count_view": "ZTMT_I_FreightAgreeCount",
+    "compare": {
+      "source_view": "ZTMX_C_FreightAgreeMig",
+      "target_view": "ZTMT_I_FreightAgreeCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "AgreementID",
+        "Version"
+      ],
+      "fields": [
+        "AgreementType",
+        "Carrier",
+        "Currency",
+        "ValidityStartDate",
+        "ValidityEndDate",
+        "ReleaseStatus"
+      ]
+    }
+  },
+  "main_structure": "ZTMX_C_FreightAgreeMig"
+}

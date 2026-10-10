@@ -1,0 +1,283 @@
+{
+  "module": "handling_unit",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "storage_bin",
+    "warehouse_product"
+  ],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "Warehouse",
+      "HandlingUnit"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZWMX_C_HandlingUnitMig",
+      "source_view": "ZWMX_I_HandlingUnit",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "HandlingUnit"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZWMX_WMS007-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZWMX_WMS007-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZWMX_WMS007-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Warehouse",
+          "source": "ZWMX_WMS007-F004",
+          "target": "Customer native interface: Warehouse (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "HandlingUnit",
+          "source": "ZWMX_WMS007-F005",
+          "target": "Customer native interface: HandlingUnit (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExternalHU",
+          "source": "ZWMX_WMS007-F006",
+          "target": "Customer native interface: ExternalHU (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ParentHU",
+          "source": "ZWMX_WMS007-F007",
+          "target": "Customer native interface: ParentHU (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PackagingProduct",
+          "source": "ZWMX_WMS007-F008",
+          "target": "Customer native interface: PackagingProduct (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "GrossWeight",
+          "source": "ZWMX_WMS007-F009",
+          "target": "Customer native interface: GrossWeight (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "NetWeight",
+          "source": "ZWMX_WMS007-F010",
+          "target": "Customer native interface: NetWeight (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "WeightUnit",
+          "source": "ZWMX_WMS007-F011",
+          "target": "Customer native interface: WeightUnit (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StorageBin",
+          "source": "ZWMX_WMS007-F012",
+          "target": "Customer native interface: StorageBin (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "HUStatus",
+          "source": "ZWMX_WMS007-F013",
+          "target": "Customer native interface: HUStatus (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently."
+    },
+    {
+      "consumption_view": "ZWMX_C_HUContentMig",
+      "source_view": "ZWMX_I_HUContent",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "HandlingUnit",
+        "ContentItem"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZWMX_WMS008-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZWMX_WMS008-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZWMX_WMS008-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Warehouse",
+          "source": "ZWMX_WMS008-F004",
+          "target": "Customer native interface: Warehouse (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "HandlingUnit",
+          "source": "ZWMX_WMS008-F005",
+          "target": "Customer native interface: HandlingUnit (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ContentItem",
+          "source": "ZWMX_WMS008-F006",
+          "target": "Customer native interface: ContentItem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Product",
+          "source": "ZWMX_WMS008-F007",
+          "target": "Customer native interface: Product (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Batch",
+          "source": "ZWMX_WMS008-F008",
+          "target": "Customer native interface: Batch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StockIdentity",
+          "source": "ZWMX_WMS008-F009",
+          "target": "Customer native interface: StockIdentity (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Quantity",
+          "source": "ZWMX_WMS008-F010",
+          "target": "Customer native interface: Quantity (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "QuantityUnit",
+          "source": "ZWMX_WMS008-F011",
+          "target": "Customer native interface: QuantityUnit (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Owner",
+          "source": "ZWMX_WMS008-F012",
+          "target": "Customer native interface: Owner (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "EntitledParty",
+          "source": "ZWMX_WMS008-F013",
+          "target": "Customer native interface: EntitledParty (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZWMX_C_HandlingUnitMigCount",
+    "target_count_view": "ZWMT_I_HandlingUnitCount",
+    "compare": {
+      "source_view": "ZWMX_C_HandlingUnitMig",
+      "target_view": "ZWMT_I_HandlingUnitCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "HandlingUnit"
+      ],
+      "fields": [
+        "ExternalHU",
+        "ParentHU",
+        "PackagingProduct",
+        "GrossWeight",
+        "NetWeight",
+        "WeightUnit",
+        "StorageBin",
+        "HUStatus"
+      ]
+    }
+  },
+  "main_structure": "ZWMX_C_HandlingUnitMig"
+}

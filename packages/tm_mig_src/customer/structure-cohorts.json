@@ -1,0 +1,266 @@
+{
+  "ZTMX_C_TransportLocMig": {
+    "module": "transport_location",
+    "table": "ZTMX_TMS001",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "LocationID"
+    ],
+    "selection": "selection/ZTMX_C_TransportLocMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_TransportResMig": {
+    "module": "transport_resource",
+    "table": "ZTMX_TMS002",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ResourceID"
+    ],
+    "selection": "selection/ZTMX_C_TransportResMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_ResCapacityMig": {
+    "module": "transport_resource",
+    "table": "ZTMX_TMS003",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ResourceID",
+      "CapacityID"
+    ],
+    "selection": "selection/ZTMX_C_ResCapacityMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_TransportLaneMig": {
+    "module": "transport_lane",
+    "table": "ZTMX_TMS004",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "LaneID"
+    ],
+    "selection": "selection/ZTMX_C_TransportLaneMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_LaneCarrierMig": {
+    "module": "transport_lane",
+    "table": "ZTMX_TMS005",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "LaneID",
+      "CarrierID"
+    ],
+    "selection": "selection/ZTMX_C_LaneCarrierMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_ScheduleMig": {
+    "module": "transport_schedule",
+    "table": "ZTMX_TMS006",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ScheduleID",
+      "Version"
+    ],
+    "selection": "selection/ZTMX_C_ScheduleMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_ScheduleStopMig": {
+    "module": "transport_schedule",
+    "table": "ZTMX_TMS007",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ScheduleID",
+      "Version",
+      "StopID"
+    ],
+    "selection": "selection/ZTMX_C_ScheduleStopMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_FreightAgreeMig": {
+    "module": "freight_agreement",
+    "table": "ZTMX_TMS008",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AgreementID",
+      "Version"
+    ],
+    "selection": "selection/ZTMX_C_FreightAgreeMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_FreightRateMig": {
+    "module": "freight_agreement",
+    "table": "ZTMX_TMS009",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AgreementID",
+      "Version",
+      "RateID"
+    ],
+    "selection": "selection/ZTMX_C_FreightRateMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_FreightScaleMig": {
+    "module": "freight_agreement",
+    "table": "ZTMX_TMS010",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "AgreementID",
+      "Version",
+      "RateID",
+      "ScaleLine"
+    ],
+    "selection": "selection/ZTMX_C_FreightScaleMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZTMX_C_FreightUnitMig": {
+    "module": "freight_unit",
+    "table": "ZTMX_TMS011",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightUnitID"
+    ],
+    "selection": "selection/ZTMX_C_FreightUnitMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightUnitIteMig": {
+    "module": "freight_unit",
+    "table": "ZTMX_TMS012",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightUnitID",
+      "ItemID"
+    ],
+    "selection": "selection/ZTMX_C_FreightUnitIteMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightUnitStoMig": {
+    "module": "freight_unit",
+    "table": "ZTMX_TMS013",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightUnitID",
+      "StopID"
+    ],
+    "selection": "selection/ZTMX_C_FreightUnitStoMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightOrderMig": {
+    "module": "freight_order",
+    "table": "ZTMX_TMS014",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightOrderID"
+    ],
+    "selection": "selection/ZTMX_C_FreightOrderMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightOrdItemMig": {
+    "module": "freight_order",
+    "table": "ZTMX_TMS015",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightOrderID",
+      "ItemID"
+    ],
+    "selection": "selection/ZTMX_C_FreightOrdItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightOrdStopMig": {
+    "module": "freight_order",
+    "table": "ZTMX_TMS016",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightOrderID",
+      "StopID"
+    ],
+    "selection": "selection/ZTMX_C_FreightOrdStopMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightStageMig": {
+    "module": "freight_order",
+    "table": "ZTMX_TMS017",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "FreightOrderID",
+      "StageID"
+    ],
+    "selection": "selection/ZTMX_C_FreightStageMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightSettleMig": {
+    "module": "freight_settlement",
+    "table": "ZTMX_TMS018",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "SettlementID"
+    ],
+    "selection": "selection/ZTMX_C_FreightSettleMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZTMX_C_SettleItemMig": {
+    "module": "freight_settlement",
+    "table": "ZTMX_TMS019",
+    "keys": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "SettlementID",
+      "SettlementItem"
+    ],
+    "selection": "selection/ZTMX_C_SettleItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  }
+}

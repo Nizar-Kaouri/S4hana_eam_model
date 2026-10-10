@@ -1,0 +1,239 @@
+{
+  "module": "collection_activity",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "collections_profile"
+  ],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "BusinessPartner",
+      "CollectionSegment",
+      "ContactID"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFCX_C_CollectContactMig",
+      "source_view": "ZFCX_I_CollectContact",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment",
+        "ContactID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZFCX_FCS007-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZFCX_FCS007-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZFCX_FCS007-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BusinessPartner",
+          "source": "ZFCX_FCS007-F004",
+          "target": "Customer native interface: BusinessPartner (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CollectionSegment",
+          "source": "ZFCX_FCS007-F005",
+          "target": "Customer native interface: CollectionSegment (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ContactID",
+          "source": "ZFCX_FCS007-F006",
+          "target": "Customer native interface: ContactID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ContactAtUTC",
+          "source": "ZFCX_FCS007-F007",
+          "target": "Customer native interface: ContactAtUTC (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ContactType",
+          "source": "ZFCX_FCS007-F008",
+          "target": "Customer native interface: ContactType (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ContactResult",
+          "source": "ZFCX_FCS007-F009",
+          "target": "Customer native interface: ContactResult (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Specialist",
+          "source": "ZFCX_FCS007-F010",
+          "target": "Customer native interface: Specialist (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter."
+    },
+    {
+      "consumption_view": "ZFCX_C_CollectTaskMig",
+      "source_view": "ZFCX_I_CollectTask",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment",
+        "TaskID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZFCX_FCS008-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZFCX_FCS008-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZFCX_FCS008-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "BusinessPartner",
+          "source": "ZFCX_FCS008-F004",
+          "target": "Customer native interface: BusinessPartner (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CollectionSegment",
+          "source": "ZFCX_FCS008-F005",
+          "target": "Customer native interface: CollectionSegment (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskID",
+          "source": "ZFCX_FCS008-F006",
+          "target": "Customer native interface: TaskID (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Reason",
+          "source": "ZFCX_FCS008-F007",
+          "target": "Customer native interface: Reason (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DueAtUTC",
+          "source": "ZFCX_FCS008-F008",
+          "target": "Customer native interface: DueAtUTC (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "TaskStatus",
+          "source": "ZFCX_FCS008-F009",
+          "target": "Customer native interface: TaskStatus (adapter required)",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "RelatedContact",
+          "source": "ZFCX_FCS008-F010",
+          "target": "Customer native interface: RelatedContact (adapter required)",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZFCX_C_CollectContactMigCount",
+    "target_count_view": "ZFCT_I_CollectContactCount",
+    "compare": {
+      "source_view": "ZFCX_C_CollectContactMig",
+      "target_view": "ZFCT_I_CollectContactCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "BusinessPartner",
+        "CollectionSegment",
+        "ContactID"
+      ],
+      "fields": [
+        "ContactAtUTC",
+        "ContactType",
+        "ContactResult",
+        "Specialist"
+      ]
+    }
+  },
+  "main_structure": "ZFCX_C_CollectContactMig"
+}

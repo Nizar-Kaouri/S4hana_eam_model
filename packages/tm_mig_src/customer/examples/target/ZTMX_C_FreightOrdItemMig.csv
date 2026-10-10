@@ -1,0 +1,2 @@
+﻿SourceSystem,SourceClient,ExportBatch,FreightOrderID,ItemID,FreightUnitID,Product,Quantity,QuantityUnit
+ERP_DEMO,100,DEMO001,0001,0001,sample,sample,10.00,EA

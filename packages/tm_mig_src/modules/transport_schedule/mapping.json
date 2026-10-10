@@ -1,0 +1,244 @@
+{
+  "module": "transport_schedule",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; stages are not posting",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "transport_location"
+  ],
+  "key": {
+    "business_key": [
+      "SourceSystem",
+      "SourceClient",
+      "ExportBatch",
+      "ScheduleID",
+      "Version"
+    ],
+    "numbering": "keep",
+    "note": "Origin metadata identifies the source cohort. Normalize mapped target identifiers back to source keys and retain original target IDs in a separate audit ledger."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZTMX_C_ScheduleMig",
+      "source_view": "ZTMX_I_Schedule",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScheduleID",
+        "Version"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS006-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS006-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS006-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScheduleID",
+          "source": "ZTMX_TMS006-F004",
+          "target": "Customer native interface: ScheduleID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZTMX_TMS006-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Description",
+          "source": "ZTMX_TMS006-F006",
+          "target": "Customer native interface: Description (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "TransportMode",
+          "source": "ZTMX_TMS006-F007",
+          "target": "Customer native interface: TransportMode (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Carrier",
+          "source": "ZTMX_TMS006-F008",
+          "target": "Customer native interface: Carrier (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "ZTMX_TMS006-F009",
+          "target": "Customer native interface: ValidityStartDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "ZTMX_TMS006-F010",
+          "target": "Customer native interface: ValidityEndDate (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    },
+    {
+      "consumption_view": "ZTMX_C_ScheduleStopMig",
+      "source_view": "ZTMX_I_ScheduleStop",
+      "scope_filter": "",
+      "keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScheduleID",
+        "Version",
+        "StopID"
+      ],
+      "fields": [
+        {
+          "element": "SourceSystem",
+          "source": "ZTMX_TMS007-F001",
+          "target": "Customer native interface: SourceSystem (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "SourceClient",
+          "source": "ZTMX_TMS007-F002",
+          "target": "Customer native interface: SourceClient (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ExportBatch",
+          "source": "ZTMX_TMS007-F003",
+          "target": "Customer native interface: ExportBatch (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ScheduleID",
+          "source": "ZTMX_TMS007-F004",
+          "target": "Customer native interface: ScheduleID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Version",
+          "source": "ZTMX_TMS007-F005",
+          "target": "Customer native interface: Version (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "StopID",
+          "source": "ZTMX_TMS007-F006",
+          "target": "Customer native interface: StopID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "LocationID",
+          "source": "ZTMX_TMS007-F007",
+          "target": "Customer native interface: LocationID (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "Sequence",
+          "source": "ZTMX_TMS007-F008",
+          "target": "Customer native interface: Sequence (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "ArrivalLocal",
+          "source": "ZTMX_TMS007-F009",
+          "target": "Customer native interface: ArrivalLocal (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "DepartureLocal",
+          "source": "ZTMX_TMS007-F010",
+          "target": "Customer native interface: DepartureLocal (adapter required)",
+          "rule": "copy",
+          "compare": true
+        },
+        {
+          "element": "TimeZone",
+          "source": "ZTMX_TMS007-F011",
+          "target": "Customer native interface: TimeZone (adapter required)",
+          "rule": "copy",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Approve native source completeness, business state and parent/child closure. Select one origin cohort. Customer stages do not establish business eligibility. Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces.",
+    "Native export adapters and target business posting are customer implementations."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "dimensions": [
+      {
+        "element": "SourceSystem"
+      },
+      {
+        "element": "SourceClient"
+      },
+      {
+        "element": "ExportBatch"
+      }
+    ],
+    "source_count_view": "ZTMX_C_ScheduleMigCount",
+    "target_count_view": "ZTMT_I_ScheduleCount",
+    "compare": {
+      "source_view": "ZTMX_C_ScheduleMig",
+      "target_view": "ZTMT_I_ScheduleCompare",
+      "key": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "ScheduleID",
+        "Version"
+      ],
+      "fields": [
+        "Description",
+        "TransportMode",
+        "Carrier",
+        "ValidityStartDate",
+        "ValidityEndDate"
+      ]
+    }
+  },
+  "main_structure": "ZTMX_C_ScheduleMig"
+}

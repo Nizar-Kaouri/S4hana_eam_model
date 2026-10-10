@@ -1,0 +1,401 @@
+{
+  "cutover": "20261011",
+  "inputs": {
+    "ZWMX_C_StorageBinMig": "exports/ZWMX_C_StorageBinMig.csv",
+    "ZWMX_C_StorageBinMig_Scope": "selection/ZWMX_C_StorageBinMig.csv",
+    "ZWMX_C_BinSortingMig": "exports/ZWMX_C_BinSortingMig.csv",
+    "ZWMX_C_BinSortingMig_Scope": "selection/ZWMX_C_BinSortingMig.csv",
+    "ZWMX_C_WarehouseProdMig": "exports/ZWMX_C_WarehouseProdMig.csv",
+    "ZWMX_C_WarehouseProdMig_Scope": "selection/ZWMX_C_WarehouseProdMig.csv",
+    "ZWMX_C_FixedBinMig": "exports/ZWMX_C_FixedBinMig.csv",
+    "ZWMX_C_FixedBinMig_Scope": "selection/ZWMX_C_FixedBinMig.csv",
+    "ZWMX_C_WarehouseStockMig": "exports/ZWMX_C_WarehouseStockMig.csv",
+    "ZWMX_C_WarehouseStockMig_Scope": "selection/ZWMX_C_WarehouseStockMig.csv",
+    "ZWMX_C_StockSerialMig": "exports/ZWMX_C_StockSerialMig.csv",
+    "ZWMX_C_StockSerialMig_Scope": "selection/ZWMX_C_StockSerialMig.csv",
+    "ZWMX_C_HandlingUnitMig": "exports/ZWMX_C_HandlingUnitMig.csv",
+    "ZWMX_C_HandlingUnitMig_Scope": "selection/ZWMX_C_HandlingUnitMig.csv",
+    "ZWMX_C_HUContentMig": "exports/ZWMX_C_HUContentMig.csv",
+    "ZWMX_C_HUContentMig_Scope": "selection/ZWMX_C_HUContentMig.csv",
+    "ZWMX_C_WarehouseTaskMig": "exports/ZWMX_C_WarehouseTaskMig.csv",
+    "ZWMX_C_WarehouseTaskMig_Scope": "selection/ZWMX_C_WarehouseTaskMig.csv",
+    "ZWMX_C_TaskConfirmMig": "exports/ZWMX_C_TaskConfirmMig.csv",
+    "ZWMX_C_TaskConfirmMig_Scope": "selection/ZWMX_C_TaskConfirmMig.csv",
+    "ZWMX_C_WarehouseOrderMig": "exports/ZWMX_C_WarehouseOrderMig.csv",
+    "ZWMX_C_WarehouseOrderMig_Scope": "selection/ZWMX_C_WarehouseOrderMig.csv",
+    "ZWMX_C_WhDeliveryMig": "exports/ZWMX_C_WhDeliveryMig.csv",
+    "ZWMX_C_WhDeliveryMig_Scope": "selection/ZWMX_C_WhDeliveryMig.csv",
+    "ZWMX_C_WhDeliveryItemMig": "exports/ZWMX_C_WhDeliveryItemMig.csv",
+    "ZWMX_C_WhDeliveryItemMig_Scope": "selection/ZWMX_C_WhDeliveryItemMig.csv",
+    "ZWMX_C_PackSpecMig": "exports/ZWMX_C_PackSpecMig.csv",
+    "ZWMX_C_PackSpecMig_Scope": "selection/ZWMX_C_PackSpecMig.csv",
+    "ZWMX_C_PackLevelMig": "exports/ZWMX_C_PackLevelMig.csv",
+    "ZWMX_C_PackLevelMig_Scope": "selection/ZWMX_C_PackLevelMig.csv",
+    "ZWMX_C_PackElementMig": "exports/ZWMX_C_PackElementMig.csv",
+    "ZWMX_C_PackElementMig_Scope": "selection/ZWMX_C_PackElementMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZWMX_C_StorageBinMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_StorageBinMig",
+      "parent": "ZWMX_C_StorageBinMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "StorageBin"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "StorageBin"
+      ]
+    },
+    {
+      "name": "ZWMX_C_BinSortingMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_BinSortingMig",
+      "parent": "ZWMX_C_BinSortingMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "StorageBin",
+        "SortSequence"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "StorageBin",
+        "SortSequence"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WarehouseProdMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WarehouseProdMig",
+      "parent": "ZWMX_C_WarehouseProdMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "Product",
+        "EntitledParty"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "Product",
+        "EntitledParty"
+      ]
+    },
+    {
+      "name": "ZWMX_C_FixedBinMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_FixedBinMig",
+      "parent": "ZWMX_C_FixedBinMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "Product",
+        "EntitledParty",
+        "StorageType",
+        "StorageBin"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "Product",
+        "EntitledParty",
+        "StorageType",
+        "StorageBin"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WarehouseStockMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WarehouseStockMig",
+      "parent": "ZWMX_C_WarehouseStockMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "StockIdentity"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "StockIdentity"
+      ]
+    },
+    {
+      "name": "ZWMX_C_StockSerialMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_StockSerialMig",
+      "parent": "ZWMX_C_StockSerialMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "StockIdentity",
+        "SerialNumber"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "StockIdentity",
+        "SerialNumber"
+      ]
+    },
+    {
+      "name": "ZWMX_C_HandlingUnitMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_HandlingUnitMig",
+      "parent": "ZWMX_C_HandlingUnitMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "HandlingUnit"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "HandlingUnit"
+      ]
+    },
+    {
+      "name": "ZWMX_C_HUContentMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_HUContentMig",
+      "parent": "ZWMX_C_HUContentMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "HandlingUnit",
+        "ContentItem"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "HandlingUnit",
+        "ContentItem"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WarehouseTaskMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WarehouseTaskMig",
+      "parent": "ZWMX_C_WarehouseTaskMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "WarehouseTask"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "WarehouseTask"
+      ]
+    },
+    {
+      "name": "ZWMX_C_TaskConfirmMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_TaskConfirmMig",
+      "parent": "ZWMX_C_TaskConfirmMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "WarehouseTask",
+        "ConfirmationID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "WarehouseTask",
+        "ConfirmationID"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WarehouseOrderMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WarehouseOrderMig",
+      "parent": "ZWMX_C_WarehouseOrderMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "WarehouseOrder"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "WarehouseOrder"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WhDeliveryMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WhDeliveryMig",
+      "parent": "ZWMX_C_WhDeliveryMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "DeliveryID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "DeliveryID"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WhDeliveryItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WhDeliveryItemMig",
+      "parent": "ZWMX_C_WhDeliveryItemMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "DeliveryID",
+        "DeliveryItem"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "Warehouse",
+        "DeliveryID",
+        "DeliveryItem"
+      ]
+    },
+    {
+      "name": "ZWMX_C_PackSpecMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_PackSpecMig",
+      "parent": "ZWMX_C_PackSpecMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PackSpecification",
+        "Version"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PackSpecification",
+        "Version"
+      ]
+    },
+    {
+      "name": "ZWMX_C_PackLevelMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_PackLevelMig",
+      "parent": "ZWMX_C_PackLevelMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PackSpecification",
+        "Version",
+        "LevelID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PackSpecification",
+        "Version",
+        "LevelID"
+      ]
+    },
+    {
+      "name": "ZWMX_C_PackElementMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_PackElementMig",
+      "parent": "ZWMX_C_PackElementMig_Scope",
+      "child_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PackSpecification",
+        "Version",
+        "LevelID",
+        "ElementID"
+      ],
+      "parent_keys": [
+        "SourceSystem",
+        "SourceClient",
+        "ExportBatch",
+        "PackSpecification",
+        "Version",
+        "LevelID",
+        "ElementID"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZWMX_C_StorageBinMig_Prepared",
+    "ZWMX_C_BinSortingMig_Prepared",
+    "ZWMX_C_WarehouseProdMig_Prepared",
+    "ZWMX_C_FixedBinMig_Prepared",
+    "ZWMX_C_WarehouseStockMig_Prepared",
+    "ZWMX_C_StockSerialMig_Prepared",
+    "ZWMX_C_HandlingUnitMig_Prepared",
+    "ZWMX_C_HUContentMig_Prepared",
+    "ZWMX_C_WarehouseTaskMig_Prepared",
+    "ZWMX_C_TaskConfirmMig_Prepared",
+    "ZWMX_C_WarehouseOrderMig_Prepared",
+    "ZWMX_C_WhDeliveryMig_Prepared",
+    "ZWMX_C_WhDeliveryItemMig_Prepared",
+    "ZWMX_C_PackSpecMig_Prepared",
+    "ZWMX_C_PackLevelMig_Prepared",
+    "ZWMX_C_PackElementMig_Prepared"
+  ]
+}

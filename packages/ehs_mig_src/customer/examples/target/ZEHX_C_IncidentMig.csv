@@ -1,0 +1,2 @@
+﻿SourceSystem,SourceClient,ExportBatch,IncidentID,IncidentType,LocationID,OccurredAtUTC,TimeZone,IncidentStatus,Description
+ERP_DEMO,100,DEMO001,0001,sample,sample,20261011100000,sample,sample,sample
