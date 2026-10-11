@@ -2,7 +2,7 @@
 // Purpose: MTBF / MTTR query for a reporting period: breakdowns, downtime, observation time and the
 //   formulas MTTR = downtime / breakdowns and MTBF = (observation time - downtime) / breakdowns.
 // Example: Reliability ranking of equipment in a plant for the last 12 months (enter start and end date).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_R_ReliabilityKPI applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_I_ReliabilityKPI applies (see GEN-Q01).
 // Formula semantics: see RPT-Q01. Division by zero (no breakdowns) is left to the analytical engine.
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Reliability Analysis (MTBF / MTTR)'
@@ -14,7 +14,7 @@ define transient view entity ZEAM_C_ReliabilityQ
   with parameters
     P_StartDate : abap.dats,
     P_EndDate   : abap.dats
-  as projection on ZEAM_R_ReliabilityKPI( P_StartDate: $parameters.P_StartDate, P_EndDate: $parameters.P_EndDate )
+  as projection on ZEAM_I_ReliabilityKPI( P_StartDate: $parameters.P_StartDate, P_EndDate: $parameters.P_EndDate )
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

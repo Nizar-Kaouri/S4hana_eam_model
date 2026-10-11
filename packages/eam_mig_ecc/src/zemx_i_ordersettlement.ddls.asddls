@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_OrderSettlement
-  as select from ZEMX_I_OrderSettlementData as b
+  as select from ZEMX_B_OrderSettlementData as b
   association [0..1] to ZEMX_I_MaintOrder as _Order on _Order.ObjectNumber = $projection.ObjectNumber
 {
       @EndUserText.label: 'Object Number'

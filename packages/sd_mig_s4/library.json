@@ -20,9 +20,9 @@
   "migration_pair": "sd_mig_ecc",
   "map_title": "ZSDT Sales and Distribution Migration - S/4HANA Reconciliation Map",
   "map_area": "Sales and Distribution migration target (S/4HANA)",
-  "map_initial": "ZSDT_I_BILLINGCOMPARE",
+  "map_initial": "ZSDT_B_BILLINGCOMPARE",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_DowntimeWithTechObj` |
+| Data source | `ZEAM_I_DowntimeWithTechObj` |
 | Source file | `src/zeam_c_downtimetechobjq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_DowntimeWithTechObj. Downtime and breakdowns per planning plant and equipment category.
+Analytical query on ZEAM_I_DowntimeWithTechObj. Downtime and breakdowns per planning plant and equipment category.
 
 ## Keys
 

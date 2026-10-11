@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_ProductionItem
-  as select from ZPPX_I_ProductionItemData as src
+  as select from ZPPX_B_ProductionItemData as src
 {
   key src.ManufacturingOrder as ManufacturingOrder,
   key src.ManufacturingOrderItem as ManufacturingOrderItem,

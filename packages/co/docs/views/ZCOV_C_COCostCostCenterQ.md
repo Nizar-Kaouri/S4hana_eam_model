@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZCOV_R_COCostWithCostCenter` |
+| Data source | `ZCOV_I_COCostWithCostCenter` |
 | Source file | `src/zcov_c_cocostcostcenterq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZCOV_R_COCostWithCostCenter: costs per cost center category and cost center.
+Analytical query on ZCOV_I_COCostWithCostCenter: costs per cost center category and cost center.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZCOV_R_COCostWithCostCenter: costs per cost center category 
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_R_COCostWithCostCenter (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_I_COCostWithCostCenter (see GEN-Q01).
 
 ## Example use case
 

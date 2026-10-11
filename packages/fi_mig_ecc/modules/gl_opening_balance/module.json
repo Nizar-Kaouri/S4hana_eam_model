@@ -20,8 +20,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZFIX_I_ClassicBalanceData",
-      "ZFIX_I_NewGLBalanceData"
+      "ZFIX_B_ClassicBalanceData",
+      "ZFIX_B_NewGLBalanceData"
     ],
     "composite": [
       "ZFIX_I_ClassicBalance",
@@ -37,11 +37,11 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFIX_I_ClassicBalanceData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_ClassicBalanceData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_I_ClassicBalance": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_C_ClassicBalanceMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_C_ClassicBalanceMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZFIX_I_NewGLBalanceData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_NewGLBalanceData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_I_NewGLBalance": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_C_NewGLBalanceMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },

@@ -24,10 +24,10 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZEMX_I_MaintenancePlanHeader",
-      "ZEMX_I_MaintenanceItemHeader",
-      "ZEMX_I_MaintPlanCycle",
-      "ZEMX_I_MaintPlanCallHistory"
+      "ZEMX_B_MaintenancePlanHeader",
+      "ZEMX_B_MaintenanceItemHeader",
+      "ZEMX_B_MaintPlanCycle",
+      "ZEMX_B_MaintPlanCallHistory"
     ],
     "composite": [
       "ZEMX_I_MaintPlanLastCall",
@@ -45,10 +45,10 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEMX_I_MaintenancePlanHeader": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_I_MaintenanceItemHeader": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_I_MaintPlanCycle": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_I_MaintPlanCallHistory": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_MaintenancePlanHeader": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_MaintenanceItemHeader": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_MaintPlanCycle": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_MaintPlanCallHistory": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_MaintPlanLastCall": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_MaintenancePlan": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_MaintenanceItem": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",

@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_FuncLoc` |
+| Data source | `ZEAM_I_FuncLoc` |
 | Source file | `src/zeam_c_funclocq.ddls.asddls` |
 
 ## Purpose
@@ -27,7 +27,7 @@ Analytical query on the functional location cube.
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_FuncLoc (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_FuncLoc (see GEN-Q01).
 
 ## Example use case
 

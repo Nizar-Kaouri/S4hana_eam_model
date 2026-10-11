@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZCOV_R_InternalOrder` |
+| Data source | `ZCOV_I_InternalOrder` |
 | Source file | `src/zcov_c_internalorderq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZCOV_R_InternalOrder: internal orders per company code and order type.
+Analytical query on ZCOV_I_InternalOrder: internal orders per company code and order type.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZCOV_R_InternalOrder: internal orders per company code and o
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_R_InternalOrder (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_I_InternalOrder (see GEN-Q01).
 
 ## Example use case
 

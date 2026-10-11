@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPSX_I_CommitmentData` |
+| Data source | `ZPSX_B_CommitmentData` |
 | Source file | `src/zpsx_i_commitment.ddls.asddls` |
 
 ## Purpose

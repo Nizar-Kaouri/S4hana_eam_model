@@ -2,7 +2,7 @@
   "ZEHX_C_SpecificationMig": {
     "module": "specification",
     "native_table": "ESTRH",
-    "basic_view": "ZEHX_I_SpecificationData",
+    "basic_view": "ZEHX_B_SpecificationData",
     "composite_view": "ZEHX_I_Specification",
     "consumption_view": "ZEHX_C_SpecificationMig",
     "required_keys": [
@@ -27,7 +27,7 @@
   "ZEHX_C_SpecIdentifierMig": {
     "module": "specification",
     "native_table": "ESTRI",
-    "basic_view": "ZEHX_I_SpecIdentifierData",
+    "basic_view": "ZEHX_B_SpecIdentifierData",
     "composite_view": "ZEHX_I_SpecIdentifier",
     "consumption_view": "ZEHX_C_SpecIdentifierMig",
     "required_keys": [
@@ -54,7 +54,7 @@
   "ZEHX_C_PhraseMig": {
     "module": "phrase",
     "native_table": "ESTPH",
-    "basic_view": "ZEHX_I_PhraseData",
+    "basic_view": "ZEHX_B_PhraseData",
     "composite_view": "ZEHX_I_Phrase",
     "consumption_view": "ZEHX_C_PhraseMig",
     "required_keys": [
@@ -79,7 +79,7 @@
   "ZEHX_C_PhraseSetMig": {
     "module": "phrase",
     "native_table": "ESTPJ",
-    "basic_view": "ZEHX_I_PhraseSetData",
+    "basic_view": "ZEHX_B_PhraseSetData",
     "composite_view": "ZEHX_I_PhraseSet",
     "consumption_view": "ZEHX_C_PhraseSetMig",
     "required_keys": [
@@ -103,7 +103,7 @@
   "ZEHX_C_IncidentMig": {
     "module": "incident",
     "native_table": "EHHSSD_INC_ROOT",
-    "basic_view": "ZEHX_I_IncidentData",
+    "basic_view": "ZEHX_B_IncidentData",
     "composite_view": "ZEHX_I_Incident",
     "consumption_view": "ZEHX_C_IncidentMig",
     "required_keys": [
@@ -124,7 +124,7 @@
   "ZEHX_C_IncidentActionMig": {
     "module": "incident",
     "native_table": "EHHSSD_IAC_ROOT",
-    "basic_view": "ZEHX_I_IncidentActionData",
+    "basic_view": "ZEHX_B_IncidentActionData",
     "composite_view": "ZEHX_I_IncidentAction",
     "consumption_view": "ZEHX_C_IncidentActionMig",
     "required_keys": [

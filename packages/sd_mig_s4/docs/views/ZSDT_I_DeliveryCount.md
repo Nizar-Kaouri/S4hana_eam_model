@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZSDT_I_DeliveryCompare` |
+| Data source | `ZSDT_B_DeliveryCompare` |
 | Source file | `src/zsdt_i_deliverycount.ddls.asddls` |
 
 ## Purpose

@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Maintenance Order |
+| Description | Maintenance Order - Cube |
 | Module | `maintenance_order` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_MaintenanceOrder` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_MaintOrder` |
 | Source file | `src/zeam_i_maintorder.ddls.asddls` |
 
 ## Purpose
 
-One row per maintenance order header with type, activity type, priority, process phase, planning and cost-assignment data, basic dates and a derived open/closed flag; analytical dimension for operation, component, cost and backlog cubes.
+Order header cube with counters for all and open orders and the planned order duration.
 
 ## Keys
 
@@ -23,18 +23,16 @@ One row per maintenance order header with type, activity type, priority, process
 
 ## Associations defined here
 
-- `_MaintenancePlant` → `I_Plant` [0..1]
-- `_MaintenancePlanningPlant` → `I_Plant` [0..1]
-- `_CompanyCode` → `I_CompanyCode` [0..1]
+- `_MaintenanceOrder` → `ZEAM_B_MaintOrder` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_MaintenanceOrder`.
+Role inherits the conditions of `ZEAM_B_MaintOrder`.
 
 ## Example use case
 
-List open preventive orders per planning plant; join cost line items to order attributes. Equipment, functional location, notification and maintenance plan are plain fields here; their associations live in link views (ZEAM_I_*WithOrder, ZEAM_I_NotifWithOrder, ZEAM_I_MaintPlanWithOrder).
+Open orders per planning plant and order type; share of breakdown (activity type) orders.
 
 ## Open verification items
 
-`MO-001`, `MO-002`, `MO-003`, `MO-004`, `MO-005`, `MO-006`, `MO-007`, `MO-008`, `MO-D01` - see `BATCH_REPORT.md`.
+`MO-R01` - see `BATCH_REPORT.md`.

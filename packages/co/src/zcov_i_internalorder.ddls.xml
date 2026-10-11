@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZCOV_I_INTERNALORDER</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Internal Order</DDTEXT>
+    <DDTEXT>Internal Order - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

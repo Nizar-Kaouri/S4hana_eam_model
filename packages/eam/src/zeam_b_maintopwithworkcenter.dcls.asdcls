@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - operation conditions (see GEN-D02).
+@EndUserText.label: 'Order Operation with Work Center'
+@MappingRole: true
+define role ZEAM_B_MaintOpWithWorkCenter {
+  grant
+    select
+      on
+        ZEAM_B_MaintOpWithWorkCenter
+          where
+            inheriting conditions from entity ZEAM_B_MaintOrderOperation;
+}

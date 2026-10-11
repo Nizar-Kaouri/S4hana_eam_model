@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_MaterialUnit
-  as select from ZMMX_I_MaterialUnitData as src
+  as select from ZMMX_B_MaterialUnitData as src
 {
   key src.Product as Product,
   key src.AlternativeUnit as AlternativeUnit,

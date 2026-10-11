@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZTMT_I_TransportLocCount
-  as select from ZTMT_I_TransportLocCompare as src
+  as select from ZTMT_B_TransportLocCompare as src
 {
       count( * ) as RecordCount
 }

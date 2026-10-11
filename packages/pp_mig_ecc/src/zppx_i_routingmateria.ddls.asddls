@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_RoutingMateria
-  as select from ZPPX_I_RoutingMateriaData as src
+  as select from ZPPX_B_RoutingMateriaData as src
 {
   key src.Material as Material,
   key src.Plant as Plant,

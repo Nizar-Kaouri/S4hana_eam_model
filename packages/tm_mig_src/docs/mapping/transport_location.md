@@ -19,16 +19,16 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `LocationUUID` | /SAPAPO/LOC-LOCID | Native target evidence: ZTMT_I_TransportLocCompare.LocationUUID | copy | yes |
-| `LocationID` | /SAPAPO/LOC-LOCNO | Native target evidence: ZTMT_I_TransportLocCompare.LocationID | copy | yes |
-| `DeletionFlag` | /SAPAPO/LOC-LVORM | Native target evidence: ZTMT_I_TransportLocCompare.DeletionFlag | copy | yes |
-| `Longitude` | /SAPAPO/LOC-XPOS | Native target evidence: ZTMT_I_TransportLocCompare.Longitude | copy | yes |
-| `Latitude` | /SAPAPO/LOC-YPOS | Native target evidence: ZTMT_I_TransportLocCompare.Latitude | copy | yes |
+| `LocationUUID` | /SAPAPO/LOC-LOCID | Native target evidence: ZTMT_B_TransportLocCompare.LocationUUID | copy | yes |
+| `LocationID` | /SAPAPO/LOC-LOCNO | Native target evidence: ZTMT_B_TransportLocCompare.LocationID | copy | yes |
+| `DeletionFlag` | /SAPAPO/LOC-LVORM | Native target evidence: ZTMT_B_TransportLocCompare.DeletionFlag | copy | yes |
+| `Longitude` | /SAPAPO/LOC-XPOS | Native target evidence: ZTMT_B_TransportLocCompare.Longitude | copy | yes |
+| `Latitude` | /SAPAPO/LOC-YPOS | Native target evidence: ZTMT_B_TransportLocCompare.Latitude | copy | yes |
 
 ## Reconciliation
 
 - Counts: `ZTMX_C_TransportLocMigCount` (SAP source) vs `ZTMT_I_TransportLocCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZTMX_C_TransportLocMig` vs `ZTMT_I_TransportLocCompare` on `LocationUUID`; compared: `LocationID`, `DeletionFlag`, `Longitude`, `Latitude`
+- Records and fields: `ZTMX_C_TransportLocMig` vs `ZTMT_B_TransportLocCompare` on `LocationUUID`; compared: `LocationID`, `DeletionFlag`, `Longitude`, `Latitude`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product tm_mig_src --module transport_location --source ecc_counts.csv --target s4_counts.csv

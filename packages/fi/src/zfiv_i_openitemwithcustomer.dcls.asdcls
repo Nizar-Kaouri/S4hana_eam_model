@@ -1,0 +1,12 @@
+// ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Open Items with Customer'
+@MappingRole: true
+define role ZFIV_I_OpenItemWithCustomer {
+  grant
+    select
+      on
+        ZFIV_I_OpenItemWithCustomer
+          where
+            inheriting conditions from entity ZFIV_I_OpenItemAging;
+}

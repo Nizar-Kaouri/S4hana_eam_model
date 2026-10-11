@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZWMX_I_WhDeliveryItem
-  as select from ZWMX_I_WhDeliveryItemData as src
+  as select from ZWMX_B_WhDeliveryItemData as src
 {
   key src.DeliveryUUID as DeliveryUUID,
   key src.DeliveryItemUUID as DeliveryItemUUID,

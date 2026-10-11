@@ -48,7 +48,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZSDX_C_BillingMigCount` (ECC) vs `ZSDT_I_BillingCount` (S/4HANA) per `BillingDocument`
-- Records and fields: `ZSDX_C_BillingMig` vs `ZSDT_I_BillingCompare` on `BillingDocument`; compared: `BillingDocumentType`, `BillingDocumentDate`, `CompanyCode`, `TransactionCurrency`, `Payer`
+- Records and fields: `ZSDX_C_BillingMig` vs `ZSDT_B_BillingCompare` on `BillingDocument`; compared: `BillingDocumentType`, `BillingDocumentDate`, `CompanyCode`, `TransactionCurrency`, `Payer`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product sd_mig_ecc --module billing_document --source ecc_counts.csv --target s4_counts.csv

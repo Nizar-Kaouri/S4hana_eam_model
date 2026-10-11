@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZFCT_I_CreditExposureCompare` |
+| Data source | `ZFCT_B_CreditExposureCompare` |
 | Source file | `src/zfct_i_creditexposurecount.ddls.asddls` |
 
 ## Purpose

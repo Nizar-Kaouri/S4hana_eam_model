@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZMMX_I_BatchGeneralData` |
+| Data source | `ZMMX_B_BatchGeneralData` |
 | Source file | `src/zmmx_i_batchgeneral.ddls.asddls` |
 
 ## Purpose

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_MaterialText
-  as select from ZMMX_I_MaterialTextData as src
+  as select from ZMMX_B_MaterialTextData as src
 {
   key src.Product as Product,
   key src.Language as Language,

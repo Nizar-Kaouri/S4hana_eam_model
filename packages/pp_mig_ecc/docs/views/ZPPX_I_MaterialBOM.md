@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPPX_I_MaterialBOMData` |
+| Data source | `ZPPX_B_MaterialBOMData` |
 | Source file | `src/zppx_i_materialbom.ddls.asddls` |
 
 ## Purpose

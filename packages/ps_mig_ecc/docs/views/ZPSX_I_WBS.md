@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPSX_I_WBSData` |
+| Data source | `ZPSX_B_WBSData` |
 | Source file | `src/zpsx_i_wbs.ddls.asddls` |
 
 ## Purpose

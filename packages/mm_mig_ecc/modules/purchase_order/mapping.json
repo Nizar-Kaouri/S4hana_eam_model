@@ -376,7 +376,7 @@
     "source_count_view": "ZMMX_C_PurchaseOrderMigCount",
     "compare": {
       "source_view": "ZMMX_C_PurchaseOrderMig",
-      "target_view": "ZMMT_I_PurchaseOrderCompare",
+      "target_view": "ZMMT_B_PurchaseOrderCompare",
       "key": [
         "PurchaseOrder"
       ],

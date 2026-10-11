@@ -94,7 +94,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZQMX_C_QualityNotificMigCount` (ECC) vs `ZQMT_I_QualityNotificCount` (S/4HANA) per `QualityNotification`
-- Records and fields: `ZQMX_C_QualityNotificMig` vs `ZQMT_I_QualityNotificCompare` on `QualityNotification`; compared: `NotificationType`, `NotificationText`, `Material`
+- Records and fields: `ZQMX_C_QualityNotificMig` vs `ZQMT_B_QualityNotificCompare` on `QualityNotification`; compared: `NotificationType`, `NotificationText`, `Material`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product qm_mig_ecc --module quality_notification --source ecc_counts.csv --target s4_counts.csv

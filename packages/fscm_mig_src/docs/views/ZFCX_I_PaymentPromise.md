@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFCX_I_PaymentPromiseData` |
+| Data source | `ZFCX_B_PaymentPromiseData` |
 | Source file | `src/zfcx_i_paymentpromise.ddls.asddls` |
 
 ## Purpose

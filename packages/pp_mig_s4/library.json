@@ -20,9 +20,9 @@
   "migration_pair": "pp_mig_ecc",
   "map_title": "ZPPT Production Planning Migration - S/4HANA Reconciliation Map",
   "map_area": "Production Planning migration target (S/4HANA)",
-  "map_initial": "ZPPT_I_PRODUCTIONORDECOMPARE",
+  "map_initial": "ZPPT_B_PRODUCTIONORDECOMPARE",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

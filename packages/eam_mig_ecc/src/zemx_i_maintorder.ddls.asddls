@@ -13,9 +13,9 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintOrder
-  as select from ZEMX_I_OrderMasterData as ord
-    inner join ZEMX_I_OrderMaintData as pm on pm.MaintenanceOrder = ord.MaintenanceOrder
-    inner join ZEMX_I_OrderHeaderPlanning as plan on plan.MaintenanceOrder = ord.MaintenanceOrder
+  as select from ZEMX_B_OrderMasterData as ord
+    inner join ZEMX_B_OrderMaintData as pm on pm.MaintenanceOrder = ord.MaintenanceOrder
+    inner join ZEMX_B_OrderHeaderPlanning as plan on plan.MaintenanceOrder = ord.MaintenanceOrder
 {
       @EndUserText.label: 'Maintenance Order'
   key ord.MaintenanceOrder           as MaintenanceOrder,

@@ -19,16 +19,16 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZCOV_I_ProfitCenterText",
-      "ZCOV_I_ProfitCenter",
-      "ZCOV_I_ProfitCenterVH"
+      "ZCOV_B_ProfitCenterText",
+      "ZCOV_B_ProfitCenter",
+      "ZCOV_B_ProfitCenterVH"
     ],
     "composite": [],
     "consumption": [],
     "access_controls": [
-      "ZCOV_I_ProfitCenterText",
-      "ZCOV_I_ProfitCenter",
-      "ZCOV_I_ProfitCenterVH"
+      "ZCOV_B_ProfitCenterText",
+      "ZCOV_B_ProfitCenter",
+      "ZCOV_B_ProfitCenterVH"
     ],
     "metadata_extensions": [],
     "tests": []
@@ -36,12 +36,12 @@
   "no_dcl_by_design": {},
   "link_views": [
     {
-      "name": "ZCOV_R_COCostWithProfitCtr",
+      "name": "ZCOV_I_COCostWithProfitCtr",
       "requires_modules": [
         "cost_actuals",
         "profit_center"
       ],
-      "access_control": "ZCOV_R_COCostWithProfitCtr"
+      "access_control": "ZCOV_I_COCostWithProfitCtr"
     },
     {
       "name": "ZCOV_C_COCostProfitCtrQ",
@@ -49,7 +49,7 @@
         "cost_actuals",
         "profit_center"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_R_COCostWithProfitCtr (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_I_COCostWithProfitCtr (see GEN-Q01)."
     }
   ]
 }

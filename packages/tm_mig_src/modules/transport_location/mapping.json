@@ -25,35 +25,35 @@
         {
           "element": "LocationUUID",
           "source": "/SAPAPO/LOC-LOCID",
-          "target": "Native target evidence: ZTMT_I_TransportLocCompare.LocationUUID",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.LocationUUID",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "LocationID",
           "source": "/SAPAPO/LOC-LOCNO",
-          "target": "Native target evidence: ZTMT_I_TransportLocCompare.LocationID",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.LocationID",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "DeletionFlag",
           "source": "/SAPAPO/LOC-LVORM",
-          "target": "Native target evidence: ZTMT_I_TransportLocCompare.DeletionFlag",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.DeletionFlag",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Longitude",
           "source": "/SAPAPO/LOC-XPOS",
-          "target": "Native target evidence: ZTMT_I_TransportLocCompare.Longitude",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.Longitude",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Latitude",
           "source": "/SAPAPO/LOC-YPOS",
-          "target": "Native target evidence: ZTMT_I_TransportLocCompare.Latitude",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.Latitude",
           "rule": "copy",
           "compare": true
         }
@@ -74,7 +74,7 @@
     "target_count_view": "ZTMT_I_TransportLocCount",
     "compare": {
       "source_view": "ZTMX_C_TransportLocMig",
-      "target_view": "ZTMT_I_TransportLocCompare",
+      "target_view": "ZTMT_B_TransportLocCompare",
       "key": [
         "LocationUUID"
       ],

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_APOpen
-  as select from ZFIX_I_APOpenData as src
+  as select from ZFIX_B_APOpenData as src
 {
   key src.CompanyCode as CompanyCode,
   key src.Supplier as Supplier,

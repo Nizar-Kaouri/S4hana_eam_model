@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZBRG_R_EquipmentAssetValue` |
+| Data source | `ZBRG_I_EquipmentAssetValue` |
 | Source file | `src/zbrg_c_equipassetvalueq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZBRG_R_EquipmentAssetValue: asset values per planning plant and equipment category at a key date.
+Analytical query on ZBRG_I_EquipmentAssetValue: asset values per planning plant and equipment category at a key date.
 
 ## Parameters
 
@@ -31,7 +31,7 @@ Analytical query on ZBRG_R_EquipmentAssetValue: asset values per planning plant 
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_EquipmentAssetValue (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_EquipmentAssetValue (see GEN-Q01).
 
 ## Example use case
 

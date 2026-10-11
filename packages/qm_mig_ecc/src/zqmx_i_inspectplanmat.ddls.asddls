@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZQMX_I_InspectPlanMat
-  as select from ZQMX_I_InspectPlanMatData as src
+  as select from ZQMX_B_InspectPlanMatData as src
 {
   key src.Material as Material,
   key src.Plant as Plant,

@@ -19,15 +19,15 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `RecordNumber` | ESTRH-RECN | Native target evidence: ZEHT_I_SpecificationCompare.RecordNumber | copy | yes |
-| `ChangeState` | ESTRH-ACTN | Native target evidence: ZEHT_I_SpecificationCompare.ChangeState | copy | yes |
-| `ValidFrom` | ESTRH-VALFR | Native target evidence: ZEHT_I_SpecificationCompare.ValidFrom | copy | yes |
-| `ValidTo` | ESTRH-VALTO | Native target evidence: ZEHT_I_SpecificationCompare.ValidTo | copy | yes |
-| `DeletionFlag` | ESTRH-DELFLG | Native target evidence: ZEHT_I_SpecificationCompare.DeletionFlag | copy | yes |
-| `SpecificationID` | ESTRH-SUBID | Native target evidence: ZEHT_I_SpecificationCompare.SpecificationID | copy | yes |
-| `SpecificationCategory` | ESTRH-SUBCAT | Native target evidence: ZEHT_I_SpecificationCompare.SpecificationCategory | copy | yes |
-| `AuthorizationGroup` | ESTRH-AUTHGRP | Native target evidence: ZEHT_I_SpecificationCompare.AuthorizationGroup | copy | yes |
-| `Remark` | ESTRH-REM | Native target evidence: ZEHT_I_SpecificationCompare.Remark | copy | yes |
+| `RecordNumber` | ESTRH-RECN | Native target evidence: ZEHT_B_SpecificationCompare.RecordNumber | copy | yes |
+| `ChangeState` | ESTRH-ACTN | Native target evidence: ZEHT_B_SpecificationCompare.ChangeState | copy | yes |
+| `ValidFrom` | ESTRH-VALFR | Native target evidence: ZEHT_B_SpecificationCompare.ValidFrom | copy | yes |
+| `ValidTo` | ESTRH-VALTO | Native target evidence: ZEHT_B_SpecificationCompare.ValidTo | copy | yes |
+| `DeletionFlag` | ESTRH-DELFLG | Native target evidence: ZEHT_B_SpecificationCompare.DeletionFlag | copy | yes |
+| `SpecificationID` | ESTRH-SUBID | Native target evidence: ZEHT_B_SpecificationCompare.SpecificationID | copy | yes |
+| `SpecificationCategory` | ESTRH-SUBCAT | Native target evidence: ZEHT_B_SpecificationCompare.SpecificationCategory | copy | yes |
+| `AuthorizationGroup` | ESTRH-AUTHGRP | Native target evidence: ZEHT_B_SpecificationCompare.AuthorizationGroup | copy | yes |
+| `Remark` | ESTRH-REM | Native target evidence: ZEHT_B_SpecificationCompare.Remark | copy | yes |
 
 ## `ZEHX_C_SpecIdentifierMig`
 
@@ -39,22 +39,22 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `RecordNumber` | ESTRI-RECN | Native target evidence: ZEHT_I_SpecIdentifierCompare.RecordNumber | copy | yes |
-| `ChangeState` | ESTRI-ACTN | Native target evidence: ZEHT_I_SpecIdentifierCompare.ChangeState | copy | yes |
-| `ValidFrom` | ESTRI-VALFR | Native target evidence: ZEHT_I_SpecIdentifierCompare.ValidFrom | copy | yes |
-| `ValidTo` | ESTRI-VALTO | Native target evidence: ZEHT_I_SpecIdentifierCompare.ValidTo | copy | yes |
-| `DeletionFlag` | ESTRI-DELFLG | Native target evidence: ZEHT_I_SpecIdentifierCompare.DeletionFlag | copy | yes |
-| `RootRecordNumber` | ESTRI-RECNROOT | Native target evidence: ZEHT_I_SpecIdentifierCompare.RootRecordNumber | copy | yes |
-| `IdentifierType` | ESTRI-IDTYPE | Native target evidence: ZEHT_I_SpecIdentifierCompare.IdentifierType | copy | yes |
-| `IdentifierCategory` | ESTRI-IDCAT | Native target evidence: ZEHT_I_SpecIdentifierCompare.IdentifierCategory | copy | yes |
-| `Language` | ESTRI-LANGU | Native target evidence: ZEHT_I_SpecIdentifierCompare.Language | copy | yes |
-| `Identifier` | ESTRI-IDENT | Native target evidence: ZEHT_I_SpecIdentifierCompare.Identifier | copy | yes |
-| `SortOrder` | ESTRI-ORD | Native target evidence: ZEHT_I_SpecIdentifierCompare.SortOrder | copy | yes |
+| `RecordNumber` | ESTRI-RECN | Native target evidence: ZEHT_B_SpecIdentifierCompare.RecordNumber | copy | yes |
+| `ChangeState` | ESTRI-ACTN | Native target evidence: ZEHT_B_SpecIdentifierCompare.ChangeState | copy | yes |
+| `ValidFrom` | ESTRI-VALFR | Native target evidence: ZEHT_B_SpecIdentifierCompare.ValidFrom | copy | yes |
+| `ValidTo` | ESTRI-VALTO | Native target evidence: ZEHT_B_SpecIdentifierCompare.ValidTo | copy | yes |
+| `DeletionFlag` | ESTRI-DELFLG | Native target evidence: ZEHT_B_SpecIdentifierCompare.DeletionFlag | copy | yes |
+| `RootRecordNumber` | ESTRI-RECNROOT | Native target evidence: ZEHT_B_SpecIdentifierCompare.RootRecordNumber | copy | yes |
+| `IdentifierType` | ESTRI-IDTYPE | Native target evidence: ZEHT_B_SpecIdentifierCompare.IdentifierType | copy | yes |
+| `IdentifierCategory` | ESTRI-IDCAT | Native target evidence: ZEHT_B_SpecIdentifierCompare.IdentifierCategory | copy | yes |
+| `Language` | ESTRI-LANGU | Native target evidence: ZEHT_B_SpecIdentifierCompare.Language | copy | yes |
+| `Identifier` | ESTRI-IDENT | Native target evidence: ZEHT_B_SpecIdentifierCompare.Identifier | copy | yes |
+| `SortOrder` | ESTRI-ORD | Native target evidence: ZEHT_B_SpecIdentifierCompare.SortOrder | copy | yes |
 
 ## Reconciliation
 
 - Counts: `ZEHX_C_SpecificationMigCount` (SAP source) vs `ZEHT_I_SpecificationCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZEHX_C_SpecificationMig` vs `ZEHT_I_SpecificationCompare` on `RecordNumber`, `ChangeState`; compared: `ValidFrom`, `ValidTo`, `DeletionFlag`, `SpecificationID`, `SpecificationCategory`, `AuthorizationGroup`, `Remark`
+- Records and fields: `ZEHX_C_SpecificationMig` vs `ZEHT_B_SpecificationCompare` on `RecordNumber`, `ChangeState`; compared: `ValidFrom`, `ValidTo`, `DeletionFlag`, `SpecificationID`, `SpecificationCategory`, `AuthorizationGroup`, `Remark`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product ehs_mig_src --module specification --source ecc_counts.csv --target s4_counts.csv

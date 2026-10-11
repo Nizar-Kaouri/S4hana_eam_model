@@ -148,7 +148,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZSDX_C_SalesOrderMigCount` (ECC) vs `ZSDT_I_SalesOrderCount` (S/4HANA) per `SalesDocument`
-- Records and fields: `ZSDX_C_SalesOrderMig` vs `ZSDT_I_SalesOrderCompare` on `SalesDocument`; compared: `SalesDocumentType`, `SalesOrganization`, `DistributionChannel`, `Division`, `SoldToParty`, `TransactionCurrency`
+- Records and fields: `ZSDX_C_SalesOrderMig` vs `ZSDT_B_SalesOrderCompare` on `SalesDocument`; compared: `SalesDocumentType`, `SalesOrganization`, `DistributionChannel`, `Division`, `SoldToParty`, `TransactionCurrency`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product sd_mig_ecc --module sales_order --source ecc_counts.csv --target s4_counts.csv

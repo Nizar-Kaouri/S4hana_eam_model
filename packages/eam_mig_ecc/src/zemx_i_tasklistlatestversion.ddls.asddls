@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #M
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_TaskListLatestVersion
-  as select from ZEMX_I_TaskListHeader as hdr
+  as select from ZEMX_B_TaskListHeader as hdr
 {
       @EndUserText.label: 'Task List Type'
   key hdr.TaskListType               as TaskListType,

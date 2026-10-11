@@ -20,9 +20,9 @@
   "migration_pair": "ewm_mig_src",
   "map_title": "Extended Warehouse Management native extraction",
   "map_area": "Native SAP tables",
-  "map_initial": "ZWMT_I_StorageBinCompare",
+  "map_initial": "ZWMT_B_StorageBinCompare",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

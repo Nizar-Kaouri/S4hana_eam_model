@@ -12,8 +12,8 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZTMX_I_FreightOrdStop
-  as select from ZTMX_I_FreightOrdStopData as src
-    inner join ZTMX_I_FreightOrderData as parent
+  as select from ZTMX_B_FreightOrdStopData as src
+    inner join ZTMX_B_FreightOrderData as parent
       on src.DocumentUUID = parent.DocumentUUID
 {
   key src.StopUUID as StopUUID,

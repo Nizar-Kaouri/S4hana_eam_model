@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZQMX_I_UsageDecision
-  as select from ZQMX_I_UsageDecisionData as src
+  as select from ZQMX_B_UsageDecisionData as src
 {
   key src.InspectionLot as InspectionLot,
   key src.UsageDecisionType as UsageDecisionType,

@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZCOT_I_InternalOrderCompare"
+      "ZCOT_B_InternalOrderCompare"
     ],
     "composite": [
       "ZCOT_I_InternalOrderCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZCOT_I_InternalOrderCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOT_B_InternalOrderCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZCOT_I_InternalOrderCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

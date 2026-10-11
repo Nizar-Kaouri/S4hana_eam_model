@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZSDX_I_SalesFlow
-  as select from ZSDX_I_SalesFlowData as src
+  as select from ZSDX_B_SalesFlowData as src
 {
   key src.PrecedingDocument as PrecedingDocument,
   key src.PrecedingDocumentItem as PrecedingDocumentItem,

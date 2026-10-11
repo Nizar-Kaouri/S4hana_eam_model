@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `ZEMX_I_MeasPointLastDoc`, join `ZEMX_I_MeasurementDocument` |
+| Data source | `ZEMX_I_MeasPointLastDoc`, join `ZEMX_B_MeasurementDocument` |
 | Source file | `src/zemx_i_measpointlastreading.ddls.asddls` |
 
 ## Purpose

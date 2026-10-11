@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_OrderComponent
-  as select from ZPPX_I_OrderComponentData as src
+  as select from ZPPX_B_OrderComponentData as src
 {
   key src.Reservation as Reservation,
   key src.ReservationItem as ReservationItem,

@@ -17,14 +17,14 @@
   ],
   "objects": {
     "basic": [
-      "ZEAM_I_FuncLocHierNode",
-      "ZEAM_I_FuncLocHier"
+      "ZEAM_B_FuncLocHierNode",
+      "ZEAM_B_FuncLocHier"
     ],
     "composite": [],
     "consumption": [],
     "access_controls": [
-      "ZEAM_I_FuncLocHierNode",
-      "ZEAM_I_FuncLocHier"
+      "ZEAM_B_FuncLocHierNode",
+      "ZEAM_B_FuncLocHier"
     ],
     "metadata_extensions": [],
     "tests": []

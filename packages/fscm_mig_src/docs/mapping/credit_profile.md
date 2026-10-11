@@ -19,18 +19,18 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `BusinessPartner` | UKMBP_CMS-PARTNER | Native target evidence: ZFCT_I_CreditProfileCompare.BusinessPartner | copy | yes |
-| `OwnRating` | UKMBP_CMS-OWN_RATING | Native target evidence: ZFCT_I_CreditProfileCompare.OwnRating | copy | yes |
-| `CheckRule` | UKMBP_CMS-CHECK_RULE | Native target evidence: ZFCT_I_CreditProfileCompare.CheckRule | copy | yes |
-| `LimitRule` | UKMBP_CMS-LIMIT_RULE | Native target evidence: ZFCT_I_CreditProfileCompare.LimitRule | copy | yes |
-| `RatingValidTo` | UKMBP_CMS-RATING_VAL_DATE | Native target evidence: ZFCT_I_CreditProfileCompare.RatingValidTo | copy | yes |
-| `RiskClass` | UKMBP_CMS-RISK_CLASS | Native target evidence: ZFCT_I_CreditProfileCompare.RiskClass | copy | yes |
-| `CreditGroup` | UKMBP_CMS-CREDIT_GROUP | Native target evidence: ZFCT_I_CreditProfileCompare.CreditGroup | copy | yes |
+| `BusinessPartner` | UKMBP_CMS-PARTNER | Native target evidence: ZFCT_B_CreditProfileCompare.BusinessPartner | copy | yes |
+| `OwnRating` | UKMBP_CMS-OWN_RATING | Native target evidence: ZFCT_B_CreditProfileCompare.OwnRating | copy | yes |
+| `CheckRule` | UKMBP_CMS-CHECK_RULE | Native target evidence: ZFCT_B_CreditProfileCompare.CheckRule | copy | yes |
+| `LimitRule` | UKMBP_CMS-LIMIT_RULE | Native target evidence: ZFCT_B_CreditProfileCompare.LimitRule | copy | yes |
+| `RatingValidTo` | UKMBP_CMS-RATING_VAL_DATE | Native target evidence: ZFCT_B_CreditProfileCompare.RatingValidTo | copy | yes |
+| `RiskClass` | UKMBP_CMS-RISK_CLASS | Native target evidence: ZFCT_B_CreditProfileCompare.RiskClass | copy | yes |
+| `CreditGroup` | UKMBP_CMS-CREDIT_GROUP | Native target evidence: ZFCT_B_CreditProfileCompare.CreditGroup | copy | yes |
 
 ## Reconciliation
 
 - Counts: `ZFCX_C_CreditProfileMigCount` (SAP source) vs `ZFCT_I_CreditProfileCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZFCX_C_CreditProfileMig` vs `ZFCT_I_CreditProfileCompare` on `BusinessPartner`; compared: `OwnRating`, `CheckRule`, `LimitRule`, `RatingValidTo`, `RiskClass`, `CreditGroup`
+- Records and fields: `ZFCX_C_CreditProfileMig` vs `ZFCT_B_CreditProfileCompare` on `BusinessPartner`; compared: `OwnRating`, `CheckRule`, `LimitRule`, `RatingValidTo`, `RiskClass`, `CreditGroup`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fscm_mig_src --module credit_profile --source ecc_counts.csv --target s4_counts.csv

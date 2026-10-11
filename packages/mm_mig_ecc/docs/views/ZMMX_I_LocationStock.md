@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZMMX_I_LocationStockData` |
+| Data source | `ZMMX_B_LocationStockData` |
 | Source file | `src/zmmx_i_locationstock.ddls.asddls` |
 
 ## Purpose

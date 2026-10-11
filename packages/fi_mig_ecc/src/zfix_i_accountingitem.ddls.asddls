@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_AccountingItem
-  as select from ZFIX_I_AccountingItemData as src
+  as select from ZFIX_B_AccountingItemData as src
 {
   key src.CompanyCode as CompanyCode,
   key src.AccountingDocument as AccountingDocument,

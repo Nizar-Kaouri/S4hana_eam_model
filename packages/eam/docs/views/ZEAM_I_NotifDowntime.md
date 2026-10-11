@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Notification Downtime |
+| Description | Downtime and Breakdown - Cube |
 | Module | `rpt_downtime` |
 | Batch | 4 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `ZEAM_I_MaintNotif` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_NotifDowntime` |
 | Source file | `src/zeam_i_notifdowntime.ddls.asddls` |
 
 ## Purpose
 
-One row per notification with a malfunction start: malfunction period, breakdown flag, closed flag and the computed downtime in hours (only when start and end are maintained).
+Downtime cube: number of malfunctions and breakdowns, total and breakdown downtime in hours, by plant, technical object, notification type and malfunction month.
 
 ## Keys
 
@@ -23,16 +23,16 @@ One row per notification with a malfunction start: malfunction period, breakdown
 
 ## Associations defined here
 
-- none
+- `_MaintenanceNotification` → `ZEAM_B_MaintNotif` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `ZEAM_I_MaintNotif`.
+Role inherits the conditions of `ZEAM_B_NotifDowntime`.
 
 ## Example use case
 
-Basis for downtime / breakdown analysis and for the MTBF / MTTR report.
+Top 10 equipment by breakdown hours in the last quarter; downtime trend per month and plant.
 
 ## Open verification items
 
-`RPT-D01`, `RPT-D02` - see `BATCH_REPORT.md`.
+none

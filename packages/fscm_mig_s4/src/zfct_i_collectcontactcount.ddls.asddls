@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZFCT_I_CollectContactCount
-  as select from ZFCT_I_CollectContactCompare as src
+  as select from ZFCT_B_CollectContactCompare as src
 {
       count( * ) as RecordCount
 }

@@ -66,7 +66,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_MaintPlanCycleMig`
 
-- Source: `ZEMX_I_MaintPlanCycle`
+- Source: `ZEMX_B_MaintPlanCycle`
 - Keys: `MaintenancePlan`, `MaintenancePlanCycle`
 - Scope: `_MaintenancePlan.IsMarkedForDeletion = ''`
 
@@ -95,7 +95,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZEMX_C_MaintPlanMigCount` (ECC) vs `ZEMT_I_MaintPlanCount` (S/4HANA) per `MaintenancePlanCategory`, `MaintenanceStrategy`
-- Records and fields: `ZEMX_C_MaintenancePlanMig` vs `ZEMT_I_MaintPlanCompare` on `MaintenancePlan`; compared: `MaintenancePlanDesc`, `MaintenancePlanCategory`, `MaintenanceStrategy`
+- Records and fields: `ZEMX_C_MaintenancePlanMig` vs `ZEMT_B_MaintPlanCompare` on `MaintenancePlan`; compared: `MaintenancePlanDesc`, `MaintenancePlanCategory`, `MaintenanceStrategy`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module maintenance_plan --source ecc_counts.csv --target s4_counts.csv

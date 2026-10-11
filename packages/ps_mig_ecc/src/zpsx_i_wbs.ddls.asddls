@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_WBS
-  as select from ZPSX_I_WBSData as src
+  as select from ZPSX_B_WBSData as src
 {
   key src.WBSElementInternalID as WBSElementInternalID,
       src.WBSElementExternalID as WBSElementExternalID,

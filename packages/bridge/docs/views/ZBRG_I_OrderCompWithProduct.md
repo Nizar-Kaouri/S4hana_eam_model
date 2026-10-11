@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Order Component with Product |
+| Description | Order Component Cube with Product |
 | Module | bridge: `eam:maintenance_order` + `mm:product` |
 | Batch | 1 |
-| Layer | link (`@VDM.viewType: #BASIC`) |
+| Layer | link (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
+| Data category | #CUBE |
 | Data source | `ZEAM_I_MaintOrderComponent` |
 | Source file | `src/zbrg_i_ordercompwithproduct.ddls.asddls` |
 
 ## Purpose
 
-Maintenance order components with the material master (product type, group, base unit, texts via the product dimension).
+Maintenance order component cube enriched with product type and group.
 
 ## Keys
 
@@ -24,7 +24,7 @@ Maintenance order components with the material master (product type, group, base
 
 ## Associations defined here
 
-- `_Product` → `ZMMV_I_Product` [0..1]
+- `_Product` → `ZMMV_B_Product` [0..1]
 
 ## Access control
 
@@ -32,7 +32,7 @@ Role inherits the conditions of `ZEAM_I_MaintOrderComponent`.
 
 ## Example use case
 
-Spare-part demand of maintenance orders by product group.
+Open spare-part quantities per product group and planning plant.
 
 ## Open verification items
 

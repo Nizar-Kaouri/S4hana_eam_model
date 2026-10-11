@@ -1,7 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for the component view.
-// TODO-VERIFY[H] MO-D03: the SAP component view has a role and every element it references is projected by ZEAM_I_MaintOrderComponent
-@EndUserText.label: 'Maintenance Order Component'
+// Inherits the conditions of the basic view (see GEN-D02).
+@EndUserText.label: 'Maintenance Order Component - Cube'
 @MappingRole: true
 define role ZEAM_I_MaintOrderComponent {
   grant
@@ -9,5 +8,5 @@ define role ZEAM_I_MaintOrderComponent {
       on
         ZEAM_I_MaintOrderComponent
           where
-            inheriting conditions from entity I_MaintenanceOrderComponent;
+            inheriting conditions from entity ZEAM_B_MaintOrderComponent;
 }

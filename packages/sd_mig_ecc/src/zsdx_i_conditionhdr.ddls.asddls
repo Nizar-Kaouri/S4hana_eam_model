@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZSDX_I_ConditionHdr
-  as select from ZSDX_I_ConditionHdrData as src
+  as select from ZSDX_B_ConditionHdrData as src
 {
   key src.ConditionRecord as ConditionRecord,
       src.ConditionUsage as ConditionUsage,

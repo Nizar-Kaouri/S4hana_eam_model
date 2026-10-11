@@ -1,0 +1,12 @@
+// ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Material Consumption'
+@MappingRole: true
+define role ZMMV_I_MaterialConsumption {
+  grant
+    select
+      on
+        ZMMV_I_MaterialConsumption
+          where
+            inheriting conditions from entity ZMMV_B_GoodsMovement;
+}

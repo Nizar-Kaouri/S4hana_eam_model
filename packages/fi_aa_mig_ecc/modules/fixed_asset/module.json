@@ -19,9 +19,9 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZFAX_I_AssetData",
-      "ZFAX_I_AssetAssignmenData",
-      "ZFAX_I_DepreciationData"
+      "ZFAX_B_AssetData",
+      "ZFAX_B_AssetAssignmenData",
+      "ZFAX_B_DepreciationData"
     ],
     "composite": [
       "ZFAX_I_Asset",
@@ -39,14 +39,14 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFAX_I_AssetData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_B_AssetData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_I_Asset": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_C_AssetMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_C_AssetMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZFAX_I_AssetAssignmenData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_B_AssetAssignmenData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_I_AssetAssignmen": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_C_AssetAssignmenMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZFAX_I_DepreciationData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_B_DepreciationData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_I_Depreciation": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_C_DepreciationMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },

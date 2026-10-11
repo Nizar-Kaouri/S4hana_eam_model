@@ -16,7 +16,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_FuncLoc
-  as select from ZEMX_I_FuncLocHeader as fl
+  as select from ZEMX_B_FuncLocHeader as fl
 {
       @EndUserText.label: 'Functional Location'
   key fl.FunctionalLocation          as FunctionalLocation,

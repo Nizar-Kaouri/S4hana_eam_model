@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZFCT_I_CreditSegmentCompare` |
+| Data source | `ZFCT_B_CreditSegmentCompare` |
 | Source file | `src/zfct_i_creditsegmentcount.ddls.asddls` |
 
 ## Purpose

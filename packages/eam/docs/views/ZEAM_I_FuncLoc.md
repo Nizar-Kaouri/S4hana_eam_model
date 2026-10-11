@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Functional Location |
+| Description | Functional Location - Cube |
 | Module | `functional_location` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_FunctionalLocation` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_FuncLoc` |
 | Source file | `src/zeam_i_funcloc.ddls.asddls` |
 
 ## Purpose
 
-One row per functional location with external label, category, structure indicator, superior location and organizational assignment; dimension for cubes referencing a functional location.
+Cube with measure NumberOfFunctionalLocations.
 
 ## Keys
 
@@ -23,22 +23,16 @@ One row per functional location with external label, category, structure indicat
 
 ## Associations defined here
 
-- `_Text` → `ZEAM_I_FuncLocText` [0..*]
-- `_SuperiorFunctionalLocation` → `ZEAM_I_FuncLoc` [0..1]
-- `_MaintenancePlant` → `I_Plant` [0..1]
-- `_MaintenancePlanningPlant` → `I_Plant` [0..1]
-- `_CompanyCode` → `I_CompanyCode` [0..1]
-- `_FunctionalLocationCategory` → `I_FunctionalLocationCategory` [0..1]
-- `_TechnicalObjectType` → `I_TechnicalObjectType` [0..1]
+- `_FunctionalLocation` → `ZEAM_B_FuncLoc` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_FunctionalLocation`.
+Role inherits the conditions of `ZEAM_B_FuncLoc`.
 
 ## Example use case
 
-Navigate up the structure via _SuperiorFunctionalLocation; report on locations per plant section.
+Number of functional locations per plant and category.
 
 ## Open verification items
 
-`FL-001`, `FL-002`, `FL-003`, `FL-004`, `FL-005`, `FL-006`, `FL-007`, `FL-008`, `FL-009`, `FL-010`, `FL-D01` - see `BATCH_REPORT.md`.
+`FL-R01` - see `BATCH_REPORT.md`.

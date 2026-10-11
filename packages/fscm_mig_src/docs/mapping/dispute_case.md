@@ -19,18 +19,18 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `CaseUUID` | UDMCASEATTR00-CASE_GUID | Native target evidence: ZFCT_I_DisputeCaseCompare.CaseUUID | information only | yes |
-| `CompanyCode` | UDMCASEATTR00-FIN_BUKRS | Native target evidence: ZFCT_I_DisputeCaseCompare.CompanyCode | information only | yes |
-| `Customer` | UDMCASEATTR00-FIN_KUNNR | Native target evidence: ZFCT_I_DisputeCaseCompare.Customer | information only | yes |
-| `Coordinator` | UDMCASEATTR00-FIN_COORDINATOR | Native target evidence: ZFCT_I_DisputeCaseCompare.Coordinator | information only | yes |
-| `DisputeCurrency` | UDMCASEATTR00-FIN_DISPUTE_CURR | Native target evidence: ZFCT_I_DisputeCaseCompare.DisputeCurrency | information only | yes |
-| `DueDate` | UDMCASEATTR00-FIN_DUE_DATE | Native target evidence: ZFCT_I_DisputeCaseCompare.DueDate | information only | yes |
-| `LogicalSystem` | UDMCASEATTR00-FIN_LOG_SYSTEM | Native target evidence: ZFCT_I_DisputeCaseCompare.LogicalSystem | information only | yes |
-| `OriginalAmount` | UDMCASEATTR00-FIN_ORIGINAL_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.OriginalAmount | information only | yes |
-| `DisputedAmount` | UDMCASEATTR00-FIN_DISPUTED_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.DisputedAmount | information only | yes |
-| `PaidAmount` | UDMCASEATTR00-FIN_PAID_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.PaidAmount | information only | yes |
-| `CreditedAmount` | UDMCASEATTR00-FIN_CREDITED_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.CreditedAmount | information only | yes |
-| `WrittenOffAmount` | UDMCASEATTR00-FIN_WRT_OFF_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.WrittenOffAmount | information only | yes |
+| `CaseUUID` | UDMCASEATTR00-CASE_GUID | Native target evidence: ZFCT_B_DisputeCaseCompare.CaseUUID | information only | yes |
+| `CompanyCode` | UDMCASEATTR00-FIN_BUKRS | Native target evidence: ZFCT_B_DisputeCaseCompare.CompanyCode | information only | yes |
+| `Customer` | UDMCASEATTR00-FIN_KUNNR | Native target evidence: ZFCT_B_DisputeCaseCompare.Customer | information only | yes |
+| `Coordinator` | UDMCASEATTR00-FIN_COORDINATOR | Native target evidence: ZFCT_B_DisputeCaseCompare.Coordinator | information only | yes |
+| `DisputeCurrency` | UDMCASEATTR00-FIN_DISPUTE_CURR | Native target evidence: ZFCT_B_DisputeCaseCompare.DisputeCurrency | information only | yes |
+| `DueDate` | UDMCASEATTR00-FIN_DUE_DATE | Native target evidence: ZFCT_B_DisputeCaseCompare.DueDate | information only | yes |
+| `LogicalSystem` | UDMCASEATTR00-FIN_LOG_SYSTEM | Native target evidence: ZFCT_B_DisputeCaseCompare.LogicalSystem | information only | yes |
+| `OriginalAmount` | UDMCASEATTR00-FIN_ORIGINAL_AMT | Native target evidence: ZFCT_B_DisputeCaseCompare.OriginalAmount | information only | yes |
+| `DisputedAmount` | UDMCASEATTR00-FIN_DISPUTED_AMT | Native target evidence: ZFCT_B_DisputeCaseCompare.DisputedAmount | information only | yes |
+| `PaidAmount` | UDMCASEATTR00-FIN_PAID_AMT | Native target evidence: ZFCT_B_DisputeCaseCompare.PaidAmount | information only | yes |
+| `CreditedAmount` | UDMCASEATTR00-FIN_CREDITED_AMT | Native target evidence: ZFCT_B_DisputeCaseCompare.CreditedAmount | information only | yes |
+| `WrittenOffAmount` | UDMCASEATTR00-FIN_WRT_OFF_AMT | Native target evidence: ZFCT_B_DisputeCaseCompare.WrittenOffAmount | information only | yes |
 
 ## `ZFCX_C_CaseAttributeMig`
 
@@ -42,25 +42,25 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `CaseUUID` | SCMG_T_CASE_ATTR-CASE_GUID | Native target evidence: ZFCT_I_CaseAttributeCompare.CaseUUID | information only | yes |
-| `CaseType` | SCMG_T_CASE_ATTR-CASE_TYPE | Native target evidence: ZFCT_I_CaseAttributeCompare.CaseType | information only | yes |
-| `ExternalKey` | SCMG_T_CASE_ATTR-EXT_KEY | Native target evidence: ZFCT_I_CaseAttributeCompare.ExternalKey | information only | yes |
-| `ExternalReference` | SCMG_T_CASE_ATTR-EXT_REF | Native target evidence: ZFCT_I_CaseAttributeCompare.ExternalReference | information only | yes |
-| `CreatedBy` | SCMG_T_CASE_ATTR-CREATED_BY | Native target evidence: ZFCT_I_CaseAttributeCompare.CreatedBy | information only | yes |
-| `CreatedAt` | SCMG_T_CASE_ATTR-CREATE_TIME | Native target evidence: ZFCT_I_CaseAttributeCompare.CreatedAt | information only | yes |
-| `ChangedBy` | SCMG_T_CASE_ATTR-CHANGED_BY | Native target evidence: ZFCT_I_CaseAttributeCompare.ChangedBy | information only | yes |
-| `ChangedAt` | SCMG_T_CASE_ATTR-CHANGE_TIME | Native target evidence: ZFCT_I_CaseAttributeCompare.ChangedAt | information only | yes |
-| `Processor` | SCMG_T_CASE_ATTR-PROCESSOR | Native target evidence: ZFCT_I_CaseAttributeCompare.Processor | information only | yes |
-| `Responsible` | SCMG_T_CASE_ATTR-RESPONSIBLE | Native target evidence: ZFCT_I_CaseAttributeCompare.Responsible | information only | yes |
-| `Category` | SCMG_T_CASE_ATTR-CATEGORY | Native target evidence: ZFCT_I_CaseAttributeCompare.Category | information only | yes |
-| `Priority` | SCMG_T_CASE_ATTR-PRIORITY | Native target evidence: ZFCT_I_CaseAttributeCompare.Priority | information only | yes |
-| `Status` | SCMG_T_CASE_ATTR-STAT_PARA | Native target evidence: ZFCT_I_CaseAttributeCompare.Status | information only | yes |
-| `ReasonCode` | SCMG_T_CASE_ATTR-REASON_CODE | Native target evidence: ZFCT_I_CaseAttributeCompare.ReasonCode | information only | yes |
+| `CaseUUID` | SCMG_T_CASE_ATTR-CASE_GUID | Native target evidence: ZFCT_B_CaseAttributeCompare.CaseUUID | information only | yes |
+| `CaseType` | SCMG_T_CASE_ATTR-CASE_TYPE | Native target evidence: ZFCT_B_CaseAttributeCompare.CaseType | information only | yes |
+| `ExternalKey` | SCMG_T_CASE_ATTR-EXT_KEY | Native target evidence: ZFCT_B_CaseAttributeCompare.ExternalKey | information only | yes |
+| `ExternalReference` | SCMG_T_CASE_ATTR-EXT_REF | Native target evidence: ZFCT_B_CaseAttributeCompare.ExternalReference | information only | yes |
+| `CreatedBy` | SCMG_T_CASE_ATTR-CREATED_BY | Native target evidence: ZFCT_B_CaseAttributeCompare.CreatedBy | information only | yes |
+| `CreatedAt` | SCMG_T_CASE_ATTR-CREATE_TIME | Native target evidence: ZFCT_B_CaseAttributeCompare.CreatedAt | information only | yes |
+| `ChangedBy` | SCMG_T_CASE_ATTR-CHANGED_BY | Native target evidence: ZFCT_B_CaseAttributeCompare.ChangedBy | information only | yes |
+| `ChangedAt` | SCMG_T_CASE_ATTR-CHANGE_TIME | Native target evidence: ZFCT_B_CaseAttributeCompare.ChangedAt | information only | yes |
+| `Processor` | SCMG_T_CASE_ATTR-PROCESSOR | Native target evidence: ZFCT_B_CaseAttributeCompare.Processor | information only | yes |
+| `Responsible` | SCMG_T_CASE_ATTR-RESPONSIBLE | Native target evidence: ZFCT_B_CaseAttributeCompare.Responsible | information only | yes |
+| `Category` | SCMG_T_CASE_ATTR-CATEGORY | Native target evidence: ZFCT_B_CaseAttributeCompare.Category | information only | yes |
+| `Priority` | SCMG_T_CASE_ATTR-PRIORITY | Native target evidence: ZFCT_B_CaseAttributeCompare.Priority | information only | yes |
+| `Status` | SCMG_T_CASE_ATTR-STAT_PARA | Native target evidence: ZFCT_B_CaseAttributeCompare.Status | information only | yes |
+| `ReasonCode` | SCMG_T_CASE_ATTR-REASON_CODE | Native target evidence: ZFCT_B_CaseAttributeCompare.ReasonCode | information only | yes |
 
 ## Reconciliation
 
 - Counts: `ZFCX_C_DisputeCaseMigCount` (SAP source) vs `ZFCT_I_DisputeCaseCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZFCX_C_DisputeCaseMig` vs `ZFCT_I_DisputeCaseCompare` on `CaseUUID`; compared: `CompanyCode`, `Customer`, `Coordinator`, `DisputeCurrency`, `DueDate`, `LogicalSystem`, `OriginalAmount`, `DisputedAmount`, `PaidAmount`, `CreditedAmount`, `WrittenOffAmount`
+- Records and fields: `ZFCX_C_DisputeCaseMig` vs `ZFCT_B_DisputeCaseCompare` on `CaseUUID`; compared: `CompanyCode`, `Customer`, `Coordinator`, `DisputeCurrency`, `DueDate`, `LogicalSystem`, `OriginalAmount`, `DisputedAmount`, `PaidAmount`, `CreditedAmount`, `WrittenOffAmount`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fscm_mig_src --module dispute_case --source ecc_counts.csv --target s4_counts.csv

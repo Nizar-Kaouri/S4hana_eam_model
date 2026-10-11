@@ -22,12 +22,12 @@
   "migration_pair": "sd_mig_s4",
   "map_title": "ZSDX Sales and Distribution Migration - ECC Source Map",
   "map_area": "Sales and Distribution migration source (ECC tables)",
-  "map_initial": "ZSDX_I_SalesOrderData",
+  "map_initial": "ZSDX_B_SalesOrderData",
   "map_external_title": "ECC tables",
   "map_release": "SAP ECC 6.0 (source)",
   "map_external_sub": "tables (read directly, never copied)",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

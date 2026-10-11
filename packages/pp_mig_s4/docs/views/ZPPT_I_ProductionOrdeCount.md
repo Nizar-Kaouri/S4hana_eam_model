@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZPPT_I_ProductionOrdeCompare` |
+| Data source | `ZPPT_B_ProductionOrdeCompare` |
 | Source file | `src/zppt_i_productionordecount.ddls.asddls` |
 
 ## Purpose

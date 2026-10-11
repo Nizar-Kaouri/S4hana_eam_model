@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZQMX_I_InspectPlanOpe
-  as select from ZQMX_I_InspectPlanOpeData as src
+  as select from ZQMX_B_InspectPlanOpeData as src
 {
   key src.TaskListType as TaskListType,
   key src.TaskListGroup as TaskListGroup,

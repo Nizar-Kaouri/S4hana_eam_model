@@ -161,7 +161,7 @@
     "source_count_view": "ZQMX_C_InspectionLotMigCount",
     "compare": {
       "source_view": "ZQMX_C_InspectionLotMig",
-      "target_view": "ZQMT_I_InspectionLotCompare",
+      "target_view": "ZQMT_B_InspectionLotCompare",
       "key": [
         "InspectionLot"
       ],

@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZFIV_R_GLItemWithAccount` |
+| Data source | `ZFIV_I_GLItemWithAccount` |
 | Source file | `src/zfiv_c_glbalanceaccountq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZFIV_R_GLItemWithAccount: balances per company code and account group.
+Analytical query on ZFIV_I_GLItemWithAccount: balances per company code and account group.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZFIV_R_GLItemWithAccount: balances per company code and acco
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_R_GLItemWithAccount (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_I_GLItemWithAccount (see GEN-Q01).
 
 ## Example use case
 

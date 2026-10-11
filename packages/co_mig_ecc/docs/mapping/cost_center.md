@@ -48,7 +48,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZCOX_C_CostCenterMigCount` (ECC) vs `ZCOT_I_CostCenterCount` (S/4HANA) per `ControllingArea`
-- Records and fields: `ZCOX_C_CostCenterMig` vs `ZCOT_I_CostCenterCompare` on `ControllingArea`, `CostCenter`, `ValidityEndDate`; compared: `ValidityStartDate`, `CompanyCode`, `ProfitCenter`, `CostCenterCategory`
+- Records and fields: `ZCOX_C_CostCenterMig` vs `ZCOT_B_CostCenterCompare` on `ControllingArea`, `CostCenter`, `ValidityEndDate`; compared: `ValidityStartDate`, `CompanyCode`, `ProfitCenter`, `CostCenterCategory`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product co_mig_ecc --module cost_center --source ecc_counts.csv --target s4_counts.csv

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_ProductionOper
-  as select from ZPPX_I_ProductionOperData as src
+  as select from ZPPX_B_ProductionOperData as src
 {
   key src.OperationRoutingNumber as OperationRoutingNumber,
   key src.OperationInternalID as OperationInternalID,

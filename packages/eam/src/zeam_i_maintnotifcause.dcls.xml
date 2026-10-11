@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZEAM_I_MAINTNOTIFCAUSE</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Maintenance Notification Cause</DDTEXT>
+    <DDTEXT>Notification Cause - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

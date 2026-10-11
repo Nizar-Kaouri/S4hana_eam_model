@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPSX_I_NetworkHeaderData` |
+| Data source | `ZPSX_B_NetworkHeaderData` |
 | Source file | `src/zpsx_i_networkheader.ddls.asddls` |
 
 ## Purpose

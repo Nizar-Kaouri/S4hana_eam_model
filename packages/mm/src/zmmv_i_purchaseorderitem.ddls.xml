@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZMMV_I_PURCHASEORDERITEM</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Purchase Order Item</DDTEXT>
+    <DDTEXT>Purchase Order Item - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

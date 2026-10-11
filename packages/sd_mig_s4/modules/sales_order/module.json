@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZSDT_I_SalesOrderCompare"
+      "ZSDT_B_SalesOrderCompare"
     ],
     "composite": [
       "ZSDT_I_SalesOrderCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZSDT_I_SalesOrderCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDT_B_SalesOrderCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZSDT_I_SalesOrderCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

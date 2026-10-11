@@ -20,7 +20,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZEMX_I_MeasuringPointHeader"
+      "ZEMX_B_MeasuringPointHeader"
     ],
     "composite": [
       "ZEMX_I_MeasuringPoint"
@@ -34,7 +34,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEMX_I_MeasuringPointHeader": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_MeasuringPointHeader": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_MeasuringPoint": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_MeasuringPointMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_MeasPointMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."

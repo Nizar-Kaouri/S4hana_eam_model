@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZTMT_I_TransportLocCompare` |
+| Data source | `ZTMT_B_TransportLocCompare` |
 | Source file | `src/ztmt_i_transportloccount.ddls.asddls` |
 
 ## Purpose

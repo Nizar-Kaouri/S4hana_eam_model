@@ -11,8 +11,8 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_WorkCenterCapacity
-  as select from ZEMX_I_WorkCenterCapacityData as b
-  association [0..1] to ZEMX_I_WorkCenterHeader as _Business on _Business.WorkCenterInternalID = $projection.WorkCenterInternalID
+  as select from ZEMX_B_WorkCenterCapacityData as b
+  association [0..1] to ZEMX_B_WorkCenterHeader as _Business on _Business.WorkCenterInternalID = $projection.WorkCenterInternalID
 {
       @EndUserText.label: 'Object Type'
   key b.ObjectType as ObjectType,

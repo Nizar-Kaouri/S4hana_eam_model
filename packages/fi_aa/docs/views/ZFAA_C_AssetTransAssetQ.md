@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZFAA_R_AssetTransWithAsset` |
+| Data source | `ZFAA_I_AssetTransWithAsset` |
 | Source file | `src/zfaa_c_assettransassetq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZFAA_R_AssetTransWithAsset. Acquisitions, retirements, transfers and depreciation per company code and asset class.
+Analytical query on ZFAA_I_AssetTransWithAsset. Acquisitions, retirements, transfers and depreciation per company code and asset class.
 
 ## Keys
 

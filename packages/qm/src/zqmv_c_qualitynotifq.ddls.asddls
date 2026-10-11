@@ -1,7 +1,7 @@
 // ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZQMV_R_QualityNotif: notifications per plant and type.
+// Purpose: Analytical query on ZQMV_I_QualityNotif: notifications per plant and type.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZQMV_R_QualityNotif applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZQMV_I_QualityNotif applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Quality Notification Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZQMV_C_QualityNotifQ
   provider contract analytical_query
-  as projection on ZQMV_R_QualityNotif
+  as projection on ZQMV_I_QualityNotif
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

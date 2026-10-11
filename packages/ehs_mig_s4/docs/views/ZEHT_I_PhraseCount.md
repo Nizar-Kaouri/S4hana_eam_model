@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZEHT_I_PhraseCompare` |
+| Data source | `ZEHT_B_PhraseCompare` |
 | Source file | `src/zeht_i_phrasecount.ddls.asddls` |
 
 ## Purpose

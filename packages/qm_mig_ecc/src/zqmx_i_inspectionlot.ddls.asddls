@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZQMX_I_InspectionLot
-  as select from ZQMX_I_InspectionLotData as src
+  as select from ZQMX_B_InspectionLotData as src
 {
   key src.InspectionLot as InspectionLot,
       src.Plant as Plant,

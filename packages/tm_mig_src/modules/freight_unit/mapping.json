@@ -27,35 +27,35 @@
         {
           "element": "DocumentUUID",
           "source": "/SCMTMS/D_TORROT-DB_KEY",
-          "target": "Native target evidence: ZTMT_I_FreightUnitCompare.DocumentUUID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.DocumentUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DocumentID",
           "source": "/SCMTMS/D_TORROT-TOR_ID",
-          "target": "Native target evidence: ZTMT_I_FreightUnitCompare.DocumentID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.DocumentID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DocumentCategory",
           "source": "/SCMTMS/D_TORROT-TOR_CAT",
-          "target": "Native target evidence: ZTMT_I_FreightUnitCompare.DocumentCategory",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.DocumentCategory",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DocumentType",
           "source": "/SCMTMS/D_TORROT-TOR_TYPE",
-          "target": "Native target evidence: ZTMT_I_FreightUnitCompare.DocumentType",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.DocumentType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "LifecycleStatus",
           "source": "/SCMTMS/D_TORROT-LIFECYCLE",
-          "target": "Native target evidence: ZTMT_I_FreightUnitCompare.LifecycleStatus",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.LifecycleStatus",
           "rule": "info",
           "compare": true
         }
@@ -74,35 +74,35 @@
         {
           "element": "ItemUUID",
           "source": "/SCMTMS/D_TORITE-DB_KEY",
-          "target": "Native target evidence: ZTMT_I_FreightUnitItemCompare.ItemUUID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.ItemUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DocumentUUID",
           "source": "/SCMTMS/D_TORITE-PARENT_KEY",
-          "target": "Native target evidence: ZTMT_I_FreightUnitItemCompare.DocumentUUID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.DocumentUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ItemID",
           "source": "/SCMTMS/D_TORITE-ITEM_ID",
-          "target": "Native target evidence: ZTMT_I_FreightUnitItemCompare.ItemID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.ItemID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ItemCategory",
           "source": "/SCMTMS/D_TORITE-ITEM_CAT",
-          "target": "Native target evidence: ZTMT_I_FreightUnitItemCompare.ItemCategory",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.ItemCategory",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ItemType",
           "source": "/SCMTMS/D_TORITE-ITEM_TYPE",
-          "target": "Native target evidence: ZTMT_I_FreightUnitItemCompare.ItemType",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.ItemType",
           "rule": "info",
           "compare": true
         }
@@ -110,8 +110,8 @@
       "delivery_mode": "process-reference",
       "preprocessing": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightUnitData",
-        "target_parent_view": "ZTMT_I_FreightUnitCompare",
+        "source_parent_view": "ZTMX_B_FreightUnitData",
+        "target_parent_view": "ZTMT_B_FreightUnitCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "FU",
@@ -130,35 +130,35 @@
         {
           "element": "StopUUID",
           "source": "/SCMTMS/D_TORSTP-DB_KEY",
-          "target": "Native target evidence: ZTMT_I_FreightUnitStopCompare.StopUUID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.StopUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DocumentUUID",
           "source": "/SCMTMS/D_TORSTP-PARENT_KEY",
-          "target": "Native target evidence: ZTMT_I_FreightUnitStopCompare.DocumentUUID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.DocumentUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "StopID",
           "source": "/SCMTMS/D_TORSTP-STOP_ID",
-          "target": "Native target evidence: ZTMT_I_FreightUnitStopCompare.StopID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.StopID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "StopCategory",
           "source": "/SCMTMS/D_TORSTP-STOP_CAT",
-          "target": "Native target evidence: ZTMT_I_FreightUnitStopCompare.StopCategory",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.StopCategory",
           "rule": "info",
           "compare": true
         },
         {
           "element": "SequencePosition",
           "source": "/SCMTMS/D_TORSTP-STOP_SEQ_POS",
-          "target": "Native target evidence: ZTMT_I_FreightUnitStopCompare.SequencePosition",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.SequencePosition",
           "rule": "info",
           "compare": true
         }
@@ -166,8 +166,8 @@
       "delivery_mode": "process-reference",
       "preprocessing": "Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightUnitData",
-        "target_parent_view": "ZTMT_I_FreightUnitCompare",
+        "source_parent_view": "ZTMX_B_FreightUnitData",
+        "target_parent_view": "ZTMT_B_FreightUnitCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "FU",
@@ -190,7 +190,7 @@
     "target_count_view": "ZTMT_I_FreightUnitCount",
     "compare": {
       "source_view": "ZTMX_C_FreightUnitMig",
-      "target_view": "ZTMT_I_FreightUnitCompare",
+      "target_view": "ZTMT_B_FreightUnitCompare",
       "key": [
         "DocumentUUID"
       ],

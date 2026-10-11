@@ -19,7 +19,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZFAX_I_AssetPostingData"
+      "ZFAX_B_AssetPostingData"
     ],
     "composite": [
       "ZFAX_I_AssetPosting"
@@ -33,7 +33,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFAX_I_AssetPostingData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_B_AssetPostingData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_I_AssetPosting": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_C_AssetPostingMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFAX_C_AssetPostingMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."

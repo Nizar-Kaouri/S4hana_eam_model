@@ -162,7 +162,7 @@
     "source_count_view": "ZSDX_C_DeliveryMigCount",
     "compare": {
       "source_view": "ZSDX_C_DeliveryMig",
-      "target_view": "ZSDT_I_DeliveryCompare",
+      "target_view": "ZSDT_B_DeliveryCompare",
       "key": [
         "DeliveryDocument"
       ],

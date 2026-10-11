@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZFAA_R_FixedAsset` |
+| Data source | `ZFAA_I_FixedAsset` |
 | Source file | `src/zfaa_c_fixedassetq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZFAA_R_FixedAsset. Number of (active) assets per company code and asset class.
+Analytical query on ZFAA_I_FixedAsset. Number of (active) assets per company code and asset class.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZFAA_R_FixedAsset. Number of (active) assets per company cod
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_R_FixedAsset (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_I_FixedAsset (see GEN-Q01).
 
 ## Example use case
 

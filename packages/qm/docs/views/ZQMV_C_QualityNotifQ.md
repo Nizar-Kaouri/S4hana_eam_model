@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZQMV_R_QualityNotif` |
+| Data source | `ZQMV_I_QualityNotif` |
 | Source file | `src/zqmv_c_qualitynotifq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZQMV_R_QualityNotif: notifications per plant and type.
+Analytical query on ZQMV_I_QualityNotif: notifications per plant and type.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZQMV_R_QualityNotif: notifications per plant and type.
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_R_QualityNotif (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_I_QualityNotif (see GEN-Q01).
 
 ## Example use case
 

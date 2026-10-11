@@ -64,7 +64,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZPPX_C_ProductionOrdeMigCount` (ECC) vs `ZPPT_I_ProductionOrdeCount` (S/4HANA) per `ManufacturingOrder`
-- Records and fields: `ZPPX_C_ProductionOrdeMig` vs `ZPPT_I_ProductionOrdeCompare` on `ManufacturingOrder`; compared: `ManufacturingOrderType`, `ManufacturingOrderText`, `CompanyCode`, `ProductionPlant`
+- Records and fields: `ZPPX_C_ProductionOrdeMig` vs `ZPPT_B_ProductionOrdeCompare` on `ManufacturingOrder`; compared: `ManufacturingOrderType`, `ManufacturingOrderText`, `CompanyCode`, `ProductionPlant`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product pp_mig_ecc --module production_order --source ecc_counts.csv --target s4_counts.csv

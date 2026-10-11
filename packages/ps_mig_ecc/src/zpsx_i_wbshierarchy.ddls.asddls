@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_WBSHierarchy
-  as select from ZPSX_I_WBSHierarchyData as src
+  as select from ZPSX_B_WBSHierarchyData as src
 {
   key src.WBSElementInternalID as WBSElementInternalID,
       src.ParentWBSElementInternalID as ParentWBSElementInternalID,

@@ -1,8 +1,7 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_FunctionalLocation. All elements
-// referenced by the SAP role must exist in ZEAM_I_FuncLoc with identical names.
-// TODO-VERIFY[H] FL-D01: I_FunctionalLocation has an access control role and all elements it references are projected by ZEAM_I_FuncLoc
-@EndUserText.label: 'Functional Location'
+// Inherits the conditions of the basic view; the authorization-relevant elements are
+// projected with unchanged names (see GEN-D02).
+@EndUserText.label: 'Functional Location - Cube'
 @MappingRole: true
 define role ZEAM_I_FuncLoc {
   grant
@@ -10,5 +9,5 @@ define role ZEAM_I_FuncLoc {
       on
         ZEAM_I_FuncLoc
           where
-            inheriting conditions from entity I_FunctionalLocation;
+            inheriting conditions from entity ZEAM_B_FuncLoc;
 }

@@ -18,8 +18,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZCOX_I_ProfitCenterData",
-      "ZCOX_I_ProfitCenterTeData"
+      "ZCOX_B_ProfitCenterData",
+      "ZCOX_B_ProfitCenterTeData"
     ],
     "composite": [
       "ZCOX_I_ProfitCenter",
@@ -35,11 +35,11 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZCOX_I_ProfitCenterData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_B_ProfitCenterData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZCOX_I_ProfitCenter": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZCOX_C_ProfitCenterMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZCOX_C_ProfitCenterMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZCOX_I_ProfitCenterTeData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_B_ProfitCenterTeData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZCOX_I_ProfitCenterTe": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZCOX_C_ProfitCenterTeMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },

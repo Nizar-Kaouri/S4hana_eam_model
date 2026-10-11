@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_TaskListCompData` |
+| Data source | `ZEMX_B_TaskListCompData` |
 | Source file | `src/zemx_i_tasklistcomplatest.ddls.asddls` |
 
 ## Purpose

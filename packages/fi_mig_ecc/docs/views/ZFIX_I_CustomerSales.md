@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFIX_I_CustomerSalesData` |
+| Data source | `ZFIX_B_CustomerSalesData` |
 | Source file | `src/zfix_i_customersales.ddls.asddls` |
 
 ## Purpose

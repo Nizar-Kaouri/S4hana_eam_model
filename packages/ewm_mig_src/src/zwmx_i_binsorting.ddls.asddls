@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZWMX_I_BinSorting
-  as select from ZWMX_I_BinSortingData as src
+  as select from ZWMX_B_BinSortingData as src
 {
   key src.Warehouse as Warehouse,
   key src.StorageBin as StorageBin,

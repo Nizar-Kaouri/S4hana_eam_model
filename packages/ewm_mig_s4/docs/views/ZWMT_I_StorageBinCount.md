@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZWMT_I_StorageBinCompare` |
+| Data source | `ZWMT_B_StorageBinCompare` |
 | Source file | `src/zwmt_i_storagebincount.ddls.asddls` |
 
 ## Purpose

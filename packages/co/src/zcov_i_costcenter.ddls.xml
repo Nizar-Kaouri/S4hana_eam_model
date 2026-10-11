@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZCOV_I_COSTCENTER</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Cost Center</DDTEXT>
+    <DDTEXT>Cost Center - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

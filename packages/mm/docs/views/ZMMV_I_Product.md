@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Product |
+| Description | Product - Cube |
 | Module | `product` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_Product` |
+| Data category | #CUBE |
+| Data source | `ZMMV_B_Product` |
 | Source file | `src/zmmv_i_product.ddls.asddls` |
 
 ## Purpose
 
-One row per product (material) with type, group, base unit, status, weights and authorization group; analytical dimension for stock, movement and purchasing cubes.
+Material master cube: number of products per type, group and status.
 
 ## Keys
 
@@ -23,16 +23,16 @@ One row per product (material) with type, group, base unit, status, weights and 
 
 ## Associations defined here
 
-- `_Text` → `ZMMV_I_ProductText` [0..*]
+- `_Product` → `ZMMV_B_Product` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_Product`.
+Role inherits the conditions of `ZMMV_B_Product`.
 
 ## Example use case
 
-Material attributes next to stock quantities; spare parts filtered by product type.
+Number of spare-part materials per product group; materials flagged for deletion.
 
 ## Open verification items
 
-`MM-001`, `MM-002`, `MM-003`, `MM-D01` - see `BATCH_REPORT.md`.
+none

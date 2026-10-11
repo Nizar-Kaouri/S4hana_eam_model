@@ -1,7 +1,7 @@
 // ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZCOV_R_COActualCost: primary and secondary costs per controlling area and period.
+// Purpose: Analytical query on ZCOV_I_COActualCost: primary and secondary costs per controlling area and period.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZCOV_R_COActualCost applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZCOV_I_COActualCost applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Actual Cost Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZCOV_C_COActualCostQ
   provider contract analytical_query
-  as projection on ZCOV_R_COActualCost
+  as projection on ZCOV_I_COActualCost
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

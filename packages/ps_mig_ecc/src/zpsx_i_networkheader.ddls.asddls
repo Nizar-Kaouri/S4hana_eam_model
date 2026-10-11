@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_NetworkHeader
-  as select from ZPSX_I_NetworkHeaderData as src
+  as select from ZPSX_B_NetworkHeaderData as src
 {
   key src.Network as Network,
       src.NetworkType as NetworkType,

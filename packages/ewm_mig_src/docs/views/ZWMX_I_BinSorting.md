@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZWMX_I_BinSortingData` |
+| Data source | `ZWMX_B_BinSortingData` |
 | Source file | `src/zwmx_i_binsorting.ddls.asddls` |
 
 ## Purpose

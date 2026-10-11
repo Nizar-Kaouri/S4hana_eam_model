@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_WorkCenterCostAssgmt` |
+| Data source | `ZEMX_B_WorkCenterCostAssgmt` |
 | Source file | `src/zemx_i_workcentercostcenter.ddls.asddls` |
 
 ## Purpose

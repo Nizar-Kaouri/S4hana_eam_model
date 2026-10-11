@@ -15,8 +15,8 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_Equipment
-  as select from ZEMX_I_EquipmentHeader as eq
-    inner join ZEMX_I_EquipmentTimeSegment as seg on seg.Equipment = eq.Equipment
+  as select from ZEMX_B_EquipmentHeader as eq
+    inner join ZEMX_B_EquipmentTimeSegment as seg on seg.Equipment = eq.Equipment
 {
       @EndUserText.label: 'Equipment'
   key eq.Equipment                   as Equipment,

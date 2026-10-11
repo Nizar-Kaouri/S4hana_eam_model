@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_MaintOrderWithTechObj` |
+| Data source | `ZEAM_I_MaintOrderWithTechObj` |
 | Source file | `src/zeam_c_maintordertechobjq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_MaintOrderWithTechObj. Orders per planning plant and equipment category, with manufacturer and ABC indicator.
+Analytical query on ZEAM_I_MaintOrderWithTechObj. Orders per planning plant and equipment category, with manufacturer and ABC indicator.
 
 ## Keys
 

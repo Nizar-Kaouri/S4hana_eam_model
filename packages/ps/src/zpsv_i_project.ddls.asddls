@@ -1,35 +1,28 @@
 // ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per project definition: external project number, description, project profile, processing
-//   status, company code, controlling area, profit center, responsible cost center, plant, currency and planned
-//   dates.
-// Example: Projects per profile and status; shutdown projects of a plant.
-// TODO-VERIFY[H] PS-001: SAP released view for project definitions is I_EnterpriseProject and covers classic PS projects
-// TODO-VERIFY[H] PS-002: key element ProjectInternalID (API uses ProjectUUID) and external number element Project
-// TODO-VERIFY[M] PS-003: elements ProjectProfileCode, ProcessingStatus, ResponsibleCostCenter, ProjectCurrency, ProjectStartDate, ProjectEndDate
+// Purpose: Project cube: number of projects per profile, status, company code and responsible cost center.
+// Example: Number of released projects per profile and plant.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
-@Analytics.dataCategory: #DIMENSION
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Project'
+@EndUserText.label: 'Project - Cube'
+@Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'ProjectInternalID'
-@ObjectModel.modelingPattern: #ANALYTICAL_DIMENSION
-@ObjectModel.supportedCapabilities: [ #ANALYTICAL_DIMENSION, #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #MASTER
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZPSV_I_Project
-  as select from I_EnterpriseProject
-  association [0..1] to I_CompanyCode as _CompanyCode on $projection.CompanyCode = _CompanyCode.CompanyCode
+  as select from ZPSV_B_Project
+  association [1..1] to ZPSV_B_Project as _Project on $projection.ProjectInternalID = _Project.ProjectInternalID
 {
-      @ObjectModel.text.element: [ 'ProjectDescription' ]
+      @ObjectModel.foreignKey.association: '_Project'
   key ProjectInternalID,
       Project,
-      @Semantics.text: true
-      ProjectDescription,
       ProjectProfileCode,
       ProcessingStatus,
       @ObjectModel.foreignKey.association: '_CompanyCode'
@@ -38,10 +31,15 @@ define view entity ZPSV_I_Project
       ProfitCenter,
       ResponsibleCostCenter,
       Plant,
-      ProjectCurrency,
       ProjectStartDate,
       ProjectEndDate,
 
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Projects'
+      cast( 1 as abap.int4 ) as NumberOfProjects,
+
       /* Associations */
-      _CompanyCode
+      _CompanyCode,
+      _Project
 }

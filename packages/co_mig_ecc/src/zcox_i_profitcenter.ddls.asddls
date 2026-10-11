@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_ProfitCenter
-  as select from ZCOX_I_ProfitCenterData as src
+  as select from ZCOX_B_ProfitCenterData as src
 {
   key src.ProfitCenter as ProfitCenter,
   key src.ValidityEndDate as ValidityEndDate,

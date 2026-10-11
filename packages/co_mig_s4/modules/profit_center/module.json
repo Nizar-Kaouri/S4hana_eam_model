@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZCOT_I_ProfitCenterCompare"
+      "ZCOT_B_ProfitCenterCompare"
     ],
     "composite": [
       "ZCOT_I_ProfitCenterCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZCOT_I_ProfitCenterCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOT_B_ProfitCenterCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZCOT_I_ProfitCenterCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

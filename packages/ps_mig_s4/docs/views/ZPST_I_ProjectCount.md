@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZPST_I_ProjectCompare` |
+| Data source | `ZPST_B_ProjectCompare` |
 | Source file | `src/zpst_i_projectcount.ddls.asddls` |
 
 ## Purpose

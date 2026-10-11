@@ -17,5 +17,10 @@
   "reserve_prefix_chars": 1,
   "map_title": "ZCOV Controlling Model Map",
   "map_area": "Controlling (CO)",
-  "map_initial": "ZCOV_I_COJournalItem"
+  "map_initial": "ZCOV_B_COJournalItem",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

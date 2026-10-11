@@ -25,42 +25,42 @@
         {
           "element": "IncidentUUID",
           "source": "EHHSSD_INC_ROOT-DB_KEY",
-          "target": "Native target evidence: ZEHT_I_IncidentCompare.IncidentUUID",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "IncidentID",
           "source": "EHHSSD_INC_ROOT-ID",
-          "target": "Native target evidence: ZEHT_I_IncidentCompare.IncidentID",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "IncidentCategory",
           "source": "EHHSSD_INC_ROOT-CATEGORY",
-          "target": "Native target evidence: ZEHT_I_IncidentCompare.IncidentCategory",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentCategory",
           "rule": "info",
           "compare": true
         },
         {
           "element": "IncidentStatus",
           "source": "EHHSSD_INC_ROOT-STATUS",
-          "target": "Native target evidence: ZEHT_I_IncidentCompare.IncidentStatus",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentStatus",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ReportingRequired",
           "source": "EHHSSD_INC_ROOT-REPORT_REQ_TS",
-          "target": "Native target evidence: ZEHT_I_IncidentCompare.ReportingRequired",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.ReportingRequired",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Fatality",
           "source": "EHHSSD_INC_ROOT-FATALITY_TS",
-          "target": "Native target evidence: ZEHT_I_IncidentCompare.Fatality",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.Fatality",
           "rule": "info",
           "compare": true
         }
@@ -79,119 +79,119 @@
         {
           "element": "ActionUUID",
           "source": "EHHSSD_IAC_ROOT-DB_KEY",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ActionUUID",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ActionID",
           "source": "EHHSSD_IAC_ROOT-ID",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ActionID",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ActionCategory",
           "source": "EHHSSD_IAC_ROOT-CATEGORY",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ActionCategory",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionCategory",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ActionStatus",
           "source": "EHHSSD_IAC_ROOT-STATUS",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ActionStatus",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionStatus",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ActionType",
           "source": "EHHSSD_IAC_ROOT-TYPE",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ActionType",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Priority",
           "source": "EHHSSD_IAC_ROOT-PRIORITY",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.Priority",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Priority",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ProtectionGoal",
           "source": "EHHSSD_IAC_ROOT-PROT_GOAL",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ProtectionGoal",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ProtectionGoal",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Effectiveness",
           "source": "EHHSSD_IAC_ROOT-EFFECTIV",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.Effectiveness",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Effectiveness",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DueTimestamp",
           "source": "EHHSSD_IAC_ROOT-DUE_TIMESTAMP",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.DueTimestamp",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.DueTimestamp",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DueTimeZone",
           "source": "EHHSSD_IAC_ROOT-DUE_TI_ZO",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.DueTimeZone",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.DueTimeZone",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ResponsiblePerson",
           "source": "EHHSSD_IAC_ROOT-RESP_ID",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ResponsiblePerson",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ResponsiblePerson",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Implementer",
           "source": "EHHSSD_IAC_ROOT-IMPLEM_ID",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.Implementer",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Implementer",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Approver",
           "source": "EHHSSD_IAC_ROOT-APPR_ID",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.Approver",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Approver",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ImplementedAt",
           "source": "EHHSSD_IAC_ROOT-IMPL_TIMESTAMP",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ImplementedAt",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ImplementedAt",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ImplementationTimeZone",
           "source": "EHHSSD_IAC_ROOT-IMPL_TI_ZO",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ImplementationTimeZone",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ImplementationTimeZone",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ApprovedAt",
           "source": "EHHSSD_IAC_ROOT-APPR_TIMESTAMP",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ApprovedAt",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ApprovedAt",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ApprovalTimeZone",
           "source": "EHHSSD_IAC_ROOT-APPR_TI_ZO",
-          "target": "Native target evidence: ZEHT_I_IncidentActionCompare.ApprovalTimeZone",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ApprovalTimeZone",
           "rule": "info",
           "compare": true
         }
@@ -214,7 +214,7 @@
     "dimensions": [],
     "compare": {
       "source_view": "ZEHX_C_IncidentMig",
-      "target_view": "ZEHT_I_IncidentCompare",
+      "target_view": "ZEHT_B_IncidentCompare",
       "key": [
         "IncidentUUID"
       ],

@@ -13,7 +13,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_WorkCenterMig`
 
-- Source: `ZEMX_I_WorkCenterHeader`
+- Source: `ZEMX_B_WorkCenterHeader`
 - Keys: `WorkCenter`, `Plant`
 - Scope: `src.IsMarkedForDeletion = ''`
 
@@ -94,9 +94,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 | View | Element | Source | Reason |
 |---|---|---|---|
-| `ZEMX_I_WorkCenterHeader` | `WorkCenterInternalID` | CRHD-OBJID | not migrated: internal object ID - regenerated on S/4HANA; the business key is WorkCenter + Plant |
-| `ZEMX_I_WorkCenterHeader` | `IsMarkedForDeletion` | CRHD-LVORM | scope flag |
-| `ZEMX_I_WorkCenterHeader` | `LastChangeDate` | CRHD-AEDAT_GRND | information only |
+| `ZEMX_B_WorkCenterHeader` | `WorkCenterInternalID` | CRHD-OBJID | not migrated: internal object ID - regenerated on S/4HANA; the business key is WorkCenter + Plant |
+| `ZEMX_B_WorkCenterHeader` | `IsMarkedForDeletion` | CRHD-LVORM | scope flag |
+| `ZEMX_B_WorkCenterHeader` | `LastChangeDate` | CRHD-AEDAT_GRND | information only |
 | `ZEMX_I_WorkCenterText` | `WorkCenterInternalID` | CRTX-OBJID | not migrated: internal object ID |
 | `ZEMX_I_WorkCenterText` | `IsMarkedForDeletion` | CRHD-LVORM | scope flag |
 | `ZEMX_I_WorkCenterCostCenter` | `WorkCenterInternalID` | CRCO-OBJID | not migrated: internal object ID |
@@ -105,7 +105,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZEMX_C_WorkCenterMigCount` (ECC) vs `ZEMT_I_WorkCenterCount` (S/4HANA) per `Plant`, `WorkCenterCategoryCode`
-- Records and fields: `ZEMX_C_WorkCenterMig` vs `ZEMT_I_WorkCenterCompare` on `WorkCenter`, `Plant`; compared: `WorkCenterCategoryCode`, `WorkCenterResponsible`, `ValidityStartDate`
+- Records and fields: `ZEMX_C_WorkCenterMig` vs `ZEMT_B_WorkCenterCompare` on `WorkCenter`, `Plant`; compared: `WorkCenterCategoryCode`, `WorkCenterResponsible`, `ValidityStartDate`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module work_center --source ecc_counts.csv --target s4_counts.csv

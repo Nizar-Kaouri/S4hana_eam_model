@@ -19,7 +19,7 @@
   "structures": [
     {
       "consumption_view": "ZEMX_C_WorkCenterMig",
-      "source_view": "ZEMX_I_WorkCenterHeader",
+      "source_view": "ZEMX_B_WorkCenterHeader",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
         "WorkCenter",
@@ -293,19 +293,19 @@
   ],
   "not_migrated": [
     {
-      "view": "ZEMX_I_WorkCenterHeader",
+      "view": "ZEMX_B_WorkCenterHeader",
       "element": "WorkCenterInternalID",
       "source": "CRHD-OBJID",
       "reason": "skip:internal object ID - regenerated on S/4HANA; the business key is WorkCenter + Plant"
     },
     {
-      "view": "ZEMX_I_WorkCenterHeader",
+      "view": "ZEMX_B_WorkCenterHeader",
       "element": "IsMarkedForDeletion",
       "source": "CRHD-LVORM",
       "reason": "scope"
     },
     {
-      "view": "ZEMX_I_WorkCenterHeader",
+      "view": "ZEMX_B_WorkCenterHeader",
       "element": "LastChangeDate",
       "source": "CRHD-AEDAT_GRND",
       "reason": "info"
@@ -350,7 +350,7 @@
     "measure": "RecordCount",
     "compare": {
       "source_view": "ZEMX_C_WorkCenterMig",
-      "target_view": "ZEMT_I_WorkCenterCompare",
+      "target_view": "ZEMT_B_WorkCenterCompare",
       "key": [
         "WorkCenter",
         "Plant"

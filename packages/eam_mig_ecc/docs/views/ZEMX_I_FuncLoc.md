@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_FuncLocHeader` |
+| Data source | `ZEMX_B_FuncLocHeader` |
 | Source file | `src/zemx_i_funcloc.ddls.asddls` |
 
 ## Purpose

@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZCOX_I_CostElementData` |
+| Data source | `ZCOX_B_CostElementData` |
 | Source file | `src/zcox_i_costelement.ddls.asddls` |
 
 ## Purpose

@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZPSV_R_ProjectCostWithMaster` |
+| Data source | `ZPSV_I_ProjectCostWithMaster` |
 | Source file | `src/zpsv_c_projectcostmasterq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZPSV_R_ProjectCostWithMaster: cost per project profile and project.
+Analytical query on ZPSV_I_ProjectCostWithMaster: cost per project profile and project.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZPSV_R_ProjectCostWithMaster: cost per project profile and p
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZPSV_R_ProjectCostWithMaster (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZPSV_I_ProjectCostWithMaster (see GEN-Q01).
 
 ## Example use case
 

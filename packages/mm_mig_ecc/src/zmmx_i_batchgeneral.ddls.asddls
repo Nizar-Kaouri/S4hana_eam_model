@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_BatchGeneral
-  as select from ZMMX_I_BatchGeneralData as src
+  as select from ZMMX_B_BatchGeneralData as src
 {
   key src.Product as Product,
   key src.Batch as Batch,

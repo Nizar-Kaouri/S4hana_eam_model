@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFAX_I_DepreciationData` |
+| Data source | `ZFAX_B_DepreciationData` |
 | Source file | `src/zfax_i_depreciation.ddls.asddls` |
 
 ## Purpose

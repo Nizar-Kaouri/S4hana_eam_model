@@ -20,34 +20,34 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZSDV_I_BillingDocument",
-      "ZSDV_I_BillingDocumentItem"
+      "ZSDV_B_BillingDocument",
+      "ZSDV_B_BillingDocumentItem"
     ],
     "composite": [
-      "ZSDV_R_Revenue"
+      "ZSDV_I_Revenue"
     ],
     "consumption": [
       "ZSDV_C_RevenueQ"
     ],
     "access_controls": [
-      "ZSDV_I_BillingDocument",
-      "ZSDV_I_BillingDocumentItem",
-      "ZSDV_R_Revenue"
+      "ZSDV_B_BillingDocument",
+      "ZSDV_B_BillingDocumentItem",
+      "ZSDV_I_Revenue"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZSDV_C_RevenueQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_Revenue (see GEN-Q01)."
+    "ZSDV_C_RevenueQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_I_Revenue (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZSDV_I_SOItemWithBilling",
+      "name": "ZSDV_B_SOItemWithBilling",
       "requires_modules": [
         "billing_document",
         "sales_order"
       ],
-      "access_control": "ZSDV_I_SOItemWithBilling"
+      "access_control": "ZSDV_B_SOItemWithBilling"
     }
   ]
 }

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_FuncLocTextMig
-  as select from ZEMX_I_FuncLocDesc as src
+  as select from ZEMX_B_FuncLocDesc as src
   association [0..1] to ZEMX_I_FuncLoc as _FuncLoc on _FuncLoc.FunctionalLocation = $projection.FunctionalLocation
 {
       @EndUserText.label: 'Functional Location'

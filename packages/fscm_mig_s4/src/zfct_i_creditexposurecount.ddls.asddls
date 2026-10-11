@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZFCT_I_CreditExposureCount
-  as select from ZFCT_I_CreditExposureCompare as src
+  as select from ZFCT_B_CreditExposureCompare as src
 {
       count( * ) as RecordCount
 }

@@ -339,7 +339,7 @@
     },
     {
       "consumption_view": "ZEMX_C_EquipmentTextMig",
-      "source_view": "ZEMX_I_EquipmentDesc",
+      "source_view": "ZEMX_B_EquipmentDesc",
       "scope_filter": "_Equipment.IsMarkedForDeletion = ''",
       "keys": [
         "Equipment",
@@ -443,7 +443,7 @@
       "reason": "info"
     },
     {
-      "view": "ZEMX_I_EquipmentDesc",
+      "view": "ZEMX_B_EquipmentDesc",
       "element": "HasLongText",
       "source": "EQKT-KZLTX",
       "reason": "info"
@@ -464,7 +464,7 @@
     "measure": "RecordCount",
     "compare": {
       "source_view": "ZEMX_C_EquipmentMig",
-      "target_view": "ZEMT_I_EquipmentCompare",
+      "target_view": "ZEMT_B_EquipmentCompare",
       "key": [
         "Equipment"
       ],

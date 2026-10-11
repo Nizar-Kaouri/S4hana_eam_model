@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPSX_I_WBSHierarchyData` |
+| Data source | `ZPSX_B_WBSHierarchyData` |
 | Source file | `src/zpsx_i_wbshierarchy.ddls.asddls` |
 
 ## Purpose

@@ -1,31 +1,25 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per work center of type 'A' (production resources / maintenance work centers)
-//   with external ID, plant, category, person responsible and validity; dimension for operation and
-//   backlog analyses (which reference WorkCenterInternalID).
-// Example: Remaining backlog hours per work center with the work center description.
-// TODO-VERIFY[M] WC-001: I_WorkCenter exists, is released (C1) with keys WorkCenterInternalID + WorkCenterTypeCode
-// TODO-VERIFY[M] WC-002: elements WorkCenter, Plant, WorkCenterCategoryCode, WorkCenterResponsible, ValidityStartDate, ValidityEndDate
+// Purpose: Work center cube with the number of maintenance work centers per plant and category.
+// Example: Organizational overview of maintenance work centers per plant.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
-@Analytics.dataCategory: #DIMENSION
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Work Center'
+@EndUserText.label: 'Work Center - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'WorkCenterInternalID'
-@ObjectModel.modelingPattern: #ANALYTICAL_DIMENSION
-@ObjectModel.supportedCapabilities: [ #ANALYTICAL_DIMENSION, #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #M,
-  dataClass: #MASTER
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZEAM_I_WorkCenter
-  as select from I_WorkCenter
-  association [0..*] to ZEAM_I_WorkCenterText as _Text  on $projection.WorkCenterInternalID = _Text.WorkCenterInternalID
-  association [0..1] to I_Plant               as _Plant on $projection.Plant = _Plant.Plant
+  as select from ZEAM_B_WorkCenter
+  association [1..1] to ZEAM_B_WorkCenter as _WorkCenter on $projection.WorkCenterInternalID = _WorkCenter.WorkCenterInternalID
 {
-      @ObjectModel.text.association: '_Text'
+      @ObjectModel.foreignKey.association: '_WorkCenter'
   key WorkCenterInternalID,
       WorkCenterTypeCode,
       WorkCenter,
@@ -33,12 +27,13 @@ define view entity ZEAM_I_WorkCenter
       Plant,
       WorkCenterCategoryCode,
       WorkCenterResponsible,
-      ValidityStartDate,
-      ValidityEndDate,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Work Centers'
+      cast( 1 as abap.int4 ) as NumberOfWorkCenters,
 
       /* Associations */
-      _Text,
-      _Plant
+      _Plant,
+      _WorkCenter
 }
-where
-  WorkCenterTypeCode = 'A'

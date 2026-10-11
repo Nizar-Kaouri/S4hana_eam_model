@@ -25,7 +25,7 @@ WorkCenterCapacity migration extract
 
 ## Associations defined here
 
-- `_Parent` → `ZEMX_I_WorkCenterHeader` [0..1]
+- `_Parent` → `ZEMX_B_WorkCenterHeader` [0..1]
 
 ## Access control
 

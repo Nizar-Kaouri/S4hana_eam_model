@@ -50,7 +50,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZCOX_C_InternalOrderMigCount` (ECC) vs `ZCOT_I_InternalOrderCount` (S/4HANA) per `InternalOrder`
-- Records and fields: `ZCOX_C_InternalOrderMig` vs `ZCOT_I_InternalOrderCompare` on `InternalOrder`; compared: `InternalOrderType`, `InternalOrderDescription`, `CompanyCode`, `ControllingArea`, `ResponsibleCostCenter`, `ProfitCenter`
+- Records and fields: `ZCOX_C_InternalOrderMig` vs `ZCOT_B_InternalOrderCompare` on `InternalOrder`; compared: `InternalOrderType`, `InternalOrderDescription`, `CompanyCode`, `ControllingArea`, `ResponsibleCostCenter`, `ProfitCenter`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product co_mig_ecc --module internal_order --source ecc_counts.csv --target s4_counts.csv

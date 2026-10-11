@@ -1,7 +1,7 @@
 // ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZPSV_R_ProjectCost: actual cost and settlement per project and period.
+// Purpose: Analytical query on ZPSV_I_ProjectCost: actual cost and settlement per project and period.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZPSV_R_ProjectCost applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZPSV_I_ProjectCost applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Project Cost Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZPSV_C_ProjectCostQ
   provider contract analytical_query
-  as projection on ZPSV_R_ProjectCost
+  as projection on ZPSV_I_ProjectCost
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

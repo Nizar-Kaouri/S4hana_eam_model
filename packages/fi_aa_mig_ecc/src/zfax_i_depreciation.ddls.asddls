@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFAX_I_Depreciation
-  as select from ZFAX_I_DepreciationData as src
+  as select from ZFAX_B_DepreciationData as src
 {
   key src.CompanyCode as CompanyCode,
   key src.MasterFixedAsset as MasterFixedAsset,

@@ -60,7 +60,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZFIX_C_GLAccountMigCount` (ECC) vs `ZFIT_I_GLAccountCount` (S/4HANA) per `ChartOfAccounts`
-- Records and fields: `ZFIX_C_GLAccountMig` vs `ZFIT_I_GLAccountCompare` on `ChartOfAccounts`, `GLAccount`; compared: -
+- Records and fields: `ZFIX_C_GLAccountMig` vs `ZFIT_B_GLAccountCompare` on `ChartOfAccounts`, `GLAccount`; compared: -
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fi_mig_ecc --module gl_account --source ecc_counts.csv --target s4_counts.csv

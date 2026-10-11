@@ -19,22 +19,22 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `CaseUUID` | UDM_P2P_ATTR-CASE_GUID | Native target evidence: ZFCT_I_PaymentPromiseCompare.CaseUUID | information only | yes |
-| `CompanyCode` | UDM_P2P_ATTR-FIN_COMP_CODE | Native target evidence: ZFCT_I_PaymentPromiseCompare.CompanyCode | information only | yes |
-| `Customer` | UDM_P2P_ATTR-FIN_CUSTOMER | Native target evidence: ZFCT_I_PaymentPromiseCompare.Customer | information only | yes |
-| `Currency` | UDM_P2P_ATTR-FIN_P2P_CURR | Native target evidence: ZFCT_I_PaymentPromiseCompare.Currency | information only | yes |
-| `DueDate` | UDM_P2P_ATTR-FIN_P2P_DUE_DATE | Native target evidence: ZFCT_I_PaymentPromiseCompare.DueDate | information only | yes |
-| `PromiseDate` | UDM_P2P_ATTR-FIN_P2P_DATE | Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseDate | information only | yes |
-| `PromiseState` | UDM_P2P_ATTR-FIN_P2P_STATE | Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseState | information only | yes |
-| `PromiseLevel` | UDM_P2P_ATTR-FIN_P2P_LEVEL | Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseLevel | information only | yes |
-| `PromisedBy` | UDM_P2P_ATTR-FIN_PROMISED_BY | Native target evidence: ZFCT_I_PaymentPromiseCompare.PromisedBy | information only | yes |
-| `PromisedAmount` | UDM_P2P_ATTR-FIN_PROMISED_AMT | Native target evidence: ZFCT_I_PaymentPromiseCompare.PromisedAmount | information only | yes |
-| `PaidAmount` | UDM_P2P_ATTR-FIN_PAID_AMOUNT | Native target evidence: ZFCT_I_PaymentPromiseCompare.PaidAmount | information only | yes |
+| `CaseUUID` | UDM_P2P_ATTR-CASE_GUID | Native target evidence: ZFCT_B_PaymentPromiseCompare.CaseUUID | information only | yes |
+| `CompanyCode` | UDM_P2P_ATTR-FIN_COMP_CODE | Native target evidence: ZFCT_B_PaymentPromiseCompare.CompanyCode | information only | yes |
+| `Customer` | UDM_P2P_ATTR-FIN_CUSTOMER | Native target evidence: ZFCT_B_PaymentPromiseCompare.Customer | information only | yes |
+| `Currency` | UDM_P2P_ATTR-FIN_P2P_CURR | Native target evidence: ZFCT_B_PaymentPromiseCompare.Currency | information only | yes |
+| `DueDate` | UDM_P2P_ATTR-FIN_P2P_DUE_DATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.DueDate | information only | yes |
+| `PromiseDate` | UDM_P2P_ATTR-FIN_P2P_DATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseDate | information only | yes |
+| `PromiseState` | UDM_P2P_ATTR-FIN_P2P_STATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseState | information only | yes |
+| `PromiseLevel` | UDM_P2P_ATTR-FIN_P2P_LEVEL | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseLevel | information only | yes |
+| `PromisedBy` | UDM_P2P_ATTR-FIN_PROMISED_BY | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedBy | information only | yes |
+| `PromisedAmount` | UDM_P2P_ATTR-FIN_PROMISED_AMT | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedAmount | information only | yes |
+| `PaidAmount` | UDM_P2P_ATTR-FIN_PAID_AMOUNT | Native target evidence: ZFCT_B_PaymentPromiseCompare.PaidAmount | information only | yes |
 
 ## Reconciliation
 
 - Counts: `ZFCX_C_PaymentPromiseMigCount` (SAP source) vs `ZFCT_I_PaymentPromiseCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZFCX_C_PaymentPromiseMig` vs `ZFCT_I_PaymentPromiseCompare` on `CaseUUID`; compared: `CompanyCode`, `Customer`, `Currency`, `DueDate`, `PromiseDate`, `PromiseState`, `PromiseLevel`, `PromisedBy`, `PromisedAmount`, `PaidAmount`
+- Records and fields: `ZFCX_C_PaymentPromiseMig` vs `ZFCT_B_PaymentPromiseCompare` on `CaseUUID`; compared: `CompanyCode`, `Customer`, `Currency`, `DueDate`, `PromiseDate`, `PromiseState`, `PromiseLevel`, `PromisedBy`, `PromisedAmount`, `PaidAmount`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fscm_mig_src --module promise_to_pay --source ecc_counts.csv --target s4_counts.csv

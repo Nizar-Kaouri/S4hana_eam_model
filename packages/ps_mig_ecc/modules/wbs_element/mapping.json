@@ -140,7 +140,7 @@
     "source_count_view": "ZPSX_C_WBSMigCount",
     "compare": {
       "source_view": "ZPSX_C_WBSMig",
-      "target_view": "ZPST_I_WBSCompare",
+      "target_view": "ZPST_B_WBSCompare",
       "key": [
         "WBSElementInternalID"
       ],

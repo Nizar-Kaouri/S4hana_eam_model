@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZCOV_R_COCostWithProfitCtr` |
+| Data source | `ZCOV_I_COCostWithProfitCtr` |
 | Source file | `src/zcov_c_cocostprofitctrq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZCOV_R_COCostWithProfitCtr: costs per segment and profit center.
+Analytical query on ZCOV_I_COCostWithProfitCtr: costs per segment and profit center.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZCOV_R_COCostWithProfitCtr: costs per segment and profit cen
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_R_COCostWithProfitCtr (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_I_COCostWithProfitCtr (see GEN-Q01).
 
 ## Example use case
 

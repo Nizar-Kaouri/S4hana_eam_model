@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZSDX_I_ConditionItem
-  as select from ZSDX_I_ConditionItemData as src
+  as select from ZSDX_B_ConditionItemData as src
 {
   key src.ConditionRecord as ConditionRecord,
   key src.ConditionItem as ConditionItem,

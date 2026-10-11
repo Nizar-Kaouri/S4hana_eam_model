@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZTMT_I_FreightOrderCount
-  as select from ZTMT_I_FreightOrderCompare as src
+  as select from ZTMT_B_FreightOrderCompare as src
 {
       count( * ) as RecordCount
 }

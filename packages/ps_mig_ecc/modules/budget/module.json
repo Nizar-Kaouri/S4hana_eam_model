@@ -20,8 +20,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZPSX_I_OverallBudgetData",
-      "ZPSX_I_AnnualBudgetData"
+      "ZPSX_B_OverallBudgetData",
+      "ZPSX_B_AnnualBudgetData"
     ],
     "composite": [
       "ZPSX_I_OverallBudget",
@@ -37,11 +37,11 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPSX_I_OverallBudgetData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_OverallBudgetData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_I_OverallBudget": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_C_OverallBudgetMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_C_OverallBudgetMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPSX_I_AnnualBudgetData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_AnnualBudgetData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_I_AnnualBudget": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_C_AnnualBudgetMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },

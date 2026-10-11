@@ -444,7 +444,7 @@
     "source_count_view": "ZMMX_C_MaterialMigCount",
     "compare": {
       "source_view": "ZMMX_C_MaterialMig",
-      "target_view": "ZMMT_I_MaterialCompare",
+      "target_view": "ZMMT_B_MaterialCompare",
       "key": [
         "Product"
       ],

@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZCOV_R_CostCenterYTD` |
+| Data source | `ZCOV_I_CostCenterYTD` |
 | Source file | `src/zcov_c_costcenterytdq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZCOV_R_CostCenterYTD: costs YTD vs. prior year per cost center and cost element, with the variance.
+Analytical query on ZCOV_I_CostCenterYTD: costs YTD vs. prior year per cost center and cost element, with the variance.
 
 ## Parameters
 
@@ -33,7 +33,7 @@ Analytical query on ZCOV_R_CostCenterYTD: costs YTD vs. prior year per cost cent
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_R_CostCenterYTD (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_I_CostCenterYTD (see GEN-Q01).
 
 ## Example use case
 

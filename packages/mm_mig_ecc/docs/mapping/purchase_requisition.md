@@ -49,7 +49,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZMMX_C_RequisitionMigCount` (ECC) vs `ZMMT_I_RequisitionCount` (S/4HANA) per `PurchaseRequisition`
-- Records and fields: `ZMMX_C_RequisitionMig` vs `ZMMT_I_RequisitionCompare` on `PurchaseRequisition`, `PurchaseRequisitionItem`; compared: `Material`, `Plant`
+- Records and fields: `ZMMX_C_RequisitionMig` vs `ZMMT_B_RequisitionCompare` on `PurchaseRequisition`, `PurchaseRequisitionItem`; compared: `Material`, `Plant`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product mm_mig_ecc --module purchase_requisition --source ecc_counts.csv --target s4_counts.csv

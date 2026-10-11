@@ -200,7 +200,7 @@
     "source_count_view": "ZPPX_C_ProductionOrdeMigCount",
     "compare": {
       "source_view": "ZPPX_C_ProductionOrdeMig",
-      "target_view": "ZPPT_I_ProductionOrdeCompare",
+      "target_view": "ZPPT_B_ProductionOrdeCompare",
       "key": [
         "ManufacturingOrder"
       ],

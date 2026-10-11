@@ -1,0 +1,12 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Internal Order - Value Help'
+@MappingRole: true
+define role ZCOV_B_InternalOrderVH {
+  grant
+    select
+      on
+        ZCOV_B_InternalOrderVH
+          where
+            inheriting conditions from entity ZCOV_B_InternalOrder;
+}

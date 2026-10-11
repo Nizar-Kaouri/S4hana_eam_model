@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPSX_I_InvestPositionData` |
+| Data source | `ZPSX_B_InvestPositionData` |
 | Source file | `src/zpsx_i_investposition.ddls.asddls` |
 
 ## Purpose

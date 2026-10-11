@@ -16,7 +16,7 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZEMT_I_MaintNotifCompare"
+      "ZEMT_B_MaintNotifCompare"
     ],
     "composite": [
       "ZEMT_I_MaintNotifCount"
@@ -27,7 +27,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEMT_I_MaintNotifCompare": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMT_B_MaintNotifCompare": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMT_I_MaintNotifCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "migration_source_module": "eam_mig_ecc:maintenance_notification",

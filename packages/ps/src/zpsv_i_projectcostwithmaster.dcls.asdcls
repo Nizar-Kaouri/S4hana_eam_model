@@ -1,0 +1,12 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Project Cost with Project Master'
+@MappingRole: true
+define role ZPSV_I_ProjectCostWithMaster {
+  grant
+    select
+      on
+        ZPSV_I_ProjectCostWithMaster
+          where
+            inheriting conditions from entity ZPSV_I_ProjectCost;
+}

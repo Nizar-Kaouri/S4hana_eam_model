@@ -1,25 +1,23 @@
 // ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per delivery item: material, plant, storage location, delivered quantity and the reference
-//   sales order item.
-// Example: Delivered quantity per material and plant; deliveries per sales order.
-// TODO-VERIFY[M] SD-012: I_DeliveryDocumentItem elements ActualDeliveryQuantity, DeliveryQuantityUnit, ReferenceSDDocument, ReferenceSDDocumentItem
+// Purpose: Delivery item cube: delivered quantity and number of items per shipping point, plant, material and
+//   ship-to party, with goods-issue and on-time flags from the header.
+// Example: Share of items delivered on time per shipping point.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Outbound Delivery Item'
+@EndUserText.label: 'Outbound Delivery Item - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'DeliveryDocumentItem'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZSDV_I_DeliveryItem
-  as select from I_DeliveryDocumentItem
-  association [1..1] to ZSDV_I_OutboundDelivery as _Delivery on $projection.DeliveryDocument = _Delivery.DeliveryDocument
-  association [0..1] to I_Plant as _Plant on $projection.Plant = _Plant.Plant
+  as select from ZSDV_B_DeliveryItem
 {
       @ObjectModel.foreignKey.association: '_Delivery'
   key DeliveryDocument,
@@ -29,10 +27,23 @@ define view entity ZSDV_I_DeliveryItem
       Plant,
       StorageLocation,
       DeliveryQuantityUnit,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Delivered Quantity'
       @Semantics.quantity.unitOfMeasure: 'DeliveryQuantityUnit'
       ActualDeliveryQuantity,
-      ReferenceSDDocument,
-      ReferenceSDDocumentItem,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Delivery Items'
+      cast( 1 as abap.int4 ) as NumberOfDeliveryItems,
+
+      /* Delivery header characteristics */
+      _Delivery.ShippingPoint,
+      _Delivery.SalesOrganization,
+      _Delivery.ShipToParty,
+      _Delivery.PlannedGoodsIssueDate,
+      _Delivery.GoodsIssueIsPosted,
+      _Delivery.DeliveryIsOnTime,
 
       /* Associations */
       _Delivery,

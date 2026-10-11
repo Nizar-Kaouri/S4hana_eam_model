@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_ProfitCenterTe
-  as select from ZCOX_I_ProfitCenterTeData as src
+  as select from ZCOX_B_ProfitCenterTeData as src
 {
   key src.Language as Language,
   key src.ProfitCenter as ProfitCenter,

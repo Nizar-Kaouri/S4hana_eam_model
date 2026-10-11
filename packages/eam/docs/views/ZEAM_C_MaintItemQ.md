@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_MaintItem` |
+| Data source | `ZEAM_I_MaintItem` |
 | Source file | `src/zeam_c_maintitemq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_MaintItem. Preventive maintenance coverage per planning plant and plan category.
+Analytical query on ZEAM_I_MaintItem. Preventive maintenance coverage per planning plant and plan category.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZEAM_R_MaintItem. Preventive maintenance coverage per planni
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintItem (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MaintItem (see GEN-Q01).
 
 ## Example use case
 

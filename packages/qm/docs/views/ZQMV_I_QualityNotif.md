@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Quality Notification |
+| Description | Quality Notification - Cube |
 | Module | `quality_notification` |
 | Batch | 3 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_QualityNotification` |
+| Data category | #CUBE |
+| Data source | `ZQMV_B_QualityNotif` |
 | Source file | `src/zqmv_i_qualitynotif.ddls.asddls` |
 
 ## Purpose
 
-One row per quality notification: type (supplier, internal, customer complaint), text, priority, processing phase, material, plant, batch, supplier, customer, inspection lot and dates; derived open flag.
+Quality notification cube: all and open notifications per type, plant, material, supplier, customer and month.
 
 ## Keys
 
@@ -23,16 +23,16 @@ One row per quality notification: type (supplier, internal, customer complaint),
 
 ## Associations defined here
 
-- `_Plant` → `I_Plant` [0..1]
+- `_QualityNotification` → `ZQMV_B_QualityNotif` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_QualityNotification`.
+Role inherits the conditions of `ZQMV_B_QualityNotif`.
 
 ## Example use case
 
-Open supplier complaints per plant; customer complaints per material.
+Supplier complaints per month; open customer complaints per plant.
 
 ## Open verification items
 
-`QM-020`, `QM-021`, `QM-022`, `QM-D03` - see `BATCH_REPORT.md`.
+none

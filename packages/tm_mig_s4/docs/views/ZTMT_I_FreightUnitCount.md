@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZTMT_I_FreightUnitCompare` |
+| Data source | `ZTMT_B_FreightUnitCompare` |
 | Source file | `src/ztmt_i_freightunitcount.ddls.asddls` |
 
 ## Purpose

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZSDX_I_QuantityScale
-  as select from ZSDX_I_QuantityScaleData as src
+  as select from ZSDX_B_QuantityScaleData as src
 {
   key src.ConditionRecord as ConditionRecord,
   key src.ConditionItem as ConditionItem,

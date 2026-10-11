@@ -25,8 +25,8 @@ ENDCLASS.
 CLASS zeam_cl_maintorder_test IMPLEMENTATION.
 
   METHOD class_setup.
-    order_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_MAINTORDER' ).
-    component_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_R_MAINTORDERCOMPONENT' ).
+    order_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_B_MAINTORDER' ).
+    component_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_MAINTORDERCOMPONENT' ).
   ENDMETHOD.
 
 
@@ -50,7 +50,7 @@ CLASS zeam_cl_maintorder_test IMPLEMENTATION.
       ( maintenanceorder = '000004000002' technicalcompletiondate = '20260131' ) ).
     order_environment->insert_test_data( i_data = orders ).
 
-    SELECT FROM zeam_i_maintorder
+    SELECT FROM zeam_b_maintorder
       FIELDS maintenanceorder, maintorderisopen
       ORDER BY maintenanceorder
       INTO TABLE @DATA(result).
@@ -63,14 +63,14 @@ CLASS zeam_cl_maintorder_test IMPLEMENTATION.
 
 
   METHOD open_quantity_never_negative.
-    DATA components TYPE STANDARD TABLE OF zeam_i_maintordercomponent WITH EMPTY KEY.
+    DATA components TYPE STANDARD TABLE OF zeam_b_maintordercomponent WITH EMPTY KEY.
 
     components = VALUE #( baseunit = 'ST'
       ( reservation = '0000100001' reservationitem = '0001' requirementquantityinbaseunit = 5 withdrawnquantity = 2 )
       ( reservation = '0000100001' reservationitem = '0002' requirementquantityinbaseunit = 1 withdrawnquantity = 3 ) ).
     component_environment->insert_test_data( i_data = components ).
 
-    SELECT FROM zeam_r_maintordercomponent
+    SELECT FROM zeam_i_maintordercomponent
       FIELDS reservationitem, openquantity
       ORDER BY reservationitem
       INTO TABLE @DATA(result).

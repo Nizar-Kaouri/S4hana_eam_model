@@ -22,48 +22,48 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZSDV_I_SalesOrder",
-      "ZSDV_I_SalesOrderItem",
-      "ZSDV_I_SalesOrderVH"
+      "ZSDV_B_SalesOrder",
+      "ZSDV_B_SalesOrderItem",
+      "ZSDV_B_SalesOrderVH"
     ],
     "composite": [
-      "ZSDV_R_SalesOrderItem"
+      "ZSDV_I_SalesOrderItem"
     ],
     "consumption": [
       "ZSDV_C_SalesOrderQ"
     ],
     "access_controls": [
-      "ZSDV_I_SalesOrder",
-      "ZSDV_I_SalesOrderItem",
-      "ZSDV_I_SalesOrderVH",
-      "ZSDV_R_SalesOrderItem"
+      "ZSDV_B_SalesOrder",
+      "ZSDV_B_SalesOrderItem",
+      "ZSDV_B_SalesOrderVH",
+      "ZSDV_I_SalesOrderItem"
     ],
     "metadata_extensions": [
-      "ZSDV_R_SalesOrderItem"
+      "ZSDV_I_SalesOrderItem"
     ],
     "tests": [
       "ZSDV_CL_SALESORDER_TEST"
     ]
   },
   "no_dcl_by_design": {
-    "ZSDV_C_SalesOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_SalesOrderItem (see GEN-Q01)."
+    "ZSDV_C_SalesOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_I_SalesOrderItem (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZSDV_I_SOItemWithDelivery",
+      "name": "ZSDV_B_SOItemWithDelivery",
       "requires_modules": [
         "outbound_delivery",
         "sales_order"
       ],
-      "access_control": "ZSDV_I_SOItemWithDelivery"
+      "access_control": "ZSDV_B_SOItemWithDelivery"
     },
     {
-      "name": "ZSDV_I_SOItemWithBilling",
+      "name": "ZSDV_B_SOItemWithBilling",
       "requires_modules": [
         "billing_document",
         "sales_order"
       ],
-      "access_control": "ZSDV_I_SOItemWithBilling"
+      "access_control": "ZSDV_B_SOItemWithBilling"
     }
   ]
 }

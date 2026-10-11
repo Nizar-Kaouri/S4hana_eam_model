@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZFCT_I_PaymentPromiseCount
-  as select from ZFCT_I_PaymentPromiseCompare as src
+  as select from ZFCT_B_PaymentPromiseCompare as src
 {
       count( * ) as RecordCount
 }

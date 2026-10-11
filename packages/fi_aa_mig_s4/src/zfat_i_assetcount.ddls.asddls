@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZFAT_I_AssetCount
-  as select from ZFAT_I_AssetCompare as src
+  as select from ZFAT_B_AssetCompare as src
 {
   key src.CompanyCode as CompanyCode,
       count( * ) as RecordCount

@@ -1,0 +1,13 @@
+// ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_DeliveryDocument.
+// TODO-VERIFY[H] SD-D03: I_DeliveryDocument has an access control role and every element it references is projected by ZSDV_B_OutboundDelivery
+@EndUserText.label: 'Outbound Delivery'
+@MappingRole: true
+define role ZSDV_B_OutboundDelivery {
+  grant
+    select
+      on
+        ZSDV_B_OutboundDelivery
+          where
+            inheriting conditions from entity I_DeliveryDocument;
+}

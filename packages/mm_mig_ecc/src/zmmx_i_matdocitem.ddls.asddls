@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_MatDocItem
-  as select from ZMMX_I_MatDocItemData as src
+  as select from ZMMX_B_MatDocItemData as src
 {
   key src.MaterialDocument as MaterialDocument,
   key src.MaterialDocumentYear as MaterialDocumentYear,

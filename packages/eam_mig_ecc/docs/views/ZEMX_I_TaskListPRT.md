@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_TaskListPRTData`, join `ZEMX_I_TaskListPRTLatest` |
+| Data source | `ZEMX_B_TaskListPRTData`, join `ZEMX_I_TaskListPRTLatest` |
 | Source file | `src/zemx_i_tasklistprt.ddls.asddls` |
 
 ## Purpose

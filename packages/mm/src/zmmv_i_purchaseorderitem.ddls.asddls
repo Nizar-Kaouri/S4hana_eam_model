@@ -1,27 +1,24 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per purchase order item: material, plant, quantity, net price and net amount, delivery and
-//   invoice completion, deletion code and a derived open flag.
-// Example: Open purchase order items per plant; order value per material group.
-// TODO-VERIFY[M] MM-043: SAP released view is I_PurchaseOrderItemAPI01 with keys PurchaseOrder, PurchaseOrderItem
-// TODO-VERIFY[M] MM-044: elements OrderQuantity, PurchaseOrderQuantityUnit, NetPriceAmount, NetAmount, DocumentCurrency
-// TODO-VERIFY[M] MM-045: completion elements IsCompletelyDelivered, IsFinallyInvoiced, PurchasingDocumentDeletionCode
+// Purpose: Purchase order item cube: ordered quantity, net value, number of (open) items, with supplier,
+//   purchasing organization and group from the header.
+// Example: Purchase volume per supplier and material group; open items per purchasing group.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Purchase Order Item'
+@EndUserText.label: 'Purchase Order Item - Cube'
+@Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'PurchaseOrderItem'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZMMV_I_PurchaseOrderItem
-  as select from I_PurchaseOrderItemAPI01
-  association [1..1] to ZMMV_I_PurchaseOrder as _PurchaseOrder on $projection.PurchaseOrder = _PurchaseOrder.PurchaseOrder
-  association [0..1] to I_Plant as _Plant on $projection.Plant = _Plant.Plant
+  as select from ZMMV_B_PurchaseOrderItem
 {
       @ObjectModel.foreignKey.association: '_PurchaseOrder'
   key PurchaseOrder,
@@ -34,18 +31,33 @@ define view entity ZMMV_I_PurchaseOrderItem
       StorageLocation,
       AccountAssignmentCategory,
       PurchaseOrderQuantityUnit,
-      @Semantics.quantity.unitOfMeasure: 'PurchaseOrderQuantityUnit'
-      OrderQuantity,
       DocumentCurrency,
-      @Semantics.amount.currencyCode: 'DocumentCurrency'
-      NetPriceAmount,
-      @Semantics.amount.currencyCode: 'DocumentCurrency'
-      NetAmount,
       IsCompletelyDelivered,
       IsFinallyInvoiced,
       PurchasingDocumentDeletionCode,
-      @EndUserText.label: 'Item Is Open'
-      cast( case when IsCompletelyDelivered = '' and PurchasingDocumentDeletionCode = '' then 'X' else ' ' end as abap_boolean ) as PurchaseOrderItemIsOpen,
+      PurchaseOrderItemIsOpen,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @Semantics.quantity.unitOfMeasure: 'PurchaseOrderQuantityUnit'
+      OrderQuantity,
+      @Aggregation.default: #SUM
+      @Semantics.amount.currencyCode: 'DocumentCurrency'
+      NetAmount,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Items'
+      cast( 1 as abap.int4 ) as NumberOfItems,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Open Items'
+      cast( case when PurchaseOrderItemIsOpen = 'X' then 1 else 0 end as abap.int4 ) as NumberOfOpenItems,
+
+      /* Order header characteristics */
+      _PurchaseOrder.PurchaseOrderType,
+      _PurchaseOrder.Supplier,
+      _PurchaseOrder.PurchasingOrganization,
+      _PurchaseOrder.PurchasingGroup,
+      _PurchaseOrder.CompanyCode,
+      _PurchaseOrder.PurchaseOrderDate,
 
       /* Associations */
       _PurchaseOrder,

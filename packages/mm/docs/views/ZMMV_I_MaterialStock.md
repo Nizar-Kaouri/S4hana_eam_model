@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Material Stock |
+| Description | Material Stock - Cube |
 | Module | `material_stock` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_MaterialStock_2` |
+| Data category | #CUBE |
+| Data source | `ZMMV_B_MaterialStock` |
 | Source file | `src/zmmv_i_materialstock.ddls.asddls` |
 
 ## Purpose
 
-Stock quantity per material, plant, storage location, batch and stock type (unrestricted, quality inspection, blocked) from the material document table.
+Stock cube: total and unrestricted stock quantity per material, plant, storage location and stock type.
 
 ## Keys
 
@@ -28,16 +28,16 @@ Stock quantity per material, plant, storage location, batch and stock type (unre
 
 ## Associations defined here
 
-- `_Plant` → `I_Plant` [0..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_MaterialStock_2`.
+Role inherits the conditions of `ZMMV_B_MaterialStock`.
 
 ## Example use case
 
-Current spare-part stock per storage location; blocked and quality-inspection stock per plant.
+Unrestricted spare-part stock per plant; stock in quality inspection.
 
 ## Open verification items
 
-`MM-010`, `MM-011`, `MM-012`, `MM-D03` - see `BATCH_REPORT.md`.
+`MM-R01` - see `BATCH_REPORT.md`.

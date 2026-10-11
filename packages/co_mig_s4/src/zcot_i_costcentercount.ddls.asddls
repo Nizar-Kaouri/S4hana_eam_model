@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZCOT_I_CostCenterCount
-  as select from ZCOT_I_CostCenterCompare as src
+  as select from ZCOT_B_CostCenterCompare as src
 {
   key src.ControllingArea as ControllingArea,
       count( * ) as RecordCount

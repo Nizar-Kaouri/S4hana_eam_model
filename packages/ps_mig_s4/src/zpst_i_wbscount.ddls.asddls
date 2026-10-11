@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZPST_I_WBSCount
-  as select from ZPST_I_WBSCompare as src
+  as select from ZPST_B_WBSCompare as src
 {
   key src.WBSElementInternalID as WBSElementInternalID,
       count( * ) as RecordCount

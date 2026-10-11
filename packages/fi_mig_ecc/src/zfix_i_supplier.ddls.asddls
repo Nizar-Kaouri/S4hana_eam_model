@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_Supplier
-  as select from ZFIX_I_SupplierData as src
+  as select from ZFIX_B_SupplierData as src
 {
   key src.Supplier as Supplier,
       src.SupplierName as SupplierName,

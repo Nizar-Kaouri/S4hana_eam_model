@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the basic view; the authorization-relevant elements are
+// projected with unchanged names (see GEN-D02).
+@EndUserText.label: 'Functional Location - Value Help'
+@MappingRole: true
+define role ZEAM_B_FuncLocVH {
+  grant
+    select
+      on
+        ZEAM_B_FuncLocVH
+          where
+            inheriting conditions from entity ZEAM_B_FuncLoc;
+}

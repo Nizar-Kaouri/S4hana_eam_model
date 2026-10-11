@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPPX_I_ProductionOrdeData` |
+| Data source | `ZPPX_B_ProductionOrdeData` |
 | Source file | `src/zppx_i_productionorde.ddls.asddls` |
 
 ## Purpose

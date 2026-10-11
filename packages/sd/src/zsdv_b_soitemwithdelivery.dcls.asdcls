@@ -1,0 +1,12 @@
+// ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Sales Order Item with Deliveries'
+@MappingRole: true
+define role ZSDV_B_SOItemWithDelivery {
+  grant
+    select
+      on
+        ZSDV_B_SOItemWithDelivery
+          where
+            inheriting conditions from entity ZSDV_B_SalesOrderItem;
+}

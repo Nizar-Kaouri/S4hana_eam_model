@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZFAA_R_AssetTransaction` |
+| Data source | `ZFAA_I_AssetTransaction` |
 | Source file | `src/zfaa_c_assettransactionq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZFAA_R_AssetTransaction. Acquisitions, retirements, transfers and depreciation per company code and period.
+Analytical query on ZFAA_I_AssetTransaction. Acquisitions, retirements, transfers and depreciation per company code and period.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZFAA_R_AssetTransaction. Acquisitions, retirements, transfer
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_R_AssetTransaction (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_I_AssetTransaction (see GEN-Q01).
 
 ## Example use case
 

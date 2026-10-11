@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPPX_I_BOMSelectionData` |
+| Data source | `ZPPX_B_BOMSelectionData` |
 | Source file | `src/zppx_i_bomselection.ddls.asddls` |
 
 ## Purpose

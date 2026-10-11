@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_EquipTaskListAsgmt` |
+| Data source | `ZEMX_B_EquipTaskListAsgmt` |
 | Source file | `src/zemx_i_tasklistobjectassgmt.ddls.asddls` |
 
 ## Purpose

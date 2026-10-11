@@ -20,8 +20,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZEHT_I_SpecificationCompare",
-      "ZEHT_I_SpecIdentifierCompare"
+      "ZEHT_B_SpecificationCompare",
+      "ZEHT_B_SpecIdentifierCompare"
     ],
     "composite": [
       "ZEHT_I_SpecificationCount"
@@ -32,9 +32,9 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEHT_I_SpecificationCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZEHT_B_SpecificationCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZEHT_I_SpecificationCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
-    "ZEHT_I_SpecIdentifierCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
+    "ZEHT_B_SpecIdentifierCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
   "link_views": [],
   "pending_structures": [

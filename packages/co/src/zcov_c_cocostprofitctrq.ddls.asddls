@@ -1,8 +1,8 @@
 // ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZCOV_R_COCostWithProfitCtr: costs per segment and profit center.
+// Purpose: Analytical query on ZCOV_I_COCostWithProfitCtr: costs per segment and profit center.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // LINK VIEW (ships only when modules "cost_actuals" AND "profit_center" are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZCOV_R_COCostWithProfitCtr applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZCOV_I_COCostWithProfitCtr applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Costs by Profit Center'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -10,7 +10,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZCOV_C_COCostProfitCtrQ
   provider contract analytical_query
-  as projection on ZCOV_R_COCostWithProfitCtr
+  as projection on ZCOV_I_COCostWithProfitCtr
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

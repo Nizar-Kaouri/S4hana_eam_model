@@ -59,7 +59,7 @@ def collect():
         owner, layer, batch = gen_docs.owner_of(name, modules)
         is_link = layer == "link"
         if is_link:
-            layer = {"I": "basic", "R": "composite", "C": "consumption"}[name.split("_")[1]]
+            layer = {"B": "basic", "I": "composite", "C": "consumption"}[name.split("_")[1]]
         module = "link" if is_link else owner.strip("`")
         dcl_text, _ = gen_docs.dcl_info(name, modules)
         dcl_file = p.with_name(p.name.replace(".ddls.asddls", ".dcls.asdcls"))

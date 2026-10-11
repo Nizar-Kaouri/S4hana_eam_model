@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_EquipmentTextMig
-  as select from ZEMX_I_EquipmentDesc as src
+  as select from ZEMX_B_EquipmentDesc as src
   association [0..1] to ZEMX_I_Equipment as _Equipment on _Equipment.Equipment = $projection.Equipment
 {
       @EndUserText.label: 'Equipment'

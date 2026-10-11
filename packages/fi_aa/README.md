@@ -1,5 +1,7 @@
 # Asset Accounting (FI-AA) - CDS virtual data model
 
+Naming: **B_ = Basic, I_ = Interface (Composite), C_ = Consumption**. See [naming guidance](../../docs/NAMING.md).
+
 > **Status: draft-unverified.** Written without an SAP system; nothing has been activated or tested.
 > Every uncertain element carries a `TODO-VERIFY` marker, ranked in [`BATCH_REPORT.md`](BATCH_REPORT.md).
 
@@ -11,8 +13,8 @@
 | Target release | SAP S/4HANA 2025 (on-premise / Private Cloud Edition) |
 | Entity map | [`docs/model_map.html`](docs/model_map.html) |
 
-Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZFAA_I_*`,
-composite `ZFAA_R_*` (cubes), consumption `ZFAA_C_*Q` (analytical queries); one self-contained module
+Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZFAA_B_*`,
+composite `ZFAA_I_*` (cubes), consumption `ZFAA_C_*Q` (analytical queries); one self-contained module
 per business object; cross-object associations only in link views; hard dependencies added by the build.
 
 ## Data model in one paragraph
@@ -27,17 +29,17 @@ date. Planned (not yet posted) depreciation is not part of the model.
 
 | Module | Batch | Hard dependencies | Views |
 |---|---|---|---|
-| `fixed_asset` | 1 | - | `ZFAA_I_FixedAsset` (dimension), `ZFAA_I_FixedAssetVH`, `ZFAA_R_FixedAsset` (+ DDLX), `ZFAA_C_FixedAssetQ` |
-| `asset_transaction` | 2 | - | `ZFAA_I_AssetJournalItem`, `ZFAA_R_AssetTransaction`, `ZFAA_C_AssetTransactionQ` |
-| `rpt_asset_balance` | 3 | `asset_transaction` | `ZFAA_R_AssetBalance` (parameter key date), `ZFAA_C_AssetBalanceQ` |
+| `fixed_asset` | 1 | - | `ZFAA_B_FixedAsset` (dimension), `ZFAA_B_FixedAssetVH`, `ZFAA_I_FixedAsset` (+ DDLX), `ZFAA_C_FixedAssetQ` |
+| `asset_transaction` | 2 | - | `ZFAA_B_AssetJournalItem`, `ZFAA_I_AssetTransaction`, `ZFAA_C_AssetTransactionQ` |
+| `rpt_asset_balance` | 3 | `asset_transaction` | `ZFAA_I_AssetBalance` (parameter key date), `ZFAA_C_AssetBalanceQ` |
 
 ### Link views (ship only when all listed modules are selected)
 
 | Link view | Requires | Purpose |
 |---|---|---|
-| `ZFAA_I_AssetWithJournalItem` | fixed_asset + asset_transaction | asset → all its postings |
-| `ZFAA_R_AssetTransWithAsset` + `ZFAA_C_AssetTransAssetQ` | fixed_asset + asset_transaction | acquisitions / depreciation by asset class and plant |
-| `ZFAA_R_AssetBalanceWithAsset` + `ZFAA_C_AssetBalanceAssetQ` | fixed_asset + rpt_asset_balance | **asset balance report**: net book value by asset class and cost center at a key date |
+| `ZFAA_B_AssetWithJournalItem` | fixed_asset + asset_transaction | asset → all its postings |
+| `ZFAA_I_AssetTransWithAsset` + `ZFAA_C_AssetTransAssetQ` | fixed_asset + asset_transaction | acquisitions / depreciation by asset class and plant |
+| `ZFAA_I_AssetBalanceWithAsset` + `ZFAA_C_AssetBalanceAssetQ` | fixed_asset + rpt_asset_balance | **asset balance report**: net book value by asset class and cost center at a key date |
 
 ### Link to EAM (planned, not built)
 

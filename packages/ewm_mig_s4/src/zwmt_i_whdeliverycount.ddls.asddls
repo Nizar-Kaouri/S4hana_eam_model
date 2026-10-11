@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZWMT_I_WhDeliveryCount
-  as select from ZWMT_I_WhDeliveryCompare as src
+  as select from ZWMT_B_WhDeliveryCompare as src
 {
       count( * ) as RecordCount
 }

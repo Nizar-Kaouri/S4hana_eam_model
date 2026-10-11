@@ -28,7 +28,7 @@
   "structures": [
     {
       "consumption_view": "ZEMX_C_LongTextIndexMig",
-      "source_view": "ZEMX_I_LongTextHeader",
+      "source_view": "ZEMX_B_LongTextHeader",
       "scope_filter": "",
       "keys": [
         "TextObject",
@@ -70,25 +70,25 @@
   ],
   "not_migrated": [
     {
-      "view": "ZEMX_I_LongTextHeader",
+      "view": "ZEMX_B_LongTextHeader",
       "element": "CreationDate",
       "source": "STXH-TDFDATE",
       "reason": "info"
     },
     {
-      "view": "ZEMX_I_LongTextHeader",
+      "view": "ZEMX_B_LongTextHeader",
       "element": "CreatedByUser",
       "source": "STXH-TDFUSER",
       "reason": "info"
     },
     {
-      "view": "ZEMX_I_LongTextHeader",
+      "view": "ZEMX_B_LongTextHeader",
       "element": "LastChangeDate",
       "source": "STXH-TDLDATE",
       "reason": "info"
     },
     {
-      "view": "ZEMX_I_LongTextHeader",
+      "view": "ZEMX_B_LongTextHeader",
       "element": "LastChangedByUser",
       "source": "STXH-TDLUSER",
       "reason": "info"

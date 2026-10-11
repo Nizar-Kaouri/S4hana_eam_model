@@ -27,63 +27,63 @@
         {
           "element": "RecordNumber",
           "source": "ESTRH-RECN",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.RecordNumber",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.RecordNumber",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ChangeState",
           "source": "ESTRH-ACTN",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.ChangeState",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.ChangeState",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ValidFrom",
           "source": "ESTRH-VALFR",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.ValidFrom",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.ValidFrom",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ValidTo",
           "source": "ESTRH-VALTO",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.ValidTo",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.ValidTo",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "DeletionFlag",
           "source": "ESTRH-DELFLG",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.DeletionFlag",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.DeletionFlag",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "SpecificationID",
           "source": "ESTRH-SUBID",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.SpecificationID",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.SpecificationID",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "SpecificationCategory",
           "source": "ESTRH-SUBCAT",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.SpecificationCategory",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.SpecificationCategory",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "AuthorizationGroup",
           "source": "ESTRH-AUTHGRP",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.AuthorizationGroup",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.AuthorizationGroup",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Remark",
           "source": "ESTRH-REM",
-          "target": "Native target evidence: ZEHT_I_SpecificationCompare.Remark",
+          "target": "Native target evidence: ZEHT_B_SpecificationCompare.Remark",
           "rule": "copy",
           "compare": true
         }
@@ -103,77 +103,77 @@
         {
           "element": "RecordNumber",
           "source": "ESTRI-RECN",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.RecordNumber",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.RecordNumber",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ChangeState",
           "source": "ESTRI-ACTN",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.ChangeState",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.ChangeState",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ValidFrom",
           "source": "ESTRI-VALFR",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.ValidFrom",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.ValidFrom",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ValidTo",
           "source": "ESTRI-VALTO",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.ValidTo",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.ValidTo",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "DeletionFlag",
           "source": "ESTRI-DELFLG",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.DeletionFlag",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.DeletionFlag",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "RootRecordNumber",
           "source": "ESTRI-RECNROOT",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.RootRecordNumber",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.RootRecordNumber",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "IdentifierType",
           "source": "ESTRI-IDTYPE",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.IdentifierType",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.IdentifierType",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "IdentifierCategory",
           "source": "ESTRI-IDCAT",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.IdentifierCategory",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.IdentifierCategory",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Language",
           "source": "ESTRI-LANGU",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.Language",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.Language",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Identifier",
           "source": "ESTRI-IDENT",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.Identifier",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.Identifier",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "SortOrder",
           "source": "ESTRI-ORD",
-          "target": "Native target evidence: ZEHT_I_SpecIdentifierCompare.SortOrder",
+          "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.SortOrder",
           "rule": "copy",
           "compare": true
         }
@@ -196,7 +196,7 @@
     "target_count_view": "ZEHT_I_SpecificationCount",
     "compare": {
       "source_view": "ZEHX_C_SpecificationMig",
-      "target_view": "ZEHT_I_SpecificationCompare",
+      "target_view": "ZEHT_B_SpecificationCompare",
       "key": [
         "RecordNumber",
         "ChangeState"

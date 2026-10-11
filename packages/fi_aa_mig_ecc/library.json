@@ -22,12 +22,12 @@
   "migration_pair": "fi_aa_mig_s4",
   "map_title": "ZFAX Asset Accounting Migration - ECC Source Map",
   "map_area": "Asset Accounting migration source (ECC tables)",
-  "map_initial": "ZFAX_I_AssetData",
+  "map_initial": "ZFAX_B_AssetData",
   "map_external_title": "ECC tables",
   "map_release": "SAP ECC 6.0 (source)",
   "map_external_sub": "tables (read directly, never copied)",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

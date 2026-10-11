@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZQMX_I_SamplingProc
-  as select from ZQMX_I_SamplingProcData as src
+  as select from ZQMX_B_SamplingProcData as src
 {
   key src.SamplingProcedure as SamplingProcedure,
       src.SamplingType as SamplingType,

@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZMMT_I_PurchaseOrderCompare` |
+| Data source | `ZMMT_B_PurchaseOrderCompare` |
 | Source file | `src/zmmt_i_purchaseordercount.ddls.asddls` |
 
 ## Purpose

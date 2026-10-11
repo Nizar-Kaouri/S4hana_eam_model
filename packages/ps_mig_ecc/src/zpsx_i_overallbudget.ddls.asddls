@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_OverallBudget
-  as select from ZPSX_I_OverallBudgetData as src
+  as select from ZPSX_B_OverallBudgetData as src
 {
   key src.Ledger as Ledger,
   key src.ObjectNumber as ObjectNumber,

@@ -27,63 +27,63 @@
         {
           "element": "RecordNumber",
           "source": "ESTPH-RECN",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.RecordNumber",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.RecordNumber",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ChangeState",
           "source": "ESTPH-ACTN",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.ChangeState",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.ChangeState",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ValidFrom",
           "source": "ESTPH-VALFR",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.ValidFrom",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.ValidFrom",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ValidTo",
           "source": "ESTPH-VALTO",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.ValidTo",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.ValidTo",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "DeletionFlag",
           "source": "ESTPH-DELFLG",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.DeletionFlag",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.DeletionFlag",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "PhraseID",
           "source": "ESTPH-PHRID",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.PhraseID",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.PhraseID",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Remark",
           "source": "ESTPH-REM",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.Remark",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.Remark",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "SourceLanguage",
           "source": "ESTPH-SRLANGU",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.SourceLanguage",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.SourceLanguage",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "UserDefinedName",
           "source": "ESTPH-USEXNAM",
-          "target": "Native target evidence: ZEHT_I_PhraseCompare.UserDefinedName",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.UserDefinedName",
           "rule": "copy",
           "compare": true
         }
@@ -103,56 +103,56 @@
         {
           "element": "RecordNumber",
           "source": "ESTPJ-RECN",
-          "target": "Native target evidence: ZEHT_I_PhraseSetCompare.RecordNumber",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.RecordNumber",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ChangeState",
           "source": "ESTPJ-ACTN",
-          "target": "Native target evidence: ZEHT_I_PhraseSetCompare.ChangeState",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ChangeState",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ValidFrom",
           "source": "ESTPJ-VALFR",
-          "target": "Native target evidence: ZEHT_I_PhraseSetCompare.ValidFrom",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ValidFrom",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ValidTo",
           "source": "ESTPJ-VALTO",
-          "target": "Native target evidence: ZEHT_I_PhraseSetCompare.ValidTo",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ValidTo",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "DeletionFlag",
           "source": "ESTPJ-DELFLG",
-          "target": "Native target evidence: ZEHT_I_PhraseSetCompare.DeletionFlag",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.DeletionFlag",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "PhraseSet",
           "source": "ESTPJ-PHRSEL",
-          "target": "Native target evidence: ZEHT_I_PhraseSetCompare.PhraseSet",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.PhraseSet",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "PhraseID",
           "source": "ESTPJ-PHRID",
-          "target": "Native target evidence: ZEHT_I_PhraseSetCompare.PhraseID",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.PhraseID",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "SortOrder",
           "source": "ESTPJ-ORD",
-          "target": "Native target evidence: ZEHT_I_PhraseSetCompare.SortOrder",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.SortOrder",
           "rule": "copy",
           "compare": true
         }
@@ -174,7 +174,7 @@
     "target_count_view": "ZEHT_I_PhraseCount",
     "compare": {
       "source_view": "ZEHX_C_PhraseMig",
-      "target_view": "ZEHT_I_PhraseCompare",
+      "target_view": "ZEHT_B_PhraseCompare",
       "key": [
         "RecordNumber",
         "ChangeState"

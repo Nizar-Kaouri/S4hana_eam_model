@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZSDX_I_SalesOrder
-  as select from ZSDX_I_SalesOrderData as src
+  as select from ZSDX_B_SalesOrderData as src
 {
   key src.SalesDocument as SalesDocument,
       src.SalesDocumentType as SalesDocumentType,

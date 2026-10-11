@@ -12,7 +12,7 @@
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_WorkCenterCapacityMig
   as select from ZEMX_I_WorkCenterCapacity as src
-  association [0..1] to ZEMX_I_WorkCenterHeader as _Parent on _Parent.WorkCenterInternalID = $projection.WorkCenterInternalID
+  association [0..1] to ZEMX_B_WorkCenterHeader as _Parent on _Parent.WorkCenterInternalID = $projection.WorkCenterInternalID
 {
       @EndUserText.label: 'Object Type'
   key src.ObjectType as ObjectType,

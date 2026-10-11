@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEHX_I_PhraseData` |
+| Data source | `ZEHX_B_PhraseData` |
 | Source file | `src/zehx_i_phrase.ddls.asddls` |
 
 ## Purpose

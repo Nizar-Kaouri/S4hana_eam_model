@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZMMX_I_InfoPurchOrgData` |
+| Data source | `ZMMX_B_InfoPurchOrgData` |
 | Source file | `src/zmmx_i_infopurchorg.ddls.asddls` |
 
 ## Purpose

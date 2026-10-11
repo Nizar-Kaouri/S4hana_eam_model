@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZQMT_I_InspectionLotCompare"
+      "ZQMT_B_InspectionLotCompare"
     ],
     "composite": [
       "ZQMT_I_InspectionLotCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZQMT_I_InspectionLotCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMT_B_InspectionLotCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMT_I_InspectionLotCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

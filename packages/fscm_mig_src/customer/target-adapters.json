@@ -1,7 +1,7 @@
 {
   "ZFCX_C_CreditProfileMig": {
     "module": "credit_profile",
-    "compare_view": "ZFCT_I_CreditProfileCompare",
+    "compare_view": "ZFCT_B_CreditProfileCompare",
     "required_keys": [
       "BusinessPartner"
     ],
@@ -19,7 +19,7 @@
   },
   "ZFCX_C_CreditSegmentMig": {
     "module": "credit_segment",
-    "compare_view": "ZFCT_I_CreditSegmentCompare",
+    "compare_view": "ZFCT_B_CreditSegmentCompare",
     "required_keys": [
       "BusinessPartner",
       "CreditSegment"
@@ -40,7 +40,7 @@
   },
   "ZFCX_C_CollectContactMig": {
     "module": "collection_activity",
-    "compare_view": "ZFCT_I_CollectContactCompare",
+    "compare_view": "ZFCT_B_CollectContactCompare",
     "required_keys": [
       "ContactUUID"
     ],
@@ -62,7 +62,7 @@
   },
   "ZFCX_C_PaymentPromiseMig": {
     "module": "promise_to_pay",
-    "compare_view": "ZFCT_I_PaymentPromiseCompare",
+    "compare_view": "ZFCT_B_PaymentPromiseCompare",
     "required_keys": [
       "CaseUUID"
     ],
@@ -84,7 +84,7 @@
   },
   "ZFCX_C_DisputeCaseMig": {
     "module": "dispute_case",
-    "compare_view": "ZFCT_I_DisputeCaseCompare",
+    "compare_view": "ZFCT_B_DisputeCaseCompare",
     "required_keys": [
       "CaseUUID"
     ],
@@ -107,7 +107,7 @@
   },
   "ZFCX_C_CaseAttributeMig": {
     "module": "dispute_case",
-    "compare_view": "ZFCT_I_CaseAttributeCompare",
+    "compare_view": "ZFCT_B_CaseAttributeCompare",
     "required_keys": [
       "CaseUUID"
     ],
@@ -132,7 +132,7 @@
   },
   "ZFCX_C_CreditExposureMig": {
     "module": "credit_exposure",
-    "compare_view": "ZFCT_I_CreditExposureCompare",
+    "compare_view": "ZFCT_B_CreditExposureCompare",
     "required_keys": [
       "BusinessPartner",
       "CreditSegment",

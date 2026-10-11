@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZCOX_I_PrimaryPlanData` |
+| Data source | `ZCOX_B_PrimaryPlanData` |
 | Source file | `src/zcox_i_primaryplan.ddls.asddls` |
 
 ## Purpose

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_ContractHeader
-  as select from ZMMX_I_ContractHeaderData as src
+  as select from ZMMX_B_ContractHeaderData as src
 {
   key src.PurchasingContract as PurchasingContract,
       src.PurchasingDocumentCategory as PurchasingDocumentCategory,

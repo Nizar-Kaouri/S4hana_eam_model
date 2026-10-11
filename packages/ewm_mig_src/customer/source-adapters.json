@@ -2,7 +2,7 @@
   "ZWMX_C_StorageBinMig": {
     "module": "storage_bin",
     "native_table": "/SCWM/LAGP",
-    "basic_view": "ZWMX_I_StorageBinData",
+    "basic_view": "ZWMX_B_StorageBinData",
     "composite_view": "ZWMX_I_StorageBin",
     "consumption_view": "ZWMX_C_StorageBinMig",
     "required_keys": [
@@ -26,7 +26,7 @@
   "ZWMX_C_BinSortingMig": {
     "module": "storage_bin",
     "native_table": "/SCWM/LAGPS",
-    "basic_view": "ZWMX_I_BinSortingData",
+    "basic_view": "ZWMX_B_BinSortingData",
     "composite_view": "ZWMX_I_BinSorting",
     "consumption_view": "ZWMX_C_BinSortingMig",
     "required_keys": [
@@ -50,7 +50,7 @@
   "ZWMX_C_TaskConfirmMig": {
     "module": "warehouse_task",
     "native_table": "/SCWM/ORDIM_C",
-    "basic_view": "ZWMX_I_TaskConfirmData",
+    "basic_view": "ZWMX_B_TaskConfirmData",
     "composite_view": "ZWMX_I_TaskConfirm",
     "consumption_view": "ZWMX_C_TaskConfirmMig",
     "required_keys": [
@@ -79,7 +79,7 @@
   "ZWMX_C_WarehouseOrderMig": {
     "module": "warehouse_order",
     "native_table": "/SCWM/WHO",
-    "basic_view": "ZWMX_I_WarehouseOrderData",
+    "basic_view": "ZWMX_B_WarehouseOrderData",
     "composite_view": "ZWMX_I_WarehouseOrder",
     "consumption_view": "ZWMX_C_WarehouseOrderMig",
     "required_keys": [
@@ -105,7 +105,7 @@
   "ZWMX_C_WarehouseTaskMig": {
     "module": "warehouse_task",
     "native_table": "/SCWM/ORDIM_O",
-    "basic_view": "ZWMX_I_WarehouseTaskData",
+    "basic_view": "ZWMX_B_WarehouseTaskData",
     "composite_view": "ZWMX_I_WarehouseTask",
     "consumption_view": "ZWMX_C_WarehouseTaskMig",
     "required_keys": [
@@ -133,7 +133,7 @@
   "ZWMX_C_WhDeliveryMig": {
     "module": "warehouse_delivery",
     "native_table": "/SCDL/DB_PROCH_I",
-    "basic_view": "ZWMX_I_WhDeliveryData",
+    "basic_view": "ZWMX_B_WhDeliveryData",
     "composite_view": "ZWMX_I_WhDelivery",
     "consumption_view": "ZWMX_C_WhDeliveryMig",
     "required_keys": [
@@ -156,7 +156,7 @@
   "ZWMX_C_WhDeliveryItemMig": {
     "module": "warehouse_delivery",
     "native_table": "/SCDL/DB_PROCI_I",
-    "basic_view": "ZWMX_I_WhDeliveryItemData",
+    "basic_view": "ZWMX_B_WhDeliveryItemData",
     "composite_view": "ZWMX_I_WhDeliveryItem",
     "consumption_view": "ZWMX_C_WhDeliveryItemMig",
     "required_keys": [

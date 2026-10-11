@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Purchase Requisition Item |
+| Description | Purchase Requisition - Cube |
 | Module | `purchase_requisition` |
 | Batch | 3 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_PurchaseRequisitionItemAPI01` |
+| Data category | #CUBE |
+| Data source | `ZMMV_B_PurchaseReqnItem` |
 | Source file | `src/zmmv_i_purchasereqnitem.ddls.asddls` |
 
 ## Purpose
 
-One row per purchase requisition item: material, plant, purchasing group, requested quantity, delivery date, release status and deletion / closed flags.
+Requisition cube: number of items, open items and requested quantity per plant, purchasing group and release status.
 
 ## Keys
 
@@ -24,16 +24,16 @@ One row per purchase requisition item: material, plant, purchasing group, reques
 
 ## Associations defined here
 
-- `_Plant` → `I_Plant` [0..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_PurchaseRequisitionItemAPI01`.
+Role inherits the conditions of `ZMMV_B_PurchaseReqnItem`.
 
 ## Example use case
 
-Open requisitions per purchasing group; requisitions for spare parts not yet converted to orders.
+Open requisition items per purchasing group and plant.
 
 ## Open verification items
 
-`MM-030`, `MM-031`, `MM-032`, `MM-D05` - see `BATCH_REPORT.md`.
+none

@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the Universal Journal authorization logic SAP ships for I_JournalEntryItem.
+// TODO-VERIFY[H] RPT-C06: every element referenced by the I_JournalEntryItem role is projected; otherwise add the elements or use replacing { element ... with ... }
+@EndUserText.label: 'Maintenance Order Actual Cost Item'
+@MappingRole: true
+define role ZEAM_B_MaintOrderActualCost {
+  grant
+    select
+      on
+        ZEAM_B_MaintOrderActualCost
+          where
+            inheriting conditions from entity I_JournalEntryItem;
+}

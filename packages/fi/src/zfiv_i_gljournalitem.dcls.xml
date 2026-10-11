@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZFIV_I_GLJOURNALITEM</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>G/L Journal Item</DDTEXT>
+    <DDTEXT>G/L Journal Item - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

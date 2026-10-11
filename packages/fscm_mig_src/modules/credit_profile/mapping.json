@@ -25,49 +25,49 @@
         {
           "element": "BusinessPartner",
           "source": "UKMBP_CMS-PARTNER",
-          "target": "Native target evidence: ZFCT_I_CreditProfileCompare.BusinessPartner",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.BusinessPartner",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "OwnRating",
           "source": "UKMBP_CMS-OWN_RATING",
-          "target": "Native target evidence: ZFCT_I_CreditProfileCompare.OwnRating",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.OwnRating",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "CheckRule",
           "source": "UKMBP_CMS-CHECK_RULE",
-          "target": "Native target evidence: ZFCT_I_CreditProfileCompare.CheckRule",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.CheckRule",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "LimitRule",
           "source": "UKMBP_CMS-LIMIT_RULE",
-          "target": "Native target evidence: ZFCT_I_CreditProfileCompare.LimitRule",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.LimitRule",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "RatingValidTo",
           "source": "UKMBP_CMS-RATING_VAL_DATE",
-          "target": "Native target evidence: ZFCT_I_CreditProfileCompare.RatingValidTo",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.RatingValidTo",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "RiskClass",
           "source": "UKMBP_CMS-RISK_CLASS",
-          "target": "Native target evidence: ZFCT_I_CreditProfileCompare.RiskClass",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.RiskClass",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "CreditGroup",
           "source": "UKMBP_CMS-CREDIT_GROUP",
-          "target": "Native target evidence: ZFCT_I_CreditProfileCompare.CreditGroup",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.CreditGroup",
           "rule": "copy",
           "compare": true
         }
@@ -89,7 +89,7 @@
     "target_count_view": "ZFCT_I_CreditProfileCount",
     "compare": {
       "source_view": "ZFCX_C_CreditProfileMig",
-      "target_view": "ZFCT_I_CreditProfileCompare",
+      "target_view": "ZFCT_B_CreditProfileCompare",
       "key": [
         "BusinessPartner"
       ],

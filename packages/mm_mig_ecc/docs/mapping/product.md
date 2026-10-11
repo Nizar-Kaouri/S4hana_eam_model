@@ -144,7 +144,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZMMX_C_MaterialMigCount` (ECC) vs `ZMMT_I_MaterialCount` (S/4HANA) per `Product`
-- Records and fields: `ZMMX_C_MaterialMig` vs `ZMMT_I_MaterialCompare` on `Product`; compared: `ProductType`, `ProductGroup`, `BaseUnit`, `GrossWeight`, `NetWeight`, `WeightUnit`
+- Records and fields: `ZMMX_C_MaterialMig` vs `ZMMT_B_MaterialCompare` on `Product`; compared: `ProductType`, `ProductGroup`, `BaseUnit`, `GrossWeight`, `NetWeight`, `WeightUnit`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product mm_mig_ecc --module product --source ecc_counts.csv --target s4_counts.csv

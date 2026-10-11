@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZWMX_I_TaskConfirmData` |
+| Data source | `ZWMX_B_TaskConfirmData` |
 | Source file | `src/zwmx_i_taskconfirm.ddls.asddls` |
 
 ## Purpose

@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZCOT_I_ProfitCenterCount
-  as select from ZCOT_I_ProfitCenterCompare as src
+  as select from ZCOT_B_ProfitCenterCompare as src
 {
   key src.ProfitCenter as ProfitCenter,
       count( * ) as RecordCount

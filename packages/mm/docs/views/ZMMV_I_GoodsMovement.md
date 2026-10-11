@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Goods Movement |
+| Description | Goods Movement - Cube |
 | Module | `goods_movement` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_MaterialDocumentItem_2` |
+| Data category | #CUBE |
+| Data source | `ZMMV_B_GoodsMovement` |
 | Source file | `src/zmmv_i_goodsmovement.ddls.asddls` |
 
 ## Purpose
 
-One row per material document item: movement type, debit/credit indicator, quantity in base unit, value in company code currency and the account assignment (cost center, order, purchase order).
+Goods movement cube: receipt and issue quantities and values per material, plant, movement type and month.
 
 ## Keys
 
@@ -25,16 +25,16 @@ One row per material document item: movement type, debit/credit indicator, quant
 
 ## Associations defined here
 
-- `_Plant` → `I_Plant` [0..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_MaterialDocumentItem_2`.
+Role inherits the conditions of `ZMMV_B_GoodsMovement`.
 
 ## Example use case
 
-Goods issues to maintenance orders; goods receipts per supplier and month.
+Monthly issue value per plant and movement type; receipts per supplier.
 
 ## Open verification items
 
-`MM-020`, `MM-021`, `MM-022`, `MM-D04` - see `BATCH_REPORT.md`.
+none

@@ -289,7 +289,7 @@
     },
     {
       "consumption_view": "ZEMX_C_MaintPlanCycleMig",
-      "source_view": "ZEMX_I_MaintPlanCycle",
+      "source_view": "ZEMX_B_MaintPlanCycle",
       "scope_filter": "_MaintenancePlan.IsMarkedForDeletion = ''",
       "keys": [
         "MaintenancePlan",
@@ -406,7 +406,7 @@
     "measure": "RecordCount",
     "compare": {
       "source_view": "ZEMX_C_MaintenancePlanMig",
-      "target_view": "ZEMT_I_MaintPlanCompare",
+      "target_view": "ZEMT_B_MaintPlanCompare",
       "key": [
         "MaintenancePlan"
       ],

@@ -13,8 +13,8 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_TaskListOperation
-  as select from ZEMX_I_TaskListOpAssignment as asg
-    inner join ZEMX_I_TaskListOpDetail as op on op.TaskListType = asg.TaskListType and op.TaskListGroup = asg.TaskListGroup and op.TaskListOperationInternalId = asg.TaskListOperationInternalId
+  as select from ZEMX_B_TaskListOpAssignment as asg
+    inner join ZEMX_B_TaskListOpDetail as op on op.TaskListType = asg.TaskListType and op.TaskListGroup = asg.TaskListGroup and op.TaskListOperationInternalId = asg.TaskListOperationInternalId
     inner join ZEMX_I_TaskListAsgLatest as av on av.TaskListType = asg.TaskListType and av.TaskListGroup = asg.TaskListGroup and av.TaskListGroupCounter = asg.TaskListGroupCounter and av.TaskListSequence = asg.TaskListSequence and av.TaskListOperationInternalId = asg.TaskListOperationInternalId and av.TaskListOpAssgmtVersion = asg.TaskListOpAssgmtVersion
     inner join ZEMX_I_TaskListOpLatest as ov on ov.TaskListType = op.TaskListType and ov.TaskListGroup = op.TaskListGroup and ov.TaskListOperationInternalId = op.TaskListOperationInternalId and ov.TaskListOpVersionCounter = op.TaskListOpVersionCounter
 {

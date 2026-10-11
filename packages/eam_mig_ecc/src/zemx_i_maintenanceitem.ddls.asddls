@@ -13,7 +13,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintenanceItem
-  as select from ZEMX_I_MaintenanceItemHeader as itm
+  as select from ZEMX_B_MaintenanceItemHeader as itm
 {
       @EndUserText.label: 'Maintenance Item'
   key itm.MaintenanceItem            as MaintenanceItem,

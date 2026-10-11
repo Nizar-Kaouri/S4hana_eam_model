@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZSDT_I_BillingCount
-  as select from ZSDT_I_BillingCompare as src
+  as select from ZSDT_B_BillingCompare as src
 {
   key src.BillingDocument as BillingDocument,
       count( * ) as RecordCount

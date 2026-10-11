@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZFCT_I_CreditProfileCount
-  as select from ZFCT_I_CreditProfileCompare as src
+  as select from ZFCT_B_CreditProfileCompare as src
 {
       count( * ) as RecordCount
 }

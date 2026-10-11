@@ -19,14 +19,14 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `Warehouse` | /SCWM/LAGP-LGNUM | Native target evidence: ZWMT_I_StorageBinCompare.Warehouse | copy | yes |
-| `StorageBin` | /SCWM/LAGP-LGPLA | Native target evidence: ZWMT_I_StorageBinCompare.StorageBin | copy | yes |
-| `StorageType` | /SCWM/LAGP-LGTYP | Native target evidence: ZWMT_I_StorageBinCompare.StorageType | copy | yes |
-| `StorageSection` | /SCWM/LAGP-LGBER | Native target evidence: ZWMT_I_StorageBinCompare.StorageSection | copy | yes |
-| `BinType` | /SCWM/LAGP-LPTYP | Native target evidence: ZWMT_I_StorageBinCompare.BinType | copy | yes |
-| `RemovalBlocked` | /SCWM/LAGP-SKZUA | Native target evidence: ZWMT_I_StorageBinCompare.RemovalBlocked | copy | yes |
-| `PutawayBlocked` | /SCWM/LAGP-SKZUE | Native target evidence: ZWMT_I_StorageBinCompare.PutawayBlocked | copy | yes |
-| `InventoryBlocked` | /SCWM/LAGP-SKZSI | Native target evidence: ZWMT_I_StorageBinCompare.InventoryBlocked | copy | yes |
+| `Warehouse` | /SCWM/LAGP-LGNUM | Native target evidence: ZWMT_B_StorageBinCompare.Warehouse | copy | yes |
+| `StorageBin` | /SCWM/LAGP-LGPLA | Native target evidence: ZWMT_B_StorageBinCompare.StorageBin | copy | yes |
+| `StorageType` | /SCWM/LAGP-LGTYP | Native target evidence: ZWMT_B_StorageBinCompare.StorageType | copy | yes |
+| `StorageSection` | /SCWM/LAGP-LGBER | Native target evidence: ZWMT_B_StorageBinCompare.StorageSection | copy | yes |
+| `BinType` | /SCWM/LAGP-LPTYP | Native target evidence: ZWMT_B_StorageBinCompare.BinType | copy | yes |
+| `RemovalBlocked` | /SCWM/LAGP-SKZUA | Native target evidence: ZWMT_B_StorageBinCompare.RemovalBlocked | copy | yes |
+| `PutawayBlocked` | /SCWM/LAGP-SKZUE | Native target evidence: ZWMT_B_StorageBinCompare.PutawayBlocked | copy | yes |
+| `InventoryBlocked` | /SCWM/LAGP-SKZSI | Native target evidence: ZWMT_B_StorageBinCompare.InventoryBlocked | copy | yes |
 
 ## `ZWMX_C_BinSortingMig`
 
@@ -38,17 +38,17 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `Warehouse` | /SCWM/LAGPS-LGNUM | Native target evidence: ZWMT_I_BinSortingCompare.Warehouse | copy | yes |
-| `StorageBin` | /SCWM/LAGPS-LGPLA | Native target evidence: ZWMT_I_BinSortingCompare.StorageBin | copy | yes |
-| `ActivityArea` | /SCWM/LAGPS-AAREA | Native target evidence: ZWMT_I_BinSortingCompare.ActivityArea | copy | yes |
-| `Activity` | /SCWM/LAGPS-ACT_TYPE | Native target evidence: ZWMT_I_BinSortingCompare.Activity | copy | yes |
-| `StorageType` | /SCWM/LAGPS-LGTYP | Native target evidence: ZWMT_I_BinSortingCompare.StorageType | copy | yes |
-| `SortSequence` | /SCWM/LAGPS-REIHF | Native target evidence: ZWMT_I_BinSortingCompare.SortSequence | copy | yes |
+| `Warehouse` | /SCWM/LAGPS-LGNUM | Native target evidence: ZWMT_B_BinSortingCompare.Warehouse | copy | yes |
+| `StorageBin` | /SCWM/LAGPS-LGPLA | Native target evidence: ZWMT_B_BinSortingCompare.StorageBin | copy | yes |
+| `ActivityArea` | /SCWM/LAGPS-AAREA | Native target evidence: ZWMT_B_BinSortingCompare.ActivityArea | copy | yes |
+| `Activity` | /SCWM/LAGPS-ACT_TYPE | Native target evidence: ZWMT_B_BinSortingCompare.Activity | copy | yes |
+| `StorageType` | /SCWM/LAGPS-LGTYP | Native target evidence: ZWMT_B_BinSortingCompare.StorageType | copy | yes |
+| `SortSequence` | /SCWM/LAGPS-REIHF | Native target evidence: ZWMT_B_BinSortingCompare.SortSequence | copy | yes |
 
 ## Reconciliation
 
 - Counts: `ZWMX_C_StorageBinMigCount` (SAP source) vs `ZWMT_I_StorageBinCount` (S/4HANA) per `Warehouse`
-- Records and fields: `ZWMX_C_StorageBinMig` vs `ZWMT_I_StorageBinCompare` on `Warehouse`, `StorageBin`; compared: `StorageType`, `StorageSection`, `BinType`, `RemovalBlocked`, `PutawayBlocked`, `InventoryBlocked`
+- Records and fields: `ZWMX_C_StorageBinMig` vs `ZWMT_B_StorageBinCompare` on `Warehouse`, `StorageBin`; compared: `StorageType`, `StorageSection`, `BinType`, `RemovalBlocked`, `PutawayBlocked`, `InventoryBlocked`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product ewm_mig_src --module storage_bin --source ecc_counts.csv --target s4_counts.csv

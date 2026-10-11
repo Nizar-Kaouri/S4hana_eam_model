@@ -1,8 +1,10 @@
 # ModuPorter SAP migration templates
 
+Naming: **B_ = Basic, I_ = Interface (Composite), C_ = Consumption**. See [naming guidance](docs/NAMING.md).
+
 Commercial migration templates for EAM/PM, FI-AA, MM, QM, PS, PP, CO, FI and SD. **Release 1.0.0** contains 170 source extraction structures and 644 source/target CDS objects.
 
-Each domain has `<domain>_mig_ecc` for SAP ECC extraction and mappings, and `<domain>_mig_s4` for S/4HANA comparison. Source architecture: SAP table → Basic → Composite → Consumption. Posting uses the customer-selected SAP interface.
+Each domain has `<domain>_mig_ecc` for SAP ECC extraction and mappings, and `<domain>_mig_s4` for S/4HANA comparison. Source architecture: SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption. Posting uses the customer-selected SAP interface.
 
 See [customer downloads and bilingual manuals](docs/customer/commercial/README.md) and [product scope](PRODUCT_CHECKLIST.md). Individual module selection automatically includes required dependencies. Functional SAP annotations remain part of the templates.
 
@@ -65,12 +67,12 @@ packages/<product>/          one product
 ```
 
 **Migration products** (`kind` `migration-source` / `migration-target` in `library.json`) follow the SAP VDM
-naming: `I_` basic and composite, `C_` consumption (`layer_prefixes` in `library.json`). On ECC (`system: ecc`) the views are
+naming: `B_` Basic and `I_` Interface (Composite), `C_` consumption (`layer_prefixes` in `library.json`). On ECC (`system: ecc`) the views are
 classic CDS views on tables without DCL (validator rule M12); hard rule 1 reads *released `I_` views on
 S/4HANA, direct table reads on the ECC side*. Details: [`packages/eam_mig_ecc/README.md`](packages/eam_mig_ecc/README.md).
 
 Inside an analytics product, the architecture is the same everywhere (see `packages/eam/README.md`): basic
-`<P>I_*`, composite `<P>R_*` (cubes) and consumption `<P>C_*Q` (analytical queries). Every business
+`<P>B_*`, Interface (Composite) `<P>I_*` (cubes) and consumption `<P>C_*Q` (analytical queries). Every business
 object is a self-contained module. Cross-object associations live in link views that ship only when
 all their modules are selected. Hard dependencies are added automatically by the build.
 
@@ -105,6 +107,6 @@ abapGit expects one `.abapgit.xml` at the repository root.
 
 ## EWM TM FSCM EHS native drafts
 
-Version 0.3.0 extends the native drafts and replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → Basic → Composite → Consumption for 27 documented structure drafts, with native target comparison views. The 32-module coverage plan contains 72 structures: 45 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these eight products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
+Version 0.3.0 extends the native drafts and replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption for 27 documented structure drafts, with native target comparison views. The 32-module coverage plan contains 72 structures: 45 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these eight products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
 
 See [bilingual customer guides and VDM maps](docs/customer/new-domains/README.md). Industry solutions remain out of scope.

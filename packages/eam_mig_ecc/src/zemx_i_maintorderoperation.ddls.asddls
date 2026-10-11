@@ -13,9 +13,9 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintOrderOperation
-  as select from ZEMX_I_OrderOperationData as op
-    inner join ZEMX_I_OrderOperationValues as val on val.OrderRoutingNumber = op.OrderRoutingNumber and val.OrderOperationInternalID = op.OrderOperationInternalID
-    inner join ZEMX_I_OrderHeaderPlanning as plan on plan.OrderRoutingNumber = op.OrderRoutingNumber
+  as select from ZEMX_B_OrderOperationData as op
+    inner join ZEMX_B_OrderOperationValues as val on val.OrderRoutingNumber = op.OrderRoutingNumber and val.OrderOperationInternalID = op.OrderOperationInternalID
+    inner join ZEMX_B_OrderHeaderPlanning as plan on plan.OrderRoutingNumber = op.OrderRoutingNumber
 {
       @EndUserText.label: 'Maintenance Order'
   key plan.MaintenanceOrder          as MaintenanceOrder,

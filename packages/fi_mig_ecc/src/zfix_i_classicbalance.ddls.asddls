@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_ClassicBalance
-  as select from ZFIX_I_ClassicBalanceData as src
+  as select from ZFIX_B_ClassicBalanceData as src
 {
   key src.Ledger as Ledger,
   key src.RecordType as RecordType,

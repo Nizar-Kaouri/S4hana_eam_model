@@ -1,7 +1,7 @@
 // ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZSDV_R_SalesOrderItem: order value per sales organization and sold-to party.
+// Purpose: Analytical query on ZSDV_I_SalesOrderItem: order value per sales organization and sold-to party.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZSDV_R_SalesOrderItem applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZSDV_I_SalesOrderItem applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Sales Order Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZSDV_C_SalesOrderQ
   provider contract analytical_query
-  as projection on ZSDV_R_SalesOrderItem
+  as projection on ZSDV_I_SalesOrderItem
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

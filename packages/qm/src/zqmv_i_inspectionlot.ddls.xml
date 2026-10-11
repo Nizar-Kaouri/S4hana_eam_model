@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZQMV_I_INSPECTIONLOT</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Inspection Lot</DDTEXT>
+    <DDTEXT>Inspection Lot - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

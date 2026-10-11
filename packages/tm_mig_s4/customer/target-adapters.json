@@ -1,7 +1,7 @@
 {
   "ZTMX_C_TransportLocMig": {
     "module": "transport_location",
-    "compare_view": "ZTMT_I_TransportLocCompare",
+    "compare_view": "ZTMT_B_TransportLocCompare",
     "required_keys": [
       "LocationUUID"
     ],
@@ -17,7 +17,7 @@
   },
   "ZTMX_C_FreightUnitMig": {
     "module": "freight_unit",
-    "compare_view": "ZTMT_I_FreightUnitCompare",
+    "compare_view": "ZTMT_B_FreightUnitCompare",
     "required_keys": [
       "DocumentUUID"
     ],
@@ -33,7 +33,7 @@
   },
   "ZTMX_C_FreightOrderMig": {
     "module": "freight_order",
-    "compare_view": "ZTMT_I_FreightOrderCompare",
+    "compare_view": "ZTMT_B_FreightOrderCompare",
     "required_keys": [
       "DocumentUUID"
     ],
@@ -49,7 +49,7 @@
   },
   "ZTMX_C_FreightUnitItemMig": {
     "module": "freight_unit",
-    "compare_view": "ZTMT_I_FreightUnitItemCompare",
+    "compare_view": "ZTMT_B_FreightUnitItemCompare",
     "required_keys": [
       "ItemUUID"
     ],
@@ -63,8 +63,8 @@
     "native_table": "/SCMTMS/D_TORITE",
     "notes": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger. Map regenerated UUIDs before comparison.",
     "parent_scope": {
-      "source_parent_view": "ZTMX_I_FreightUnitData",
-      "target_parent_view": "ZTMT_I_FreightUnitCompare",
+      "source_parent_view": "ZTMX_B_FreightUnitData",
+      "target_parent_view": "ZTMT_B_FreightUnitCompare",
       "child_parent_field": "DocumentUUID",
       "parent_key": "DocumentUUID",
       "category": "FU",
@@ -74,7 +74,7 @@
   },
   "ZTMX_C_FreightUnitStopMig": {
     "module": "freight_unit",
-    "compare_view": "ZTMT_I_FreightUnitStopCompare",
+    "compare_view": "ZTMT_B_FreightUnitStopCompare",
     "required_keys": [
       "StopUUID"
     ],
@@ -88,8 +88,8 @@
     "native_table": "/SCMTMS/D_TORSTP",
     "notes": "Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending. Map regenerated UUIDs before comparison.",
     "parent_scope": {
-      "source_parent_view": "ZTMX_I_FreightUnitData",
-      "target_parent_view": "ZTMT_I_FreightUnitCompare",
+      "source_parent_view": "ZTMX_B_FreightUnitData",
+      "target_parent_view": "ZTMT_B_FreightUnitCompare",
       "child_parent_field": "DocumentUUID",
       "parent_key": "DocumentUUID",
       "category": "FU",
@@ -99,7 +99,7 @@
   },
   "ZTMX_C_FreightOrdItemMig": {
     "module": "freight_order",
-    "compare_view": "ZTMT_I_FreightOrdItemCompare",
+    "compare_view": "ZTMT_B_FreightOrdItemCompare",
     "required_keys": [
       "ItemUUID"
     ],
@@ -113,8 +113,8 @@
     "native_table": "/SCMTMS/D_TORITE",
     "notes": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT TO. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger. Map regenerated UUIDs before comparison.",
     "parent_scope": {
-      "source_parent_view": "ZTMX_I_FreightOrderData",
-      "target_parent_view": "ZTMT_I_FreightOrderCompare",
+      "source_parent_view": "ZTMX_B_FreightOrderData",
+      "target_parent_view": "ZTMT_B_FreightOrderCompare",
       "child_parent_field": "DocumentUUID",
       "parent_key": "DocumentUUID",
       "category": "TO",
@@ -124,7 +124,7 @@
   },
   "ZTMX_C_FreightOrdStopMig": {
     "module": "freight_order",
-    "compare_view": "ZTMT_I_FreightOrdStopCompare",
+    "compare_view": "ZTMT_B_FreightOrdStopCompare",
     "required_keys": [
       "StopUUID"
     ],
@@ -138,8 +138,8 @@
     "native_table": "/SCMTMS/D_TORSTP",
     "notes": "Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending. Map regenerated UUIDs before comparison.",
     "parent_scope": {
-      "source_parent_view": "ZTMX_I_FreightOrderData",
-      "target_parent_view": "ZTMT_I_FreightOrderCompare",
+      "source_parent_view": "ZTMX_B_FreightOrderData",
+      "target_parent_view": "ZTMT_B_FreightOrderCompare",
       "child_parent_field": "DocumentUUID",
       "parent_key": "DocumentUUID",
       "category": "TO",

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZQMX_I_QualityActivit
-  as select from ZQMX_I_QualityActivitData as src
+  as select from ZQMX_B_QualityActivitData as src
 {
   key src.QualityNotification as QualityNotification,
   key src.ActivityNumber as ActivityNumber,

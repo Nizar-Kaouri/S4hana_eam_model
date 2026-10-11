@@ -22,8 +22,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZEHX_I_IncidentData",
-      "ZEHX_I_IncidentActionData"
+      "ZEHX_B_IncidentData",
+      "ZEHX_B_IncidentActionData"
     ],
     "composite": [
       "ZEHX_I_Incident",
@@ -39,11 +39,11 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEHX_I_IncidentData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZEHX_B_IncidentData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZEHX_I_Incident": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZEHX_C_IncidentMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZEHX_C_IncidentMigCount": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
-    "ZEHX_I_IncidentActionData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZEHX_B_IncidentActionData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZEHX_I_IncidentAction": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZEHX_C_IncidentActionMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
   },

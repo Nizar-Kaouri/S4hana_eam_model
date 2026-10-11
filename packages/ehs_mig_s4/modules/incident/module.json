@@ -20,8 +20,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZEHT_I_IncidentCompare",
-      "ZEHT_I_IncidentActionCompare"
+      "ZEHT_B_IncidentCompare",
+      "ZEHT_B_IncidentActionCompare"
     ],
     "composite": [
       "ZEHT_I_IncidentCount"
@@ -32,9 +32,9 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEHT_I_IncidentCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZEHT_B_IncidentCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZEHT_I_IncidentCount": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
-    "ZEHT_I_IncidentActionCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
+    "ZEHT_B_IncidentActionCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
   },
   "link_views": [],
   "pending_structures": [

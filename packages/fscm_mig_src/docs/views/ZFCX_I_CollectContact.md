@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFCX_I_CollectContactData` |
+| Data source | `ZFCX_B_CollectContactData` |
 | Source file | `src/zfcx_i_collectcontact.ddls.asddls` |
 
 ## Purpose

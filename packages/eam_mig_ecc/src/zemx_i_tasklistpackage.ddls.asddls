@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_TaskListPackage
-  as select from ZEMX_I_TaskListPackageData as b
+  as select from ZEMX_B_TaskListPackageData as b
     inner join ZEMX_I_TaskListPackageLatest as v on v.TaskListType = b.TaskListType and v.TaskListGroup = b.TaskListGroup and v.TaskListGroupCounter = b.TaskListGroupCounter and v.OperationInternalID = b.OperationInternalID and v.MaintenancePackage = b.MaintenancePackage and v.VersionCounter = b.VersionCounter
 {
       @EndUserText.label: 'Task List Type'

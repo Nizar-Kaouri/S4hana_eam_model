@@ -24,81 +24,81 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZEAM_I_FuncLocText",
-      "ZEAM_I_FuncLoc",
-      "ZEAM_I_FuncLocVH"
+      "ZEAM_B_FuncLocText",
+      "ZEAM_B_FuncLoc",
+      "ZEAM_B_FuncLocVH"
     ],
     "composite": [
-      "ZEAM_R_FuncLoc"
+      "ZEAM_I_FuncLoc"
     ],
     "consumption": [
       "ZEAM_C_FuncLocQ"
     ],
     "access_controls": [
-      "ZEAM_I_FuncLocText",
-      "ZEAM_I_FuncLoc",
-      "ZEAM_I_FuncLocVH",
-      "ZEAM_R_FuncLoc"
+      "ZEAM_B_FuncLocText",
+      "ZEAM_B_FuncLoc",
+      "ZEAM_B_FuncLocVH",
+      "ZEAM_I_FuncLoc"
     ],
     "metadata_extensions": [
-      "ZEAM_R_FuncLoc"
+      "ZEAM_I_FuncLoc"
     ],
     "tests": [
       "ZEAM_CL_FUNCLOC_TEST"
     ]
   },
   "no_dcl_by_design": {
-    "ZEAM_C_FuncLocQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_FuncLoc (see GEN-Q01)."
+    "ZEAM_C_FuncLocQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_FuncLoc (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZEAM_I_EquipmentWithFuncLoc",
+      "name": "ZEAM_B_EquipmentWithFuncLoc",
       "requires_modules": [
         "equipment",
         "functional_location"
       ],
-      "access_control": "ZEAM_I_EquipmentWithFuncLoc"
+      "access_control": "ZEAM_B_EquipmentWithFuncLoc"
     },
     {
-      "name": "ZEAM_I_FuncLocWithEquipment",
+      "name": "ZEAM_B_FuncLocWithEquipment",
       "requires_modules": [
         "equipment",
         "functional_location"
       ],
-      "access_control": "ZEAM_I_FuncLocWithEquipment"
+      "access_control": "ZEAM_B_FuncLocWithEquipment"
     },
     {
-      "name": "ZEAM_I_FuncLocWithNotif",
+      "name": "ZEAM_B_FuncLocWithNotif",
       "requires_modules": [
         "functional_location",
         "maintenance_notification"
       ],
-      "access_control": "ZEAM_I_FuncLocWithNotif"
+      "access_control": "ZEAM_B_FuncLocWithNotif"
     },
     {
-      "name": "ZEAM_I_FuncLocWithOrder",
+      "name": "ZEAM_B_FuncLocWithOrder",
       "requires_modules": [
         "functional_location",
         "maintenance_order"
       ],
-      "access_control": "ZEAM_I_FuncLocWithOrder"
+      "access_control": "ZEAM_B_FuncLocWithOrder"
     },
     {
-      "name": "ZEAM_I_FuncLocWithMeasPoint",
+      "name": "ZEAM_B_FuncLocWithMeasPoint",
       "requires_modules": [
         "functional_location",
         "measuring_point"
       ],
-      "access_control": "ZEAM_I_FuncLocWithMeasPoint"
+      "access_control": "ZEAM_B_FuncLocWithMeasPoint"
     },
     {
-      "name": "ZEAM_R_MaintOrderWithTechObj",
+      "name": "ZEAM_I_MaintOrderWithTechObj",
       "requires_modules": [
         "equipment",
         "functional_location",
         "maintenance_order"
       ],
-      "access_control": "ZEAM_R_MaintOrderWithTechObj"
+      "access_control": "ZEAM_I_MaintOrderWithTechObj"
     },
     {
       "name": "ZEAM_C_MaintOrderTechObjQ",
@@ -110,13 +110,13 @@
       "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider cube (see GEN-Q01)."
     },
     {
-      "name": "ZEAM_R_DowntimeWithTechObj",
+      "name": "ZEAM_I_DowntimeWithTechObj",
       "requires_modules": [
         "equipment",
         "functional_location",
         "rpt_downtime"
       ],
-      "access_control": "ZEAM_R_DowntimeWithTechObj"
+      "access_control": "ZEAM_I_DowntimeWithTechObj"
     },
     {
       "name": "ZEAM_C_DowntimeTechObjQ",

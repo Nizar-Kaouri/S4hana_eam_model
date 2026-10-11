@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZQMT_I_InspectionLotCompare` |
+| Data source | `ZQMT_B_InspectionLotCompare` |
 | Source file | `src/zqmt_i_inspectionlotcount.ddls.asddls` |
 
 ## Purpose

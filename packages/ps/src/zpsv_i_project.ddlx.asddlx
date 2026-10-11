@@ -1,0 +1,30 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// UI annotations for ZPSV_I_Project. Partner layer: customers can override in #CUSTOMER.
+@Metadata.layer: #PARTNER
+@UI.headerInfo: {
+  typeName: 'Project',
+  typeNamePlural: 'Projects',
+  title: { type: #STANDARD, value: 'Project' }
+}
+annotate entity ZPSV_I_Project with
+{
+  @UI.lineItem: [ { position: 10, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 10 } ]
+  Project;
+  @UI.lineItem: [ { position: 20, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 20 } ]
+  ProjectProfileCode;
+  @UI.lineItem: [ { position: 30, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 30 } ]
+  ProcessingStatus;
+  @UI.lineItem: [ { position: 40, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 40 } ]
+  CompanyCode;
+  @UI.lineItem: [ { position: 50, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 50 } ]
+  ResponsibleCostCenter;
+  @UI.lineItem: [ { position: 60, importance: #MEDIUM } ]
+  ProjectStartDate;
+  @UI.lineItem: [ { position: 70, importance: #LOW } ]
+  ProjectEndDate;
+}

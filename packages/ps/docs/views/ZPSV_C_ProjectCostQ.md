@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZPSV_R_ProjectCost` |
+| Data source | `ZPSV_I_ProjectCost` |
 | Source file | `src/zpsv_c_projectcostq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZPSV_R_ProjectCost: actual cost and settlement per project and period.
+Analytical query on ZPSV_I_ProjectCost: actual cost and settlement per project and period.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZPSV_R_ProjectCost: actual cost and settlement per project a
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_ProjectCost (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_I_ProjectCost (see GEN-Q01).
 
 ## Example use case
 

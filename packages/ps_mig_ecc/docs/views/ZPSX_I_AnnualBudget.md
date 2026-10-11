@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPSX_I_AnnualBudgetData` |
+| Data source | `ZPSX_B_AnnualBudgetData` |
 | Source file | `src/zpsx_i_annualbudget.ddls.asddls` |
 
 ## Purpose

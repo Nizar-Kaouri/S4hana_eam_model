@@ -25,7 +25,7 @@
   "structures": [
     {
       "consumption_view": "ZEMX_C_ObjectPartnerMig",
-      "source_view": "ZEMX_I_ObjectPartner",
+      "source_view": "ZEMX_B_ObjectPartner",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
         "PartnerObjectKey",
@@ -74,13 +74,13 @@
   ],
   "not_migrated": [
     {
-      "view": "ZEMX_I_ObjectPartner",
+      "view": "ZEMX_B_ObjectPartner",
       "element": "ObjectNumber",
       "source": "IHPA-OBJNR",
       "reason": "skip:rebuilt on S/4HANA from the object key"
     },
     {
-      "view": "ZEMX_I_ObjectPartner",
+      "view": "ZEMX_B_ObjectPartner",
       "element": "IsMarkedForDeletion",
       "source": "IHPA-KZLOESCH",
       "reason": "scope"

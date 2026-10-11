@@ -31,13 +31,13 @@ class BuildBundleTest(unittest.TestCase):
         _, one = bb.build(sel("eam:equipment"), "ZACME_", "ZACME_VDM", self.tmp / "a.zip")
         self.assertEqual(one["bridge_links_included"], [])
         _, two = bb.build(sel("eam:equipment", "fi_aa:fixed_asset"), "ZACME_", "ZACME_VDM", self.tmp / "b.zip")
-        self.assertEqual(two["bridge_links_included"], ["ZBRG_I_EquipmentWithAsset"])
-        self.assertIn("ZACME_I_EquipmentWithAsset", self.names(two))
+        self.assertEqual(two["bridge_links_included"], ["ZBRG_B_EquipmentWithAsset"])
+        self.assertIn("ZACME_B_EquipmentWithAsset", self.names(two))
 
     def test_hard_dependency_enables_bridge(self):
         _, m = bb.build(sel("eam:equipment", "fi_aa:rpt_asset_balance"), "ZACME_", "ZACME_VDM", self.tmp / "c.zip")
         self.assertEqual(m["products"]["fi_aa"]["auto_included_dependencies"], ["asset_transaction"])
-        self.assertIn("ZBRG_R_EquipmentAssetValue", m["bridge_links_included"])
+        self.assertIn("ZBRG_I_EquipmentAssetValue", m["bridge_links_included"])
 
     def test_all_products_one_prefix_no_leftovers(self):
         out, m = bb.build(sel(all_=True), "ZACME_", "ZACME_VDM", self.tmp / "d.zip", with_tests=True)
@@ -52,8 +52,8 @@ class BuildBundleTest(unittest.TestCase):
     def test_order_puts_bridge_after_its_sources(self):
         _, m = bb.build(sel("eam:equipment", "fi_aa:fixed_asset"), "ZACME_", "ZACME_VDM", self.tmp / "e.zip")
         pos = {(o["type"], o["name"]): i for i, o in enumerate(m["objects"])}
-        self.assertLess(pos[("DDLS", "ZACME_I_FixedAsset")], pos[("DDLS", "ZACME_I_EquipmentWithAsset")])
-        self.assertLess(pos[("DCLS", "ZACME_I_Equipment")], pos[("DCLS", "ZACME_I_EquipmentWithAsset")])
+        self.assertLess(pos[("DDLS", "ZACME_B_FixedAsset")], pos[("DDLS", "ZACME_B_EquipmentWithAsset")])
+        self.assertLess(pos[("DCLS", "ZACME_B_Equipment")], pos[("DCLS", "ZACME_B_EquipmentWithAsset")])
 
     def test_selection_errors(self):
         for bad in (sel("equipment"), sel("eam:nope"), sel("bridge:x"), sel()):
@@ -63,7 +63,7 @@ class BuildBundleTest(unittest.TestCase):
     def test_namespace_prefix(self):
         out, m = bb.build(sel("eam:equipment", "fi_aa:fixed_asset"), "/ACME/", "/ACME/VDM", self.tmp / "g.zip")
         with zipfile.ZipFile(out) as zf:
-            self.assertIn("src/#acme#i_equipmentwithasset.ddls.asddls", zf.namelist())
+            self.assertIn("src/#acme#b_equipmentwithasset.ddls.asddls", zf.namelist())
 
 
 if __name__ == "__main__":

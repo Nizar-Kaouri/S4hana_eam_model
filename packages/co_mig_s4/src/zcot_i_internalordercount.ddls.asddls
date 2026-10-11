@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZCOT_I_InternalOrderCount
-  as select from ZCOT_I_InternalOrderCompare as src
+  as select from ZCOT_B_InternalOrderCompare as src
 {
   key src.InternalOrder as InternalOrder,
       count( * ) as RecordCount

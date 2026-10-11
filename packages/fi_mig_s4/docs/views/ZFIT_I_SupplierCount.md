@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZFIT_I_SupplierCompare` |
+| Data source | `ZFIT_B_SupplierCompare` |
 | Source file | `src/zfit_i_suppliercount.ddls.asddls` |
 
 ## Purpose

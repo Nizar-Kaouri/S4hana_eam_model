@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZMMT_I_MaterialCompare"
+      "ZMMT_B_MaterialCompare"
     ],
     "composite": [
       "ZMMT_I_MaterialCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZMMT_I_MaterialCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMT_B_MaterialCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMT_I_MaterialCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_AllocSegment
-  as select from ZCOX_I_AllocSegmentData as src
+  as select from ZCOX_B_AllocSegmentData as src
 {
   key src.AllocationTable as AllocationTable,
   key src.AllocationCycle as AllocationCycle,

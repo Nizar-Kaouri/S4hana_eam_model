@@ -23,9 +23,9 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZTMX_I_FreightUnitData",
-      "ZTMX_I_FreightUnitIteData",
-      "ZTMX_I_FreightUnitStoData"
+      "ZTMX_B_FreightUnitData",
+      "ZTMX_B_FreightUnitIteData",
+      "ZTMX_B_FreightUnitStoData"
     ],
     "composite": [
       "ZTMX_I_FreightUnit",
@@ -43,14 +43,14 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZTMX_I_FreightUnitData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZTMX_B_FreightUnitData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZTMX_I_FreightUnit": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZTMX_C_FreightUnitMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZTMX_C_FreightUnitMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
-    "ZTMX_I_FreightUnitIteData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZTMX_B_FreightUnitIteData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZTMX_I_FreightUnitItem": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZTMX_C_FreightUnitItemMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
-    "ZTMX_I_FreightUnitStoData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZTMX_B_FreightUnitStoData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZTMX_I_FreightUnitStop": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZTMX_C_FreightUnitStopMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
   },

@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZQMV_I_QUALITYNOTIF</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Quality Notification</DDTEXT>
+    <DDTEXT>Quality Notification - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

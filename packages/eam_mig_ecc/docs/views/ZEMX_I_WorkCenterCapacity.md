@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_WorkCenterCapacityData` |
+| Data source | `ZEMX_B_WorkCenterCapacityData` |
 | Source file | `src/zemx_i_workcentercapacity.ddls.asddls` |
 
 ## Purpose
@@ -25,7 +25,7 @@ WorkCenterCapacity migration business data
 
 ## Associations defined here
 
-- `_Business` → `ZEMX_I_WorkCenterHeader` [0..1]
+- `_Business` → `ZEMX_B_WorkCenterHeader` [0..1]
 
 ## Access control
 

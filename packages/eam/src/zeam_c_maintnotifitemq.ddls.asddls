@@ -1,7 +1,7 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZEAM_R_MaintNotifItem. Damage codes per planning plant (Pareto).
+// Purpose: Analytical query on ZEAM_I_MaintNotifItem. Damage codes per planning plant (Pareto).
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_R_MaintNotifItem applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_I_MaintNotifItem applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Damage Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZEAM_C_MaintNotifItemQ
   provider contract analytical_query
-  as projection on ZEAM_R_MaintNotifItem
+  as projection on ZEAM_I_MaintNotifItem
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

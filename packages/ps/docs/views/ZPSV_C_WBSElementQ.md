@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZPSV_R_WBSElement` |
+| Data source | `ZPSV_I_WBSElement` |
 | Source file | `src/zpsv_c_wbselementq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZPSV_R_WBSElement: WBS elements per company code and project.
+Analytical query on ZPSV_I_WBSElement: WBS elements per company code and project.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZPSV_R_WBSElement: WBS elements per company code and project
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_WBSElement (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_I_WBSElement (see GEN-Q01).
 
 ## Example use case
 

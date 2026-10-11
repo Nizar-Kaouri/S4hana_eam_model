@@ -160,7 +160,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZEMX_C_MaintOrderMigCount` (ECC) vs `ZEMT_I_MaintOrderCount` (S/4HANA) per `MaintenanceOrderType`, `MaintenancePlanningPlant`
-- Records and fields: `ZEMX_C_MaintOrderMig` vs `ZEMT_I_MaintOrderCompare` on `MaintenanceOrder`; compared: `MaintenanceOrderType`, `MaintenanceActivityType`, `MaintPriority`, `MaintOrdBasicStartDate`, `MaintOrdBasicEndDate`, `MaintenancePlanningPlant`, `MainWorkCenter`, `CostCenter`, `Equipment`, `FunctionalLocation`
+- Records and fields: `ZEMX_C_MaintOrderMig` vs `ZEMT_B_MaintOrderCompare` on `MaintenanceOrder`; compared: `MaintenanceOrderType`, `MaintenanceActivityType`, `MaintPriority`, `MaintOrdBasicStartDate`, `MaintOrdBasicEndDate`, `MaintenancePlanningPlant`, `MainWorkCenter`, `CostCenter`, `Equipment`, `FunctionalLocation`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module maintenance_order --source ecc_counts.csv --target s4_counts.csv

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_CapacityHeader
-  as select from ZEMX_I_CapacityHeaderData as b
+  as select from ZEMX_B_CapacityHeaderData as b
 {
       @EndUserText.label: 'Capacity Internal I D'
   key b.CapacityInternalID as CapacityInternalID,

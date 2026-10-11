@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | WBS Element |
+| Description | WBS Element - Cube |
 | Module | `wbs_element` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_WBSElement` |
+| Data category | #CUBE |
+| Data source | `ZPSV_B_WBSElement` |
 | Source file | `src/zpsv_i_wbselement.ddls.asddls` |
 
 ## Purpose
 
-One row per WBS element: external WBS number, description, project, organizational assignment, planning / account assignment / billing / statistical flags and planned dates; dimension for project cost cubes.
+WBS element cube: number of (account-assignable) WBS elements per project, company code and cost center.
 
 ## Keys
 
@@ -23,16 +23,16 @@ One row per WBS element: external WBS number, description, project, organization
 
 ## Associations defined here
 
-- `_CompanyCode` → `I_CompanyCode` [0..1]
+- `_WBSElement` → `ZPSV_B_WBSElement` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_WBSElement`.
+Role inherits the conditions of `ZPSV_B_WBSElement`.
 
 ## Example use case
 
-Account-assignable WBS elements of a project; WBS elements per responsible cost center.
+Project structure size per company code.
 
 ## Open verification items
 
-`PS-010`, `PS-011`, `PS-012`, `PS-D02` - see `BATCH_REPORT.md`.
+none

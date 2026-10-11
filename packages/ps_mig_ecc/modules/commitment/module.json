@@ -19,7 +19,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZPSX_I_CommitmentData"
+      "ZPSX_B_CommitmentData"
     ],
     "composite": [
       "ZPSX_I_Commitment"
@@ -33,7 +33,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPSX_I_CommitmentData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_CommitmentData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_I_Commitment": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_C_CommitmentMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_C_CommitmentMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."

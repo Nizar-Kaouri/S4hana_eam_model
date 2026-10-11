@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZCOX_I_ProfitCenterTeData` |
+| Data source | `ZCOX_B_ProfitCenterTeData` |
 | Source file | `src/zcox_i_profitcenterte.ddls.asddls` |
 
 ## Purpose

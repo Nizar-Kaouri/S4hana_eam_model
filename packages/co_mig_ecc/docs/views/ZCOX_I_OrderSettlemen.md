@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZCOX_I_OrderSettlemenData` |
+| Data source | `ZCOX_B_OrderSettlemenData` |
 | Source file | `src/zcox_i_ordersettlemen.ddls.asddls` |
 
 ## Purpose

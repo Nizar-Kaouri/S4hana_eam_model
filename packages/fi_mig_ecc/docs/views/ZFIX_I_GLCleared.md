@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFIX_I_GLClearedData` |
+| Data source | `ZFIX_B_GLClearedData` |
 | Source file | `src/zfix_i_glcleared.ddls.asddls` |
 
 ## Purpose

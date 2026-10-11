@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintPlanCallHistory` |
+| Data source | `ZEMX_B_MaintPlanCallHistory` |
 | Source file | `src/zemx_i_maintplanlastcall.ddls.asddls` |
 
 ## Purpose

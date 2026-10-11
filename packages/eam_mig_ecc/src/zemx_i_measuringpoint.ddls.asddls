@@ -13,7 +13,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MeasuringPoint
-  as select from ZEMX_I_MeasuringPointHeader as mp
+  as select from ZEMX_B_MeasuringPointHeader as mp
 {
       @EndUserText.label: 'Measuring Point'
   key mp.MeasuringPoint              as MeasuringPoint,

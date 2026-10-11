@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZSDV_R_OpenSalesOrder` |
+| Data source | `ZSDV_I_OpenSalesOrder` |
 | Source file | `src/zsdv_c_opensalesorderq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZSDV_R_OpenSalesOrder: order backlog per sales organization and age bucket.
+Analytical query on ZSDV_I_OpenSalesOrder: order backlog per sales organization and age bucket.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZSDV_R_OpenSalesOrder: order backlog per sales organization 
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_OpenSalesOrder (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_I_OpenSalesOrder (see GEN-Q01).
 
 ## Example use case
 

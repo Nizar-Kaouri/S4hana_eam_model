@@ -1,0 +1,12 @@
+// ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Inspection Lot with Product'
+@MappingRole: true
+define role ZBRG_I_InspLotWithProduct {
+  grant
+    select
+      on
+        ZBRG_I_InspLotWithProduct
+          where
+            inheriting conditions from entity ZQMV_I_InspectionLot;
+}

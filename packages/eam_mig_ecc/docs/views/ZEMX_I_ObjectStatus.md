@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #FACT |
-| Data source | `ZEMX_I_ObjectStatusEntry` |
+| Data source | `ZEMX_B_ObjectStatusEntry` |
 | Source file | `src/zemx_i_objectstatus.ddls.asddls` |
 
 ## Purpose

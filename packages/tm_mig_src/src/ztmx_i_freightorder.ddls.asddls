@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZTMX_I_FreightOrder
-  as select from ZTMX_I_FreightOrderData as src
+  as select from ZTMX_B_FreightOrderData as src
 {
   key src.DocumentUUID as DocumentUUID,
       src.DocumentID as DocumentID,

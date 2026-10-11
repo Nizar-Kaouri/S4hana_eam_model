@@ -1,7 +1,7 @@
 // ZPPV PP VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZPPV_R_OrderSchedule: open and late orders per plant and delay bucket.
+// Purpose: Analytical query on ZPPV_I_OrderSchedule: open and late orders per plant and delay bucket.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZPPV_R_OrderSchedule applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZPPV_I_OrderSchedule applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Production Schedule Adherence'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZPPV_C_OrderScheduleQ
   provider contract analytical_query
-  as projection on ZPPV_R_OrderSchedule
+  as projection on ZPPV_I_OrderSchedule
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

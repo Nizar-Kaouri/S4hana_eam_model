@@ -1,7 +1,6 @@
 // ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_JournalEntryItem.
-// TODO-VERIFY[H] FI-D02: I_JournalEntryItem has an access control role and every element it references is projected by ZFIV_I_GLJournalItem
-@EndUserText.label: 'G/L Journal Item'
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'G/L Journal Item - Cube'
 @MappingRole: true
 define role ZFIV_I_GLJournalItem {
   grant
@@ -9,5 +8,5 @@ define role ZFIV_I_GLJournalItem {
       on
         ZFIV_I_GLJournalItem
           where
-            inheriting conditions from entity I_JournalEntryItem;
+            inheriting conditions from entity ZFIV_B_GLJournalItem;
 }

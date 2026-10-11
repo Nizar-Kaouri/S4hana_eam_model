@@ -19,7 +19,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZTMX_I_TransportLocData"
+      "ZTMX_B_TransportLocData"
     ],
     "composite": [
       "ZTMX_I_TransportLoc"
@@ -33,7 +33,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZTMX_I_TransportLocData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZTMX_B_TransportLocData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZTMX_I_TransportLoc": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZTMX_C_TransportLocMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZTMX_C_TransportLocMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."

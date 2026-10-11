@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZFIT_I_SupplierCount
-  as select from ZFIT_I_SupplierCompare as src
+  as select from ZFIT_B_SupplierCompare as src
 {
   key src.Supplier as Supplier,
       count( * ) as RecordCount

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_CostActual
-  as select from ZCOX_I_CostActualData as src
+  as select from ZCOX_B_CostActualData as src
 {
   key src.ControllingArea as ControllingArea,
   key src.COAccountingDocument as COAccountingDocument,

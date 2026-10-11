@@ -251,7 +251,7 @@
     "source_count_view": "ZFAX_C_AssetMigCount",
     "compare": {
       "source_view": "ZFAX_C_AssetMig",
-      "target_view": "ZFAT_I_AssetCompare",
+      "target_view": "ZFAT_B_AssetCompare",
       "key": [
         "CompanyCode",
         "MasterFixedAsset",

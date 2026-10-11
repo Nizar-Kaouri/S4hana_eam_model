@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_ProjectCost
-  as select from ZPSX_I_ProjectCostData as src
+  as select from ZPSX_B_ProjectCostData as src
 {
   key src.ControllingArea as ControllingArea,
   key src.COAccountingDocument as COAccountingDocument,

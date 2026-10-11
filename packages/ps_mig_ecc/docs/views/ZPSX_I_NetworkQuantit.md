@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPSX_I_NetworkQuantitData` |
+| Data source | `ZPSX_B_NetworkQuantitData` |
 | Source file | `src/zpsx_i_networkquantit.ddls.asddls` |
 
 ## Purpose

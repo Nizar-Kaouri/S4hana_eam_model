@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZSDX_I_DeliveryItemData` |
+| Data source | `ZSDX_B_DeliveryItemData` |
 | Source file | `src/zsdx_i_deliveryitem.ddls.asddls` |
 
 ## Purpose

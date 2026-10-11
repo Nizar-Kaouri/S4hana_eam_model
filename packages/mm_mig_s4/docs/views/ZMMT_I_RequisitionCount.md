@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZMMT_I_RequisitionCompare` |
+| Data source | `ZMMT_B_RequisitionCompare` |
 | Source file | `src/zmmt_i_requisitioncount.ddls.asddls` |
 
 ## Purpose

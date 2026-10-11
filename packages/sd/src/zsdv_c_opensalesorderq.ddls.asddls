@@ -1,7 +1,7 @@
 // ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZSDV_R_OpenSalesOrder: order backlog per sales organization and age bucket.
+// Purpose: Analytical query on ZSDV_I_OpenSalesOrder: order backlog per sales organization and age bucket.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZSDV_R_OpenSalesOrder applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZSDV_I_OpenSalesOrder applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Open Sales Order Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZSDV_C_OpenSalesOrderQ
   provider contract analytical_query
-  as projection on ZSDV_R_OpenSalesOrder
+  as projection on ZSDV_I_OpenSalesOrder
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

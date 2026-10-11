@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZCOT_I_InternalOrderCompare` |
+| Data source | `ZCOT_B_InternalOrderCompare` |
 | Source file | `src/zcot_i_internalordercount.ddls.asddls` |
 
 ## Purpose

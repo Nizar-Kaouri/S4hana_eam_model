@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFIX_I_APClearedData` |
+| Data source | `ZFIX_B_APClearedData` |
 | Source file | `src/zfix_i_apcleared.ddls.asddls` |
 
 ## Purpose

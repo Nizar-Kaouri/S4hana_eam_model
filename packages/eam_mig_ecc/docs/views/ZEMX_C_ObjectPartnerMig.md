@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_ObjectPartner` |
+| Data source | `ZEMX_B_ObjectPartner` |
 | Source file | `src/zemx_c_objectpartnermig.ddls.asddls` |
 
 ## Purpose

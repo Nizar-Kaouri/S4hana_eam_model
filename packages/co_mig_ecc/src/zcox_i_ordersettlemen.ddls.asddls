@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_OrderSettlemen
-  as select from ZCOX_I_OrderSettlemenData as src
+  as select from ZCOX_B_OrderSettlemenData as src
 {
   key src.ObjectNumber as ObjectNumber,
   key src.DistributionRuleGroup as DistributionRuleGroup,

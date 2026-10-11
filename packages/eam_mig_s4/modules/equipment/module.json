@@ -16,7 +16,7 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZEMT_I_EquipmentCompare"
+      "ZEMT_B_EquipmentCompare"
     ],
     "composite": [
       "ZEMT_I_EquipmentCount"
@@ -27,7 +27,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEMT_I_EquipmentCompare": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMT_B_EquipmentCompare": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMT_I_EquipmentCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "migration_source_module": "eam_mig_ecc:equipment",

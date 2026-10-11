@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFCX_I_CreditSegment
-  as select from ZFCX_I_CreditSegmentData as src
+  as select from ZFCX_B_CreditSegmentData as src
 {
   key src.BusinessPartner as BusinessPartner,
   key src.CreditSegment as CreditSegment,

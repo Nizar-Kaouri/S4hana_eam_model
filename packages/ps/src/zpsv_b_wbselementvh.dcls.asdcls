@@ -1,0 +1,12 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'WBS Element - Value Help'
+@MappingRole: true
+define role ZPSV_B_WBSElementVH {
+  grant
+    select
+      on
+        ZPSV_B_WBSElementVH
+          where
+            inheriting conditions from entity ZPSV_B_WBSElement;
+}

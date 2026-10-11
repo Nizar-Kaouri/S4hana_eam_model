@@ -20,8 +20,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZFCT_I_DisputeCaseCompare",
-      "ZFCT_I_CaseAttributeCompare"
+      "ZFCT_B_DisputeCaseCompare",
+      "ZFCT_B_CaseAttributeCompare"
     ],
     "composite": [
       "ZFCT_I_DisputeCaseCount"
@@ -32,9 +32,9 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFCT_I_DisputeCaseCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCT_B_DisputeCaseCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZFCT_I_DisputeCaseCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
-    "ZFCT_I_CaseAttributeCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
+    "ZFCT_B_CaseAttributeCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
   "link_views": [],
   "pending_structures": [

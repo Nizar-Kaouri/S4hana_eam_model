@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZEAM_I_TASKLISTOPERATION</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Maintenance Task List Operation</DDTEXT>
+    <DDTEXT>Task List Operation - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

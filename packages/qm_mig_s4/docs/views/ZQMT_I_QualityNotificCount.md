@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZQMT_I_QualityNotificCompare` |
+| Data source | `ZQMT_B_QualityNotificCompare` |
 | Source file | `src/zqmt_i_qualitynotificcount.ddls.asddls` |
 
 ## Purpose

@@ -13,7 +13,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintenancePlan
-  as select from ZEMX_I_MaintenancePlanHeader as pl
+  as select from ZEMX_B_MaintenancePlanHeader as pl
   association [0..1] to ZEMX_I_MaintPlanLastCall as _LastCall on $projection.MaintenancePlan = _LastCall.MaintenancePlan
 {
       @EndUserText.label: 'Maintenance Plan'

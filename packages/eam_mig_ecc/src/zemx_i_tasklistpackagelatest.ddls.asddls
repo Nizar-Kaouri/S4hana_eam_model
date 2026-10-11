@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_TaskListPackageLatest
-  as select from ZEMX_I_TaskListPackageData as b
+  as select from ZEMX_B_TaskListPackageData as b
 {
       @EndUserText.label: 'Task List Type'
   key b.TaskListType as TaskListType,

@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZFCT_I_CollectContactCompare` |
+| Data source | `ZFCT_B_CollectContactCompare` |
 | Source file | `src/zfct_i_collectcontactcount.ddls.asddls` |
 
 ## Purpose

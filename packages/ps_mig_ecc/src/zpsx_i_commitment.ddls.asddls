@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_Commitment
-  as select from ZPSX_I_CommitmentData as src
+  as select from ZPSX_B_CommitmentData as src
 {
   key src.ObjectNumber as ObjectNumber,
   key src.FiscalYear as FiscalYear,

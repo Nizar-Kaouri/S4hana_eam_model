@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for the component view.
+// TODO-VERIFY[H] MO-D03: the SAP component view has a role and every element it references is projected by ZEAM_B_MaintOrderComponent
+@EndUserText.label: 'Maintenance Order Component'
+@MappingRole: true
+define role ZEAM_B_MaintOrderComponent {
+  grant
+    select
+      on
+        ZEAM_B_MaintOrderComponent
+          where
+            inheriting conditions from entity I_MaintenanceOrderComponent;
+}

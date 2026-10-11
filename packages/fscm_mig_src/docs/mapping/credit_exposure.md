@@ -19,17 +19,17 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `BusinessPartner` | UKM_TOTALS-PARTNER | Native target evidence: ZFCT_I_CreditExposureCompare.BusinessPartner | information only | yes |
-| `CreditSegment` | UKM_TOTALS-CREDIT_SGMNT | Native target evidence: ZFCT_I_CreditExposureCompare.CreditSegment | information only | yes |
-| `ExposureCategory` | UKM_TOTALS-COMM_TYP | Native target evidence: ZFCT_I_CreditExposureCompare.ExposureCategory | information only | yes |
-| `Currency` | UKM_TOTALS-CURRENCY | Native target evidence: ZFCT_I_CreditExposureCompare.Currency | information only | yes |
-| `ExposureAmount` | UKM_TOTALS-AMOUNT | Native target evidence: ZFCT_I_CreditExposureCompare.ExposureAmount | information only | yes |
-| `SecuredAmount` | UKM_TOTALS-AMOUNT_SEC | Native target evidence: ZFCT_I_CreditExposureCompare.SecuredAmount | information only | yes |
+| `BusinessPartner` | UKM_TOTALS-PARTNER | Native target evidence: ZFCT_B_CreditExposureCompare.BusinessPartner | information only | yes |
+| `CreditSegment` | UKM_TOTALS-CREDIT_SGMNT | Native target evidence: ZFCT_B_CreditExposureCompare.CreditSegment | information only | yes |
+| `ExposureCategory` | UKM_TOTALS-COMM_TYP | Native target evidence: ZFCT_B_CreditExposureCompare.ExposureCategory | information only | yes |
+| `Currency` | UKM_TOTALS-CURRENCY | Native target evidence: ZFCT_B_CreditExposureCompare.Currency | information only | yes |
+| `ExposureAmount` | UKM_TOTALS-AMOUNT | Native target evidence: ZFCT_B_CreditExposureCompare.ExposureAmount | information only | yes |
+| `SecuredAmount` | UKM_TOTALS-AMOUNT_SEC | Native target evidence: ZFCT_B_CreditExposureCompare.SecuredAmount | information only | yes |
 
 ## Reconciliation
 
 - Counts: `ZFCX_C_CreditExposureMigCount` (SAP source) vs `ZFCT_I_CreditExposureCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZFCX_C_CreditExposureMig` vs `ZFCT_I_CreditExposureCompare` on `BusinessPartner`, `CreditSegment`, `ExposureCategory`, `Currency`; compared: `ExposureAmount`, `SecuredAmount`
+- Records and fields: `ZFCX_C_CreditExposureMig` vs `ZFCT_B_CreditExposureCompare` on `BusinessPartner`, `CreditSegment`, `ExposureCategory`, `Currency`; compared: `ExposureAmount`, `SecuredAmount`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fscm_mig_src --module credit_exposure --source ecc_counts.csv --target s4_counts.csv

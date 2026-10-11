@@ -1,7 +1,7 @@
 // ZFAA FI-AA VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZFAA_R_AssetTransaction. Acquisitions, retirements, transfers and depreciation per company code and period.
+// Purpose: Analytical query on ZFAA_I_AssetTransaction. Acquisitions, retirements, transfers and depreciation per company code and period.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZFAA_R_AssetTransaction applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZFAA_I_AssetTransaction applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Asset Transaction Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZFAA_C_AssetTransactionQ
   provider contract analytical_query
-  as projection on ZFAA_R_AssetTransaction
+  as projection on ZFAA_I_AssetTransaction
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

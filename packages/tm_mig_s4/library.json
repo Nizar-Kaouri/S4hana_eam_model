@@ -20,9 +20,9 @@
   "migration_pair": "tm_mig_src",
   "map_title": "Transportation Management native extraction",
   "map_area": "Native SAP tables",
-  "map_initial": "ZTMT_I_TransportLocCompare",
+  "map_initial": "ZTMT_B_TransportLocCompare",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

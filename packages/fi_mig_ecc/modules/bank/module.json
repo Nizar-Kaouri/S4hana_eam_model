@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZFIX_I_BankData"
+      "ZFIX_B_BankData"
     ],
     "composite": [
       "ZFIX_I_Bank"
@@ -31,7 +31,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFIX_I_BankData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_BankData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_I_Bank": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_C_BankMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_C_BankMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."

@@ -49,7 +49,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZSDX_C_DeliveryMigCount` (ECC) vs `ZSDT_I_DeliveryCount` (S/4HANA) per `DeliveryDocument`
-- Records and fields: `ZSDX_C_DeliveryMig` vs `ZSDT_I_DeliveryCompare` on `DeliveryDocument`; compared: `DeliveryDocumentType`, `ShippingPoint`, `ShipToParty`
+- Records and fields: `ZSDX_C_DeliveryMig` vs `ZSDT_B_DeliveryCompare` on `DeliveryDocument`; compared: `DeliveryDocumentType`, `ShippingPoint`, `ShipToParty`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product sd_mig_ecc --module outbound_delivery --source ecc_counts.csv --target s4_counts.csv

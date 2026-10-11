@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPPX_I_RoutingSelectiData` |
+| Data source | `ZPPX_B_RoutingSelectiData` |
 | Source file | `src/zppx_i_routingselecti.ddls.asddls` |
 
 ## Purpose

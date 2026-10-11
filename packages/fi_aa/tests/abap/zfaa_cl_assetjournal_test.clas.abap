@@ -24,7 +24,7 @@ ENDCLASS.
 CLASS zfaa_cl_assetjournal_test IMPLEMENTATION.
 
   METHOD class_setup.
-    environment = cl_cds_test_environment=>create( i_for_entity = 'ZFAA_I_ASSETJOURNALITEM' ).
+    environment = cl_cds_test_environment=>create( i_for_entity = 'ZFAA_B_ASSETJOURNALITEM' ).
   ENDMETHOD.
 
 
@@ -48,7 +48,7 @@ CLASS zfaa_cl_assetjournal_test IMPLEMENTATION.
       ( accountingdocument = '0100000004' ledgergllineitem = '000001' businesstransactiontype = 'AFAB' ) ).
     environment->insert_test_data( i_data = items ).
 
-    SELECT FROM zfaa_i_assetjournalitem
+    SELECT FROM zfaa_b_assetjournalitem
       FIELDS accountingdocument, assetvaluecategory
       ORDER BY accountingdocument
       INTO TABLE @DATA(result).
@@ -74,7 +74,7 @@ CLASS zfaa_cl_assetjournal_test IMPLEMENTATION.
       ( accountingdocument = '0100000011' ledgergllineitem = '000001' masterfixedasset = '000000100002' ) ).
     environment->insert_test_data( i_data = items ).
 
-    SELECT FROM zfaa_i_assetjournalitem
+    SELECT FROM zfaa_b_assetjournalitem
       FIELDS accountingdocument
       INTO TABLE @DATA(result).
 

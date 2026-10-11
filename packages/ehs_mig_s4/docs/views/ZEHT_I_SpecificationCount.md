@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZEHT_I_SpecificationCompare` |
+| Data source | `ZEHT_B_SpecificationCompare` |
 | Source file | `src/zeht_i_specificationcount.ddls.asddls` |
 
 ## Purpose

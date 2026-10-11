@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFAX_I_AssetPosting
-  as select from ZFAX_I_AssetPostingData as src
+  as select from ZFAX_B_AssetPostingData as src
 {
   key src.CompanyCode as CompanyCode,
   key src.MasterFixedAsset as MasterFixedAsset,

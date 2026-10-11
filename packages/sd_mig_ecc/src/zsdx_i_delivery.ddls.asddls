@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZSDX_I_Delivery
-  as select from ZSDX_I_DeliveryData as src
+  as select from ZSDX_B_DeliveryData as src
 {
   key src.DeliveryDocument as DeliveryDocument,
       src.DeliveryDocumentType as DeliveryDocumentType,

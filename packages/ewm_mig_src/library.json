@@ -22,13 +22,13 @@
   "migration_pair": "ewm_mig_s4",
   "map_title": "Extended Warehouse Management native extraction",
   "map_area": "Native SAP tables",
-  "map_initial": "ZWMX_I_StorageBinData",
+  "map_initial": "ZWMX_B_StorageBinData",
   "map_external_title": "SAP system tables",
   "draft_tested_release": "none (native DDIC and SAP activation pending)",
   "map_release": "Native application installation required; never activated on SAP",
   "map_external_sub": "Exact release and DDIC verification pending",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

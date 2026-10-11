@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZMMV_R_MaterialStock` |
+| Data source | `ZMMV_I_MaterialStock` |
 | Source file | `src/zmmv_c_materialstockq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZMMV_R_MaterialStock: stock per plant and material.
+Analytical query on ZMMV_I_MaterialStock: stock per plant and material.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZMMV_R_MaterialStock: stock per plant and material.
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_MaterialStock (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_MaterialStock (see GEN-Q01).
 
 ## Example use case
 

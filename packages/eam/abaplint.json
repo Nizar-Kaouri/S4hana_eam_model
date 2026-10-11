@@ -20,11 +20,11 @@
     "cds_association_name": true,
     "cds_field_order": true,
     "cds_naming": {
-      "basicInterfaceView": "ZEAM_I_",
+      "basicInterfaceView": "ZEAM_B_",
       "compositeInterfaceView": "ZEAM_I_",
       "consumptionView": "ZEAM_C_",
-      "basicRestrictedReuseView": "ZEAM_R_",
-      "compositeRestrictedReuseView": "ZEAM_R_",
+      "basicRestrictedReuseView": "ZEAM_B_",
+      "compositeRestrictedReuseView": "ZEAM_I_",
       "privateView": "ZEAM_P_",
       "remoteAPIView": "ZEAM_A_",
       "viewExtend": "ZEAM_X_",
@@ -33,7 +33,13 @@
       "abstractEntity": "ZEAM_D_"
     },
     "allowed_object_types": {
-      "allowed": ["DDLS", "DCLS", "DDLX", "DEVC", "CLAS"]
+      "allowed": [
+        "DDLS",
+        "DCLS",
+        "DDLX",
+        "DEVC",
+        "CLAS"
+      ]
     },
     "allowed_object_naming": true,
     "xml_consistency": true,
@@ -41,8 +47,18 @@
     "check_syntax": true,
     "unknown_types": true,
     "check_no_handler_pragma": true,
-    "keyword_case": { "style": "upper", "ignoreLowerClassImplmentationStatement": true, "ignoreGlobalClassDefinition": false, "ignoreGlobalInterface": false, "ignoreFunctionModuleName": false, "ignoreGlobalClassBoundaries": false, "ignoreKeywords": [] },
-    "line_length": { "length": 120 },
+    "keyword_case": {
+      "style": "upper",
+      "ignoreLowerClassImplmentationStatement": true,
+      "ignoreGlobalClassDefinition": false,
+      "ignoreGlobalInterface": false,
+      "ignoreFunctionModuleName": false,
+      "ignoreGlobalClassBoundaries": false,
+      "ignoreKeywords": []
+    },
+    "line_length": {
+      "length": 120
+    },
     "indentation": true,
     "contains_tab": true,
     "unused_variables": true,
@@ -65,7 +81,9 @@
     "start_at_tab": true,
     "space_before_colon": true,
     "space_before_dot": true,
-    "sequential_blank": { "lines": 3 },
+    "sequential_blank": {
+      "lines": 3
+    },
     "definitions_top": true,
     "if_in_if": true,
     "commented_code": true,
@@ -82,8 +100,14 @@
     "check_ddic": true,
     "check_include": true,
     "msag_consistency": true,
-    "method_length": { "statements": 100, "ignoreTestClasses": false, "errorWhenEmpty": false },
-    "cyclomatic_complexity": { "max": 20 },
+    "method_length": {
+      "statements": 100,
+      "ignoreTestClasses": false,
+      "errorWhenEmpty": false
+    },
+    "cyclomatic_complexity": {
+      "max": 20
+    },
     "tabl_enhancement_category": true
   }
 }

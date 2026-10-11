@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_MaterialBOM
-  as select from ZPPX_I_MaterialBOMData as src
+  as select from ZPPX_B_MaterialBOMData as src
 {
   key src.Material as Material,
   key src.Plant as Plant,

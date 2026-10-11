@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_Bank
-  as select from ZFIX_I_BankData as src
+  as select from ZFIX_B_BankData as src
 {
   key src.BankCountry as BankCountry,
   key src.BankKey as BankKey,

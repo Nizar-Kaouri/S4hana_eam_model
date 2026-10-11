@@ -20,8 +20,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZMMX_I_RequisitionData",
-      "ZMMX_I_ReqAssignmentData"
+      "ZMMX_B_RequisitionData",
+      "ZMMX_B_ReqAssignmentData"
     ],
     "composite": [
       "ZMMX_I_Requisition",
@@ -37,11 +37,11 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZMMX_I_RequisitionData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_B_RequisitionData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMX_I_Requisition": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMX_C_RequisitionMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMX_C_RequisitionMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZMMX_I_ReqAssignmentData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_B_ReqAssignmentData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMX_I_ReqAssignment": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMX_C_ReqAssignmentMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },

@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_LongTextHeader` |
+| Data source | `ZEMX_B_LongTextHeader` |
 | Source file | `src/zemx_c_longtextindexmig.ddls.asddls` |
 
 ## Purpose

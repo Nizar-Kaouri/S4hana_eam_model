@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZSDT_I_DeliveryCompare"
+      "ZSDT_B_DeliveryCompare"
     ],
     "composite": [
       "ZSDT_I_DeliveryCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZSDT_I_DeliveryCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDT_B_DeliveryCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZSDT_I_DeliveryCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

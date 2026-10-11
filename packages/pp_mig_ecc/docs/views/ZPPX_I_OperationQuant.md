@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPPX_I_OperationQuantData` |
+| Data source | `ZPPX_B_OperationQuantData` |
 | Source file | `src/zppx_i_operationquant.ddls.asddls` |
 
 ## Purpose

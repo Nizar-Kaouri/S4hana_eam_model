@@ -19,11 +19,11 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `DocumentUUID` | /SCMTMS/D_TORROT-DB_KEY | Native target evidence: ZTMT_I_FreightOrderCompare.DocumentUUID | information only | yes |
-| `DocumentID` | /SCMTMS/D_TORROT-TOR_ID | Native target evidence: ZTMT_I_FreightOrderCompare.DocumentID | information only | yes |
-| `DocumentCategory` | /SCMTMS/D_TORROT-TOR_CAT | Native target evidence: ZTMT_I_FreightOrderCompare.DocumentCategory | information only | yes |
-| `DocumentType` | /SCMTMS/D_TORROT-TOR_TYPE | Native target evidence: ZTMT_I_FreightOrderCompare.DocumentType | information only | yes |
-| `LifecycleStatus` | /SCMTMS/D_TORROT-LIFECYCLE | Native target evidence: ZTMT_I_FreightOrderCompare.LifecycleStatus | information only | yes |
+| `DocumentUUID` | /SCMTMS/D_TORROT-DB_KEY | Native target evidence: ZTMT_B_FreightOrderCompare.DocumentUUID | information only | yes |
+| `DocumentID` | /SCMTMS/D_TORROT-TOR_ID | Native target evidence: ZTMT_B_FreightOrderCompare.DocumentID | information only | yes |
+| `DocumentCategory` | /SCMTMS/D_TORROT-TOR_CAT | Native target evidence: ZTMT_B_FreightOrderCompare.DocumentCategory | information only | yes |
+| `DocumentType` | /SCMTMS/D_TORROT-TOR_TYPE | Native target evidence: ZTMT_B_FreightOrderCompare.DocumentType | information only | yes |
+| `LifecycleStatus` | /SCMTMS/D_TORROT-LIFECYCLE | Native target evidence: ZTMT_B_FreightOrderCompare.LifecycleStatus | information only | yes |
 
 ## `ZTMX_C_FreightOrdItemMig`
 
@@ -35,11 +35,11 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `ItemUUID` | /SCMTMS/D_TORITE-DB_KEY | Native target evidence: ZTMT_I_FreightOrdItemCompare.ItemUUID | information only | yes |
-| `DocumentUUID` | /SCMTMS/D_TORITE-PARENT_KEY | Native target evidence: ZTMT_I_FreightOrdItemCompare.DocumentUUID | information only | yes |
-| `ItemID` | /SCMTMS/D_TORITE-ITEM_ID | Native target evidence: ZTMT_I_FreightOrdItemCompare.ItemID | information only | yes |
-| `ItemCategory` | /SCMTMS/D_TORITE-ITEM_CAT | Native target evidence: ZTMT_I_FreightOrdItemCompare.ItemCategory | information only | yes |
-| `ItemType` | /SCMTMS/D_TORITE-ITEM_TYPE | Native target evidence: ZTMT_I_FreightOrdItemCompare.ItemType | information only | yes |
+| `ItemUUID` | /SCMTMS/D_TORITE-DB_KEY | Native target evidence: ZTMT_B_FreightOrdItemCompare.ItemUUID | information only | yes |
+| `DocumentUUID` | /SCMTMS/D_TORITE-PARENT_KEY | Native target evidence: ZTMT_B_FreightOrdItemCompare.DocumentUUID | information only | yes |
+| `ItemID` | /SCMTMS/D_TORITE-ITEM_ID | Native target evidence: ZTMT_B_FreightOrdItemCompare.ItemID | information only | yes |
+| `ItemCategory` | /SCMTMS/D_TORITE-ITEM_CAT | Native target evidence: ZTMT_B_FreightOrdItemCompare.ItemCategory | information only | yes |
+| `ItemType` | /SCMTMS/D_TORITE-ITEM_TYPE | Native target evidence: ZTMT_B_FreightOrdItemCompare.ItemType | information only | yes |
 
 ## `ZTMX_C_FreightOrdStopMig`
 
@@ -51,16 +51,16 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `StopUUID` | /SCMTMS/D_TORSTP-DB_KEY | Native target evidence: ZTMT_I_FreightOrdStopCompare.StopUUID | information only | yes |
-| `DocumentUUID` | /SCMTMS/D_TORSTP-PARENT_KEY | Native target evidence: ZTMT_I_FreightOrdStopCompare.DocumentUUID | information only | yes |
-| `StopID` | /SCMTMS/D_TORSTP-STOP_ID | Native target evidence: ZTMT_I_FreightOrdStopCompare.StopID | information only | yes |
-| `StopCategory` | /SCMTMS/D_TORSTP-STOP_CAT | Native target evidence: ZTMT_I_FreightOrdStopCompare.StopCategory | information only | yes |
-| `SequencePosition` | /SCMTMS/D_TORSTP-STOP_SEQ_POS | Native target evidence: ZTMT_I_FreightOrdStopCompare.SequencePosition | information only | yes |
+| `StopUUID` | /SCMTMS/D_TORSTP-DB_KEY | Native target evidence: ZTMT_B_FreightOrdStopCompare.StopUUID | information only | yes |
+| `DocumentUUID` | /SCMTMS/D_TORSTP-PARENT_KEY | Native target evidence: ZTMT_B_FreightOrdStopCompare.DocumentUUID | information only | yes |
+| `StopID` | /SCMTMS/D_TORSTP-STOP_ID | Native target evidence: ZTMT_B_FreightOrdStopCompare.StopID | information only | yes |
+| `StopCategory` | /SCMTMS/D_TORSTP-STOP_CAT | Native target evidence: ZTMT_B_FreightOrdStopCompare.StopCategory | information only | yes |
+| `SequencePosition` | /SCMTMS/D_TORSTP-STOP_SEQ_POS | Native target evidence: ZTMT_B_FreightOrdStopCompare.SequencePosition | information only | yes |
 
 ## Reconciliation
 
 - Counts: `ZTMX_C_FreightOrderMigCount` (SAP source) vs `ZTMT_I_FreightOrderCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZTMX_C_FreightOrderMig` vs `ZTMT_I_FreightOrderCompare` on `DocumentUUID`; compared: `DocumentID`, `DocumentCategory`, `DocumentType`, `LifecycleStatus`
+- Records and fields: `ZTMX_C_FreightOrderMig` vs `ZTMT_B_FreightOrderCompare` on `DocumentUUID`; compared: `DocumentID`, `DocumentCategory`, `DocumentType`, `LifecycleStatus`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product tm_mig_src --module freight_order --source ecc_counts.csv --target s4_counts.csv

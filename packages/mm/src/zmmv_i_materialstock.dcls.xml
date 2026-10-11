@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZMMV_I_MATERIALSTOCK</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Material Stock</DDTEXT>
+    <DDTEXT>Material Stock - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

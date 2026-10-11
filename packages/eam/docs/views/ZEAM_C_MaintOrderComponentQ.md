@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_MaintOrderComponent` |
+| Data source | `ZEAM_I_MaintOrderComponent` |
 | Source file | `src/zeam_c_maintordercomponentq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_MaintOrderComponent. Spare-part demand and open quantities per plant and material.
+Analytical query on ZEAM_I_MaintOrderComponent. Spare-part demand and open quantities per plant and material.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZEAM_R_MaintOrderComponent. Spare-part demand and open quant
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintOrderComponent (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MaintOrderComponent (see GEN-Q01).
 
 ## Example use case
 

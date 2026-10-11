@@ -19,17 +19,17 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZFIV_I_OpenItem"
+      "ZFIV_B_OpenItem"
     ],
     "composite": [
-      "ZFIV_R_OpenItemAging"
+      "ZFIV_I_OpenItemAging"
     ],
     "consumption": [
       "ZFIV_C_OpenItemAgingQ"
     ],
     "access_controls": [
-      "ZFIV_I_OpenItem",
-      "ZFIV_R_OpenItemAging"
+      "ZFIV_B_OpenItem",
+      "ZFIV_I_OpenItemAging"
     ],
     "metadata_extensions": [],
     "tests": [
@@ -37,16 +37,16 @@
     ]
   },
   "no_dcl_by_design": {
-    "ZFIV_C_OpenItemAgingQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_R_OpenItemAging (see GEN-Q01)."
+    "ZFIV_C_OpenItemAgingQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_I_OpenItemAging (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZFIV_R_OpenItemWithSupplier",
+      "name": "ZFIV_I_OpenItemWithSupplier",
       "requires_modules": [
         "open_items",
         "supplier"
       ],
-      "access_control": "ZFIV_R_OpenItemWithSupplier"
+      "access_control": "ZFIV_I_OpenItemWithSupplier"
     },
     {
       "name": "ZFIV_C_PayablesAgingQ",
@@ -54,15 +54,15 @@
         "open_items",
         "supplier"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_R_OpenItemWithSupplier (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_I_OpenItemWithSupplier (see GEN-Q01)."
     },
     {
-      "name": "ZFIV_R_OpenItemWithCustomer",
+      "name": "ZFIV_I_OpenItemWithCustomer",
       "requires_modules": [
         "customer",
         "open_items"
       ],
-      "access_control": "ZFIV_R_OpenItemWithCustomer"
+      "access_control": "ZFIV_I_OpenItemWithCustomer"
     },
     {
       "name": "ZFIV_C_ReceivablesAgingQ",
@@ -70,7 +70,7 @@
         "customer",
         "open_items"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_R_OpenItemWithCustomer (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_I_OpenItemWithCustomer (see GEN-Q01)."
     }
   ]
 }

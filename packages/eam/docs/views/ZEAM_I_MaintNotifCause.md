@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Maintenance Notification Cause |
+| Description | Notification Cause - Cube |
 | Module | `notification_item` |
 | Batch | 5 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_MaintenanceNotificationCause` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_MaintNotifCause` |
 | Source file | `src/zeam_i_maintnotifcause.ddls.asddls` |
 
 ## Purpose
 
-One row per cause of a notification item with cause code group, cause code and text.
+Cause analysis: number of causes per cause code, with item damage code and notification header characteristics.
 
 ## Keys
 
@@ -25,17 +25,16 @@ One row per cause of a notification item with cause code group, cause code and t
 
 ## Associations defined here
 
-- `_MaintenanceNotification` → `ZEAM_I_MaintNotif` [1..1]
-- `_Item` → `ZEAM_I_MaintNotifItem` [1..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_MaintenanceNotificationCause`.
+Role inherits the conditions of `ZEAM_B_MaintNotifCause`.
 
 ## Example use case
 
-Root-cause Pareto (cause codes) per planning plant and notification type.
+Root-cause Pareto per planning plant; causes of breakdown notifications only.
 
 ## Open verification items
 
-`NI-010`, `NI-011`, `NI-D02` - see `BATCH_REPORT.md`.
+none

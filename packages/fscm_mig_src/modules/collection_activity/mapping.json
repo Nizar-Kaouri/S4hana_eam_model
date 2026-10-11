@@ -25,77 +25,77 @@
         {
           "element": "ContactUUID",
           "source": "UDM_CCT_ATTR-CCT_GUID",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactUUID",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ContactDate",
           "source": "UDM_CCT_ATTR-CCT_DATE",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactDate",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactDate",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ContactResult",
           "source": "UDM_CCT_ATTR-CCT_RESULT",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactResult",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactResult",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ContactType",
           "source": "UDM_CCT_ATTR-CCT_TYPE",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactType",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ContactDirection",
           "source": "UDM_CCT_ATTR-CCT_DIRECTION",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactDirection",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactDirection",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Reached",
           "source": "UDM_CCT_ATTR-XREACHED",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.Reached",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.Reached",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CollectionSegment",
           "source": "UDM_CCT_ATTR-COLL_SEGMENT",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.CollectionSegment",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.CollectionSegment",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CollectionSpecialist",
           "source": "UDM_CCT_ATTR-COLL_SPECIALIST",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.CollectionSpecialist",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.CollectionSpecialist",
           "rule": "info",
           "compare": true
         },
         {
           "element": "BusinessPartner",
           "source": "UDM_CCT_ATTR-CUSTOMER",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.BusinessPartner",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.BusinessPartner",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ContactName",
           "source": "UDM_CCT_ATTR-CCT_NAME",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ContactName",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactName",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ChangedAt",
           "source": "UDM_CCT_ATTR-CHANGED_AT",
-          "target": "Native target evidence: ZFCT_I_CollectContactCompare.ChangedAt",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ChangedAt",
           "rule": "info",
           "compare": true
         }
@@ -117,7 +117,7 @@
     "target_count_view": "ZFCT_I_CollectContactCount",
     "compare": {
       "source_view": "ZFCX_C_CollectContactMig",
-      "target_view": "ZFCT_I_CollectContactCompare",
+      "target_view": "ZFCT_B_CollectContactCompare",
       "key": [
         "ContactUUID"
       ],

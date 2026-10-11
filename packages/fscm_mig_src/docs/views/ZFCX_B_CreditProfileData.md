@@ -1,0 +1,38 @@
+# ZFCX_B_CreditProfileData
+
+> Status: **draft-unverified** · tested release: none (native DDIC and SAP activation pending). Nothing below has been activated on a system.
+
+| | |
+|---|---|
+| Description | CreditProfileData |
+| Module | `credit_profile` |
+| Batch | 1 |
+| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Kind | view |
+| Data category | - |
+| Data source | `ukmbp_cms` |
+| Source file | `src/zfcx_b_creditprofiledata.ddls.asddls` |
+
+## Purpose
+
+Read CreditProfileData as source candidates; approve the key-date population before posting.
+
+## Keys
+
+- `BusinessPartner`
+
+## Associations defined here
+
+- none
+
+## Access control
+
+No DCL by design: Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.
+
+## Example use case
+
+Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
+
+## Open verification items
+
+`FCX-001` - see `BATCH_REPORT.md`.

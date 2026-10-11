@@ -161,7 +161,7 @@
     "source_count_view": "ZCOX_C_CostCenterMigCount",
     "compare": {
       "source_view": "ZCOX_C_CostCenterMig",
-      "target_view": "ZCOT_I_CostCenterCompare",
+      "target_view": "ZCOT_B_CostCenterCompare",
       "key": [
         "ControllingArea",
         "CostCenter",

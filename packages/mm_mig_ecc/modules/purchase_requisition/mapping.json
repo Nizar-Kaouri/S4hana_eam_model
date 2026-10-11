@@ -165,7 +165,7 @@
     "source_count_view": "ZMMX_C_RequisitionMigCount",
     "compare": {
       "source_view": "ZMMX_C_RequisitionMig",
-      "target_view": "ZMMT_I_RequisitionCompare",
+      "target_view": "ZMMT_B_RequisitionCompare",
       "key": [
         "PurchaseRequisition",
         "PurchaseRequisitionItem"

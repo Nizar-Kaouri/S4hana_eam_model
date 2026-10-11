@@ -1,5 +1,7 @@
 # Materials Management (MM) - CDS virtual data model
 
+Naming: **B_ = Basic, I_ = Interface (Composite), C_ = Consumption**. See [naming guidance](../../docs/NAMING.md).
+
 > **Status: draft-unverified.** Written without an SAP system; nothing has been activated or tested.
 > Every uncertain element carries a `TODO-VERIFY` marker, ranked in [`BATCH_REPORT.md`](BATCH_REPORT.md).
 
@@ -11,8 +13,8 @@
 | Target release | SAP S/4HANA 2025 (on-premise / Private Cloud Edition) |
 | Entity map | [`docs/model_map.html`](docs/model_map.html) |
 
-Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZMMV_I_*`,
-composite `ZMMV_R_*` (cubes), consumption `ZMMV_C_*Q` (analytical queries); one self-contained module
+Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZMMV_B_*`,
+composite `ZMMV_I_*` (cubes), consumption `ZMMV_C_*Q` (analytical queries); one self-contained module
 per business object; hard dependencies added by the build. **9 intra-product link object(s)** ship
 only when all their modules are selected; links to other products live in `packages/bridge`.
 
@@ -24,11 +26,11 @@ only when all their modules are selected; links to other products live in `packa
 | `ZMMV_C_GoodsMvtProductQ` | goods_movement, product |
 | `ZMMV_C_POItemProductQ` | product, purchase_order |
 | `ZMMV_C_StockProductQ` | material_stock, product |
-| `ZMMV_I_ProductWithStock` | material_stock, product |
-| `ZMMV_R_ConsumptionWithProduct` | product, rpt_material_consumption |
-| `ZMMV_R_GoodsMvtWithProduct` | goods_movement, product |
-| `ZMMV_R_POItemWithProduct` | product, purchase_order |
-| `ZMMV_R_StockWithProduct` | material_stock, product |
+| `ZMMV_B_ProductWithStock` | material_stock, product |
+| `ZMMV_I_ConsumptionWithProduct` | product, rpt_material_consumption |
+| `ZMMV_I_GoodsMvtWithProduct` | goods_movement, product |
+| `ZMMV_I_POItemWithProduct` | product, purchase_order |
+| `ZMMV_I_StockWithProduct` | material_stock, product |
 
 ## Data model in one paragraph
 
@@ -38,13 +40,13 @@ Material master data comes from `I_Product` (with descriptions and plant data). 
 
 | Module | Batch | Hard dependencies | Views |
 |---|---|---|---|
-| `product` | 1 | - | `ZMMV_I_ProductText`, `ZMMV_I_Product`, `ZMMV_I_ProductPlant`, `ZMMV_I_ProductVH`, `ZMMV_R_Product`, `ZMMV_C_ProductQ` |
-| `material_stock` | 2 | - | `ZMMV_I_MaterialStock`, `ZMMV_R_MaterialStock`, `ZMMV_C_MaterialStockQ` |
-| `goods_movement` | 2 | - | `ZMMV_I_GoodsMovement`, `ZMMV_R_GoodsMovement`, `ZMMV_C_GoodsMovementQ` |
-| `purchase_requisition` | 3 | - | `ZMMV_I_PurchaseReqnItem`, `ZMMV_R_PurchaseReqnItem`, `ZMMV_C_PurchaseReqnQ` |
-| `purchase_order` | 3 | - | `ZMMV_I_PurchaseOrder`, `ZMMV_I_PurchaseOrderItem`, `ZMMV_I_PurchaseOrderVH`, `ZMMV_R_PurchaseOrderItem`, `ZMMV_C_PurchaseOrderQ` |
-| `rpt_open_purchase_order` | 4 | `purchase_order` | `ZMMV_R_OpenPurchaseOrder`, `ZMMV_C_OpenPurchaseOrderQ` |
-| `rpt_material_consumption` | 4 | `goods_movement` | `ZMMV_R_MaterialConsumption`, `ZMMV_C_MaterialConsumptionQ` |
+| `product` | 1 | - | `ZMMV_B_ProductText`, `ZMMV_B_Product`, `ZMMV_B_ProductPlant`, `ZMMV_B_ProductVH`, `ZMMV_I_Product`, `ZMMV_C_ProductQ` |
+| `material_stock` | 2 | - | `ZMMV_B_MaterialStock`, `ZMMV_I_MaterialStock`, `ZMMV_C_MaterialStockQ` |
+| `goods_movement` | 2 | - | `ZMMV_B_GoodsMovement`, `ZMMV_I_GoodsMovement`, `ZMMV_C_GoodsMovementQ` |
+| `purchase_requisition` | 3 | - | `ZMMV_B_PurchaseReqnItem`, `ZMMV_I_PurchaseReqnItem`, `ZMMV_C_PurchaseReqnQ` |
+| `purchase_order` | 3 | - | `ZMMV_B_PurchaseOrder`, `ZMMV_B_PurchaseOrderItem`, `ZMMV_B_PurchaseOrderVH`, `ZMMV_I_PurchaseOrderItem`, `ZMMV_C_PurchaseOrderQ` |
+| `rpt_open_purchase_order` | 4 | `purchase_order` | `ZMMV_I_OpenPurchaseOrder`, `ZMMV_C_OpenPurchaseOrderQ` |
+| `rpt_material_consumption` | 4 | `goods_movement` | `ZMMV_I_MaterialConsumption`, `ZMMV_C_MaterialConsumptionQ` |
 
 ## Commands
 

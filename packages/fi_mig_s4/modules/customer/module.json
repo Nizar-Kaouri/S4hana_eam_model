@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZFIT_I_CustomerCompare"
+      "ZFIT_B_CustomerCompare"
     ],
     "composite": [
       "ZFIT_I_CustomerCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFIT_I_CustomerCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIT_B_CustomerCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIT_I_CustomerCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

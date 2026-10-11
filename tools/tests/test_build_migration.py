@@ -86,10 +86,10 @@ class BuildMigrationTest(unittest.TestCase):
         from_clause = text[text.index("as select from") + len("as select from"):text.index("{")].strip()
         db = sqlite3.connect(":memory:")
         db.executescript("""
-            create table ZEMX_I_TaskListOpAssignment(TaskListType,TaskListGroup,TaskListGroupCounter,TaskListSequence,TaskListOperationInternalId,TaskListOpAssgmtVersion,IsMarkedForDeletion);
-            create table ZEMX_I_TaskListOpDetail(TaskListType,TaskListGroup,TaskListOperationInternalId,TaskListOpVersionCounter,IsMarkedForDeletion);
-            insert into ZEMX_I_TaskListOpAssignment values ('A','G','1','0','N',1,''),('A','G','1','0','N',2,'');
-            insert into ZEMX_I_TaskListOpDetail values ('A','G','N',1,''),('A','G','N',2,'');
+            create table ZEMX_B_TaskListOpAssignment(TaskListType,TaskListGroup,TaskListGroupCounter,TaskListSequence,TaskListOperationInternalId,TaskListOpAssgmtVersion,IsMarkedForDeletion);
+            create table ZEMX_B_TaskListOpDetail(TaskListType,TaskListGroup,TaskListOperationInternalId,TaskListOpVersionCounter,IsMarkedForDeletion);
+            insert into ZEMX_B_TaskListOpAssignment values ('A','G','1','0','N',1,''),('A','G','1','0','N',2,'');
+            insert into ZEMX_B_TaskListOpDetail values ('A','G','N',1,''),('A','G','N',2,'');
         """)
         for name in ["ZEMX_I_TaskListAsgLatest", "ZEMX_I_TaskListOpLatest"]:
             ddl = (ECC / "src" / (name.lower() + ".ddls.asddls")).read_text()
@@ -101,7 +101,7 @@ class BuildMigrationTest(unittest.TestCase):
             db.execute("create view " + name + " as select " + body + " from " + table + " as src " + group)
         query = "select asg.TaskListOpAssgmtVersion,op.TaskListOpVersionCounter from " + from_clause
         self.assertEqual(db.execute(query).fetchall(), [(2, 2)])
-        db.execute("update ZEMX_I_TaskListOpDetail set IsMarkedForDeletion='X' where TaskListOpVersionCounter=2")
+        db.execute("update ZEMX_B_TaskListOpDetail set IsMarkedForDeletion='X' where TaskListOpVersionCounter=2")
         self.assertEqual(db.execute(query + " where op.IsMarkedForDeletion=''").fetchall(), [])
         db.close()
 
@@ -136,8 +136,8 @@ class BuildMigrationTest(unittest.TestCase):
         import re
         db = sqlite3.connect(':memory:')
         db.executescript("""
-          create table ZEMX_I_MeasurementDocument(MeasuringPoint,MeasurementDocument,MsmtRdngDate,MsmtRdngTime,MsmtDocumentIsCancelled);
-          insert into ZEMX_I_MeasurementDocument values
+          create table ZEMX_B_MeasurementDocument(MeasuringPoint,MeasurementDocument,MsmtRdngDate,MsmtRdngTime,MsmtDocumentIsCancelled);
+          insert into ZEMX_B_MeasurementDocument values
             ('P',999,'20251001','120000',''), ('P',10,'20251002','080000',''),
             ('P',11,'20251002','090000',''), ('P',12,'20251002','090000',''),
             ('P',1000,'20251003','100000','X');
@@ -162,7 +162,7 @@ class BuildMigrationTest(unittest.TestCase):
           insert into eapl values ('E','G','1','EQ1',0,1,''),('E','G','1','EQ1',0,2,'X');
           insert into tapl values ('T','G','1','FL1',0,1,'');
         """)
-        for name in ('ZEMX_I_EquipTaskListAsgmt','ZEMX_I_FuncTaskListAsgmt','ZEMX_I_TaskListObjectAssgmt'):
+        for name in ('ZEMX_B_EquipTaskListAsgmt','ZEMX_B_FuncTaskListAsgmt','ZEMX_I_TaskListObjectAssgmt'):
             ddl = bp.strip_comments((ECC / 'src' / (name.lower()+'.ddls.asddls')).read_text(), 'DDLS')
             sql = ddl[ddl.index('as select from')+3:]
             sql = re.sub(r'^\s*@[^\n]+\n', '', sql, flags=re.M)
@@ -186,7 +186,7 @@ class BuildMigrationTest(unittest.TestCase):
         self.assertIn("SQL view name", str(ctx.exception))
 
     def test_sql_view_name_is_not_a_reference(self):
-        self.assertEqual(bp.references("DDLS", "ZEMX_I_EquipmentDesc", "ZEMX_", ECC), set())
+        self.assertEqual(bp.references("DDLS", "ZEMX_B_EquipmentDesc", "ZEMX_", ECC), set())
 
     def test_bundle_refuses_mixed_systems(self):
         args = argparse.Namespace(all=False, product_all=None, modules=["eam:equipment", "eam_mig_ecc:equipment"])

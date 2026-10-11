@@ -46,4 +46,4 @@ python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module measurement
 
 ## Open gaps
 
-- Compatibility note: full reading history is not migrated (stays in the old system / archive); ZEMX_I_MeasurementDocument can feed a history load if required
+- Compatibility note: full reading history is not migrated (stays in the old system / archive); ZEMX_B_MeasurementDocument can feed a history load if required

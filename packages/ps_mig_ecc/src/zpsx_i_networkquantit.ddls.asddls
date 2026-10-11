@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_NetworkQuantit
-  as select from ZPSX_I_NetworkQuantitData as src
+  as select from ZPSX_B_NetworkQuantitData as src
 {
   key src.RoutingNumber as RoutingNumber,
   key src.OperationInternalID as OperationInternalID,

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_Project
-  as select from ZPSX_I_ProjectData as src
+  as select from ZPSX_B_ProjectData as src
 {
   key src.ProjectInternalID as ProjectInternalID,
       src.ProjectExternalID as ProjectExternalID,

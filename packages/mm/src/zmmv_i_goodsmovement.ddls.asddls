@@ -1,26 +1,23 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per material document item: movement type, debit/credit indicator, quantity in base unit,
-//   value in company code currency and the account assignment (cost center, order, purchase order).
-// Example: Goods issues to maintenance orders; goods receipts per supplier and month.
-// TODO-VERIFY[M] MM-020: I_MaterialDocumentItem_2 exists, is released with keys MaterialDocumentYear, MaterialDocument, MaterialDocumentItem
-// TODO-VERIFY[M] MM-021: elements GoodsMovementType, DebitCreditCode ('S' receipt / 'H' issue), QuantityInBaseUnit, MaterialBaseUnit, TotalGoodsMvtAmtInCCCrcy
-// TODO-VERIFY[H] MM-022: account assignment elements CostCenter, OrderID, Reservation, ReservationItem, PurchaseOrder, PurchaseOrderItem, Supplier, Customer
+// Purpose: Goods movement cube: receipt and issue quantities and values per material, plant, movement type and
+//   month.
+// Example: Monthly issue value per plant and movement type; receipts per supplier.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Goods Movement'
+@EndUserText.label: 'Goods Movement - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'MaterialDocumentItem'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #C,
   sizeCategory: #XXL,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZMMV_I_GoodsMovement
-  as select from I_MaterialDocumentItem_2
-  association [0..1] to I_Plant as _Plant on $projection.Plant = _Plant.Plant
+  as select from ZMMV_B_GoodsMovement
 {
   key MaterialDocumentYear,
   key MaterialDocument,
@@ -29,26 +26,42 @@ define view entity ZMMV_I_GoodsMovement
       @ObjectModel.foreignKey.association: '_Plant'
       Plant,
       StorageLocation,
-      Batch,
       GoodsMovementType,
       DebitCreditCode,
       PostingDate,
-      DocumentDate,
       CompanyCode,
       MaterialBaseUnit,
-      @Semantics.quantity.unitOfMeasure: 'MaterialBaseUnit'
-      QuantityInBaseUnit,
       CompanyCodeCurrency,
-      @Semantics.amount.currencyCode: 'CompanyCodeCurrency'
-      TotalGoodsMvtAmtInCCCrcy,
       CostCenter,
       OrderID,
-      Reservation,
-      ReservationItem,
-      PurchaseOrder,
-      PurchaseOrderItem,
       Supplier,
-      Customer,
+      @EndUserText.label: 'Posting Year/Month'
+      cast( substring( PostingDate, 1, 6 ) as abap.numc( 6 ) ) as PostingYearMonth,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Receipt Quantity'
+      @Semantics.quantity.unitOfMeasure: 'MaterialBaseUnit'
+      cast( case when DebitCreditCode = 'S' then cast( QuantityInBaseUnit as abap.dec( 13, 3 ) ) else 0 end
+            as abap.quan( 13, 3 ) ) as ReceiptQuantity,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Issue Quantity'
+      @Semantics.quantity.unitOfMeasure: 'MaterialBaseUnit'
+      cast( case when DebitCreditCode = 'H' then cast( QuantityInBaseUnit as abap.dec( 13, 3 ) ) else 0 end
+            as abap.quan( 13, 3 ) ) as IssueQuantity,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Receipt Value'
+      @Semantics.amount.currencyCode: 'CompanyCodeCurrency'
+      cast( case when DebitCreditCode = 'S' then cast( TotalGoodsMvtAmtInCCCrcy as abap.dec( 23, 2 ) ) else 0 end
+            as abap.curr( 23, 2 ) ) as ReceiptAmount,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Issue Value'
+      @Semantics.amount.currencyCode: 'CompanyCodeCurrency'
+      cast( case when DebitCreditCode = 'H' then cast( TotalGoodsMvtAmtInCCCrcy as abap.dec( 23, 2 ) ) else 0 end
+            as abap.curr( 23, 2 ) ) as IssueAmount,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Movements'
+      cast( 1 as abap.int4 ) as NumberOfMovements,
 
       /* Associations */
       _Plant

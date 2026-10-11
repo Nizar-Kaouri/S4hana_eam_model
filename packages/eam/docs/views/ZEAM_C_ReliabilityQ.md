@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_ReliabilityKPI` |
+| Data source | `ZEAM_I_ReliabilityKPI` |
 | Source file | `src/zeam_c_reliabilityq.ddls.asddls` |
 
 ## Purpose
@@ -32,7 +32,7 @@ MTBF / MTTR query for a reporting period: breakdowns, downtime, observation time
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_ReliabilityKPI (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_ReliabilityKPI (see GEN-Q01).
 
 ## Example use case
 

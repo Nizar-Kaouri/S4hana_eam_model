@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_MaintPlanCycle` |
+| Data source | `ZEMX_B_MaintPlanCycle` |
 | Source file | `src/zemx_c_maintplancyclemig.ddls.asddls` |
 
 ## Purpose

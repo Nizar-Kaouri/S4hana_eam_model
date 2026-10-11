@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Inspection Lot |
+| Description | Inspection Lot - Cube |
 | Module | `inspection_lot` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_InspectionLot` |
+| Data category | #CUBE |
+| Data source | `ZQMV_B_InspectionLot` |
 | Source file | `src/zqmv_i_inspectionlot.ddls.asddls` |
 
 ## Purpose
 
-One row per inspection lot: lot type and origin (goods receipt, production, ...), material, plant, batch, supplier, quantities, dates and the usage decision with its valuation (accepted / rejected).
+Inspection lot cube: number of lots, lots with usage decision, rejected lots and lot quantity per plant, origin, material, supplier and month.
 
 ## Keys
 
@@ -23,16 +23,16 @@ One row per inspection lot: lot type and origin (goods receipt, production, ...)
 
 ## Associations defined here
 
-- `_Plant` → `I_Plant` [0..1]
+- `_InspectionLot` → `ZQMV_B_InspectionLot` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_InspectionLot`.
+Role inherits the conditions of `ZQMV_B_InspectionLot`.
 
 ## Example use case
 
-Rejected goods-receipt lots per supplier; lots without usage decision older than 14 days.
+Rejection rate per supplier for goods-receipt inspections; open lots per plant.
 
 ## Open verification items
 
-`QM-001`, `QM-002`, `QM-003`, `QM-004`, `QM-D01` - see `BATCH_REPORT.md`.
+none

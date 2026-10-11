@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_InvestPosition
-  as select from ZPSX_I_InvestPositionData as src
+  as select from ZPSX_B_InvestPositionData as src
 {
   key src.InvestmentPositionInternalID as InvestmentPositionInternalID,
       src.InvestmentProgram as InvestmentProgram,

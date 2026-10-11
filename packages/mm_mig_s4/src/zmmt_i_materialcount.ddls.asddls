@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZMMT_I_MaterialCount
-  as select from ZMMT_I_MaterialCompare as src
+  as select from ZMMT_B_MaterialCompare as src
 {
   key src.Product as Product,
       count( * ) as RecordCount

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_PrimaryPlan
-  as select from ZCOX_I_PrimaryPlanData as src
+  as select from ZCOX_B_PrimaryPlanData as src
 {
   key src.Ledger as Ledger,
   key src.ObjectNumber as ObjectNumber,

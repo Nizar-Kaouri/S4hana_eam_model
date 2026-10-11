@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZQMT_I_InspectionLotCount
-  as select from ZQMT_I_InspectionLotCompare as src
+  as select from ZQMT_B_InspectionLotCompare as src
 {
   key src.InspectionLot as InspectionLot,
       count( * ) as RecordCount

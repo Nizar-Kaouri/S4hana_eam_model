@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZQMT_I_QualityNotificCount
-  as select from ZQMT_I_QualityNotificCompare as src
+  as select from ZQMT_B_QualityNotificCompare as src
 {
   key src.QualityNotification as QualityNotification,
       count( * ) as RecordCount

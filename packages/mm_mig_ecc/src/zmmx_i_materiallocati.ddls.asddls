@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_MaterialLocati
-  as select from ZMMX_I_MaterialLocatiData as src
+  as select from ZMMX_B_MaterialLocatiData as src
 {
   key src.Product as Product,
   key src.Plant as Plant,

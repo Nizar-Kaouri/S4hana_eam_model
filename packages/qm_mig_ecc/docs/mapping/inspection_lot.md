@@ -49,7 +49,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZQMX_C_InspectionLotMigCount` (ECC) vs `ZQMT_I_InspectionLotCount` (S/4HANA) per `InspectionLot`
-- Records and fields: `ZQMX_C_InspectionLotMig` vs `ZQMT_I_InspectionLotCompare` on `InspectionLot`; compared: `Plant`, `Material`, `Batch`, `InspectionType`, `InspectionLotOrigin`
+- Records and fields: `ZQMX_C_InspectionLotMig` vs `ZQMT_B_InspectionLotCompare` on `InspectionLot`; compared: `Plant`, `Material`, `Batch`, `InspectionType`, `InspectionLotOrigin`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product qm_mig_ecc --module inspection_lot --source ecc_counts.csv --target s4_counts.csv

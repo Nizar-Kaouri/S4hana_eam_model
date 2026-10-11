@@ -19,7 +19,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZFCT_I_CreditExposureCompare"
+      "ZFCT_B_CreditExposureCompare"
     ],
     "composite": [
       "ZFCT_I_CreditExposureCount"
@@ -30,7 +30,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFCT_I_CreditExposureCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZFCT_B_CreditExposureCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZFCT_I_CreditExposureCount": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
   },
   "link_views": [],

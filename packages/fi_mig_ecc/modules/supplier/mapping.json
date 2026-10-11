@@ -187,7 +187,7 @@
     "source_count_view": "ZFIX_C_SupplierMigCount",
     "compare": {
       "source_view": "ZFIX_C_SupplierMig",
-      "target_view": "ZFIT_I_SupplierCompare",
+      "target_view": "ZFIT_B_SupplierCompare",
       "key": [
         "Supplier"
       ],

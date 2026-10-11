@@ -1,7 +1,7 @@
 {
   "ZEHX_C_SpecificationMig": {
     "module": "specification",
-    "compare_view": "ZEHT_I_SpecificationCompare",
+    "compare_view": "ZEHT_B_SpecificationCompare",
     "required_keys": [
       "RecordNumber",
       "ChangeState"
@@ -22,7 +22,7 @@
   },
   "ZEHX_C_SpecIdentifierMig": {
     "module": "specification",
-    "compare_view": "ZEHT_I_SpecIdentifierCompare",
+    "compare_view": "ZEHT_B_SpecIdentifierCompare",
     "required_keys": [
       "RecordNumber",
       "ChangeState"
@@ -45,7 +45,7 @@
   },
   "ZEHX_C_PhraseMig": {
     "module": "phrase",
-    "compare_view": "ZEHT_I_PhraseCompare",
+    "compare_view": "ZEHT_B_PhraseCompare",
     "required_keys": [
       "RecordNumber",
       "ChangeState"
@@ -66,7 +66,7 @@
   },
   "ZEHX_C_PhraseSetMig": {
     "module": "phrase",
-    "compare_view": "ZEHT_I_PhraseSetCompare",
+    "compare_view": "ZEHT_B_PhraseSetCompare",
     "required_keys": [
       "RecordNumber",
       "ChangeState"
@@ -86,7 +86,7 @@
   },
   "ZEHX_C_IncidentMig": {
     "module": "incident",
-    "compare_view": "ZEHT_I_IncidentCompare",
+    "compare_view": "ZEHT_B_IncidentCompare",
     "required_keys": [
       "IncidentUUID"
     ],
@@ -103,7 +103,7 @@
   },
   "ZEHX_C_IncidentActionMig": {
     "module": "incident",
-    "compare_view": "ZEHT_I_IncidentActionCompare",
+    "compare_view": "ZEHT_B_IncidentActionCompare",
     "required_keys": [
       "ActionUUID"
     ],

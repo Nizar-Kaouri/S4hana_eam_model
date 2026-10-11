@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZFCT_I_DisputeCaseCompare` |
+| Data source | `ZFCT_B_DisputeCaseCompare` |
 | Source file | `src/zfct_i_disputecasecount.ddls.asddls` |
 
 ## Purpose

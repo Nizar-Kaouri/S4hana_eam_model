@@ -1,7 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for the task list operation view.
-// TODO-VERIFY[H] TL-D02: the SAP task list operation view has an access control role and every element it references is projected
-@EndUserText.label: 'Maintenance Task List Operation'
+// Inherits the conditions of the basic view (see GEN-D02).
+@EndUserText.label: 'Task List Operation - Cube'
 @MappingRole: true
 define role ZEAM_I_TaskListOperation {
   grant
@@ -9,5 +8,5 @@ define role ZEAM_I_TaskListOperation {
       on
         ZEAM_I_TaskListOperation
           where
-            inheriting conditions from entity I_MaintenanceTaskListOperation;
+            inheriting conditions from entity ZEAM_B_TaskListOperation;
 }

@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFCX_I_DisputeCase
-  as select from ZFCX_I_DisputeCaseData as src
+  as select from ZFCX_B_DisputeCaseData as src
 {
   key src.CaseUUID as CaseUUID,
       src.CompanyCode as CompanyCode,

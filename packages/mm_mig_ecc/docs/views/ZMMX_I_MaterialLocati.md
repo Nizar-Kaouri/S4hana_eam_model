@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZMMX_I_MaterialLocatiData` |
+| Data source | `ZMMX_B_MaterialLocatiData` |
 | Source file | `src/zmmx_i_materiallocati.ddls.asddls` |
 
 ## Purpose

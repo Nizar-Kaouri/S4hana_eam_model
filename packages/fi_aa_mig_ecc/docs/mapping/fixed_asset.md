@@ -70,7 +70,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZFAX_C_AssetMigCount` (ECC) vs `ZFAT_I_AssetCount` (S/4HANA) per `CompanyCode`
-- Records and fields: `ZFAX_C_AssetMig` vs `ZFAT_I_AssetCompare` on `CompanyCode`, `MasterFixedAsset`, `FixedAsset`; compared: `AssetClass`, `FixedAssetDescription`, `InventoryNumber`, `AssetCapitalizationDate`, `AssetDeactivationDate`
+- Records and fields: `ZFAX_C_AssetMig` vs `ZFAT_B_AssetCompare` on `CompanyCode`, `MasterFixedAsset`, `FixedAsset`; compared: `AssetClass`, `FixedAssetDescription`, `InventoryNumber`, `AssetCapitalizationDate`, `AssetDeactivationDate`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fi_aa_mig_ecc --module fixed_asset --source ecc_counts.csv --target s4_counts.csv

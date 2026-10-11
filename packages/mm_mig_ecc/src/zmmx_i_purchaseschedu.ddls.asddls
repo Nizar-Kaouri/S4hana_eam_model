@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_PurchaseSchedu
-  as select from ZMMX_I_PurchaseScheduData as src
+  as select from ZMMX_B_PurchaseScheduData as src
 {
   key src.PurchaseOrder as PurchaseOrder,
   key src.PurchaseOrderItem as PurchaseOrderItem,

@@ -20,17 +20,17 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZCOV_I_COJournalItem"
+      "ZCOV_B_COJournalItem"
     ],
     "composite": [
-      "ZCOV_R_COActualCost"
+      "ZCOV_I_COActualCost"
     ],
     "consumption": [
       "ZCOV_C_COActualCostQ"
     ],
     "access_controls": [
-      "ZCOV_I_COJournalItem",
-      "ZCOV_R_COActualCost"
+      "ZCOV_B_COJournalItem",
+      "ZCOV_I_COActualCost"
     ],
     "metadata_extensions": [],
     "tests": [
@@ -38,16 +38,16 @@
     ]
   },
   "no_dcl_by_design": {
-    "ZCOV_C_COActualCostQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_R_COActualCost (see GEN-Q01)."
+    "ZCOV_C_COActualCostQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_I_COActualCost (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZCOV_R_COCostWithCostCenter",
+      "name": "ZCOV_I_COCostWithCostCenter",
       "requires_modules": [
         "cost_actuals",
         "cost_center"
       ],
-      "access_control": "ZCOV_R_COCostWithCostCenter"
+      "access_control": "ZCOV_I_COCostWithCostCenter"
     },
     {
       "name": "ZCOV_C_COCostCostCenterQ",
@@ -55,15 +55,15 @@
         "cost_actuals",
         "cost_center"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_R_COCostWithCostCenter (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_I_COCostWithCostCenter (see GEN-Q01)."
     },
     {
-      "name": "ZCOV_R_COCostWithProfitCtr",
+      "name": "ZCOV_I_COCostWithProfitCtr",
       "requires_modules": [
         "cost_actuals",
         "profit_center"
       ],
-      "access_control": "ZCOV_R_COCostWithProfitCtr"
+      "access_control": "ZCOV_I_COCostWithProfitCtr"
     },
     {
       "name": "ZCOV_C_COCostProfitCtrQ",
@@ -71,7 +71,7 @@
         "cost_actuals",
         "profit_center"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_R_COCostWithProfitCtr (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZCOV_I_COCostWithProfitCtr (see GEN-Q01)."
     }
   ]
 }

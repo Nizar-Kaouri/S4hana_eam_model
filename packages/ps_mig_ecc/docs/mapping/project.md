@@ -29,7 +29,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZPSX_C_ProjectMigCount` (ECC) vs `ZPST_I_ProjectCount` (S/4HANA) per `ProjectInternalID`
-- Records and fields: `ZPSX_C_ProjectMig` vs `ZPST_I_ProjectCompare` on `ProjectInternalID`; compared: `ProjectExternalID`, `ProjectDescription`, `CompanyCode`, `ControllingArea`
+- Records and fields: `ZPSX_C_ProjectMig` vs `ZPST_B_ProjectCompare` on `ProjectInternalID`; compared: `ProjectExternalID`, `ProjectDescription`, `CompanyCode`, `ControllingArea`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product ps_mig_ecc --module project --source ecc_counts.csv --target s4_counts.csv

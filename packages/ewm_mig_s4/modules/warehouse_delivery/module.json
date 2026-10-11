@@ -20,8 +20,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZWMT_I_WhDeliveryCompare",
-      "ZWMT_I_WhDeliveryItemCompare"
+      "ZWMT_B_WhDeliveryCompare",
+      "ZWMT_B_WhDeliveryItemCompare"
     ],
     "composite": [
       "ZWMT_I_WhDeliveryCount"
@@ -32,9 +32,9 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZWMT_I_WhDeliveryCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMT_B_WhDeliveryCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
     "ZWMT_I_WhDeliveryCount": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
-    "ZWMT_I_WhDeliveryItemCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
+    "ZWMT_B_WhDeliveryItemCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
   },
   "link_views": [],
   "pending_structures": []

@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZQMX_I_InspectPlanSelData` |
+| Data source | `ZQMX_B_InspectPlanSelData` |
 | Source file | `src/zqmx_i_inspectplansel.ddls.asddls` |
 
 ## Purpose

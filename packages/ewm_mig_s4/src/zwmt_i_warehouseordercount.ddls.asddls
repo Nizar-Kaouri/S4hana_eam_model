@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZWMT_I_WarehouseOrderCount
-  as select from ZWMT_I_WarehouseOrderCompare as src
+  as select from ZWMT_B_WarehouseOrderCompare as src
 {
   key src.Warehouse as Warehouse,
       count( * ) as RecordCount

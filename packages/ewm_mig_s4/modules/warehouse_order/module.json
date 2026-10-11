@@ -19,7 +19,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZWMT_I_WarehouseOrderCompare"
+      "ZWMT_B_WarehouseOrderCompare"
     ],
     "composite": [
       "ZWMT_I_WarehouseOrderCount"
@@ -30,7 +30,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZWMT_I_WarehouseOrderCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMT_B_WarehouseOrderCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZWMT_I_WarehouseOrderCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
   "link_views": [],

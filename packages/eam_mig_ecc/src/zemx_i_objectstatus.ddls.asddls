@@ -13,7 +13,7 @@
 @ObjectModel.usageType.sizeCategory: #XL
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_ObjectStatus
-  as select from ZEMX_I_ObjectStatusEntry as st
+  as select from ZEMX_B_ObjectStatusEntry as st
 {
       @EndUserText.label: 'Object Number'
   key st.ObjectNumber                as ObjectNumber,

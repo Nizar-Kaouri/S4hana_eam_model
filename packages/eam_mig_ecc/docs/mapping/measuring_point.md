@@ -50,7 +50,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZEMX_C_MeasPointMigCount` (ECC) vs `ZEMT_I_MeasPointCount` (S/4HANA) per `MeasuringPointCategory`, `MeasuringPointIsCounter`
-- Records and fields: `ZEMX_C_MeasuringPointMig` vs `ZEMT_I_MeasPointCompare` on `MeasuringPoint`; compared: `MeasuringPointCategory`, `MeasuringPointIsCounter`
+- Records and fields: `ZEMX_C_MeasuringPointMig` vs `ZEMT_B_MeasPointCompare` on `MeasuringPoint`; compared: `MeasuringPointCategory`, `MeasuringPointIsCounter`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module measuring_point --source ecc_counts.csv --target s4_counts.csv

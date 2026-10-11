@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFCX_I_CollectContact
-  as select from ZFCX_I_CollectContactData as src
+  as select from ZFCX_B_CollectContactData as src
 {
   key src.ContactUUID as ContactUUID,
       src.ContactDate as ContactDate,

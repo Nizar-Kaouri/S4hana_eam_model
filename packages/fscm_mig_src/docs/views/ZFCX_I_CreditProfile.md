@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFCX_I_CreditProfileData` |
+| Data source | `ZFCX_B_CreditProfileData` |
 | Source file | `src/zfcx_i_creditprofile.ddls.asddls` |
 
 ## Purpose

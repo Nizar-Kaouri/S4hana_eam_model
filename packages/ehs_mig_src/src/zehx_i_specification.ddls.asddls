@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEHX_I_Specification
-  as select from ZEHX_I_SpecificationData as src
+  as select from ZEHX_B_SpecificationData as src
 {
   key src.RecordNumber as RecordNumber,
   key src.ChangeState as ChangeState,

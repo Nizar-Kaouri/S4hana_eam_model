@@ -413,7 +413,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     line = f"| {cells[1].strip()} | {links} | " + ", ".join(f"`{v}`" for v in views) + " |"
                 lines.append(line)
             zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite("\n".join(lines) + "\n"))
-        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "GETTING_STARTED.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md", "CUSTOMER_MANUAL_EN.md", "CUSTOMER_MANUAL_DE.md"):
+        for doc in ("INSTALLATION.md", "NAMING.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "GETTING_STARTED.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md", "CUSTOMER_MANUAL_EN.md", "CUSTOMER_MANUAL_DE.md"):
             if released and doc == "CUSTOMER_TEST.md":
                 continue  # Historical validation records remain in the repository.
             extra = root / "docs" / doc

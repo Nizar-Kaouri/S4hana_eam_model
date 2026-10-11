@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_SalesOrderStoc
-  as select from ZMMX_I_SalesOrderStocData as src
+  as select from ZMMX_B_SalesOrderStocData as src
 {
   key src.Product as Product,
   key src.Plant as Plant,

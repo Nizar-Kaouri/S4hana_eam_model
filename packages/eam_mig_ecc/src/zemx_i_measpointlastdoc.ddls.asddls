@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #M
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MeasPointLastDoc
-  as select from ZEMX_I_MeasurementDocument as doc
+  as select from ZEMX_B_MeasurementDocument as doc
     inner join ZEMX_I_MeasPointLastTime as latest
       on latest.MeasuringPoint = doc.MeasuringPoint
       and latest.LastReadingDate = doc.MsmtRdngDate

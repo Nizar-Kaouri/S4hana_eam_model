@@ -284,7 +284,7 @@
     "source_count_view": "ZQMX_C_QualityNotificMigCount",
     "compare": {
       "source_view": "ZQMX_C_QualityNotificMig",
-      "target_view": "ZQMT_I_QualityNotificCompare",
+      "target_view": "ZQMT_B_QualityNotificCompare",
       "key": [
         "QualityNotification"
       ],

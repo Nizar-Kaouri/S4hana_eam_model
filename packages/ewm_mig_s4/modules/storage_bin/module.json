@@ -20,8 +20,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZWMT_I_StorageBinCompare",
-      "ZWMT_I_BinSortingCompare"
+      "ZWMT_B_StorageBinCompare",
+      "ZWMT_B_BinSortingCompare"
     ],
     "composite": [
       "ZWMT_I_StorageBinCount"
@@ -32,9 +32,9 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZWMT_I_StorageBinCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMT_B_StorageBinCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZWMT_I_StorageBinCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
-    "ZWMT_I_BinSortingCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
+    "ZWMT_B_BinSortingCompare": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
   },
   "link_views": [],
   "pending_structures": []

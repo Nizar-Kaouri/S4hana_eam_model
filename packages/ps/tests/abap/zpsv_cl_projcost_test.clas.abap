@@ -23,7 +23,7 @@ ENDCLASS.
 CLASS zpsv_cl_projcost_test IMPLEMENTATION.
 
   METHOD class_setup.
-    environment = cl_cds_test_environment=>create( i_for_entity = 'ZPSV_I_PROJECTJOURNALITEM' ).
+    environment = cl_cds_test_environment=>create( i_for_entity = 'ZPSV_B_PROJECTJOURNALITEM' ).
   ENDMETHOD.
 
 
@@ -47,7 +47,7 @@ CLASS zpsv_cl_projcost_test IMPLEMENTATION.
       ( accountingdocument = '0100000003' ) ).
     environment->insert_test_data( i_data = rows ).
 
-    SELECT FROM zpsv_i_projectjournalitem
+    SELECT FROM zpsv_b_projectjournalitem
       FIELDS accountingdocument, issettlementposting
       INTO TABLE @DATA(result).
 

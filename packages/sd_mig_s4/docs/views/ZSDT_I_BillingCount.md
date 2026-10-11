@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZSDT_I_BillingCompare` |
+| Data source | `ZSDT_B_BillingCompare` |
 | Source file | `src/zsdt_i_billingcount.ddls.asddls` |
 
 ## Purpose

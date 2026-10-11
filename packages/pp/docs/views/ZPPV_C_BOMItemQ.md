@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZPPV_R_BOMItem` |
+| Data source | `ZPPV_I_BOMItem` |
 | Source file | `src/zppv_c_bomitemq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZPPV_R_BOMItem: BOM items per category and component.
+Analytical query on ZPPV_I_BOMItem: BOM items per category and component.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZPPV_R_BOMItem: BOM items per category and component.
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_R_BOMItem (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_I_BOMItem (see GEN-Q01).
 
 ## Example use case
 

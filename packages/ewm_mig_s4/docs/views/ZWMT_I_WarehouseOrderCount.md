@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZWMT_I_WarehouseOrderCompare` |
+| Data source | `ZWMT_B_WarehouseOrderCompare` |
 | Source file | `src/zwmt_i_warehouseordercount.ddls.asddls` |
 
 ## Purpose

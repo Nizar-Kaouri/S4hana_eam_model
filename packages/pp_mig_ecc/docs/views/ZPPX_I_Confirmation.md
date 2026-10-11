@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPPX_I_ConfirmationData` |
+| Data source | `ZPPX_B_ConfirmationData` |
 | Source file | `src/zppx_i_confirmation.ddls.asddls` |
 
 ## Purpose

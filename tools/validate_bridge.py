@@ -20,7 +20,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import catalog  # noqa: E402
 
-LAYERS = {"I_": "#BASIC", "R_": "#COMPOSITE", "C_": "#CONSUMPTION"}
+LAYERS = {"B_": "#BASIC", "I_": "#COMPOSITE", "C_": "#CONSUMPTION"}
 MARKER_RE = re.compile(r"TODO-VERIFY\[(?P<risk>[HML])\]\s+(?P<id>[A-Z]+-[A-Z0-9]+):")
 
 
@@ -80,7 +80,7 @@ def main():
         # B3
         layer = name[len(pre):len(pre) + 2]
         if not name.startswith(pre.upper()) or layer not in LAYERS:
-            err(f"B3 {b['name']}: name must start with {pre}I_, {pre}R_ or {pre}C_")
+            err(f"B3 {b['name']}: name must start with {pre}B_, {pre}I_ or {pre}C_")
         elif f"@VDM.viewType: {LAYERS[layer]}" not in text:
             err(f"B3 {b['name']}: expected @VDM.viewType: {LAYERS[layer]}")
         if layer == "C_" and not name.endswith("Q"):

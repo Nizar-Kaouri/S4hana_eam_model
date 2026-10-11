@@ -171,7 +171,7 @@
     "source_count_view": "ZCOX_C_InternalOrderMigCount",
     "compare": {
       "source_view": "ZCOX_C_InternalOrderMig",
-      "target_view": "ZCOT_I_InternalOrderCompare",
+      "target_view": "ZCOT_B_InternalOrderCompare",
       "key": [
         "InternalOrder"
       ],

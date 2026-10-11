@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZMMX_I_ContractHeaderData` |
+| Data source | `ZMMX_B_ContractHeaderData` |
 | Source file | `src/zmmx_i_contractheader.ddls.asddls` |
 
 ## Purpose

@@ -1,7 +1,7 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZMMV_R_OpenPurchaseOrder: open items per purchasing group and age bucket.
+// Purpose: Analytical query on ZMMV_I_OpenPurchaseOrder: open items per purchasing group and age bucket.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZMMV_R_OpenPurchaseOrder applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZMMV_I_OpenPurchaseOrder applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Open Purchase Order Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZMMV_C_OpenPurchaseOrderQ
   provider contract analytical_query
-  as projection on ZMMV_R_OpenPurchaseOrder
+  as projection on ZMMV_I_OpenPurchaseOrder
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

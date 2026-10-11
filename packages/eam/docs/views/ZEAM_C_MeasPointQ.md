@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_MeasPoint` |
+| Data source | `ZEAM_I_MeasPoint` |
 | Source file | `src/zeam_c_measpointq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_MeasPoint. Measuring points and counters per category and reference object type.
+Analytical query on ZEAM_I_MeasPoint. Measuring points and counters per category and reference object type.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZEAM_R_MeasPoint. Measuring points and counters per category
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MeasPoint (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MeasPoint (see GEN-Q01).
 
 ## Example use case
 

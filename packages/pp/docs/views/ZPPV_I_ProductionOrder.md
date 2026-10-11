@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Production Order |
+| Description | Production Order - Cube |
 | Module | `production_order` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_ManufacturingOrder` |
+| Data category | #CUBE |
+| Data source | `ZPPV_B_ProductionOrder` |
 | Source file | `src/zppv_i_productionorder.ddls.asddls` |
 
 ## Purpose
 
-One row per production order: type, category, material, plant, MRP controller, supervisor, version, planned / scrap / confirmed / delivered quantity, planned dates, release date and completion; derived open flag.
+Production order cube: number of (open) orders and planned, confirmed, scrap and delivered quantity per plant, material, MRP controller and month.
 
 ## Keys
 
@@ -23,16 +23,16 @@ One row per production order: type, category, material, plant, MRP controller, s
 
 ## Associations defined here
 
-- `_ProductionPlant` → `I_Plant` [0..1]
+- `_ProductionOrder` → `ZPPV_B_ProductionOrder` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_ManufacturingOrder`.
+Role inherits the conditions of `ZPPV_B_ProductionOrder`.
 
 ## Example use case
 
-Open production orders per plant and MRP controller; yield vs. planned quantity per material.
+Yield vs. plan per material and month; open orders per MRP controller.
 
 ## Open verification items
 
-`PP-001`, `PP-002`, `PP-003`, `PP-004`, `PP-D01` - see `BATCH_REPORT.md`.
+none

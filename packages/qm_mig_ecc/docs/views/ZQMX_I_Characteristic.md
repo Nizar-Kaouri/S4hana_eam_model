@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZQMX_I_CharacteristicData` |
+| Data source | `ZQMX_B_CharacteristicData` |
 | Source file | `src/zqmx_i_characteristic.ddls.asddls` |
 
 ## Purpose

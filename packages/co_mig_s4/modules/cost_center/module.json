@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZCOT_I_CostCenterCompare"
+      "ZCOT_B_CostCenterCompare"
     ],
     "composite": [
       "ZCOT_I_CostCenterCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZCOT_I_CostCenterCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOT_B_CostCenterCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZCOT_I_CostCenterCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

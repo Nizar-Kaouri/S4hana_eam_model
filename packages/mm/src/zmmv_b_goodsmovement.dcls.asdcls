@@ -1,0 +1,13 @@
+// ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_MaterialDocumentItem_2.
+// TODO-VERIFY[H] MM-D04: I_MaterialDocumentItem_2 has an access control role and every element it references is projected by ZMMV_B_GoodsMovement
+@EndUserText.label: 'Goods Movement'
+@MappingRole: true
+define role ZMMV_B_GoodsMovement {
+  grant
+    select
+      on
+        ZMMV_B_GoodsMovement
+          where
+            inheriting conditions from entity I_MaterialDocumentItem_2;
+}

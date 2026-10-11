@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZMMV_R_PurchaseReqnItem` |
+| Data source | `ZMMV_I_PurchaseReqnItem` |
 | Source file | `src/zmmv_c_purchasereqnq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZMMV_R_PurchaseReqnItem: requisition items per plant and purchasing group.
+Analytical query on ZMMV_I_PurchaseReqnItem: requisition items per plant and purchasing group.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZMMV_R_PurchaseReqnItem: requisition items per plant and pur
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_PurchaseReqnItem (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_PurchaseReqnItem (see GEN-Q01).
 
 ## Example use case
 

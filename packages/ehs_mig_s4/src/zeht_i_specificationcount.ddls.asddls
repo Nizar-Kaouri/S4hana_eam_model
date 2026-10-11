@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZEHT_I_SpecificationCount
-  as select from ZEHT_I_SpecificationCompare as src
+  as select from ZEHT_B_SpecificationCompare as src
 {
       count( * ) as RecordCount
 }

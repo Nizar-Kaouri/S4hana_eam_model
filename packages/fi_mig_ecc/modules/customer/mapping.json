@@ -203,7 +203,7 @@
     "source_count_view": "ZFIX_C_CustomerMigCount",
     "compare": {
       "source_view": "ZFIX_C_CustomerMig",
-      "target_view": "ZFIT_I_CustomerCompare",
+      "target_view": "ZFIT_B_CustomerCompare",
       "key": [
         "Customer"
       ],

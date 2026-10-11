@@ -19,20 +19,20 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `BusinessPartner` | UKMBP_CMS_SGM-PARTNER | Native target evidence: ZFCT_I_CreditSegmentCompare.BusinessPartner | copy | yes |
-| `CreditSegment` | UKMBP_CMS_SGM-CREDIT_SGMNT | Native target evidence: ZFCT_I_CreditSegmentCompare.CreditSegment | copy | yes |
-| `Blocked` | UKMBP_CMS_SGM-XBLOCKED | Native target evidence: ZFCT_I_CreditSegmentCompare.Blocked | copy | yes |
-| `LimitValidTo` | UKMBP_CMS_SGM-LIMIT_VALID_DATE | Native target evidence: ZFCT_I_CreditSegmentCompare.LimitValidTo | copy | yes |
-| `LimitChangedOn` | UKMBP_CMS_SGM-LIMIT_CHG_DATE | Native target evidence: ZFCT_I_CreditSegmentCompare.LimitChangedOn | copy | yes |
-| `Coordinator` | UKMBP_CMS_SGM-COORDINATOR | Native target evidence: ZFCT_I_CreditSegmentCompare.Coordinator | copy | yes |
-| `BlockReason` | UKMBP_CMS_SGM-BLOCK_REASON | Native target evidence: ZFCT_I_CreditSegmentCompare.BlockReason | copy | yes |
-| `Critical` | UKMBP_CMS_SGM-XCRITICAL | Native target evidence: ZFCT_I_CreditSegmentCompare.Critical | copy | yes |
-| `ZeroLimit` | UKMBP_CMS_SGM-X_LIMIT_ZERO | Native target evidence: ZFCT_I_CreditSegmentCompare.ZeroLimit | copy | yes |
+| `BusinessPartner` | UKMBP_CMS_SGM-PARTNER | Native target evidence: ZFCT_B_CreditSegmentCompare.BusinessPartner | copy | yes |
+| `CreditSegment` | UKMBP_CMS_SGM-CREDIT_SGMNT | Native target evidence: ZFCT_B_CreditSegmentCompare.CreditSegment | copy | yes |
+| `Blocked` | UKMBP_CMS_SGM-XBLOCKED | Native target evidence: ZFCT_B_CreditSegmentCompare.Blocked | copy | yes |
+| `LimitValidTo` | UKMBP_CMS_SGM-LIMIT_VALID_DATE | Native target evidence: ZFCT_B_CreditSegmentCompare.LimitValidTo | copy | yes |
+| `LimitChangedOn` | UKMBP_CMS_SGM-LIMIT_CHG_DATE | Native target evidence: ZFCT_B_CreditSegmentCompare.LimitChangedOn | copy | yes |
+| `Coordinator` | UKMBP_CMS_SGM-COORDINATOR | Native target evidence: ZFCT_B_CreditSegmentCompare.Coordinator | copy | yes |
+| `BlockReason` | UKMBP_CMS_SGM-BLOCK_REASON | Native target evidence: ZFCT_B_CreditSegmentCompare.BlockReason | copy | yes |
+| `Critical` | UKMBP_CMS_SGM-XCRITICAL | Native target evidence: ZFCT_B_CreditSegmentCompare.Critical | copy | yes |
+| `ZeroLimit` | UKMBP_CMS_SGM-X_LIMIT_ZERO | Native target evidence: ZFCT_B_CreditSegmentCompare.ZeroLimit | copy | yes |
 
 ## Reconciliation
 
 - Counts: `ZFCX_C_CreditSegmentMigCount` (SAP source) vs `ZFCT_I_CreditSegmentCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZFCX_C_CreditSegmentMig` vs `ZFCT_I_CreditSegmentCompare` on `BusinessPartner`, `CreditSegment`; compared: `Blocked`, `LimitValidTo`, `LimitChangedOn`, `Coordinator`, `BlockReason`, `Critical`, `ZeroLimit`
+- Records and fields: `ZFCX_C_CreditSegmentMig` vs `ZFCT_B_CreditSegmentCompare` on `BusinessPartner`, `CreditSegment`; compared: `Blocked`, `LimitValidTo`, `LimitChangedOn`, `Coordinator`, `BlockReason`, `Critical`, `ZeroLimit`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fscm_mig_src --module credit_segment --source ecc_counts.csv --target s4_counts.csv

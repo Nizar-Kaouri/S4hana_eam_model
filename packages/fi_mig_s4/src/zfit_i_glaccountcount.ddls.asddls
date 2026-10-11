@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZFIT_I_GLAccountCount
-  as select from ZFIT_I_GLAccountCompare as src
+  as select from ZFIT_B_GLAccountCompare as src
 {
   key src.ChartOfAccounts as ChartOfAccounts,
       count( * ) as RecordCount

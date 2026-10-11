@@ -14,7 +14,7 @@
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MeasPointLastReading
   as select from ZEMX_I_MeasPointLastDoc as lastdoc
-    inner join ZEMX_I_MeasurementDocument as doc on doc.MeasurementDocument = lastdoc.LastMeasurementDocument
+    inner join ZEMX_B_MeasurementDocument as doc on doc.MeasurementDocument = lastdoc.LastMeasurementDocument
 {
       @EndUserText.label: 'Measuring Point'
   key lastdoc.MeasuringPoint        as MeasuringPoint,

@@ -51,7 +51,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_FuncLocTextMig`
 
-- Source: `ZEMX_I_FuncLocDesc`
+- Source: `ZEMX_B_FuncLocDesc`
 - Keys: `FunctionalLocation`, `Language`
 - Scope: `_FuncLoc.IsMarkedForDeletion = ''`
 
@@ -82,12 +82,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_FuncLoc` | `IsMarkedForDeletion` | derived: case fl._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_FuncLoc` | `CreationDate` | IFLOT-ERDAT | information only |
 | `ZEMX_I_FuncLoc` | `CreatedByUser` | IFLOT-ERNAM | information only |
-| `ZEMX_I_FuncLocDesc` | `HasLongText` | IFLOTX-KZLTX | information only |
+| `ZEMX_B_FuncLocDesc` | `HasLongText` | IFLOTX-KZLTX | information only |
 
 ## Reconciliation
 
 - Counts: `ZEMX_C_FuncLocMigCount` (ECC) vs `ZEMT_I_FuncLocCount` (S/4HANA) per `MaintenancePlanningPlant`, `FunctionalLocationCategory`
-- Records and fields: `ZEMX_C_FuncLocMig` vs `ZEMT_I_FuncLocCompare` on `FunctionalLocation`; compared: `FunctionalLocationCategory`, `SuperiorFunctionalLocation`, `TechnicalObjectType`, `MaintenancePlanningPlant`, `MaintenancePlant`, `ABCIndicator`, `CompanyCode`, `CostCenter`
+- Records and fields: `ZEMX_C_FuncLocMig` vs `ZEMT_B_FuncLocCompare` on `FunctionalLocation`; compared: `FunctionalLocationCategory`, `SuperiorFunctionalLocation`, `TechnicalObjectType`, `MaintenancePlanningPlant`, `MaintenancePlant`, `ABCIndicator`, `CompanyCode`, `CostCenter`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module functional_location --source ecc_counts.csv --target s4_counts.csv

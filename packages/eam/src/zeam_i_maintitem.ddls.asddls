@@ -1,36 +1,28 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per maintenance item with its plan, reference object (plain fields), planning data,
-//   order type / priority / activity type to be generated and the assigned task list.
-// Example: Which equipment is covered by preventive maintenance, and with which task list.
-// TODO-VERIFY[M] PL-010: I_MaintenanceItem exists, is released (C1) and its key element is MaintenanceItem
-// TODO-VERIFY[M] PL-011: elements MaintenanceItemDescription, MaintenancePlan, MaintenancePlanCategory
-// TODO-VERIFY[M] PL-012: reference and planning elements Equipment, FunctionalLocation, MaintenancePlanningPlant, MaintenancePlannerGroup, MainWorkCenter, BusinessArea
-// TODO-VERIFY[M] PL-013: order generation elements MaintenanceOrderType, MaintPriority, MaintenanceActivityType
-// TODO-VERIFY[M] PL-014: task list reference elements TaskListType, TaskListGroup, TaskListGroupCounter
+// Purpose: Maintenance item cube with plan characteristics (category, strategy, inactive flag) via
+//   path expressions and counters for items and items with a task list.
+// Example: Preventive maintenance coverage per planning plant; items without task list.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
-@Analytics.dataCategory: #DIMENSION
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Maintenance Item'
+@EndUserText.label: 'Maintenance Item - Cube'
+@Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'MaintenanceItem'
-@ObjectModel.modelingPattern: #ANALYTICAL_DIMENSION
-@ObjectModel.supportedCapabilities: [ #ANALYTICAL_DIMENSION, #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #MASTER
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZEAM_I_MaintItem
-  as select from I_MaintenanceItem
-  association [0..1] to ZEAM_I_MaintPlan as _MaintenancePlan          on $projection.MaintenancePlan = _MaintenancePlan.MaintenancePlan
-  association [0..1] to I_Plant          as _MaintenancePlanningPlant on $projection.MaintenancePlanningPlant = _MaintenancePlanningPlant.Plant
+  as select from ZEAM_B_MaintItem
+  association [1..1] to ZEAM_B_MaintItem as _MaintenanceItem on $projection.MaintenanceItem = _MaintenanceItem.MaintenanceItem
 {
-      @ObjectModel.text.element: [ 'MaintenanceItemDescription' ]
+      @ObjectModel.foreignKey.association: '_MaintenanceItem'
   key MaintenanceItem,
-      @Semantics.text: true
-      MaintenanceItemDescription,
       @ObjectModel.foreignKey.association: '_MaintenancePlan'
       MaintenancePlan,
       MaintenancePlanCategory,
@@ -48,7 +40,20 @@ define view entity ZEAM_I_MaintItem
       TaskListGroup,
       TaskListGroupCounter,
 
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Maintenance Items'
+      cast( 1 as abap.int4 ) as NumberOfMaintItems,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Items with Task List'
+      cast( case when TaskListGroup <> '' then 1 else 0 end as abap.int4 ) as NumberOfItemsWithTaskList,
+
+      /* Plan characteristics */
+      _MaintenancePlan.MaintenanceStrategy,
+      _MaintenancePlan.MaintenancePlanIsInactive,
+
       /* Associations */
       _MaintenancePlan,
-      _MaintenancePlanningPlant
+      _MaintenancePlanningPlant,
+      _MaintenanceItem
 }

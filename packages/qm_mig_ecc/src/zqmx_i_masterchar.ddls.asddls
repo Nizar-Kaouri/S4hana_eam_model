@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZQMX_I_MasterChar
-  as select from ZQMX_I_MasterCharData as src
+  as select from ZQMX_B_MasterCharData as src
 {
   key src.Plant as Plant,
   key src.MasterInspectionCharacteristic as MasterInspectionCharacteristic,

@@ -21,34 +21,34 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZSDV_I_OutboundDelivery",
-      "ZSDV_I_DeliveryItem"
+      "ZSDV_B_OutboundDelivery",
+      "ZSDV_B_DeliveryItem"
     ],
     "composite": [
-      "ZSDV_R_DeliveryItem"
+      "ZSDV_I_DeliveryItem"
     ],
     "consumption": [
       "ZSDV_C_DeliveryQ"
     ],
     "access_controls": [
-      "ZSDV_I_OutboundDelivery",
-      "ZSDV_I_DeliveryItem",
-      "ZSDV_R_DeliveryItem"
+      "ZSDV_B_OutboundDelivery",
+      "ZSDV_B_DeliveryItem",
+      "ZSDV_I_DeliveryItem"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZSDV_C_DeliveryQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_DeliveryItem (see GEN-Q01)."
+    "ZSDV_C_DeliveryQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_I_DeliveryItem (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZSDV_I_SOItemWithDelivery",
+      "name": "ZSDV_B_SOItemWithDelivery",
       "requires_modules": [
         "outbound_delivery",
         "sales_order"
       ],
-      "access_control": "ZSDV_I_SOItemWithDelivery"
+      "access_control": "ZSDV_B_SOItemWithDelivery"
     }
   ]
 }

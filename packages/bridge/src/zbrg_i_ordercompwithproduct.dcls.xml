@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZBRG_I_ORDERCOMPWITHPRODUCT</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Order Component with Product</DDTEXT>
+    <DDTEXT>Order Component Cube with Product</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

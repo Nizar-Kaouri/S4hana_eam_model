@@ -20,17 +20,17 @@
   ],
   "objects": {
     "basic": [
-      "ZEAM_I_MeasDocument"
+      "ZEAM_B_MeasDocument"
     ],
     "composite": [
-      "ZEAM_R_MeasDocument"
+      "ZEAM_I_MeasDocument"
     ],
     "consumption": [
       "ZEAM_C_MeasDocumentQ"
     ],
     "access_controls": [
-      "ZEAM_I_MeasDocument",
-      "ZEAM_R_MeasDocument"
+      "ZEAM_B_MeasDocument",
+      "ZEAM_I_MeasDocument"
     ],
     "metadata_extensions": [],
     "tests": [
@@ -38,7 +38,7 @@
     ]
   },
   "no_dcl_by_design": {
-    "ZEAM_C_MeasDocumentQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MeasDocument (see GEN-Q01)."
+    "ZEAM_C_MeasDocumentQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MeasDocument (see GEN-Q01)."
   },
   "link_views": []
 }

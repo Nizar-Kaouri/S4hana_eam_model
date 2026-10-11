@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZPPX_I_ProductionHeadData` |
+| Data source | `ZPPX_B_ProductionHeadData` |
 | Source file | `src/zppx_i_productionhead.ddls.asddls` |
 
 ## Purpose

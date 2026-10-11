@@ -1,0 +1,12 @@
+// ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Production Operation with Work Center'
+@MappingRole: true
+define role ZBRG_B_ProdOpWithWorkCenter {
+  grant
+    select
+      on
+        ZBRG_B_ProdOpWithWorkCenter
+          where
+            inheriting conditions from entity ZPPV_B_ProductionOrderOp;
+}

@@ -1,7 +1,6 @@
 // ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_InspectionCharacteristic.
-// TODO-VERIFY[H] QM-D02: I_InspectionCharacteristic has an access control role and every element it references is projected by ZQMV_I_InspectionCharc
-@EndUserText.label: 'Inspection Characteristic Result'
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Inspection Result - Cube'
 @MappingRole: true
 define role ZQMV_I_InspectionCharc {
   grant
@@ -9,5 +8,5 @@ define role ZQMV_I_InspectionCharc {
       on
         ZQMV_I_InspectionCharc
           where
-            inheriting conditions from entity I_InspectionCharacteristic;
+            inheriting conditions from entity ZQMV_B_InspectionCharc;
 }

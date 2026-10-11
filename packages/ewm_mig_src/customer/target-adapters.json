@@ -1,7 +1,7 @@
 {
   "ZWMX_C_StorageBinMig": {
     "module": "storage_bin",
-    "compare_view": "ZWMT_I_StorageBinCompare",
+    "compare_view": "ZWMT_B_StorageBinCompare",
     "required_keys": [
       "Warehouse",
       "StorageBin"
@@ -21,7 +21,7 @@
   },
   "ZWMX_C_BinSortingMig": {
     "module": "storage_bin",
-    "compare_view": "ZWMT_I_BinSortingCompare",
+    "compare_view": "ZWMT_B_BinSortingCompare",
     "required_keys": [
       "Warehouse",
       "StorageBin",
@@ -41,7 +41,7 @@
   },
   "ZWMX_C_TaskConfirmMig": {
     "module": "warehouse_task",
-    "compare_view": "ZWMT_I_TaskConfirmCompare",
+    "compare_view": "ZWMT_B_TaskConfirmCompare",
     "required_keys": [
       "Warehouse",
       "WarehouseTask",
@@ -66,7 +66,7 @@
   },
   "ZWMX_C_WarehouseOrderMig": {
     "module": "warehouse_order",
-    "compare_view": "ZWMT_I_WarehouseOrderCompare",
+    "compare_view": "ZWMT_B_WarehouseOrderCompare",
     "required_keys": [
       "Warehouse",
       "WarehouseOrder"
@@ -88,7 +88,7 @@
   },
   "ZWMX_C_WarehouseTaskMig": {
     "module": "warehouse_task",
-    "compare_view": "ZWMT_I_WarehouseTaskCompare",
+    "compare_view": "ZWMT_B_WarehouseTaskCompare",
     "required_keys": [
       "Warehouse",
       "WarehouseTask"
@@ -112,7 +112,7 @@
   },
   "ZWMX_C_WhDeliveryMig": {
     "module": "warehouse_delivery",
-    "compare_view": "ZWMT_I_WhDeliveryCompare",
+    "compare_view": "ZWMT_B_WhDeliveryCompare",
     "required_keys": [
       "DeliveryUUID"
     ],
@@ -131,7 +131,7 @@
   },
   "ZWMX_C_WhDeliveryItemMig": {
     "module": "warehouse_delivery",
-    "compare_view": "ZWMT_I_WhDeliveryItemCompare",
+    "compare_view": "ZWMT_B_WhDeliveryItemCompare",
     "required_keys": [
       "DeliveryUUID",
       "DeliveryItemUUID"

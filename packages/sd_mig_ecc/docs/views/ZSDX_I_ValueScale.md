@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZSDX_I_ValueScaleData` |
+| Data source | `ZSDX_B_ValueScaleData` |
 | Source file | `src/zsdx_i_valuescale.ddls.asddls` |
 
 ## Purpose

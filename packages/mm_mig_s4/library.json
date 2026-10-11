@@ -20,9 +20,9 @@
   "migration_pair": "mm_mig_ecc",
   "map_title": "ZMMT Materials Management Migration - S/4HANA Reconciliation Map",
   "map_area": "Materials Management migration target (S/4HANA)",
-  "map_initial": "ZMMT_I_MATERIALCOMPARE",
+  "map_initial": "ZMMT_B_MATERIALCOMPARE",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

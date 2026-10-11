@@ -31,84 +31,84 @@
         {
           "element": "Warehouse",
           "source": "/SCWM/ORDIM_C-LGNUM",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.Warehouse",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.Warehouse",
           "rule": "info",
           "compare": true
         },
         {
           "element": "WarehouseTask",
           "source": "/SCWM/ORDIM_C-TANUM",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.WarehouseTask",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.WarehouseTask",
           "rule": "info",
           "compare": true
         },
         {
           "element": "WarehouseTaskItem",
           "source": "/SCWM/ORDIM_C-TAPOS",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.WarehouseTaskItem",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.WarehouseTaskItem",
           "rule": "info",
           "compare": true
         },
         {
           "element": "WarehouseOrder",
           "source": "/SCWM/ORDIM_C-WHO",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.WarehouseOrder",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.WarehouseOrder",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ProcessType",
           "source": "/SCWM/ORDIM_C-PROCTY",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.ProcessType",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.ProcessType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "TaskStatus",
           "source": "/SCWM/ORDIM_C-TOSTAT",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.TaskStatus",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.TaskStatus",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ConfirmedBy",
           "source": "/SCWM/ORDIM_C-CONFIRMED_BY",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.ConfirmedBy",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.ConfirmedBy",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ConfirmedAt",
           "source": "/SCWM/ORDIM_C-CONFIRMED_AT",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.ConfirmedAt",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.ConfirmedAt",
           "rule": "info",
           "compare": true
         },
         {
           "element": "SourceStorageType",
           "source": "/SCWM/ORDIM_C-VLTYP",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.SourceStorageType",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.SourceStorageType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "SourceBin",
           "source": "/SCWM/ORDIM_C-VLPLA",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.SourceBin",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.SourceBin",
           "rule": "info",
           "compare": true
         },
         {
           "element": "TargetStorageType",
           "source": "/SCWM/ORDIM_C-NLTYP",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.TargetStorageType",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.TargetStorageType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "TargetBin",
           "source": "/SCWM/ORDIM_C-NLPLA",
-          "target": "Native target evidence: ZWMT_I_TaskConfirmCompare.TargetBin",
+          "target": "Native target evidence: ZWMT_B_TaskConfirmCompare.TargetBin",
           "rule": "info",
           "compare": true
         }
@@ -128,84 +128,84 @@
         {
           "element": "Warehouse",
           "source": "/SCWM/ORDIM_O-LGNUM",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.Warehouse",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.Warehouse",
           "rule": "info",
           "compare": true
         },
         {
           "element": "WarehouseTask",
           "source": "/SCWM/ORDIM_O-TANUM",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.WarehouseTask",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.WarehouseTask",
           "rule": "info",
           "compare": true
         },
         {
           "element": "WarehouseOrder",
           "source": "/SCWM/ORDIM_O-WHO",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.WarehouseOrder",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.WarehouseOrder",
           "rule": "info",
           "compare": true
         },
         {
           "element": "TaskStatus",
           "source": "/SCWM/ORDIM_O-TOSTAT",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.TaskStatus",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.TaskStatus",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CreatedBy",
           "source": "/SCWM/ORDIM_O-CREATED_BY",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.CreatedBy",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.CreatedBy",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ActivityArea",
           "source": "/SCWM/ORDIM_O-AAREA",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.ActivityArea",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.ActivityArea",
           "rule": "info",
           "compare": true
         },
         {
           "element": "SourceStorageType",
           "source": "/SCWM/ORDIM_O-VLTYP",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.SourceStorageType",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.SourceStorageType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "TargetStorageType",
           "source": "/SCWM/ORDIM_O-NLTYP",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.TargetStorageType",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.TargetStorageType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "TargetStorageSection",
           "source": "/SCWM/ORDIM_O-NLBER",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.TargetStorageSection",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.TargetStorageSection",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Owner",
           "source": "/SCWM/ORDIM_O-OWNER",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.Owner",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.Owner",
           "rule": "info",
           "compare": true
         },
         {
           "element": "OwnerRole",
           "source": "/SCWM/ORDIM_O-OWNER_ROLE",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.OwnerRole",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.OwnerRole",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Unit",
           "source": "/SCWM/ORDIM_O-MEINS",
-          "target": "Native target evidence: ZWMT_I_WarehouseTaskCompare.Unit",
+          "target": "Native target evidence: ZWMT_B_WarehouseTaskCompare.Unit",
           "rule": "info",
           "compare": true
         }
@@ -231,7 +231,7 @@
     "target_count_view": "ZWMT_I_TaskConfirmCount",
     "compare": {
       "source_view": "ZWMX_C_TaskConfirmMig",
-      "target_view": "ZWMT_I_TaskConfirmCompare",
+      "target_view": "ZWMT_B_TaskConfirmCompare",
       "key": [
         "Warehouse",
         "WarehouseTask",

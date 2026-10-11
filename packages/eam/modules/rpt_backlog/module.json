@@ -19,19 +19,19 @@
   "objects": {
     "basic": [],
     "composite": [
-      "ZEAM_R_MaintBacklog"
+      "ZEAM_I_MaintBacklog"
     ],
     "consumption": [
       "ZEAM_C_MaintBacklogQ"
     ],
     "access_controls": [
-      "ZEAM_R_MaintBacklog"
+      "ZEAM_I_MaintBacklog"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEAM_C_MaintBacklogQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintBacklog (see GEN-Q01)."
+    "ZEAM_C_MaintBacklogQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MaintBacklog (see GEN-Q01)."
   },
   "link_views": []
 }

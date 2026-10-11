@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZWMX_I_WarehouseOrderData` |
+| Data source | `ZWMX_B_WarehouseOrderData` |
 | Source file | `src/zwmx_i_warehouseorder.ddls.asddls` |
 
 ## Purpose

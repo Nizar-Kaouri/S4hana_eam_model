@@ -48,6 +48,7 @@ def main(argv=None):
     lib = {
         "_comment": eam_lib["_comment"],
         "phase": "no-system",
+        "layer_prefixes": {"basic": "B_", "composite": "I_", "consumption": "C_"},
         "prefix": a.prefix,
         "package": a.package,
         "package_description": f"{a.title} CDS Virtual Data Model",

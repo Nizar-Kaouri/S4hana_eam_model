@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZPPT_I_ProductionOrdeCount
-  as select from ZPPT_I_ProductionOrdeCompare as src
+  as select from ZPPT_B_ProductionOrdeCompare as src
 {
   key src.ManufacturingOrder as ManufacturingOrder,
       count( * ) as RecordCount

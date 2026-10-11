@@ -1,30 +1,26 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per product (material) with type, group, base unit, status, weights and authorization group;
-//   analytical dimension for stock, movement and purchasing cubes.
-// Example: Material attributes next to stock quantities; spare parts filtered by product type.
-// TODO-VERIFY[M] MM-001: I_Product exists, is released (C1) with key Product
-// TODO-VERIFY[M] MM-002: elements ProductType, ProductGroup, BaseUnit, Division, CrossPlantStatus, IsMarkedForDeletion
-// TODO-VERIFY[M] MM-003: elements GrossWeight, NetWeight, WeightUnit, AuthorizationGroup, CreationDate, CreatedByUser
+// Purpose: Material master cube: number of products per type, group and status.
+// Example: Number of spare-part materials per product group; materials flagged for deletion.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
-@Analytics.dataCategory: #DIMENSION
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Product'
+@EndUserText.label: 'Product - Cube'
+@Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'Product'
-@ObjectModel.modelingPattern: #ANALYTICAL_DIMENSION
-@ObjectModel.supportedCapabilities: [ #ANALYTICAL_DIMENSION, #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #MASTER
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZMMV_I_Product
-  as select from I_Product
-  association [0..*] to ZMMV_I_ProductText as _Text on $projection.Product = _Text.Product
+  as select from ZMMV_B_Product
+  association [1..1] to ZMMV_B_Product as _Product on $projection.Product = _Product.Product
 {
-      @ObjectModel.text.association: '_Text'
+      @ObjectModel.foreignKey.association: '_Product'
   key Product,
       ProductType,
       ProductGroup,
@@ -32,15 +28,17 @@ define view entity ZMMV_I_Product
       Division,
       CrossPlantStatus,
       IsMarkedForDeletion,
-      @Semantics.quantity.unitOfMeasure: 'WeightUnit'
-      GrossWeight,
-      @Semantics.quantity.unitOfMeasure: 'WeightUnit'
-      NetWeight,
-      WeightUnit,
       AuthorizationGroup,
       CreationDate,
-      CreatedByUser,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Products'
+      cast( 1 as abap.int4 ) as NumberOfProducts,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number Flagged for Deletion'
+      cast( case when IsMarkedForDeletion = 'X' then 1 else 0 end as abap.int4 ) as NumberOfDeletionFlagged,
 
       /* Associations */
-      _Text
+      _Product
 }

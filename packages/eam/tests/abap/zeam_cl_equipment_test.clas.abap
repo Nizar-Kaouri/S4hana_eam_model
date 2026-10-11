@@ -1,6 +1,6 @@
 "! <p class="shorttext synchronized">ZEAM VDM - Equipment CDS unit tests (draft-unverified)</p>
 "! CDS test double tests for module "equipment". Never executed: no SAP system available.
-"! TODO-VERIFY[M] TST-001: test data names (see EQ-0xx); test double resolves path _Text in ZEAM_I_EquipmentVH
+"! TODO-VERIFY[M] TST-001: test data names (see EQ-0xx); test double resolves path _Text in ZEAM_B_EquipmentVH
 CLASS zeam_cl_equipment_test DEFINITION
   PUBLIC
   FINAL
@@ -29,9 +29,9 @@ ENDCLASS.
 CLASS zeam_cl_equipment_test IMPLEMENTATION.
 
   METHOD class_setup.
-    basic_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_EQUIPMENT' ).
-    vh_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_EQUIPMENTVH' ).
-    cube_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_R_EQUIPMENT' ).
+    basic_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_B_EQUIPMENT' ).
+    vh_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_B_EQUIPMENTVH' ).
+    cube_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_EQUIPMENT' ).
   ENDMETHOD.
 
 
@@ -58,7 +58,7 @@ CLASS zeam_cl_equipment_test IMPLEMENTATION.
       ( equipment = '000000000010000002' validityenddate = c_open_end maintenanceplant = '1010' ) ).
     basic_environment->insert_test_data( i_data = equipments ).
 
-    SELECT FROM zeam_i_equipment
+    SELECT FROM zeam_b_equipment
       FIELDS equipment, maintenanceplant
       ORDER BY equipment
       INTO TABLE @DATA(result).
@@ -71,8 +71,8 @@ CLASS zeam_cl_equipment_test IMPLEMENTATION.
 
 
   METHOD vh_name_in_logon_language.
-    DATA equipments TYPE STANDARD TABLE OF zeam_i_equipment WITH EMPTY KEY.
-    DATA texts TYPE STANDARD TABLE OF zeam_i_equipmenttext WITH EMPTY KEY.
+    DATA equipments TYPE STANDARD TABLE OF zeam_b_equipment WITH EMPTY KEY.
+    DATA texts TYPE STANDARD TABLE OF zeam_b_equipmenttext WITH EMPTY KEY.
     DATA other_language TYPE sy-langu.
 
     other_language = COND #( WHEN sy-langu = 'D' THEN 'E' ELSE 'D' ).
@@ -84,7 +84,7 @@ CLASS zeam_cl_equipment_test IMPLEMENTATION.
     vh_environment->insert_test_data( i_data = equipments ).
     vh_environment->insert_test_data( i_data = texts ).
 
-    SELECT FROM zeam_i_equipmentvh
+    SELECT FROM zeam_b_equipmentvh
       FIELDS equipment, equipmentname
       INTO TABLE @DATA(result).
 
@@ -96,7 +96,7 @@ CLASS zeam_cl_equipment_test IMPLEMENTATION.
 
 
   METHOD cube_counts_one_per_row.
-    DATA equipments TYPE STANDARD TABLE OF zeam_i_equipment WITH EMPTY KEY.
+    DATA equipments TYPE STANDARD TABLE OF zeam_b_equipment WITH EMPTY KEY.
 
     equipments = VALUE #(
       ( equipment = '000000000010000001' validityenddate = c_open_end maintenanceplant = '1010' )
@@ -104,7 +104,7 @@ CLASS zeam_cl_equipment_test IMPLEMENTATION.
       ( equipment = '000000000010000003' validityenddate = c_open_end maintenanceplant = '1020' ) ).
     cube_environment->insert_test_data( i_data = equipments ).
 
-    SELECT FROM zeam_r_equipment
+    SELECT FROM zeam_i_equipment
       FIELDS maintenanceplant, SUM( numberofequipments ) AS total
       GROUP BY maintenanceplant
       ORDER BY maintenanceplant

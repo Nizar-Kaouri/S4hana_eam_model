@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZPSX_I_ProjectData"
+      "ZPSX_B_ProjectData"
     ],
     "composite": [
       "ZPSX_I_Project"
@@ -31,7 +31,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPSX_I_ProjectData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_ProjectData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_I_Project": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_C_ProjectMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_C_ProjectMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."

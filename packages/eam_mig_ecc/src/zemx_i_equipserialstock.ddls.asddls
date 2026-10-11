@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_EquipSerialStock
-  as select from ZEMX_I_EquipSerialStockData as b
+  as select from ZEMX_B_EquipSerialStockData as b
 {
       @EndUserText.label: 'Equipment'
   key b.Equipment as Equipment,

@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZQMX_I_UsageDecisionData` |
+| Data source | `ZQMX_B_UsageDecisionData` |
 | Source file | `src/zqmx_i_usagedecision.ddls.asddls` |
 
 ## Purpose

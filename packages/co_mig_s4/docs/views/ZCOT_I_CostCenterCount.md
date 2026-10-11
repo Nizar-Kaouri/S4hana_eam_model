@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZCOT_I_CostCenterCompare` |
+| Data source | `ZCOT_B_CostCenterCompare` |
 | Source file | `src/zcot_i_costcentercount.ddls.asddls` |
 
 ## Purpose

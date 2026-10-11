@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - functional location conditions (see GEN-D02).
+@EndUserText.label: 'Functional Location with Notifications'
+@MappingRole: true
+define role ZEAM_B_FuncLocWithNotif {
+  grant
+    select
+      on
+        ZEAM_B_FuncLocWithNotif
+          where
+            inheriting conditions from entity ZEAM_B_FuncLoc;
+}

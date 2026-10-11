@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZSDX_I_BillingItem
-  as select from ZSDX_I_BillingItemData as src
+  as select from ZSDX_B_BillingItemData as src
 {
   key src.BillingDocument as BillingDocument,
   key src.BillingDocumentItem as BillingDocumentItem,

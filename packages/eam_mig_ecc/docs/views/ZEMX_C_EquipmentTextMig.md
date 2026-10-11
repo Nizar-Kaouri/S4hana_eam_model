@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_EquipmentDesc` |
+| Data source | `ZEMX_B_EquipmentDesc` |
 | Source file | `src/zemx_c_equipmenttextmig.ddls.asddls` |
 
 ## Purpose

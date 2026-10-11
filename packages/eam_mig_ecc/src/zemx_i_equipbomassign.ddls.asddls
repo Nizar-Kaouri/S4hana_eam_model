@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_EquipBOMAssign
-  as select from ZEMX_I_EquipBOMAssignData as b
+  as select from ZEMX_B_EquipBOMAssignData as b
 {
 @EndUserText.label: 'Equipment'
   key b.Equipment as Equipment,

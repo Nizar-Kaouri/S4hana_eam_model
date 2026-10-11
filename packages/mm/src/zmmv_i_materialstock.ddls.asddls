@@ -1,27 +1,24 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Stock quantity per material, plant, storage location, batch and stock type (unrestricted, quality
-//   inspection, blocked) from the material document table.
-// Example: Current spare-part stock per storage location; blocked and quality-inspection stock per plant.
-// The SAP view aggregates material documents; the key below is not guaranteed to be unique (special stocks).
-// TODO-VERIFY[H] MM-010: I_MaterialStock_2 exists, is released and has no mandatory parameters
-// TODO-VERIFY[H] MM-011: elements InventoryStockType, InventorySpecialStockType, MatlWrhsStkQtyInMatlBaseUnit, MaterialBaseUnit
-// TODO-VERIFY[M] MM-012: aggregation behaviour: one row per stock segment, or one row per material document (then the cube sums correctly anyway)
+// Purpose: Stock cube: total and unrestricted stock quantity per material, plant, storage location and stock
+//   type.
+// Example: Unrestricted spare-part stock per plant; stock in quality inspection.
+// TODO-VERIFY[M] MM-R01: stock type code '01' = unrestricted-use stock in InventoryStockType
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Material Stock'
+@EndUserText.label: 'Material Stock - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'InventorySpecialStockType'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #XL,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZMMV_I_MaterialStock
-  as select from I_MaterialStock_2
-  association [0..1] to I_Plant as _Plant on $projection.Plant = _Plant.Plant
+  as select from ZMMV_B_MaterialStock
 {
   key Product,
       @ObjectModel.foreignKey.association: '_Plant'
@@ -32,8 +29,17 @@ define view entity ZMMV_I_MaterialStock
   key InventorySpecialStockType,
       CompanyCode,
       MaterialBaseUnit,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Stock Quantity'
       @Semantics.quantity.unitOfMeasure: 'MaterialBaseUnit'
       MatlWrhsStkQtyInMatlBaseUnit,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Unrestricted Stock'
+      @Semantics.quantity.unitOfMeasure: 'MaterialBaseUnit'
+      cast( case when InventoryStockType = '01' then cast( MatlWrhsStkQtyInMatlBaseUnit as abap.dec( 13, 3 ) ) else 0 end
+            as abap.quan( 13, 3 ) ) as UnrestrictedStockQuantity,
 
       /* Associations */
       _Plant

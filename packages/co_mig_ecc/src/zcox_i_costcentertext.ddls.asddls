@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_CostCenterText
-  as select from ZCOX_I_CostCenterTextData as src
+  as select from ZCOX_B_CostCenterTextData as src
 {
   key src.Language as Language,
   key src.ControllingArea as ControllingArea,

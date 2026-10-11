@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZMMX_I_SupplierStock
-  as select from ZMMX_I_SupplierStockData as src
+  as select from ZMMX_B_SupplierStockData as src
 {
   key src.Product as Product,
   key src.Plant as Plant,

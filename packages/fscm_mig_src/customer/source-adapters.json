@@ -2,7 +2,7 @@
   "ZFCX_C_CreditProfileMig": {
     "module": "credit_profile",
     "native_table": "UKMBP_CMS",
-    "basic_view": "ZFCX_I_CreditProfileData",
+    "basic_view": "ZFCX_B_CreditProfileData",
     "composite_view": "ZFCX_I_CreditProfile",
     "consumption_view": "ZFCX_C_CreditProfileMig",
     "required_keys": [
@@ -24,7 +24,7 @@
   "ZFCX_C_CreditSegmentMig": {
     "module": "credit_segment",
     "native_table": "UKMBP_CMS_SGM",
-    "basic_view": "ZFCX_I_CreditSegmentData",
+    "basic_view": "ZFCX_B_CreditSegmentData",
     "composite_view": "ZFCX_I_CreditSegment",
     "consumption_view": "ZFCX_C_CreditSegmentMig",
     "required_keys": [
@@ -49,7 +49,7 @@
   "ZFCX_C_CollectContactMig": {
     "module": "collection_activity",
     "native_table": "UDM_CCT_ATTR",
-    "basic_view": "ZFCX_I_CollectContactData",
+    "basic_view": "ZFCX_B_CollectContactData",
     "composite_view": "ZFCX_I_CollectContact",
     "consumption_view": "ZFCX_C_CollectContactMig",
     "required_keys": [
@@ -75,7 +75,7 @@
   "ZFCX_C_PaymentPromiseMig": {
     "module": "promise_to_pay",
     "native_table": "UDM_P2P_ATTR",
-    "basic_view": "ZFCX_I_PaymentPromiseData",
+    "basic_view": "ZFCX_B_PaymentPromiseData",
     "composite_view": "ZFCX_I_PaymentPromise",
     "consumption_view": "ZFCX_C_PaymentPromiseMig",
     "required_keys": [
@@ -101,7 +101,7 @@
   "ZFCX_C_DisputeCaseMig": {
     "module": "dispute_case",
     "native_table": "UDMCASEATTR00",
-    "basic_view": "ZFCX_I_DisputeCaseData",
+    "basic_view": "ZFCX_B_DisputeCaseData",
     "composite_view": "ZFCX_I_DisputeCase",
     "consumption_view": "ZFCX_C_DisputeCaseMig",
     "required_keys": [
@@ -128,7 +128,7 @@
   "ZFCX_C_CaseAttributeMig": {
     "module": "dispute_case",
     "native_table": "SCMG_T_CASE_ATTR",
-    "basic_view": "ZFCX_I_CaseAttributeData",
+    "basic_view": "ZFCX_B_CaseAttributeData",
     "composite_view": "ZFCX_I_CaseAttribute",
     "consumption_view": "ZFCX_C_CaseAttributeMig",
     "required_keys": [
@@ -157,7 +157,7 @@
   "ZFCX_C_CreditExposureMig": {
     "module": "credit_exposure",
     "native_table": "UKM_TOTALS",
-    "basic_view": "ZFCX_I_CreditExposureData",
+    "basic_view": "ZFCX_B_CreditExposureData",
     "composite_view": "ZFCX_I_CreditExposure",
     "consumption_view": "ZFCX_C_CreditExposureMig",
     "required_keys": [

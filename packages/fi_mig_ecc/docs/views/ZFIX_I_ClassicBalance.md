@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFIX_I_ClassicBalanceData` |
+| Data source | `ZFIX_B_ClassicBalanceData` |
 | Source file | `src/zfix_i_classicbalance.ddls.asddls` |
 
 ## Purpose

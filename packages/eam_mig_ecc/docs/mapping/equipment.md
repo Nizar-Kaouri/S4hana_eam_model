@@ -66,7 +66,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_EquipmentTextMig`
 
-- Source: `ZEMX_I_EquipmentDesc`
+- Source: `ZEMX_B_EquipmentDesc`
 - Keys: `Equipment`, `Language`
 - Scope: `_Equipment.IsMarkedForDeletion = ''`
 
@@ -100,12 +100,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_Equipment` | `IsMarkedForDeletion` | derived: case eq._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_Equipment` | `CreationDate` | EQUI-ERDAT | information only |
 | `ZEMX_I_Equipment` | `CreatedByUser` | EQUI-ERNAM | information only |
-| `ZEMX_I_EquipmentDesc` | `HasLongText` | EQKT-KZLTX | information only |
+| `ZEMX_B_EquipmentDesc` | `HasLongText` | EQKT-KZLTX | information only |
 
 ## Reconciliation
 
 - Counts: `ZEMX_C_EquipmentMigCount` (ECC) vs `ZEMT_I_EquipmentCount` (S/4HANA) per `MaintenancePlanningPlant`, `EquipmentCategory`
-- Records and fields: `ZEMX_C_EquipmentMig` vs `ZEMT_I_EquipmentCompare` on `Equipment`; compared: `EquipmentCategory`, `TechnicalObjectType`, `MaintenancePlanningPlant`, `FunctionalLocation`, `SuperordinateEquipment`, `MaintenancePlant`, `CompanyCode`, `CostCenter`, `Material`, `SerialNumber`, `ManufacturerSerialNumber`, `ConstructionYear`, `InventoryNumber`
+- Records and fields: `ZEMX_C_EquipmentMig` vs `ZEMT_B_EquipmentCompare` on `Equipment`; compared: `EquipmentCategory`, `TechnicalObjectType`, `MaintenancePlanningPlant`, `FunctionalLocation`, `SuperordinateEquipment`, `MaintenancePlant`, `CompanyCode`, `CostCenter`, `Material`, `SerialNumber`, `ManufacturerSerialNumber`, `ConstructionYear`, `InventoryNumber`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module equipment --source ecc_counts.csv --target s4_counts.csv

@@ -13,7 +13,7 @@
 @ObjectModel.usageType.sizeCategory: #M
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_TaskListCurrent
-  as select from ZEMX_I_TaskListHeader as hdr
+  as select from ZEMX_B_TaskListHeader as hdr
     inner join ZEMX_I_TaskListLatestVersion as latest on latest.TaskListType = hdr.TaskListType and latest.TaskListGroup = hdr.TaskListGroup and latest.TaskListGroupCounter = hdr.TaskListGroupCounter and latest.TaskListVersionCounter = hdr.TaskListVersionCounter
 {
       @EndUserText.label: 'Task List Type'

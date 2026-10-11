@@ -20,9 +20,9 @@
   "migration_pair": "qm_mig_ecc",
   "map_title": "ZQMT Quality Management Migration - S/4HANA Reconciliation Map",
   "map_area": "Quality Management migration target (S/4HANA)",
-  "map_initial": "ZQMT_I_INSPECTIONLOTCOMPARE",
+  "map_initial": "ZQMT_B_INSPECTIONLOTCOMPARE",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

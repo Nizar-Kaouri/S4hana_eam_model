@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_NotifActivity
-  as select from ZEMX_I_NotifActivityData as b
+  as select from ZEMX_B_NotifActivityData as b
 {
       @EndUserText.label: 'Maintenance Notification'
   key b.MaintenanceNotification as MaintenanceNotification,

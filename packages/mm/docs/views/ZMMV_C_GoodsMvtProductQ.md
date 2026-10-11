@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZMMV_R_GoodsMvtWithProduct` |
+| Data source | `ZMMV_I_GoodsMvtWithProduct` |
 | Source file | `src/zmmv_c_goodsmvtproductq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZMMV_R_GoodsMvtWithProduct: receipts and issues per plant and product group.
+Analytical query on ZMMV_I_GoodsMvtWithProduct: receipts and issues per plant and product group.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZMMV_R_GoodsMvtWithProduct: receipts and issues per plant an
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_GoodsMvtWithProduct (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_I_GoodsMvtWithProduct (see GEN-Q01).
 
 ## Example use case
 

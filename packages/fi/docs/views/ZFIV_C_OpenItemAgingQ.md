@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZFIV_R_OpenItemAging` |
+| Data source | `ZFIV_I_OpenItemAging` |
 | Source file | `src/zfiv_c_openitemagingq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZFIV_R_OpenItemAging: open and overdue amounts per account type and aging bucket.
+Analytical query on ZFIV_I_OpenItemAging: open and overdue amounts per account type and aging bucket.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZFIV_R_OpenItemAging: open and overdue amounts per account t
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_R_OpenItemAging (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_I_OpenItemAging (see GEN-Q01).
 
 ## Example use case
 

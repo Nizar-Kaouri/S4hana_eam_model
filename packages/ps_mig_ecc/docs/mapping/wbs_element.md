@@ -46,7 +46,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZPSX_C_WBSMigCount` (ECC) vs `ZPST_I_WBSCount` (S/4HANA) per `WBSElementInternalID`
-- Records and fields: `ZPSX_C_WBSMig` vs `ZPST_I_WBSCompare` on `WBSElementInternalID`; compared: `WBSElementExternalID`, `WBSElementDescription`
+- Records and fields: `ZPSX_C_WBSMig` vs `ZPST_B_WBSCompare` on `WBSElementInternalID`; compared: `WBSElementExternalID`, `WBSElementDescription`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product ps_mig_ecc --module wbs_element --source ecc_counts.csv --target s4_counts.csv

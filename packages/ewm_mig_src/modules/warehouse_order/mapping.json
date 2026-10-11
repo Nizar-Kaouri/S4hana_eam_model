@@ -27,70 +27,70 @@
         {
           "element": "Warehouse",
           "source": "/SCWM/WHO-LGNUM",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.Warehouse",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.Warehouse",
           "rule": "info",
           "compare": true
         },
         {
           "element": "WarehouseOrder",
           "source": "/SCWM/WHO-WHO",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.WarehouseOrder",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.WarehouseOrder",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CreationRule",
           "source": "/SCWM/WHO-WCR",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.CreationRule",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreationRule",
           "rule": "info",
           "compare": true
         },
         {
           "element": "OrderStatus",
           "source": "/SCWM/WHO-STATUS",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.OrderStatus",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.OrderStatus",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Queue",
           "source": "/SCWM/WHO-QUEUE",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.Queue",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.Queue",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ActivityArea",
           "source": "/SCWM/WHO-AREAWHO",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.ActivityArea",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.ActivityArea",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CreatedAt",
           "source": "/SCWM/WHO-CREATED_AT",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.CreatedAt",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreatedAt",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CreatedBy",
           "source": "/SCWM/WHO-CREATED_BY",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.CreatedBy",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreatedBy",
           "rule": "info",
           "compare": true
         },
         {
           "element": "StartedAt",
           "source": "/SCWM/WHO-STARTED_AT",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.StartedAt",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.StartedAt",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ConfirmedAt",
           "source": "/SCWM/WHO-CONFIRMED_AT",
-          "target": "Native target evidence: ZWMT_I_WarehouseOrderCompare.ConfirmedAt",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.ConfirmedAt",
           "rule": "info",
           "compare": true
         }
@@ -115,7 +115,7 @@
     "target_count_view": "ZWMT_I_WarehouseOrderCount",
     "compare": {
       "source_view": "ZWMX_C_WarehouseOrderMig",
-      "target_view": "ZWMT_I_WarehouseOrderCompare",
+      "target_view": "ZWMT_B_WarehouseOrderCompare",
       "key": [
         "Warehouse",
         "WarehouseOrder"

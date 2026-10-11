@@ -145,7 +145,7 @@
     "source_count_view": "ZCOX_C_ProfitCenterMigCount",
     "compare": {
       "source_view": "ZCOX_C_ProfitCenterMig",
-      "target_view": "ZCOT_I_ProfitCenterCompare",
+      "target_view": "ZCOT_B_ProfitCenterCompare",
       "key": [
         "ProfitCenter",
         "ValidityEndDate",

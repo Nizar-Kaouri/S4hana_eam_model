@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZCOX_I_InternalOrderData` |
+| Data source | `ZCOX_B_InternalOrderData` |
 | Source file | `src/zcox_i_internalorder.ddls.asddls` |
 
 ## Purpose

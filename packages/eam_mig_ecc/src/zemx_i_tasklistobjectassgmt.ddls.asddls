@@ -13,7 +13,7 @@
 @ObjectModel.usageType.sizeCategory: #M
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_TaskListObjectAssgmt
-  as select from ZEMX_I_EquipTaskListAsgmt as src
+  as select from ZEMX_B_EquipTaskListAsgmt as src
 {
       @EndUserText.label: 'TaskListType'
   key src.TaskListType as TaskListType,
@@ -33,7 +33,7 @@ define view ZEMX_I_TaskListObjectAssgmt
       src.IsMarkedForDeletion as IsMarkedForDeletion
 }
 union all
-  select from ZEMX_I_FuncTaskListAsgmt as src
+  select from ZEMX_B_FuncTaskListAsgmt as src
 {
       @EndUserText.label: 'TaskListType'
   key src.TaskListType as TaskListType,

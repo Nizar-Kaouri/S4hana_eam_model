@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZMMT_I_PurchaseOrderCompare"
+      "ZMMT_B_PurchaseOrderCompare"
     ],
     "composite": [
       "ZMMT_I_PurchaseOrderCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZMMT_I_PurchaseOrderCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMT_B_PurchaseOrderCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMT_I_PurchaseOrderCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

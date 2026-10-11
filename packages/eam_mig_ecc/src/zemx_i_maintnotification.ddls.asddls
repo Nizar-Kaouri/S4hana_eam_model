@@ -13,8 +13,8 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintNotification
-  as select from ZEMX_I_NotificationHeader as hdr
-    inner join ZEMX_I_NotificationMaintData as pm on pm.MaintenanceNotification = hdr.MaintenanceNotification
+  as select from ZEMX_B_NotificationHeader as hdr
+    inner join ZEMX_B_NotificationMaintData as pm on pm.MaintenanceNotification = hdr.MaintenanceNotification
 {
       @EndUserText.label: 'Maintenance Notification'
   key hdr.MaintenanceNotification    as MaintenanceNotification,

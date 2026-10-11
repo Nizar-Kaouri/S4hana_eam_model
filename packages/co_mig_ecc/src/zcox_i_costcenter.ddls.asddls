@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_CostCenter
-  as select from ZCOX_I_CostCenterData as src
+  as select from ZCOX_B_CostCenterData as src
 {
   key src.ControllingArea as ControllingArea,
   key src.CostCenter as CostCenter,

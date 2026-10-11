@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZMMX_I_PurchaseHistorData` |
+| Data source | `ZMMX_B_PurchaseHistorData` |
 | Source file | `src/zmmx_i_purchasehistor.ddls.asddls` |
 
 ## Purpose

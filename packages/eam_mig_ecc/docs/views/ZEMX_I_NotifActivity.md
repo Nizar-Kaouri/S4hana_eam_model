@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_NotifActivityData` |
+| Data source | `ZEMX_B_NotifActivityData` |
 | Source file | `src/zemx_i_notifactivity.ddls.asddls` |
 
 ## Purpose

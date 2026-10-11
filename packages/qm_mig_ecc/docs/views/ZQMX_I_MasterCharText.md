@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZQMX_I_MasterCharTextData` |
+| Data source | `ZQMX_B_MasterCharTextData` |
 | Source file | `src/zqmx_i_masterchartext.ddls.asddls` |
 
 ## Purpose

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #M
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintPlanLastCall
-  as select from ZEMX_I_MaintPlanCallHistory as cal
+  as select from ZEMX_B_MaintPlanCallHistory as cal
 {
       @EndUserText.label: 'Maintenance Plan'
   key cal.MaintenancePlan            as MaintenancePlan,

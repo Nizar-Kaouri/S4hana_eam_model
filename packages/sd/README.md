@@ -1,5 +1,7 @@
 # Sales and Distribution (SD) - CDS virtual data model
 
+Naming: **B_ = Basic, I_ = Interface (Composite), C_ = Consumption**. See [naming guidance](../../docs/NAMING.md).
+
 > **Status: draft-unverified.** Written without an SAP system; nothing has been activated or tested.
 > Every uncertain element carries a `TODO-VERIFY` marker, ranked in [`BATCH_REPORT.md`](BATCH_REPORT.md).
 
@@ -11,8 +13,8 @@
 | Target release | SAP S/4HANA 2025 (on-premise / Private Cloud Edition) |
 | Entity map | [`docs/model_map.html`](docs/model_map.html) |
 
-Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZSDV_I_*`,
-composite `ZSDV_R_*` (cubes), consumption `ZSDV_C_*Q` (analytical queries); one self-contained module
+Same architecture and rules as the EAM product (see `packages/eam/README.md`): basic `ZSDV_B_*`,
+composite `ZSDV_I_*` (cubes), consumption `ZSDV_C_*Q` (analytical queries); one self-contained module
 per business object; hard dependencies added by the build. **2 intra-product link object(s)** ship
 only when all their modules are selected; links to other products live in `packages/bridge`.
 
@@ -20,8 +22,8 @@ only when all their modules are selected; links to other products live in `packa
 
 | Link object | Requires modules |
 |---|---|
-| `ZSDV_I_SOItemWithBilling` | billing_document, sales_order |
-| `ZSDV_I_SOItemWithDelivery` | outbound_delivery, sales_order |
+| `ZSDV_B_SOItemWithBilling` | billing_document, sales_order |
+| `ZSDV_B_SOItemWithDelivery` | outbound_delivery, sales_order |
 
 ## Data model in one paragraph
 
@@ -31,10 +33,10 @@ Sales orders come from `I_SalesDocument` / `I_SalesDocumentItem` restricted to d
 
 | Module | Batch | Hard dependencies | Views |
 |---|---|---|---|
-| `sales_order` | 1 | - | `ZSDV_I_SalesOrder`, `ZSDV_I_SalesOrderItem`, `ZSDV_I_SalesOrderVH`, `ZSDV_R_SalesOrderItem`, `ZSDV_C_SalesOrderQ` |
-| `outbound_delivery` | 2 | - | `ZSDV_I_OutboundDelivery`, `ZSDV_I_DeliveryItem`, `ZSDV_R_DeliveryItem`, `ZSDV_C_DeliveryQ` |
-| `billing_document` | 2 | - | `ZSDV_I_BillingDocument`, `ZSDV_I_BillingDocumentItem`, `ZSDV_R_Revenue`, `ZSDV_C_RevenueQ` |
-| `rpt_open_sales_orders` | 3 | `sales_order` | `ZSDV_R_OpenSalesOrder`, `ZSDV_C_OpenSalesOrderQ` |
+| `sales_order` | 1 | - | `ZSDV_B_SalesOrder`, `ZSDV_B_SalesOrderItem`, `ZSDV_B_SalesOrderVH`, `ZSDV_I_SalesOrderItem`, `ZSDV_C_SalesOrderQ` |
+| `outbound_delivery` | 2 | - | `ZSDV_B_OutboundDelivery`, `ZSDV_B_DeliveryItem`, `ZSDV_I_DeliveryItem`, `ZSDV_C_DeliveryQ` |
+| `billing_document` | 2 | - | `ZSDV_B_BillingDocument`, `ZSDV_B_BillingDocumentItem`, `ZSDV_I_Revenue`, `ZSDV_C_RevenueQ` |
+| `rpt_open_sales_orders` | 3 | `sales_order` | `ZSDV_I_OpenSalesOrder`, `ZSDV_C_OpenSalesOrderQ` |
 
 ## Commands
 

@@ -1,7 +1,7 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
 // Purpose: Analytical query on the notification cube (rows planning plant x notification type).
 // Example: Notification backlog and breakdown share per plant in an analytical list page.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_R_MaintNotif applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_I_MaintNotif applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Maintenance Notification Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZEAM_C_MaintNotifQ
   provider contract analytical_query
-  as projection on ZEAM_R_MaintNotif
+  as projection on ZEAM_I_MaintNotif
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_Confirmation
-  as select from ZPPX_I_ConfirmationData as src
+  as select from ZPPX_B_ConfirmationData as src
 {
   key src.ConfirmationNumber as ConfirmationNumber,
   key src.ConfirmationCounter as ConfirmationCounter,

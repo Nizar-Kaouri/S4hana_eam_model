@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_WorkCenterHeader` |
+| Data source | `ZEMX_B_WorkCenterHeader` |
 | Source file | `src/zemx_c_workcentermig.ddls.asddls` |
 
 ## Purpose

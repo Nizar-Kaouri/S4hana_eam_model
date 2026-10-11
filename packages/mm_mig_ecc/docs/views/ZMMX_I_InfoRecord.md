@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZMMX_I_InfoRecordData` |
+| Data source | `ZMMX_B_InfoRecordData` |
 | Source file | `src/zmmx_i_inforecord.ddls.asddls` |
 
 ## Purpose

@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZMMT_I_MaterialCompare` |
+| Data source | `ZMMT_B_MaterialCompare` |
 | Source file | `src/zmmt_i_materialcount.ddls.asddls` |
 
 ## Purpose

@@ -1,33 +1,33 @@
 {
   "version": "0.3.0",
   "bundle": "ModuPorter-EWM-TM-FSCM-EHS-Native-Packs-0.3.0.zip",
-  "bundle_sha256": "99c7c0fa770adceb77a663e50190a95cf30c91b66934d20afb0ac24805366d53",
+  "bundle_sha256": "26c52311d773fd71ddd471b243a0b43d66f74439c09faba6f482e5d7ca278ba6",
   "packages": [
     {
       "domain": "ewm",
       "archive": "ModuPorter-EWM-Customer-Pack-0.3.0.zip",
-      "sha256": "ee4b335ba8b022e5c24c253eb4cf15a9394ff439f0f995a375531f4bb0f30109",
+      "sha256": "202d51d9e89812674617ec36ac03cec46fdf72ffaf8b14ee57f226586154678d",
       "native_structures": 7,
       "status": "partial-native-draft; SAP unverified"
     },
     {
       "domain": "tm",
       "archive": "ModuPorter-TM-Customer-Pack-0.3.0.zip",
-      "sha256": "2e6d20c8d79de3554dfd76d9b636627cf8229e55255601dce329a420f22615b7",
+      "sha256": "379293b968bb0aecc343e2aa9c2f2705828f260de724044b8f4e9d999b43e2b8",
       "native_structures": 7,
       "status": "partial-native-draft; SAP unverified"
     },
     {
       "domain": "fscm",
       "archive": "ModuPorter-FSCM-Customer-Pack-0.3.0.zip",
-      "sha256": "f039ba5a74a42953a69c924f9cc4cfd5b132929e38ecb886bc473179e87939cd",
+      "sha256": "7aaeae0cf58cc1bb7382c4b9370016041ebea9bbc99a50ce66188d61d13c64bb",
       "native_structures": 7,
       "status": "partial-native-draft; SAP unverified"
     },
     {
       "domain": "ehs",
       "archive": "ModuPorter-EHS-Customer-Pack-0.3.0.zip",
-      "sha256": "a82287e0a29587a7e9150b0ae6e3a8ece665e809f7aeb6baf1550aee7fec4d40",
+      "sha256": "a833ad7096b840726293c41d22715cb2c0e14ababedbaeddd77773f326c22524",
       "native_structures": 6,
       "status": "partial-native-draft; SAP unverified"
     }
@@ -37,5 +37,6 @@
   "pending_structures": 45,
   "offline_unit_tests": 88,
   "isolated_zip_structures": 27,
-  "SAP_runtime_verified": false
+  "SAP_runtime_verified": false,
+  "naming": "B_ Basic; I_ Interface (Composite); C_ Consumption"
 }

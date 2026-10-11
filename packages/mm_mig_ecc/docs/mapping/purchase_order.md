@@ -106,7 +106,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZMMX_C_PurchaseOrderMigCount` (ECC) vs `ZMMT_I_PurchaseOrderCount` (S/4HANA) per `PurchaseOrder`
-- Records and fields: `ZMMX_C_PurchaseOrderMig` vs `ZMMT_I_PurchaseOrderCompare` on `PurchaseOrder`; compared: `CompanyCode`, `PurchaseOrderType`, `Supplier`, `PurchasingOrganization`, `PurchasingGroup`, `DocumentCurrency`
+- Records and fields: `ZMMX_C_PurchaseOrderMig` vs `ZMMT_B_PurchaseOrderCompare` on `PurchaseOrder`; compared: `CompanyCode`, `PurchaseOrderType`, `Supplier`, `PurchasingOrganization`, `PurchasingGroup`, `DocumentCurrency`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product mm_mig_ecc --module purchase_order --source ecc_counts.csv --target s4_counts.csv

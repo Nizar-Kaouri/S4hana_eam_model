@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_NetworkActivit
-  as select from ZPSX_I_NetworkActivitData as src
+  as select from ZPSX_B_NetworkActivitData as src
 {
   key src.RoutingNumber as RoutingNumber,
   key src.OperationInternalID as OperationInternalID,

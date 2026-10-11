@@ -22,12 +22,12 @@
   "migration_pair": "ps_mig_s4",
   "map_title": "ZPSX Project System Migration - ECC Source Map",
   "map_area": "Project System migration source (ECC tables)",
-  "map_initial": "ZPSX_I_ProjectData",
+  "map_initial": "ZPSX_B_ProjectData",
   "map_external_title": "ECC tables",
   "map_release": "SAP ECC 6.0 (source)",
   "map_external_sub": "tables (read directly, never copied)",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

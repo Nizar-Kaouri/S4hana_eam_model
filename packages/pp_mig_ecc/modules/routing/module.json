@@ -21,11 +21,11 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZPPX_I_RoutingHeaderData",
-      "ZPPX_I_RoutingMateriaData",
-      "ZPPX_I_RoutingSelectiData",
-      "ZPPX_I_RoutingOperatiData",
-      "ZPPX_I_RoutingSequencData"
+      "ZPPX_B_RoutingHeaderData",
+      "ZPPX_B_RoutingMateriaData",
+      "ZPPX_B_RoutingSelectiData",
+      "ZPPX_B_RoutingOperatiData",
+      "ZPPX_B_RoutingSequencData"
     ],
     "composite": [
       "ZPPX_I_RoutingHeader",
@@ -47,20 +47,20 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPPX_I_RoutingHeaderData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_RoutingHeaderData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_I_RoutingHeader": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_RoutingHeaderMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_RoutingHeaderMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPPX_I_RoutingMateriaData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_RoutingMateriaData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_I_RoutingMateria": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_RoutingMateriaMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPPX_I_RoutingSelectiData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_RoutingSelectiData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_I_RoutingSelecti": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_RoutingSelectiMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPPX_I_RoutingOperatiData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_RoutingOperatiData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_I_RoutingOperati": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_RoutingOperatiMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPPX_I_RoutingSequencData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_RoutingSequencData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_I_RoutingSequenc": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_RoutingSequencMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },

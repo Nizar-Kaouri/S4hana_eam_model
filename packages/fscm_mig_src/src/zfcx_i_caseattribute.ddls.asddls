@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFCX_I_CaseAttribute
-  as select from ZFCX_I_CaseAttributeData as src
+  as select from ZFCX_B_CaseAttributeData as src
 {
   key src.CaseUUID as CaseUUID,
       src.CaseType as CaseType,

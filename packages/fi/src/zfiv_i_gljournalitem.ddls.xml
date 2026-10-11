@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZFIV_I_GLJOURNALITEM</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>G/L Journal Item</DDTEXT>
+    <DDTEXT>G/L Journal Item - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

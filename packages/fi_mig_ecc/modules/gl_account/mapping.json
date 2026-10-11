@@ -176,7 +176,7 @@
     "source_count_view": "ZFIX_C_GLAccountMigCount",
     "compare": {
       "source_view": "ZFIX_C_GLAccountMig",
-      "target_view": "ZFIT_I_GLAccountCompare",
+      "target_view": "ZFIT_B_GLAccountCompare",
       "key": [
         "ChartOfAccounts",
         "GLAccount"

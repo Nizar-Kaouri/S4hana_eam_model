@@ -473,7 +473,7 @@
     "source_count_view": "ZSDX_C_SalesOrderMigCount",
     "compare": {
       "source_view": "ZSDX_C_SalesOrderMig",
-      "target_view": "ZSDT_I_SalesOrderCompare",
+      "target_view": "ZSDT_B_SalesOrderCompare",
       "key": [
         "SalesDocument"
       ],

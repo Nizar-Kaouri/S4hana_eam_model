@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZTMX_I_FreightOrdStopData`, join `ZTMX_I_FreightOrderData` |
+| Data source | `ZTMX_B_FreightOrdStopData`, join `ZTMX_B_FreightOrderData` |
 | Source file | `src/ztmx_i_freightordstop.ddls.asddls` |
 
 ## Purpose

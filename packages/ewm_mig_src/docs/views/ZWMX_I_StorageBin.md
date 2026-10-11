@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZWMX_I_StorageBinData` |
+| Data source | `ZWMX_B_StorageBinData` |
 | Source file | `src/zwmx_i_storagebin.ddls.asddls` |
 
 ## Purpose

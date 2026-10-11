@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZTMX_I_TransportLoc
-  as select from ZTMX_I_TransportLocData as src
+  as select from ZTMX_B_TransportLocData as src
 {
   key src.LocationUUID as LocationUUID,
       src.LocationID as LocationID,

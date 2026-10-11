@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_CapacityHeaderData` |
+| Data source | `ZEMX_B_CapacityHeaderData` |
 | Source file | `src/zemx_i_capacityheader.ddls.asddls` |
 
 ## Purpose

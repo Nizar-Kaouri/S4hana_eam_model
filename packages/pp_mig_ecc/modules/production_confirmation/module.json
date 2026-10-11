@@ -20,7 +20,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZPPX_I_ConfirmationData"
+      "ZPPX_B_ConfirmationData"
     ],
     "composite": [
       "ZPPX_I_Confirmation"
@@ -34,7 +34,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPPX_I_ConfirmationData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_ConfirmationData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_I_Confirmation": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_ConfirmationMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_ConfirmationMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."

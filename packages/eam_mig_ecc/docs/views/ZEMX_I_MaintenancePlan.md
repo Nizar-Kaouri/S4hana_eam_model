@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_MaintenancePlanHeader` |
+| Data source | `ZEMX_B_MaintenancePlanHeader` |
 | Source file | `src/zemx_i_maintenanceplan.ddls.asddls` |
 
 ## Purpose

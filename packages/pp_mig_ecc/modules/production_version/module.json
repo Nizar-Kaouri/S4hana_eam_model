@@ -20,7 +20,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZPPX_I_ProdVersionData"
+      "ZPPX_B_ProdVersionData"
     ],
     "composite": [
       "ZPPX_I_ProdVersion"
@@ -34,7 +34,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPPX_I_ProdVersionData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_ProdVersionData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_I_ProdVersion": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_ProdVersionMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_C_ProdVersionMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."

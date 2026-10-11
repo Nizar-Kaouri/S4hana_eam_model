@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_RoutingHeader
-  as select from ZPPX_I_RoutingHeaderData as src
+  as select from ZPPX_B_RoutingHeaderData as src
 {
   key src.TaskListType as TaskListType,
   key src.TaskListGroup as TaskListGroup,

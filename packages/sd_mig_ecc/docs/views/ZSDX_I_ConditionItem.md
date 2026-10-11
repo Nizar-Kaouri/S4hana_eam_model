@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZSDX_I_ConditionItemData` |
+| Data source | `ZSDX_B_ConditionItemData` |
 | Source file | `src/zsdx_i_conditionitem.ddls.asddls` |
 
 ## Purpose

@@ -20,43 +20,43 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZPSV_I_WBSElement",
-      "ZPSV_I_WBSElementVH"
+      "ZPSV_B_WBSElement",
+      "ZPSV_B_WBSElementVH"
     ],
     "composite": [
-      "ZPSV_R_WBSElement"
+      "ZPSV_I_WBSElement"
     ],
     "consumption": [
       "ZPSV_C_WBSElementQ"
     ],
     "access_controls": [
-      "ZPSV_I_WBSElement",
-      "ZPSV_I_WBSElementVH",
-      "ZPSV_R_WBSElement"
+      "ZPSV_B_WBSElement",
+      "ZPSV_B_WBSElementVH",
+      "ZPSV_I_WBSElement"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPSV_C_WBSElementQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_WBSElement (see GEN-Q01)."
+    "ZPSV_C_WBSElementQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_I_WBSElement (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZPSV_I_ProjectWithWBSElement",
+      "name": "ZPSV_B_ProjectWithWBSElement",
       "requires_modules": [
         "project",
         "wbs_element"
       ],
-      "access_control": "ZPSV_I_ProjectWithWBSElement"
+      "access_control": "ZPSV_B_ProjectWithWBSElement"
     },
     {
-      "name": "ZPSV_R_ProjectCostWithMaster",
+      "name": "ZPSV_I_ProjectCostWithMaster",
       "requires_modules": [
         "project",
         "project_cost",
         "wbs_element"
       ],
-      "access_control": "ZPSV_R_ProjectCostWithMaster"
+      "access_control": "ZPSV_I_ProjectCostWithMaster"
     },
     {
       "name": "ZPSV_C_ProjectCostMasterQ",
@@ -65,7 +65,7 @@
         "project_cost",
         "wbs_element"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZPSV_R_ProjectCostWithMaster (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZPSV_I_ProjectCostWithMaster (see GEN-Q01)."
     }
   ]
 }

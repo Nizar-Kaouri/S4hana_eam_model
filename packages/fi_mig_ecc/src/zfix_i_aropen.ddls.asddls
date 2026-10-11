@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_AROpen
-  as select from ZFIX_I_AROpenData as src
+  as select from ZFIX_B_AROpenData as src
 {
   key src.CompanyCode as CompanyCode,
   key src.Customer as Customer,

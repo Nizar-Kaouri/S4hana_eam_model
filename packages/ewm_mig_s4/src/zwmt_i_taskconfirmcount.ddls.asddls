@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZWMT_I_TaskConfirmCount
-  as select from ZWMT_I_TaskConfirmCompare as src
+  as select from ZWMT_B_TaskConfirmCompare as src
 {
   key src.Warehouse as Warehouse,
       count( * ) as RecordCount

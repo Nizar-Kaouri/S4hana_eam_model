@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEHX_I_IncidentAction
-  as select from ZEHX_I_IncidentActionData as src
+  as select from ZEHX_B_IncidentActionData as src
 {
   key src.ActionUUID as ActionUUID,
       src.ActionID as ActionID,

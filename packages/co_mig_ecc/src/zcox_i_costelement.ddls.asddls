@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_CostElement
-  as select from ZCOX_I_CostElementData as src
+  as select from ZCOX_B_CostElementData as src
 {
   key src.ChartOfAccounts as ChartOfAccounts,
   key src.CostElement as CostElement,

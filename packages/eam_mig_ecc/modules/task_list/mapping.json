@@ -661,7 +661,7 @@
     "measure": "RecordCount",
     "compare": {
       "source_view": "ZEMX_C_TaskListMig",
-      "target_view": "ZEMT_I_TaskListCompare",
+      "target_view": "ZEMT_B_TaskListCompare",
       "key": [
         "TaskListType",
         "TaskListGroup",

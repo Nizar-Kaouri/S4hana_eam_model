@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_BOMSelection
-  as select from ZPPX_I_BOMSelectionData as src
+  as select from ZPPX_B_BOMSelectionData as src
 {
   key src.BOMCategory as BOMCategory,
   key src.BillOfMaterial as BillOfMaterial,

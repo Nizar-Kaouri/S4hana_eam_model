@@ -17,5 +17,10 @@
   "reserve_prefix_chars": 1,
   "map_title": "ZMMV Materials Management Model Map",
   "map_area": "Materials Management (MM)",
-  "map_initial": "ZMMV_I_PurchaseOrderItem"
+  "map_initial": "ZMMV_B_PurchaseOrderItem",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

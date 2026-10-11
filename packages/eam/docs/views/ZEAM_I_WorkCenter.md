@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Work Center |
+| Description | Work Center - Cube |
 | Module | `work_center` |
 | Batch | 5 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_WorkCenter` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_WorkCenter` |
 | Source file | `src/zeam_i_workcenter.ddls.asddls` |
 
 ## Purpose
 
-One row per work center of type 'A' (production resources / maintenance work centers) with external ID, plant, category, person responsible and validity; dimension for operation and backlog analyses (which reference WorkCenterInternalID).
+Work center cube with the number of maintenance work centers per plant and category.
 
 ## Keys
 
@@ -23,17 +23,16 @@ One row per work center of type 'A' (production resources / maintenance work cen
 
 ## Associations defined here
 
-- `_Text` → `ZEAM_I_WorkCenterText` [0..*]
-- `_Plant` → `I_Plant` [0..1]
+- `_WorkCenter` → `ZEAM_B_WorkCenter` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_WorkCenter`.
+Role inherits the conditions of `ZEAM_B_WorkCenter`.
 
 ## Example use case
 
-Remaining backlog hours per work center with the work center description.
+Organizational overview of maintenance work centers per plant.
 
 ## Open verification items
 
-`WC-001`, `WC-002`, `WC-D01` - see `BATCH_REPORT.md`.
+none

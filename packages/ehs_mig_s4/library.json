@@ -20,9 +20,9 @@
   "migration_pair": "ehs_mig_src",
   "map_title": "Environment Health and Safety native extraction",
   "map_area": "Native SAP tables",
-  "map_initial": "ZEHT_I_SpecificationCompare",
+  "map_initial": "ZEHT_B_SpecificationCompare",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

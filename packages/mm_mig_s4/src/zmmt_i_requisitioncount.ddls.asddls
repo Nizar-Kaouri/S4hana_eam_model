@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZMMT_I_RequisitionCount
-  as select from ZMMT_I_RequisitionCompare as src
+  as select from ZMMT_B_RequisitionCompare as src
 {
   key src.PurchaseRequisition as PurchaseRequisition,
       count( * ) as RecordCount

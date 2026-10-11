@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Maintenance Order Operation |
+| Description | Maintenance Order Operation - Cube |
 | Module | `maintenance_order` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_MaintenanceOrderOperation` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_MaintOrderOperation` |
 | Source file | `src/zeam_i_maintorderoperation.ddls.asddls` |
 
 ## Purpose
 
-One row per maintenance order operation / sub-operation with work center, control key, planned and actual work.
+Operation cube with planned and actual work and order header characteristics (order type, activity type, planning plant, open flag) taken over via path expressions.
 
 ## Keys
 
@@ -25,16 +25,16 @@ One row per maintenance order operation / sub-operation with work center, contro
 
 ## Associations defined here
 
-- `_MaintenanceOrder` → `ZEAM_I_MaintOrder` [1..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_MaintenanceOrderOperation`.
+Role inherits the conditions of `ZEAM_B_MaintOrderOperation`.
 
 ## Example use case
 
-Planned vs. actual work per work center; remaining work of open orders (backlog report).
+Planned vs. actual work hours per work center and month; work-plan adherence per planner group.
 
 ## Open verification items
 
-`MO-D02`, `MO-O01`, `MO-O02`, `MO-O03`, `MO-O04` - see `BATCH_REPORT.md`.
+`MO-R02` - see `BATCH_REPORT.md`.

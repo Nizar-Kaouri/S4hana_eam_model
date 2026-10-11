@@ -19,22 +19,22 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `ContactUUID` | UDM_CCT_ATTR-CCT_GUID | Native target evidence: ZFCT_I_CollectContactCompare.ContactUUID | information only | yes |
-| `ContactDate` | UDM_CCT_ATTR-CCT_DATE | Native target evidence: ZFCT_I_CollectContactCompare.ContactDate | information only | yes |
-| `ContactResult` | UDM_CCT_ATTR-CCT_RESULT | Native target evidence: ZFCT_I_CollectContactCompare.ContactResult | information only | yes |
-| `ContactType` | UDM_CCT_ATTR-CCT_TYPE | Native target evidence: ZFCT_I_CollectContactCompare.ContactType | information only | yes |
-| `ContactDirection` | UDM_CCT_ATTR-CCT_DIRECTION | Native target evidence: ZFCT_I_CollectContactCompare.ContactDirection | information only | yes |
-| `Reached` | UDM_CCT_ATTR-XREACHED | Native target evidence: ZFCT_I_CollectContactCompare.Reached | information only | yes |
-| `CollectionSegment` | UDM_CCT_ATTR-COLL_SEGMENT | Native target evidence: ZFCT_I_CollectContactCompare.CollectionSegment | information only | yes |
-| `CollectionSpecialist` | UDM_CCT_ATTR-COLL_SPECIALIST | Native target evidence: ZFCT_I_CollectContactCompare.CollectionSpecialist | information only | yes |
-| `BusinessPartner` | UDM_CCT_ATTR-CUSTOMER | Native target evidence: ZFCT_I_CollectContactCompare.BusinessPartner | information only | yes |
-| `ContactName` | UDM_CCT_ATTR-CCT_NAME | Native target evidence: ZFCT_I_CollectContactCompare.ContactName | information only | yes |
-| `ChangedAt` | UDM_CCT_ATTR-CHANGED_AT | Native target evidence: ZFCT_I_CollectContactCompare.ChangedAt | information only | yes |
+| `ContactUUID` | UDM_CCT_ATTR-CCT_GUID | Native target evidence: ZFCT_B_CollectContactCompare.ContactUUID | information only | yes |
+| `ContactDate` | UDM_CCT_ATTR-CCT_DATE | Native target evidence: ZFCT_B_CollectContactCompare.ContactDate | information only | yes |
+| `ContactResult` | UDM_CCT_ATTR-CCT_RESULT | Native target evidence: ZFCT_B_CollectContactCompare.ContactResult | information only | yes |
+| `ContactType` | UDM_CCT_ATTR-CCT_TYPE | Native target evidence: ZFCT_B_CollectContactCompare.ContactType | information only | yes |
+| `ContactDirection` | UDM_CCT_ATTR-CCT_DIRECTION | Native target evidence: ZFCT_B_CollectContactCompare.ContactDirection | information only | yes |
+| `Reached` | UDM_CCT_ATTR-XREACHED | Native target evidence: ZFCT_B_CollectContactCompare.Reached | information only | yes |
+| `CollectionSegment` | UDM_CCT_ATTR-COLL_SEGMENT | Native target evidence: ZFCT_B_CollectContactCompare.CollectionSegment | information only | yes |
+| `CollectionSpecialist` | UDM_CCT_ATTR-COLL_SPECIALIST | Native target evidence: ZFCT_B_CollectContactCompare.CollectionSpecialist | information only | yes |
+| `BusinessPartner` | UDM_CCT_ATTR-CUSTOMER | Native target evidence: ZFCT_B_CollectContactCompare.BusinessPartner | information only | yes |
+| `ContactName` | UDM_CCT_ATTR-CCT_NAME | Native target evidence: ZFCT_B_CollectContactCompare.ContactName | information only | yes |
+| `ChangedAt` | UDM_CCT_ATTR-CHANGED_AT | Native target evidence: ZFCT_B_CollectContactCompare.ChangedAt | information only | yes |
 
 ## Reconciliation
 
 - Counts: `ZFCX_C_CollectContactMigCount` (SAP source) vs `ZFCT_I_CollectContactCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZFCX_C_CollectContactMig` vs `ZFCT_I_CollectContactCompare` on `ContactUUID`; compared: `ContactDate`, `ContactResult`, `ContactType`, `ContactDirection`, `Reached`, `CollectionSegment`, `CollectionSpecialist`, `BusinessPartner`, `ContactName`, `ChangedAt`
+- Records and fields: `ZFCX_C_CollectContactMig` vs `ZFCT_B_CollectContactCompare` on `ContactUUID`; compared: `ContactDate`, `ContactResult`, `ContactType`, `ContactDirection`, `Reached`, `CollectionSegment`, `CollectionSpecialist`, `BusinessPartner`, `ContactName`, `ChangedAt`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fscm_mig_src --module collection_activity --source ecc_counts.csv --target s4_counts.csv

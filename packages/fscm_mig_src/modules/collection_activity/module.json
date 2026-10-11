@@ -21,7 +21,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZFCX_I_CollectContactData"
+      "ZFCX_B_CollectContactData"
     ],
     "composite": [
       "ZFCX_I_CollectContact"
@@ -35,7 +35,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFCX_I_CollectContactData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCX_B_CollectContactData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZFCX_I_CollectContact": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZFCX_C_CollectContactMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZFCX_C_CollectContactMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."

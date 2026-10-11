@@ -27,56 +27,56 @@
         {
           "element": "Warehouse",
           "source": "/SCWM/LAGP-LGNUM",
-          "target": "Native target evidence: ZWMT_I_StorageBinCompare.Warehouse",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.Warehouse",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageBin",
           "source": "/SCWM/LAGP-LGPLA",
-          "target": "Native target evidence: ZWMT_I_StorageBinCompare.StorageBin",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.StorageBin",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageType",
           "source": "/SCWM/LAGP-LGTYP",
-          "target": "Native target evidence: ZWMT_I_StorageBinCompare.StorageType",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.StorageType",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageSection",
           "source": "/SCWM/LAGP-LGBER",
-          "target": "Native target evidence: ZWMT_I_StorageBinCompare.StorageSection",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.StorageSection",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "BinType",
           "source": "/SCWM/LAGP-LPTYP",
-          "target": "Native target evidence: ZWMT_I_StorageBinCompare.BinType",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.BinType",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "RemovalBlocked",
           "source": "/SCWM/LAGP-SKZUA",
-          "target": "Native target evidence: ZWMT_I_StorageBinCompare.RemovalBlocked",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.RemovalBlocked",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "PutawayBlocked",
           "source": "/SCWM/LAGP-SKZUE",
-          "target": "Native target evidence: ZWMT_I_StorageBinCompare.PutawayBlocked",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.PutawayBlocked",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "InventoryBlocked",
           "source": "/SCWM/LAGP-SKZSI",
-          "target": "Native target evidence: ZWMT_I_StorageBinCompare.InventoryBlocked",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.InventoryBlocked",
           "rule": "copy",
           "compare": true
         }
@@ -98,42 +98,42 @@
         {
           "element": "Warehouse",
           "source": "/SCWM/LAGPS-LGNUM",
-          "target": "Native target evidence: ZWMT_I_BinSortingCompare.Warehouse",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.Warehouse",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageBin",
           "source": "/SCWM/LAGPS-LGPLA",
-          "target": "Native target evidence: ZWMT_I_BinSortingCompare.StorageBin",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.StorageBin",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "ActivityArea",
           "source": "/SCWM/LAGPS-AAREA",
-          "target": "Native target evidence: ZWMT_I_BinSortingCompare.ActivityArea",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.ActivityArea",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "Activity",
           "source": "/SCWM/LAGPS-ACT_TYPE",
-          "target": "Native target evidence: ZWMT_I_BinSortingCompare.Activity",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.Activity",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "StorageType",
           "source": "/SCWM/LAGPS-LGTYP",
-          "target": "Native target evidence: ZWMT_I_BinSortingCompare.StorageType",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.StorageType",
           "rule": "copy",
           "compare": true
         },
         {
           "element": "SortSequence",
           "source": "/SCWM/LAGPS-REIHF",
-          "target": "Native target evidence: ZWMT_I_BinSortingCompare.SortSequence",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.SortSequence",
           "rule": "copy",
           "compare": true
         }
@@ -159,7 +159,7 @@
     "target_count_view": "ZWMT_I_StorageBinCount",
     "compare": {
       "source_view": "ZWMX_C_StorageBinMig",
-      "target_view": "ZWMT_I_StorageBinCompare",
+      "target_view": "ZWMT_B_StorageBinCompare",
       "key": [
         "Warehouse",
         "StorageBin"

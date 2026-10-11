@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZBRG_R_POItemWithSupplier` |
+| Data source | `ZBRG_I_POItemWithSupplier` |
 | Source file | `src/zbrg_c_poitemsupplierq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZBRG_R_POItemWithSupplier: purchase volume per supplier country and supplier.
+Analytical query on ZBRG_I_POItemWithSupplier: purchase volume per supplier country and supplier.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZBRG_R_POItemWithSupplier: purchase volume per supplier coun
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_POItemWithSupplier (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_POItemWithSupplier (see GEN-Q01).
 
 ## Example use case
 

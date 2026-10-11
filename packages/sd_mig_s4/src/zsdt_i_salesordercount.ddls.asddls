@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZSDT_I_SalesOrderCount
-  as select from ZSDT_I_SalesOrderCompare as src
+  as select from ZSDT_B_SalesOrderCompare as src
 {
   key src.SalesDocument as SalesDocument,
       count( * ) as RecordCount

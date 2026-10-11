@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZSDT_I_DeliveryCount
-  as select from ZSDT_I_DeliveryCompare as src
+  as select from ZSDT_B_DeliveryCompare as src
 {
   key src.DeliveryDocument as DeliveryDocument,
       count( * ) as RecordCount

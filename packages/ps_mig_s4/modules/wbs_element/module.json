@@ -17,7 +17,7 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZPST_I_WBSCompare"
+      "ZPST_B_WBSCompare"
     ],
     "composite": [
       "ZPST_I_WBSCount"
@@ -28,7 +28,7 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPST_I_WBSCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPST_B_WBSCompare": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPST_I_WBSCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []

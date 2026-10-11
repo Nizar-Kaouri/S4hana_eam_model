@@ -193,7 +193,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_BinSortingData"
+        "ZWMX_B_BinSortingData"
       ],
       "keys": [
         "Warehouse",
@@ -205,7 +205,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_BinSortingData",
+      "name": "ZWMX_B_BinSortingData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "storage_bin",
@@ -231,7 +231,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_StorageBinData"
+        "ZWMX_B_StorageBinData"
       ],
       "keys": [
         "Warehouse",
@@ -241,7 +241,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_StorageBinData",
+      "name": "ZWMX_B_StorageBinData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "storage_bin",
@@ -265,7 +265,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_TaskConfirmData"
+        "ZWMX_B_TaskConfirmData"
       ],
       "keys": [
         "Warehouse",
@@ -276,7 +276,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_TaskConfirmData",
+      "name": "ZWMX_B_TaskConfirmData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_task",
@@ -301,7 +301,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_WarehouseOrderData"
+        "ZWMX_B_WarehouseOrderData"
       ],
       "keys": [
         "Warehouse",
@@ -311,7 +311,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_WarehouseOrderData",
+      "name": "ZWMX_B_WarehouseOrderData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_order",
@@ -335,7 +335,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_WarehouseTaskData"
+        "ZWMX_B_WarehouseTaskData"
       ],
       "keys": [
         "Warehouse",
@@ -345,7 +345,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_WarehouseTaskData",
+      "name": "ZWMX_B_WarehouseTaskData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_task",
@@ -369,7 +369,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_WhDeliveryData"
+        "ZWMX_B_WhDeliveryData"
       ],
       "keys": [
         "DeliveryUUID"
@@ -378,7 +378,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_WhDeliveryData",
+      "name": "ZWMX_B_WhDeliveryData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_delivery",
@@ -401,7 +401,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_WhDeliveryItemData"
+        "ZWMX_B_WhDeliveryItemData"
       ],
       "keys": [
         "DeliveryUUID",
@@ -411,7 +411,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_WhDeliveryItemData",
+      "name": "ZWMX_B_WhDeliveryItemData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_delivery",
@@ -428,7 +428,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_BinSortingCompare",
+      "name": "ZWMT_B_BinSortingCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "storage_bin",
@@ -447,7 +447,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_StorageBinCompare",
+      "name": "ZWMT_B_StorageBinCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "storage_bin",
@@ -471,7 +471,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMT_I_StorageBinCompare"
+        "ZWMT_B_StorageBinCompare"
       ],
       "keys": [
         "Warehouse"
@@ -480,7 +480,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_TaskConfirmCompare",
+      "name": "ZWMT_B_TaskConfirmCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_task",
@@ -505,7 +505,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMT_I_TaskConfirmCompare"
+        "ZWMT_B_TaskConfirmCompare"
       ],
       "keys": [
         "Warehouse"
@@ -514,7 +514,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_WarehouseOrderCompare",
+      "name": "ZWMT_B_WarehouseOrderCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_order",
@@ -538,7 +538,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMT_I_WarehouseOrderCompare"
+        "ZWMT_B_WarehouseOrderCompare"
       ],
       "keys": [
         "Warehouse"
@@ -547,7 +547,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_WarehouseTaskCompare",
+      "name": "ZWMT_B_WarehouseTaskCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_task",
@@ -564,7 +564,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_WhDeliveryCompare",
+      "name": "ZWMT_B_WhDeliveryCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_delivery",
@@ -587,14 +587,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMT_I_WhDeliveryCompare"
+        "ZWMT_B_WhDeliveryCompare"
       ],
       "keys": [],
       "file": "packages/ewm_mig_s4/src/zwmt_i_whdeliverycount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_WhDeliveryItemCompare",
+      "name": "ZWMT_B_WhDeliveryItemCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_delivery",
@@ -772,7 +772,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightOrderData"
+        "ZTMX_B_FreightOrderData"
       ],
       "keys": [
         "DocumentUUID"
@@ -781,7 +781,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightOrderData",
+      "name": "ZTMX_B_FreightOrderData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_order",
@@ -804,8 +804,8 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightOrdItemData",
-        "ZTMX_I_FreightOrderData"
+        "ZTMX_B_FreightOrdItemData",
+        "ZTMX_B_FreightOrderData"
       ],
       "keys": [
         "ItemUUID"
@@ -814,7 +814,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightOrdItemData",
+      "name": "ZTMX_B_FreightOrdItemData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_order",
@@ -837,8 +837,8 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightOrdStopData",
-        "ZTMX_I_FreightOrderData"
+        "ZTMX_B_FreightOrdStopData",
+        "ZTMX_B_FreightOrderData"
       ],
       "keys": [
         "StopUUID"
@@ -847,7 +847,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightOrdStopData",
+      "name": "ZTMX_B_FreightOrdStopData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_order",
@@ -870,7 +870,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightUnitData"
+        "ZTMX_B_FreightUnitData"
       ],
       "keys": [
         "DocumentUUID"
@@ -879,7 +879,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightUnitData",
+      "name": "ZTMX_B_FreightUnitData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_unit",
@@ -895,7 +895,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightUnitIteData",
+      "name": "ZTMX_B_FreightUnitIteData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_unit",
@@ -918,8 +918,8 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightUnitIteData",
-        "ZTMX_I_FreightUnitData"
+        "ZTMX_B_FreightUnitIteData",
+        "ZTMX_B_FreightUnitData"
       ],
       "keys": [
         "ItemUUID"
@@ -928,7 +928,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightUnitStoData",
+      "name": "ZTMX_B_FreightUnitStoData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_unit",
@@ -951,8 +951,8 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightUnitStoData",
-        "ZTMX_I_FreightUnitData"
+        "ZTMX_B_FreightUnitStoData",
+        "ZTMX_B_FreightUnitData"
       ],
       "keys": [
         "StopUUID"
@@ -968,7 +968,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_TransportLocData"
+        "ZTMX_B_TransportLocData"
       ],
       "keys": [
         "LocationUUID"
@@ -977,7 +977,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_TransportLocData",
+      "name": "ZTMX_B_TransportLocData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "transport_location",
@@ -993,7 +993,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightOrderCompare",
+      "name": "ZTMT_B_FreightOrderCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_order",
@@ -1016,14 +1016,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMT_I_FreightOrderCompare"
+        "ZTMT_B_FreightOrderCompare"
       ],
       "keys": [],
       "file": "packages/tm_mig_s4/src/ztmt_i_freightordercount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightOrdItemCompare",
+      "name": "ZTMT_B_FreightOrdItemCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_order",
@@ -1031,7 +1031,7 @@
       "type": "DDLS",
       "sources": [
         "/scmtms/d_torite",
-        "ZTMT_I_FreightOrderCompare"
+        "ZTMT_B_FreightOrderCompare"
       ],
       "keys": [
         "ItemUUID"
@@ -1040,7 +1040,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightOrdStopCompare",
+      "name": "ZTMT_B_FreightOrdStopCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_order",
@@ -1048,7 +1048,7 @@
       "type": "DDLS",
       "sources": [
         "/scmtms/d_torstp",
-        "ZTMT_I_FreightOrderCompare"
+        "ZTMT_B_FreightOrderCompare"
       ],
       "keys": [
         "StopUUID"
@@ -1057,7 +1057,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightUnitCompare",
+      "name": "ZTMT_B_FreightUnitCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_unit",
@@ -1080,14 +1080,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMT_I_FreightUnitCompare"
+        "ZTMT_B_FreightUnitCompare"
       ],
       "keys": [],
       "file": "packages/tm_mig_s4/src/ztmt_i_freightunitcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightUnitItemCompare",
+      "name": "ZTMT_B_FreightUnitItemCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_unit",
@@ -1095,7 +1095,7 @@
       "type": "DDLS",
       "sources": [
         "/scmtms/d_torite",
-        "ZTMT_I_FreightUnitCompare"
+        "ZTMT_B_FreightUnitCompare"
       ],
       "keys": [
         "ItemUUID"
@@ -1104,7 +1104,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightUnitStopCompare",
+      "name": "ZTMT_B_FreightUnitStopCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_unit",
@@ -1112,7 +1112,7 @@
       "type": "DDLS",
       "sources": [
         "/scmtms/d_torstp",
-        "ZTMT_I_FreightUnitCompare"
+        "ZTMT_B_FreightUnitCompare"
       ],
       "keys": [
         "StopUUID"
@@ -1121,7 +1121,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_TransportLocCompare",
+      "name": "ZTMT_B_TransportLocCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "transport_location",
@@ -1144,7 +1144,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMT_I_TransportLocCompare"
+        "ZTMT_B_TransportLocCompare"
       ],
       "keys": [],
       "file": "packages/tm_mig_s4/src/ztmt_i_transportloccount.ddls.asddls",
@@ -1358,7 +1358,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CaseAttributeData"
+        "ZFCX_B_CaseAttributeData"
       ],
       "keys": [
         "CaseUUID"
@@ -1367,7 +1367,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CaseAttributeData",
+      "name": "ZFCX_B_CaseAttributeData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "dispute_case",
@@ -1390,7 +1390,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CollectContactData"
+        "ZFCX_B_CollectContactData"
       ],
       "keys": [
         "ContactUUID"
@@ -1399,7 +1399,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CollectContactData",
+      "name": "ZFCX_B_CollectContactData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "collection_activity",
@@ -1422,7 +1422,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CreditExposureData"
+        "ZFCX_B_CreditExposureData"
       ],
       "keys": [
         "BusinessPartner",
@@ -1434,7 +1434,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CreditExposureData",
+      "name": "ZFCX_B_CreditExposureData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "credit_exposure",
@@ -1460,7 +1460,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CreditProfileData"
+        "ZFCX_B_CreditProfileData"
       ],
       "keys": [
         "BusinessPartner"
@@ -1469,7 +1469,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CreditProfileData",
+      "name": "ZFCX_B_CreditProfileData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "credit_profile",
@@ -1492,7 +1492,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CreditSegmentData"
+        "ZFCX_B_CreditSegmentData"
       ],
       "keys": [
         "BusinessPartner",
@@ -1502,7 +1502,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CreditSegmentData",
+      "name": "ZFCX_B_CreditSegmentData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "credit_segment",
@@ -1526,7 +1526,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_DisputeCaseData"
+        "ZFCX_B_DisputeCaseData"
       ],
       "keys": [
         "CaseUUID"
@@ -1535,7 +1535,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_DisputeCaseData",
+      "name": "ZFCX_B_DisputeCaseData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "dispute_case",
@@ -1558,7 +1558,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_PaymentPromiseData"
+        "ZFCX_B_PaymentPromiseData"
       ],
       "keys": [
         "CaseUUID"
@@ -1567,7 +1567,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_PaymentPromiseData",
+      "name": "ZFCX_B_PaymentPromiseData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "promise_to_pay",
@@ -1583,7 +1583,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CaseAttributeCompare",
+      "name": "ZFCT_B_CaseAttributeCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "dispute_case",
@@ -1599,7 +1599,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CollectContactCompare",
+      "name": "ZFCT_B_CollectContactCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "collection_activity",
@@ -1622,14 +1622,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_CollectContactCompare"
+        "ZFCT_B_CollectContactCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_collectcontactcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CreditExposureCompare",
+      "name": "ZFCT_B_CreditExposureCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "credit_exposure",
@@ -1655,14 +1655,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_CreditExposureCompare"
+        "ZFCT_B_CreditExposureCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_creditexposurecount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CreditProfileCompare",
+      "name": "ZFCT_B_CreditProfileCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "credit_profile",
@@ -1685,14 +1685,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_CreditProfileCompare"
+        "ZFCT_B_CreditProfileCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_creditprofilecount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CreditSegmentCompare",
+      "name": "ZFCT_B_CreditSegmentCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "credit_segment",
@@ -1716,14 +1716,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_CreditSegmentCompare"
+        "ZFCT_B_CreditSegmentCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_creditsegmentcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_DisputeCaseCompare",
+      "name": "ZFCT_B_DisputeCaseCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "dispute_case",
@@ -1746,14 +1746,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_DisputeCaseCompare"
+        "ZFCT_B_DisputeCaseCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_disputecasecount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_PaymentPromiseCompare",
+      "name": "ZFCT_B_PaymentPromiseCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "promise_to_pay",
@@ -1776,7 +1776,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_PaymentPromiseCompare"
+        "ZFCT_B_PaymentPromiseCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_paymentpromisecount.ddls.asddls",
@@ -1932,7 +1932,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_IncidentData"
+        "ZEHX_B_IncidentData"
       ],
       "keys": [
         "IncidentUUID"
@@ -1948,7 +1948,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_IncidentActionData"
+        "ZEHX_B_IncidentActionData"
       ],
       "keys": [
         "ActionUUID"
@@ -1957,7 +1957,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_IncidentActionData",
+      "name": "ZEHX_B_IncidentActionData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "incident",
@@ -1973,7 +1973,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_IncidentData",
+      "name": "ZEHX_B_IncidentData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "incident",
@@ -1996,7 +1996,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_PhraseData"
+        "ZEHX_B_PhraseData"
       ],
       "keys": [
         "RecordNumber",
@@ -2006,7 +2006,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_PhraseData",
+      "name": "ZEHX_B_PhraseData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "phrase",
@@ -2030,7 +2030,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_PhraseSetData"
+        "ZEHX_B_PhraseSetData"
       ],
       "keys": [
         "RecordNumber",
@@ -2040,7 +2040,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_PhraseSetData",
+      "name": "ZEHX_B_PhraseSetData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "phrase",
@@ -2064,7 +2064,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_SpecIdentifierData"
+        "ZEHX_B_SpecIdentifierData"
       ],
       "keys": [
         "RecordNumber",
@@ -2074,7 +2074,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_SpecIdentifierData",
+      "name": "ZEHX_B_SpecIdentifierData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "specification",
@@ -2098,7 +2098,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_SpecificationData"
+        "ZEHX_B_SpecificationData"
       ],
       "keys": [
         "RecordNumber",
@@ -2108,7 +2108,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_SpecificationData",
+      "name": "ZEHX_B_SpecificationData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "specification",
@@ -2125,7 +2125,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_IncidentActionCompare",
+      "name": "ZEHT_B_IncidentActionCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "incident",
@@ -2141,7 +2141,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_IncidentCompare",
+      "name": "ZEHT_B_IncidentCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "incident",
@@ -2164,14 +2164,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHT_I_IncidentCompare"
+        "ZEHT_B_IncidentCompare"
       ],
       "keys": [],
       "file": "packages/ehs_mig_s4/src/zeht_i_incidentcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_PhraseCompare",
+      "name": "ZEHT_B_PhraseCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "phrase",
@@ -2195,14 +2195,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHT_I_PhraseCompare"
+        "ZEHT_B_PhraseCompare"
       ],
       "keys": [],
       "file": "packages/ehs_mig_s4/src/zeht_i_phrasecount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_PhraseSetCompare",
+      "name": "ZEHT_B_PhraseSetCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "phrase",
@@ -2219,7 +2219,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_SpecIdentifierCompare",
+      "name": "ZEHT_B_SpecIdentifierCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "specification",
@@ -2236,7 +2236,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_SpecificationCompare",
+      "name": "ZEHT_B_SpecificationCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "specification",
@@ -2260,7 +2260,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHT_I_SpecificationCompare"
+        "ZEHT_B_SpecificationCompare"
       ],
       "keys": [],
       "file": "packages/ehs_mig_s4/src/zeht_i_specificationcount.ddls.asddls",
@@ -2393,8 +2393,8 @@
       "mode": "process-reference",
       "native_table": "/SCMTMS/D_TORITE",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightOrderData",
-        "target_parent_view": "ZTMT_I_FreightOrderCompare",
+        "source_parent_view": "ZTMX_B_FreightOrderData",
+        "target_parent_view": "ZTMT_B_FreightOrderCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "TO",
@@ -2414,8 +2414,8 @@
       "mode": "process-reference",
       "native_table": "/SCMTMS/D_TORSTP",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightOrderData",
-        "target_parent_view": "ZTMT_I_FreightOrderCompare",
+        "source_parent_view": "ZTMX_B_FreightOrderData",
+        "target_parent_view": "ZTMT_B_FreightOrderCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "TO",
@@ -2448,8 +2448,8 @@
       "mode": "process-reference",
       "native_table": "/SCMTMS/D_TORITE",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightUnitData",
-        "target_parent_view": "ZTMT_I_FreightUnitCompare",
+        "source_parent_view": "ZTMX_B_FreightUnitData",
+        "target_parent_view": "ZTMT_B_FreightUnitCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "FU",
@@ -2469,8 +2469,8 @@
       "mode": "process-reference",
       "native_table": "/SCMTMS/D_TORSTP",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightUnitData",
-        "target_parent_view": "ZTMT_I_FreightUnitCompare",
+        "source_parent_view": "ZTMX_B_FreightUnitData",
+        "target_parent_view": "ZTMT_B_FreightUnitCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "FU",

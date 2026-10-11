@@ -20,9 +20,9 @@
   "migration_pair": "co_mig_ecc",
   "map_title": "ZCOT Controlling Migration - S/4HANA Reconciliation Map",
   "map_area": "Controlling migration target (S/4HANA)",
-  "map_initial": "ZCOT_I_COSTCENTERCOMPARE",
+  "map_initial": "ZCOT_B_COSTCENTERCOMPARE",
   "layer_prefixes": {
-    "basic": "I_",
+    "basic": "B_",
     "composite": "I_",
     "consumption": "C_"
   },

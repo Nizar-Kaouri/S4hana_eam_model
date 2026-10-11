@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_BOMItem
-  as select from ZEMX_I_BOMItemData as b
+  as select from ZEMX_B_BOMItemData as b
 {
       @EndUserText.label: 'B O M Category'
   key b.BOMCategory as BOMCategory,

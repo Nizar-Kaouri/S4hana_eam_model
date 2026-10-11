@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_ObjectClassAssgmt` |
+| Data source | `ZEMX_B_ObjectClassAssgmt` |
 | Source file | `src/zemx_i_classassignment.ddls.asddls` |
 
 ## Purpose

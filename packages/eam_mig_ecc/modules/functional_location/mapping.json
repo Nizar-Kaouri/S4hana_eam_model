@@ -233,7 +233,7 @@
     },
     {
       "consumption_view": "ZEMX_C_FuncLocTextMig",
-      "source_view": "ZEMX_I_FuncLocDesc",
+      "source_view": "ZEMX_B_FuncLocDesc",
       "scope_filter": "_FuncLoc.IsMarkedForDeletion = ''",
       "keys": [
         "FunctionalLocation",
@@ -329,7 +329,7 @@
       "reason": "info"
     },
     {
-      "view": "ZEMX_I_FuncLocDesc",
+      "view": "ZEMX_B_FuncLocDesc",
       "element": "HasLongText",
       "source": "IFLOTX-KZLTX",
       "reason": "info"
@@ -350,7 +350,7 @@
     "measure": "RecordCount",
     "compare": {
       "source_view": "ZEMX_C_FuncLocMig",
-      "target_view": "ZEMT_I_FuncLocCompare",
+      "target_view": "ZEMT_B_FuncLocCompare",
       "key": [
         "FunctionalLocation"
       ],

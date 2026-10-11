@@ -18,8 +18,8 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZQMX_I_MasterCharData",
-      "ZQMX_I_MasterCharTextData"
+      "ZQMX_B_MasterCharData",
+      "ZQMX_B_MasterCharTextData"
     ],
     "composite": [
       "ZQMX_I_MasterChar",
@@ -35,11 +35,11 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZQMX_I_MasterCharData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_B_MasterCharData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_I_MasterChar": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_C_MasterCharMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_C_MasterCharMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZQMX_I_MasterCharTextData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_B_MasterCharTextData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_I_MasterCharText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_C_MasterCharTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },

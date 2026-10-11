@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_I_BOMHeaderData` |
+| Data source | `ZEMX_B_BOMHeaderData` |
 | Source file | `src/zemx_i_bomheader.ddls.asddls` |
 
 ## Purpose

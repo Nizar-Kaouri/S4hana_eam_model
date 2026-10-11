@@ -158,7 +158,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZEMX_C_TaskListMigCount` (ECC) vs `ZEMT_I_TaskListCount` (S/4HANA) per `TaskListType`, `Plant`
-- Records and fields: `ZEMX_C_TaskListMig` vs `ZEMT_I_TaskListCompare` on `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`; compared: `TaskListDesc`, `Plant`, `TaskListUsage`, `TaskListStatus`, `MaintenancePlannerGroup`, `MaintenanceStrategy`
+- Records and fields: `ZEMX_C_TaskListMig` vs `ZEMT_B_TaskListCompare` on `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`; compared: `TaskListDesc`, `Plant`, `TaskListUsage`, `TaskListStatus`, `MaintenancePlannerGroup`, `MaintenanceStrategy`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module task_list --source ecc_counts.csv --target s4_counts.csv

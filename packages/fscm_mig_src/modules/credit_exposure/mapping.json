@@ -33,42 +33,42 @@
         {
           "element": "BusinessPartner",
           "source": "UKM_TOTALS-PARTNER",
-          "target": "Native target evidence: ZFCT_I_CreditExposureCompare.BusinessPartner",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.BusinessPartner",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CreditSegment",
           "source": "UKM_TOTALS-CREDIT_SGMNT",
-          "target": "Native target evidence: ZFCT_I_CreditExposureCompare.CreditSegment",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.CreditSegment",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ExposureCategory",
           "source": "UKM_TOTALS-COMM_TYP",
-          "target": "Native target evidence: ZFCT_I_CreditExposureCompare.ExposureCategory",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.ExposureCategory",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Currency",
           "source": "UKM_TOTALS-CURRENCY",
-          "target": "Native target evidence: ZFCT_I_CreditExposureCompare.Currency",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.Currency",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ExposureAmount",
           "source": "UKM_TOTALS-AMOUNT",
-          "target": "Native target evidence: ZFCT_I_CreditExposureCompare.ExposureAmount",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.ExposureAmount",
           "rule": "info",
           "compare": true
         },
         {
           "element": "SecuredAmount",
           "source": "UKM_TOTALS-AMOUNT_SEC",
-          "target": "Native target evidence: ZFCT_I_CreditExposureCompare.SecuredAmount",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.SecuredAmount",
           "rule": "info",
           "compare": true
         }
@@ -89,7 +89,7 @@
     "dimensions": [],
     "compare": {
       "source_view": "ZFCX_C_CreditExposureMig",
-      "target_view": "ZFCT_I_CreditExposureCompare",
+      "target_view": "ZFCT_B_CreditExposureCompare",
       "key": [
         "BusinessPartner",
         "CreditSegment",

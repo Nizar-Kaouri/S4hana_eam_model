@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZCOX_I_AllocSegmentData` |
+| Data source | `ZCOX_B_AllocSegmentData` |
 | Source file | `src/zcox_i_allocsegment.ddls.asddls` |
 
 ## Purpose

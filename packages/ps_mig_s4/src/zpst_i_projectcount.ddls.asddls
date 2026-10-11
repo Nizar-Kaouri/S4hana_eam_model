@@ -9,7 +9,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view entity ZPST_I_ProjectCount
-  as select from ZPST_I_ProjectCompare as src
+  as select from ZPST_B_ProjectCompare as src
 {
   key src.ProjectInternalID as ProjectInternalID,
       count( * ) as RecordCount

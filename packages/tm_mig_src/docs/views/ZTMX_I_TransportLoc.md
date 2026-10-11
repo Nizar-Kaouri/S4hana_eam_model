@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZTMX_I_TransportLocData` |
+| Data source | `ZTMX_B_TransportLocData` |
 | Source file | `src/ztmx_i_transportloc.ddls.asddls` |
 
 ## Purpose

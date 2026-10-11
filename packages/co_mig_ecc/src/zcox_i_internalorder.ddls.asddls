@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZCOX_I_InternalOrder
-  as select from ZCOX_I_InternalOrderData as src
+  as select from ZCOX_B_InternalOrderData as src
 {
   key src.InternalOrder as InternalOrder,
       src.InternalOrderType as InternalOrderType,

@@ -120,7 +120,7 @@
     "compare": null
   },
   "gaps": [
-    "Compatibility note: full reading history is not migrated (stays in the old system / archive); ZEMX_I_MeasurementDocument can feed a history load if required"
+    "Compatibility note: full reading history is not migrated (stays in the old system / archive); ZEMX_B_MeasurementDocument can feed a history load if required"
   ],
   "main_structure": "ZEMX_C_MeasReadingMig"
 }

@@ -18,17 +18,17 @@
   ],
   "objects": {
     "basic": [
-      "ZEAM_I_NotifDowntime"
+      "ZEAM_B_NotifDowntime"
     ],
     "composite": [
-      "ZEAM_R_NotifDowntime"
+      "ZEAM_I_NotifDowntime"
     ],
     "consumption": [
       "ZEAM_C_DowntimeQ"
     ],
     "access_controls": [
-      "ZEAM_I_NotifDowntime",
-      "ZEAM_R_NotifDowntime"
+      "ZEAM_B_NotifDowntime",
+      "ZEAM_I_NotifDowntime"
     ],
     "metadata_extensions": [],
     "tests": [
@@ -36,17 +36,17 @@
     ]
   },
   "no_dcl_by_design": {
-    "ZEAM_C_DowntimeQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_NotifDowntime (see GEN-Q01)."
+    "ZEAM_C_DowntimeQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_NotifDowntime (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZEAM_R_DowntimeWithTechObj",
+      "name": "ZEAM_I_DowntimeWithTechObj",
       "requires_modules": [
         "equipment",
         "functional_location",
         "rpt_downtime"
       ],
-      "access_control": "ZEAM_R_DowntimeWithTechObj"
+      "access_control": "ZEAM_I_DowntimeWithTechObj"
     },
     {
       "name": "ZEAM_C_DowntimeTechObjQ",

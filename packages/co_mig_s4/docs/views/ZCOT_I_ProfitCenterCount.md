@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZCOT_I_ProfitCenterCompare` |
+| Data source | `ZCOT_B_ProfitCenterCompare` |
 | Source file | `src/zcot_i_profitcentercount.ddls.asddls` |
 
 ## Purpose

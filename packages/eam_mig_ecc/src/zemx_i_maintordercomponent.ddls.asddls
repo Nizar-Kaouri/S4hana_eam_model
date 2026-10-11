@@ -13,8 +13,8 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintOrderComponent
-  as select from ZEMX_I_ReservationItem as cmp
-    inner join ZEMX_I_OrderMaintData as pm on pm.MaintenanceOrder = cmp.MaintenanceOrder
+  as select from ZEMX_B_ReservationItem as cmp
+    inner join ZEMX_B_OrderMaintData as pm on pm.MaintenanceOrder = cmp.MaintenanceOrder
 {
       @EndUserText.label: 'Reservation'
   key cmp.Reservation                as Reservation,

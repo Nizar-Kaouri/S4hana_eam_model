@@ -13,7 +13,7 @@
 @ObjectModel.usageType.sizeCategory: #XL
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_CharcValue
-  as select from ZEMX_I_ObjectCharcValue as val
+  as select from ZEMX_B_ObjectCharcValue as val
 {
       @EndUserText.label: 'Classified Object'
   key val.ClassifiedObject           as ClassifiedObject,

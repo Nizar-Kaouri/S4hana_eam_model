@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_GLAccountText
-  as select from ZFIX_I_GLAccountTextData as src
+  as select from ZFIX_B_GLAccountTextData as src
 {
   key src.Language as Language,
   key src.ChartOfAccounts as ChartOfAccounts,

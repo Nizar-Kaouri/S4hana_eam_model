@@ -23,7 +23,7 @@ ENDCLASS.
 CLASS zqmv_cl_insplot_test IMPLEMENTATION.
 
   METHOD class_setup.
-    environment = cl_cds_test_environment=>create( i_for_entity = 'ZQMV_I_INSPECTIONLOT' ).
+    environment = cl_cds_test_environment=>create( i_for_entity = 'ZQMV_B_INSPECTIONLOT' ).
   ENDMETHOD.
 
 
@@ -46,7 +46,7 @@ CLASS zqmv_cl_insplot_test IMPLEMENTATION.
       ( inspectionlot = '010000000003' ) ).
     environment->insert_test_data( i_data = rows ).
 
-    SELECT FROM zqmv_i_inspectionlot
+    SELECT FROM zqmv_b_inspectionlot
       FIELDS inspectionlot, insplothasusagedecision, insplotisrejected
       INTO TABLE @DATA(result).
 

@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_MeasuringPoint.
+// TODO-VERIFY[H] MP-D01: I_MeasuringPoint has an access control role and every element it references is projected by ZEAM_B_MeasPoint
+@EndUserText.label: 'Measuring Point'
+@MappingRole: true
+define role ZEAM_B_MeasPoint {
+  grant
+    select
+      on
+        ZEAM_B_MeasPoint
+          where
+            inheriting conditions from entity I_MeasuringPoint;
+}

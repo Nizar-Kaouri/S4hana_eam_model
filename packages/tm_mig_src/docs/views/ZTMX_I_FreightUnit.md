@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZTMX_I_FreightUnitData` |
+| Data source | `ZTMX_B_FreightUnitData` |
 | Source file | `src/ztmx_i_freightunit.ddls.asddls` |
 
 ## Purpose

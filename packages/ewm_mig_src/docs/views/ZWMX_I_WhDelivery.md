@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZWMX_I_WhDeliveryData` |
+| Data source | `ZWMX_B_WhDeliveryData` |
 | Source file | `src/zwmx_i_whdelivery.ddls.asddls` |
 
 ## Purpose

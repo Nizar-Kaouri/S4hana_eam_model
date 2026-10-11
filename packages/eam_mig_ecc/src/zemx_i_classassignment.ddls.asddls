@@ -13,7 +13,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_ClassAssignment
-  as select from ZEMX_I_ObjectClassAssgmt as asg
+  as select from ZEMX_B_ObjectClassAssgmt as asg
 {
       @EndUserText.label: 'Classified Object'
   key asg.ClassifiedObject     as ClassifiedObject,

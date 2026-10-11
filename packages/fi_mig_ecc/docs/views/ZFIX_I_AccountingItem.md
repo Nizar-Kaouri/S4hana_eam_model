@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFIX_I_AccountingItemData` |
+| Data source | `ZFIX_B_AccountingItemData` |
 | Source file | `src/zfix_i_accountingitem.ddls.asddls` |
 
 ## Purpose

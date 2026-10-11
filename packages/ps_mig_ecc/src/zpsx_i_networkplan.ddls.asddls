@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPSX_I_NetworkPlan
-  as select from ZPSX_I_NetworkPlanData as src
+  as select from ZPSX_B_NetworkPlanData as src
 {
   key src.Network as Network,
       src.RoutingNumber as RoutingNumber,

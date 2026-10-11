@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZFIX_I_AROpenData` |
+| Data source | `ZFIX_B_AROpenData` |
 | Source file | `src/zfix_i_aropen.ddls.asddls` |
 
 ## Purpose

@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #M
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_WorkCenterText
-  as select from ZEMX_I_WorkCenterDesc as txt
+  as select from ZEMX_B_WorkCenterDesc as txt
 {
       @EndUserText.label: 'Work Center Internal ID'
   key txt.WorkCenterInternalID       as WorkCenterInternalID,

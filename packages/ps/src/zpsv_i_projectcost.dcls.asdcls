@@ -1,0 +1,12 @@
+// ZPSV PS VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Project Cost - Cube'
+@MappingRole: true
+define role ZPSV_I_ProjectCost {
+  grant
+    select
+      on
+        ZPSV_I_ProjectCost
+          where
+            inheriting conditions from entity ZPSV_B_ProjectJournalItem;
+}

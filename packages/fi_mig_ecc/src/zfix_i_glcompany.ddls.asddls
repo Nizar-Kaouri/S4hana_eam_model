@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_GLCompany
-  as select from ZFIX_I_GLCompanyData as src
+  as select from ZFIX_B_GLCompanyData as src
 {
   key src.CompanyCode as CompanyCode,
   key src.GLAccount as GLAccount,

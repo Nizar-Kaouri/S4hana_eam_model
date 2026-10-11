@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | G/L Journal Item |
+| Description | G/L Journal Item - Cube |
 | Module | `gl_line_item` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_JournalEntryItem` |
+| Data category | #CUBE |
+| Data source | `ZFIV_B_GLJournalItem` |
 | Source file | `src/zfiv_i_gljournalitem.ddls.asddls` |
 
 ## Purpose
 
-Universal Journal line items of all ledgers: G/L account, period, dates, document type, debit / credit indicator, account type, profit center, segment, business and functional area, cost center, supplier, customer, reversal flags and amounts in company code, global and transaction currency.
+G/L cube: debit, credit and balance per company code, ledger, G/L account, period, profit center and segment.
 
 ## Keys
 
@@ -32,12 +32,12 @@ Universal Journal line items of all ledgers: G/L account, period, dates, documen
 
 ## Access control
 
-Role inherits the conditions of `I_JournalEntryItem`.
+Role inherits the conditions of `ZFIV_B_GLJournalItem`.
 
 ## Example use case
 
-Trial balance per company code and period; postings per supplier and account.
+Trial balance per company code and period; segment P&L.
 
 ## Open verification items
 
-`FI-010`, `FI-011`, `FI-D02` - see `BATCH_REPORT.md`.
+none

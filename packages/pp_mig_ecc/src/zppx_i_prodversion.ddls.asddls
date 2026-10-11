@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZPPX_I_ProdVersion
-  as select from ZPPX_I_ProdVersionData as src
+  as select from ZPPX_B_ProdVersionData as src
 {
   key src.Product as Product,
   key src.Plant as Plant,

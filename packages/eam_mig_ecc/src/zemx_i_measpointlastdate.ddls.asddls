@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #M
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MeasPointLastDate
-  as select from ZEMX_I_MeasurementDocument as doc
+  as select from ZEMX_B_MeasurementDocument as doc
 {
       @EndUserText.label: 'Measuring point'
   key doc.MeasuringPoint as MeasuringPoint,

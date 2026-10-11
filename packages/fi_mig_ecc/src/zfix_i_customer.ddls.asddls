@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_Customer
-  as select from ZFIX_I_CustomerData as src
+  as select from ZFIX_B_CustomerData as src
 {
   key src.Customer as Customer,
       src.CustomerName as CustomerName,

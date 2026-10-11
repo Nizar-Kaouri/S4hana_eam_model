@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZFAA_I_FIXEDASSET</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Fixed Asset</DDTEXT>
+    <DDTEXT>Fixed Asset - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

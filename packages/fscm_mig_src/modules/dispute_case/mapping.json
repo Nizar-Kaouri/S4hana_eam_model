@@ -25,84 +25,84 @@
         {
           "element": "CaseUUID",
           "source": "UDMCASEATTR00-CASE_GUID",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.CaseUUID",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.CaseUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CompanyCode",
           "source": "UDMCASEATTR00-FIN_BUKRS",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.CompanyCode",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.CompanyCode",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Customer",
           "source": "UDMCASEATTR00-FIN_KUNNR",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.Customer",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.Customer",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Coordinator",
           "source": "UDMCASEATTR00-FIN_COORDINATOR",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.Coordinator",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.Coordinator",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DisputeCurrency",
           "source": "UDMCASEATTR00-FIN_DISPUTE_CURR",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.DisputeCurrency",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.DisputeCurrency",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DueDate",
           "source": "UDMCASEATTR00-FIN_DUE_DATE",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.DueDate",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.DueDate",
           "rule": "info",
           "compare": true
         },
         {
           "element": "LogicalSystem",
           "source": "UDMCASEATTR00-FIN_LOG_SYSTEM",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.LogicalSystem",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.LogicalSystem",
           "rule": "info",
           "compare": true
         },
         {
           "element": "OriginalAmount",
           "source": "UDMCASEATTR00-FIN_ORIGINAL_AMT",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.OriginalAmount",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.OriginalAmount",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DisputedAmount",
           "source": "UDMCASEATTR00-FIN_DISPUTED_AMT",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.DisputedAmount",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.DisputedAmount",
           "rule": "info",
           "compare": true
         },
         {
           "element": "PaidAmount",
           "source": "UDMCASEATTR00-FIN_PAID_AMT",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.PaidAmount",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.PaidAmount",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CreditedAmount",
           "source": "UDMCASEATTR00-FIN_CREDITED_AMT",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.CreditedAmount",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.CreditedAmount",
           "rule": "info",
           "compare": true
         },
         {
           "element": "WrittenOffAmount",
           "source": "UDMCASEATTR00-FIN_WRT_OFF_AMT",
-          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.WrittenOffAmount",
+          "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.WrittenOffAmount",
           "rule": "info",
           "compare": true
         }
@@ -121,98 +121,98 @@
         {
           "element": "CaseUUID",
           "source": "SCMG_T_CASE_ATTR-CASE_GUID",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.CaseUUID",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.CaseUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CaseType",
           "source": "SCMG_T_CASE_ATTR-CASE_TYPE",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.CaseType",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.CaseType",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ExternalKey",
           "source": "SCMG_T_CASE_ATTR-EXT_KEY",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.ExternalKey",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ExternalKey",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ExternalReference",
           "source": "SCMG_T_CASE_ATTR-EXT_REF",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.ExternalReference",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ExternalReference",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CreatedBy",
           "source": "SCMG_T_CASE_ATTR-CREATED_BY",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.CreatedBy",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.CreatedBy",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CreatedAt",
           "source": "SCMG_T_CASE_ATTR-CREATE_TIME",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.CreatedAt",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.CreatedAt",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ChangedBy",
           "source": "SCMG_T_CASE_ATTR-CHANGED_BY",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.ChangedBy",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ChangedBy",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ChangedAt",
           "source": "SCMG_T_CASE_ATTR-CHANGE_TIME",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.ChangedAt",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ChangedAt",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Processor",
           "source": "SCMG_T_CASE_ATTR-PROCESSOR",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.Processor",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Processor",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Responsible",
           "source": "SCMG_T_CASE_ATTR-RESPONSIBLE",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.Responsible",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Responsible",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Category",
           "source": "SCMG_T_CASE_ATTR-CATEGORY",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.Category",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Category",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Priority",
           "source": "SCMG_T_CASE_ATTR-PRIORITY",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.Priority",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Priority",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Status",
           "source": "SCMG_T_CASE_ATTR-STAT_PARA",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.Status",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Status",
           "rule": "info",
           "compare": true
         },
         {
           "element": "ReasonCode",
           "source": "SCMG_T_CASE_ATTR-REASON_CODE",
-          "target": "Native target evidence: ZFCT_I_CaseAttributeCompare.ReasonCode",
+          "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ReasonCode",
           "rule": "info",
           "compare": true
         }
@@ -236,7 +236,7 @@
     "target_count_view": "ZFCT_I_DisputeCaseCount",
     "compare": {
       "source_view": "ZFCX_C_DisputeCaseMig",
-      "target_view": "ZFCT_I_DisputeCaseCompare",
+      "target_view": "ZFCT_B_DisputeCaseCompare",
       "key": [
         "CaseUUID"
       ],

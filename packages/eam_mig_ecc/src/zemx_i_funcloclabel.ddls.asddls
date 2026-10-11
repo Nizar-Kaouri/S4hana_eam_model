@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_FuncLocLabel
-  as select from ZEMX_I_FuncLocLabelData as b
+  as select from ZEMX_B_FuncLocLabelData as b
 {
       @EndUserText.label: 'Functional Location'
   key b.FunctionalLocation as FunctionalLocation,

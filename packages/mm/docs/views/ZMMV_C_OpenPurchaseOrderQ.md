@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZMMV_R_OpenPurchaseOrder` |
+| Data source | `ZMMV_I_OpenPurchaseOrder` |
 | Source file | `src/zmmv_c_openpurchaseorderq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZMMV_R_OpenPurchaseOrder: open items per purchasing group and age bucket.
+Analytical query on ZMMV_I_OpenPurchaseOrder: open items per purchasing group and age bucket.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZMMV_R_OpenPurchaseOrder: open items per purchasing group an
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_OpenPurchaseOrder (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_OpenPurchaseOrder (see GEN-Q01).
 
 ## Example use case
 

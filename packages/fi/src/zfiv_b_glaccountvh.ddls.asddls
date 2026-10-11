@@ -1,0 +1,36 @@
+// ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
+// Purpose: Searchable value help for G/L accounts with the name in the logon language.
+// Example: Value help for GLAccount in all finance queries.
+@AbapCatalog.viewEnhancementCategory: [#NONE]
+@AccessControl.authorizationCheck: #CHECK
+@Analytics.dataExtraction.enabled: false
+@Consumption.ranked: true
+@EndUserText.label: 'G/L Account - Value Help'
+@Metadata.ignorePropagatedAnnotations: true
+@ObjectModel.dataCategory: #VALUE_HELP
+@ObjectModel.representativeKey: 'GLAccount'
+@ObjectModel.supportedCapabilities: [ #VALUE_HELP_PROVIDER, #SEARCHABLE_ENTITY ]
+@ObjectModel.usageType: {
+  serviceQuality: #A,
+  sizeCategory: #L,
+  dataClass: #MASTER
+}
+@Search.searchable: true
+@VDM.viewType: #BASIC
+define view entity ZFIV_B_GLAccountVH
+  as select from ZFIV_B_GLAccount
+{
+  key ChartOfAccounts,
+      @ObjectModel.text.element: [ 'GLAccountName' ]
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.8
+      @Search.ranking: #HIGH
+  key GLAccount,
+      GLAccountType,
+      GLAccountGroup,
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.8
+      @Search.ranking: #HIGH
+      @Semantics.text: true
+      _Text[1: Language = $session.system_language].GLAccountName as GLAccountName
+}

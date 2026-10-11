@@ -25,8 +25,8 @@ ENDCLASS.
 CLASS zeam_cl_maintnotif_test IMPLEMENTATION.
 
   METHOD class_setup.
-    basic_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_MAINTNOTIF' ).
-    cube_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_R_MAINTNOTIF' ).
+    basic_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_B_MAINTNOTIF' ).
+    cube_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_MAINTNOTIF' ).
   ENDMETHOD.
 
 
@@ -51,7 +51,7 @@ CLASS zeam_cl_maintnotif_test IMPLEMENTATION.
       ( maintenancenotification = '000010000003' notifprocessingphase = '4' ) ).
     basic_environment->insert_test_data( i_data = notifications ).
 
-    SELECT FROM zeam_i_maintnotif
+    SELECT FROM zeam_b_maintnotif
       FIELDS maintenancenotification, maintnotifisopen
       ORDER BY maintenancenotification
       INTO TABLE @DATA(result).
@@ -66,7 +66,7 @@ CLASS zeam_cl_maintnotif_test IMPLEMENTATION.
 
 
   METHOD cube_counts_breakdowns.
-    DATA notifications TYPE STANDARD TABLE OF zeam_i_maintnotif WITH EMPTY KEY.
+    DATA notifications TYPE STANDARD TABLE OF zeam_b_maintnotif WITH EMPTY KEY.
 
     notifications = VALUE #( maintenanceplanningplant = '1010'
       ( maintenancenotification = '000010000001' maintenanceobjectisdown = abap_true )
@@ -74,7 +74,7 @@ CLASS zeam_cl_maintnotif_test IMPLEMENTATION.
       ( maintenancenotification = '000010000003' maintenanceobjectisdown = abap_true ) ).
     cube_environment->insert_test_data( i_data = notifications ).
 
-    SELECT FROM zeam_r_maintnotif
+    SELECT FROM zeam_i_maintnotif
       FIELDS maintenanceplanningplant,
              SUM( numberofnotifications ) AS total,
              SUM( numberofbreakdownnotifs ) AS breakdowns

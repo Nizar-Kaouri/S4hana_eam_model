@@ -3,7 +3,7 @@
 // Example: Structure overview per plant in an analytical list page.
 // Analytical query on the Functional Location cube.
 // DESIGN NOTE: transient view entities are not SQL-readable; no DCL role is defined for
-// this entity. Authorizations are enforced by the DCL of ZEAM_R_FuncLoc (the provider).
+// this entity. Authorizations are enforced by the DCL of ZEAM_I_FuncLoc (the provider).
 // See GEN-Q01..GEN-Q03 in BATCH_REPORT.md (same open points as ZEAM_C_EquipmentQ).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Functional Location Analysis'
@@ -12,7 +12,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZEAM_C_FuncLocQ
   provider contract analytical_query
-  as projection on ZEAM_R_FuncLoc
+  as projection on ZEAM_I_FuncLoc
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

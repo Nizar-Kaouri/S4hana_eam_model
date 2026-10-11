@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Purchase Order Item |
+| Description | Purchase Order Item - Cube |
 | Module | `purchase_order` |
 | Batch | 3 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_PurchaseOrderItemAPI01` |
+| Data category | #CUBE |
+| Data source | `ZMMV_B_PurchaseOrderItem` |
 | Source file | `src/zmmv_i_purchaseorderitem.ddls.asddls` |
 
 ## Purpose
 
-One row per purchase order item: material, plant, quantity, net price and net amount, delivery and invoice completion, deletion code and a derived open flag.
+Purchase order item cube: ordered quantity, net value, number of (open) items, with supplier, purchasing organization and group from the header.
 
 ## Keys
 
@@ -24,17 +24,16 @@ One row per purchase order item: material, plant, quantity, net price and net am
 
 ## Associations defined here
 
-- `_PurchaseOrder` → `ZMMV_I_PurchaseOrder` [1..1]
-- `_Plant` → `I_Plant` [0..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_PurchaseOrderItemAPI01`.
+Role inherits the conditions of `ZMMV_B_PurchaseOrderItem`.
 
 ## Example use case
 
-Open purchase order items per plant; order value per material group.
+Purchase volume per supplier and material group; open items per purchasing group.
 
 ## Open verification items
 
-`MM-043`, `MM-044`, `MM-045`, `MM-D07` - see `BATCH_REPORT.md`.
+none

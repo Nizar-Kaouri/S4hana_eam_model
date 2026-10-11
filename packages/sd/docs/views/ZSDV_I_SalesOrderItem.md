@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Sales Order Item |
+| Description | Sales Order Item - Cube |
 | Module | `sales_order` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_SalesDocumentItem` |
+| Data category | #CUBE |
+| Data source | `ZSDV_B_SalesOrderItem` |
 | Source file | `src/zsdv_i_salesorderitem.ddls.asddls` |
 
 ## Purpose
 
-One row per sales order item: item category, material, material group, plant, order quantity, net value, processing status, rejection reason and a derived open flag.
+Sales order item cube: order value, quantity and number of (open) items per sales area, sold-to party, material and plant.
 
 ## Keys
 
@@ -24,17 +24,16 @@ One row per sales order item: item category, material, material group, plant, or
 
 ## Associations defined here
 
-- `_SalesOrder` → `ZSDV_I_SalesOrder` [1..1]
-- `_Plant` → `I_Plant` [0..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_SalesDocumentItem`.
+Role inherits the conditions of `ZSDV_B_SalesOrderItem`.
 
 ## Example use case
 
-Order value per material group; open items per plant.
+Order intake per sales organization and month; open order value per customer.
 
 ## Open verification items
 
-`SD-004`, `SD-D02` - see `BATCH_REPORT.md`.
+none

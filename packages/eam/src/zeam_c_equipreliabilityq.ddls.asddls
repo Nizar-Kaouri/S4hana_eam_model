@@ -2,7 +2,7 @@
 // Purpose: Fleet MTBF / MTTR query over the whole equipment population for a reporting period.
 // Example: MTBF per equipment category and plant, including equipment that never broke down.
 // LINK VIEW (ships only when modules "rpt_reliability" AND "equipment" are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_R_EquipmentReliability applies (see GEN-Q01, RPT-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_I_EquipmentReliability applies (see GEN-Q01, RPT-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Fleet Reliability Analysis (MTBF / MTTR)'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -13,7 +13,7 @@ define transient view entity ZEAM_C_EquipReliabilityQ
   with parameters
     P_StartDate : abap.dats,
     P_EndDate   : abap.dats
-  as projection on ZEAM_R_EquipmentReliability( P_StartDate: $parameters.P_StartDate, P_EndDate: $parameters.P_EndDate )
+  as projection on ZEAM_I_EquipmentReliability( P_StartDate: $parameters.P_StartDate, P_EndDate: $parameters.P_EndDate )
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

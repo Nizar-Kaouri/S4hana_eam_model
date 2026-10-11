@@ -17,5 +17,10 @@
   "reserve_prefix_chars": 1,
   "map_title": "ZPSV Project System Model Map",
   "map_area": "Project System (PS)",
-  "map_initial": "ZPSV_I_ProjectJournalItem"
+  "map_initial": "ZPSV_B_ProjectJournalItem",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

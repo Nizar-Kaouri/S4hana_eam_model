@@ -155,7 +155,7 @@
     "source_count_view": "ZSDX_C_BillingMigCount",
     "compare": {
       "source_view": "ZSDX_C_BillingMig",
-      "target_view": "ZSDT_I_BillingCompare",
+      "target_view": "ZSDT_B_BillingCompare",
       "key": [
         "BillingDocument"
       ],

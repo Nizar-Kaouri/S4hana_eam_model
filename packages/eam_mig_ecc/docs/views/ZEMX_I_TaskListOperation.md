@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `ZEMX_I_TaskListOpAssignment`, join `ZEMX_I_TaskListOpDetail`, join `ZEMX_I_TaskListAsgLatest`, join `ZEMX_I_TaskListOpLatest` |
+| Data source | `ZEMX_B_TaskListOpAssignment`, join `ZEMX_B_TaskListOpDetail`, join `ZEMX_I_TaskListAsgLatest`, join `ZEMX_I_TaskListOpLatest` |
 | Source file | `src/zemx_i_tasklistoperation.ddls.asddls` |
 
 ## Purpose

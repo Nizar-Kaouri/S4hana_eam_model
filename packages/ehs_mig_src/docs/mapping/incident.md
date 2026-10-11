@@ -19,12 +19,12 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `IncidentUUID` | EHHSSD_INC_ROOT-DB_KEY | Native target evidence: ZEHT_I_IncidentCompare.IncidentUUID | information only | yes |
-| `IncidentID` | EHHSSD_INC_ROOT-ID | Native target evidence: ZEHT_I_IncidentCompare.IncidentID | information only | yes |
-| `IncidentCategory` | EHHSSD_INC_ROOT-CATEGORY | Native target evidence: ZEHT_I_IncidentCompare.IncidentCategory | information only | yes |
-| `IncidentStatus` | EHHSSD_INC_ROOT-STATUS | Native target evidence: ZEHT_I_IncidentCompare.IncidentStatus | information only | yes |
-| `ReportingRequired` | EHHSSD_INC_ROOT-REPORT_REQ_TS | Native target evidence: ZEHT_I_IncidentCompare.ReportingRequired | information only | yes |
-| `Fatality` | EHHSSD_INC_ROOT-FATALITY_TS | Native target evidence: ZEHT_I_IncidentCompare.Fatality | information only | yes |
+| `IncidentUUID` | EHHSSD_INC_ROOT-DB_KEY | Native target evidence: ZEHT_B_IncidentCompare.IncidentUUID | information only | yes |
+| `IncidentID` | EHHSSD_INC_ROOT-ID | Native target evidence: ZEHT_B_IncidentCompare.IncidentID | information only | yes |
+| `IncidentCategory` | EHHSSD_INC_ROOT-CATEGORY | Native target evidence: ZEHT_B_IncidentCompare.IncidentCategory | information only | yes |
+| `IncidentStatus` | EHHSSD_INC_ROOT-STATUS | Native target evidence: ZEHT_B_IncidentCompare.IncidentStatus | information only | yes |
+| `ReportingRequired` | EHHSSD_INC_ROOT-REPORT_REQ_TS | Native target evidence: ZEHT_B_IncidentCompare.ReportingRequired | information only | yes |
+| `Fatality` | EHHSSD_INC_ROOT-FATALITY_TS | Native target evidence: ZEHT_B_IncidentCompare.Fatality | information only | yes |
 
 ## `ZEHX_C_IncidentActionMig`
 
@@ -36,28 +36,28 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
-| `ActionUUID` | EHHSSD_IAC_ROOT-DB_KEY | Native target evidence: ZEHT_I_IncidentActionCompare.ActionUUID | information only | yes |
-| `ActionID` | EHHSSD_IAC_ROOT-ID | Native target evidence: ZEHT_I_IncidentActionCompare.ActionID | information only | yes |
-| `ActionCategory` | EHHSSD_IAC_ROOT-CATEGORY | Native target evidence: ZEHT_I_IncidentActionCompare.ActionCategory | information only | yes |
-| `ActionStatus` | EHHSSD_IAC_ROOT-STATUS | Native target evidence: ZEHT_I_IncidentActionCompare.ActionStatus | information only | yes |
-| `ActionType` | EHHSSD_IAC_ROOT-TYPE | Native target evidence: ZEHT_I_IncidentActionCompare.ActionType | information only | yes |
-| `Priority` | EHHSSD_IAC_ROOT-PRIORITY | Native target evidence: ZEHT_I_IncidentActionCompare.Priority | information only | yes |
-| `ProtectionGoal` | EHHSSD_IAC_ROOT-PROT_GOAL | Native target evidence: ZEHT_I_IncidentActionCompare.ProtectionGoal | information only | yes |
-| `Effectiveness` | EHHSSD_IAC_ROOT-EFFECTIV | Native target evidence: ZEHT_I_IncidentActionCompare.Effectiveness | information only | yes |
-| `DueTimestamp` | EHHSSD_IAC_ROOT-DUE_TIMESTAMP | Native target evidence: ZEHT_I_IncidentActionCompare.DueTimestamp | information only | yes |
-| `DueTimeZone` | EHHSSD_IAC_ROOT-DUE_TI_ZO | Native target evidence: ZEHT_I_IncidentActionCompare.DueTimeZone | information only | yes |
-| `ResponsiblePerson` | EHHSSD_IAC_ROOT-RESP_ID | Native target evidence: ZEHT_I_IncidentActionCompare.ResponsiblePerson | information only | yes |
-| `Implementer` | EHHSSD_IAC_ROOT-IMPLEM_ID | Native target evidence: ZEHT_I_IncidentActionCompare.Implementer | information only | yes |
-| `Approver` | EHHSSD_IAC_ROOT-APPR_ID | Native target evidence: ZEHT_I_IncidentActionCompare.Approver | information only | yes |
-| `ImplementedAt` | EHHSSD_IAC_ROOT-IMPL_TIMESTAMP | Native target evidence: ZEHT_I_IncidentActionCompare.ImplementedAt | information only | yes |
-| `ImplementationTimeZone` | EHHSSD_IAC_ROOT-IMPL_TI_ZO | Native target evidence: ZEHT_I_IncidentActionCompare.ImplementationTimeZone | information only | yes |
-| `ApprovedAt` | EHHSSD_IAC_ROOT-APPR_TIMESTAMP | Native target evidence: ZEHT_I_IncidentActionCompare.ApprovedAt | information only | yes |
-| `ApprovalTimeZone` | EHHSSD_IAC_ROOT-APPR_TI_ZO | Native target evidence: ZEHT_I_IncidentActionCompare.ApprovalTimeZone | information only | yes |
+| `ActionUUID` | EHHSSD_IAC_ROOT-DB_KEY | Native target evidence: ZEHT_B_IncidentActionCompare.ActionUUID | information only | yes |
+| `ActionID` | EHHSSD_IAC_ROOT-ID | Native target evidence: ZEHT_B_IncidentActionCompare.ActionID | information only | yes |
+| `ActionCategory` | EHHSSD_IAC_ROOT-CATEGORY | Native target evidence: ZEHT_B_IncidentActionCompare.ActionCategory | information only | yes |
+| `ActionStatus` | EHHSSD_IAC_ROOT-STATUS | Native target evidence: ZEHT_B_IncidentActionCompare.ActionStatus | information only | yes |
+| `ActionType` | EHHSSD_IAC_ROOT-TYPE | Native target evidence: ZEHT_B_IncidentActionCompare.ActionType | information only | yes |
+| `Priority` | EHHSSD_IAC_ROOT-PRIORITY | Native target evidence: ZEHT_B_IncidentActionCompare.Priority | information only | yes |
+| `ProtectionGoal` | EHHSSD_IAC_ROOT-PROT_GOAL | Native target evidence: ZEHT_B_IncidentActionCompare.ProtectionGoal | information only | yes |
+| `Effectiveness` | EHHSSD_IAC_ROOT-EFFECTIV | Native target evidence: ZEHT_B_IncidentActionCompare.Effectiveness | information only | yes |
+| `DueTimestamp` | EHHSSD_IAC_ROOT-DUE_TIMESTAMP | Native target evidence: ZEHT_B_IncidentActionCompare.DueTimestamp | information only | yes |
+| `DueTimeZone` | EHHSSD_IAC_ROOT-DUE_TI_ZO | Native target evidence: ZEHT_B_IncidentActionCompare.DueTimeZone | information only | yes |
+| `ResponsiblePerson` | EHHSSD_IAC_ROOT-RESP_ID | Native target evidence: ZEHT_B_IncidentActionCompare.ResponsiblePerson | information only | yes |
+| `Implementer` | EHHSSD_IAC_ROOT-IMPLEM_ID | Native target evidence: ZEHT_B_IncidentActionCompare.Implementer | information only | yes |
+| `Approver` | EHHSSD_IAC_ROOT-APPR_ID | Native target evidence: ZEHT_B_IncidentActionCompare.Approver | information only | yes |
+| `ImplementedAt` | EHHSSD_IAC_ROOT-IMPL_TIMESTAMP | Native target evidence: ZEHT_B_IncidentActionCompare.ImplementedAt | information only | yes |
+| `ImplementationTimeZone` | EHHSSD_IAC_ROOT-IMPL_TI_ZO | Native target evidence: ZEHT_B_IncidentActionCompare.ImplementationTimeZone | information only | yes |
+| `ApprovedAt` | EHHSSD_IAC_ROOT-APPR_TIMESTAMP | Native target evidence: ZEHT_B_IncidentActionCompare.ApprovedAt | information only | yes |
+| `ApprovalTimeZone` | EHHSSD_IAC_ROOT-APPR_TI_ZO | Native target evidence: ZEHT_B_IncidentActionCompare.ApprovalTimeZone | information only | yes |
 
 ## Reconciliation
 
 - Counts: `ZEHX_C_IncidentMigCount` (SAP source) vs `ZEHT_I_IncidentCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZEHX_C_IncidentMig` vs `ZEHT_I_IncidentCompare` on `IncidentUUID`; compared: `IncidentID`, `IncidentCategory`, `IncidentStatus`, `ReportingRequired`, `Fatality`
+- Records and fields: `ZEHX_C_IncidentMig` vs `ZEHT_B_IncidentCompare` on `IncidentUUID`; compared: `IncidentID`, `IncidentCategory`, `IncidentStatus`, `ReportingRequired`, `Fatality`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product ehs_mig_src --module incident --source ecc_counts.csv --target s4_counts.csv

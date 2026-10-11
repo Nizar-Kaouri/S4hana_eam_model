@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for the notification item view.
+// TODO-VERIFY[H] NI-D01: the SAP notification item view has a role; if it checks header elements via a path, our association name must match
+@EndUserText.label: 'Maintenance Notification Item'
+@MappingRole: true
+define role ZEAM_B_MaintNotifItem {
+  grant
+    select
+      on
+        ZEAM_B_MaintNotifItem
+          where
+            inheriting conditions from entity I_MaintenanceNotificationItem;
+}

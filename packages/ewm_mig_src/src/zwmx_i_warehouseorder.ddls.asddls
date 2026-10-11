@@ -12,7 +12,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZWMX_I_WarehouseOrder
-  as select from ZWMX_I_WarehouseOrderData as src
+  as select from ZWMX_B_WarehouseOrderData as src
 {
   key src.Warehouse as Warehouse,
   key src.WarehouseOrder as WarehouseOrder,

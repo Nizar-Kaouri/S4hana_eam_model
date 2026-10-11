@@ -22,44 +22,44 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZFAA_I_FixedAsset",
-      "ZFAA_I_FixedAssetVH"
+      "ZFAA_B_FixedAsset",
+      "ZFAA_B_FixedAssetVH"
     ],
     "composite": [
-      "ZFAA_R_FixedAsset"
+      "ZFAA_I_FixedAsset"
     ],
     "consumption": [
       "ZFAA_C_FixedAssetQ"
     ],
     "access_controls": [
-      "ZFAA_I_FixedAsset",
-      "ZFAA_I_FixedAssetVH",
-      "ZFAA_R_FixedAsset"
+      "ZFAA_B_FixedAsset",
+      "ZFAA_B_FixedAssetVH",
+      "ZFAA_I_FixedAsset"
     ],
     "metadata_extensions": [
-      "ZFAA_R_FixedAsset"
+      "ZFAA_I_FixedAsset"
     ],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFAA_C_FixedAssetQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_R_FixedAsset (see GEN-Q01)."
+    "ZFAA_C_FixedAssetQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_I_FixedAsset (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZFAA_I_AssetWithJournalItem",
+      "name": "ZFAA_B_AssetWithJournalItem",
       "requires_modules": [
         "asset_transaction",
         "fixed_asset"
       ],
-      "access_control": "ZFAA_I_AssetWithJournalItem"
+      "access_control": "ZFAA_B_AssetWithJournalItem"
     },
     {
-      "name": "ZFAA_R_AssetTransWithAsset",
+      "name": "ZFAA_I_AssetTransWithAsset",
       "requires_modules": [
         "asset_transaction",
         "fixed_asset"
       ],
-      "access_control": "ZFAA_R_AssetTransWithAsset"
+      "access_control": "ZFAA_I_AssetTransWithAsset"
     },
     {
       "name": "ZFAA_C_AssetTransAssetQ",
@@ -70,12 +70,12 @@
       "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider cube (see GEN-Q01)."
     },
     {
-      "name": "ZFAA_R_AssetBalanceWithAsset",
+      "name": "ZFAA_I_AssetBalanceWithAsset",
       "requires_modules": [
         "fixed_asset",
         "rpt_asset_balance"
       ],
-      "access_control": "ZFAA_R_AssetBalanceWithAsset"
+      "access_control": "ZFAA_I_AssetBalanceWithAsset"
     },
     {
       "name": "ZFAA_C_AssetBalanceAssetQ",

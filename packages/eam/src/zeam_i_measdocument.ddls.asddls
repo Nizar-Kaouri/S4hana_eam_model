@@ -1,42 +1,55 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per measurement document (reading) with date/time, reading in the measuring point
-//   unit, counter reading, valuation code, text and cancellation flag.
-// Example: Trend of a temperature or vibration reading; latest counter reading per measuring point.
-// Module measurement_document has a hard dependency on measuring_point (association _MeasuringPoint).
-// TODO-VERIFY[M] MD-001: I_MeasurementDocument exists, is released (C1) and its key element is MeasurementDocument
-// TODO-VERIFY[M] MD-002: elements MsmtRdngDate, MsmtRdngTime, MsmtRdngByUser, MsmtValuationCode, MeasurementDocumentText
-// TODO-VERIFY[H] MD-003: reading elements MeasurementReading and MeasurementCounterReading (FLTP in the measuring point unit)
-// TODO-VERIFY[H] MD-004: cancellation indicator (IMRG-CANCL equivalent) assumed MsmtDocumentIsCancelled
+// Purpose: Reading cube (cancelled documents excluded): number of readings, minimum / maximum / summed
+//   reading as decimals, with measuring point characteristics via path expressions.
+// Example: Maximum vibration per equipment and month; number of readings per measuring point category.
+// TODO-VERIFY[M] MD-R01: fltp_to_dec( ... as abap.dec(31,6) ) conversion of the FLTP readings
+// TODO-VERIFY[L] MD-R02: @Aggregation.default: #MIN / #MAX on decimal measures in a #CUBE view entity
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Measurement Document'
+@EndUserText.label: 'Measurement Document - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'MeasurementDocument'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #XL,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZEAM_I_MeasDocument
-  as select from I_MeasurementDocument
-  association [1..1] to ZEAM_I_MeasPoint as _MeasuringPoint on $projection.MeasuringPoint = _MeasuringPoint.MeasuringPoint
+  as select from ZEAM_B_MeasDocument
 {
   key MeasurementDocument,
       @ObjectModel.foreignKey.association: '_MeasuringPoint'
       MeasuringPoint,
       MsmtRdngDate,
-      MsmtRdngTime,
-      MsmtRdngByUser,
-      MeasurementReading,
-      MeasurementCounterReading,
       MsmtValuationCode,
-      @Semantics.text: true
-      MeasurementDocumentText,
-      MsmtDocumentIsCancelled,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Readings'
+      cast( 1 as abap.int4 ) as NumberOfReadings,
+      @Aggregation.default: #MIN
+      @EndUserText.label: 'Minimum Reading'
+      fltp_to_dec( MeasurementReading as abap.dec( 31, 6 ) ) as MinimumReading,
+      @Aggregation.default: #MAX
+      @EndUserText.label: 'Maximum Reading'
+      fltp_to_dec( MeasurementReading as abap.dec( 31, 6 ) ) as MaximumReading,
+      @Aggregation.default: #MAX
+      @EndUserText.label: 'Latest Counter Reading'
+      fltp_to_dec( MeasurementCounterReading as abap.dec( 31, 6 ) ) as MaximumCounterReading,
+
+      /* Measuring point characteristics */
+      _MeasuringPoint.MeasuringPointCategory,
+      _MeasuringPoint.MeasurementRangeUnit,
+      _MeasuringPoint.Equipment,
+      _MeasuringPoint.FunctionalLocation,
+      _MeasuringPoint.AuthorizationGroup,
 
       /* Associations */
       _MeasuringPoint
 }
+where
+  MsmtDocumentIsCancelled = ''

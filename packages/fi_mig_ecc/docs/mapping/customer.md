@@ -64,7 +64,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 ## Reconciliation
 
 - Counts: `ZFIX_C_CustomerMigCount` (ECC) vs `ZFIT_I_CustomerCount` (S/4HANA) per `Customer`
-- Records and fields: `ZFIX_C_CustomerMig` vs `ZFIT_I_CustomerCompare` on `Customer`; compared: `CustomerName`, `Country`, `Region`
+- Records and fields: `ZFIX_C_CustomerMig` vs `ZFIT_B_CustomerCompare` on `Customer`; compared: `CustomerName`, `Country`, `Region`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fi_mig_ecc --module customer --source ecc_counts.csv --target s4_counts.csv

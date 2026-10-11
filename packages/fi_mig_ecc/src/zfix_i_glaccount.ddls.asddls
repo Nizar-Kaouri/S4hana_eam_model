@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZFIX_I_GLAccount
-  as select from ZFIX_I_GLAccountData as src
+  as select from ZFIX_B_GLAccountData as src
 {
   key src.ChartOfAccounts as ChartOfAccounts,
   key src.GLAccount as GLAccount,

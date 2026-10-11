@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZFCT_I_PaymentPromiseCompare` |
+| Data source | `ZFCT_B_PaymentPromiseCompare` |
 | Source file | `src/zfct_i_paymentpromisecount.ddls.asddls` |
 
 ## Purpose

@@ -13,7 +13,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_LongTextIndexMig`
 
-- Source: `ZEMX_I_LongTextHeader`
+- Source: `ZEMX_B_LongTextHeader`
 - Keys: `TextObject`, `TextName`, `TextID`, `Language`
 - Scope: `all rows`
 
@@ -28,10 +28,10 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 | View | Element | Source | Reason |
 |---|---|---|---|
-| `ZEMX_I_LongTextHeader` | `CreationDate` | STXH-TDFDATE | information only |
-| `ZEMX_I_LongTextHeader` | `CreatedByUser` | STXH-TDFUSER | information only |
-| `ZEMX_I_LongTextHeader` | `LastChangeDate` | STXH-TDLDATE | information only |
-| `ZEMX_I_LongTextHeader` | `LastChangedByUser` | STXH-TDLUSER | information only |
+| `ZEMX_B_LongTextHeader` | `CreationDate` | STXH-TDFDATE | information only |
+| `ZEMX_B_LongTextHeader` | `CreatedByUser` | STXH-TDFUSER | information only |
+| `ZEMX_B_LongTextHeader` | `LastChangeDate` | STXH-TDLDATE | information only |
+| `ZEMX_B_LongTextHeader` | `LastChangedByUser` | STXH-TDLUSER | information only |
 
 ## Reconciliation
 

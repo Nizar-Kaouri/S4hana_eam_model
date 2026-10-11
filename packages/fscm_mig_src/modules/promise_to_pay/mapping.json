@@ -25,77 +25,77 @@
         {
           "element": "CaseUUID",
           "source": "UDM_P2P_ATTR-CASE_GUID",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.CaseUUID",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.CaseUUID",
           "rule": "info",
           "compare": true
         },
         {
           "element": "CompanyCode",
           "source": "UDM_P2P_ATTR-FIN_COMP_CODE",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.CompanyCode",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.CompanyCode",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Customer",
           "source": "UDM_P2P_ATTR-FIN_CUSTOMER",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.Customer",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.Customer",
           "rule": "info",
           "compare": true
         },
         {
           "element": "Currency",
           "source": "UDM_P2P_ATTR-FIN_P2P_CURR",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.Currency",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.Currency",
           "rule": "info",
           "compare": true
         },
         {
           "element": "DueDate",
           "source": "UDM_P2P_ATTR-FIN_P2P_DUE_DATE",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.DueDate",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.DueDate",
           "rule": "info",
           "compare": true
         },
         {
           "element": "PromiseDate",
           "source": "UDM_P2P_ATTR-FIN_P2P_DATE",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseDate",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseDate",
           "rule": "info",
           "compare": true
         },
         {
           "element": "PromiseState",
           "source": "UDM_P2P_ATTR-FIN_P2P_STATE",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseState",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseState",
           "rule": "info",
           "compare": true
         },
         {
           "element": "PromiseLevel",
           "source": "UDM_P2P_ATTR-FIN_P2P_LEVEL",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromiseLevel",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseLevel",
           "rule": "info",
           "compare": true
         },
         {
           "element": "PromisedBy",
           "source": "UDM_P2P_ATTR-FIN_PROMISED_BY",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromisedBy",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedBy",
           "rule": "info",
           "compare": true
         },
         {
           "element": "PromisedAmount",
           "source": "UDM_P2P_ATTR-FIN_PROMISED_AMT",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PromisedAmount",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedAmount",
           "rule": "info",
           "compare": true
         },
         {
           "element": "PaidAmount",
           "source": "UDM_P2P_ATTR-FIN_PAID_AMOUNT",
-          "target": "Native target evidence: ZFCT_I_PaymentPromiseCompare.PaidAmount",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PaidAmount",
           "rule": "info",
           "compare": true
         }
@@ -117,7 +117,7 @@
     "target_count_view": "ZFCT_I_PaymentPromiseCount",
     "compare": {
       "source_view": "ZFCX_C_PaymentPromiseMig",
-      "target_view": "ZFCT_I_PaymentPromiseCompare",
+      "target_view": "ZFCT_B_PaymentPromiseCompare",
       "key": [
         "CaseUUID"
       ],

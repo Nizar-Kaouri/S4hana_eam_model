@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_LongTextIndexMig
-  as select from ZEMX_I_LongTextHeader as src
+  as select from ZEMX_B_LongTextHeader as src
 {
       @EndUserText.label: 'Text Object'
   key src.TextObject as TextObject,

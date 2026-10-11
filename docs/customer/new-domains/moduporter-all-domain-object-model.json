@@ -177,7 +177,7 @@
         "FixedAsset"
       ],
       "sources": [
-        "ZFAX_I_AssetData"
+        "ZFAX_B_AssetData"
       ],
       "associations": [],
       "checks": 0,
@@ -198,14 +198,14 @@
         "ValidityEndDate"
       ],
       "sources": [
-        "ZFAX_I_AssetAssignmenData"
+        "ZFAX_B_AssetAssignmenData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_aa_mig_ecc/src/zfax_i_assetassignmen.ddls.asddls"
     },
     {
-      "name": "ZFAX_I_AssetAssignmenData",
+      "name": "ZFAX_B_AssetAssignmenData",
       "product": "fi_aa_mig_ecc",
       "domain": "fi_aa",
       "module": "fixed_asset",
@@ -241,14 +241,14 @@
         "DepreciationArea"
       ],
       "sources": [
-        "ZFAX_I_AssetBalanceData"
+        "ZFAX_B_AssetBalanceData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_aa_mig_ecc/src/zfax_i_assetbalance.ddls.asddls"
     },
     {
-      "name": "ZFAX_I_AssetBalanceData",
+      "name": "ZFAX_B_AssetBalanceData",
       "product": "fi_aa_mig_ecc",
       "domain": "fi_aa",
       "module": "asset_balance",
@@ -270,7 +270,7 @@
       "file": "packages/fi_aa_mig_ecc/src/zfax_i_assetbalancedata.ddls.asddls"
     },
     {
-      "name": "ZFAX_I_AssetData",
+      "name": "ZFAX_B_AssetData",
       "product": "fi_aa_mig_ecc",
       "domain": "fi_aa",
       "module": "fixed_asset",
@@ -306,14 +306,14 @@
         "DepreciationArea"
       ],
       "sources": [
-        "ZFAX_I_AssetPostingData"
+        "ZFAX_B_AssetPostingData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_aa_mig_ecc/src/zfax_i_assetposting.ddls.asddls"
     },
     {
-      "name": "ZFAX_I_AssetPostingData",
+      "name": "ZFAX_B_AssetPostingData",
       "product": "fi_aa_mig_ecc",
       "domain": "fi_aa",
       "module": "asset_transaction",
@@ -350,14 +350,14 @@
         "DepreciationArea"
       ],
       "sources": [
-        "ZFAX_I_DepreciationData"
+        "ZFAX_B_DepreciationData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_aa_mig_ecc/src/zfax_i_depreciation.ddls.asddls"
     },
     {
-      "name": "ZFAX_I_DepreciationData",
+      "name": "ZFAX_B_DepreciationData",
       "product": "fi_aa_mig_ecc",
       "domain": "fi_aa",
       "module": "fixed_asset",
@@ -378,7 +378,7 @@
       "file": "packages/fi_aa_mig_ecc/src/zfax_i_depreciationdata.ddls.asddls"
     },
     {
-      "name": "ZFAT_I_AssetCompare",
+      "name": "ZFAT_B_AssetCompare",
       "product": "fi_aa_mig_s4",
       "domain": "fi_aa",
       "module": "fixed_asset",
@@ -409,7 +409,7 @@
         "CompanyCode"
       ],
       "sources": [
-        "ZFAT_I_AssetCompare"
+        "ZFAT_B_AssetCompare"
       ],
       "associations": [],
       "checks": 0,
@@ -1070,14 +1070,14 @@
         "Batch"
       ],
       "sources": [
-        "ZMMX_I_BatchGeneralData"
+        "ZMMX_B_BatchGeneralData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_batchgeneral.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_BatchGeneralData",
+      "name": "ZMMX_B_BatchGeneralData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "product",
@@ -1109,14 +1109,14 @@
         "Batch"
       ],
       "sources": [
-        "ZMMX_I_BatchPlantData"
+        "ZMMX_B_BatchPlantData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_batchplant.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_BatchPlantData",
+      "name": "ZMMX_B_BatchPlantData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "product",
@@ -1150,14 +1150,14 @@
         "Batch"
       ],
       "sources": [
-        "ZMMX_I_BatchStockData"
+        "ZMMX_B_BatchStockData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_batchstock.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_BatchStockData",
+      "name": "ZMMX_B_BatchStockData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "material_stock",
@@ -1191,14 +1191,14 @@
         "AccountAssignmentNumber"
       ],
       "sources": [
-        "ZMMX_I_ContractAssignData"
+        "ZMMX_B_ContractAssignData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_contractassign.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_ContractAssignData",
+      "name": "ZMMX_B_ContractAssignData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchasing_contract",
@@ -1229,14 +1229,14 @@
         "PurchasingContract"
       ],
       "sources": [
-        "ZMMX_I_ContractHeaderData"
+        "ZMMX_B_ContractHeaderData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_contractheader.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_ContractHeaderData",
+      "name": "ZMMX_B_ContractHeaderData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchasing_contract",
@@ -1266,14 +1266,14 @@
         "PurchasingContractItem"
       ],
       "sources": [
-        "ZMMX_I_ContractItemData"
+        "ZMMX_B_ContractItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_contractitem.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_ContractItemData",
+      "name": "ZMMX_B_ContractItemData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchasing_contract",
@@ -1306,14 +1306,14 @@
         "Plant"
       ],
       "sources": [
-        "ZMMX_I_InfoPurchOrgData"
+        "ZMMX_B_InfoPurchOrgData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_infopurchorg.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_InfoPurchOrgData",
+      "name": "ZMMX_B_InfoPurchOrgData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchasing_info_record",
@@ -1345,14 +1345,14 @@
         "PurchasingInfoRecord"
       ],
       "sources": [
-        "ZMMX_I_InfoRecordData"
+        "ZMMX_B_InfoRecordData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_inforecord.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_InfoRecordData",
+      "name": "ZMMX_B_InfoRecordData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchasing_info_record",
@@ -1383,14 +1383,14 @@
         "StorageLocation"
       ],
       "sources": [
-        "ZMMX_I_LocationStockData"
+        "ZMMX_B_LocationStockData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_locationstock.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_LocationStockData",
+      "name": "ZMMX_B_LocationStockData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "material_stock",
@@ -1422,14 +1422,14 @@
         "MaterialDocumentYear"
       ],
       "sources": [
-        "ZMMX_I_MatDocHeaderData"
+        "ZMMX_B_MatDocHeaderData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_matdocheader.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_MatDocHeaderData",
+      "name": "ZMMX_B_MatDocHeaderData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "goods_movement",
@@ -1461,14 +1461,14 @@
         "MaterialDocumentItem"
       ],
       "sources": [
-        "ZMMX_I_MatDocItemData"
+        "ZMMX_B_MatDocItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_matdocitem.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_MatDocItemData",
+      "name": "ZMMX_B_MatDocItemData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "goods_movement",
@@ -1499,14 +1499,14 @@
         "Product"
       ],
       "sources": [
-        "ZMMX_I_MaterialData"
+        "ZMMX_B_MaterialData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_material.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_MaterialData",
+      "name": "ZMMX_B_MaterialData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "product",
@@ -1537,14 +1537,14 @@
         "StorageLocation"
       ],
       "sources": [
-        "ZMMX_I_MaterialLocatiData"
+        "ZMMX_B_MaterialLocatiData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_materiallocati.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_MaterialLocatiData",
+      "name": "ZMMX_B_MaterialLocatiData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "product",
@@ -1576,14 +1576,14 @@
         "Plant"
       ],
       "sources": [
-        "ZMMX_I_MaterialPlantData"
+        "ZMMX_B_MaterialPlantData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_materialplant.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_MaterialPlantData",
+      "name": "ZMMX_B_MaterialPlantData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "product",
@@ -1614,14 +1614,14 @@
         "Language"
       ],
       "sources": [
-        "ZMMX_I_MaterialTextData"
+        "ZMMX_B_MaterialTextData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_materialtext.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_MaterialTextData",
+      "name": "ZMMX_B_MaterialTextData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "product",
@@ -1652,14 +1652,14 @@
         "AlternativeUnit"
       ],
       "sources": [
-        "ZMMX_I_MaterialUnitData"
+        "ZMMX_B_MaterialUnitData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_materialunit.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_MaterialUnitData",
+      "name": "ZMMX_B_MaterialUnitData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "product",
@@ -1691,14 +1691,14 @@
         "ValuationType"
       ],
       "sources": [
-        "ZMMX_I_MaterialValueData"
+        "ZMMX_B_MaterialValueData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_materialvalue.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_MaterialValueData",
+      "name": "ZMMX_B_MaterialValueData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "product",
@@ -1731,14 +1731,14 @@
         "AccountAssignmentNumber"
       ],
       "sources": [
-        "ZMMX_I_PurchaseAssignData"
+        "ZMMX_B_PurchaseAssignData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_purchaseassign.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_PurchaseAssignData",
+      "name": "ZMMX_B_PurchaseAssignData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchase_order",
@@ -1775,14 +1775,14 @@
         "DocumentItem"
       ],
       "sources": [
-        "ZMMX_I_PurchaseHistorData"
+        "ZMMX_B_PurchaseHistorData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_purchasehistor.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_PurchaseHistorData",
+      "name": "ZMMX_B_PurchaseHistorData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchase_order",
@@ -1818,14 +1818,14 @@
         "PurchaseOrderItem"
       ],
       "sources": [
-        "ZMMX_I_PurchaseItemData"
+        "ZMMX_B_PurchaseItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_purchaseitem.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_PurchaseItemData",
+      "name": "ZMMX_B_PurchaseItemData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchase_order",
@@ -1855,14 +1855,14 @@
         "PurchaseOrder"
       ],
       "sources": [
-        "ZMMX_I_PurchaseOrderData"
+        "ZMMX_B_PurchaseOrderData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_purchaseorder.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_PurchaseOrderData",
+      "name": "ZMMX_B_PurchaseOrderData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchase_order",
@@ -1893,14 +1893,14 @@
         "ScheduleLine"
       ],
       "sources": [
-        "ZMMX_I_PurchaseScheduData"
+        "ZMMX_B_PurchaseScheduData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_purchaseschedu.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_PurchaseScheduData",
+      "name": "ZMMX_B_PurchaseScheduData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchase_order",
@@ -1933,14 +1933,14 @@
         "AccountAssignmentNumber"
       ],
       "sources": [
-        "ZMMX_I_ReqAssignmentData"
+        "ZMMX_B_ReqAssignmentData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_reqassignment.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_ReqAssignmentData",
+      "name": "ZMMX_B_ReqAssignmentData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchase_requisition",
@@ -1972,14 +1972,14 @@
         "PurchaseRequisitionItem"
       ],
       "sources": [
-        "ZMMX_I_RequisitionData"
+        "ZMMX_B_RequisitionData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_requisition.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_RequisitionData",
+      "name": "ZMMX_B_RequisitionData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "purchase_requisition",
@@ -2015,14 +2015,14 @@
         "SalesOrderItem"
       ],
       "sources": [
-        "ZMMX_I_SalesOrderStocData"
+        "ZMMX_B_SalesOrderStocData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_salesorderstoc.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_SalesOrderStocData",
+      "name": "ZMMX_B_SalesOrderStocData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "material_stock",
@@ -2061,14 +2061,14 @@
         "Supplier"
       ],
       "sources": [
-        "ZMMX_I_SupplierStockData"
+        "ZMMX_B_SupplierStockData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_ecc/src/zmmx_i_supplierstock.ddls.asddls"
     },
     {
-      "name": "ZMMX_I_SupplierStockData",
+      "name": "ZMMX_B_SupplierStockData",
       "product": "mm_mig_ecc",
       "domain": "mm",
       "module": "material_stock",
@@ -2090,7 +2090,7 @@
       "file": "packages/mm_mig_ecc/src/zmmx_i_supplierstockdata.ddls.asddls"
     },
     {
-      "name": "ZMMT_I_MaterialCompare",
+      "name": "ZMMT_B_MaterialCompare",
       "product": "mm_mig_s4",
       "domain": "mm",
       "module": "product",
@@ -2119,14 +2119,14 @@
         "Product"
       ],
       "sources": [
-        "ZMMT_I_MaterialCompare"
+        "ZMMT_B_MaterialCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_s4/src/zmmt_i_materialcount.ddls.asddls"
     },
     {
-      "name": "ZMMT_I_PurchaseOrderCompare",
+      "name": "ZMMT_B_PurchaseOrderCompare",
       "product": "mm_mig_s4",
       "domain": "mm",
       "module": "purchase_order",
@@ -2155,14 +2155,14 @@
         "PurchaseOrder"
       ],
       "sources": [
-        "ZMMT_I_PurchaseOrderCompare"
+        "ZMMT_B_PurchaseOrderCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/mm_mig_s4/src/zmmt_i_purchaseordercount.ddls.asddls"
     },
     {
-      "name": "ZMMT_I_RequisitionCompare",
+      "name": "ZMMT_B_RequisitionCompare",
       "product": "mm_mig_s4",
       "domain": "mm",
       "module": "purchase_requisition",
@@ -2192,7 +2192,7 @@
         "PurchaseRequisition"
       ],
       "sources": [
-        "ZMMT_I_RequisitionCompare"
+        "ZMMT_B_RequisitionCompare"
       ],
       "associations": [],
       "checks": 0,
@@ -2684,14 +2684,14 @@
         "CharacteristicNumber"
       ],
       "sources": [
-        "ZQMX_I_CharacteristicData"
+        "ZQMX_B_CharacteristicData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_characteristic.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_CharacteristicData",
+      "name": "ZQMX_B_CharacteristicData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_result",
@@ -2724,14 +2724,14 @@
         "CharacteristicNumber"
       ],
       "sources": [
-        "ZQMX_I_InspectCharactData"
+        "ZQMX_B_InspectCharactData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_inspectcharact.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_InspectCharactData",
+      "name": "ZQMX_B_InspectCharactData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_result",
@@ -2762,14 +2762,14 @@
         "InspectionLot"
       ],
       "sources": [
-        "ZQMX_I_InspectionLotData"
+        "ZQMX_B_InspectionLotData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_inspectionlot.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_InspectionLotData",
+      "name": "ZQMX_B_InspectionLotData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_lot",
@@ -2801,14 +2801,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZQMX_I_InspectPlanHeaData"
+        "ZQMX_B_InspectPlanHeaData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_inspectplanhea.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_InspectPlanHeaData",
+      "name": "ZQMX_B_InspectPlanHeaData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_plan",
@@ -2845,14 +2845,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZQMX_I_InspectPlanMatData"
+        "ZQMX_B_InspectPlanMatData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_inspectplanmat.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_InspectPlanMatData",
+      "name": "ZQMX_B_InspectPlanMatData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_plan",
@@ -2889,14 +2889,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZQMX_I_InspectPlanOpeData"
+        "ZQMX_B_InspectPlanOpeData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_inspectplanope.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_InspectPlanOpeData",
+      "name": "ZQMX_B_InspectPlanOpeData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_plan",
@@ -2933,14 +2933,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZQMX_I_InspectPlanSelData"
+        "ZQMX_B_InspectPlanSelData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_inspectplansel.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_InspectPlanSelData",
+      "name": "ZQMX_B_InspectPlanSelData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_plan",
@@ -2976,14 +2976,14 @@
         "CharacteristicVersion"
       ],
       "sources": [
-        "ZQMX_I_MasterCharData"
+        "ZQMX_B_MasterCharData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_masterchar.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_MasterCharData",
+      "name": "ZQMX_B_MasterCharData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "master_inspection_characteristic",
@@ -3017,14 +3017,14 @@
         "Language"
       ],
       "sources": [
-        "ZQMX_I_MasterCharTextData"
+        "ZQMX_B_MasterCharTextData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_masterchartext.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_MasterCharTextData",
+      "name": "ZQMX_B_MasterCharTextData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "master_inspection_characteristic",
@@ -3060,14 +3060,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZQMX_I_PlanCharacteriData"
+        "ZQMX_B_PlanCharacteriData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_plancharacteri.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_PlanCharacteriData",
+      "name": "ZQMX_B_PlanCharacteriData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_plan",
@@ -3101,14 +3101,14 @@
         "ActivityNumber"
       ],
       "sources": [
-        "ZQMX_I_QualityActivitData"
+        "ZQMX_B_QualityActivitData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_qualityactivit.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_QualityActivitData",
+      "name": "ZQMX_B_QualityActivitData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "quality_notification",
@@ -3140,14 +3140,14 @@
         "CauseNumber"
       ],
       "sources": [
-        "ZQMX_I_QualityCauseData"
+        "ZQMX_B_QualityCauseData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_qualitycause.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_QualityCauseData",
+      "name": "ZQMX_B_QualityCauseData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "quality_notification",
@@ -3179,14 +3179,14 @@
         "NotificationItem"
       ],
       "sources": [
-        "ZQMX_I_QualityItemData"
+        "ZQMX_B_QualityItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_qualityitem.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_QualityItemData",
+      "name": "ZQMX_B_QualityItemData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "quality_notification",
@@ -3216,14 +3216,14 @@
         "QualityNotification"
       ],
       "sources": [
-        "ZQMX_I_QualityNotificData"
+        "ZQMX_B_QualityNotificData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_qualitynotific.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_QualityNotificData",
+      "name": "ZQMX_B_QualityNotificData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "quality_notification",
@@ -3253,14 +3253,14 @@
         "TaskNumber"
       ],
       "sources": [
-        "ZQMX_I_QualityTaskData"
+        "ZQMX_B_QualityTaskData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_qualitytask.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_QualityTaskData",
+      "name": "ZQMX_B_QualityTaskData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "quality_notification",
@@ -3290,14 +3290,14 @@
         "SamplingProcedure"
       ],
       "sources": [
-        "ZQMX_I_SamplingProcData"
+        "ZQMX_B_SamplingProcData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_samplingproc.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_SamplingProcData",
+      "name": "ZQMX_B_SamplingProcData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "sampling_procedure",
@@ -3330,14 +3330,14 @@
         "ResultNumber"
       ],
       "sources": [
-        "ZQMX_I_SingleResultData"
+        "ZQMX_B_SingleResultData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_singleresult.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_SingleResultData",
+      "name": "ZQMX_B_SingleResultData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_result",
@@ -3372,14 +3372,14 @@
         "UsageDecisionCounter"
       ],
       "sources": [
-        "ZQMX_I_UsageDecisionData"
+        "ZQMX_B_UsageDecisionData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_ecc/src/zqmx_i_usagedecision.ddls.asddls"
     },
     {
-      "name": "ZQMX_I_UsageDecisionData",
+      "name": "ZQMX_B_UsageDecisionData",
       "product": "qm_mig_ecc",
       "domain": "qm",
       "module": "inspection_lot",
@@ -3399,7 +3399,7 @@
       "file": "packages/qm_mig_ecc/src/zqmx_i_usagedecisiondata.ddls.asddls"
     },
     {
-      "name": "ZQMT_I_InspectionLotCompare",
+      "name": "ZQMT_B_InspectionLotCompare",
       "product": "qm_mig_s4",
       "domain": "qm",
       "module": "inspection_lot",
@@ -3428,14 +3428,14 @@
         "InspectionLot"
       ],
       "sources": [
-        "ZQMT_I_InspectionLotCompare"
+        "ZQMT_B_InspectionLotCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/qm_mig_s4/src/zqmt_i_inspectionlotcount.ddls.asddls"
     },
     {
-      "name": "ZQMT_I_QualityNotificCompare",
+      "name": "ZQMT_B_QualityNotificCompare",
       "product": "qm_mig_s4",
       "domain": "qm",
       "module": "quality_notification",
@@ -3464,7 +3464,7 @@
         "QualityNotification"
       ],
       "sources": [
-        "ZQMT_I_QualityNotificCompare"
+        "ZQMT_B_QualityNotificCompare"
       ],
       "associations": [],
       "checks": 0,
@@ -3892,14 +3892,14 @@
         "FiscalYear"
       ],
       "sources": [
-        "ZPSX_I_AnnualBudgetData"
+        "ZPSX_B_AnnualBudgetData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_annualbudget.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_AnnualBudgetData",
+      "name": "ZPSX_B_AnnualBudgetData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "budget",
@@ -3942,14 +3942,14 @@
         "CommitmentItem"
       ],
       "sources": [
-        "ZPSX_I_CommitmentData"
+        "ZPSX_B_CommitmentData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_commitment.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_CommitmentData",
+      "name": "ZPSX_B_CommitmentData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "commitment",
@@ -3988,14 +3988,14 @@
         "ApprovalFiscalYear"
       ],
       "sources": [
-        "ZPSX_I_InvestAssignData"
+        "ZPSX_B_InvestAssignData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_investassign.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_InvestAssignData",
+      "name": "ZPSX_B_InvestAssignData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "investment_measure",
@@ -4026,14 +4026,14 @@
         "InvestmentPositionInternalID"
       ],
       "sources": [
-        "ZPSX_I_InvestPositionData"
+        "ZPSX_B_InvestPositionData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_investposition.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_InvestPositionData",
+      "name": "ZPSX_B_InvestPositionData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "investment_measure",
@@ -4063,14 +4063,14 @@
         "ApprovalFiscalYear"
       ],
       "sources": [
-        "ZPSX_I_InvestProgramData"
+        "ZPSX_B_InvestProgramData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_investprogram.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_InvestProgramData",
+      "name": "ZPSX_B_InvestProgramData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "investment_measure",
@@ -4101,14 +4101,14 @@
         "OperationInternalID"
       ],
       "sources": [
-        "ZPSX_I_NetworkActivitData"
+        "ZPSX_B_NetworkActivitData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_networkactivit.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_NetworkActivitData",
+      "name": "ZPSX_B_NetworkActivitData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "network",
@@ -4138,14 +4138,14 @@
         "Network"
       ],
       "sources": [
-        "ZPSX_I_NetworkHeaderData"
+        "ZPSX_B_NetworkHeaderData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_networkheader.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_NetworkHeaderData",
+      "name": "ZPSX_B_NetworkHeaderData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "network",
@@ -4174,14 +4174,14 @@
         "Network"
       ],
       "sources": [
-        "ZPSX_I_NetworkPlanData"
+        "ZPSX_B_NetworkPlanData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_networkplan.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_NetworkPlanData",
+      "name": "ZPSX_B_NetworkPlanData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "network",
@@ -4211,14 +4211,14 @@
         "OperationInternalID"
       ],
       "sources": [
-        "ZPSX_I_NetworkQuantitData"
+        "ZPSX_B_NetworkQuantitData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_networkquantit.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_NetworkQuantitData",
+      "name": "ZPSX_B_NetworkQuantitData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "network",
@@ -4253,14 +4253,14 @@
         "Version"
       ],
       "sources": [
-        "ZPSX_I_OverallBudgetData"
+        "ZPSX_B_OverallBudgetData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_overallbudget.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_OverallBudgetData",
+      "name": "ZPSX_B_OverallBudgetData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "budget",
@@ -4294,7 +4294,7 @@
         "ProjectInternalID"
       ],
       "sources": [
-        "ZPSX_I_ProjectData"
+        "ZPSX_B_ProjectData"
       ],
       "associations": [],
       "checks": 0,
@@ -4314,14 +4314,14 @@
         "COAccountingDocumentItem"
       ],
       "sources": [
-        "ZPSX_I_ProjectCostData"
+        "ZPSX_B_ProjectCostData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_projectcost.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_ProjectCostData",
+      "name": "ZPSX_B_ProjectCostData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "project_cost",
@@ -4341,7 +4341,7 @@
       "file": "packages/ps_mig_ecc/src/zpsx_i_projectcostdata.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_ProjectData",
+      "name": "ZPSX_B_ProjectData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "project",
@@ -4370,14 +4370,14 @@
         "WBSElementInternalID"
       ],
       "sources": [
-        "ZPSX_I_WBSData"
+        "ZPSX_B_WBSData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_wbs.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_WBSData",
+      "name": "ZPSX_B_WBSData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "wbs_element",
@@ -4406,14 +4406,14 @@
         "WBSElementInternalID"
       ],
       "sources": [
-        "ZPSX_I_WBSHierarchyData"
+        "ZPSX_B_WBSHierarchyData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_ecc/src/zpsx_i_wbshierarchy.ddls.asddls"
     },
     {
-      "name": "ZPSX_I_WBSHierarchyData",
+      "name": "ZPSX_B_WBSHierarchyData",
       "product": "ps_mig_ecc",
       "domain": "ps",
       "module": "wbs_element",
@@ -4431,7 +4431,7 @@
       "file": "packages/ps_mig_ecc/src/zpsx_i_wbshierarchydata.ddls.asddls"
     },
     {
-      "name": "ZPST_I_ProjectCompare",
+      "name": "ZPST_B_ProjectCompare",
       "product": "ps_mig_s4",
       "domain": "ps",
       "module": "project",
@@ -4460,14 +4460,14 @@
         "ProjectInternalID"
       ],
       "sources": [
-        "ZPST_I_ProjectCompare"
+        "ZPST_B_ProjectCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/ps_mig_s4/src/zpst_i_projectcount.ddls.asddls"
     },
     {
-      "name": "ZPST_I_WBSCompare",
+      "name": "ZPST_B_WBSCompare",
       "product": "ps_mig_s4",
       "domain": "ps",
       "module": "wbs_element",
@@ -4496,7 +4496,7 @@
         "WBSElementInternalID"
       ],
       "sources": [
-        "ZPST_I_WBSCompare"
+        "ZPST_B_WBSCompare"
       ],
       "associations": [],
       "checks": 0,
@@ -4973,14 +4973,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZPPX_I_BOMHeaderData"
+        "ZPPX_B_BOMHeaderData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_bomheader.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_BOMHeaderData",
+      "name": "ZPPX_B_BOMHeaderData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "bill_of_material",
@@ -5015,14 +5015,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZPPX_I_BOMItemData"
+        "ZPPX_B_BOMItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_bomitem.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_BOMItemData",
+      "name": "ZPPX_B_BOMItemData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "bill_of_material",
@@ -5058,14 +5058,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZPPX_I_BOMSelectionData"
+        "ZPPX_B_BOMSelectionData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_bomselection.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_BOMSelectionData",
+      "name": "ZPPX_B_BOMSelectionData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "bill_of_material",
@@ -5099,14 +5099,14 @@
         "ConfirmationCounter"
       ],
       "sources": [
-        "ZPPX_I_ConfirmationData"
+        "ZPPX_B_ConfirmationData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_confirmation.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_ConfirmationData",
+      "name": "ZPPX_B_ConfirmationData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "production_confirmation",
@@ -5140,14 +5140,14 @@
         "BillOfMaterialVariant"
       ],
       "sources": [
-        "ZPPX_I_MaterialBOMData"
+        "ZPPX_B_MaterialBOMData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_materialbom.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_MaterialBOMData",
+      "name": "ZPPX_B_MaterialBOMData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "bill_of_material",
@@ -5181,14 +5181,14 @@
         "OperationInternalID"
       ],
       "sources": [
-        "ZPPX_I_OperationQuantData"
+        "ZPPX_B_OperationQuantData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_operationquant.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_OperationQuantData",
+      "name": "ZPPX_B_OperationQuantData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "production_order_operation",
@@ -5220,14 +5220,14 @@
         "RecordType"
       ],
       "sources": [
-        "ZPPX_I_OrderComponentData"
+        "ZPPX_B_OrderComponentData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_ordercomponent.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_OrderComponentData",
+      "name": "ZPPX_B_OrderComponentData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "production_order_operation",
@@ -5258,14 +5258,14 @@
         "ManufacturingOrder"
       ],
       "sources": [
-        "ZPPX_I_ProductionHeadData"
+        "ZPPX_B_ProductionHeadData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_productionhead.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_ProductionHeadData",
+      "name": "ZPPX_B_ProductionHeadData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "production_order",
@@ -5295,14 +5295,14 @@
         "ManufacturingOrderItem"
       ],
       "sources": [
-        "ZPPX_I_ProductionItemData"
+        "ZPPX_B_ProductionItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_productionitem.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_ProductionItemData",
+      "name": "ZPPX_B_ProductionItemData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "production_order",
@@ -5333,14 +5333,14 @@
         "OperationInternalID"
       ],
       "sources": [
-        "ZPPX_I_ProductionOperData"
+        "ZPPX_B_ProductionOperData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_productionoper.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_ProductionOperData",
+      "name": "ZPPX_B_ProductionOperData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "production_order_operation",
@@ -5370,14 +5370,14 @@
         "ManufacturingOrder"
       ],
       "sources": [
-        "ZPPX_I_ProductionOrdeData"
+        "ZPPX_B_ProductionOrdeData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_productionorde.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_ProductionOrdeData",
+      "name": "ZPPX_B_ProductionOrdeData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "production_order",
@@ -5408,14 +5408,14 @@
         "ProductionVersion"
       ],
       "sources": [
-        "ZPPX_I_ProdVersionData"
+        "ZPPX_B_ProdVersionData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_prodversion.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_ProdVersionData",
+      "name": "ZPPX_B_ProdVersionData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "production_version",
@@ -5449,14 +5449,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZPPX_I_RoutingHeaderData"
+        "ZPPX_B_RoutingHeaderData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_routingheader.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_RoutingHeaderData",
+      "name": "ZPPX_B_RoutingHeaderData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "routing",
@@ -5493,14 +5493,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZPPX_I_RoutingMateriaData"
+        "ZPPX_B_RoutingMateriaData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_routingmateria.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_RoutingMateriaData",
+      "name": "ZPPX_B_RoutingMateriaData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "routing",
@@ -5537,14 +5537,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZPPX_I_RoutingOperatiData"
+        "ZPPX_B_RoutingOperatiData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_routingoperati.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_RoutingOperatiData",
+      "name": "ZPPX_B_RoutingOperatiData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "routing",
@@ -5581,14 +5581,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZPPX_I_RoutingSelectiData"
+        "ZPPX_B_RoutingSelectiData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_routingselecti.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_RoutingSelectiData",
+      "name": "ZPPX_B_RoutingSelectiData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "routing",
@@ -5626,14 +5626,14 @@
         "InternalCounter"
       ],
       "sources": [
-        "ZPPX_I_RoutingSequencData"
+        "ZPPX_B_RoutingSequencData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/pp_mig_ecc/src/zppx_i_routingsequenc.ddls.asddls"
     },
     {
-      "name": "ZPPX_I_RoutingSequencData",
+      "name": "ZPPX_B_RoutingSequencData",
       "product": "pp_mig_ecc",
       "domain": "pp",
       "module": "routing",
@@ -5655,7 +5655,7 @@
       "file": "packages/pp_mig_ecc/src/zppx_i_routingsequencdata.ddls.asddls"
     },
     {
-      "name": "ZPPT_I_ProductionOrdeCompare",
+      "name": "ZPPT_B_ProductionOrdeCompare",
       "product": "pp_mig_s4",
       "domain": "pp",
       "module": "production_order",
@@ -5684,7 +5684,7 @@
         "ManufacturingOrder"
       ],
       "sources": [
-        "ZPPT_I_ProductionOrdeCompare"
+        "ZPPT_B_ProductionOrdeCompare"
       ],
       "associations": [],
       "checks": 0,
@@ -6108,14 +6108,14 @@
         "ValidityStartDate"
       ],
       "sources": [
-        "ZCOX_I_AllocCycleData"
+        "ZCOX_B_AllocCycleData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_alloccycle.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_AllocCycleData",
+      "name": "ZCOX_B_AllocCycleData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "allocation_cycle",
@@ -6149,14 +6149,14 @@
         "SegmentSequence"
       ],
       "sources": [
-        "ZCOX_I_AllocSegmentData"
+        "ZCOX_B_AllocSegmentData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_allocsegment.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_AllocSegmentData",
+      "name": "ZCOX_B_AllocSegmentData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "allocation_cycle",
@@ -6190,14 +6190,14 @@
         "COAccountingDocumentItem"
       ],
       "sources": [
-        "ZCOX_I_CostActualData"
+        "ZCOX_B_CostActualData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_costactual.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_CostActualData",
+      "name": "ZCOX_B_CostActualData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "cost_actuals",
@@ -6230,14 +6230,14 @@
         "ValidityEndDate"
       ],
       "sources": [
-        "ZCOX_I_CostCenterData"
+        "ZCOX_B_CostCenterData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_costcenter.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_CostCenterData",
+      "name": "ZCOX_B_CostCenterData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "cost_center",
@@ -6271,14 +6271,14 @@
         "ValidityEndDate"
       ],
       "sources": [
-        "ZCOX_I_CostCenterTextData"
+        "ZCOX_B_CostCenterTextData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_costcentertext.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_CostCenterTextData",
+      "name": "ZCOX_B_CostCenterTextData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "cost_center",
@@ -6311,7 +6311,7 @@
         "CostElement"
       ],
       "sources": [
-        "ZCOX_I_CostElementData"
+        "ZCOX_B_CostElementData"
       ],
       "associations": [],
       "checks": 0,
@@ -6331,14 +6331,14 @@
         "ValidityEndDate"
       ],
       "sources": [
-        "ZCOX_I_CostElementAreData"
+        "ZCOX_B_CostElementAreData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_costelementare.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_CostElementAreData",
+      "name": "ZCOX_B_CostElementAreData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "cost_element",
@@ -6358,7 +6358,7 @@
       "file": "packages/co_mig_ecc/src/zcox_i_costelementaredata.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_CostElementData",
+      "name": "ZCOX_B_CostElementData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "cost_element",
@@ -6388,14 +6388,14 @@
         "InternalOrder"
       ],
       "sources": [
-        "ZCOX_I_InternalOrderData"
+        "ZCOX_B_InternalOrderData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_internalorder.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_InternalOrderData",
+      "name": "ZCOX_B_InternalOrderData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "internal_order",
@@ -6426,14 +6426,14 @@
         "DistributionRule"
       ],
       "sources": [
-        "ZCOX_I_OrderSettlemenData"
+        "ZCOX_B_OrderSettlemenData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_ordersettlemen.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_OrderSettlemenData",
+      "name": "ZCOX_B_OrderSettlemenData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "internal_order",
@@ -6475,14 +6475,14 @@
         "PeriodBlock"
       ],
       "sources": [
-        "ZCOX_I_PrimaryPlanData"
+        "ZCOX_B_PrimaryPlanData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_primaryplan.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_PrimaryPlanData",
+      "name": "ZCOX_B_PrimaryPlanData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "planning",
@@ -6524,14 +6524,14 @@
         "ControllingArea"
       ],
       "sources": [
-        "ZCOX_I_ProfitCenterData"
+        "ZCOX_B_ProfitCenterData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_profitcenter.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_ProfitCenterData",
+      "name": "ZCOX_B_ProfitCenterData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "profit_center",
@@ -6565,14 +6565,14 @@
         "ControllingArea"
       ],
       "sources": [
-        "ZCOX_I_ProfitCenterTeData"
+        "ZCOX_B_ProfitCenterTeData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_profitcenterte.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_ProfitCenterTeData",
+      "name": "ZCOX_B_ProfitCenterTeData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "profit_center",
@@ -6615,14 +6615,14 @@
         "PeriodBlock"
       ],
       "sources": [
-        "ZCOX_I_SecondaryPlanData"
+        "ZCOX_B_SecondaryPlanData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_ecc/src/zcox_i_secondaryplan.ddls.asddls"
     },
     {
-      "name": "ZCOX_I_SecondaryPlanData",
+      "name": "ZCOX_B_SecondaryPlanData",
       "product": "co_mig_ecc",
       "domain": "co",
       "module": "planning",
@@ -6651,7 +6651,7 @@
       "file": "packages/co_mig_ecc/src/zcox_i_secondaryplandata.ddls.asddls"
     },
     {
-      "name": "ZCOT_I_CostCenterCompare",
+      "name": "ZCOT_B_CostCenterCompare",
       "product": "co_mig_s4",
       "domain": "co",
       "module": "cost_center",
@@ -6682,14 +6682,14 @@
         "ControllingArea"
       ],
       "sources": [
-        "ZCOT_I_CostCenterCompare"
+        "ZCOT_B_CostCenterCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_s4/src/zcot_i_costcentercount.ddls.asddls"
     },
     {
-      "name": "ZCOT_I_InternalOrderCompare",
+      "name": "ZCOT_B_InternalOrderCompare",
       "product": "co_mig_s4",
       "domain": "co",
       "module": "internal_order",
@@ -6718,14 +6718,14 @@
         "InternalOrder"
       ],
       "sources": [
-        "ZCOT_I_InternalOrderCompare"
+        "ZCOT_B_InternalOrderCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/co_mig_s4/src/zcot_i_internalordercount.ddls.asddls"
     },
     {
-      "name": "ZCOT_I_ProfitCenterCompare",
+      "name": "ZCOT_B_ProfitCenterCompare",
       "product": "co_mig_s4",
       "domain": "co",
       "module": "profit_center",
@@ -6756,7 +6756,7 @@
         "ProfitCenter"
       ],
       "sources": [
-        "ZCOT_I_ProfitCenterCompare"
+        "ZCOT_B_ProfitCenterCompare"
       ],
       "associations": [],
       "checks": 0,
@@ -7355,14 +7355,14 @@
         "FiscalYear"
       ],
       "sources": [
-        "ZFIX_I_AccountingHeadData"
+        "ZFIX_B_AccountingHeadData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_accountinghead.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_AccountingHeadData",
+      "name": "ZFIX_B_AccountingHeadData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "gl_line_item",
@@ -7396,14 +7396,14 @@
         "AccountingDocumentItem"
       ],
       "sources": [
-        "ZFIX_I_AccountingItemData"
+        "ZFIX_B_AccountingItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_accountingitem.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_AccountingItemData",
+      "name": "ZFIX_B_AccountingItemData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "gl_line_item",
@@ -7444,14 +7444,14 @@
         "AccountingDocumentItem"
       ],
       "sources": [
-        "ZFIX_I_APClearedData"
+        "ZFIX_B_APClearedData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_apcleared.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_APClearedData",
+      "name": "ZFIX_B_APClearedData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "open_items",
@@ -7498,14 +7498,14 @@
         "AccountingDocumentItem"
       ],
       "sources": [
-        "ZFIX_I_APOpenData"
+        "ZFIX_B_APOpenData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_apopen.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_APOpenData",
+      "name": "ZFIX_B_APOpenData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "open_items",
@@ -7552,14 +7552,14 @@
         "AccountingDocumentItem"
       ],
       "sources": [
-        "ZFIX_I_ARClearedData"
+        "ZFIX_B_ARClearedData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_arcleared.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_ARClearedData",
+      "name": "ZFIX_B_ARClearedData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "open_items",
@@ -7606,14 +7606,14 @@
         "AccountingDocumentItem"
       ],
       "sources": [
-        "ZFIX_I_AROpenData"
+        "ZFIX_B_AROpenData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_aropen.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_AROpenData",
+      "name": "ZFIX_B_AROpenData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "open_items",
@@ -7652,14 +7652,14 @@
         "BankKey"
       ],
       "sources": [
-        "ZFIX_I_BankData"
+        "ZFIX_B_BankData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_bank.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_BankData",
+      "name": "ZFIX_B_BankData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "bank",
@@ -7697,14 +7697,14 @@
         "DebitCreditCode"
       ],
       "sources": [
-        "ZFIX_I_ClassicBalanceData"
+        "ZFIX_B_ClassicBalanceData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_classicbalance.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_ClassicBalanceData",
+      "name": "ZFIX_B_ClassicBalanceData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "gl_opening_balance",
@@ -7741,7 +7741,7 @@
         "Customer"
       ],
       "sources": [
-        "ZFIX_I_CustomerData"
+        "ZFIX_B_CustomerData"
       ],
       "associations": [],
       "checks": 0,
@@ -7760,14 +7760,14 @@
         "CompanyCode"
       ],
       "sources": [
-        "ZFIX_I_CustomerCompanData"
+        "ZFIX_B_CustomerCompanData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_customercompan.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_CustomerCompanData",
+      "name": "ZFIX_B_CustomerCompanData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "customer",
@@ -7786,7 +7786,7 @@
       "file": "packages/fi_mig_ecc/src/zfix_i_customercompandata.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_CustomerData",
+      "name": "ZFIX_B_CustomerData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "customer",
@@ -7818,14 +7818,14 @@
         "Division"
       ],
       "sources": [
-        "ZFIX_I_CustomerSalesData"
+        "ZFIX_B_CustomerSalesData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_customersales.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_CustomerSalesData",
+      "name": "ZFIX_B_CustomerSalesData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "customer",
@@ -7858,14 +7858,14 @@
         "GLAccount"
       ],
       "sources": [
-        "ZFIX_I_GLAccountData"
+        "ZFIX_B_GLAccountData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_glaccount.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_GLAccountData",
+      "name": "ZFIX_B_GLAccountData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "gl_account",
@@ -7897,14 +7897,14 @@
         "GLAccount"
       ],
       "sources": [
-        "ZFIX_I_GLAccountTextData"
+        "ZFIX_B_GLAccountTextData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_glaccounttext.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_GLAccountTextData",
+      "name": "ZFIX_B_GLAccountTextData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "gl_account",
@@ -7942,14 +7942,14 @@
         "AccountingDocumentItem"
       ],
       "sources": [
-        "ZFIX_I_GLClearedData"
+        "ZFIX_B_GLClearedData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_glcleared.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_GLClearedData",
+      "name": "ZFIX_B_GLClearedData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "open_items",
@@ -7986,14 +7986,14 @@
         "GLAccount"
       ],
       "sources": [
-        "ZFIX_I_GLCompanyData"
+        "ZFIX_B_GLCompanyData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_glcompany.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_GLCompanyData",
+      "name": "ZFIX_B_GLCompanyData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "gl_account",
@@ -8030,14 +8030,14 @@
         "AccountingDocumentItem"
       ],
       "sources": [
-        "ZFIX_I_GLOpenData"
+        "ZFIX_B_GLOpenData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_glopen.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_GLOpenData",
+      "name": "ZFIX_B_GLOpenData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "open_items",
@@ -8092,14 +8092,14 @@
         "DebitCreditCode"
       ],
       "sources": [
-        "ZFIX_I_NewGLBalanceData"
+        "ZFIX_B_NewGLBalanceData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_newglbalance.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_NewGLBalanceData",
+      "name": "ZFIX_B_NewGLBalanceData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "gl_opening_balance",
@@ -8147,7 +8147,7 @@
         "Supplier"
       ],
       "sources": [
-        "ZFIX_I_SupplierData"
+        "ZFIX_B_SupplierData"
       ],
       "associations": [],
       "checks": 0,
@@ -8166,14 +8166,14 @@
         "CompanyCode"
       ],
       "sources": [
-        "ZFIX_I_SupplierCompanData"
+        "ZFIX_B_SupplierCompanData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_suppliercompan.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_SupplierCompanData",
+      "name": "ZFIX_B_SupplierCompanData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "supplier",
@@ -8192,7 +8192,7 @@
       "file": "packages/fi_mig_ecc/src/zfix_i_suppliercompandata.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_SupplierData",
+      "name": "ZFIX_B_SupplierData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "supplier",
@@ -8222,14 +8222,14 @@
         "PurchasingOrganization"
       ],
       "sources": [
-        "ZFIX_I_SupplierPurchaData"
+        "ZFIX_B_SupplierPurchaData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_ecc/src/zfix_i_supplierpurcha.ddls.asddls"
     },
     {
-      "name": "ZFIX_I_SupplierPurchaData",
+      "name": "ZFIX_B_SupplierPurchaData",
       "product": "fi_mig_ecc",
       "domain": "fi",
       "module": "supplier",
@@ -8248,7 +8248,7 @@
       "file": "packages/fi_mig_ecc/src/zfix_i_supplierpurchadata.ddls.asddls"
     },
     {
-      "name": "ZFIT_I_CustomerCompare",
+      "name": "ZFIT_B_CustomerCompare",
       "product": "fi_mig_s4",
       "domain": "fi",
       "module": "customer",
@@ -8277,14 +8277,14 @@
         "Customer"
       ],
       "sources": [
-        "ZFIT_I_CustomerCompare"
+        "ZFIT_B_CustomerCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_s4/src/zfit_i_customercount.ddls.asddls"
     },
     {
-      "name": "ZFIT_I_GLAccountCompare",
+      "name": "ZFIT_B_GLAccountCompare",
       "product": "fi_mig_s4",
       "domain": "fi",
       "module": "gl_account",
@@ -8314,14 +8314,14 @@
         "ChartOfAccounts"
       ],
       "sources": [
-        "ZFIT_I_GLAccountCompare"
+        "ZFIT_B_GLAccountCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/fi_mig_s4/src/zfit_i_glaccountcount.ddls.asddls"
     },
     {
-      "name": "ZFIT_I_SupplierCompare",
+      "name": "ZFIT_B_SupplierCompare",
       "product": "fi_mig_s4",
       "domain": "fi",
       "module": "supplier",
@@ -8350,7 +8350,7 @@
         "Supplier"
       ],
       "sources": [
-        "ZFIT_I_SupplierCompare"
+        "ZFIT_B_SupplierCompare"
       ],
       "associations": [],
       "checks": 0,
@@ -8746,14 +8746,14 @@
         "BillingDocument"
       ],
       "sources": [
-        "ZSDX_I_BillingData"
+        "ZSDX_B_BillingData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_billing.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_BillingData",
+      "name": "ZSDX_B_BillingData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "billing_document",
@@ -8783,14 +8783,14 @@
         "BillingDocumentItem"
       ],
       "sources": [
-        "ZSDX_I_BillingItemData"
+        "ZSDX_B_BillingItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_billingitem.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_BillingItemData",
+      "name": "ZSDX_B_BillingItemData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "billing_document",
@@ -8820,14 +8820,14 @@
         "ConditionRecord"
       ],
       "sources": [
-        "ZSDX_I_ConditionHdrData"
+        "ZSDX_B_ConditionHdrData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_conditionhdr.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_ConditionHdrData",
+      "name": "ZSDX_B_ConditionHdrData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "pricing_condition",
@@ -8857,14 +8857,14 @@
         "ConditionItem"
       ],
       "sources": [
-        "ZSDX_I_ConditionItemData"
+        "ZSDX_B_ConditionItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_conditionitem.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_ConditionItemData",
+      "name": "ZSDX_B_ConditionItemData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "pricing_condition",
@@ -8894,14 +8894,14 @@
         "DeliveryDocument"
       ],
       "sources": [
-        "ZSDX_I_DeliveryData"
+        "ZSDX_B_DeliveryData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_delivery.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_DeliveryData",
+      "name": "ZSDX_B_DeliveryData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "outbound_delivery",
@@ -8931,14 +8931,14 @@
         "DeliveryDocumentItem"
       ],
       "sources": [
-        "ZSDX_I_DeliveryItemData"
+        "ZSDX_B_DeliveryItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_deliveryitem.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_DeliveryItemData",
+      "name": "ZSDX_B_DeliveryItemData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "outbound_delivery",
@@ -8970,14 +8970,14 @@
         "ScaleLine"
       ],
       "sources": [
-        "ZSDX_I_QuantityScaleData"
+        "ZSDX_B_QuantityScaleData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_quantityscale.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_QuantityScaleData",
+      "name": "ZSDX_B_QuantityScaleData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "pricing_condition",
@@ -9009,14 +9009,14 @@
         "SalesDocumentItem"
       ],
       "sources": [
-        "ZSDX_I_SalesBusinessData"
+        "ZSDX_B_SalesBusinessData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_salesbusiness.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_SalesBusinessData",
+      "name": "ZSDX_B_SalesBusinessData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "sales_order",
@@ -9050,14 +9050,14 @@
         "SubsequentDocumentCategory"
       ],
       "sources": [
-        "ZSDX_I_SalesFlowData"
+        "ZSDX_B_SalesFlowData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_salesflow.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_SalesFlowData",
+      "name": "ZSDX_B_SalesFlowData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "sales_order",
@@ -9090,14 +9090,14 @@
         "SalesDocument"
       ],
       "sources": [
-        "ZSDX_I_SalesHeaderStaData"
+        "ZSDX_B_SalesHeaderStaData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_salesheadersta.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_SalesHeaderStaData",
+      "name": "ZSDX_B_SalesHeaderStaData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "sales_order",
@@ -9127,14 +9127,14 @@
         "SalesDocumentItem"
       ],
       "sources": [
-        "ZSDX_I_SalesItemData"
+        "ZSDX_B_SalesItemData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_salesitem.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_SalesItemData",
+      "name": "ZSDX_B_SalesItemData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "sales_order",
@@ -9165,14 +9165,14 @@
         "SalesDocumentItem"
       ],
       "sources": [
-        "ZSDX_I_SalesItemStatuData"
+        "ZSDX_B_SalesItemStatuData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_salesitemstatu.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_SalesItemStatuData",
+      "name": "ZSDX_B_SalesItemStatuData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "sales_order",
@@ -9202,14 +9202,14 @@
         "SalesDocument"
       ],
       "sources": [
-        "ZSDX_I_SalesOrderData"
+        "ZSDX_B_SalesOrderData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_salesorder.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_SalesOrderData",
+      "name": "ZSDX_B_SalesOrderData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "sales_order",
@@ -9240,14 +9240,14 @@
         "PartnerFunction"
       ],
       "sources": [
-        "ZSDX_I_SalesPartnerData"
+        "ZSDX_B_SalesPartnerData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_salespartner.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_SalesPartnerData",
+      "name": "ZSDX_B_SalesPartnerData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "sales_order",
@@ -9280,14 +9280,14 @@
         "ScheduleLine"
       ],
       "sources": [
-        "ZSDX_I_SalesScheduleData"
+        "ZSDX_B_SalesScheduleData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_salesschedule.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_SalesScheduleData",
+      "name": "ZSDX_B_SalesScheduleData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "sales_order",
@@ -9320,14 +9320,14 @@
         "ScaleLine"
       ],
       "sources": [
-        "ZSDX_I_ValueScaleData"
+        "ZSDX_B_ValueScaleData"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_ecc/src/zsdx_i_valuescale.ddls.asddls"
     },
     {
-      "name": "ZSDX_I_ValueScaleData",
+      "name": "ZSDX_B_ValueScaleData",
       "product": "sd_mig_ecc",
       "domain": "sd",
       "module": "pricing_condition",
@@ -9347,7 +9347,7 @@
       "file": "packages/sd_mig_ecc/src/zsdx_i_valuescaledata.ddls.asddls"
     },
     {
-      "name": "ZSDT_I_BillingCompare",
+      "name": "ZSDT_B_BillingCompare",
       "product": "sd_mig_s4",
       "domain": "sd",
       "module": "billing_document",
@@ -9376,14 +9376,14 @@
         "BillingDocument"
       ],
       "sources": [
-        "ZSDT_I_BillingCompare"
+        "ZSDT_B_BillingCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_s4/src/zsdt_i_billingcount.ddls.asddls"
     },
     {
-      "name": "ZSDT_I_DeliveryCompare",
+      "name": "ZSDT_B_DeliveryCompare",
       "product": "sd_mig_s4",
       "domain": "sd",
       "module": "outbound_delivery",
@@ -9412,14 +9412,14 @@
         "DeliveryDocument"
       ],
       "sources": [
-        "ZSDT_I_DeliveryCompare"
+        "ZSDT_B_DeliveryCompare"
       ],
       "associations": [],
       "checks": 0,
       "file": "packages/sd_mig_s4/src/zsdt_i_deliverycount.ddls.asddls"
     },
     {
-      "name": "ZSDT_I_SalesOrderCompare",
+      "name": "ZSDT_B_SalesOrderCompare",
       "product": "sd_mig_s4",
       "domain": "sd",
       "module": "sales_order",
@@ -9448,7 +9448,7 @@
         "SalesDocument"
       ],
       "sources": [
-        "ZSDT_I_SalesOrderCompare"
+        "ZSDT_B_SalesOrderCompare"
       ],
       "associations": [],
       "checks": 0,
@@ -9645,7 +9645,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_BinSortingData"
+        "ZWMX_B_BinSortingData"
       ],
       "keys": [
         "Warehouse",
@@ -9657,7 +9657,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_BinSortingData",
+      "name": "ZWMX_B_BinSortingData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "storage_bin",
@@ -9683,7 +9683,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_StorageBinData"
+        "ZWMX_B_StorageBinData"
       ],
       "keys": [
         "Warehouse",
@@ -9693,7 +9693,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_StorageBinData",
+      "name": "ZWMX_B_StorageBinData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "storage_bin",
@@ -9717,7 +9717,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_TaskConfirmData"
+        "ZWMX_B_TaskConfirmData"
       ],
       "keys": [
         "Warehouse",
@@ -9728,7 +9728,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_TaskConfirmData",
+      "name": "ZWMX_B_TaskConfirmData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_task",
@@ -9753,7 +9753,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_WarehouseOrderData"
+        "ZWMX_B_WarehouseOrderData"
       ],
       "keys": [
         "Warehouse",
@@ -9763,7 +9763,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_WarehouseOrderData",
+      "name": "ZWMX_B_WarehouseOrderData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_order",
@@ -9787,7 +9787,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_WarehouseTaskData"
+        "ZWMX_B_WarehouseTaskData"
       ],
       "keys": [
         "Warehouse",
@@ -9797,7 +9797,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_WarehouseTaskData",
+      "name": "ZWMX_B_WarehouseTaskData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_task",
@@ -9821,7 +9821,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_WhDeliveryData"
+        "ZWMX_B_WhDeliveryData"
       ],
       "keys": [
         "DeliveryUUID"
@@ -9830,7 +9830,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_WhDeliveryData",
+      "name": "ZWMX_B_WhDeliveryData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_delivery",
@@ -9853,7 +9853,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMX_I_WhDeliveryItemData"
+        "ZWMX_B_WhDeliveryItemData"
       ],
       "keys": [
         "DeliveryUUID",
@@ -9863,7 +9863,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMX_I_WhDeliveryItemData",
+      "name": "ZWMX_B_WhDeliveryItemData",
       "product": "ewm_mig_src",
       "domain": "ewm",
       "module": "warehouse_delivery",
@@ -9880,7 +9880,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_BinSortingCompare",
+      "name": "ZWMT_B_BinSortingCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "storage_bin",
@@ -9899,7 +9899,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_StorageBinCompare",
+      "name": "ZWMT_B_StorageBinCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "storage_bin",
@@ -9923,7 +9923,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMT_I_StorageBinCompare"
+        "ZWMT_B_StorageBinCompare"
       ],
       "keys": [
         "Warehouse"
@@ -9932,7 +9932,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_TaskConfirmCompare",
+      "name": "ZWMT_B_TaskConfirmCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_task",
@@ -9957,7 +9957,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMT_I_TaskConfirmCompare"
+        "ZWMT_B_TaskConfirmCompare"
       ],
       "keys": [
         "Warehouse"
@@ -9966,7 +9966,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_WarehouseOrderCompare",
+      "name": "ZWMT_B_WarehouseOrderCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_order",
@@ -9990,7 +9990,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMT_I_WarehouseOrderCompare"
+        "ZWMT_B_WarehouseOrderCompare"
       ],
       "keys": [
         "Warehouse"
@@ -9999,7 +9999,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_WarehouseTaskCompare",
+      "name": "ZWMT_B_WarehouseTaskCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_task",
@@ -10016,7 +10016,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_WhDeliveryCompare",
+      "name": "ZWMT_B_WhDeliveryCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_delivery",
@@ -10039,14 +10039,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZWMT_I_WhDeliveryCompare"
+        "ZWMT_B_WhDeliveryCompare"
       ],
       "keys": [],
       "file": "packages/ewm_mig_s4/src/zwmt_i_whdeliverycount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZWMT_I_WhDeliveryItemCompare",
+      "name": "ZWMT_B_WhDeliveryItemCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
       "module": "warehouse_delivery",
@@ -10224,7 +10224,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightOrderData"
+        "ZTMX_B_FreightOrderData"
       ],
       "keys": [
         "DocumentUUID"
@@ -10233,7 +10233,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightOrderData",
+      "name": "ZTMX_B_FreightOrderData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_order",
@@ -10256,8 +10256,8 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightOrdItemData",
-        "ZTMX_I_FreightOrderData"
+        "ZTMX_B_FreightOrdItemData",
+        "ZTMX_B_FreightOrderData"
       ],
       "keys": [
         "ItemUUID"
@@ -10266,7 +10266,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightOrdItemData",
+      "name": "ZTMX_B_FreightOrdItemData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_order",
@@ -10289,8 +10289,8 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightOrdStopData",
-        "ZTMX_I_FreightOrderData"
+        "ZTMX_B_FreightOrdStopData",
+        "ZTMX_B_FreightOrderData"
       ],
       "keys": [
         "StopUUID"
@@ -10299,7 +10299,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightOrdStopData",
+      "name": "ZTMX_B_FreightOrdStopData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_order",
@@ -10322,7 +10322,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightUnitData"
+        "ZTMX_B_FreightUnitData"
       ],
       "keys": [
         "DocumentUUID"
@@ -10331,7 +10331,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightUnitData",
+      "name": "ZTMX_B_FreightUnitData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_unit",
@@ -10347,7 +10347,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightUnitIteData",
+      "name": "ZTMX_B_FreightUnitIteData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_unit",
@@ -10370,8 +10370,8 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightUnitIteData",
-        "ZTMX_I_FreightUnitData"
+        "ZTMX_B_FreightUnitIteData",
+        "ZTMX_B_FreightUnitData"
       ],
       "keys": [
         "ItemUUID"
@@ -10380,7 +10380,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_FreightUnitStoData",
+      "name": "ZTMX_B_FreightUnitStoData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "freight_unit",
@@ -10403,8 +10403,8 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_FreightUnitStoData",
-        "ZTMX_I_FreightUnitData"
+        "ZTMX_B_FreightUnitStoData",
+        "ZTMX_B_FreightUnitData"
       ],
       "keys": [
         "StopUUID"
@@ -10420,7 +10420,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMX_I_TransportLocData"
+        "ZTMX_B_TransportLocData"
       ],
       "keys": [
         "LocationUUID"
@@ -10429,7 +10429,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMX_I_TransportLocData",
+      "name": "ZTMX_B_TransportLocData",
       "product": "tm_mig_src",
       "domain": "tm",
       "module": "transport_location",
@@ -10445,7 +10445,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightOrderCompare",
+      "name": "ZTMT_B_FreightOrderCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_order",
@@ -10468,14 +10468,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMT_I_FreightOrderCompare"
+        "ZTMT_B_FreightOrderCompare"
       ],
       "keys": [],
       "file": "packages/tm_mig_s4/src/ztmt_i_freightordercount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightOrdItemCompare",
+      "name": "ZTMT_B_FreightOrdItemCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_order",
@@ -10483,7 +10483,7 @@
       "type": "DDLS",
       "sources": [
         "/scmtms/d_torite",
-        "ZTMT_I_FreightOrderCompare"
+        "ZTMT_B_FreightOrderCompare"
       ],
       "keys": [
         "ItemUUID"
@@ -10492,7 +10492,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightOrdStopCompare",
+      "name": "ZTMT_B_FreightOrdStopCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_order",
@@ -10500,7 +10500,7 @@
       "type": "DDLS",
       "sources": [
         "/scmtms/d_torstp",
-        "ZTMT_I_FreightOrderCompare"
+        "ZTMT_B_FreightOrderCompare"
       ],
       "keys": [
         "StopUUID"
@@ -10509,7 +10509,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightUnitCompare",
+      "name": "ZTMT_B_FreightUnitCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_unit",
@@ -10532,14 +10532,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMT_I_FreightUnitCompare"
+        "ZTMT_B_FreightUnitCompare"
       ],
       "keys": [],
       "file": "packages/tm_mig_s4/src/ztmt_i_freightunitcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightUnitItemCompare",
+      "name": "ZTMT_B_FreightUnitItemCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_unit",
@@ -10547,7 +10547,7 @@
       "type": "DDLS",
       "sources": [
         "/scmtms/d_torite",
-        "ZTMT_I_FreightUnitCompare"
+        "ZTMT_B_FreightUnitCompare"
       ],
       "keys": [
         "ItemUUID"
@@ -10556,7 +10556,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_FreightUnitStopCompare",
+      "name": "ZTMT_B_FreightUnitStopCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "freight_unit",
@@ -10564,7 +10564,7 @@
       "type": "DDLS",
       "sources": [
         "/scmtms/d_torstp",
-        "ZTMT_I_FreightUnitCompare"
+        "ZTMT_B_FreightUnitCompare"
       ],
       "keys": [
         "StopUUID"
@@ -10573,7 +10573,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZTMT_I_TransportLocCompare",
+      "name": "ZTMT_B_TransportLocCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
       "module": "transport_location",
@@ -10596,7 +10596,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZTMT_I_TransportLocCompare"
+        "ZTMT_B_TransportLocCompare"
       ],
       "keys": [],
       "file": "packages/tm_mig_s4/src/ztmt_i_transportloccount.ddls.asddls",
@@ -10810,7 +10810,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CaseAttributeData"
+        "ZFCX_B_CaseAttributeData"
       ],
       "keys": [
         "CaseUUID"
@@ -10819,7 +10819,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CaseAttributeData",
+      "name": "ZFCX_B_CaseAttributeData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "dispute_case",
@@ -10842,7 +10842,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CollectContactData"
+        "ZFCX_B_CollectContactData"
       ],
       "keys": [
         "ContactUUID"
@@ -10851,7 +10851,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CollectContactData",
+      "name": "ZFCX_B_CollectContactData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "collection_activity",
@@ -10874,7 +10874,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CreditExposureData"
+        "ZFCX_B_CreditExposureData"
       ],
       "keys": [
         "BusinessPartner",
@@ -10886,7 +10886,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CreditExposureData",
+      "name": "ZFCX_B_CreditExposureData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "credit_exposure",
@@ -10912,7 +10912,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CreditProfileData"
+        "ZFCX_B_CreditProfileData"
       ],
       "keys": [
         "BusinessPartner"
@@ -10921,7 +10921,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CreditProfileData",
+      "name": "ZFCX_B_CreditProfileData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "credit_profile",
@@ -10944,7 +10944,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_CreditSegmentData"
+        "ZFCX_B_CreditSegmentData"
       ],
       "keys": [
         "BusinessPartner",
@@ -10954,7 +10954,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_CreditSegmentData",
+      "name": "ZFCX_B_CreditSegmentData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "credit_segment",
@@ -10978,7 +10978,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_DisputeCaseData"
+        "ZFCX_B_DisputeCaseData"
       ],
       "keys": [
         "CaseUUID"
@@ -10987,7 +10987,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_DisputeCaseData",
+      "name": "ZFCX_B_DisputeCaseData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "dispute_case",
@@ -11010,7 +11010,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCX_I_PaymentPromiseData"
+        "ZFCX_B_PaymentPromiseData"
       ],
       "keys": [
         "CaseUUID"
@@ -11019,7 +11019,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCX_I_PaymentPromiseData",
+      "name": "ZFCX_B_PaymentPromiseData",
       "product": "fscm_mig_src",
       "domain": "fscm",
       "module": "promise_to_pay",
@@ -11035,7 +11035,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CaseAttributeCompare",
+      "name": "ZFCT_B_CaseAttributeCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "dispute_case",
@@ -11051,7 +11051,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CollectContactCompare",
+      "name": "ZFCT_B_CollectContactCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "collection_activity",
@@ -11074,14 +11074,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_CollectContactCompare"
+        "ZFCT_B_CollectContactCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_collectcontactcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CreditExposureCompare",
+      "name": "ZFCT_B_CreditExposureCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "credit_exposure",
@@ -11107,14 +11107,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_CreditExposureCompare"
+        "ZFCT_B_CreditExposureCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_creditexposurecount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CreditProfileCompare",
+      "name": "ZFCT_B_CreditProfileCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "credit_profile",
@@ -11137,14 +11137,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_CreditProfileCompare"
+        "ZFCT_B_CreditProfileCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_creditprofilecount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_CreditSegmentCompare",
+      "name": "ZFCT_B_CreditSegmentCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "credit_segment",
@@ -11168,14 +11168,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_CreditSegmentCompare"
+        "ZFCT_B_CreditSegmentCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_creditsegmentcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_DisputeCaseCompare",
+      "name": "ZFCT_B_DisputeCaseCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "dispute_case",
@@ -11198,14 +11198,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_DisputeCaseCompare"
+        "ZFCT_B_DisputeCaseCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_disputecasecount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZFCT_I_PaymentPromiseCompare",
+      "name": "ZFCT_B_PaymentPromiseCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
       "module": "promise_to_pay",
@@ -11228,7 +11228,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZFCT_I_PaymentPromiseCompare"
+        "ZFCT_B_PaymentPromiseCompare"
       ],
       "keys": [],
       "file": "packages/fscm_mig_s4/src/zfct_i_paymentpromisecount.ddls.asddls",
@@ -11384,7 +11384,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_IncidentData"
+        "ZEHX_B_IncidentData"
       ],
       "keys": [
         "IncidentUUID"
@@ -11400,7 +11400,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_IncidentActionData"
+        "ZEHX_B_IncidentActionData"
       ],
       "keys": [
         "ActionUUID"
@@ -11409,7 +11409,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_IncidentActionData",
+      "name": "ZEHX_B_IncidentActionData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "incident",
@@ -11425,7 +11425,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_IncidentData",
+      "name": "ZEHX_B_IncidentData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "incident",
@@ -11448,7 +11448,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_PhraseData"
+        "ZEHX_B_PhraseData"
       ],
       "keys": [
         "RecordNumber",
@@ -11458,7 +11458,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_PhraseData",
+      "name": "ZEHX_B_PhraseData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "phrase",
@@ -11482,7 +11482,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_PhraseSetData"
+        "ZEHX_B_PhraseSetData"
       ],
       "keys": [
         "RecordNumber",
@@ -11492,7 +11492,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_PhraseSetData",
+      "name": "ZEHX_B_PhraseSetData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "phrase",
@@ -11516,7 +11516,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_SpecIdentifierData"
+        "ZEHX_B_SpecIdentifierData"
       ],
       "keys": [
         "RecordNumber",
@@ -11526,7 +11526,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_SpecIdentifierData",
+      "name": "ZEHX_B_SpecIdentifierData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "specification",
@@ -11550,7 +11550,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHX_I_SpecificationData"
+        "ZEHX_B_SpecificationData"
       ],
       "keys": [
         "RecordNumber",
@@ -11560,7 +11560,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHX_I_SpecificationData",
+      "name": "ZEHX_B_SpecificationData",
       "product": "ehs_mig_src",
       "domain": "ehs",
       "module": "specification",
@@ -11577,7 +11577,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_IncidentActionCompare",
+      "name": "ZEHT_B_IncidentActionCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "incident",
@@ -11593,7 +11593,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_IncidentCompare",
+      "name": "ZEHT_B_IncidentCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "incident",
@@ -11616,14 +11616,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHT_I_IncidentCompare"
+        "ZEHT_B_IncidentCompare"
       ],
       "keys": [],
       "file": "packages/ehs_mig_s4/src/zeht_i_incidentcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_PhraseCompare",
+      "name": "ZEHT_B_PhraseCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "phrase",
@@ -11647,14 +11647,14 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHT_I_PhraseCompare"
+        "ZEHT_B_PhraseCompare"
       ],
       "keys": [],
       "file": "packages/ehs_mig_s4/src/zeht_i_phrasecount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_PhraseSetCompare",
+      "name": "ZEHT_B_PhraseSetCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "phrase",
@@ -11671,7 +11671,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_SpecIdentifierCompare",
+      "name": "ZEHT_B_SpecIdentifierCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "specification",
@@ -11688,7 +11688,7 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
-      "name": "ZEHT_I_SpecificationCompare",
+      "name": "ZEHT_B_SpecificationCompare",
       "product": "ehs_mig_s4",
       "domain": "ehs",
       "module": "specification",
@@ -11712,7 +11712,7 @@
       "layer": "composite",
       "type": "DDLS",
       "sources": [
-        "ZEHT_I_SpecificationCompare"
+        "ZEHT_B_SpecificationCompare"
       ],
       "keys": [],
       "file": "packages/ehs_mig_s4/src/zeht_i_specificationcount.ddls.asddls",
@@ -15104,8 +15104,8 @@
       "mode": "process-reference",
       "native_table": "/SCMTMS/D_TORITE",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightOrderData",
-        "target_parent_view": "ZTMT_I_FreightOrderCompare",
+        "source_parent_view": "ZTMX_B_FreightOrderData",
+        "target_parent_view": "ZTMT_B_FreightOrderCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "TO",
@@ -15125,8 +15125,8 @@
       "mode": "process-reference",
       "native_table": "/SCMTMS/D_TORSTP",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightOrderData",
-        "target_parent_view": "ZTMT_I_FreightOrderCompare",
+        "source_parent_view": "ZTMX_B_FreightOrderData",
+        "target_parent_view": "ZTMT_B_FreightOrderCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "TO",
@@ -15159,8 +15159,8 @@
       "mode": "process-reference",
       "native_table": "/SCMTMS/D_TORITE",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightUnitData",
-        "target_parent_view": "ZTMT_I_FreightUnitCompare",
+        "source_parent_view": "ZTMX_B_FreightUnitData",
+        "target_parent_view": "ZTMT_B_FreightUnitCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "FU",
@@ -15180,8 +15180,8 @@
       "mode": "process-reference",
       "native_table": "/SCMTMS/D_TORSTP",
       "parent_scope": {
-        "source_parent_view": "ZTMX_I_FreightUnitData",
-        "target_parent_view": "ZTMT_I_FreightUnitCompare",
+        "source_parent_view": "ZTMX_B_FreightUnitData",
+        "target_parent_view": "ZTMT_B_FreightUnitCompare",
         "child_parent_field": "DocumentUUID",
         "parent_key": "DocumentUUID",
         "category": "FU",

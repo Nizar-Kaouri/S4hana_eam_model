@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZQMX_I_PlanCharacteri
-  as select from ZQMX_I_PlanCharacteriData as src
+  as select from ZQMX_B_PlanCharacteriData as src
 {
   key src.TaskListType as TaskListType,
   key src.TaskListGroup as TaskListGroup,

@@ -10,7 +10,7 @@
 | Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
 | Data category | - |
-| Data source | `ZFAT_I_AssetCompare` |
+| Data source | `ZFAT_B_AssetCompare` |
 | Source file | `src/zfat_i_assetcount.ddls.asddls` |
 
 ## Purpose
