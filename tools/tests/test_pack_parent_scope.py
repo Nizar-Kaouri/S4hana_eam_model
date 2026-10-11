@@ -51,7 +51,7 @@ class ParentScopeTests(unittest.TestCase):
     def test_subset_delivery_has_executable_parent_scope_chain(self):
         sys.path.insert(0,str(ROOT));os.environ.setdefault('VDM_PRODUCT','eam')
         import build_package as bp
-        for code,module in [('fi_aa','fixed_asset'),('mm','purchase_order'),('qm','quality_notification'),('ps','network'),('pp','production_order_operation'),('co','internal_order'),('fi','customer'),('sd','sales_order'),('eam','functional_location')]:
+        for code,module in [('fi_aa','fixed_asset'),('mm','purchase_order'),('mm','product'),('qm','quality_notification'),('ps','network'),('pp','production_order_operation'),('co','internal_order'),('fi','customer'),('sd','sales_order'),('eam','functional_location'),('eam','equipment')]:
             with self.subTest(pack=code), tempfile.TemporaryDirectory() as tmp:
                 archive,_=bp.build([module],root=ROOT/'packages'/f'{code}_mig_ecc',out=Path(tmp)/'pack.zip')
                 with zipfile.ZipFile(archive) as z:
@@ -61,6 +61,7 @@ class ParentScopeTests(unittest.TestCase):
                     for step in project['steps']:
                         self.assertIn(step['input'],available)
                         if step.get('parent'):self.assertIn(step['parent'],available)
+                        if step.get('links'):self.assertIn(step['links'],available)
                         available.add(step['name'])
                     self.assertTrue(set(project['outputs'])<=available)
                     # Empty real extract/selection files exercise the delivered recipe end to end.
@@ -72,6 +73,7 @@ class ParentScopeTests(unittest.TestCase):
                         for step in project['steps']:
                             if step['input']==dataset:columns.update(step.get('child_keys',[]));columns.update(step.get('keys',[]))
                             if step.get('parent')==dataset:columns.update(step.get('parent_keys',[]));columns.update(step.get('parent_identity',[]))
+                            if step.get('links')==dataset:columns.update(['TextObject','TextName','TextID','Language']+step['parent_keys'])
                         if path.exists() and path.suffix=='.csv':
                             columns.update(path.read_text(encoding='utf-8-sig').splitlines()[0].split(','))
                         header=folder/'customer/headers'/(dataset+'.csv')
@@ -86,14 +88,21 @@ class ParentScopeTests(unittest.TestCase):
             p=ROOT/'packages'/f'{code}_mig_ecc';prefix=json.loads((p/'library.json').read_text())['prefix'];name=prefix+'I_'+stem+'Status'
             text=(p/'src'/(name.lower()+'.ddls.asddls')).read_text();text=re.sub(r'//[^\n]*','',text)
             before,after=text.split('as select from ',1)[1].split('{',1);projection,where=after.split('}',1)
+            association=re.search(r'association \[0\.\.1\] to (\w+) as _Profile\s+on ([^{}]+)',before)
+            self.assertIsNotNone(association)
+            profile_table,on=association.groups();on=on.replace('$projection.ObjectNumber','st.ObjectNumber')
+            before=before[:association.start()]+' left join '+profile_table+' as _Profile on '+on
             fields=re.findall(r'obj\.(\w+)',projection)+['ObjectNumber']
             with self.subTest(code=code),sqlite3.connect(':memory:') as db:
                 db.execute('create table '+root+' ('+','.join(k+' text' for k in dict.fromkeys(fields))+')')
                 db.execute('insert into '+root+' values ('+','.join('?' for _ in dict.fromkeys(fields))+')',['KEEP' for _ in dict.fromkeys(fields)])
                 db.execute('create table '+prefix+'B_'+stem+'StatusData (ObjectNumber text,StatusCode text,StatusIsInactive text,StatusChangeNumber text)')
                 db.executemany('insert into '+prefix+'B_'+stem+'StatusData values (?,?,?,?)',[('KEEP','I1','','1'),('KEEP','E1','','2'),('KEEP','I2','X','3'),('ORPHAN','I1','','1')])
+                db.execute('create table '+profile_table+' (ObjectNumber text,StatusProfile text)')
+                db.execute('insert into '+profile_table+" values ('KEEP','PROFILE')")
                 sql='select '+re.sub(r'\bkey\s+','',projection)+' from '+before+' '+where
-                self.assertEqual(len(db.execute(sql).fetchall()),2)
+                rows=db.execute(sql).fetchall();self.assertEqual(len(rows),2)
+                self.assertEqual({r[-1] for r in rows},{'PROFILE'})
 
     def test_standard_address_associations_preserve_masters_and_do_not_multiply_versions(self):
         p=ROOT/'packages/fi_mig_ecc'

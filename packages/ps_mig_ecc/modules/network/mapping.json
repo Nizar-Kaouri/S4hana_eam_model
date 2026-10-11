@@ -181,6 +181,13 @@
           "target": "customer interface field: WBSElementInternalID (unconfirmed)",
           "rule": "info",
           "compare": true
+        },
+        {
+          "element": "Plant",
+          "source": "AFVC-WERKS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "process-reference",
@@ -284,10 +291,388 @@
           "target": "",
           "rule": "copy",
           "compare": false
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "reference",
       "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
+    },
+    {
+      "consumption_view": "ZPSX_C_NetworkPartnerMig",
+      "source_view": "ZPSX_I_NetworkPartner",
+      "scope_filter": "",
+      "keys": [
+        "Network",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "fields": [
+        {
+          "element": "Network",
+          "source": "AUFK-AUFNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "IHPA-PARVW",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerCounter",
+          "source": "IHPA-COUNTER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Partner",
+          "source": "IHPA-PARNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
+    },
+    {
+      "consumption_view": "ZPSX_C_NetworkUserStatusMig",
+      "source_view": "ZPSX_I_NetworkUserStatus",
+      "scope_filter": "",
+      "keys": [
+        "Network",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "Network",
+          "source": "AUFK-AUFNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "JEST-OBJNR",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "StatusKind",
+          "source": "derived: first character of JEST-STAT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
+    },
+    {
+      "consumption_view": "ZPSX_C_NetworkComponentMig",
+      "source_view": "ZPSX_I_NetworkComponent",
+      "scope_filter": "",
+      "keys": [
+        "Reservation",
+        "ReservationItem",
+        "RecordType"
+      ],
+      "fields": [
+        {
+          "element": "Reservation",
+          "source": "RESB-RSNUM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ReservationItem",
+          "source": "RESB-RSPOS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "RecordType",
+          "source": "RESB-RSART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Network",
+          "source": "RESB-AUFNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Material",
+          "source": "RESB-MATNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Plant",
+          "source": "RESB-WERKS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StorageLocation",
+          "source": "RESB-LGORT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "RequiredQuantity",
+          "source": "RESB-BDMNG",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Unit",
+          "source": "RESB-MEINS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "RESB-XLOEK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
+    },
+    {
+      "consumption_view": "ZPSX_C_NetworkSettleMig",
+      "source_view": "ZPSX_I_NetworkSettle",
+      "scope_filter": "",
+      "keys": [
+        "ObjectNumber",
+        "DistributionRuleGroup",
+        "DistributionRule"
+      ],
+      "fields": [
+        {
+          "element": "ObjectNumber",
+          "source": "COBRB-OBJNR",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "DistributionRuleGroup",
+          "source": "COBRB-BUREG",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "DistributionRule",
+          "source": "COBRB-LFDNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SettlementType",
+          "source": "COBRB-PERBZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SettlementPercentage",
+          "source": "COBRB-PROZS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ReceiverCostCenter",
+          "source": "COBRB-KOSTL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ReceiverOrder",
+          "source": "COBRB-AUFNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ReceiverCategory",
+          "source": "COBRB-KONTY",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SettlementAmount",
+          "source": "COBRB-BETRR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SettlementCurrency",
+          "source": "COBRB-BWAER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ControllingArea",
+          "source": "COBRB-KOKRS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ReceiverCompanyCode",
+          "source": "COBRB-BUKRS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ReceiverMasterAsset",
+          "source": "COBRB-ANLN1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ReceiverAsset",
+          "source": "COBRB-ANLN2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ReceiverWBSInternalID",
+          "source": "COBRB-PSPNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidFromFiscalYear",
+          "source": "COBRB-GABJA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidFromPeriod",
+          "source": "COBRB-GABPE",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidToFiscalYear",
+          "source": "COBRB-GBISJ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ValidToPeriod",
+          "source": "COBRB-GBISP",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
+    },
+    {
+      "consumption_view": "ZPSX_C_NetworkLongTextMig",
+      "source_view": "ZPSX_I_NetworkLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
     }
   ],
   "not_migrated": [

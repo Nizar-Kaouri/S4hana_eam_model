@@ -581,6 +581,560 @@
       ],
       "delivery_mode": "reference",
       "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocPartnerMig",
+      "source_view": "ZEMX_I_FuncLocPartner",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "IHPA-PARVW",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerCounter",
+          "source": "IHPA-COUNTER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Partner",
+          "source": "IHPA-PARNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocStatusMig",
+      "source_view": "ZEMX_I_FuncLocStatus",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "source: FunctionalLocation",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusKind",
+          "source": "source: StatusKind",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocUserStatusMig",
+      "source_view": "ZEMX_I_FuncLocUserStatus",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "source: FunctionalLocation",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusKind",
+          "source": "source: StatusKind",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocClassMig",
+      "source_view": "ZEMX_I_FuncLocClass",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "ClassType",
+        "Class"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "source: FunctionalLocation",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "KSSK-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Class",
+          "source": "KLAH-CLASS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassificationStatus",
+          "source": "KSSK-STATU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocCharcMig",
+      "source_view": "ZEMX_I_FuncLocCharc",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "source: FunctionalLocation",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "AUSP-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Characteristic",
+          "source": "CABN-ATNAM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValuePositionNumber",
+          "source": "AUSP-ATZHL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValue",
+          "source": "AUSP-ATWRT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcFromNumericValue",
+          "source": "AUSP-ATFLV",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcToNumericValue",
+          "source": "AUSP-ATFLB",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValueDependency",
+          "source": "AUSP-ATCOD",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocEmailMig",
+      "source_view": "ZEMX_I_FuncLocEmail",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR6-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR6-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR6-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR6-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "EmailAddress",
+          "source": "ADR6-SMTP_ADDR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR6-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocPhoneMig",
+      "source_view": "ZEMX_I_FuncLocPhone",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR2-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR2-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR2-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR2-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Telephone",
+          "source": "ADR2-TEL_NUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TelephoneExtension",
+          "source": "ADR2-TEL_EXTENS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR2-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocFaxMig",
+      "source_view": "ZEMX_I_FuncLocFax",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR3-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR3-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR3-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR3-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FaxNumber",
+          "source": "ADR3-FAX_NUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FaxExtension",
+          "source": "ADR3-FAX_EXTENS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR3-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocLongTextMig",
+      "source_view": "ZEMX_I_FuncLocLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocBOMMig",
+      "source_view": "ZEMX_I_FuncLocBOM",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "Plant",
+        "BOMUsage",
+        "BillOfMaterial",
+        "BOMAlternative"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "TPST-TPLNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Plant",
+          "source": "TPST-WERKS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMUsage",
+          "source": "TPST-STLAN",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "TPST-STLNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BOMAlternative",
+          "source": "TPST-STLAL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Select the functional-location BOM assignments with the same prepared functional locations. Derive the approved BOM category T / number / alternative and node populations for the existing equipment_bom header, selection and item exports. Apply their documented ECM/key-date workflow; source BOM numbers are mapped to target identities."
     }
   ],
   "not_migrated": [

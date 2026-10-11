@@ -11,7 +11,10 @@
   ],
   "sap_tables": [
     "LIKP",
-    "LIPS"
+    "LIPS",
+    "STXH",
+    "VBUK",
+    "VBUP"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
@@ -22,20 +25,29 @@
     "tables": [],
     "basic": [
       "ZSDX_B_DeliveryData",
-      "ZSDX_B_DeliveryItemData"
+      "ZSDX_B_DeliveryItemData",
+      "ZSDX_B_DeliveryStatusData",
+      "ZSDX_B_DlvItemStatusData",
+      "ZSDX_B_DeliveryLTIndexData"
     ],
     "composite": [
       "ZSDX_I_Delivery",
       "ZSDX_I_DeliveryItem",
       "ZSDX_I_DeliveryPartner",
-      "ZSDX_I_DeliveryPartnerAddr"
+      "ZSDX_I_DeliveryPartnerAddr",
+      "ZSDX_I_DeliveryStatus",
+      "ZSDX_I_DlvItemStatus",
+      "ZSDX_I_DeliveryLongText"
     ],
     "consumption": [
       "ZSDX_C_DeliveryMig",
       "ZSDX_C_DeliveryMigCount",
       "ZSDX_C_DeliveryItemMig",
       "ZSDX_C_DeliveryPartnerMig",
-      "ZSDX_C_DeliveryPartnerAddrMig"
+      "ZSDX_C_DeliveryPartnerAddrMig",
+      "ZSDX_C_DeliveryStatusMig",
+      "ZSDX_C_DlvItemStatusMig",
+      "ZSDX_C_DeliveryLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -52,7 +64,16 @@
     "ZSDX_I_DeliveryPartner": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZSDX_C_DeliveryPartnerMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZSDX_I_DeliveryPartnerAddr": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZSDX_C_DeliveryPartnerAddrMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZSDX_C_DeliveryPartnerAddrMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_B_DeliveryStatusData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_DeliveryStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_DeliveryStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_B_DlvItemStatusData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_DlvItemStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_DlvItemStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_DeliveryLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_DeliveryLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_B_DeliveryLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

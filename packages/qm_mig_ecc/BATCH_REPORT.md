@@ -4,9 +4,9 @@ Version 1.0.0
 
 | Module | Objects |
 |---|---:|
-| inspection_lot | 10 |
-| inspection_plan | 16 |
+| inspection_lot | 13 |
+| inspection_plan | 19 |
 | inspection_result | 10 |
-| master_inspection_characteristic | 7 |
-| quality_notification | 19 |
+| master_inspection_characteristic | 10 |
+| quality_notification | 27 |
 | sampling_procedure | 4 |

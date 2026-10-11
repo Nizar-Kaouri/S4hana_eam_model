@@ -1,1 +1,1 @@
-SalesDocument,SalesDocumentItem,Material,Plant,OrderQuantity,SalesUnit,RejectionReason
+SalesDocument,SalesDocumentItem,Material,Plant,OrderQuantity,SalesUnit,RejectionReason,ItemShortText,ItemCategory

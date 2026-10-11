@@ -21,6 +21,7 @@ define view ZPPX_B_OrderComponentData
       src.matnr as Material,
       src.werks as Plant,
       src.lgort as StorageLocation,
+      @Semantics.quantity.unitOfMeasure: 'Unit'
       src.bdmng as RequiredQuantity,
       src.meins as Unit,
       src.xloek as DeletionFlag

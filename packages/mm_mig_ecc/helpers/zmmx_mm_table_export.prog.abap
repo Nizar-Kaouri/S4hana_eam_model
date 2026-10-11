@@ -32,11 +32,39 @@ START-OF-SELECTION.
   TRANSLATE p_field TO UPPER CASE.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
-    WHEN 'EBAN' OR 'EBKN' OR 'EINA' OR 'EINE' OR 'EKBE'
-      OR 'EKET' OR 'EKKN' OR 'EKKO' OR 'EKPO' OR 'MAKT'
-      OR 'MARA' OR 'MARC' OR 'MARD' OR 'MARM' OR 'MBEW'
-      OR 'MCH1' OR 'MCHA' OR 'MCHB' OR 'MKPF' OR 'MSEG'
-      OR 'MSKA' OR 'MSLB'.
+    WHEN 'AUSP'
+      OR 'CABN'
+      OR 'EBAN'
+      OR 'EBKN'
+      OR 'EINA'
+      OR 'EINE'
+      OR 'EKBE'
+      OR 'EKET'
+      OR 'EKKN'
+      OR 'EKKO'
+      OR 'EKPA'
+      OR 'EKPO'
+      OR 'INOB'
+      OR 'KLAH'
+      OR 'KSSK'
+      OR 'MAKT'
+      OR 'MARA'
+      OR 'MARC'
+      OR 'MARD'
+      OR 'MARM'
+      OR 'MBEW'
+      OR 'MCH1'
+      OR 'MCHA'
+      OR 'MCHB'
+      OR 'MDMA'
+      OR 'MEAN'
+      OR 'MKPF'
+      OR 'MLAN'
+      OR 'MSEG'
+      OR 'MSKA'
+      OR 'MSLB'
+      OR 'MVKE'
+      OR 'STXH'.
       lv_allowed = abap_true.
   ENDCASE.
   IF lv_allowed <> abap_true OR p_max < 1 OR p_max > 1000000.

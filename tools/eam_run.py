@@ -8,7 +8,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from eam_prepare import aliases, closure, cohort, document_item_scope, identity, join, parent_scope, snapshot, unique, write_csv
+from eam_prepare import aliases, closure, cohort, document_item_scope, identity, join, linked_scope, parent_scope, snapshot, text_scope, unique, write_csv
 from mig_reconcile import CsvRows, InputError, read_csv, require
 
 
@@ -45,6 +45,10 @@ def run(project_path, output_path):
         elif op == "parent_scope":
             rows = parent_scope(source, datasets[step["parent"]], step["child_keys"],
                                 step["parent_keys"], step["parent_identity"])
+        elif op == "linked_scope":
+            rows = linked_scope(source, datasets[step['parent']], datasets[step['links']], step['row_keys'], step['parent_keys'])
+        elif op == "text_scope":
+            rows = text_scope(source, datasets[step['parent']], datasets[step['links']], step['parent_keys'])
         elif op == "document_item_scope":
             rows = document_item_scope(source, datasets[step["parent"]], step["child_keys"],
                                        step["parent_keys"], step["parent_identity"],

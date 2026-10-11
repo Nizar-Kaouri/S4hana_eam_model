@@ -118,5 +118,344 @@
       "AccountingDocument",
       "FiscalYear"
     ]
+  },
+  "ZFIX_C_CustomerBankMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_CustomerWHTMig": {
+    "parent": "ZFIX_C_CustomerCompanMig",
+    "child_keys": [
+      "Customer",
+      "CompanyCode"
+    ],
+    "parent_keys": [
+      "Customer",
+      "CompanyCode"
+    ],
+    "parent_identity": [
+      "Customer",
+      "CompanyCode"
+    ]
+  },
+  "ZFIX_C_CustomerDunningMig": {
+    "parent": "ZFIX_C_CustomerCompanMig",
+    "child_keys": [
+      "Customer",
+      "CompanyCode"
+    ],
+    "parent_keys": [
+      "Customer",
+      "CompanyCode"
+    ],
+    "parent_identity": [
+      "Customer",
+      "CompanyCode"
+    ]
+  },
+  "ZFIX_C_SupplierBankMig": {
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ]
+  },
+  "ZFIX_C_SupplierWHTMig": {
+    "parent": "ZFIX_C_SupplierCompanMig",
+    "child_keys": [
+      "Supplier",
+      "CompanyCode"
+    ],
+    "parent_keys": [
+      "Supplier",
+      "CompanyCode"
+    ],
+    "parent_identity": [
+      "Supplier",
+      "CompanyCode"
+    ]
+  },
+  "ZFIX_C_SupplierDunningMig": {
+    "parent": "ZFIX_C_SupplierCompanMig",
+    "child_keys": [
+      "Supplier",
+      "CompanyCode"
+    ],
+    "parent_keys": [
+      "Supplier",
+      "CompanyCode"
+    ],
+    "parent_identity": [
+      "Supplier",
+      "CompanyCode"
+    ]
+  },
+  "ZFIX_C_CustomerPartnerMig": {
+    "parent": "ZFIX_C_CustomerSalesMig",
+    "child_keys": [
+      "Customer",
+      "SalesOrganization",
+      "DistributionChannel",
+      "Division"
+    ],
+    "parent_keys": [
+      "Customer",
+      "SalesOrganization",
+      "DistributionChannel",
+      "Division"
+    ],
+    "parent_identity": [
+      "Customer",
+      "SalesOrganization",
+      "DistributionChannel",
+      "Division"
+    ]
+  },
+  "ZFIX_C_CustomerTaxMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_CustomerContactMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_SupplierPartnerMig": {
+    "parent": "ZFIX_C_SupplierPurchaMig",
+    "child_keys": [
+      "Supplier",
+      "PurchasingOrganization"
+    ],
+    "parent_keys": [
+      "Supplier",
+      "PurchasingOrganization"
+    ],
+    "parent_identity": [
+      "Supplier",
+      "PurchasingOrganization"
+    ]
+  },
+  "ZFIX_C_CustomerEmailMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_CustomerPhoneMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_CustomerFaxMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_SupplierEmailMig": {
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ]
+  },
+  "ZFIX_C_SupplierPhoneMig": {
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ]
+  },
+  "ZFIX_C_SupplierFaxMig": {
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ]
+  },
+  "ZFIX_C_BankEmailMig": {
+    "parent": "ZFIX_C_BankMig",
+    "child_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_identity": [
+      "BankCountry",
+      "BankKey"
+    ]
+  },
+  "ZFIX_C_BankPhoneMig": {
+    "parent": "ZFIX_C_BankMig",
+    "child_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_identity": [
+      "BankCountry",
+      "BankKey"
+    ]
+  },
+  "ZFIX_C_BankFaxMig": {
+    "parent": "ZFIX_C_BankMig",
+    "child_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_identity": [
+      "BankCountry",
+      "BankKey"
+    ]
+  },
+  "ZFIX_C_ContactEmailMig": {
+    "parent": "ZFIX_C_CustomerContactMig",
+    "child_keys": [
+      "ContactPerson"
+    ],
+    "parent_keys": [
+      "ContactPerson"
+    ],
+    "parent_identity": [
+      "ContactPerson"
+    ]
+  },
+  "ZFIX_C_ContactPhoneMig": {
+    "parent": "ZFIX_C_CustomerContactMig",
+    "child_keys": [
+      "ContactPerson"
+    ],
+    "parent_keys": [
+      "ContactPerson"
+    ],
+    "parent_identity": [
+      "ContactPerson"
+    ]
+  },
+  "ZFIX_C_ContactFaxMig": {
+    "parent": "ZFIX_C_CustomerContactMig",
+    "child_keys": [
+      "ContactPerson"
+    ],
+    "parent_keys": [
+      "ContactPerson"
+    ],
+    "parent_identity": [
+      "ContactPerson"
+    ]
+  },
+  "ZFIX_C_CustomerIBANMig": {
+    "parent": "ZFIX_C_CustomerBankMig",
+    "child_keys": [
+      "Customer",
+      "BankCountry",
+      "Bank",
+      "BankAccount"
+    ],
+    "parent_keys": [
+      "Customer",
+      "BankCountry",
+      "Bank",
+      "BankAccount"
+    ],
+    "parent_identity": [
+      "Customer",
+      "BankCountry",
+      "Bank",
+      "BankAccount"
+    ]
+  },
+  "ZFIX_C_SupplierIBANMig": {
+    "parent": "ZFIX_C_SupplierBankMig",
+    "child_keys": [
+      "Supplier",
+      "BankCountry",
+      "Bank",
+      "BankAccount"
+    ],
+    "parent_keys": [
+      "Supplier",
+      "BankCountry",
+      "Bank",
+      "BankAccount"
+    ],
+    "parent_identity": [
+      "Supplier",
+      "BankCountry",
+      "Bank",
+      "BankAccount"
+    ]
   }
 }

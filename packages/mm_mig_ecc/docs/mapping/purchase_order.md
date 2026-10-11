@@ -103,6 +103,41 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `Quantity` | EKBE-MENGE | customer interface field: Quantity (unconfirmed) | copy | yes |
 | `DebitCreditCode` | EKBE-SHKZG | customer interface field: DebitCreditCode (unconfirmed) | copy | yes |
 
+## `ZMMX_C_PurchasePartnerMig`
+
+- Source: `ZMMX_I_PurchasePartner`
+- Keys: `PurchaseOrder`, `PurchasingOrganization`, `SupplierSubrange`, `Plant`, `PartnerFunction`, `PartnerCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `PurchaseOrder` | EKPA-EBELN | - | copy |  |
+| `PurchasingOrganization` | EKPA-EKORG | - | copy |  |
+| `SupplierSubrange` | EKPA-LTSNR | - | copy |  |
+| `Plant` | EKPA-WERKS | - | copy |  |
+| `PartnerFunction` | EKPA-PARVW | - | copy |  |
+| `PartnerCounter` | EKPA-PARZA | - | copy |  |
+| `PartnerSupplier` | EKPA-LIFN2 | - | copy |  |
+| `PartnerContact` | EKPA-PARNR | - | copy |  |
+| `DefaultPartner` | EKPA-DEFPA | - | copy |  |
+
+## `ZMMX_C_PurchaseLongTextMig`
+
+- Source: `ZMMX_I_PurchaseLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZMMX_C_PurchaseOrderMigCount` (ECC) vs `ZMMT_I_PurchaseOrderCount` (S/4HANA) per `PurchaseOrder`

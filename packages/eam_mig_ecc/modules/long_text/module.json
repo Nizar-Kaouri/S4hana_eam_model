@@ -21,7 +21,9 @@
     "basic": [
       "ZEMX_B_LongTextHeader"
     ],
-    "composite": [],
+    "composite": [
+      "ZEMX_I_LongTextIndex"
+    ],
     "consumption": [
       "ZEMX_C_LongTextIndexMig",
       "ZEMX_C_LongTextMigCount"
@@ -33,7 +35,8 @@
   "no_dcl_by_design": {
     "ZEMX_B_LongTextHeader": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_LongTextIndexMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_C_LongTextMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_C_LongTextMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_LongTextIndex": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

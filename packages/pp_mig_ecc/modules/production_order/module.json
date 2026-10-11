@@ -13,7 +13,9 @@
     "AFKO",
     "AFPO",
     "AUFK",
-    "JEST"
+    "JEST",
+    "JSTO",
+    "STXH"
   ],
   "sap_released_views": [],
   "hard_dependencies": [],
@@ -23,20 +25,26 @@
       "ZPPX_B_ProductionOrdeData",
       "ZPPX_B_ProductionHeadData",
       "ZPPX_B_ProductionItemData",
-      "ZPPX_B_OrderStatusData"
+      "ZPPX_B_OrderStatusData",
+      "ZPPX_B_StatusProfileData",
+      "ZPPX_B_OrderLTIndexData"
     ],
     "composite": [
       "ZPPX_I_ProductionOrde",
       "ZPPX_I_ProductionHead",
       "ZPPX_I_ProductionItem",
-      "ZPPX_I_OrderStatus"
+      "ZPPX_I_OrderStatus",
+      "ZPPX_I_OrderUserStatus",
+      "ZPPX_I_OrderLongText"
     ],
     "consumption": [
       "ZPPX_C_ProductionOrdeMig",
       "ZPPX_C_ProductionOrdeMigCount",
       "ZPPX_C_ProductionHeadMig",
       "ZPPX_C_ProductionItemMig",
-      "ZPPX_C_OrderStatusMig"
+      "ZPPX_C_OrderStatusMig",
+      "ZPPX_C_OrderUserStatusMig",
+      "ZPPX_C_OrderLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -55,7 +63,13 @@
     "ZPPX_C_ProductionItemMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_B_OrderStatusData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPPX_I_OrderStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPPX_C_OrderStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZPPX_C_OrderStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_StatusProfileData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_I_OrderUserStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_C_OrderUserStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_I_OrderLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_C_OrderLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_B_OrderLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

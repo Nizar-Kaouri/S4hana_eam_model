@@ -1,0 +1,53 @@
+{
+  "ZPPX_C_OrderLongTextMig": {
+    "module": "production_order",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZPPX_C_OrderLongTextMig_Links",
+    "payload_helper": "zppx_pp_text_export.prog.abap"
+  },
+  "ZPPX_C_RoutingLongTextMig": {
+    "module": "routing",
+    "parent": "ZPPX_C_RoutingHeaderMig",
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZPPX_C_RoutingLongTextMig_Links",
+    "payload_helper": "zppx_pp_text_export.prog.abap"
+  },
+  "ZPPX_C_BOMLongTextMig": {
+    "module": "bill_of_material",
+    "parent": "ZPPX_C_BOMHeaderMig",
+    "parent_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BillOfMaterialVariant",
+      "InternalCounter"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZPPX_C_BOMLongTextMig_Links",
+    "payload_helper": "zppx_pp_text_export.prog.abap"
+  }
+}

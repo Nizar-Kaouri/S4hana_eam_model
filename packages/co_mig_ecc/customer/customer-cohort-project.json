@@ -28,7 +28,21 @@
     "ZCOX_C_AllocSegmentMig": "exports/ZCOX_C_AllocSegmentMig.csv",
     "ZCOX_C_AllocSegmentMig_Scope": "selection/ZCOX_C_AllocSegmentMig.csv",
     "ZCOX_C_OrderStatusMig": "exports/ZCOX_C_OrderStatusMig.csv",
-    "ZCOX_C_OrderStatusMig_Scope": "selection/ZCOX_C_OrderStatusMig.csv"
+    "ZCOX_C_OrderStatusMig_Scope": "selection/ZCOX_C_OrderStatusMig.csv",
+    "ZCOX_C_CostElementTextMig": "exports/ZCOX_C_CostElementTextMig.csv",
+    "ZCOX_C_CostElementTextMig_Scope": "selection/ZCOX_C_CostElementTextMig.csv",
+    "ZCOX_C_OrderPartnerMig": "exports/ZCOX_C_OrderPartnerMig.csv",
+    "ZCOX_C_OrderPartnerMig_Scope": "selection/ZCOX_C_OrderPartnerMig.csv",
+    "ZCOX_C_OrderUserStatusMig": "exports/ZCOX_C_OrderUserStatusMig.csv",
+    "ZCOX_C_OrderUserStatusMig_Scope": "selection/ZCOX_C_OrderUserStatusMig.csv",
+    "ZCOX_C_CostCenterLongTextMig": "exports/ZCOX_C_CostCenterLongTextMig.csv",
+    "ZCOX_C_CostCenterLongTextMig_Links": "text-links/ZCOX_C_CostCenterLongTextMig.csv",
+    "ZCOX_C_ProfitCtrLongTextMig": "exports/ZCOX_C_ProfitCtrLongTextMig.csv",
+    "ZCOX_C_ProfitCtrLongTextMig_Links": "text-links/ZCOX_C_ProfitCtrLongTextMig.csv",
+    "ZCOX_C_CostElementLongTextMig": "exports/ZCOX_C_CostElementLongTextMig.csv",
+    "ZCOX_C_CostElementLongTextMig_Links": "text-links/ZCOX_C_CostElementLongTextMig.csv",
+    "ZCOX_C_OrderLongTextMig": "exports/ZCOX_C_OrderLongTextMig.csv",
+    "ZCOX_C_OrderLongTextMig_Links": "text-links/ZCOX_C_OrderLongTextMig.csv"
   },
   "steps": [
     {
@@ -381,6 +395,145 @@
         "ValidityEndDate",
         "ControllingArea"
       ]
+    },
+    {
+      "name": "ZCOX_C_CostElementTextMig_Selected",
+      "operation": "selection",
+      "input": "ZCOX_C_CostElementTextMig",
+      "parent": "ZCOX_C_CostElementTextMig_Scope",
+      "child_keys": [
+        "Language",
+        "ChartOfAccounts",
+        "CostElement"
+      ],
+      "parent_keys": [
+        "Language",
+        "ChartOfAccounts",
+        "CostElement"
+      ]
+    },
+    {
+      "name": "ZCOX_C_CostElementTextMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZCOX_C_CostElementTextMig_Selected",
+      "parent": "ZCOX_C_CostElementMig_Prepared",
+      "child_keys": [
+        "ChartOfAccounts",
+        "CostElement"
+      ],
+      "parent_keys": [
+        "ChartOfAccounts",
+        "CostElement"
+      ],
+      "parent_identity": [
+        "ChartOfAccounts",
+        "CostElement"
+      ]
+    },
+    {
+      "name": "ZCOX_C_OrderPartnerMig_Selected",
+      "operation": "selection",
+      "input": "ZCOX_C_OrderPartnerMig",
+      "parent": "ZCOX_C_OrderPartnerMig_Scope",
+      "child_keys": [
+        "InternalOrder",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "parent_keys": [
+        "InternalOrder",
+        "PartnerFunction",
+        "PartnerCounter"
+      ]
+    },
+    {
+      "name": "ZCOX_C_OrderPartnerMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZCOX_C_OrderPartnerMig_Selected",
+      "parent": "ZCOX_C_InternalOrderMig_Prepared",
+      "child_keys": [
+        "InternalOrder"
+      ],
+      "parent_keys": [
+        "InternalOrder"
+      ],
+      "parent_identity": [
+        "InternalOrder"
+      ]
+    },
+    {
+      "name": "ZCOX_C_OrderUserStatusMig_Selected",
+      "operation": "selection",
+      "input": "ZCOX_C_OrderUserStatusMig",
+      "parent": "ZCOX_C_OrderUserStatusMig_Scope",
+      "child_keys": [
+        "InternalOrder",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "InternalOrder",
+        "StatusCode"
+      ]
+    },
+    {
+      "name": "ZCOX_C_OrderUserStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZCOX_C_OrderUserStatusMig_Selected",
+      "parent": "ZCOX_C_InternalOrderMig_Prepared",
+      "child_keys": [
+        "InternalOrder"
+      ],
+      "parent_keys": [
+        "InternalOrder"
+      ],
+      "parent_identity": [
+        "InternalOrder"
+      ]
+    },
+    {
+      "name": "ZCOX_C_CostCenterLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZCOX_C_CostCenterLongTextMig",
+      "parent": "ZCOX_C_CostCenterMig_Prepared",
+      "links": "ZCOX_C_CostCenterLongTextMig_Links",
+      "parent_keys": [
+        "ControllingArea",
+        "CostCenter",
+        "ValidityEndDate"
+      ]
+    },
+    {
+      "name": "ZCOX_C_ProfitCtrLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZCOX_C_ProfitCtrLongTextMig",
+      "parent": "ZCOX_C_ProfitCenterMig_Prepared",
+      "links": "ZCOX_C_ProfitCtrLongTextMig_Links",
+      "parent_keys": [
+        "ProfitCenter",
+        "ValidityEndDate",
+        "ControllingArea"
+      ]
+    },
+    {
+      "name": "ZCOX_C_CostElementLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZCOX_C_CostElementLongTextMig",
+      "parent": "ZCOX_C_CostElementMig_Prepared",
+      "links": "ZCOX_C_CostElementLongTextMig_Links",
+      "parent_keys": [
+        "ChartOfAccounts",
+        "CostElement"
+      ]
+    },
+    {
+      "name": "ZCOX_C_OrderLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZCOX_C_OrderLongTextMig",
+      "parent": "ZCOX_C_InternalOrderMig_Prepared",
+      "links": "ZCOX_C_OrderLongTextMig_Links",
+      "parent_keys": [
+        "InternalOrder"
+      ]
     }
   ],
   "outputs": [
@@ -397,6 +550,13 @@
     "ZCOX_C_PrimaryPlanMig_Prepared",
     "ZCOX_C_SecondaryPlanMig_Prepared",
     "ZCOX_C_ProfitCenterMig_Prepared",
-    "ZCOX_C_ProfitCenterTeMig_Prepared"
+    "ZCOX_C_ProfitCenterTeMig_Prepared",
+    "ZCOX_C_CostElementTextMig_Prepared",
+    "ZCOX_C_OrderPartnerMig_Prepared",
+    "ZCOX_C_OrderUserStatusMig_Prepared",
+    "ZCOX_C_CostCenterLongTextMig_Prepared",
+    "ZCOX_C_ProfitCtrLongTextMig_Prepared",
+    "ZCOX_C_CostElementLongTextMig_Prepared",
+    "ZCOX_C_OrderLongTextMig_Prepared"
   ]
 }

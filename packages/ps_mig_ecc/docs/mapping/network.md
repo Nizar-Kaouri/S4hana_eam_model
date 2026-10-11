@@ -60,6 +60,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ControlKey` | AFVC-STEUS | customer interface field: ControlKey (unconfirmed) | information only | yes |
 | `ActivityDescription` | AFVC-LTXA1 | customer interface field: ActivityDescription (unconfirmed) | information only | yes |
 | `WBSElementInternalID` | AFVC-PROJN | customer interface field: WBSElementInternalID (unconfirmed) | information only | yes |
+| `Plant` | AFVC-WERKS | - | copy |  |
 
 ## `ZPSX_C_NetworkQuantitMig`
 
@@ -93,6 +94,105 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `StatusCode` | JEST-STAT | - | copy |  |
 | `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
 | `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+
+## `ZPSX_C_NetworkPartnerMig`
+
+- Source: `ZPSX_I_NetworkPartner`
+- Keys: `Network`, `PartnerFunction`, `PartnerCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Network` | AUFK-AUFNR | - | copy |  |
+| `PartnerFunction` | IHPA-PARVW | - | copy |  |
+| `PartnerCounter` | IHPA-COUNTER | - | copy |  |
+| `Partner` | IHPA-PARNR | - | copy |  |
+
+## `ZPSX_C_NetworkUserStatusMig`
+
+- Source: `ZPSX_I_NetworkUserStatus`
+- Keys: `Network`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Network` | AUFK-AUFNR | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `ObjectNumber` | JEST-OBJNR | - | information only |  |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+
+## `ZPSX_C_NetworkComponentMig`
+
+- Source: `ZPSX_I_NetworkComponent`
+- Keys: `Reservation`, `ReservationItem`, `RecordType`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Reservation` | RESB-RSNUM | - | copy |  |
+| `ReservationItem` | RESB-RSPOS | - | copy |  |
+| `RecordType` | RESB-RSART | - | copy |  |
+| `Network` | RESB-AUFNR | - | copy |  |
+| `Material` | RESB-MATNR | - | copy |  |
+| `Plant` | RESB-WERKS | - | copy |  |
+| `StorageLocation` | RESB-LGORT | - | copy |  |
+| `RequiredQuantity` | RESB-BDMNG | - | copy |  |
+| `Unit` | RESB-MEINS | - | copy |  |
+| `DeletionFlag` | RESB-XLOEK | - | copy |  |
+
+## `ZPSX_C_NetworkSettleMig`
+
+- Source: `ZPSX_I_NetworkSettle`
+- Keys: `ObjectNumber`, `DistributionRuleGroup`, `DistributionRule`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ObjectNumber` | COBRB-OBJNR | - | information only |  |
+| `DistributionRuleGroup` | COBRB-BUREG | - | copy |  |
+| `DistributionRule` | COBRB-LFDNR | - | copy |  |
+| `SettlementType` | COBRB-PERBZ | - | copy |  |
+| `SettlementPercentage` | COBRB-PROZS | - | copy |  |
+| `ReceiverCostCenter` | COBRB-KOSTL | - | copy |  |
+| `ReceiverOrder` | COBRB-AUFNR | - | copy |  |
+| `ReceiverCategory` | COBRB-KONTY | - | copy |  |
+| `SettlementAmount` | COBRB-BETRR | - | copy |  |
+| `SettlementCurrency` | COBRB-BWAER | - | copy |  |
+| `ControllingArea` | COBRB-KOKRS | - | copy |  |
+| `ReceiverCompanyCode` | COBRB-BUKRS | - | copy |  |
+| `ReceiverMasterAsset` | COBRB-ANLN1 | - | copy |  |
+| `ReceiverAsset` | COBRB-ANLN2 | - | copy |  |
+| `ReceiverWBSInternalID` | COBRB-PSPNR | - | copy |  |
+| `ValidFromFiscalYear` | COBRB-GABJA | - | copy |  |
+| `ValidFromPeriod` | COBRB-GABPE | - | copy |  |
+| `ValidToFiscalYear` | COBRB-GBISJ | - | copy |  |
+| `ValidToPeriod` | COBRB-GBISP | - | copy |  |
+
+## `ZPSX_C_NetworkLongTextMig`
+
+- Source: `ZPSX_I_NetworkLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Not delivered
 

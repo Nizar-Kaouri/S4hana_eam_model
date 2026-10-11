@@ -459,5 +459,91 @@
       "PartnerFunction"
     ],
     "kind": "child"
+  },
+  "ZSDX_C_DeliveryStatusMig": {
+    "module": "outbound_delivery",
+    "keys": [
+      "DeliveryDocument"
+    ],
+    "kind": "child",
+    "parent": "ZSDX_C_DeliveryMig",
+    "child_keys": [
+      "DeliveryDocument"
+    ],
+    "parent_keys": [
+      "DeliveryDocument"
+    ],
+    "parent_identity": [
+      "DeliveryDocument"
+    ]
+  },
+  "ZSDX_C_DlvItemStatusMig": {
+    "module": "outbound_delivery",
+    "keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ],
+    "kind": "child",
+    "parent": "ZSDX_C_DeliveryItemMig",
+    "child_keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ],
+    "parent_keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ],
+    "parent_identity": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ]
+  },
+  "ZSDX_C_SalesLongTextMig": {
+    "kind": "text_child",
+    "module": "sales_order",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZSDX_C_SalesOrderMig",
+    "parent_keys": [
+      "SalesDocument"
+    ],
+    "links": "ZSDX_C_SalesLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZSDX_C_DeliveryLongTextMig": {
+    "kind": "text_child",
+    "module": "outbound_delivery",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZSDX_C_DeliveryMig",
+    "parent_keys": [
+      "DeliveryDocument"
+    ],
+    "links": "ZSDX_C_DeliveryLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZSDX_C_BillingLongTextMig": {
+    "kind": "text_child",
+    "module": "billing_document",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZSDX_C_BillingMig",
+    "parent_keys": [
+      "BillingDocument"
+    ],
+    "links": "ZSDX_C_BillingLongTextMig_Links",
+    "operation": "text_scope"
   }
 }

@@ -212,6 +212,49 @@
       ],
       "delivery_mode": "master",
       "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_ProfitCtrLongTextMig",
+      "source_view": "ZCOX_I_ProfitCtrLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
     }
   ],
   "not_migrated": [],

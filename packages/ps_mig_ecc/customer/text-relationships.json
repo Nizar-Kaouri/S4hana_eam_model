@@ -1,0 +1,47 @@
+{
+  "ZPSX_C_ProjectLongTextMig": {
+    "module": "project",
+    "parent": "ZPSX_C_ProjectMig",
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZPSX_C_ProjectLongTextMig_Links",
+    "payload_helper": "zpsx_ps_text_export.prog.abap"
+  },
+  "ZPSX_C_WBSLongTextMig": {
+    "module": "wbs_element",
+    "parent": "ZPSX_C_WBSMig",
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZPSX_C_WBSLongTextMig_Links",
+    "payload_helper": "zpsx_ps_text_export.prog.abap"
+  },
+  "ZPSX_C_NetworkLongTextMig": {
+    "module": "network",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "parent_keys": [
+      "Network"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZPSX_C_NetworkLongTextMig_Links",
+    "payload_helper": "zpsx_ps_text_export.prog.abap"
+  }
+}

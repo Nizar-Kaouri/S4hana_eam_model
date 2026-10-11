@@ -550,5 +550,279 @@
       "PurchasingContractItem"
     ],
     "kind": "child"
+  },
+  "ZMMX_C_MaterialSalesMig": {
+    "module": "product",
+    "keys": [
+      "Product",
+      "SalesOrganization",
+      "DistributionChannel"
+    ],
+    "kind": "child",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialTaxMig": {
+    "module": "product",
+    "keys": [
+      "Product",
+      "DepartureCountry"
+    ],
+    "kind": "child",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialMRPAreaMig": {
+    "module": "product",
+    "keys": [
+      "Product",
+      "MRPArea"
+    ],
+    "kind": "child",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialEANMig": {
+    "module": "product",
+    "keys": [
+      "Product",
+      "AlternativeUnit",
+      "EANCounter"
+    ],
+    "kind": "child",
+    "parent": "ZMMX_C_MaterialUnitMig",
+    "child_keys": [
+      "Product",
+      "AlternativeUnit"
+    ],
+    "parent_keys": [
+      "Product",
+      "AlternativeUnit"
+    ],
+    "parent_identity": [
+      "Product",
+      "AlternativeUnit"
+    ]
+  },
+  "ZMMX_C_PurchasePartnerMig": {
+    "module": "purchase_order",
+    "keys": [
+      "PurchaseOrder",
+      "PurchasingOrganization",
+      "SupplierSubrange",
+      "Plant",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZMMX_C_PurchaseOrderMig",
+    "child_keys": [
+      "PurchaseOrder"
+    ],
+    "parent_keys": [
+      "PurchaseOrder"
+    ],
+    "parent_identity": [
+      "PurchaseOrder"
+    ]
+  },
+  "ZMMX_C_ContractPartnerMig": {
+    "module": "purchasing_contract",
+    "keys": [
+      "PurchasingContract",
+      "PurchasingOrganization",
+      "SupplierSubrange",
+      "Plant",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZMMX_C_ContractHeaderMig",
+    "child_keys": [
+      "PurchasingContract"
+    ],
+    "parent_keys": [
+      "PurchasingContract"
+    ],
+    "parent_identity": [
+      "PurchasingContract"
+    ]
+  },
+  "ZMMX_C_MaterialLongTextMig": {
+    "kind": "text_child",
+    "module": "product",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZMMX_C_MaterialMig",
+    "parent_keys": [
+      "Product"
+    ],
+    "links": "ZMMX_C_MaterialLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZMMX_C_PurchaseLongTextMig": {
+    "kind": "text_child",
+    "module": "purchase_order",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZMMX_C_PurchaseOrderMig",
+    "parent_keys": [
+      "PurchaseOrder"
+    ],
+    "links": "ZMMX_C_PurchaseLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZMMX_C_RequisitionLongTextMig": {
+    "kind": "text_child",
+    "module": "purchase_requisition",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZMMX_C_RequisitionMig",
+    "parent_keys": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "links": "ZMMX_C_RequisitionLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZMMX_C_ContractLongTextMig": {
+    "kind": "text_child",
+    "module": "purchasing_contract",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZMMX_C_ContractHeaderMig",
+    "parent_keys": [
+      "PurchasingContract"
+    ],
+    "links": "ZMMX_C_ContractLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZMMX_C_InfoRecordLongTextMig": {
+    "kind": "text_child",
+    "module": "purchasing_info_record",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZMMX_C_InfoRecordMig",
+    "parent_keys": [
+      "PurchasingInfoRecord"
+    ],
+    "links": "ZMMX_C_InfoRecordLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZMMX_C_ClassObjectMig": {
+    "kind": "classification_child",
+    "module": "product",
+    "parent": "ZMMX_C_MaterialMig",
+    "row_keys": [
+      "ClassificationInternalID"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "link_input": "ZMMX_C_ClassObjectMig_Links"
+  },
+  "ZMMX_C_MaterialClassMig": {
+    "kind": "classification_child",
+    "module": "product",
+    "parent": "ZMMX_C_MaterialMig",
+    "row_keys": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "link_input": "ZMMX_C_MaterialClassMig_Links"
+  },
+  "ZMMX_C_BatchClassMig": {
+    "kind": "classification_child",
+    "module": "product",
+    "parent": "ZMMX_C_BatchGeneralMig",
+    "row_keys": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class"
+    ],
+    "parent_keys": [
+      "Product",
+      "Batch"
+    ],
+    "link_input": "ZMMX_C_BatchClassMig_Links"
+  },
+  "ZMMX_C_MaterialCharcMig": {
+    "kind": "classification_child",
+    "module": "product",
+    "parent": "ZMMX_C_MaterialMig",
+    "row_keys": [
+      "ClassifiedObject",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "link_input": "ZMMX_C_MaterialCharcMig_Links"
+  },
+  "ZMMX_C_BatchCharcMig": {
+    "kind": "classification_child",
+    "module": "product",
+    "parent": "ZMMX_C_BatchGeneralMig",
+    "row_keys": [
+      "ClassifiedObject",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber"
+    ],
+    "parent_keys": [
+      "Product",
+      "Batch"
+    ],
+    "link_input": "ZMMX_C_BatchCharcMig_Links"
   }
 }

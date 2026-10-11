@@ -256,5 +256,133 @@
       "InternalOrder"
     ],
     "kind": "child"
+  },
+  "ZCOX_C_CostElementTextMig": {
+    "module": "cost_element",
+    "keys": [
+      "Language",
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "kind": "child",
+    "parent": "ZCOX_C_CostElementMig",
+    "child_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "parent_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "parent_identity": [
+      "ChartOfAccounts",
+      "CostElement"
+    ]
+  },
+  "ZCOX_C_OrderPartnerMig": {
+    "module": "internal_order",
+    "keys": [
+      "InternalOrder",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_OrderUserStatusMig": {
+    "module": "internal_order",
+    "keys": [
+      "InternalOrder",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_CostCenterLongTextMig": {
+    "kind": "text_child",
+    "module": "cost_center",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZCOX_C_CostCenterMig",
+    "parent_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "links": "ZCOX_C_CostCenterLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZCOX_C_ProfitCtrLongTextMig": {
+    "kind": "text_child",
+    "module": "profit_center",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZCOX_C_ProfitCenterMig",
+    "parent_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "links": "ZCOX_C_ProfitCtrLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZCOX_C_CostElementLongTextMig": {
+    "kind": "text_child",
+    "module": "cost_element",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZCOX_C_CostElementMig",
+    "parent_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "links": "ZCOX_C_CostElementLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZCOX_C_OrderLongTextMig": {
+    "kind": "text_child",
+    "module": "internal_order",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZCOX_C_InternalOrderMig",
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "links": "ZCOX_C_OrderLongTextMig_Links",
+    "operation": "text_scope"
   }
 }

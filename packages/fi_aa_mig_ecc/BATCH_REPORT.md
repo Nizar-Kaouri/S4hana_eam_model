@@ -6,4 +6,4 @@ Version 1.0.0
 |---|---:|
 | asset_balance | 4 |
 | asset_transaction | 4 |
-| fixed_asset | 10 |
+| fixed_asset | 13 |

@@ -19,7 +19,7 @@
   "structures": [
     {
       "consumption_view": "ZEMX_C_WorkCenterMig",
-      "source_view": "ZEMX_B_WorkCenterHeader",
+      "source_view": "ZEMX_I_WorkCenter",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
         "WorkCenter",
@@ -333,6 +333,12 @@
       "element": "IsMarkedForDeletion",
       "source": "CRHD-LVORM",
       "reason": "scope"
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "IsMarkedForDeletion",
+      "source": "CRHD-LVORM",
+      "reason": "Used to exclude deleted records in the consumption scope; not a posting field."
     }
   ],
   "reconciliation": {

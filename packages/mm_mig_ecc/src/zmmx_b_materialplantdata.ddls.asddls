@@ -20,5 +20,20 @@ define view ZMMX_B_MaterialPlantData
       src.dispo as MRPController,
       src.beskz as ProcurementType,
       src.ekgrp as PurchasingGroup,
-      src.lvorm as DeletionFlag
+      src.lvorm as DeletionFlag,
+      src.disgr as MRPGroup,
+      src.disls as LotSizingProcedure,
+      src.sobsl as SpecialProcurementType,
+      src.mtvfp as AvailabilityCheck,
+      src.eisbe as SafetyStock,
+      src.bstmi as MinimumLotSize,
+      src.bstma as MaximumLotSize,
+      src.bstfe as FixedLotSize,
+      src.plifz as PlannedDeliveryTime,
+      src.webaz as GoodsReceiptProcessingTime,
+      src.dzeit as InHouseProductionTime,
+      src.lgpro as IssueStorageLocation,
+      src.lgfsb as ExternalProcStorageLocation,
+      src.sernp as SerialNumberProfile,
+      src.xchpf as BatchManagementRequired
 }

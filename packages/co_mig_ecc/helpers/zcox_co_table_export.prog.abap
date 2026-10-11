@@ -32,9 +32,24 @@ START-OF-SELECTION.
   TRANSLATE p_field TO UPPER CASE.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
-    WHEN 'AUFK' OR 'CEPC' OR 'CEPCT' OR 'COBRB' OR 'COEP'
-      OR 'COSP' OR 'COSS' OR 'CSKA' OR 'CSKB' OR 'CSKS'
-      OR 'CSKT' OR 'T811C' OR 'T811S'.
+    WHEN 'AUFK'
+      OR 'CEPC'
+      OR 'CEPCT'
+      OR 'COBRB'
+      OR 'COEP'
+      OR 'COSP'
+      OR 'COSS'
+      OR 'CSKA'
+      OR 'CSKB'
+      OR 'CSKS'
+      OR 'CSKT'
+      OR 'CSKU'
+      OR 'IHPA'
+      OR 'JEST'
+      OR 'JSTO'
+      OR 'STXH'
+      OR 'T811C'
+      OR 'T811S'.
       lv_allowed = abap_true.
   ENDCASE.
   IF lv_allowed <> abap_true OR p_max < 1 OR p_max > 1000000.

@@ -20,5 +20,6 @@ define view ZPSX_C_NetworkActivitMig
       src.WorkCenterInternalID as WorkCenterInternalID,
       src.ControlKey as ControlKey,
       src.ActivityDescription as ActivityDescription,
-      src.WBSElementInternalID as WBSElementInternalID
+      src.WBSElementInternalID as WBSElementInternalID,
+      src.Plant as Plant
 }

@@ -151,5 +151,41 @@
     "parent_identity": [
       "QualityNotification"
     ]
+  },
+  "ZQMX_C_NotifPartnerMig": {
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  },
+  "ZQMX_C_LotUserStatusMig": {
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ]
+  },
+  "ZQMX_C_NotifUserStatusMig": {
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
   }
 }

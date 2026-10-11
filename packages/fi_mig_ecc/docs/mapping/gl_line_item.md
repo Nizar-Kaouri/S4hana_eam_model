@@ -26,6 +26,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `DocumentDate` | BKPF-BLDAT | customer interface field: DocumentDate (unconfirmed) | information only | yes |
 | `PostingDate` | BKPF-BUDAT | customer interface field: PostingDate (unconfirmed) | information only | yes |
 | `DocumentCurrency` | BKPF-WAERS | customer interface field: DocumentCurrency (unconfirmed) | information only | yes |
+| `ReferenceDocument` | BKPF-XBLNR | - | copy |  |
+| `HeaderText` | BKPF-BKTXT | - | copy |  |
 
 ## `ZFIX_C_AccountingItemMig`
 
@@ -48,6 +50,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `CompanyCodeAmount` | BSEG-DMBTR | customer interface field: CompanyCodeAmount (unconfirmed) | information only | yes |
 | `ClearingDate` | BSEG-AUGDT | customer interface field: ClearingDate (unconfirmed) | information only | yes |
 | `ClearingDocument` | BSEG-AUGBL | customer interface field: ClearingDocument (unconfirmed) | information only | yes |
+| `ItemText` | BSEG-SGTXT | - | copy |  |
+| `Assignment` | BSEG-ZUONR | - | copy |  |
+| `Customer` | BSEG-KUNNR | - | copy |  |
+| `Supplier` | BSEG-LIFNR | - | copy |  |
+| `TaxCode` | BSEG-MWSKZ | - | copy |  |
+| `CostCenter` | BSEG-KOSTL | - | copy |  |
+| `ProfitCenter` | BSEG-PRCTR | - | copy |  |
 
 ## Reconciliation
 

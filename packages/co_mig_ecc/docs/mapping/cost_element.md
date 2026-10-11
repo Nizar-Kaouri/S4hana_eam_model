@@ -39,6 +39,37 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ValidityStartDate` | CSKB-DATAB | customer interface field: ValidityStartDate (unconfirmed) | information only | yes |
 | `CostElementCategory` | CSKB-KATYP | customer interface field: CostElementCategory (unconfirmed) | information only | yes |
 
+## `ZCOX_C_CostElementTextMig`
+
+- Source: `ZCOX_I_CostElementText`
+- Keys: `Language`, `ChartOfAccounts`, `CostElement`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Language` | CSKU-SPRAS | - | copy |  |
+| `ChartOfAccounts` | CSKU-KTOPL | - | copy |  |
+| `CostElement` | CSKU-KSTAR | - | copy |  |
+| `CostElementName` | CSKU-KTEXT | - | copy |  |
+| `CostElementDescription` | CSKU-LTEXT | - | copy |  |
+
+## `ZCOX_C_CostElementLongTextMig`
+
+- Source: `ZCOX_I_CostElementLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZCOX_C_CostElementMigCount` (ECC) vs `-` (S/4HANA) per `ChartOfAccounts`

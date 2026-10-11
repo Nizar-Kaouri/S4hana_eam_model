@@ -19,5 +19,18 @@ define view ZCOX_I_OrderSettlemen
       src.SettlementType as SettlementType,
       src.SettlementPercentage as SettlementPercentage,
       src.ReceiverCostCenter as ReceiverCostCenter,
-      src.ReceiverOrder as ReceiverOrder
+      src.ReceiverOrder as ReceiverOrder,
+      src.ReceiverCategory as ReceiverCategory,
+      @Semantics.amount.currencyCode: 'SettlementCurrency'
+      src.SettlementAmount as SettlementAmount,
+      src.SettlementCurrency as SettlementCurrency,
+      src.ControllingArea as ControllingArea,
+      src.ReceiverCompanyCode as ReceiverCompanyCode,
+      src.ReceiverMasterAsset as ReceiverMasterAsset,
+      src.ReceiverAsset as ReceiverAsset,
+      src.ReceiverWBSInternalID as ReceiverWBSInternalID,
+      src.ValidFromFiscalYear as ValidFromFiscalYear,
+      src.ValidFromPeriod as ValidFromPeriod,
+      src.ValidToFiscalYear as ValidToFiscalYear,
+      src.ValidToPeriod as ValidToPeriod
 }

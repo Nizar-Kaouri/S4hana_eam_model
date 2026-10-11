@@ -6,18 +6,18 @@ ModuPorter Enterprise Asset Management version 1.0.0.
 |---|---|---:|
 | Classification | classification | 2 |
 | Migration core | core | 0 |
-| Equipment | equipment | 8 |
+| Equipment | equipment | 13 |
 | Equipment BOM | equipment_bom | 4 |
-| Functional location | functional_location | 4 |
+| Functional location | functional_location | 14 |
 | Long text | long_text | 1 |
-| Maintenance notification | maintenance_notification | 5 |
-| Maintenance order | maintenance_order | 5 |
-| Maintenance plan | maintenance_plan | 3 |
+| Maintenance notification | maintenance_notification | 9 |
+| Maintenance order | maintenance_order | 9 |
+| Maintenance plan | maintenance_plan | 4 |
 | Measurement document | measurement_document | 1 |
-| Measuring point | measuring_point | 1 |
+| Measuring point | measuring_point | 2 |
 | Object partner | object_partner | 1 |
 | Object status | object_status | 1 |
-| Maintenance task list | task_list | 6 |
+| Maintenance task list | task_list | 7 |
 | Work center | work_center | 5 |
 
 ## Delivery boundaries
@@ -30,7 +30,7 @@ Read-only extraction and comparison templates. Histories, balances and process r
 
 ## Delivered
 
-- All 14 ECC migration modules plus shared core: 172 CDS views, 47 documented extraction structures, 14 count views and field mappings.
+- All 14 ECC migration modules plus shared core: 241 CDS views, 73 documented extraction structures, 14 count views and field mappings.
 - S/4 companion: 16 CDS views for main-object comparisons in eight modules.
 - Preparation tools: date/interval selection, explicit ECM eligibility validation, typed parent cohorts, reference sets, many-to-one joins, alias conversion, nested service-package closure and auditable whole-project execution.
 - Reconciliation: every canonical structure and raw extension table, using exported DDIC keys or explicit business-key contracts; exact ordered text comparison.

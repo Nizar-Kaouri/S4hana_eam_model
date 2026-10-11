@@ -20,6 +20,7 @@ define view ZPPX_I_OrderComponent
       src.Material as Material,
       src.Plant as Plant,
       src.StorageLocation as StorageLocation,
+      @Semantics.quantity.unitOfMeasure: 'Unit'
       src.RequiredQuantity as RequiredQuantity,
       src.Unit as Unit,
       src.DeletionFlag as DeletionFlag

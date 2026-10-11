@@ -296,7 +296,7 @@
         },
         {
           "element": "OperationText",
-          "source": "PLPO-KTEXT",
+          "source": "PLPO-LTXA1",
           "target": "customer interface field: OperationText (unconfirmed)",
           "rule": "info",
           "compare": true
@@ -376,6 +376,49 @@
       ],
       "delivery_mode": "effectivity-reference",
       "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_PlanLongTextMig",
+      "source_view": "ZQMX_I_PlanLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
     }
   ],
   "not_migrated": [],

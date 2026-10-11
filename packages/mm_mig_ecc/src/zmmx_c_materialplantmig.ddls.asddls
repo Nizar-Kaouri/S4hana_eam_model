@@ -19,5 +19,20 @@ define view ZMMX_C_MaterialPlantMig
       src.MRPController as MRPController,
       src.ProcurementType as ProcurementType,
       src.PurchasingGroup as PurchasingGroup,
-      src.DeletionFlag as DeletionFlag
+      src.DeletionFlag as DeletionFlag,
+      src.MRPGroup as MRPGroup,
+      src.LotSizingProcedure as LotSizingProcedure,
+      src.SpecialProcurementType as SpecialProcurementType,
+      src.AvailabilityCheck as AvailabilityCheck,
+      src.SafetyStock as SafetyStock,
+      src.MinimumLotSize as MinimumLotSize,
+      src.MaximumLotSize as MaximumLotSize,
+      src.FixedLotSize as FixedLotSize,
+      src.PlannedDeliveryTime as PlannedDeliveryTime,
+      src.GoodsReceiptProcessingTime as GoodsReceiptProcessingTime,
+      src.InHouseProductionTime as InHouseProductionTime,
+      src.IssueStorageLocation as IssueStorageLocation,
+      src.ExternalProcStorageLocation as ExternalProcStorageLocation,
+      src.SerialNumberProfile as SerialNumberProfile,
+      src.BatchManagementRequired as BatchManagementRequired
 }

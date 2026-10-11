@@ -25,7 +25,7 @@
   "structures": [
     {
       "consumption_view": "ZEMX_C_ObjectPartnerMig",
-      "source_view": "ZEMX_B_ObjectPartner",
+      "source_view": "ZEMX_I_ObjectPartner",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
         "PartnerObjectKey",
@@ -84,6 +84,12 @@
       "element": "IsMarkedForDeletion",
       "source": "IHPA-KZLOESCH",
       "reason": "scope"
+    },
+    {
+      "view": "ZEMX_I_ObjectPartner",
+      "element": "IsMarkedForDeletion",
+      "source": "IHPA-KZLOESCH",
+      "reason": "Used to exclude deleted records in the consumption scope; not a posting field."
     }
   ],
   "reconciliation": {

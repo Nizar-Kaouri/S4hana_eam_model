@@ -46,7 +46,61 @@
     "ZFIX_C_CustomerAddressMig": "exports/ZFIX_C_CustomerAddressMig.csv",
     "ZFIX_C_CustomerAddressMig_Scope": "selection/ZFIX_C_CustomerAddressMig.csv",
     "ZFIX_C_SupplierAddressMig": "exports/ZFIX_C_SupplierAddressMig.csv",
-    "ZFIX_C_SupplierAddressMig_Scope": "selection/ZFIX_C_SupplierAddressMig.csv"
+    "ZFIX_C_SupplierAddressMig_Scope": "selection/ZFIX_C_SupplierAddressMig.csv",
+    "ZFIX_C_CustomerBankMig": "exports/ZFIX_C_CustomerBankMig.csv",
+    "ZFIX_C_CustomerBankMig_Scope": "selection/ZFIX_C_CustomerBankMig.csv",
+    "ZFIX_C_CustomerWHTMig": "exports/ZFIX_C_CustomerWHTMig.csv",
+    "ZFIX_C_CustomerWHTMig_Scope": "selection/ZFIX_C_CustomerWHTMig.csv",
+    "ZFIX_C_CustomerDunningMig": "exports/ZFIX_C_CustomerDunningMig.csv",
+    "ZFIX_C_CustomerDunningMig_Scope": "selection/ZFIX_C_CustomerDunningMig.csv",
+    "ZFIX_C_CustomerPartnerMig": "exports/ZFIX_C_CustomerPartnerMig.csv",
+    "ZFIX_C_CustomerPartnerMig_Scope": "selection/ZFIX_C_CustomerPartnerMig.csv",
+    "ZFIX_C_CustomerTaxMig": "exports/ZFIX_C_CustomerTaxMig.csv",
+    "ZFIX_C_CustomerTaxMig_Scope": "selection/ZFIX_C_CustomerTaxMig.csv",
+    "ZFIX_C_CustomerContactMig": "exports/ZFIX_C_CustomerContactMig.csv",
+    "ZFIX_C_CustomerContactMig_Scope": "selection/ZFIX_C_CustomerContactMig.csv",
+    "ZFIX_C_SupplierBankMig": "exports/ZFIX_C_SupplierBankMig.csv",
+    "ZFIX_C_SupplierBankMig_Scope": "selection/ZFIX_C_SupplierBankMig.csv",
+    "ZFIX_C_SupplierWHTMig": "exports/ZFIX_C_SupplierWHTMig.csv",
+    "ZFIX_C_SupplierWHTMig_Scope": "selection/ZFIX_C_SupplierWHTMig.csv",
+    "ZFIX_C_SupplierDunningMig": "exports/ZFIX_C_SupplierDunningMig.csv",
+    "ZFIX_C_SupplierDunningMig_Scope": "selection/ZFIX_C_SupplierDunningMig.csv",
+    "ZFIX_C_BankEmailMig": "exports/ZFIX_C_BankEmailMig.csv",
+    "ZFIX_C_BankEmailMig_Scope": "selection/ZFIX_C_BankEmailMig.csv",
+    "ZFIX_C_BankPhoneMig": "exports/ZFIX_C_BankPhoneMig.csv",
+    "ZFIX_C_BankPhoneMig_Scope": "selection/ZFIX_C_BankPhoneMig.csv",
+    "ZFIX_C_BankFaxMig": "exports/ZFIX_C_BankFaxMig.csv",
+    "ZFIX_C_BankFaxMig_Scope": "selection/ZFIX_C_BankFaxMig.csv",
+    "ZFIX_C_CustomerEmailMig": "exports/ZFIX_C_CustomerEmailMig.csv",
+    "ZFIX_C_CustomerEmailMig_Scope": "selection/ZFIX_C_CustomerEmailMig.csv",
+    "ZFIX_C_CustomerPhoneMig": "exports/ZFIX_C_CustomerPhoneMig.csv",
+    "ZFIX_C_CustomerPhoneMig_Scope": "selection/ZFIX_C_CustomerPhoneMig.csv",
+    "ZFIX_C_CustomerFaxMig": "exports/ZFIX_C_CustomerFaxMig.csv",
+    "ZFIX_C_CustomerFaxMig_Scope": "selection/ZFIX_C_CustomerFaxMig.csv",
+    "ZFIX_C_ContactEmailMig": "exports/ZFIX_C_ContactEmailMig.csv",
+    "ZFIX_C_ContactEmailMig_Scope": "selection/ZFIX_C_ContactEmailMig.csv",
+    "ZFIX_C_ContactPhoneMig": "exports/ZFIX_C_ContactPhoneMig.csv",
+    "ZFIX_C_ContactPhoneMig_Scope": "selection/ZFIX_C_ContactPhoneMig.csv",
+    "ZFIX_C_ContactFaxMig": "exports/ZFIX_C_ContactFaxMig.csv",
+    "ZFIX_C_ContactFaxMig_Scope": "selection/ZFIX_C_ContactFaxMig.csv",
+    "ZFIX_C_SupplierPartnerMig": "exports/ZFIX_C_SupplierPartnerMig.csv",
+    "ZFIX_C_SupplierPartnerMig_Scope": "selection/ZFIX_C_SupplierPartnerMig.csv",
+    "ZFIX_C_SupplierEmailMig": "exports/ZFIX_C_SupplierEmailMig.csv",
+    "ZFIX_C_SupplierEmailMig_Scope": "selection/ZFIX_C_SupplierEmailMig.csv",
+    "ZFIX_C_SupplierPhoneMig": "exports/ZFIX_C_SupplierPhoneMig.csv",
+    "ZFIX_C_SupplierPhoneMig_Scope": "selection/ZFIX_C_SupplierPhoneMig.csv",
+    "ZFIX_C_SupplierFaxMig": "exports/ZFIX_C_SupplierFaxMig.csv",
+    "ZFIX_C_SupplierFaxMig_Scope": "selection/ZFIX_C_SupplierFaxMig.csv",
+    "ZFIX_C_CustomerLongTextMig": "exports/ZFIX_C_CustomerLongTextMig.csv",
+    "ZFIX_C_CustomerLongTextMig_Links": "text-links/ZFIX_C_CustomerLongTextMig.csv",
+    "ZFIX_C_SupplierLongTextMig": "exports/ZFIX_C_SupplierLongTextMig.csv",
+    "ZFIX_C_SupplierLongTextMig_Links": "text-links/ZFIX_C_SupplierLongTextMig.csv",
+    "ZFIX_C_GLAccountLongTextMig": "exports/ZFIX_C_GLAccountLongTextMig.csv",
+    "ZFIX_C_GLAccountLongTextMig_Links": "text-links/ZFIX_C_GLAccountLongTextMig.csv",
+    "ZFIX_C_CustomerIBANMig": "exports/ZFIX_C_CustomerIBANMig.csv",
+    "ZFIX_C_CustomerIBANMig_Scope": "selection/ZFIX_C_CustomerIBANMig.csv",
+    "ZFIX_C_SupplierIBANMig": "exports/ZFIX_C_SupplierIBANMig.csv",
+    "ZFIX_C_SupplierIBANMig_Scope": "selection/ZFIX_C_SupplierIBANMig.csv"
   },
   "steps": [
     {
@@ -671,6 +725,906 @@
       "parent_identity": [
         "Supplier"
       ]
+    },
+    {
+      "name": "ZFIX_C_CustomerBankMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerBankMig",
+      "parent": "ZFIX_C_CustomerBankMig_Scope",
+      "child_keys": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ],
+      "parent_keys": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerBankMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerBankMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerWHTMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerWHTMig",
+      "parent": "ZFIX_C_CustomerWHTMig_Scope",
+      "child_keys": [
+        "Customer",
+        "CompanyCode",
+        "WithholdingTaxType"
+      ],
+      "parent_keys": [
+        "Customer",
+        "CompanyCode",
+        "WithholdingTaxType"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerWHTMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerWHTMig_Selected",
+      "parent": "ZFIX_C_CustomerCompanMig_Prepared",
+      "child_keys": [
+        "Customer",
+        "CompanyCode"
+      ],
+      "parent_keys": [
+        "Customer",
+        "CompanyCode"
+      ],
+      "parent_identity": [
+        "Customer",
+        "CompanyCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerDunningMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerDunningMig",
+      "parent": "ZFIX_C_CustomerDunningMig_Scope",
+      "child_keys": [
+        "Customer",
+        "CompanyCode",
+        "DunningArea"
+      ],
+      "parent_keys": [
+        "Customer",
+        "CompanyCode",
+        "DunningArea"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerDunningMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerDunningMig_Selected",
+      "parent": "ZFIX_C_CustomerCompanMig_Prepared",
+      "child_keys": [
+        "Customer",
+        "CompanyCode"
+      ],
+      "parent_keys": [
+        "Customer",
+        "CompanyCode"
+      ],
+      "parent_identity": [
+        "Customer",
+        "CompanyCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerPartnerMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerPartnerMig",
+      "parent": "ZFIX_C_CustomerPartnerMig_Scope",
+      "child_keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "parent_keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division",
+        "PartnerFunction",
+        "PartnerCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerPartnerMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerPartnerMig_Selected",
+      "parent": "ZFIX_C_CustomerSalesMig_Prepared",
+      "child_keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ],
+      "parent_keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ],
+      "parent_identity": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerTaxMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerTaxMig",
+      "parent": "ZFIX_C_CustomerTaxMig_Scope",
+      "child_keys": [
+        "Customer",
+        "DepartureCountry",
+        "TaxCategory"
+      ],
+      "parent_keys": [
+        "Customer",
+        "DepartureCountry",
+        "TaxCategory"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerTaxMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerTaxMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerContactMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerContactMig",
+      "parent": "ZFIX_C_CustomerContactMig_Scope",
+      "child_keys": [
+        "ContactPerson"
+      ],
+      "parent_keys": [
+        "ContactPerson"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerContactMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerContactMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierBankMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierBankMig",
+      "parent": "ZFIX_C_SupplierBankMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierBankMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierBankMig_Selected",
+      "parent": "ZFIX_C_SupplierMig_Prepared",
+      "child_keys": [
+        "Supplier"
+      ],
+      "parent_keys": [
+        "Supplier"
+      ],
+      "parent_identity": [
+        "Supplier"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierWHTMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierWHTMig",
+      "parent": "ZFIX_C_SupplierWHTMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "CompanyCode",
+        "WithholdingTaxType"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "CompanyCode",
+        "WithholdingTaxType"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierWHTMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierWHTMig_Selected",
+      "parent": "ZFIX_C_SupplierCompanMig_Prepared",
+      "child_keys": [
+        "Supplier",
+        "CompanyCode"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "CompanyCode"
+      ],
+      "parent_identity": [
+        "Supplier",
+        "CompanyCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierDunningMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierDunningMig",
+      "parent": "ZFIX_C_SupplierDunningMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "CompanyCode",
+        "DunningArea"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "CompanyCode",
+        "DunningArea"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierDunningMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierDunningMig_Selected",
+      "parent": "ZFIX_C_SupplierCompanMig_Prepared",
+      "child_keys": [
+        "Supplier",
+        "CompanyCode"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "CompanyCode"
+      ],
+      "parent_identity": [
+        "Supplier",
+        "CompanyCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_BankEmailMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_BankEmailMig",
+      "parent": "ZFIX_C_BankEmailMig_Scope",
+      "child_keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_BankEmailMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_BankEmailMig_Selected",
+      "parent": "ZFIX_C_BankMig_Prepared",
+      "child_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_identity": [
+        "BankCountry",
+        "BankKey"
+      ]
+    },
+    {
+      "name": "ZFIX_C_BankPhoneMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_BankPhoneMig",
+      "parent": "ZFIX_C_BankPhoneMig_Scope",
+      "child_keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_BankPhoneMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_BankPhoneMig_Selected",
+      "parent": "ZFIX_C_BankMig_Prepared",
+      "child_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_identity": [
+        "BankCountry",
+        "BankKey"
+      ]
+    },
+    {
+      "name": "ZFIX_C_BankFaxMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_BankFaxMig",
+      "parent": "ZFIX_C_BankFaxMig_Scope",
+      "child_keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_BankFaxMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_BankFaxMig_Selected",
+      "parent": "ZFIX_C_BankMig_Prepared",
+      "child_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_identity": [
+        "BankCountry",
+        "BankKey"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerEmailMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerEmailMig",
+      "parent": "ZFIX_C_CustomerEmailMig_Scope",
+      "child_keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerEmailMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerEmailMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerPhoneMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerPhoneMig",
+      "parent": "ZFIX_C_CustomerPhoneMig_Scope",
+      "child_keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerPhoneMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerPhoneMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerFaxMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerFaxMig",
+      "parent": "ZFIX_C_CustomerFaxMig_Scope",
+      "child_keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerFaxMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerFaxMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ContactEmailMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_ContactEmailMig",
+      "parent": "ZFIX_C_ContactEmailMig_Scope",
+      "child_keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ContactEmailMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_ContactEmailMig_Selected",
+      "parent": "ZFIX_C_CustomerContactMig_Prepared",
+      "child_keys": [
+        "ContactPerson"
+      ],
+      "parent_keys": [
+        "ContactPerson"
+      ],
+      "parent_identity": [
+        "ContactPerson"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ContactPhoneMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_ContactPhoneMig",
+      "parent": "ZFIX_C_ContactPhoneMig_Scope",
+      "child_keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ContactPhoneMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_ContactPhoneMig_Selected",
+      "parent": "ZFIX_C_CustomerContactMig_Prepared",
+      "child_keys": [
+        "ContactPerson"
+      ],
+      "parent_keys": [
+        "ContactPerson"
+      ],
+      "parent_identity": [
+        "ContactPerson"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ContactFaxMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_ContactFaxMig",
+      "parent": "ZFIX_C_ContactFaxMig_Scope",
+      "child_keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ContactFaxMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_ContactFaxMig_Selected",
+      "parent": "ZFIX_C_CustomerContactMig_Prepared",
+      "child_keys": [
+        "ContactPerson"
+      ],
+      "parent_keys": [
+        "ContactPerson"
+      ],
+      "parent_identity": [
+        "ContactPerson"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierPartnerMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierPartnerMig",
+      "parent": "ZFIX_C_SupplierPartnerMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "PurchasingOrganization",
+        "SupplierSubrange",
+        "Plant",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "PurchasingOrganization",
+        "SupplierSubrange",
+        "Plant",
+        "PartnerFunction",
+        "PartnerCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierPartnerMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierPartnerMig_Selected",
+      "parent": "ZFIX_C_SupplierPurchaMig_Prepared",
+      "child_keys": [
+        "Supplier",
+        "PurchasingOrganization"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "PurchasingOrganization"
+      ],
+      "parent_identity": [
+        "Supplier",
+        "PurchasingOrganization"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierEmailMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierEmailMig",
+      "parent": "ZFIX_C_SupplierEmailMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierEmailMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierEmailMig_Selected",
+      "parent": "ZFIX_C_SupplierMig_Prepared",
+      "child_keys": [
+        "Supplier"
+      ],
+      "parent_keys": [
+        "Supplier"
+      ],
+      "parent_identity": [
+        "Supplier"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierPhoneMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierPhoneMig",
+      "parent": "ZFIX_C_SupplierPhoneMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierPhoneMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierPhoneMig_Selected",
+      "parent": "ZFIX_C_SupplierMig_Prepared",
+      "child_keys": [
+        "Supplier"
+      ],
+      "parent_keys": [
+        "Supplier"
+      ],
+      "parent_identity": [
+        "Supplier"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierFaxMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierFaxMig",
+      "parent": "ZFIX_C_SupplierFaxMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierFaxMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierFaxMig_Selected",
+      "parent": "ZFIX_C_SupplierMig_Prepared",
+      "child_keys": [
+        "Supplier"
+      ],
+      "parent_keys": [
+        "Supplier"
+      ],
+      "parent_identity": [
+        "Supplier"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZFIX_C_CustomerLongTextMig",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "links": "ZFIX_C_CustomerLongTextMig_Links",
+      "parent_keys": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZFIX_C_SupplierLongTextMig",
+      "parent": "ZFIX_C_SupplierMig_Prepared",
+      "links": "ZFIX_C_SupplierLongTextMig_Links",
+      "parent_keys": [
+        "Supplier"
+      ]
+    },
+    {
+      "name": "ZFIX_C_GLAccountLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZFIX_C_GLAccountLongTextMig",
+      "parent": "ZFIX_C_GLAccountMig_Prepared",
+      "links": "ZFIX_C_GLAccountLongTextMig_Links",
+      "parent_keys": [
+        "ChartOfAccounts",
+        "GLAccount"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerIBANMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerIBANMig",
+      "parent": "ZFIX_C_CustomerIBANMig_Scope",
+      "child_keys": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount",
+        "BankControlKey"
+      ],
+      "parent_keys": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount",
+        "BankControlKey"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerIBANMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerIBANMig_Selected",
+      "parent": "ZFIX_C_CustomerBankMig_Prepared",
+      "child_keys": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ],
+      "parent_keys": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ],
+      "parent_identity": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierIBANMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierIBANMig",
+      "parent": "ZFIX_C_SupplierIBANMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "BankCountry",
+        "Bank",
+        "BankAccount",
+        "BankControlKey"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "BankCountry",
+        "Bank",
+        "BankAccount",
+        "BankControlKey"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierIBANMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierIBANMig_Selected",
+      "parent": "ZFIX_C_SupplierBankMig_Prepared",
+      "child_keys": [
+        "Supplier",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ],
+      "parent_identity": [
+        "Supplier",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ]
     }
   ],
   "outputs": [
@@ -696,6 +1650,33 @@
     "ZFIX_C_SupplierMig_Prepared",
     "ZFIX_C_SupplierCompanMig_Prepared",
     "ZFIX_C_SupplierPurchaMig_Prepared",
-    "ZFIX_C_SupplierAddressMig_Prepared"
+    "ZFIX_C_SupplierAddressMig_Prepared",
+    "ZFIX_C_CustomerBankMig_Prepared",
+    "ZFIX_C_CustomerWHTMig_Prepared",
+    "ZFIX_C_CustomerDunningMig_Prepared",
+    "ZFIX_C_CustomerPartnerMig_Prepared",
+    "ZFIX_C_CustomerTaxMig_Prepared",
+    "ZFIX_C_CustomerContactMig_Prepared",
+    "ZFIX_C_SupplierBankMig_Prepared",
+    "ZFIX_C_SupplierWHTMig_Prepared",
+    "ZFIX_C_SupplierDunningMig_Prepared",
+    "ZFIX_C_BankEmailMig_Prepared",
+    "ZFIX_C_BankPhoneMig_Prepared",
+    "ZFIX_C_BankFaxMig_Prepared",
+    "ZFIX_C_CustomerEmailMig_Prepared",
+    "ZFIX_C_CustomerPhoneMig_Prepared",
+    "ZFIX_C_CustomerFaxMig_Prepared",
+    "ZFIX_C_ContactEmailMig_Prepared",
+    "ZFIX_C_ContactPhoneMig_Prepared",
+    "ZFIX_C_ContactFaxMig_Prepared",
+    "ZFIX_C_SupplierPartnerMig_Prepared",
+    "ZFIX_C_SupplierEmailMig_Prepared",
+    "ZFIX_C_SupplierPhoneMig_Prepared",
+    "ZFIX_C_SupplierFaxMig_Prepared",
+    "ZFIX_C_CustomerLongTextMig_Prepared",
+    "ZFIX_C_SupplierLongTextMig_Prepared",
+    "ZFIX_C_GLAccountLongTextMig_Prepared",
+    "ZFIX_C_CustomerIBANMig_Prepared",
+    "ZFIX_C_SupplierIBANMig_Prepared"
   ]
 }

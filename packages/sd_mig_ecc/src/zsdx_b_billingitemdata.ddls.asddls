@@ -21,5 +21,6 @@ define view ZSDX_B_BillingItemData
       src.vrkme as SalesUnit,
       src.netwr as NetAmount,
       src.vgbel as ReferenceDocument,
-      src.vgpos as ReferenceDocumentItem
+      src.vgpos as ReferenceDocumentItem,
+      src.arktx as ItemShortText
 }

@@ -4,12 +4,12 @@ ModuPorter Production Planning version 1.0.0.
 
 | Module | ID | Extraction structures |
 |---|---|---:|
-| Material bills of material | bill_of_material | 4 |
+| Material bills of material | bill_of_material | 5 |
 | Production confirmations | production_confirmation | 1 |
-| Production orders | production_order | 4 |
+| Production orders | production_order | 6 |
 | Production order operations | production_order_operation | 3 |
 | Production versions | production_version | 1 |
-| Routing reference | routing | 5 |
+| Routing reference | routing | 6 |
 
 ## Delivery boundaries
 
@@ -25,10 +25,10 @@ Production Planning has 6 modules and 17 extraction structures.
 |---|---|---|---|
 | Production confirmations | production_confirmation | 1 | process-reference |
 | Production versions | production_version | 1 | effectivity-reference |
-| Production orders | production_order | 4 | process-reference |
+| Production orders | production_order | 6 | process-reference |
 | Production order operations | production_order_operation | 3 | process-reference |
-| Material bills of material | bill_of_material | 4 | effectivity-reference |
-| Routing reference | routing | 5 | effectivity-reference |
+| Material bills of material | bill_of_material | 5 | effectivity-reference |
+| Routing reference | routing | 6 | effectivity-reference |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/pp; they are not duplicated as migration payloads.
 

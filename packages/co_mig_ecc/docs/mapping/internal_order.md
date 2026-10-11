@@ -46,6 +46,18 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `SettlementPercentage` | COBRB-PROZS | customer interface field: SettlementPercentage (unconfirmed) | copy | yes |
 | `ReceiverCostCenter` | COBRB-KOSTL | customer interface field: ReceiverCostCenter (unconfirmed) | copy | yes |
 | `ReceiverOrder` | COBRB-AUFNR | customer interface field: ReceiverOrder (unconfirmed) | copy | yes |
+| `ReceiverCategory` | COBRB-KONTY | - | copy |  |
+| `SettlementAmount` | COBRB-BETRR | - | copy |  |
+| `SettlementCurrency` | COBRB-BWAER | - | copy |  |
+| `ControllingArea` | COBRB-KOKRS | - | copy |  |
+| `ReceiverCompanyCode` | COBRB-BUKRS | - | copy |  |
+| `ReceiverMasterAsset` | COBRB-ANLN1 | - | copy |  |
+| `ReceiverAsset` | COBRB-ANLN2 | - | copy |  |
+| `ReceiverWBSInternalID` | COBRB-PSPNR | - | copy |  |
+| `ValidFromFiscalYear` | COBRB-GABJA | - | copy |  |
+| `ValidFromPeriod` | COBRB-GABPE | - | copy |  |
+| `ValidToFiscalYear` | COBRB-GBISJ | - | copy |  |
+| `ValidToPeriod` | COBRB-GBISP | - | copy |  |
 
 ## `ZCOX_C_OrderStatusMig`
 
@@ -62,6 +74,54 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `StatusCode` | JEST-STAT | - | copy |  |
 | `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
 | `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+
+## `ZCOX_C_OrderPartnerMig`
+
+- Source: `ZCOX_I_OrderPartner`
+- Keys: `InternalOrder`, `PartnerFunction`, `PartnerCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `InternalOrder` | AUFK-AUFNR | - | copy |  |
+| `PartnerFunction` | IHPA-PARVW | - | copy |  |
+| `PartnerCounter` | IHPA-COUNTER | - | copy |  |
+| `Partner` | IHPA-PARNR | - | copy |  |
+
+## `ZCOX_C_OrderUserStatusMig`
+
+- Source: `ZCOX_I_OrderUserStatus`
+- Keys: `InternalOrder`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `InternalOrder` | AUFK-AUFNR | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `ObjectNumber` | JEST-OBJNR | - | information only |  |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+
+## `ZCOX_C_OrderLongTextMig`
+
+- Source: `ZCOX_I_OrderLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Not delivered
 

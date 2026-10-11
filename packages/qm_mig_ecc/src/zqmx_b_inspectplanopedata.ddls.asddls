@@ -21,5 +21,5 @@ define view ZQMX_B_InspectPlanOpeData
       src.datuv as ValidFromDate,
       src.loekz as DeletionFlag,
       src.vornr as Operation,
-      src.ktext as OperationText
+      src.ltxa1 as OperationText
 }

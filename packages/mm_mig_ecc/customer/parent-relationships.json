@@ -262,5 +262,80 @@
     "parent_identity": [
       "PurchasingInfoRecord"
     ]
+  },
+  "ZMMX_C_MaterialSalesMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialTaxMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialMRPAreaMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialEANMig": {
+    "parent": "ZMMX_C_MaterialUnitMig",
+    "child_keys": [
+      "Product",
+      "AlternativeUnit"
+    ],
+    "parent_keys": [
+      "Product",
+      "AlternativeUnit"
+    ],
+    "parent_identity": [
+      "Product",
+      "AlternativeUnit"
+    ]
+  },
+  "ZMMX_C_PurchasePartnerMig": {
+    "parent": "ZMMX_C_PurchaseOrderMig",
+    "child_keys": [
+      "PurchaseOrder"
+    ],
+    "parent_keys": [
+      "PurchaseOrder"
+    ],
+    "parent_identity": [
+      "PurchaseOrder"
+    ]
+  },
+  "ZMMX_C_ContractPartnerMig": {
+    "parent": "ZMMX_C_ContractHeaderMig",
+    "child_keys": [
+      "PurchasingContract"
+    ],
+    "parent_keys": [
+      "PurchasingContract"
+    ],
+    "parent_identity": [
+      "PurchasingContract"
+    ]
   }
 }

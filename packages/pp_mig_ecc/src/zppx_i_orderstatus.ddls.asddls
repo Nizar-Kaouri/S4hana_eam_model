@@ -13,11 +13,14 @@
 define view ZPPX_I_OrderStatus
   as select from ZPPX_B_OrderStatusData as st
     inner join ZPPX_I_ProductionOrde as obj on obj.ObjectNumber = st.ObjectNumber
+    association [0..1] to ZPPX_B_StatusProfileData as _Profile
+      on $projection.ObjectNumber = _Profile.ObjectNumber
 {
 key obj.ManufacturingOrder as ManufacturingOrder,
   key st.StatusCode as StatusCode,
       st.ObjectNumber as ObjectNumber,
       substring( st.StatusCode, 1, 1 ) as StatusKind,
-      st.StatusChangeNumber as StatusChangeNumber
+      st.StatusChangeNumber as StatusChangeNumber,
+      _Profile.StatusProfile as StatusProfile
 }
 where st.StatusIsInactive = ''

@@ -6,11 +6,11 @@ ModuPorter Controlling version 1.0.0.
 |---|---|---:|
 | Allocation cycles and segments | allocation_cycle | 2 |
 | Actual cost history | cost_actuals | 1 |
-| Cost centers | cost_center | 2 |
-| Cost element references | cost_element | 2 |
-| Internal orders | internal_order | 3 |
+| Cost centers | cost_center | 3 |
+| Cost element references | cost_element | 4 |
+| Internal orders | internal_order | 6 |
 | CO primary and secondary cost planning | planning | 2 |
-| Profit centers | profit_center | 2 |
+| Profit centers | profit_center | 3 |
 
 ## Delivery boundaries
 
@@ -26,11 +26,11 @@ Controlling has 7 modules and 13 extraction structures.
 |---|---|---|---|
 | Allocation cycles and segments | allocation_cycle | 2 | configuration-reference |
 | CO primary and secondary cost planning | planning | 2 | planning-reference |
-| Cost centers | cost_center | 2 | master |
-| Profit centers | profit_center | 2 | master |
-| Internal orders | internal_order | 3 | master |
+| Cost centers | cost_center | 3 | master |
+| Profit centers | profit_center | 3 | master |
+| Internal orders | internal_order | 6 | master |
 | Actual cost history | cost_actuals | 1 | reference |
-| Cost element references | cost_element | 2 | reference |
+| Cost element references | cost_element | 4 | reference |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/co; they are not duplicated as migration payloads.
 

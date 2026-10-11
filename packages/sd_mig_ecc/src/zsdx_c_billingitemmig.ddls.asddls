@@ -20,5 +20,6 @@ define view ZSDX_C_BillingItemMig
       src.SalesUnit as SalesUnit,
       src.NetAmount as NetAmount,
       src.ReferenceDocument as ReferenceDocument,
-      src.ReferenceDocumentItem as ReferenceDocumentItem
+      src.ReferenceDocumentItem as ReferenceDocumentItem,
+      src.ItemShortText as ItemShortText
 }

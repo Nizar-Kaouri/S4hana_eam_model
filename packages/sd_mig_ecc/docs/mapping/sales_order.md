@@ -44,6 +44,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `OrderQuantity` | VBAP-KWMENG | customer interface field: OrderQuantity (unconfirmed) | copy | yes |
 | `SalesUnit` | VBAP-VRKME | customer interface field: SalesUnit (unconfirmed) | copy | yes |
 | `RejectionReason` | VBAP-ABGRU | customer interface field: RejectionReason (unconfirmed) | copy | yes |
+| `ItemShortText` | VBAP-ARKTX | - | copy |  |
+| `ItemCategory` | VBAP-PSTYV | - | copy |  |
 
 ## `ZSDX_C_SalesScheduleMig`
 
@@ -195,6 +197,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AddressCountry` | ADRC-COUNTRY | - | copy |  |
 | `AddressRegion` | ADRC-REGION | - | copy |  |
 | `AddressLanguage` | ADRC-LANGU | - | copy |  |
+
+## `ZSDX_C_SalesLongTextMig`
+
+- Source: `ZSDX_I_SalesLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Reconciliation
 

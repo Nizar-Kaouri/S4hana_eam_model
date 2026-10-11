@@ -27,6 +27,11 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `InventoryNumber` | ANLA-INVNR | customer interface field: InventoryNumber (unconfirmed) | copy | yes |
 | `AssetCapitalizationDate` | ANLA-AKTIV | customer interface field: AssetCapitalizationDate (unconfirmed) | copy | yes |
 | `AssetDeactivationDate` | ANLA-DEAKT | customer interface field: AssetDeactivationDate (unconfirmed) | copy | yes |
+| `AssetDescription2` | ANLA-TXA50 | - | copy |  |
+| `SerialNumber` | ANLA-SERNR | - | copy |  |
+| `Manufacturer` | ANLA-HERST | - | copy |  |
+| `Quantity` | ANLA-MENGE | - | copy |  |
+| `QuantityUnit` | ANLA-MEINS | - | copy |  |
 
 ## `ZFAX_C_AssetAssignmenMig`
 
@@ -66,6 +71,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `UsefulLifeYears` | ANLB-NDJAR | customer interface field: UsefulLifeYears (unconfirmed) | copy | yes |
 | `UsefulLifePeriods` | ANLB-NDPER | customer interface field: UsefulLifePeriods (unconfirmed) | copy | yes |
 | `DepreciationStartDate` | ANLB-AFABG | customer interface field: DepreciationStartDate (unconfirmed) | copy | yes |
+
+## `ZFAX_C_AssetLongTextMig`
+
+- Source: `ZFAX_I_AssetLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Reconciliation
 

@@ -24,5 +24,12 @@ define view ZFIX_B_AccountingItemData
       src.wrbtr as DocumentAmount,
       src.dmbtr as CompanyCodeAmount,
       src.augdt as ClearingDate,
-      src.augbl as ClearingDocument
+      src.augbl as ClearingDocument,
+      src.sgtxt as ItemText,
+      src.zuonr as Assignment,
+      src.kunnr as Customer,
+      src.lifnr as Supplier,
+      src.mwskz as TaxCode,
+      src.kostl as CostCenter,
+      src.prctr as ProfitCenter
 }

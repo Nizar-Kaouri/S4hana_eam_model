@@ -13,7 +13,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_LongTextIndexMig`
 
-- Source: `ZEMX_B_LongTextHeader`
+- Source: `ZEMX_I_LongTextIndex`
 - Keys: `TextObject`, `TextName`, `TextID`, `Language`
 - Scope: `all rows`
 

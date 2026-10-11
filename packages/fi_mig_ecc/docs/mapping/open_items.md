@@ -32,6 +32,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `DocumentAmount` | BSIS-WRBTR | customer interface field: DocumentAmount (unconfirmed) | copy | yes |
 | `CompanyCodeAmount` | BSIS-DMBTR | customer interface field: CompanyCodeAmount (unconfirmed) | copy | yes |
 | `DocumentCurrency` | BSIS-WAERS | customer interface field: DocumentCurrency (unconfirmed) | copy | yes |
+| `ItemText` | BSIS-SGTXT | - | copy |  |
+| `TaxCode` | BSIS-MWSKZ | - | copy |  |
 
 ## `ZFIX_C_GLClearedMig`
 
@@ -56,6 +58,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `DocumentAmount` | BSAS-WRBTR | customer interface field: DocumentAmount (unconfirmed) | copy | yes |
 | `CompanyCodeAmount` | BSAS-DMBTR | customer interface field: CompanyCodeAmount (unconfirmed) | copy | yes |
 | `DocumentCurrency` | BSAS-WAERS | customer interface field: DocumentCurrency (unconfirmed) | copy | yes |
+| `ItemText` | BSAS-SGTXT | - | copy |  |
+| `TaxCode` | BSAS-MWSKZ | - | copy |  |
 
 ## `ZFIX_C_APOpenMig`
 
@@ -82,6 +86,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `DocumentAmount` | BSIK-WRBTR | customer interface field: DocumentAmount (unconfirmed) | copy | yes |
 | `CompanyCodeAmount` | BSIK-DMBTR | customer interface field: CompanyCodeAmount (unconfirmed) | copy | yes |
 | `DocumentCurrency` | BSIK-WAERS | customer interface field: DocumentCurrency (unconfirmed) | copy | yes |
+| `ItemText` | BSIK-SGTXT | - | copy |  |
+| `TaxCode` | BSIK-MWSKZ | - | copy |  |
 
 ## `ZFIX_C_APClearedMig`
 
@@ -108,6 +114,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `DocumentAmount` | BSAK-WRBTR | customer interface field: DocumentAmount (unconfirmed) | copy | yes |
 | `CompanyCodeAmount` | BSAK-DMBTR | customer interface field: CompanyCodeAmount (unconfirmed) | copy | yes |
 | `DocumentCurrency` | BSAK-WAERS | customer interface field: DocumentCurrency (unconfirmed) | copy | yes |
+| `ItemText` | BSAK-SGTXT | - | copy |  |
+| `TaxCode` | BSAK-MWSKZ | - | copy |  |
 
 ## `ZFIX_C_AROpenMig`
 
@@ -134,6 +142,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `DocumentAmount` | BSID-WRBTR | customer interface field: DocumentAmount (unconfirmed) | copy | yes |
 | `CompanyCodeAmount` | BSID-DMBTR | customer interface field: CompanyCodeAmount (unconfirmed) | copy | yes |
 | `DocumentCurrency` | BSID-WAERS | customer interface field: DocumentCurrency (unconfirmed) | copy | yes |
+| `ItemText` | BSID-SGTXT | - | copy |  |
+| `TaxCode` | BSID-MWSKZ | - | copy |  |
 
 ## `ZFIX_C_ARClearedMig`
 
@@ -160,6 +170,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `DocumentAmount` | BSAD-WRBTR | customer interface field: DocumentAmount (unconfirmed) | copy | yes |
 | `CompanyCodeAmount` | BSAD-DMBTR | customer interface field: CompanyCodeAmount (unconfirmed) | copy | yes |
 | `DocumentCurrency` | BSAD-WAERS | customer interface field: DocumentCurrency (unconfirmed) | copy | yes |
+| `ItemText` | BSAD-SGTXT | - | copy |  |
+| `TaxCode` | BSAD-MWSKZ | - | copy |  |
 
 ## Reconciliation
 

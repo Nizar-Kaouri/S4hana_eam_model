@@ -17,5 +17,6 @@ key src.ProjectInternalID as ProjectInternalID,
   key src.StatusCode as StatusCode,
       src.ObjectNumber as ObjectNumber,
       src.StatusKind as StatusKind,
-      src.StatusChangeNumber as StatusChangeNumber
+      src.StatusChangeNumber as StatusChangeNumber,
+      src.StatusProfile as StatusProfile
 }

@@ -66,7 +66,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_MaintPlanCycleMig`
 
-- Source: `ZEMX_B_MaintPlanCycle`
+- Source: `ZEMX_I_MaintPlanCycle`
 - Keys: `MaintenancePlan`, `MaintenancePlanCycle`
 - Scope: `_MaintenancePlan.IsMarkedForDeletion = ''`
 
@@ -78,6 +78,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `CycleUnit` | MMPT-ZEIEH | MMPT-ZEIEH | copy |  |
 | `CycleText` | MMPT-PAK_TEXT | MMPT-PAK_TEXT | copy |  |
 | `MeasuringPoint` | MMPT-POINT | MMPT-POINT | copy |  |
+
+## `ZEMX_C_PlanLongTextMig`
+
+- Source: `ZEMX_I_PlanLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Not delivered
 

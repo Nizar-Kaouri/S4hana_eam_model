@@ -382,5 +382,113 @@
       "QualityNotification"
     ],
     "kind": "child"
+  },
+  "ZQMX_C_LotUserStatusMig": {
+    "module": "inspection_lot",
+    "keys": [
+      "InspectionLot",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ]
+  },
+  "ZQMX_C_NotifPartnerMig": {
+    "module": "quality_notification",
+    "keys": [
+      "QualityNotification",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  },
+  "ZQMX_C_NotifUserStatusMig": {
+    "module": "quality_notification",
+    "keys": [
+      "QualityNotification",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  },
+  "ZQMX_C_NotifLongTextMig": {
+    "kind": "text_child",
+    "module": "quality_notification",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZQMX_C_QualityNotificMig",
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "links": "ZQMX_C_NotifLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZQMX_C_PlanLongTextMig": {
+    "kind": "text_child",
+    "module": "inspection_plan",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZQMX_C_InspectPlanHeaMig",
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "links": "ZQMX_C_PlanLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZQMX_C_MasterCharLongTextMig": {
+    "kind": "text_child",
+    "module": "master_inspection_characteristic",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZQMX_C_MasterCharMig",
+    "parent_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "links": "ZQMX_C_MasterCharLongTextMig_Links",
+    "operation": "text_scope"
   }
 }

@@ -1,0 +1,629 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "address": {
+      "native_tables": [
+        "VBPA",
+        "ADRC"
+      ],
+      "structures": [],
+      "boundary": "Native VBPA partner records and ADRC address versions shared by SD documents."
+    },
+    "billing_document": {
+      "native_tables": [
+        "STXH",
+        "VBRK",
+        "VBRP"
+      ],
+      "structures": [
+        {
+          "view": "ZSDX_C_BillingMig",
+          "interface": "ZSDX_I_Billing",
+          "keys": [
+            "BillingDocument"
+          ],
+          "mode": "reference",
+          "fields": [
+            "BillingDocument",
+            "BillingDocumentType",
+            "BillingDocumentDate",
+            "CompanyCode",
+            "TransactionCurrency",
+            "Payer",
+            "AccountingTransferStatus"
+          ]
+        },
+        {
+          "view": "ZSDX_C_BillingItemMig",
+          "interface": "ZSDX_I_BillingItem",
+          "keys": [
+            "BillingDocument",
+            "BillingDocumentItem"
+          ],
+          "mode": "reference",
+          "fields": [
+            "BillingDocument",
+            "BillingDocumentItem",
+            "Material",
+            "BillingQuantity",
+            "SalesUnit",
+            "NetAmount",
+            "ReferenceDocument",
+            "ReferenceDocumentItem",
+            "ItemShortText"
+          ]
+        },
+        {
+          "view": "ZSDX_C_BillingPartnerMig",
+          "interface": "ZSDX_I_BillingPartner",
+          "keys": [
+            "BillingDocument",
+            "BillingDocumentItem",
+            "PartnerFunction"
+          ],
+          "mode": "posting",
+          "fields": [
+            "BillingDocument",
+            "BillingDocumentItem",
+            "PartnerFunction",
+            "Customer",
+            "Supplier",
+            "PersonnelNumber",
+            "AddressNumber",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage",
+            "HasStandardAddress"
+          ]
+        },
+        {
+          "view": "ZSDX_C_BillingPartnerAddrMig",
+          "interface": "ZSDX_I_BillingPartnerAddr",
+          "keys": [
+            "BillingDocument",
+            "BillingDocumentItem",
+            "PartnerFunction",
+            "AddressValidFrom",
+            "AddressVersion"
+          ],
+          "mode": "reference",
+          "fields": [
+            "BillingDocument",
+            "BillingDocumentItem",
+            "PartnerFunction",
+            "AddressNumber",
+            "AddressValidFrom",
+            "AddressVersion",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage"
+          ]
+        },
+        {
+          "view": "ZSDX_C_BillingLongTextMig",
+          "interface": "ZSDX_I_BillingLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Billing document reference source records, preparation and comparison contracts."
+    },
+    "outbound_delivery": {
+      "native_tables": [
+        "LIKP",
+        "LIPS",
+        "STXH",
+        "VBUK",
+        "VBUP"
+      ],
+      "structures": [
+        {
+          "view": "ZSDX_C_DeliveryMig",
+          "interface": "ZSDX_I_Delivery",
+          "keys": [
+            "DeliveryDocument"
+          ],
+          "mode": "reference",
+          "fields": [
+            "DeliveryDocument",
+            "DeliveryDocumentType",
+            "ShippingPoint",
+            "ShipToParty",
+            "PlannedGoodsIssueDate",
+            "ActualGoodsIssueDate"
+          ]
+        },
+        {
+          "view": "ZSDX_C_DeliveryItemMig",
+          "interface": "ZSDX_I_DeliveryItem",
+          "keys": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem"
+          ],
+          "mode": "reference",
+          "fields": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "Material",
+            "Plant",
+            "StorageLocation",
+            "DeliveryQuantity",
+            "SalesUnit",
+            "ReferenceDocument",
+            "ReferenceDocumentItem",
+            "ItemShortText",
+            "Batch"
+          ]
+        },
+        {
+          "view": "ZSDX_C_DeliveryPartnerMig",
+          "interface": "ZSDX_I_DeliveryPartner",
+          "keys": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "PartnerFunction"
+          ],
+          "mode": "posting",
+          "fields": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "PartnerFunction",
+            "Customer",
+            "Supplier",
+            "PersonnelNumber",
+            "AddressNumber",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage",
+            "HasStandardAddress"
+          ]
+        },
+        {
+          "view": "ZSDX_C_DeliveryPartnerAddrMig",
+          "interface": "ZSDX_I_DeliveryPartnerAddr",
+          "keys": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "PartnerFunction",
+            "AddressValidFrom",
+            "AddressVersion"
+          ],
+          "mode": "reference",
+          "fields": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "PartnerFunction",
+            "AddressNumber",
+            "AddressValidFrom",
+            "AddressVersion",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage"
+          ]
+        },
+        {
+          "view": "ZSDX_C_DeliveryStatusMig",
+          "interface": "ZSDX_I_DeliveryStatus",
+          "keys": [
+            "DeliveryDocument"
+          ],
+          "mode": "reference",
+          "fields": [
+            "DeliveryDocument",
+            "OverallProcessingStatus",
+            "GoodsMovementStatus",
+            "PickingStatus",
+            "BillingStatus"
+          ]
+        },
+        {
+          "view": "ZSDX_C_DlvItemStatusMig",
+          "interface": "ZSDX_I_DlvItemStatus",
+          "keys": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem"
+          ],
+          "mode": "reference",
+          "fields": [
+            "DeliveryDocument",
+            "DeliveryDocumentItem",
+            "OverallProcessingStatus",
+            "GoodsMovementStatus",
+            "PickingStatus",
+            "BillingStatus"
+          ]
+        },
+        {
+          "view": "ZSDX_C_DeliveryLongTextMig",
+          "interface": "ZSDX_I_DeliveryLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Outbound delivery reference source records, preparation and comparison contracts."
+    },
+    "pricing_condition": {
+      "native_tables": [
+        "KONH",
+        "KONM",
+        "KONP",
+        "KONW"
+      ],
+      "structures": [
+        {
+          "view": "ZSDX_C_ConditionHdrMig",
+          "interface": "ZSDX_I_ConditionHdr",
+          "keys": [
+            "ConditionRecord"
+          ],
+          "mode": "master",
+          "fields": [
+            "ConditionRecord",
+            "ConditionUsage",
+            "ConditionTableNumber",
+            "Application",
+            "ConditionType",
+            "ValidityStartDate",
+            "ValidityEndDate"
+          ]
+        },
+        {
+          "view": "ZSDX_C_ConditionItemMig",
+          "interface": "ZSDX_I_ConditionItem",
+          "keys": [
+            "ConditionRecord",
+            "ConditionItem"
+          ],
+          "mode": "master",
+          "fields": [
+            "ConditionRecord",
+            "ConditionItem",
+            "CalculationType",
+            "ConditionRate",
+            "ConditionCurrency",
+            "PricingUnit",
+            "ConditionUnit",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZSDX_C_QuantityScaleMig",
+          "interface": "ZSDX_I_QuantityScale",
+          "keys": [
+            "ConditionRecord",
+            "ConditionItem",
+            "ScaleLine"
+          ],
+          "mode": "master",
+          "fields": [
+            "ConditionRecord",
+            "ConditionItem",
+            "ScaleLine",
+            "ScaleQuantity",
+            "ConditionRate"
+          ]
+        },
+        {
+          "view": "ZSDX_C_ValueScaleMig",
+          "interface": "ZSDX_I_ValueScale",
+          "keys": [
+            "ConditionRecord",
+            "ConditionItem",
+            "ScaleLine"
+          ],
+          "mode": "master",
+          "fields": [
+            "ConditionRecord",
+            "ConditionItem",
+            "ScaleLine",
+            "ScaleValue",
+            "ConditionRate"
+          ]
+        }
+      ],
+      "boundary": "Pricing condition records and scales. Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor."
+    },
+    "sales_order": {
+      "native_tables": [
+        "STXH",
+        "VBAK",
+        "VBAP",
+        "VBEP",
+        "VBFA",
+        "VBKD",
+        "VBPA",
+        "VBUK",
+        "VBUP"
+      ],
+      "structures": [
+        {
+          "view": "ZSDX_C_SalesOrderMig",
+          "interface": "ZSDX_I_SalesOrder",
+          "keys": [
+            "SalesDocument"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "SalesDocument",
+            "SalesDocumentType",
+            "SalesOrganization",
+            "DistributionChannel",
+            "Division",
+            "SoldToParty",
+            "TransactionCurrency"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesItemMig",
+          "interface": "ZSDX_I_SalesItem",
+          "keys": [
+            "SalesDocument",
+            "SalesDocumentItem"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "Material",
+            "Plant",
+            "OrderQuantity",
+            "SalesUnit",
+            "RejectionReason",
+            "ItemShortText",
+            "ItemCategory"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesScheduleMig",
+          "interface": "ZSDX_I_SalesSchedule",
+          "keys": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "ScheduleLine"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "ScheduleLine",
+            "DeliveryDate",
+            "OrderQuantity",
+            "ConfirmedQuantity"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesBusinessMig",
+          "interface": "ZSDX_I_SalesBusiness",
+          "keys": [
+            "SalesDocument",
+            "SalesDocumentItem"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "CustomerPurchaseOrder",
+            "PaymentTerms",
+            "IncotermsClassification",
+            "IncotermsLocation"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesPartnerMig",
+          "interface": "ZSDX_I_SalesPartner",
+          "keys": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "PartnerFunction"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "PartnerFunction",
+            "Customer",
+            "Supplier",
+            "PersonnelNumber",
+            "AddressNumber",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage",
+            "HasStandardAddress"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesHeaderStaMig",
+          "interface": "ZSDX_I_SalesHeaderSta",
+          "keys": [
+            "SalesDocument"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "SalesDocument",
+            "OverallProcessingStatus",
+            "DeliveryStatus",
+            "BillingStatus"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesItemStatuMig",
+          "interface": "ZSDX_I_SalesItemStatu",
+          "keys": [
+            "SalesDocument",
+            "SalesDocumentItem"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "OverallProcessingStatus",
+            "DeliveryStatus",
+            "BillingStatus"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesFlowMig",
+          "interface": "ZSDX_I_SalesFlow",
+          "keys": [
+            "PrecedingDocument",
+            "PrecedingDocumentItem",
+            "SubsequentDocument",
+            "SubsequentDocumentItem",
+            "SubsequentDocumentCategory"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PrecedingDocument",
+            "PrecedingDocumentItem",
+            "SubsequentDocument",
+            "SubsequentDocumentItem",
+            "SubsequentDocumentCategory",
+            "PrecedingDocumentCategory",
+            "ReferencedQuantity"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesPartnerAddressMig",
+          "interface": "ZSDX_I_SalesPartnerAddress",
+          "keys": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "PartnerFunction",
+            "AddressValidFrom",
+            "AddressVersion"
+          ],
+          "mode": "reference",
+          "fields": [
+            "SalesDocument",
+            "SalesDocumentItem",
+            "PartnerFunction",
+            "AddressNumber",
+            "AddressValidFrom",
+            "AddressVersion",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage"
+          ]
+        },
+        {
+          "view": "ZSDX_C_SalesLongTextMig",
+          "interface": "ZSDX_I_SalesLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Sales orders source records, preparation and comparison contracts."
+    }
+  }
+}

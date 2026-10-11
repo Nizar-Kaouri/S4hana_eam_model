@@ -13,7 +13,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_WorkCenterMig`
 
-- Source: `ZEMX_B_WorkCenterHeader`
+- Source: `ZEMX_I_WorkCenter`
 - Keys: `WorkCenter`, `Plant`
 - Scope: `src.IsMarkedForDeletion = ''`
 
@@ -101,6 +101,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_WorkCenterText` | `IsMarkedForDeletion` | CRHD-LVORM | scope flag |
 | `ZEMX_I_WorkCenterCostCenter` | `WorkCenterInternalID` | CRCO-OBJID | not migrated: internal object ID |
 | `ZEMX_I_WorkCenterCostCenter` | `IsMarkedForDeletion` | CRHD-LVORM | scope flag |
+| `ZEMX_I_WorkCenter` | `IsMarkedForDeletion` | CRHD-LVORM | Used to exclude deleted records in the consumption scope; not a posting field. |
 
 ## Reconciliation
 

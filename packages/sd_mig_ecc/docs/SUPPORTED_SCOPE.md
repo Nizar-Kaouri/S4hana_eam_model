@@ -4,10 +4,10 @@ ModuPorter Sales and Distribution version 1.0.0.
 
 | Module | ID | Extraction structures |
 |---|---|---:|
-| Billing document reference | billing_document | 4 |
-| Outbound delivery reference | outbound_delivery | 4 |
+| Billing document reference | billing_document | 5 |
+| Outbound delivery reference | outbound_delivery | 7 |
 | Pricing condition records and scales | pricing_condition | 4 |
-| Sales orders | sales_order | 9 |
+| Sales orders | sales_order | 10 |
 
 ## Delivery boundaries
 
@@ -22,9 +22,9 @@ Sales and Distribution has 4 modules and 16 extraction structures.
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
 | Pricing condition records and scales | pricing_condition | 4 | master |
-| Sales orders | sales_order | 9 | open-document |
-| Outbound delivery reference | outbound_delivery | 4 | reference |
-| Billing document reference | billing_document | 4 | reference |
+| Sales orders | sales_order | 10 | open-document |
+| Outbound delivery reference | outbound_delivery | 7 | reference |
+| Billing document reference | billing_document | 5 | reference |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/sd; they are not duplicated as migration payloads.
 

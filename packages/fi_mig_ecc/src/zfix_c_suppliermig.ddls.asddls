@@ -36,5 +36,11 @@ define view ZFIX_C_SupplierMig
       src.AddressCountry as AddressCountry,
       src.AddressRegion as AddressRegion,
       src.AddressLanguage as AddressLanguage,
-      src.HasStandardAddress as HasStandardAddress
+      src.HasStandardAddress as HasStandardAddress,
+      src.TaxNumber1 as TaxNumber1,
+      src.TaxNumber2 as TaxNumber2,
+      src.TaxNumber3 as TaxNumber3,
+      src.TaxNumber4 as TaxNumber4,
+      src.VATRegistration as VATRegistration,
+      src.CorrespondenceLanguage as CorrespondenceLanguage
 }

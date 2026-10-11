@@ -14,7 +14,9 @@
     "EKET",
     "EKKN",
     "EKKO",
-    "EKPO"
+    "EKPA",
+    "EKPO",
+    "STXH"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
@@ -27,14 +29,18 @@
       "ZMMX_B_PurchaseItemData",
       "ZMMX_B_PurchaseScheduData",
       "ZMMX_B_PurchaseAssignData",
-      "ZMMX_B_PurchaseHistorData"
+      "ZMMX_B_PurchaseHistorData",
+      "ZMMX_B_PurchasePartnerData",
+      "ZMMX_B_PurchaseLTIndexData"
     ],
     "composite": [
       "ZMMX_I_PurchaseOrder",
       "ZMMX_I_PurchaseItem",
       "ZMMX_I_PurchaseSchedu",
       "ZMMX_I_PurchaseAssign",
-      "ZMMX_I_PurchaseHistor"
+      "ZMMX_I_PurchaseHistor",
+      "ZMMX_I_PurchasePartner",
+      "ZMMX_I_PurchaseLongText"
     ],
     "consumption": [
       "ZMMX_C_PurchaseOrderMig",
@@ -42,7 +48,9 @@
       "ZMMX_C_PurchaseItemMig",
       "ZMMX_C_PurchaseScheduMig",
       "ZMMX_C_PurchaseAssignMig",
-      "ZMMX_C_PurchaseHistorMig"
+      "ZMMX_C_PurchaseHistorMig",
+      "ZMMX_C_PurchasePartnerMig",
+      "ZMMX_C_PurchaseLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -64,7 +72,13 @@
     "ZMMX_C_PurchaseAssignMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMX_B_PurchaseHistorData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZMMX_I_PurchaseHistor": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZMMX_C_PurchaseHistorMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZMMX_C_PurchaseHistorMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_B_PurchasePartnerData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_PurchasePartner": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_PurchasePartnerMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_PurchaseLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_PurchaseLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_B_PurchaseLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

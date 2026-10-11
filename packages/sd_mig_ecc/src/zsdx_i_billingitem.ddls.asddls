@@ -20,5 +20,6 @@ define view ZSDX_I_BillingItem
       src.SalesUnit as SalesUnit,
       src.NetAmount as NetAmount,
       src.ReferenceDocument as ReferenceDocument,
-      src.ReferenceDocumentItem as ReferenceDocumentItem
+      src.ReferenceDocumentItem as ReferenceDocumentItem,
+      src.ItemShortText as ItemShortText
 }

@@ -1,1 +1,1 @@
-Supplier,CompanyCode,ReconciliationAccount,PaymentTerms,PaymentMethods,DeletionFlag
+Supplier,CompanyCode,ReconciliationAccount,PaymentTerms,PaymentMethods,DeletionFlag,PaymentBlock,SortKey,PlanningGroup

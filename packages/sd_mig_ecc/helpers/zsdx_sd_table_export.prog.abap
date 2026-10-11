@@ -32,9 +32,23 @@ START-OF-SELECTION.
   TRANSLATE p_field TO UPPER CASE.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
-    WHEN 'KONH' OR 'KONM' OR 'KONP' OR 'KONW' OR 'LIKP'
-      OR 'LIPS' OR 'VBAK' OR 'VBAP' OR 'VBEP' OR 'VBFA'
-      OR 'VBKD' OR 'VBPA' OR 'VBRK' OR 'VBRP' OR 'VBUK'
+    WHEN 'ADRC'
+      OR 'KONH'
+      OR 'KONM'
+      OR 'KONP'
+      OR 'KONW'
+      OR 'LIKP'
+      OR 'LIPS'
+      OR 'STXH'
+      OR 'VBAK'
+      OR 'VBAP'
+      OR 'VBEP'
+      OR 'VBFA'
+      OR 'VBKD'
+      OR 'VBPA'
+      OR 'VBRK'
+      OR 'VBRP'
+      OR 'VBUK'
       OR 'VBUP'.
       lv_allowed = abap_true.
   ENDCASE.

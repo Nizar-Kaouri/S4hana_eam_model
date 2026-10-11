@@ -67,6 +67,20 @@
           "target": "customer interface field: Plant (unconfirmed)",
           "rule": "info",
           "compare": true
+        },
+        {
+          "element": "ControlKey",
+          "source": "AFVC-STEUS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SubOperation",
+          "source": "AFVC-UVORN",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "process-reference",

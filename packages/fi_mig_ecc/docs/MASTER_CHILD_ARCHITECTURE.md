@@ -14,7 +14,7 @@ Equipment and functional locations use ILOA.ADRNR; FI customers, suppliers and b
 
 CO cost/profit center address and communication fields are scalar attributes of their native master interval records. Do not assume every object owns a postal address. SD sales, delivery and billing partner exports use the native VBPA.ADRNR document address. These addresses may differ from customer masters; no customer-address fallback is invented. Header partners retain item 000000; repeating partners and their address versions stay separate from the document master.
 
-QM inspection lots/notifications, PS projects/WBS/networks, PP production orders and CO internal orders have separate active JEST status reference exports joined by actual OBJNR. Preserve StatusCode and object business keys. System statuses are recreated by SAP processes and must not be posted from JEST. User statuses require a separate mapping and a supported target business operation; the reference export is not a posting adapter.
+QM inspection lots/notifications, PS projects/WBS/networks, PP production orders and CO internal orders have separate active JEST status reference exports joined by actual OBJNR. Preserve StatusCode and object business keys. System statuses are recreated by SAP processes and must not be posted from JEST. Dedicated user-status exports preserve the actual JSTO status profile and E* status code. Map them through a supported target business operation; the status export is not a posting adapter.
 
 Use consistent full cutover snapshots when dependent table changes are not covered by a verified change-capture strategy. Read the field catalogue and map added extraction attributes against the installed target migration template or supported interface; no target fields or compatibility are implied by source extraction fields.
 
@@ -43,3 +43,5 @@ The split structures and customer semi-join workflow are engineering choices inf
 - [SAP SD manual document address reference](https://userapps.support.sap.com/sap/support/knowledge/en/3601160): VBPA.ADRNR distinguishes document addresses on ECC and S/4HANA.
 
 SD partner and business rows are first scoped to selected documents, then to selected items. Header item 000000 remains a header record and does not require a fictitious item.
+
+Complete object/field delivery inventory: [OBJECT_COVERAGE.md](OBJECT_COVERAGE.md). Long-text owner links and payloads: [LONG_TEXT_WORKFLOW.md](LONG_TEXT_WORKFLOW.md).

@@ -18,6 +18,7 @@
     "PLMZ",
     "PLPO",
     "PLWP",
+    "STXH",
     "TAPL"
   ],
   "sap_released_views": [],
@@ -35,7 +36,8 @@
       "ZEMX_B_TaskListPRTData",
       "ZEMX_B_TaskListPackageData",
       "ZEMX_B_EquipTaskListAsgmt",
-      "ZEMX_B_FuncTaskListAsgmt"
+      "ZEMX_B_FuncTaskListAsgmt",
+      "ZEMX_B_TaskListLTIndexData"
     ],
     "composite": [
       "ZEMX_I_TaskListLatestVersion",
@@ -49,7 +51,8 @@
       "ZEMX_I_TaskListPackage",
       "ZEMX_I_TaskListAsgLatest",
       "ZEMX_I_TaskListOpLatest",
-      "ZEMX_I_TaskListObjectAssgmt"
+      "ZEMX_I_TaskListObjectAssgmt",
+      "ZEMX_I_TaskListLongText"
     ],
     "consumption": [
       "ZEMX_C_TaskListMig",
@@ -58,7 +61,8 @@
       "ZEMX_C_TaskListMigCount",
       "ZEMX_C_TaskListCompMig",
       "ZEMX_C_TaskListPRTMig",
-      "ZEMX_C_TaskListPackageMig"
+      "ZEMX_C_TaskListPackageMig",
+      "ZEMX_C_TaskListLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -91,7 +95,10 @@
     "ZEMX_I_TaskListAsgLatest": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_TaskListOpLatest": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_B_EquipTaskListAsgmt": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_B_FuncTaskListAsgmt": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_B_FuncTaskListAsgmt": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_TaskListLongText": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_TaskListLongTextMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_TaskListLTIndexData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

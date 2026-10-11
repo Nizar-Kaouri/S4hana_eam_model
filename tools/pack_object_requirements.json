@@ -1,0 +1,4516 @@
+{
+  "eam": {
+    "classification": {
+      "required_structures": [
+        "ZEMX_C_ClassAssignmentMig",
+        "ZEMX_C_CharcValueMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_ClassAssignmentMig": [
+          "ClassifiedObject",
+          "ClassType",
+          "Class",
+          "ClassificationStatus"
+        ],
+        "ZEMX_C_CharcValueMig": [
+          "ClassifiedObject",
+          "ClassType",
+          "Characteristic",
+          "CharcValuePositionNumber",
+          "CharcValue",
+          "CharcFromNumericValue",
+          "CharcToNumericValue",
+          "CharcValueDependency"
+        ]
+      },
+      "native_tables": [
+        "KSSK",
+        "KLAH",
+        "AUSP"
+      ],
+      "boundary": "Class assignments and characteristic values of technical objects."
+    },
+    "core": {
+      "required_structures": [],
+      "required_fields": {},
+      "native_tables": [
+        "ILOA",
+        "JEST",
+        "CABN",
+        "ADRC"
+      ],
+      "boundary": "Shared basic views: location / account assignment, status flags, characteristics."
+    },
+    "equipment": {
+      "required_structures": [
+        "ZEMX_C_EquipmentMig",
+        "ZEMX_C_EquipmentTextMig",
+        "ZEMX_C_EquipSerialStockMig",
+        "ZEMX_C_EquipPartnerMig",
+        "ZEMX_C_EquipStatusMig",
+        "ZEMX_C_EquipUserStatusMig",
+        "ZEMX_C_EquipLongTextMig",
+        "ZEMX_C_EquipAddressMig",
+        "ZEMX_C_EquipClassMig",
+        "ZEMX_C_EquipCharcMig",
+        "ZEMX_C_EquipEmailMig",
+        "ZEMX_C_EquipPhoneMig",
+        "ZEMX_C_EquipFaxMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_EquipmentMig": [
+          "Equipment",
+          "EquipmentCategory",
+          "TechnicalObjectType",
+          "AuthorizationGroup",
+          "ValidityStartDate",
+          "MaintenancePlanningPlant",
+          "MaintenancePlannerGroup",
+          "MainWorkCenter",
+          "MainWorkCenterPlant",
+          "FunctionalLocation",
+          "SuperordinateEquipment",
+          "EquipInstallationPositionNmbr",
+          "TechnicalIdentificationNumber",
+          "MaintenancePlant",
+          "PlantSection",
+          "AssetLocation",
+          "AssetRoom",
+          "ABCIndicator",
+          "SortField",
+          "CompanyCode",
+          "BusinessArea",
+          "ControllingArea",
+          "CostCenter",
+          "MasterFixedAsset",
+          "FixedAsset",
+          "StandingOrder",
+          "Material",
+          "SerialNumber",
+          "AssetManufacturerName",
+          "ManufacturerCountry",
+          "ManufacturerModelNumber",
+          "ManufacturerPartNmbr",
+          "ManufacturerSerialNumber",
+          "ConstructionYear",
+          "ConstructionMonth",
+          "InventoryNumber",
+          "OperationStartDate",
+          "EquipmentSizeDimension",
+          "GrossWeight",
+          "WeightUnit",
+          "AcquisitionDate",
+          "AcquisitionValue",
+          "Currency",
+          "LastChangeDate",
+          "AddressNumber",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage",
+          "HasStandardAddress"
+        ],
+        "ZEMX_C_EquipmentTextMig": [
+          "Equipment",
+          "Language",
+          "EquipmentName"
+        ],
+        "ZEMX_C_EquipSerialStockMig": [
+          "Equipment",
+          "StockPlant",
+          "StorageLocation",
+          "Batch",
+          "SpecialStock"
+        ],
+        "ZEMX_C_EquipPartnerMig": [
+          "Equipment",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZEMX_C_EquipStatusMig": [
+          "Equipment",
+          "StatusCode",
+          "StatusKind",
+          "StatusProfile",
+          "StatusChangeNumber"
+        ],
+        "ZEMX_C_EquipUserStatusMig": [
+          "Equipment",
+          "StatusCode",
+          "StatusKind",
+          "StatusProfile",
+          "StatusChangeNumber"
+        ],
+        "ZEMX_C_EquipLongTextMig": [
+          "Equipment",
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ],
+        "ZEMX_C_EquipAddressMig": [
+          "Equipment",
+          "AddressNumber",
+          "AddressValidFrom",
+          "AddressVersion",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage"
+        ],
+        "ZEMX_C_EquipClassMig": [
+          "Equipment",
+          "ClassType",
+          "Class",
+          "ClassificationStatus"
+        ],
+        "ZEMX_C_EquipCharcMig": [
+          "Equipment",
+          "ClassType",
+          "Characteristic",
+          "CharcValuePositionNumber",
+          "CharcValue",
+          "CharcFromNumericValue",
+          "CharcToNumericValue",
+          "CharcValueDependency"
+        ],
+        "ZEMX_C_EquipEmailMig": [
+          "Equipment",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "EmailAddress",
+          "IsDefaultCommunication"
+        ],
+        "ZEMX_C_EquipPhoneMig": [
+          "Equipment",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "Telephone",
+          "TelephoneExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZEMX_C_EquipFaxMig": [
+          "Equipment",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "FaxNumber",
+          "FaxExtension",
+          "IsDefaultCommunication"
+        ]
+      },
+      "native_tables": [
+        "ADRC",
+        "EQBS",
+        "EQKT",
+        "EQUI",
+        "EQUZ",
+        "ILOA",
+        "ADR6",
+        "ADR2",
+        "ADR3"
+      ],
+      "boundary": "Current equipment master with standard postal address, multilingual texts, scoped partners, active statuses, user statuses, long-text index and address versions. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md."
+    },
+    "equipment_bom": {
+      "required_structures": [
+        "ZEMX_C_EquipBOMAssignMig",
+        "ZEMX_C_BOMHeaderMig",
+        "ZEMX_C_BOMSelectionMig",
+        "ZEMX_C_BOMItemMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_EquipBOMAssignMig": [
+          "Equipment",
+          "Plant",
+          "BOMUsage",
+          "BillOfMaterial",
+          "BOMAlternative"
+        ],
+        "ZEMX_C_BOMHeaderMig": [
+          "BOMCategory",
+          "BillOfMaterial",
+          "BOMAlternative",
+          "HeaderCounter",
+          "ValidityStartDate",
+          "IsMarkedForDeletion",
+          "BaseQuantity",
+          "BaseUnit"
+        ],
+        "ZEMX_C_BOMSelectionMig": [
+          "BOMCategory",
+          "BillOfMaterial",
+          "BOMAlternative",
+          "BOMItemNode",
+          "SelectionCounter",
+          "ValidityStartDate",
+          "IsMarkedForDeletion"
+        ],
+        "ZEMX_C_BOMItemMig": [
+          "BOMCategory",
+          "BillOfMaterial",
+          "BOMItemNode",
+          "ItemCounter",
+          "ValidityStartDate",
+          "BOMItemNumber",
+          "BOMItemCategory",
+          "ComponentMaterial",
+          "ComponentQuantity",
+          "ComponentUnit",
+          "IsMarkedForDeletion"
+        ]
+      },
+      "native_tables": [
+        "EQST",
+        "STAS",
+        "STKO",
+        "STPO"
+      ],
+      "boundary": "Equipment BOM assignments and versioned header, selection and item ledgers."
+    },
+    "functional_location": {
+      "required_structures": [
+        "ZEMX_C_FuncLocMig",
+        "ZEMX_C_FuncLocTextMig",
+        "ZEMX_C_FuncLocLabelMig",
+        "ZEMX_C_FuncLocAddressMig",
+        "ZEMX_C_FuncLocPartnerMig",
+        "ZEMX_C_FuncLocStatusMig",
+        "ZEMX_C_FuncLocUserStatusMig",
+        "ZEMX_C_FuncLocClassMig",
+        "ZEMX_C_FuncLocCharcMig",
+        "ZEMX_C_FuncLocEmailMig",
+        "ZEMX_C_FuncLocPhoneMig",
+        "ZEMX_C_FuncLocFaxMig",
+        "ZEMX_C_FuncLocLongTextMig",
+        "ZEMX_C_FuncLocBOMMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_FuncLocMig": [
+          "FunctionalLocation",
+          "FunctionalLocationCategory",
+          "FuncLocationStructure",
+          "SuperiorFunctionalLocation",
+          "TechnicalObjectType",
+          "AuthorizationGroup",
+          "MaintenancePlanningPlant",
+          "MaintenancePlannerGroup",
+          "EquipInstallationIsAllowed",
+          "EquipIsSingleInstallation",
+          "ConstructionType",
+          "AssetManufacturerName",
+          "ConstructionYear",
+          "InventoryNumber",
+          "OperationStartDate",
+          "MaintenancePlant",
+          "PlantSection",
+          "AssetLocation",
+          "AssetRoom",
+          "ABCIndicator",
+          "SortField",
+          "CompanyCode",
+          "BusinessArea",
+          "ControllingArea",
+          "CostCenter",
+          "MasterFixedAsset",
+          "FixedAsset",
+          "StandingOrder",
+          "LastChangeDate",
+          "AddressNumber",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage",
+          "HasStandardAddress"
+        ],
+        "ZEMX_C_FuncLocTextMig": [
+          "FunctionalLocation",
+          "Language",
+          "FunctionalLocationName"
+        ],
+        "ZEMX_C_FuncLocLabelMig": [
+          "FunctionalLocation",
+          "LabelingSystem",
+          "AlternativeLabel",
+          "IsActiveLabel"
+        ],
+        "ZEMX_C_FuncLocAddressMig": [
+          "FunctionalLocation",
+          "AddressNumber",
+          "AddressValidFrom",
+          "AddressVersion",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage"
+        ],
+        "ZEMX_C_FuncLocPartnerMig": [
+          "FunctionalLocation",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZEMX_C_FuncLocStatusMig": [
+          "FunctionalLocation",
+          "StatusCode",
+          "StatusKind",
+          "StatusProfile",
+          "StatusChangeNumber"
+        ],
+        "ZEMX_C_FuncLocUserStatusMig": [
+          "FunctionalLocation",
+          "StatusCode",
+          "StatusKind",
+          "StatusProfile",
+          "StatusChangeNumber"
+        ],
+        "ZEMX_C_FuncLocClassMig": [
+          "FunctionalLocation",
+          "ClassType",
+          "Class",
+          "ClassificationStatus"
+        ],
+        "ZEMX_C_FuncLocCharcMig": [
+          "FunctionalLocation",
+          "ClassType",
+          "Characteristic",
+          "CharcValuePositionNumber",
+          "CharcValue",
+          "CharcFromNumericValue",
+          "CharcToNumericValue",
+          "CharcValueDependency"
+        ],
+        "ZEMX_C_FuncLocEmailMig": [
+          "FunctionalLocation",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "EmailAddress",
+          "IsDefaultCommunication"
+        ],
+        "ZEMX_C_FuncLocPhoneMig": [
+          "FunctionalLocation",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "Telephone",
+          "TelephoneExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZEMX_C_FuncLocFaxMig": [
+          "FunctionalLocation",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "FaxNumber",
+          "FaxExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZEMX_C_FuncLocLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ],
+        "ZEMX_C_FuncLocBOMMig": [
+          "FunctionalLocation",
+          "Plant",
+          "BOMUsage",
+          "BillOfMaterial",
+          "BOMAlternative"
+        ]
+      },
+      "native_tables": [
+        "ADR2",
+        "ADR3",
+        "ADR6",
+        "IFLOS",
+        "IFLOT",
+        "IFLOTX",
+        "STXH",
+        "TPST"
+      ],
+      "boundary": "Functional locations, texts and alternative labels. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md."
+    },
+    "long_text": {
+      "required_structures": [
+        "ZEMX_C_LongTextIndexMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_LongTextIndexMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "STXH"
+      ],
+      "boundary": "Index of long texts of EAM objects (content via READ_TEXT in the load program)."
+    },
+    "maintenance_notification": {
+      "required_structures": [
+        "ZEMX_C_MaintNotificationMig",
+        "ZEMX_C_MaintNotifItemMig",
+        "ZEMX_C_NotifCauseMig",
+        "ZEMX_C_NotifTaskMig",
+        "ZEMX_C_NotifActivityMig",
+        "ZEMX_C_MaintNotifPartnerMig",
+        "ZEMX_C_MaintNotifStatusMig",
+        "ZEMX_C_NotifUserStatusMig",
+        "ZEMX_C_NotifLongTextMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_MaintNotificationMig": [
+          "MaintenanceNotification",
+          "NotificationType",
+          "NotificationText",
+          "MaintPriority",
+          "MaintPriorityType",
+          "NotificationDate",
+          "NotificationTime",
+          "ReportedByUser",
+          "RequiredStartDate",
+          "RequiredEndDate",
+          "NotificationCatalog",
+          "NotificationCodeGroup",
+          "NotificationCode",
+          "Equipment",
+          "FunctionalLocation",
+          "MaintenancePlanningPlant",
+          "MaintenancePlannerGroup",
+          "MainWorkCenter",
+          "MainWorkCenterPlant",
+          "MaintenancePlant",
+          "PlantSection",
+          "MaintenanceObjectIsDown",
+          "MalfunctionStartDate",
+          "MalfunctionStartTime",
+          "MalfunctionEndDate",
+          "MalfunctionEndTime",
+          "LastChangeDate"
+        ],
+        "ZEMX_C_MaintNotifItemMig": [
+          "MaintenanceNotification",
+          "MaintNotificationItem",
+          "ObjectPartCodeGroup",
+          "ObjectPartCode",
+          "DamageCodeGroup",
+          "DamageCode",
+          "MaintNotifItemText"
+        ],
+        "ZEMX_C_NotifCauseMig": [
+          "MaintenanceNotification",
+          "MaintNotificationItem",
+          "CauseNumber",
+          "CauseCodeGroup",
+          "CauseCode",
+          "CauseText"
+        ],
+        "ZEMX_C_NotifTaskMig": [
+          "MaintenanceNotification",
+          "TaskNumber",
+          "MaintNotificationItem",
+          "TaskCodeGroup",
+          "TaskCode",
+          "TaskText",
+          "PartnerFunction",
+          "ResponsiblePartner",
+          "PlannedStartDate",
+          "PlannedEndDate",
+          "CompletionDate"
+        ],
+        "ZEMX_C_NotifActivityMig": [
+          "MaintenanceNotification",
+          "ActivityNumber",
+          "MaintNotificationItem",
+          "ActivityCodeGroup",
+          "ActivityCode",
+          "ActivityText",
+          "ActivityStartDate",
+          "ActivityEndDate"
+        ],
+        "ZEMX_C_MaintNotifPartnerMig": [
+          "MaintenanceNotification",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZEMX_C_MaintNotifStatusMig": [
+          "MaintenanceNotification",
+          "StatusCode",
+          "StatusKind",
+          "StatusProfile",
+          "StatusChangeNumber"
+        ],
+        "ZEMX_C_NotifUserStatusMig": [
+          "MaintenanceNotification",
+          "StatusCode",
+          "StatusKind",
+          "StatusProfile",
+          "StatusChangeNumber"
+        ],
+        "ZEMX_C_NotifLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "QMEL",
+        "QMFE",
+        "QMIH",
+        "QMMA",
+        "QMSM",
+        "QMUR",
+        "STXH"
+      ],
+      "boundary": "Open PM notifications with items, causes, tasks and activities. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md."
+    },
+    "maintenance_order": {
+      "required_structures": [
+        "ZEMX_C_MaintOrderMig",
+        "ZEMX_C_MaintOrderOperationMig",
+        "ZEMX_C_MaintOrderComponentMig",
+        "ZEMX_C_OrderSettlementMig",
+        "ZEMX_C_OrderPermitMig",
+        "ZEMX_C_MaintOrderPartnerMig",
+        "ZEMX_C_MaintOrderStatusMig",
+        "ZEMX_C_OrderUserStatusMig",
+        "ZEMX_C_OrderLongTextMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_MaintOrderMig": [
+          "MaintenanceOrder",
+          "MaintenanceOrderType",
+          "MaintenanceOrderDesc",
+          "MaintenanceActivityType",
+          "MaintPriority",
+          "MaintOrdBasicStartDate",
+          "MaintOrdBasicEndDate",
+          "MaintenancePlanningPlant",
+          "MaintenancePlannerGroup",
+          "MainWorkCenter",
+          "MainWorkCenterPlant",
+          "MaintenancePlant",
+          "CompanyCode",
+          "BusinessArea",
+          "ControllingArea",
+          "ResponsibleCostCenter",
+          "CostCenter",
+          "MaintenanceNotification",
+          "Equipment",
+          "FunctionalLocation",
+          "MaintenancePlan",
+          "MaintenanceItem",
+          "MaintObjectSystemCondition",
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "Currency",
+          "LastChangeDate"
+        ],
+        "ZEMX_C_MaintOrderOperationMig": [
+          "MaintenanceOrder",
+          "MaintenanceOrderOperation",
+          "MaintenanceOrderSubOperation",
+          "OperationDescription",
+          "OperationControlKey",
+          "WorkCenter",
+          "WorkCenterPlant",
+          "Plant",
+          "ActivityType",
+          "PlannedWorkQuantity",
+          "PlannedWorkQuantityUnit",
+          "OperationDuration",
+          "OperationDurationUnit"
+        ],
+        "ZEMX_C_MaintOrderComponentMig": [
+          "MaintenanceOrder",
+          "ReservationItem",
+          "MaintenanceOrderOperation",
+          "BOMItemNumber",
+          "BOMItemCategory",
+          "Material",
+          "Plant",
+          "StorageLocation",
+          "MatlCompRequirementDate",
+          "RequirementQuantityInBaseUnit",
+          "WithdrawnQuantity",
+          "BaseUnit"
+        ],
+        "ZEMX_C_OrderSettlementMig": [
+          "ObjectNumber",
+          "DistributionRuleNumber",
+          "SettlementType",
+          "ReceiverCategory",
+          "SettlementPercentage",
+          "SettlementAmount",
+          "Currency",
+          "ControllingArea",
+          "CompanyCode",
+          "ReceiverCostCenter",
+          "ReceiverOrder",
+          "ReceiverAsset",
+          "ReceiverAssetSubnumber",
+          "ReceiverWBSInternalID",
+          "ValidFromYear",
+          "ValidFromPeriod",
+          "ValidToYear",
+          "ValidToPeriod",
+          "MaintenanceOrder",
+          "DistributionRuleGroup"
+        ],
+        "ZEMX_C_OrderPermitMig": [
+          "ObjectNumber",
+          "Permit",
+          "MaintenanceOrder"
+        ],
+        "ZEMX_C_MaintOrderPartnerMig": [
+          "MaintenanceOrder",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZEMX_C_MaintOrderStatusMig": [
+          "MaintenanceOrder",
+          "StatusCode",
+          "StatusKind",
+          "StatusProfile",
+          "StatusChangeNumber"
+        ],
+        "ZEMX_C_OrderUserStatusMig": [
+          "MaintenanceOrder",
+          "StatusCode",
+          "StatusKind",
+          "StatusProfile",
+          "StatusChangeNumber"
+        ],
+        "ZEMX_C_OrderLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "AFIH",
+        "AFKO",
+        "AFVC",
+        "AFVV",
+        "AUFK",
+        "COBRB",
+        "IHSG",
+        "RESB",
+        "STXH"
+      ],
+      "boundary": "Open maintenance orders with operations, components, settlement rows and permit assignments. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md."
+    },
+    "maintenance_plan": {
+      "required_structures": [
+        "ZEMX_C_MaintenancePlanMig",
+        "ZEMX_C_MaintenanceItemMig",
+        "ZEMX_C_MaintPlanCycleMig",
+        "ZEMX_C_PlanLongTextMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_MaintenancePlanMig": [
+          "MaintenancePlan",
+          "MaintenancePlanDesc",
+          "MaintenancePlanCategory",
+          "MaintenanceStrategy",
+          "AuthorizationGroup",
+          "SchedulingPeriod",
+          "SchedulingPeriodUnit",
+          "CallHorizonPercent",
+          "CycleModificationFactor",
+          "SchedulingIndicator",
+          "LateCompletionShiftFactor",
+          "LateCompletionTolerance",
+          "EarlyCompletionShiftFactor",
+          "EarlyCompletionTolerance",
+          "FactoryCalendar",
+          "LastCompletionDate",
+          "LastChangeDate"
+        ],
+        "ZEMX_C_MaintenanceItemMig": [
+          "MaintenanceItem",
+          "MaintenancePlan",
+          "MaintenanceItemDescription",
+          "Equipment",
+          "FunctionalLocation",
+          "MaintenancePlanningPlant",
+          "MaintenancePlannerGroup",
+          "MainWorkCenter",
+          "MainWorkCenterPlant",
+          "MaintenanceOrderType",
+          "NotificationType",
+          "MaintenanceActivityType",
+          "MaintPriority",
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "BusinessArea",
+          "LastChangeDate"
+        ],
+        "ZEMX_C_MaintPlanCycleMig": [
+          "MaintenancePlan",
+          "MaintenancePlanCycle",
+          "CycleValue",
+          "CycleUnit",
+          "CycleText",
+          "MeasuringPoint"
+        ],
+        "ZEMX_C_PlanLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "MHIS",
+        "MMPT",
+        "MPLA",
+        "MPOS",
+        "STXH"
+      ],
+      "boundary": "Maintenance plans with items, cycles and the schedule restart point."
+    },
+    "measurement_document": {
+      "required_structures": [
+        "ZEMX_C_MeasReadingMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_MeasReadingMig": [
+          "MeasuringPoint",
+          "MsmtRdngDate",
+          "MsmtRdngTime",
+          "MsmtRdngByUser",
+          "MeasurementReading",
+          "MeasurementCounterReading",
+          "MsmtReadingInEntryUnit",
+          "MsmtEntryUnit",
+          "MsmtValuationCode",
+          "MeasurementDocumentText"
+        ]
+      },
+      "native_tables": [
+        "IMRG"
+      ],
+      "boundary": "Last reading per measuring point (initial readings on S/4HANA)."
+    },
+    "measuring_point": {
+      "required_structures": [
+        "ZEMX_C_MeasuringPointMig",
+        "ZEMX_C_MeasPointLongTextMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_MeasuringPointMig": [
+          "MeasuringPoint",
+          "MeasuringPointDescription",
+          "MeasuringPointCategory",
+          "MeasuringPointPositionNumber",
+          "MeasuringPointObjectType",
+          "TechnicalObjectKey",
+          "Characteristic",
+          "MeasuringPointIsCounter",
+          "MeasuringPointDecimalPlaces",
+          "MeasurementRangeUnit",
+          "LowerRangeLimit",
+          "UpperRangeLimit",
+          "TargetValue",
+          "CodeGroup",
+          "MeasuringPointIsInactive",
+          "AuthorizationGroup",
+          "LastChangeDate"
+        ],
+        "ZEMX_C_MeasPointLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "IMPTT",
+        "STXH"
+      ],
+      "boundary": "Measuring points and counters of equipment and functional locations."
+    },
+    "object_partner": {
+      "required_structures": [
+        "ZEMX_C_ObjectPartnerMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_ObjectPartnerMig": [
+          "PartnerObjectKey",
+          "PartnerFunction",
+          "PartnerCounter",
+          "PartnerObjectType",
+          "Partner"
+        ]
+      },
+      "native_tables": [
+        "IHPA"
+      ],
+      "boundary": "Partner assignments of technical objects, notifications and orders."
+    },
+    "object_status": {
+      "required_structures": [
+        "ZEMX_C_UserStatusMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_UserStatusMig": [
+          "StatusObjectKey",
+          "StatusCode",
+          "StatusObjectType",
+          "StatusProfile"
+        ]
+      },
+      "native_tables": [
+        "JEST",
+        "JSTO",
+        "TJ30T"
+      ],
+      "boundary": "Active user statuses of technical objects, notifications and orders."
+    },
+    "task_list": {
+      "required_structures": [
+        "ZEMX_C_TaskListMig",
+        "ZEMX_C_TaskListOperationMig",
+        "ZEMX_C_TaskListAllocationMig",
+        "ZEMX_C_TaskListCompMig",
+        "ZEMX_C_TaskListPRTMig",
+        "ZEMX_C_TaskListPackageMig",
+        "ZEMX_C_TaskListLongTextMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_TaskListMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "ValidityStartDate",
+          "TaskListDesc",
+          "Plant",
+          "TaskListUsage",
+          "TaskListStatus",
+          "MaintenancePlannerGroup",
+          "MainWorkCenter",
+          "MainWorkCenterPlant",
+          "MaintenanceStrategy",
+          "MaintObjectSystemCondition",
+          "LastChangeDate"
+        ],
+        "ZEMX_C_TaskListOperationMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "TaskListSequence",
+          "TaskListOperation",
+          "TaskListSubOperation",
+          "OperationControlKey",
+          "OperationText",
+          "WorkCenter",
+          "WorkCenterPlant",
+          "Plant",
+          "ActivityType",
+          "PlannedWorkQuantity",
+          "PlannedWorkQuantityUnit",
+          "OperationDuration",
+          "OperationDurationUnit",
+          "NumberOfCapacities"
+        ],
+        "ZEMX_C_TaskListAllocationMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "Equipment",
+          "FunctionalLocation",
+          "AdditionalCriteriaCounter",
+          "AssignmentCounter",
+          "IsMarkedForDeletion"
+        ],
+        "ZEMX_C_TaskListCompMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "OperationInternalID",
+          "VersionCounter",
+          "AllocationNumber",
+          "BOMCategory",
+          "BillOfMaterial",
+          "BOMAlternative",
+          "BOMItemNode"
+        ],
+        "ZEMX_C_TaskListPRTMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "OperationInternalID",
+          "VersionCounter",
+          "PRTItem",
+          "PRTObjectType",
+          "PRTInternalID",
+          "PRTControlKey"
+        ],
+        "ZEMX_C_TaskListPackageMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "OperationInternalID",
+          "VersionCounter",
+          "MaintenancePackage"
+        ],
+        "ZEMX_C_TaskListLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "EAPL",
+        "PLAS",
+        "PLFH",
+        "PLKO",
+        "PLMZ",
+        "PLPO",
+        "PLWP",
+        "STXH",
+        "TAPL"
+      ],
+      "boundary": "Maintenance task lists with operations, object allocation, component/PRT/package references and provisional latest-counter selection."
+    },
+    "work_center": {
+      "required_structures": [
+        "ZEMX_C_WorkCenterMig",
+        "ZEMX_C_WorkCenterTextMig",
+        "ZEMX_C_WorkCenterCostCtrMig",
+        "ZEMX_C_WorkCenterCapacityMig",
+        "ZEMX_C_CapacityHeaderMig"
+      ],
+      "required_fields": {
+        "ZEMX_C_WorkCenterMig": [
+          "WorkCenter",
+          "Plant",
+          "WorkCenterCategoryCode",
+          "WorkCenterResponsible",
+          "TaskListUsage",
+          "ValidityStartDate",
+          "ValidityEndDate"
+        ],
+        "ZEMX_C_WorkCenterTextMig": [
+          "WorkCenter",
+          "Plant",
+          "Language",
+          "WorkCenterText"
+        ],
+        "ZEMX_C_WorkCenterCostCtrMig": [
+          "WorkCenter",
+          "Plant",
+          "ValidityEndDate",
+          "ValidityStartDate",
+          "ControllingArea",
+          "CostCenter",
+          "ActivityTypeSet",
+          "CostCenterAssgmtCounter"
+        ],
+        "ZEMX_C_WorkCenterCapacityMig": [
+          "ObjectType",
+          "WorkCenterInternalID",
+          "CapacityAssignment",
+          "CapacityInternalID",
+          "ValidityStartDate",
+          "ValidityEndDate",
+          "CapacityFormula",
+          "WorkCenter"
+        ],
+        "ZEMX_C_CapacityHeaderMig": [
+          "CapacityInternalID",
+          "CapacityCategory",
+          "CapacityName"
+        ]
+      },
+      "native_tables": [
+        "CRCA",
+        "CRCO",
+        "CRHD",
+        "CRTX",
+        "KAKO"
+      ],
+      "boundary": "Work-center headers, texts, cost centers and capacity references."
+    }
+  },
+  "fi_aa": {
+    "asset_balance": {
+      "required_structures": [
+        "ZFAX_C_AssetBalanceMig"
+      ],
+      "required_fields": {
+        "ZFAX_C_AssetBalanceMig": [
+          "CompanyCode",
+          "MasterFixedAsset",
+          "FixedAsset",
+          "FiscalYear",
+          "DepreciationArea",
+          "CumulativeAcquisition",
+          "CumulativeDepreciation",
+          "CurrentYearAcquisition",
+          "PostedDepreciation"
+        ]
+      },
+      "native_tables": [
+        "ANLC"
+      ],
+      "boundary": "Asset fiscal year balances source records, preparation and comparison contracts."
+    },
+    "asset_transaction": {
+      "required_structures": [
+        "ZFAX_C_AssetPostingMig"
+      ],
+      "required_fields": {
+        "ZFAX_C_AssetPostingMig": [
+          "CompanyCode",
+          "MasterFixedAsset",
+          "FixedAsset",
+          "FiscalYear",
+          "AssetLineItem",
+          "DepreciationArea",
+          "AssetValueDate",
+          "AssetTransactionType",
+          "AssetAmount",
+          "AccountingDocument"
+        ]
+      },
+      "native_tables": [
+        "ANEP"
+      ],
+      "boundary": "Asset transaction history source records, preparation and comparison contracts."
+    },
+    "fixed_asset": {
+      "required_structures": [
+        "ZFAX_C_AssetMig",
+        "ZFAX_C_AssetAssignmenMig",
+        "ZFAX_C_DepreciationMig",
+        "ZFAX_C_AssetLongTextMig"
+      ],
+      "required_fields": {
+        "ZFAX_C_AssetMig": [
+          "CompanyCode",
+          "MasterFixedAsset",
+          "FixedAsset",
+          "AssetClass",
+          "FixedAssetDescription",
+          "InventoryNumber",
+          "AssetCapitalizationDate",
+          "AssetDeactivationDate",
+          "AssetDescription2",
+          "SerialNumber",
+          "Manufacturer",
+          "Quantity",
+          "QuantityUnit"
+        ],
+        "ZFAX_C_AssetAssignmenMig": [
+          "CompanyCode",
+          "MasterFixedAsset",
+          "FixedAsset",
+          "ValidityEndDate",
+          "ValidityStartDate",
+          "CostCenter",
+          "Plant",
+          "AssetLocation",
+          "BusinessArea"
+        ],
+        "ZFAX_C_DepreciationMig": [
+          "CompanyCode",
+          "MasterFixedAsset",
+          "FixedAsset",
+          "DepreciationArea",
+          "DepreciationKey",
+          "UsefulLifeYears",
+          "UsefulLifePeriods",
+          "DepreciationStartDate"
+        ],
+        "ZFAX_C_AssetLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "ANLA",
+        "ANLB",
+        "ANLZ",
+        "STXH"
+      ],
+      "boundary": "Fixed assets source records, preparation and comparison contracts."
+    }
+  },
+  "mm": {
+    "goods_movement": {
+      "required_structures": [
+        "ZMMX_C_MatDocHeaderMig",
+        "ZMMX_C_MatDocItemMig"
+      ],
+      "required_fields": {
+        "ZMMX_C_MatDocHeaderMig": [
+          "MaterialDocument",
+          "MaterialDocumentYear",
+          "DocumentDate",
+          "PostingDate",
+          "ReferenceDocument"
+        ],
+        "ZMMX_C_MatDocItemMig": [
+          "MaterialDocument",
+          "MaterialDocumentYear",
+          "MaterialDocumentItem",
+          "Product",
+          "Plant",
+          "StorageLocation",
+          "GoodsMovementType",
+          "Quantity",
+          "Unit",
+          "LocalAmount",
+          "DebitCreditCode"
+        ]
+      },
+      "native_tables": [
+        "MKPF",
+        "MSEG"
+      ],
+      "boundary": "Goods movement history source records, preparation and comparison contracts."
+    },
+    "material_stock": {
+      "required_structures": [
+        "ZMMX_C_LocationStockMig",
+        "ZMMX_C_BatchStockMig",
+        "ZMMX_C_SalesOrderStocMig",
+        "ZMMX_C_SupplierStockMig"
+      ],
+      "required_fields": {
+        "ZMMX_C_LocationStockMig": [
+          "Product",
+          "Plant",
+          "StorageLocation",
+          "UnrestrictedStock",
+          "QualityInspectionStock",
+          "BlockedStock",
+          "TransferStock"
+        ],
+        "ZMMX_C_BatchStockMig": [
+          "Product",
+          "Plant",
+          "StorageLocation",
+          "Batch",
+          "UnrestrictedStock",
+          "QualityInspectionStock",
+          "BlockedStock"
+        ],
+        "ZMMX_C_SalesOrderStocMig": [
+          "Product",
+          "Plant",
+          "StorageLocation",
+          "Batch",
+          "SpecialStock",
+          "SalesOrder",
+          "SalesOrderItem",
+          "UnrestrictedStock",
+          "QualityInspectionStock"
+        ],
+        "ZMMX_C_SupplierStockMig": [
+          "Product",
+          "Plant",
+          "Batch",
+          "SpecialStock",
+          "Supplier",
+          "UnrestrictedStock",
+          "QualityInspectionStock"
+        ]
+      },
+      "native_tables": [
+        "MARD",
+        "MCHB",
+        "MSKA",
+        "MSLB"
+      ],
+      "boundary": "Inventory balances source records, preparation and comparison contracts."
+    },
+    "product": {
+      "required_structures": [
+        "ZMMX_C_MaterialMig",
+        "ZMMX_C_MaterialTextMig",
+        "ZMMX_C_MaterialPlantMig",
+        "ZMMX_C_MaterialLocatiMig",
+        "ZMMX_C_MaterialUnitMig",
+        "ZMMX_C_MaterialValueMig",
+        "ZMMX_C_BatchGeneralMig",
+        "ZMMX_C_BatchPlantMig",
+        "ZMMX_C_MaterialSalesMig",
+        "ZMMX_C_MaterialTaxMig",
+        "ZMMX_C_MaterialMRPAreaMig",
+        "ZMMX_C_MaterialEANMig",
+        "ZMMX_C_MaterialLongTextMig",
+        "ZMMX_C_ClassObjectMig",
+        "ZMMX_C_MaterialClassMig",
+        "ZMMX_C_BatchClassMig",
+        "ZMMX_C_MaterialCharcMig",
+        "ZMMX_C_BatchCharcMig"
+      ],
+      "required_fields": {
+        "ZMMX_C_MaterialMig": [
+          "Product",
+          "ProductType",
+          "ProductGroup",
+          "BaseUnit",
+          "GrossWeight",
+          "NetWeight",
+          "WeightUnit",
+          "DeletionFlag",
+          "IndustrySector",
+          "Division",
+          "OldMaterialNumber",
+          "ExternalProductGroup",
+          "CrossPlantMaterialStatus",
+          "MaterialStatusValidFrom",
+          "BatchManagementRequired"
+        ],
+        "ZMMX_C_MaterialTextMig": [
+          "Product",
+          "Language",
+          "ProductDescription"
+        ],
+        "ZMMX_C_MaterialPlantMig": [
+          "Product",
+          "Plant",
+          "MRPType",
+          "MRPController",
+          "ProcurementType",
+          "PurchasingGroup",
+          "DeletionFlag",
+          "MRPGroup",
+          "LotSizingProcedure",
+          "SpecialProcurementType",
+          "AvailabilityCheck",
+          "SafetyStock",
+          "MinimumLotSize",
+          "MaximumLotSize",
+          "FixedLotSize",
+          "PlannedDeliveryTime",
+          "GoodsReceiptProcessingTime",
+          "InHouseProductionTime",
+          "IssueStorageLocation",
+          "ExternalProcStorageLocation",
+          "SerialNumberProfile",
+          "BatchManagementRequired"
+        ],
+        "ZMMX_C_MaterialLocatiMig": [
+          "Product",
+          "Plant",
+          "StorageLocation",
+          "DeletionFlag"
+        ],
+        "ZMMX_C_MaterialUnitMig": [
+          "Product",
+          "AlternativeUnit",
+          "Numerator",
+          "Denominator",
+          "InternationalArticleNumber"
+        ],
+        "ZMMX_C_MaterialValueMig": [
+          "Product",
+          "ValuationArea",
+          "ValuationType",
+          "ValuationClass",
+          "PriceControl",
+          "StandardPrice",
+          "MovingAveragePrice",
+          "PriceUnit"
+        ],
+        "ZMMX_C_BatchGeneralMig": [
+          "Product",
+          "Batch",
+          "ManufactureDate",
+          "ExpirationDate"
+        ],
+        "ZMMX_C_BatchPlantMig": [
+          "Product",
+          "Plant",
+          "Batch",
+          "ManufactureDate",
+          "ExpirationDate"
+        ],
+        "ZMMX_C_MaterialSalesMig": [
+          "Product",
+          "SalesOrganization",
+          "DistributionChannel",
+          "SalesUnit",
+          "DeliveringPlant",
+          "SalesStatus",
+          "SalesStatusValidFrom",
+          "ItemCategoryGroup",
+          "AccountAssignmentGroup",
+          "DeletionFlag"
+        ],
+        "ZMMX_C_MaterialTaxMig": [
+          "Product",
+          "DepartureCountry",
+          "TaxClassification1",
+          "TaxClassification2",
+          "TaxClassification3",
+          "TaxClassification4",
+          "TaxClassification5",
+          "TaxClassification6",
+          "TaxClassification7",
+          "TaxClassification8",
+          "TaxClassification9"
+        ],
+        "ZMMX_C_MaterialMRPAreaMig": [
+          "Product",
+          "MRPArea",
+          "MRPType",
+          "MRPController",
+          "LotSizingProcedure",
+          "SpecialProcurementType",
+          "DeletionFlag"
+        ],
+        "ZMMX_C_MaterialEANMig": [
+          "Product",
+          "AlternativeUnit",
+          "EANCounter",
+          "EAN",
+          "EANCategory",
+          "MainEAN"
+        ],
+        "ZMMX_C_MaterialLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ],
+        "ZMMX_C_ClassObjectMig": [
+          "ClassificationInternalID",
+          "ClassType",
+          "ObjectTable",
+          "ClassifiedObject"
+        ],
+        "ZMMX_C_MaterialClassMig": [
+          "ClassifiedObject",
+          "ClassType",
+          "Class",
+          "ClassificationStatus"
+        ],
+        "ZMMX_C_BatchClassMig": [
+          "ClassifiedObject",
+          "ClassType",
+          "Class",
+          "ClassificationStatus"
+        ],
+        "ZMMX_C_MaterialCharcMig": [
+          "ClassifiedObject",
+          "ClassType",
+          "Characteristic",
+          "CharcValuePositionNumber",
+          "CharcValue",
+          "CharcFromNumericValue",
+          "CharcToNumericValue",
+          "CharcValueDependency"
+        ],
+        "ZMMX_C_BatchCharcMig": [
+          "ClassifiedObject",
+          "ClassType",
+          "Characteristic",
+          "CharcValuePositionNumber",
+          "CharcValue",
+          "CharcFromNumericValue",
+          "CharcToNumericValue",
+          "CharcValueDependency"
+        ]
+      },
+      "native_tables": [
+        "AUSP",
+        "CABN",
+        "INOB",
+        "KLAH",
+        "KSSK",
+        "MAKT",
+        "MARA",
+        "MARC",
+        "MARD",
+        "MARM",
+        "MBEW",
+        "MCH1",
+        "MCHA",
+        "MDMA",
+        "MEAN",
+        "MLAN",
+        "MVKE",
+        "STXH"
+      ],
+      "boundary": "Material master source records, preparation and comparison contracts."
+    },
+    "purchase_order": {
+      "required_structures": [
+        "ZMMX_C_PurchaseOrderMig",
+        "ZMMX_C_PurchaseItemMig",
+        "ZMMX_C_PurchaseScheduMig",
+        "ZMMX_C_PurchaseAssignMig",
+        "ZMMX_C_PurchaseHistorMig",
+        "ZMMX_C_PurchasePartnerMig",
+        "ZMMX_C_PurchaseLongTextMig"
+      ],
+      "required_fields": {
+        "ZMMX_C_PurchaseOrderMig": [
+          "PurchaseOrder",
+          "CompanyCode",
+          "PurchaseOrderType",
+          "Supplier",
+          "PurchasingOrganization",
+          "PurchasingGroup",
+          "DocumentCurrency"
+        ],
+        "ZMMX_C_PurchaseItemMig": [
+          "PurchaseOrder",
+          "PurchaseOrderItem",
+          "Material",
+          "Plant",
+          "OrderQuantity",
+          "OrderUnit",
+          "DeletionFlag",
+          "DeliveryCompleted",
+          "FinalInvoice"
+        ],
+        "ZMMX_C_PurchaseScheduMig": [
+          "PurchaseOrder",
+          "PurchaseOrderItem",
+          "ScheduleLine",
+          "DeliveryDate",
+          "ScheduledQuantity",
+          "ReceivedQuantity"
+        ],
+        "ZMMX_C_PurchaseAssignMig": [
+          "PurchaseOrder",
+          "PurchaseOrderItem",
+          "AccountAssignmentNumber",
+          "CostCenter",
+          "OrderID",
+          "GLAccount",
+          "WBSElementInternalID"
+        ],
+        "ZMMX_C_PurchaseHistorMig": [
+          "PurchaseOrder",
+          "PurchaseOrderItem",
+          "AccountAssignmentNumber",
+          "HistoryCategory",
+          "FiscalYear",
+          "DocumentNumber",
+          "DocumentItem",
+          "PostingDate",
+          "Quantity",
+          "DebitCreditCode"
+        ],
+        "ZMMX_C_PurchasePartnerMig": [
+          "PurchaseOrder",
+          "PurchasingOrganization",
+          "SupplierSubrange",
+          "Plant",
+          "PartnerFunction",
+          "PartnerCounter",
+          "PartnerSupplier",
+          "PartnerContact",
+          "DefaultPartner"
+        ],
+        "ZMMX_C_PurchaseLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "EKBE",
+        "EKET",
+        "EKKN",
+        "EKKO",
+        "EKPA",
+        "EKPO",
+        "STXH"
+      ],
+      "boundary": "Purchase orders source records, preparation and comparison contracts."
+    },
+    "purchase_requisition": {
+      "required_structures": [
+        "ZMMX_C_RequisitionMig",
+        "ZMMX_C_ReqAssignmentMig",
+        "ZMMX_C_RequisitionLongTextMig"
+      ],
+      "required_fields": {
+        "ZMMX_C_RequisitionMig": [
+          "PurchaseRequisition",
+          "PurchaseRequisitionItem",
+          "Material",
+          "Plant",
+          "RequestedQuantity",
+          "Unit",
+          "DeletionFlag",
+          "ClosedFlag"
+        ],
+        "ZMMX_C_ReqAssignmentMig": [
+          "PurchaseRequisition",
+          "PurchaseRequisitionItem",
+          "AccountAssignmentNumber",
+          "CostCenter",
+          "OrderID",
+          "GLAccount",
+          "WBSElementInternalID"
+        ],
+        "ZMMX_C_RequisitionLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "EBAN",
+        "EBKN",
+        "STXH"
+      ],
+      "boundary": "Purchase requisitions source records, preparation and comparison contracts."
+    },
+    "purchasing_contract": {
+      "required_structures": [
+        "ZMMX_C_ContractHeaderMig",
+        "ZMMX_C_ContractItemMig",
+        "ZMMX_C_ContractAssignMig",
+        "ZMMX_C_ContractPartnerMig",
+        "ZMMX_C_ContractLongTextMig"
+      ],
+      "required_fields": {
+        "ZMMX_C_ContractHeaderMig": [
+          "PurchasingContract",
+          "PurchasingDocumentCategory",
+          "ContractType",
+          "CompanyCode",
+          "Supplier",
+          "PurchasingOrganization",
+          "PurchasingGroup",
+          "Currency",
+          "ValidityStartDate",
+          "ValidityEndDate"
+        ],
+        "ZMMX_C_ContractItemMig": [
+          "PurchasingContract",
+          "PurchasingContractItem",
+          "Product",
+          "Plant",
+          "TargetQuantity",
+          "OrderUnit",
+          "NetPrice",
+          "PriceUnit",
+          "DeletionFlag"
+        ],
+        "ZMMX_C_ContractAssignMig": [
+          "PurchasingContract",
+          "PurchasingContractItem",
+          "AccountAssignmentNumber",
+          "CostCenter",
+          "InternalOrder",
+          "WBSElementInternalID",
+          "GLAccount",
+          "DistributionPercentage"
+        ],
+        "ZMMX_C_ContractPartnerMig": [
+          "PurchasingContract",
+          "PurchasingOrganization",
+          "SupplierSubrange",
+          "Plant",
+          "PartnerFunction",
+          "PartnerCounter",
+          "PartnerSupplier",
+          "PartnerContact",
+          "DefaultPartner"
+        ],
+        "ZMMX_C_ContractLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "EKKN",
+        "EKKO",
+        "EKPA",
+        "EKPO",
+        "STXH"
+      ],
+      "boundary": "Purchasing contracts. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval."
+    },
+    "purchasing_info_record": {
+      "required_structures": [
+        "ZMMX_C_InfoRecordMig",
+        "ZMMX_C_InfoPurchOrgMig",
+        "ZMMX_C_InfoRecordLongTextMig"
+      ],
+      "required_fields": {
+        "ZMMX_C_InfoRecordMig": [
+          "PurchasingInfoRecord",
+          "Product",
+          "Supplier",
+          "ProductGroup",
+          "OrderUnit",
+          "DeletionFlag"
+        ],
+        "ZMMX_C_InfoPurchOrgMig": [
+          "PurchasingInfoRecord",
+          "PurchasingOrganization",
+          "InfoRecordCategory",
+          "Plant",
+          "PurchasingGroup",
+          "Currency",
+          "NetPrice",
+          "PriceUnit",
+          "PriceUnitOfMeasure",
+          "DeletionFlag"
+        ],
+        "ZMMX_C_InfoRecordLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "EINA",
+        "EINE",
+        "STXH"
+      ],
+      "boundary": "Purchasing info records. Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone."
+    }
+  },
+  "qm": {
+    "inspection_lot": {
+      "required_structures": [
+        "ZQMX_C_InspectionLotMig",
+        "ZQMX_C_UsageDecisionMig",
+        "ZQMX_C_LotStatusMig",
+        "ZQMX_C_LotUserStatusMig"
+      ],
+      "required_fields": {
+        "ZQMX_C_InspectionLotMig": [
+          "InspectionLot",
+          "Plant",
+          "Material",
+          "Batch",
+          "InspectionType",
+          "InspectionLotOrigin",
+          "InspectionLotQuantity",
+          "Unit",
+          "ObjectNumber"
+        ],
+        "ZQMX_C_UsageDecisionMig": [
+          "InspectionLot",
+          "UsageDecisionType",
+          "UsageDecisionCounter",
+          "UsageDecisionCode",
+          "UsageDecisionCodeGroup",
+          "UsageDecisionDate"
+        ],
+        "ZQMX_C_LotStatusMig": [
+          "InspectionLot",
+          "ObjectNumber",
+          "StatusCode",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZQMX_C_LotUserStatusMig": [
+          "InspectionLot",
+          "StatusCode",
+          "ObjectNumber",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ]
+      },
+      "native_tables": [
+        "JEST",
+        "QALS",
+        "QAVE",
+        "JSTO"
+      ],
+      "boundary": "Inspection lots source records, preparation and comparison contracts."
+    },
+    "inspection_plan": {
+      "required_structures": [
+        "ZQMX_C_InspectPlanHeaMig",
+        "ZQMX_C_InspectPlanMatMig",
+        "ZQMX_C_InspectPlanSelMig",
+        "ZQMX_C_InspectPlanOpeMig",
+        "ZQMX_C_PlanCharacteriMig",
+        "ZQMX_C_PlanLongTextMig"
+      ],
+      "required_fields": {
+        "ZQMX_C_InspectPlanHeaMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "InternalCounter",
+          "ValidFromDate",
+          "ChangeNumber",
+          "DeletionFlag",
+          "TaskListDescription"
+        ],
+        "ZQMX_C_InspectPlanMatMig": [
+          "Material",
+          "Plant",
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "InternalCounter",
+          "ValidFromDate",
+          "DeletionFlag"
+        ],
+        "ZQMX_C_InspectPlanSelMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "Sequence",
+          "TaskListNode",
+          "InternalCounter",
+          "ValidFromDate",
+          "DeletionFlag"
+        ],
+        "ZQMX_C_InspectPlanOpeMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListNode",
+          "InternalCounter",
+          "ValidFromDate",
+          "DeletionFlag",
+          "Operation",
+          "OperationText"
+        ],
+        "ZQMX_C_PlanCharacteriMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListNode",
+          "CharacteristicNumber",
+          "InternalCounter",
+          "ValidFromDate",
+          "DeletionFlag",
+          "CharacteristicDescription"
+        ],
+        "ZQMX_C_PlanLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "MAPL",
+        "PLAS",
+        "PLKO",
+        "PLMK",
+        "PLPO",
+        "STXH"
+      ],
+      "boundary": "Inspection plan reference source records, preparation and comparison contracts."
+    },
+    "inspection_result": {
+      "required_structures": [
+        "ZQMX_C_InspectCharactMig",
+        "ZQMX_C_CharacteristicMig",
+        "ZQMX_C_SingleResultMig"
+      ],
+      "required_fields": {
+        "ZQMX_C_InspectCharactMig": [
+          "InspectionLot",
+          "OperationInternalID",
+          "CharacteristicNumber",
+          "CharacteristicDescription"
+        ],
+        "ZQMX_C_CharacteristicMig": [
+          "InspectionLot",
+          "OperationInternalID",
+          "CharacteristicNumber",
+          "MeanValue",
+          "MinimumValue",
+          "MaximumValue"
+        ],
+        "ZQMX_C_SingleResultMig": [
+          "InspectionLot",
+          "OperationInternalID",
+          "CharacteristicNumber",
+          "SampleNumber",
+          "ResultNumber",
+          "MeasuredValue"
+        ]
+      },
+      "native_tables": [
+        "QAMR",
+        "QAMV",
+        "QASE"
+      ],
+      "boundary": "Inspection results source records, preparation and comparison contracts."
+    },
+    "master_inspection_characteristic": {
+      "required_structures": [
+        "ZQMX_C_MasterCharMig",
+        "ZQMX_C_MasterCharTextMig",
+        "ZQMX_C_MasterCharLongTextMig"
+      ],
+      "required_fields": {
+        "ZQMX_C_MasterCharMig": [
+          "Plant",
+          "MasterInspectionCharacteristic",
+          "CharacteristicVersion",
+          "ValidityStartDate",
+          "DeletionFlag",
+          "ControlIndicators"
+        ],
+        "ZQMX_C_MasterCharTextMig": [
+          "Plant",
+          "MasterInspectionCharacteristic",
+          "CharacteristicVersion",
+          "Language",
+          "CharacteristicDescription"
+        ],
+        "ZQMX_C_MasterCharLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "QPMK",
+        "QPMT",
+        "STXH"
+      ],
+      "boundary": "Master inspection characteristics. Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number."
+    },
+    "quality_notification": {
+      "required_structures": [
+        "ZQMX_C_QualityNotificMig",
+        "ZQMX_C_QualityItemMig",
+        "ZQMX_C_QualityCauseMig",
+        "ZQMX_C_QualityTaskMig",
+        "ZQMX_C_QualityActivitMig",
+        "ZQMX_C_NotifStatusMig",
+        "ZQMX_C_NotifPartnerMig",
+        "ZQMX_C_NotifUserStatusMig",
+        "ZQMX_C_NotifLongTextMig"
+      ],
+      "required_fields": {
+        "ZQMX_C_QualityNotificMig": [
+          "QualityNotification",
+          "NotificationType",
+          "NotificationText",
+          "Material",
+          "Plant",
+          "ObjectNumber"
+        ],
+        "ZQMX_C_QualityItemMig": [
+          "QualityNotification",
+          "NotificationItem",
+          "DefectCodeGroup",
+          "DefectCode",
+          "DefectText"
+        ],
+        "ZQMX_C_QualityCauseMig": [
+          "QualityNotification",
+          "NotificationItem",
+          "CauseNumber",
+          "CauseCodeGroup",
+          "CauseCode",
+          "CauseText"
+        ],
+        "ZQMX_C_QualityTaskMig": [
+          "QualityNotification",
+          "TaskNumber",
+          "TaskCodeGroup",
+          "TaskCode",
+          "TaskText"
+        ],
+        "ZQMX_C_QualityActivitMig": [
+          "QualityNotification",
+          "ActivityNumber",
+          "ActivityCodeGroup",
+          "ActivityCode",
+          "ActivityText"
+        ],
+        "ZQMX_C_NotifStatusMig": [
+          "QualityNotification",
+          "ObjectNumber",
+          "StatusCode",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZQMX_C_NotifPartnerMig": [
+          "QualityNotification",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZQMX_C_NotifUserStatusMig": [
+          "QualityNotification",
+          "StatusCode",
+          "ObjectNumber",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZQMX_C_NotifLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "IHPA",
+        "JEST",
+        "QMEL",
+        "QMFE",
+        "QMMA",
+        "QMSM",
+        "QMUR",
+        "STXH"
+      ],
+      "boundary": "Quality notifications source records, preparation and comparison contracts."
+    },
+    "sampling_procedure": {
+      "required_structures": [
+        "ZQMX_C_SamplingProcMig"
+      ],
+      "required_fields": {
+        "ZQMX_C_SamplingProcMig": [
+          "SamplingProcedure",
+          "SamplingType",
+          "ValuationMode"
+        ]
+      },
+      "native_tables": [
+        "QDSV"
+      ],
+      "boundary": "Sampling procedures. DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme."
+    }
+  },
+  "ps": {
+    "budget": {
+      "required_structures": [
+        "ZPSX_C_OverallBudgetMig",
+        "ZPSX_C_AnnualBudgetMig"
+      ],
+      "required_fields": {
+        "ZPSX_C_OverallBudgetMig": [
+          "Ledger",
+          "ObjectNumber",
+          "BudgetItem",
+          "TransactionIndicator",
+          "ValueType",
+          "Version",
+          "OverallBudgetAmount"
+        ],
+        "ZPSX_C_AnnualBudgetMig": [
+          "Ledger",
+          "ObjectNumber",
+          "BudgetItem",
+          "TransactionIndicator",
+          "ValueType",
+          "Version",
+          "FiscalYear",
+          "AnnualBudgetAmount"
+        ]
+      },
+      "native_tables": [
+        "BPGE",
+        "BPJA"
+      ],
+      "boundary": "Project overall and annual budgets. Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface."
+    },
+    "commitment": {
+      "required_structures": [
+        "ZPSX_C_CommitmentMig"
+      ],
+      "required_fields": {
+        "ZPSX_C_CommitmentMig": [
+          "ObjectNumber",
+          "FiscalYear",
+          "ValueType",
+          "Version",
+          "CostElement",
+          "OriginGroup",
+          "BusinessTransaction",
+          "CommitmentDocument",
+          "CommitmentItem",
+          "TransactionCurrency",
+          "TransactionAmount",
+          "ObjectCurrencyAmount",
+          "ControllingAreaAmount"
+        ]
+      },
+      "native_tables": [
+        "COOI"
+      ],
+      "boundary": "Project commitments. COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks."
+    },
+    "investment_measure": {
+      "required_structures": [
+        "ZPSX_C_InvestProgramMig",
+        "ZPSX_C_InvestPositionMig",
+        "ZPSX_C_InvestAssignMig"
+      ],
+      "required_fields": {
+        "ZPSX_C_InvestProgramMig": [
+          "InvestmentProgram",
+          "ApprovalFiscalYear",
+          "InvestmentProgramDescription"
+        ],
+        "ZPSX_C_InvestPositionMig": [
+          "InvestmentPositionInternalID",
+          "InvestmentProgram",
+          "ApprovalFiscalYear",
+          "InvestmentPosition",
+          "ObjectNumber"
+        ],
+        "ZPSX_C_InvestAssignMig": [
+          "InvestmentPositionInternalID",
+          "AssignedObject",
+          "ApprovalFiscalYear",
+          "AssignmentPercentage"
+        ]
+      },
+      "native_tables": [
+        "IMPR",
+        "IMTP",
+        "IMZO"
+      ],
+      "boundary": "Investment programs and measures. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers."
+    },
+    "network": {
+      "required_structures": [
+        "ZPSX_C_NetworkHeaderMig",
+        "ZPSX_C_NetworkPlanMig",
+        "ZPSX_C_NetworkActivitMig",
+        "ZPSX_C_NetworkQuantitMig",
+        "ZPSX_C_NetworkStatusMig",
+        "ZPSX_C_NetworkPartnerMig",
+        "ZPSX_C_NetworkUserStatusMig",
+        "ZPSX_C_NetworkComponentMig",
+        "ZPSX_C_NetworkSettleMig",
+        "ZPSX_C_NetworkLongTextMig"
+      ],
+      "required_fields": {
+        "ZPSX_C_NetworkHeaderMig": [
+          "Network",
+          "NetworkType",
+          "ControllingArea",
+          "CompanyCode",
+          "Plant",
+          "NetworkDescription",
+          "ObjectNumber"
+        ],
+        "ZPSX_C_NetworkPlanMig": [
+          "Network",
+          "RoutingNumber",
+          "BasicStartDate",
+          "BasicFinishDate"
+        ],
+        "ZPSX_C_NetworkActivitMig": [
+          "RoutingNumber",
+          "OperationInternalID",
+          "Activity",
+          "Sequence",
+          "WorkCenterInternalID",
+          "ControlKey",
+          "ActivityDescription",
+          "WBSElementInternalID",
+          "Plant"
+        ],
+        "ZPSX_C_NetworkQuantitMig": [
+          "RoutingNumber",
+          "OperationInternalID",
+          "WorkQuantity",
+          "WorkUnit",
+          "Duration",
+          "DurationUnit"
+        ],
+        "ZPSX_C_NetworkStatusMig": [
+          "Network",
+          "ObjectNumber",
+          "StatusCode",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZPSX_C_NetworkPartnerMig": [
+          "Network",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZPSX_C_NetworkUserStatusMig": [
+          "Network",
+          "StatusCode",
+          "ObjectNumber",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZPSX_C_NetworkComponentMig": [
+          "Reservation",
+          "ReservationItem",
+          "RecordType",
+          "Network",
+          "Material",
+          "Plant",
+          "StorageLocation",
+          "RequiredQuantity",
+          "Unit",
+          "DeletionFlag"
+        ],
+        "ZPSX_C_NetworkSettleMig": [
+          "ObjectNumber",
+          "DistributionRuleGroup",
+          "DistributionRule",
+          "SettlementType",
+          "SettlementPercentage",
+          "ReceiverCostCenter",
+          "ReceiverOrder",
+          "ReceiverCategory",
+          "SettlementAmount",
+          "SettlementCurrency",
+          "ControllingArea",
+          "ReceiverCompanyCode",
+          "ReceiverMasterAsset",
+          "ReceiverAsset",
+          "ReceiverWBSInternalID",
+          "ValidFromFiscalYear",
+          "ValidFromPeriod",
+          "ValidToFiscalYear",
+          "ValidToPeriod"
+        ],
+        "ZPSX_C_NetworkLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "AFKO",
+        "AFVC",
+        "AFVV",
+        "AUFK",
+        "COBRB",
+        "JEST",
+        "JSTO",
+        "RESB",
+        "STXH"
+      ],
+      "boundary": "Project networks and activities. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
+    },
+    "project": {
+      "required_structures": [
+        "ZPSX_C_ProjectMig",
+        "ZPSX_C_ProjectStatusMig",
+        "ZPSX_C_ProjectPartnerMig",
+        "ZPSX_C_ProjectUserStatusMig",
+        "ZPSX_C_ProjectSettleMig",
+        "ZPSX_C_ProjectLongTextMig"
+      ],
+      "required_fields": {
+        "ZPSX_C_ProjectMig": [
+          "ProjectInternalID",
+          "ProjectExternalID",
+          "ProjectDescription",
+          "CompanyCode",
+          "ControllingArea",
+          "ObjectNumber"
+        ],
+        "ZPSX_C_ProjectStatusMig": [
+          "ProjectInternalID",
+          "ObjectNumber",
+          "StatusCode",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZPSX_C_ProjectPartnerMig": [
+          "ProjectInternalID",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZPSX_C_ProjectUserStatusMig": [
+          "ProjectInternalID",
+          "StatusCode",
+          "ObjectNumber",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZPSX_C_ProjectSettleMig": [
+          "ObjectNumber",
+          "DistributionRuleGroup",
+          "DistributionRule",
+          "SettlementType",
+          "SettlementPercentage",
+          "ReceiverCostCenter",
+          "ReceiverOrder",
+          "ReceiverCategory",
+          "SettlementAmount",
+          "SettlementCurrency",
+          "ControllingArea",
+          "ReceiverCompanyCode",
+          "ReceiverMasterAsset",
+          "ReceiverAsset",
+          "ReceiverWBSInternalID",
+          "ValidFromFiscalYear",
+          "ValidFromPeriod",
+          "ValidToFiscalYear",
+          "ValidToPeriod"
+        ],
+        "ZPSX_C_ProjectLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "COBRB",
+        "IHPA",
+        "JEST",
+        "JSTO",
+        "PROJ",
+        "STXH"
+      ],
+      "boundary": "Projects source records, preparation and comparison contracts."
+    },
+    "project_cost": {
+      "required_structures": [
+        "ZPSX_C_ProjectCostMig"
+      ],
+      "required_fields": {
+        "ZPSX_C_ProjectCostMig": [
+          "ControllingArea",
+          "COAccountingDocument",
+          "COAccountingDocumentItem",
+          "FiscalYear",
+          "ObjectNumber",
+          "CostElement",
+          "ValueType",
+          "BusinessTransaction",
+          "TransactionAmount",
+          "TransactionCurrency"
+        ]
+      },
+      "native_tables": [
+        "COEP"
+      ],
+      "boundary": "Project cost history source records, preparation and comparison contracts."
+    },
+    "wbs_element": {
+      "required_structures": [
+        "ZPSX_C_WBSMig",
+        "ZPSX_C_WBSHierarchyMig",
+        "ZPSX_C_WBSStatusMig",
+        "ZPSX_C_WBSPartnerMig",
+        "ZPSX_C_WBSUserStatusMig",
+        "ZPSX_C_WBSSettleMig",
+        "ZPSX_C_WBSLongTextMig"
+      ],
+      "required_fields": {
+        "ZPSX_C_WBSMig": [
+          "WBSElementInternalID",
+          "WBSElementExternalID",
+          "WBSElementDescription",
+          "ProjectInternalID",
+          "CompanyCode",
+          "ControllingArea",
+          "ObjectNumber"
+        ],
+        "ZPSX_C_WBSHierarchyMig": [
+          "WBSElementInternalID",
+          "ParentWBSElementInternalID",
+          "FirstChildInternalID",
+          "PreviousSiblingInternalID",
+          "NextSiblingInternalID"
+        ],
+        "ZPSX_C_WBSStatusMig": [
+          "WBSElementInternalID",
+          "ObjectNumber",
+          "StatusCode",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZPSX_C_WBSPartnerMig": [
+          "WBSElementInternalID",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZPSX_C_WBSUserStatusMig": [
+          "WBSElementInternalID",
+          "StatusCode",
+          "ObjectNumber",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZPSX_C_WBSSettleMig": [
+          "ObjectNumber",
+          "DistributionRuleGroup",
+          "DistributionRule",
+          "SettlementType",
+          "SettlementPercentage",
+          "ReceiverCostCenter",
+          "ReceiverOrder",
+          "ReceiverCategory",
+          "SettlementAmount",
+          "SettlementCurrency",
+          "ControllingArea",
+          "ReceiverCompanyCode",
+          "ReceiverMasterAsset",
+          "ReceiverAsset",
+          "ReceiverWBSInternalID",
+          "ValidFromFiscalYear",
+          "ValidFromPeriod",
+          "ValidToFiscalYear",
+          "ValidToPeriod"
+        ],
+        "ZPSX_C_WBSLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "COBRB",
+        "JEST",
+        "PRHI",
+        "PRPS",
+        "STXH"
+      ],
+      "boundary": "WBS elements source records, preparation and comparison contracts."
+    }
+  },
+  "pp": {
+    "bill_of_material": {
+      "required_structures": [
+        "ZPPX_C_MaterialBOMMig",
+        "ZPPX_C_BOMHeaderMig",
+        "ZPPX_C_BOMSelectionMig",
+        "ZPPX_C_BOMItemMig",
+        "ZPPX_C_BOMLongTextMig"
+      ],
+      "required_fields": {
+        "ZPPX_C_MaterialBOMMig": [
+          "Material",
+          "Plant",
+          "BillOfMaterialUsage",
+          "BillOfMaterial",
+          "BillOfMaterialVariant",
+          "LotSizeFrom",
+          "LotSizeTo"
+        ],
+        "ZPPX_C_BOMHeaderMig": [
+          "BOMCategory",
+          "BillOfMaterial",
+          "BillOfMaterialVariant",
+          "InternalCounter",
+          "ValidFromDate",
+          "ChangeNumber",
+          "DeletionFlag",
+          "BaseQuantity",
+          "BaseUnit"
+        ],
+        "ZPPX_C_BOMSelectionMig": [
+          "BOMCategory",
+          "BillOfMaterial",
+          "BillOfMaterialVariant",
+          "BOMNode",
+          "InternalCounter",
+          "ValidFromDate",
+          "ChangeNumber",
+          "DeletionFlag"
+        ],
+        "ZPPX_C_BOMItemMig": [
+          "BOMCategory",
+          "BillOfMaterial",
+          "BOMNode",
+          "InternalCounter",
+          "ValidFromDate",
+          "ChangeNumber",
+          "DeletionFlag",
+          "Component",
+          "ItemNumber",
+          "ComponentQuantity",
+          "Unit"
+        ],
+        "ZPPX_C_BOMLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "MAST",
+        "STAS",
+        "STKO",
+        "STPO",
+        "STXH"
+      ],
+      "boundary": "Material bills of material source records, preparation and comparison contracts."
+    },
+    "production_confirmation": {
+      "required_structures": [
+        "ZPPX_C_ConfirmationMig"
+      ],
+      "required_fields": {
+        "ZPPX_C_ConfirmationMig": [
+          "ConfirmationNumber",
+          "ConfirmationCounter",
+          "ManufacturingOrder",
+          "Operation",
+          "PostingDate",
+          "FinalConfirmation",
+          "ReversalFlag",
+          "ReversalCounter",
+          "YieldQuantity",
+          "ScrapQuantity",
+          "ConfirmationUnit"
+        ]
+      },
+      "native_tables": [
+        "AFRU"
+      ],
+      "boundary": "Production confirmations. Preserve confirmation/counter identity and reversal relationships; do not delete reversals and assume the remaining history is net yield. Target order/operation mapping and posting periods must be approved. Reposting confirmations can trigger backflush, goods movements, activity allocations and accounting; confirmation history is reference-only unless a supported process migration explicitly authorizes those effects."
+    },
+    "production_order": {
+      "required_structures": [
+        "ZPPX_C_ProductionOrdeMig",
+        "ZPPX_C_ProductionHeadMig",
+        "ZPPX_C_ProductionItemMig",
+        "ZPPX_C_OrderStatusMig",
+        "ZPPX_C_OrderUserStatusMig",
+        "ZPPX_C_OrderLongTextMig"
+      ],
+      "required_fields": {
+        "ZPPX_C_ProductionOrdeMig": [
+          "ManufacturingOrder",
+          "ManufacturingOrderType",
+          "OrderCategory",
+          "ManufacturingOrderText",
+          "CompanyCode",
+          "ProductionPlant",
+          "ObjectNumber"
+        ],
+        "ZPPX_C_ProductionHeadMig": [
+          "ManufacturingOrder",
+          "OperationRoutingNumber",
+          "TotalQuantity",
+          "Unit",
+          "BasicStartDate",
+          "BasicEndDate"
+        ],
+        "ZPPX_C_ProductionItemMig": [
+          "ManufacturingOrder",
+          "ManufacturingOrderItem",
+          "Material",
+          "ProductionPlant",
+          "PlannedQuantity",
+          "Unit"
+        ],
+        "ZPPX_C_OrderStatusMig": [
+          "ManufacturingOrder",
+          "ObjectNumber",
+          "StatusCode",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZPPX_C_OrderUserStatusMig": [
+          "ManufacturingOrder",
+          "StatusCode",
+          "ObjectNumber",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZPPX_C_OrderLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "AFKO",
+        "AFPO",
+        "AUFK",
+        "JEST",
+        "JSTO",
+        "STXH"
+      ],
+      "boundary": "Production orders source records, preparation and comparison contracts."
+    },
+    "production_order_operation": {
+      "required_structures": [
+        "ZPPX_C_ProductionOperMig",
+        "ZPPX_C_OperationQuantMig",
+        "ZPPX_C_OrderComponentMig"
+      ],
+      "required_fields": {
+        "ZPPX_C_ProductionOperMig": [
+          "OperationRoutingNumber",
+          "OperationInternalID",
+          "Operation",
+          "OperationText",
+          "WorkCenterInternalID",
+          "Plant",
+          "ControlKey",
+          "SubOperation"
+        ],
+        "ZPPX_C_OperationQuantMig": [
+          "OperationRoutingNumber",
+          "OperationInternalID",
+          "OperationQuantity",
+          "Unit",
+          "StandardValue1",
+          "StandardValueUnit1"
+        ],
+        "ZPPX_C_OrderComponentMig": [
+          "Reservation",
+          "ReservationItem",
+          "RecordType",
+          "ManufacturingOrder",
+          "Material",
+          "Plant",
+          "StorageLocation",
+          "RequiredQuantity",
+          "Unit",
+          "DeletionFlag"
+        ]
+      },
+      "native_tables": [
+        "AFVC",
+        "AFVV",
+        "RESB"
+      ],
+      "boundary": "Production order operations source records, preparation and comparison contracts."
+    },
+    "production_version": {
+      "required_structures": [
+        "ZPPX_C_ProdVersionMig"
+      ],
+      "required_fields": {
+        "ZPPX_C_ProdVersionMig": [
+          "Product",
+          "Plant",
+          "ProductionVersion",
+          "ProductionVersionText",
+          "ValidityStartDate",
+          "ValidityEndDate",
+          "MinimumLotSize",
+          "MaximumLotSize",
+          "BOMAlternative",
+          "BOMUsage",
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "ProductionVersionLock"
+        ]
+      },
+      "native_tables": [
+        "MKAL"
+      ],
+      "boundary": "Production versions. Verify production-version validity, lot-size ranges, lock/check status and the effective BOM/task-list combination. Materials and plants are cross-domain prerequisites. Distinct production versions may intentionally overlap; evaluate availability for a version identity rather than rejecting every material-level overlap. REM planning levels require release-specific interface review."
+    },
+    "routing": {
+      "required_structures": [
+        "ZPPX_C_RoutingHeaderMig",
+        "ZPPX_C_RoutingMateriaMig",
+        "ZPPX_C_RoutingSelectiMig",
+        "ZPPX_C_RoutingOperatiMig",
+        "ZPPX_C_RoutingSequencMig",
+        "ZPPX_C_RoutingLongTextMig"
+      ],
+      "required_fields": {
+        "ZPPX_C_RoutingHeaderMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "InternalCounter",
+          "ValidFromDate",
+          "ChangeNumber",
+          "DeletionFlag",
+          "TaskListDescription"
+        ],
+        "ZPPX_C_RoutingMateriaMig": [
+          "Material",
+          "Plant",
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "InternalCounter",
+          "ValidFromDate",
+          "DeletionFlag"
+        ],
+        "ZPPX_C_RoutingSelectiMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "Sequence",
+          "TaskListNode",
+          "InternalCounter",
+          "ValidFromDate",
+          "DeletionFlag"
+        ],
+        "ZPPX_C_RoutingOperatiMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListNode",
+          "InternalCounter",
+          "ValidFromDate",
+          "ChangeNumber",
+          "DeletionFlag",
+          "Operation",
+          "OperationText"
+        ],
+        "ZPPX_C_RoutingSequencMig": [
+          "TaskListType",
+          "TaskListGroup",
+          "TaskListGroupCounter",
+          "Sequence",
+          "InternalCounter",
+          "ValidFromDate",
+          "DeletionFlag"
+        ],
+        "ZPPX_C_RoutingLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "MAPL",
+        "PLAS",
+        "PLFL",
+        "PLKO",
+        "PLPO",
+        "STXH"
+      ],
+      "boundary": "Routing reference source records, preparation and comparison contracts."
+    }
+  },
+  "co": {
+    "allocation_cycle": {
+      "required_structures": [
+        "ZCOX_C_AllocCycleMig",
+        "ZCOX_C_AllocSegmentMig"
+      ],
+      "required_fields": {
+        "ZCOX_C_AllocCycleMig": [
+          "AllocationTable",
+          "AllocationCycle",
+          "ValidityStartDate",
+          "ValidityEndDate"
+        ],
+        "ZCOX_C_AllocSegmentMig": [
+          "AllocationTable",
+          "AllocationCycle",
+          "ValidityStartDate",
+          "SegmentSequence",
+          "SegmentName"
+        ]
+      },
+      "native_tables": [
+        "T811C",
+        "T811S"
+      ],
+      "boundary": "Allocation cycles and segments. Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target."
+    },
+    "cost_actuals": {
+      "required_structures": [
+        "ZCOX_C_CostActualMig"
+      ],
+      "required_fields": {
+        "ZCOX_C_CostActualMig": [
+          "ControllingArea",
+          "COAccountingDocument",
+          "COAccountingDocumentItem",
+          "FiscalYear",
+          "ObjectNumber",
+          "CostElement",
+          "ValueType",
+          "BusinessTransaction",
+          "TransactionAmount",
+          "TransactionCurrency"
+        ]
+      },
+      "native_tables": [
+        "COEP"
+      ],
+      "boundary": "Actual cost history source records, preparation and comparison contracts."
+    },
+    "cost_center": {
+      "required_structures": [
+        "ZCOX_C_CostCenterMig",
+        "ZCOX_C_CostCenterTextMig",
+        "ZCOX_C_CostCenterLongTextMig"
+      ],
+      "required_fields": {
+        "ZCOX_C_CostCenterMig": [
+          "ControllingArea",
+          "CostCenter",
+          "ValidityEndDate",
+          "ValidityStartDate",
+          "CompanyCode",
+          "ProfitCenter",
+          "CostCenterCategory",
+          "ResponsiblePerson",
+          "AddressStreet",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressLanguage",
+          "PhoneNumber1",
+          "PhoneNumber2",
+          "FaxNumber"
+        ],
+        "ZCOX_C_CostCenterTextMig": [
+          "Language",
+          "ControllingArea",
+          "CostCenter",
+          "ValidityEndDate",
+          "CostCenterName",
+          "CostCenterDescription"
+        ],
+        "ZCOX_C_CostCenterLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "CSKS",
+        "CSKT",
+        "STXH"
+      ],
+      "boundary": "Cost centers source records, preparation and comparison contracts."
+    },
+    "cost_element": {
+      "required_structures": [
+        "ZCOX_C_CostElementMig",
+        "ZCOX_C_CostElementAreMig",
+        "ZCOX_C_CostElementTextMig",
+        "ZCOX_C_CostElementLongTextMig"
+      ],
+      "required_fields": {
+        "ZCOX_C_CostElementMig": [
+          "ChartOfAccounts",
+          "CostElement",
+          "CreationDate"
+        ],
+        "ZCOX_C_CostElementAreMig": [
+          "ControllingArea",
+          "CostElement",
+          "ValidityEndDate",
+          "ValidityStartDate",
+          "CostElementCategory"
+        ],
+        "ZCOX_C_CostElementTextMig": [
+          "Language",
+          "ChartOfAccounts",
+          "CostElement",
+          "CostElementName",
+          "CostElementDescription"
+        ],
+        "ZCOX_C_CostElementLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "CSKA",
+        "CSKB",
+        "CSKU",
+        "STXH"
+      ],
+      "boundary": "Cost element references source records, preparation and comparison contracts."
+    },
+    "internal_order": {
+      "required_structures": [
+        "ZCOX_C_InternalOrderMig",
+        "ZCOX_C_OrderSettlemenMig",
+        "ZCOX_C_OrderStatusMig",
+        "ZCOX_C_OrderPartnerMig",
+        "ZCOX_C_OrderUserStatusMig",
+        "ZCOX_C_OrderLongTextMig"
+      ],
+      "required_fields": {
+        "ZCOX_C_InternalOrderMig": [
+          "InternalOrder",
+          "InternalOrderType",
+          "OrderCategory",
+          "InternalOrderDescription",
+          "CompanyCode",
+          "ControllingArea",
+          "ResponsibleCostCenter",
+          "ProfitCenter",
+          "ObjectNumber"
+        ],
+        "ZCOX_C_OrderSettlemenMig": [
+          "ObjectNumber",
+          "DistributionRuleGroup",
+          "DistributionRule",
+          "SettlementType",
+          "SettlementPercentage",
+          "ReceiverCostCenter",
+          "ReceiverOrder",
+          "ReceiverCategory",
+          "SettlementAmount",
+          "SettlementCurrency",
+          "ControllingArea",
+          "ReceiverCompanyCode",
+          "ReceiverMasterAsset",
+          "ReceiverAsset",
+          "ReceiverWBSInternalID",
+          "ValidFromFiscalYear",
+          "ValidFromPeriod",
+          "ValidToFiscalYear",
+          "ValidToPeriod"
+        ],
+        "ZCOX_C_OrderStatusMig": [
+          "InternalOrder",
+          "ObjectNumber",
+          "StatusCode",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZCOX_C_OrderPartnerMig": [
+          "InternalOrder",
+          "PartnerFunction",
+          "PartnerCounter",
+          "Partner"
+        ],
+        "ZCOX_C_OrderUserStatusMig": [
+          "InternalOrder",
+          "StatusCode",
+          "ObjectNumber",
+          "StatusKind",
+          "StatusChangeNumber",
+          "StatusProfile"
+        ],
+        "ZCOX_C_OrderLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "AUFK",
+        "COBRB",
+        "IHPA",
+        "JEST",
+        "JSTO",
+        "STXH"
+      ],
+      "boundary": "Internal orders source records, preparation and comparison contracts."
+    },
+    "planning": {
+      "required_structures": [
+        "ZCOX_C_PrimaryPlanMig",
+        "ZCOX_C_SecondaryPlanMig"
+      ],
+      "required_fields": {
+        "ZCOX_C_PrimaryPlanMig": [
+          "Ledger",
+          "ObjectNumber",
+          "FiscalYear",
+          "ValueType",
+          "PlanVersion",
+          "CostElement",
+          "OriginGroup",
+          "BusinessTransaction",
+          "TradingPartner",
+          "PartnerBusinessArea",
+          "DebitCreditCode",
+          "PeriodBlock",
+          "TransactionCurrency",
+          "ControllingAmount01",
+          "ObjectAmount01",
+          "TransactionAmount01",
+          "ControllingAmount02",
+          "ObjectAmount02",
+          "TransactionAmount02",
+          "ControllingAmount03",
+          "ObjectAmount03",
+          "TransactionAmount03",
+          "ControllingAmount04",
+          "ObjectAmount04",
+          "TransactionAmount04",
+          "ControllingAmount05",
+          "ObjectAmount05",
+          "TransactionAmount05",
+          "ControllingAmount06",
+          "ObjectAmount06",
+          "TransactionAmount06",
+          "ControllingAmount07",
+          "ObjectAmount07",
+          "TransactionAmount07",
+          "ControllingAmount08",
+          "ObjectAmount08",
+          "TransactionAmount08",
+          "ControllingAmount09",
+          "ObjectAmount09",
+          "TransactionAmount09",
+          "ControllingAmount10",
+          "ObjectAmount10",
+          "TransactionAmount10",
+          "ControllingAmount11",
+          "ObjectAmount11",
+          "TransactionAmount11",
+          "ControllingAmount12",
+          "ObjectAmount12",
+          "TransactionAmount12",
+          "ControllingAmount13",
+          "ObjectAmount13",
+          "TransactionAmount13",
+          "ControllingAmount14",
+          "ObjectAmount14",
+          "TransactionAmount14",
+          "ControllingAmount15",
+          "ObjectAmount15",
+          "TransactionAmount15",
+          "ControllingAmount16",
+          "ObjectAmount16",
+          "TransactionAmount16"
+        ],
+        "ZCOX_C_SecondaryPlanMig": [
+          "Ledger",
+          "ObjectNumber",
+          "FiscalYear",
+          "ValueType",
+          "PlanVersion",
+          "CostElement",
+          "OriginGroup",
+          "BusinessTransaction",
+          "TradingPartner",
+          "PartnerBusinessArea",
+          "DebitCreditCode",
+          "PeriodBlock",
+          "TransactionCurrency",
+          "ControllingAmount01",
+          "ObjectAmount01",
+          "TransactionAmount01",
+          "ControllingAmount02",
+          "ObjectAmount02",
+          "TransactionAmount02",
+          "ControllingAmount03",
+          "ObjectAmount03",
+          "TransactionAmount03",
+          "ControllingAmount04",
+          "ObjectAmount04",
+          "TransactionAmount04",
+          "ControllingAmount05",
+          "ObjectAmount05",
+          "TransactionAmount05",
+          "ControllingAmount06",
+          "ObjectAmount06",
+          "TransactionAmount06",
+          "ControllingAmount07",
+          "ObjectAmount07",
+          "TransactionAmount07",
+          "ControllingAmount08",
+          "ObjectAmount08",
+          "TransactionAmount08",
+          "ControllingAmount09",
+          "ObjectAmount09",
+          "TransactionAmount09",
+          "ControllingAmount10",
+          "ObjectAmount10",
+          "TransactionAmount10",
+          "ControllingAmount11",
+          "ObjectAmount11",
+          "TransactionAmount11",
+          "ControllingAmount12",
+          "ObjectAmount12",
+          "TransactionAmount12",
+          "ControllingAmount13",
+          "ObjectAmount13",
+          "TransactionAmount13",
+          "ControllingAmount14",
+          "ObjectAmount14",
+          "TransactionAmount14",
+          "ControllingAmount15",
+          "ObjectAmount15",
+          "TransactionAmount15",
+          "ControllingAmount16",
+          "ObjectAmount16",
+          "TransactionAmount16"
+        ]
+      },
+      "native_tables": [
+        "COSP",
+        "COSS"
+      ],
+      "boundary": "CO primary and secondary cost planning. COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01\u201316, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types."
+    },
+    "profit_center": {
+      "required_structures": [
+        "ZCOX_C_ProfitCenterMig",
+        "ZCOX_C_ProfitCenterTeMig",
+        "ZCOX_C_ProfitCtrLongTextMig"
+      ],
+      "required_fields": {
+        "ZCOX_C_ProfitCenterMig": [
+          "ProfitCenter",
+          "ValidityEndDate",
+          "ControllingArea",
+          "ValidityStartDate",
+          "ResponsiblePerson",
+          "Segment",
+          "AddressStreet",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressLanguage",
+          "PhoneNumber1",
+          "PhoneNumber2",
+          "FaxNumber"
+        ],
+        "ZCOX_C_ProfitCenterTeMig": [
+          "Language",
+          "ProfitCenter",
+          "ValidityEndDate",
+          "ControllingArea",
+          "ProfitCenterName",
+          "ProfitCenterDescription"
+        ],
+        "ZCOX_C_ProfitCtrLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "CEPC",
+        "CEPCT",
+        "STXH"
+      ],
+      "boundary": "Profit centers source records, preparation and comparison contracts."
+    }
+  },
+  "fi": {
+    "address": {
+      "required_structures": [],
+      "required_fields": {},
+      "native_tables": [
+        "ADRC"
+      ],
+      "boundary": "Complete native ADRC keys shared by customer, supplier and bank masters."
+    },
+    "bank": {
+      "required_structures": [
+        "ZFIX_C_BankMig",
+        "ZFIX_C_BankAddressMig",
+        "ZFIX_C_BankEmailMig",
+        "ZFIX_C_BankPhoneMig",
+        "ZFIX_C_BankFaxMig"
+      ],
+      "required_fields": {
+        "ZFIX_C_BankMig": [
+          "BankCountry",
+          "BankKey",
+          "BankName",
+          "City",
+          "Street",
+          "SWIFTCode",
+          "DeletionFlag",
+          "AddressNumber",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage",
+          "HasStandardAddress"
+        ],
+        "ZFIX_C_BankAddressMig": [
+          "BankCountry",
+          "BankKey",
+          "AddressNumber",
+          "AddressValidFrom",
+          "AddressVersion",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage"
+        ],
+        "ZFIX_C_BankEmailMig": [
+          "BankCountry",
+          "BankKey",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "EmailAddress",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_BankPhoneMig": [
+          "BankCountry",
+          "BankKey",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "Telephone",
+          "TelephoneExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_BankFaxMig": [
+          "BankCountry",
+          "BankKey",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "FaxNumber",
+          "FaxExtension",
+          "IsDefaultCommunication"
+        ]
+      },
+      "native_tables": [
+        "BNKA",
+        "ADR6",
+        "ADR2",
+        "ADR3"
+      ],
+      "boundary": "Bank master. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
+    },
+    "customer": {
+      "required_structures": [
+        "ZFIX_C_CustomerMig",
+        "ZFIX_C_CustomerCompanMig",
+        "ZFIX_C_CustomerSalesMig",
+        "ZFIX_C_CustomerAddressMig",
+        "ZFIX_C_CustomerBankMig",
+        "ZFIX_C_CustomerWHTMig",
+        "ZFIX_C_CustomerDunningMig",
+        "ZFIX_C_CustomerPartnerMig",
+        "ZFIX_C_CustomerTaxMig",
+        "ZFIX_C_CustomerContactMig",
+        "ZFIX_C_CustomerEmailMig",
+        "ZFIX_C_CustomerPhoneMig",
+        "ZFIX_C_CustomerFaxMig",
+        "ZFIX_C_ContactEmailMig",
+        "ZFIX_C_ContactPhoneMig",
+        "ZFIX_C_ContactFaxMig",
+        "ZFIX_C_CustomerLongTextMig",
+        "ZFIX_C_CustomerIBANMig"
+      ],
+      "required_fields": {
+        "ZFIX_C_CustomerMig": [
+          "Customer",
+          "CustomerName",
+          "Country",
+          "Region",
+          "AccountGroup",
+          "DeletionFlag",
+          "AddressNumber",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage",
+          "HasStandardAddress",
+          "TaxNumber1",
+          "TaxNumber2",
+          "TaxNumber3",
+          "TaxNumber4",
+          "VATRegistration",
+          "CorrespondenceLanguage"
+        ],
+        "ZFIX_C_CustomerCompanMig": [
+          "Customer",
+          "CompanyCode",
+          "ReconciliationAccount",
+          "PaymentTerms",
+          "PaymentMethods",
+          "DeletionFlag",
+          "PaymentBlock",
+          "SortKey",
+          "PlanningGroup"
+        ],
+        "ZFIX_C_CustomerSalesMig": [
+          "Customer",
+          "SalesOrganization",
+          "DistributionChannel",
+          "Division",
+          "Currency",
+          "PaymentTerms",
+          "DeletionFlag"
+        ],
+        "ZFIX_C_CustomerAddressMig": [
+          "Customer",
+          "AddressNumber",
+          "AddressValidFrom",
+          "AddressVersion",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage"
+        ],
+        "ZFIX_C_CustomerBankMig": [
+          "Customer",
+          "BankCountry",
+          "Bank",
+          "BankAccount",
+          "BankControlKey",
+          "PartnerBankType",
+          "AccountHolder"
+        ],
+        "ZFIX_C_CustomerWHTMig": [
+          "Customer",
+          "CompanyCode",
+          "WithholdingTaxType",
+          "WithholdingTaxCode",
+          "WithholdingTaxID",
+          "ExemptionNumber",
+          "ExemptionRate",
+          "ExemptionValidFrom",
+          "ExemptionValidTo"
+        ],
+        "ZFIX_C_CustomerDunningMig": [
+          "Customer",
+          "CompanyCode",
+          "DunningArea",
+          "DunningProcedure",
+          "DunningBlock",
+          "DunningLevel",
+          "LastDunnedOn",
+          "DunningMemo"
+        ],
+        "ZFIX_C_CustomerPartnerMig": [
+          "Customer",
+          "SalesOrganization",
+          "DistributionChannel",
+          "Division",
+          "PartnerFunction",
+          "PartnerCounter",
+          "PartnerCustomer",
+          "PartnerSupplier",
+          "PartnerContact",
+          "PartnerPersonnel",
+          "DefaultPartner"
+        ],
+        "ZFIX_C_CustomerTaxMig": [
+          "Customer",
+          "DepartureCountry",
+          "TaxCategory",
+          "TaxClassification"
+        ],
+        "ZFIX_C_CustomerContactMig": [
+          "ContactPerson",
+          "Customer",
+          "FirstName",
+          "LastName",
+          "Department",
+          "Function",
+          "Telephone",
+          "PersonNumber"
+        ],
+        "ZFIX_C_CustomerEmailMig": [
+          "Customer",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "EmailAddress",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_CustomerPhoneMig": [
+          "Customer",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "Telephone",
+          "TelephoneExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_CustomerFaxMig": [
+          "Customer",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "FaxNumber",
+          "FaxExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_ContactEmailMig": [
+          "ContactPerson",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "Customer",
+          "EmailAddress",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_ContactPhoneMig": [
+          "ContactPerson",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "Customer",
+          "Telephone",
+          "TelephoneExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_ContactFaxMig": [
+          "ContactPerson",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "Customer",
+          "FaxNumber",
+          "FaxExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_CustomerLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ],
+        "ZFIX_C_CustomerIBANMig": [
+          "Customer",
+          "BankCountry",
+          "Bank",
+          "BankAccount",
+          "BankControlKey",
+          "IBAN"
+        ]
+      },
+      "native_tables": [
+        "ADR2",
+        "ADR3",
+        "ADR6",
+        "KNA1",
+        "KNB1",
+        "KNB5",
+        "KNBK",
+        "KNBW",
+        "KNVI",
+        "KNVK",
+        "KNVP",
+        "KNVV",
+        "STXH",
+        "TIBAN"
+      ],
+      "boundary": "Customer source data source records, preparation and comparison contracts."
+    },
+    "gl_account": {
+      "required_structures": [
+        "ZFIX_C_GLAccountMig",
+        "ZFIX_C_GLAccountTextMig",
+        "ZFIX_C_GLCompanyMig",
+        "ZFIX_C_GLAccountLongTextMig"
+      ],
+      "required_fields": {
+        "ZFIX_C_GLAccountMig": [
+          "ChartOfAccounts",
+          "GLAccount",
+          "AccountGroup",
+          "BalanceSheetAccount",
+          "DeletionFlag"
+        ],
+        "ZFIX_C_GLAccountTextMig": [
+          "Language",
+          "ChartOfAccounts",
+          "GLAccount",
+          "GLAccountName",
+          "GLAccountDescription"
+        ],
+        "ZFIX_C_GLCompanyMig": [
+          "CompanyCode",
+          "GLAccount",
+          "AccountCurrency",
+          "OpenItemManagement",
+          "DeletionFlag"
+        ],
+        "ZFIX_C_GLAccountLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "SKA1",
+        "SKAT",
+        "SKB1",
+        "STXH"
+      ],
+      "boundary": "G/L accounts source records, preparation and comparison contracts."
+    },
+    "gl_line_item": {
+      "required_structures": [
+        "ZFIX_C_AccountingHeadMig",
+        "ZFIX_C_AccountingItemMig"
+      ],
+      "required_fields": {
+        "ZFIX_C_AccountingHeadMig": [
+          "CompanyCode",
+          "AccountingDocument",
+          "FiscalYear",
+          "AccountingDocumentType",
+          "DocumentDate",
+          "PostingDate",
+          "DocumentCurrency",
+          "ReferenceDocument",
+          "HeaderText"
+        ],
+        "ZFIX_C_AccountingItemMig": [
+          "CompanyCode",
+          "AccountingDocument",
+          "FiscalYear",
+          "AccountingDocumentItem",
+          "GLAccount",
+          "AccountType",
+          "DebitCreditCode",
+          "DocumentAmount",
+          "CompanyCodeAmount",
+          "ClearingDate",
+          "ClearingDocument",
+          "ItemText",
+          "Assignment",
+          "Customer",
+          "Supplier",
+          "TaxCode",
+          "CostCenter",
+          "ProfitCenter"
+        ]
+      },
+      "native_tables": [
+        "BKPF",
+        "BSEG"
+      ],
+      "boundary": "Accounting document history source records, preparation and comparison contracts."
+    },
+    "gl_opening_balance": {
+      "required_structures": [
+        "ZFIX_C_ClassicBalanceMig",
+        "ZFIX_C_NewGLBalanceMig"
+      ],
+      "required_fields": {
+        "ZFIX_C_ClassicBalanceMig": [
+          "Ledger",
+          "RecordType",
+          "Version",
+          "CompanyCode",
+          "FiscalYear",
+          "GLAccount",
+          "BusinessArea",
+          "TransactionCurrency",
+          "DebitCreditCode",
+          "TransactionAmount00",
+          "LocalAmount00",
+          "TransactionAmount01",
+          "LocalAmount01",
+          "TransactionAmount02",
+          "LocalAmount02",
+          "TransactionAmount03",
+          "LocalAmount03",
+          "TransactionAmount04",
+          "LocalAmount04",
+          "TransactionAmount05",
+          "LocalAmount05",
+          "TransactionAmount06",
+          "LocalAmount06",
+          "TransactionAmount07",
+          "LocalAmount07",
+          "TransactionAmount08",
+          "LocalAmount08",
+          "TransactionAmount09",
+          "LocalAmount09",
+          "TransactionAmount10",
+          "LocalAmount10",
+          "TransactionAmount11",
+          "LocalAmount11",
+          "TransactionAmount12",
+          "LocalAmount12",
+          "TransactionAmount13",
+          "LocalAmount13",
+          "TransactionAmount14",
+          "LocalAmount14",
+          "TransactionAmount15",
+          "LocalAmount15",
+          "TransactionAmount16",
+          "LocalAmount16"
+        ],
+        "ZFIX_C_NewGLBalanceMig": [
+          "Ledger",
+          "RecordType",
+          "Version",
+          "FiscalYear",
+          "GLAccount",
+          "CompanyCode",
+          "CostCenter",
+          "ProfitCenter",
+          "FunctionalArea",
+          "BusinessArea",
+          "Segment",
+          "PartnerCostCenter",
+          "PartnerProfitCenter",
+          "PartnerFunctionalArea",
+          "PartnerBusinessArea",
+          "TradingPartner",
+          "PartnerSegment",
+          "TransactionCurrency",
+          "BaseUnit",
+          "DebitCreditCode",
+          "BusinessTransaction",
+          "TransactionAmount00",
+          "LocalAmount00",
+          "GroupAmount00",
+          "OtherAmount00",
+          "TransactionAmount01",
+          "LocalAmount01",
+          "GroupAmount01",
+          "OtherAmount01",
+          "TransactionAmount02",
+          "LocalAmount02",
+          "GroupAmount02",
+          "OtherAmount02",
+          "TransactionAmount03",
+          "LocalAmount03",
+          "GroupAmount03",
+          "OtherAmount03",
+          "TransactionAmount04",
+          "LocalAmount04",
+          "GroupAmount04",
+          "OtherAmount04",
+          "TransactionAmount05",
+          "LocalAmount05",
+          "GroupAmount05",
+          "OtherAmount05",
+          "TransactionAmount06",
+          "LocalAmount06",
+          "GroupAmount06",
+          "OtherAmount06",
+          "TransactionAmount07",
+          "LocalAmount07",
+          "GroupAmount07",
+          "OtherAmount07",
+          "TransactionAmount08",
+          "LocalAmount08",
+          "GroupAmount08",
+          "OtherAmount08",
+          "TransactionAmount09",
+          "LocalAmount09",
+          "GroupAmount09",
+          "OtherAmount09",
+          "TransactionAmount10",
+          "LocalAmount10",
+          "GroupAmount10",
+          "OtherAmount10",
+          "TransactionAmount11",
+          "LocalAmount11",
+          "GroupAmount11",
+          "OtherAmount11",
+          "TransactionAmount12",
+          "LocalAmount12",
+          "GroupAmount12",
+          "OtherAmount12",
+          "TransactionAmount13",
+          "LocalAmount13",
+          "GroupAmount13",
+          "OtherAmount13",
+          "TransactionAmount14",
+          "LocalAmount14",
+          "GroupAmount14",
+          "OtherAmount14",
+          "TransactionAmount15",
+          "LocalAmount15",
+          "GroupAmount15",
+          "OtherAmount15",
+          "TransactionAmount16",
+          "LocalAmount16",
+          "GroupAmount16",
+          "OtherAmount16"
+        ]
+      },
+      "native_tables": [
+        "FAGLFLEXT",
+        "GLT0"
+      ],
+      "boundary": "Dedicated G/L opening balances. Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied."
+    },
+    "open_items": {
+      "required_structures": [
+        "ZFIX_C_GLOpenMig",
+        "ZFIX_C_GLClearedMig",
+        "ZFIX_C_APOpenMig",
+        "ZFIX_C_APClearedMig",
+        "ZFIX_C_AROpenMig",
+        "ZFIX_C_ARClearedMig"
+      ],
+      "required_fields": {
+        "ZFIX_C_GLOpenMig": [
+          "CompanyCode",
+          "GLAccount",
+          "ClearingDate",
+          "ClearingDocument",
+          "AssignmentReference",
+          "FiscalYear",
+          "AccountingDocument",
+          "AccountingDocumentItem",
+          "PostingDate",
+          "DebitCreditCode",
+          "DocumentAmount",
+          "CompanyCodeAmount",
+          "DocumentCurrency",
+          "ItemText",
+          "TaxCode"
+        ],
+        "ZFIX_C_GLClearedMig": [
+          "CompanyCode",
+          "GLAccount",
+          "ClearingDate",
+          "ClearingDocument",
+          "AssignmentReference",
+          "FiscalYear",
+          "AccountingDocument",
+          "AccountingDocumentItem",
+          "PostingDate",
+          "DebitCreditCode",
+          "DocumentAmount",
+          "CompanyCodeAmount",
+          "DocumentCurrency",
+          "ItemText",
+          "TaxCode"
+        ],
+        "ZFIX_C_APOpenMig": [
+          "CompanyCode",
+          "Supplier",
+          "SpecialGLTransactionType",
+          "SpecialGLCode",
+          "ClearingDate",
+          "ClearingDocument",
+          "AssignmentReference",
+          "FiscalYear",
+          "AccountingDocument",
+          "AccountingDocumentItem",
+          "PostingDate",
+          "DebitCreditCode",
+          "DocumentAmount",
+          "CompanyCodeAmount",
+          "DocumentCurrency",
+          "ItemText",
+          "TaxCode"
+        ],
+        "ZFIX_C_APClearedMig": [
+          "CompanyCode",
+          "Supplier",
+          "SpecialGLTransactionType",
+          "SpecialGLCode",
+          "ClearingDate",
+          "ClearingDocument",
+          "AssignmentReference",
+          "FiscalYear",
+          "AccountingDocument",
+          "AccountingDocumentItem",
+          "PostingDate",
+          "DebitCreditCode",
+          "DocumentAmount",
+          "CompanyCodeAmount",
+          "DocumentCurrency",
+          "ItemText",
+          "TaxCode"
+        ],
+        "ZFIX_C_AROpenMig": [
+          "CompanyCode",
+          "Customer",
+          "SpecialGLTransactionType",
+          "SpecialGLCode",
+          "ClearingDate",
+          "ClearingDocument",
+          "AssignmentReference",
+          "FiscalYear",
+          "AccountingDocument",
+          "AccountingDocumentItem",
+          "PostingDate",
+          "DebitCreditCode",
+          "DocumentAmount",
+          "CompanyCodeAmount",
+          "DocumentCurrency",
+          "ItemText",
+          "TaxCode"
+        ],
+        "ZFIX_C_ARClearedMig": [
+          "CompanyCode",
+          "Customer",
+          "SpecialGLTransactionType",
+          "SpecialGLCode",
+          "ClearingDate",
+          "ClearingDocument",
+          "AssignmentReference",
+          "FiscalYear",
+          "AccountingDocument",
+          "AccountingDocumentItem",
+          "PostingDate",
+          "DebitCreditCode",
+          "DocumentAmount",
+          "CompanyCodeAmount",
+          "DocumentCurrency",
+          "ItemText",
+          "TaxCode"
+        ]
+      },
+      "native_tables": [
+        "BSAD",
+        "BSAK",
+        "BSAS",
+        "BSID",
+        "BSIK",
+        "BSIS"
+      ],
+      "boundary": "Current and cleared item indexes source records, preparation and comparison contracts."
+    },
+    "supplier": {
+      "required_structures": [
+        "ZFIX_C_SupplierMig",
+        "ZFIX_C_SupplierCompanMig",
+        "ZFIX_C_SupplierPurchaMig",
+        "ZFIX_C_SupplierAddressMig",
+        "ZFIX_C_SupplierBankMig",
+        "ZFIX_C_SupplierWHTMig",
+        "ZFIX_C_SupplierDunningMig",
+        "ZFIX_C_SupplierPartnerMig",
+        "ZFIX_C_SupplierEmailMig",
+        "ZFIX_C_SupplierPhoneMig",
+        "ZFIX_C_SupplierFaxMig",
+        "ZFIX_C_SupplierLongTextMig",
+        "ZFIX_C_SupplierIBANMig"
+      ],
+      "required_fields": {
+        "ZFIX_C_SupplierMig": [
+          "Supplier",
+          "SupplierName",
+          "Country",
+          "Region",
+          "AccountGroup",
+          "DeletionFlag",
+          "AddressNumber",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage",
+          "HasStandardAddress",
+          "TaxNumber1",
+          "TaxNumber2",
+          "TaxNumber3",
+          "TaxNumber4",
+          "VATRegistration",
+          "CorrespondenceLanguage"
+        ],
+        "ZFIX_C_SupplierCompanMig": [
+          "Supplier",
+          "CompanyCode",
+          "ReconciliationAccount",
+          "PaymentTerms",
+          "PaymentMethods",
+          "DeletionFlag",
+          "PaymentBlock",
+          "SortKey",
+          "PlanningGroup"
+        ],
+        "ZFIX_C_SupplierPurchaMig": [
+          "Supplier",
+          "PurchasingOrganization",
+          "OrderCurrency",
+          "PaymentTerms",
+          "DeletionFlag"
+        ],
+        "ZFIX_C_SupplierAddressMig": [
+          "Supplier",
+          "AddressNumber",
+          "AddressValidFrom",
+          "AddressVersion",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage"
+        ],
+        "ZFIX_C_SupplierBankMig": [
+          "Supplier",
+          "BankCountry",
+          "Bank",
+          "BankAccount",
+          "BankControlKey",
+          "PartnerBankType",
+          "AccountHolder"
+        ],
+        "ZFIX_C_SupplierWHTMig": [
+          "Supplier",
+          "CompanyCode",
+          "WithholdingTaxType",
+          "WithholdingTaxCode",
+          "WithholdingTaxID",
+          "ExemptionNumber",
+          "ExemptionRate",
+          "ExemptionValidFrom",
+          "ExemptionValidTo"
+        ],
+        "ZFIX_C_SupplierDunningMig": [
+          "Supplier",
+          "CompanyCode",
+          "DunningArea",
+          "DunningProcedure",
+          "DunningBlock",
+          "DunningLevel",
+          "LastDunnedOn",
+          "DunningMemo"
+        ],
+        "ZFIX_C_SupplierPartnerMig": [
+          "Supplier",
+          "PurchasingOrganization",
+          "SupplierSubrange",
+          "Plant",
+          "PartnerFunction",
+          "PartnerCounter",
+          "PartnerSupplier",
+          "PartnerContact",
+          "DefaultPartner"
+        ],
+        "ZFIX_C_SupplierEmailMig": [
+          "Supplier",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "EmailAddress",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_SupplierPhoneMig": [
+          "Supplier",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "Telephone",
+          "TelephoneExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_SupplierFaxMig": [
+          "Supplier",
+          "AddressNumber",
+          "PersonNumber",
+          "CommunicationValidFrom",
+          "CommunicationCounter",
+          "FaxNumber",
+          "FaxExtension",
+          "IsDefaultCommunication"
+        ],
+        "ZFIX_C_SupplierLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ],
+        "ZFIX_C_SupplierIBANMig": [
+          "Supplier",
+          "BankCountry",
+          "Bank",
+          "BankAccount",
+          "BankControlKey",
+          "IBAN"
+        ]
+      },
+      "native_tables": [
+        "ADR2",
+        "ADR3",
+        "ADR6",
+        "LFA1",
+        "LFB1",
+        "LFB5",
+        "LFBK",
+        "LFBW",
+        "LFM1",
+        "STXH",
+        "WYT3",
+        "TIBAN"
+      ],
+      "boundary": "Supplier source data source records, preparation and comparison contracts."
+    }
+  },
+  "sd": {
+    "address": {
+      "required_structures": [],
+      "required_fields": {},
+      "native_tables": [
+        "VBPA",
+        "ADRC"
+      ],
+      "boundary": "Native VBPA partner records and ADRC address versions shared by SD documents."
+    },
+    "billing_document": {
+      "required_structures": [
+        "ZSDX_C_BillingMig",
+        "ZSDX_C_BillingItemMig",
+        "ZSDX_C_BillingPartnerMig",
+        "ZSDX_C_BillingPartnerAddrMig",
+        "ZSDX_C_BillingLongTextMig"
+      ],
+      "required_fields": {
+        "ZSDX_C_BillingMig": [
+          "BillingDocument",
+          "BillingDocumentType",
+          "BillingDocumentDate",
+          "CompanyCode",
+          "TransactionCurrency",
+          "Payer",
+          "AccountingTransferStatus"
+        ],
+        "ZSDX_C_BillingItemMig": [
+          "BillingDocument",
+          "BillingDocumentItem",
+          "Material",
+          "BillingQuantity",
+          "SalesUnit",
+          "NetAmount",
+          "ReferenceDocument",
+          "ReferenceDocumentItem",
+          "ItemShortText"
+        ],
+        "ZSDX_C_BillingPartnerMig": [
+          "BillingDocument",
+          "BillingDocumentItem",
+          "PartnerFunction",
+          "Customer",
+          "Supplier",
+          "PersonnelNumber",
+          "AddressNumber",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage",
+          "HasStandardAddress"
+        ],
+        "ZSDX_C_BillingPartnerAddrMig": [
+          "BillingDocument",
+          "BillingDocumentItem",
+          "PartnerFunction",
+          "AddressNumber",
+          "AddressValidFrom",
+          "AddressVersion",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage"
+        ],
+        "ZSDX_C_BillingLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "STXH",
+        "VBRK",
+        "VBRP"
+      ],
+      "boundary": "Billing document reference source records, preparation and comparison contracts."
+    },
+    "outbound_delivery": {
+      "required_structures": [
+        "ZSDX_C_DeliveryMig",
+        "ZSDX_C_DeliveryItemMig",
+        "ZSDX_C_DeliveryPartnerMig",
+        "ZSDX_C_DeliveryPartnerAddrMig",
+        "ZSDX_C_DeliveryStatusMig",
+        "ZSDX_C_DlvItemStatusMig",
+        "ZSDX_C_DeliveryLongTextMig"
+      ],
+      "required_fields": {
+        "ZSDX_C_DeliveryMig": [
+          "DeliveryDocument",
+          "DeliveryDocumentType",
+          "ShippingPoint",
+          "ShipToParty",
+          "PlannedGoodsIssueDate",
+          "ActualGoodsIssueDate"
+        ],
+        "ZSDX_C_DeliveryItemMig": [
+          "DeliveryDocument",
+          "DeliveryDocumentItem",
+          "Material",
+          "Plant",
+          "StorageLocation",
+          "DeliveryQuantity",
+          "SalesUnit",
+          "ReferenceDocument",
+          "ReferenceDocumentItem",
+          "ItemShortText",
+          "Batch"
+        ],
+        "ZSDX_C_DeliveryPartnerMig": [
+          "DeliveryDocument",
+          "DeliveryDocumentItem",
+          "PartnerFunction",
+          "Customer",
+          "Supplier",
+          "PersonnelNumber",
+          "AddressNumber",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage",
+          "HasStandardAddress"
+        ],
+        "ZSDX_C_DeliveryPartnerAddrMig": [
+          "DeliveryDocument",
+          "DeliveryDocumentItem",
+          "PartnerFunction",
+          "AddressNumber",
+          "AddressValidFrom",
+          "AddressVersion",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage"
+        ],
+        "ZSDX_C_DeliveryStatusMig": [
+          "DeliveryDocument",
+          "OverallProcessingStatus",
+          "GoodsMovementStatus",
+          "PickingStatus",
+          "BillingStatus"
+        ],
+        "ZSDX_C_DlvItemStatusMig": [
+          "DeliveryDocument",
+          "DeliveryDocumentItem",
+          "OverallProcessingStatus",
+          "GoodsMovementStatus",
+          "PickingStatus",
+          "BillingStatus"
+        ],
+        "ZSDX_C_DeliveryLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "LIKP",
+        "LIPS",
+        "STXH",
+        "VBUK",
+        "VBUP"
+      ],
+      "boundary": "Outbound delivery reference source records, preparation and comparison contracts."
+    },
+    "pricing_condition": {
+      "required_structures": [
+        "ZSDX_C_ConditionHdrMig",
+        "ZSDX_C_ConditionItemMig",
+        "ZSDX_C_QuantityScaleMig",
+        "ZSDX_C_ValueScaleMig"
+      ],
+      "required_fields": {
+        "ZSDX_C_ConditionHdrMig": [
+          "ConditionRecord",
+          "ConditionUsage",
+          "ConditionTableNumber",
+          "Application",
+          "ConditionType",
+          "ValidityStartDate",
+          "ValidityEndDate"
+        ],
+        "ZSDX_C_ConditionItemMig": [
+          "ConditionRecord",
+          "ConditionItem",
+          "CalculationType",
+          "ConditionRate",
+          "ConditionCurrency",
+          "PricingUnit",
+          "ConditionUnit",
+          "DeletionFlag"
+        ],
+        "ZSDX_C_QuantityScaleMig": [
+          "ConditionRecord",
+          "ConditionItem",
+          "ScaleLine",
+          "ScaleQuantity",
+          "ConditionRate"
+        ],
+        "ZSDX_C_ValueScaleMig": [
+          "ConditionRecord",
+          "ConditionItem",
+          "ScaleLine",
+          "ScaleValue",
+          "ConditionRate"
+        ]
+      },
+      "native_tables": [
+        "KONH",
+        "KONM",
+        "KONP",
+        "KONW"
+      ],
+      "boundary": "Pricing condition records and scales. Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor."
+    },
+    "sales_order": {
+      "required_structures": [
+        "ZSDX_C_SalesOrderMig",
+        "ZSDX_C_SalesItemMig",
+        "ZSDX_C_SalesScheduleMig",
+        "ZSDX_C_SalesBusinessMig",
+        "ZSDX_C_SalesPartnerMig",
+        "ZSDX_C_SalesHeaderStaMig",
+        "ZSDX_C_SalesItemStatuMig",
+        "ZSDX_C_SalesFlowMig",
+        "ZSDX_C_SalesPartnerAddressMig",
+        "ZSDX_C_SalesLongTextMig"
+      ],
+      "required_fields": {
+        "ZSDX_C_SalesOrderMig": [
+          "SalesDocument",
+          "SalesDocumentType",
+          "SalesOrganization",
+          "DistributionChannel",
+          "Division",
+          "SoldToParty",
+          "TransactionCurrency"
+        ],
+        "ZSDX_C_SalesItemMig": [
+          "SalesDocument",
+          "SalesDocumentItem",
+          "Material",
+          "Plant",
+          "OrderQuantity",
+          "SalesUnit",
+          "RejectionReason",
+          "ItemShortText",
+          "ItemCategory"
+        ],
+        "ZSDX_C_SalesScheduleMig": [
+          "SalesDocument",
+          "SalesDocumentItem",
+          "ScheduleLine",
+          "DeliveryDate",
+          "OrderQuantity",
+          "ConfirmedQuantity"
+        ],
+        "ZSDX_C_SalesBusinessMig": [
+          "SalesDocument",
+          "SalesDocumentItem",
+          "CustomerPurchaseOrder",
+          "PaymentTerms",
+          "IncotermsClassification",
+          "IncotermsLocation"
+        ],
+        "ZSDX_C_SalesPartnerMig": [
+          "SalesDocument",
+          "SalesDocumentItem",
+          "PartnerFunction",
+          "Customer",
+          "Supplier",
+          "PersonnelNumber",
+          "AddressNumber",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage",
+          "HasStandardAddress"
+        ],
+        "ZSDX_C_SalesHeaderStaMig": [
+          "SalesDocument",
+          "OverallProcessingStatus",
+          "DeliveryStatus",
+          "BillingStatus"
+        ],
+        "ZSDX_C_SalesItemStatuMig": [
+          "SalesDocument",
+          "SalesDocumentItem",
+          "OverallProcessingStatus",
+          "DeliveryStatus",
+          "BillingStatus"
+        ],
+        "ZSDX_C_SalesFlowMig": [
+          "PrecedingDocument",
+          "PrecedingDocumentItem",
+          "SubsequentDocument",
+          "SubsequentDocumentItem",
+          "SubsequentDocumentCategory",
+          "PrecedingDocumentCategory",
+          "ReferencedQuantity"
+        ],
+        "ZSDX_C_SalesPartnerAddressMig": [
+          "SalesDocument",
+          "SalesDocumentItem",
+          "PartnerFunction",
+          "AddressNumber",
+          "AddressValidFrom",
+          "AddressVersion",
+          "AddressValidTo",
+          "AddressName1",
+          "AddressName2",
+          "AddressName3",
+          "AddressName4",
+          "AddressStreet",
+          "AddressHouseNumber",
+          "AddressHouseNumberSupplement",
+          "AddressCity",
+          "AddressDistrict",
+          "AddressPostalCode",
+          "AddressPOBox",
+          "AddressPOBoxPostalCode",
+          "AddressCountry",
+          "AddressRegion",
+          "AddressLanguage"
+        ],
+        "ZSDX_C_SalesLongTextMig": [
+          "TextObject",
+          "TextName",
+          "TextID",
+          "Language"
+        ]
+      },
+      "native_tables": [
+        "STXH",
+        "VBAK",
+        "VBAP",
+        "VBEP",
+        "VBFA",
+        "VBKD",
+        "VBPA",
+        "VBUK",
+        "VBUP"
+      ],
+      "boundary": "Sales orders source records, preparation and comparison contracts."
+    }
+  }
+}

@@ -24,7 +24,7 @@ Preserve the business key and selected parent population without flattening repe
 
 ## Associations defined here
 
-- none
+- `_Profile` → `ZQMX_B_StatusProfileData` [0..1]
 
 ## Access control
 

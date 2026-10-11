@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_MaintPlanCycleMig
-  as select from ZEMX_B_MaintPlanCycle as src
+  as select from ZEMX_I_MaintPlanCycle as src
   association [0..1] to ZEMX_I_MaintenancePlan as _MaintenancePlan on _MaintenancePlan.MaintenancePlan = $projection.MaintenancePlan
 {
       @EndUserText.label: 'Maintenance Plan'

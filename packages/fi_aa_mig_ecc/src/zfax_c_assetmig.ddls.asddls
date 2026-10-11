@@ -20,5 +20,11 @@ define view ZFAX_C_AssetMig
       src.FixedAssetDescription as FixedAssetDescription,
       src.InventoryNumber as InventoryNumber,
       src.AssetCapitalizationDate as AssetCapitalizationDate,
-      src.AssetDeactivationDate as AssetDeactivationDate
+      src.AssetDeactivationDate as AssetDeactivationDate,
+      src.AssetDescription2 as AssetDescription2,
+      src.SerialNumber as SerialNumber,
+      src.Manufacturer as Manufacturer,
+      @Semantics.quantity.unitOfMeasure: 'QuantityUnit'
+      src.Quantity as Quantity,
+      src.QuantityUnit as QuantityUnit
 }

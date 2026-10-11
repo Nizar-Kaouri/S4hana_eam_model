@@ -18,6 +18,7 @@ define view ZEMX_B_OrderSettlementData
   key t.objnr as ObjectNumber,
       @EndUserText.label: 'Distribution Rule Number'
   key t.lfdnr as DistributionRuleNumber,
+  key t.bureg as DistributionRuleGroup,
       @EndUserText.label: 'Settlement Type'
       t.perbz as SettlementType,
       @EndUserText.label: 'Receiver Category'

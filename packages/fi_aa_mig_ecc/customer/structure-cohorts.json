@@ -133,5 +133,23 @@
       "FixedAsset"
     ],
     "kind": "child"
+  },
+  "ZFAX_C_AssetLongTextMig": {
+    "kind": "text_child",
+    "module": "fixed_asset",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZFAX_C_AssetMig",
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "links": "ZFAX_C_AssetLongTextMig_Links",
+    "operation": "text_scope"
   }
 }

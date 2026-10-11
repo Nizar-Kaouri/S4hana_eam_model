@@ -28,7 +28,7 @@
   "structures": [
     {
       "consumption_view": "ZEMX_C_LongTextIndexMig",
-      "source_view": "ZEMX_B_LongTextHeader",
+      "source_view": "ZEMX_I_LongTextIndex",
       "scope_filter": "",
       "keys": [
         "TextObject",

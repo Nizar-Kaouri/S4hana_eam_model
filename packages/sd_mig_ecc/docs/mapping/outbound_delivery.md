@@ -45,6 +45,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `SalesUnit` | LIPS-VRKME | customer interface field: SalesUnit (unconfirmed) | information only | yes |
 | `ReferenceDocument` | LIPS-VGBEL | customer interface field: ReferenceDocument (unconfirmed) | information only | yes |
 | `ReferenceDocumentItem` | LIPS-VGPOS | customer interface field: ReferenceDocumentItem (unconfirmed) | information only | yes |
+| `ItemShortText` | LIPS-ARKTX | - | copy |  |
+| `Batch` | LIPS-CHARG | - | copy |  |
 
 ## `ZSDX_C_DeliveryPartnerMig`
 
@@ -113,6 +115,54 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AddressCountry` | ADRC-COUNTRY | - | copy |  |
 | `AddressRegion` | ADRC-REGION | - | copy |  |
 | `AddressLanguage` | ADRC-LANGU | - | copy |  |
+
+## `ZSDX_C_DeliveryStatusMig`
+
+- Source: `ZSDX_I_DeliveryStatus`
+- Keys: `DeliveryDocument`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `DeliveryDocument` | VBUK-VBELN | - | copy |  |
+| `OverallProcessingStatus` | VBUK-GBSTK | - | copy |  |
+| `GoodsMovementStatus` | VBUK-WBSTK | - | copy |  |
+| `PickingStatus` | VBUK-KOSTK | - | copy |  |
+| `BillingStatus` | VBUK-FKSTK | - | copy |  |
+
+## `ZSDX_C_DlvItemStatusMig`
+
+- Source: `ZSDX_I_DlvItemStatus`
+- Keys: `DeliveryDocument`, `DeliveryDocumentItem`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `DeliveryDocument` | VBUP-VBELN | - | copy |  |
+| `DeliveryDocumentItem` | VBUP-POSNR | - | copy |  |
+| `OverallProcessingStatus` | VBUP-GBSTA | - | copy |  |
+| `GoodsMovementStatus` | VBUP-WBSTA | - | copy |  |
+| `PickingStatus` | VBUP-KOSTA | - | copy |  |
+| `BillingStatus` | VBUP-FKSTA | - | copy |  |
+
+## `ZSDX_C_DeliveryLongTextMig`
+
+- Source: `ZSDX_I_DeliveryLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Reconciliation
 

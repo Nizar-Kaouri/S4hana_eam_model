@@ -32,7 +32,12 @@ START-OF-SELECTION.
   TRANSLATE p_field TO UPPER CASE.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
-    WHEN 'ANEP' OR 'ANLA' OR 'ANLB' OR 'ANLC' OR 'ANLZ'.
+    WHEN 'ANEP'
+      OR 'ANLA'
+      OR 'ANLB'
+      OR 'ANLC'
+      OR 'ANLZ'
+      OR 'STXH'.
       lv_allowed = abap_true.
   ENDCASE.
   IF lv_allowed <> abap_true OR p_max < 1 OR p_max > 1000000.

@@ -1,7 +1,7 @@
 {
   "name": "equipment",
   "title": "Equipment",
-  "description": "Current equipment master with standard postal address, multilingual texts, scoped partners, active statuses, user statuses, long-text index and address versions.",
+  "description": "Current equipment master with standard postal address, multilingual texts, scoped partners, active statuses, user statuses, long-text index and address versions. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md.",
   "batch": 2,
   "version": "1.0.0",
   "status": "released",
@@ -17,7 +17,10 @@
     "EQKT",
     "EQUI",
     "EQUZ",
-    "ILOA"
+    "ILOA",
+    "ADR6",
+    "ADR2",
+    "ADR3"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
@@ -25,7 +28,8 @@
     "work_center",
     "object_partner",
     "object_status",
-    "long_text"
+    "long_text",
+    "classification"
   ],
   "objects": {
     "tables": [],
@@ -33,7 +37,10 @@
       "ZEMX_B_EquipmentHeader",
       "ZEMX_B_EquipmentTimeSegment",
       "ZEMX_B_EquipmentDesc",
-      "ZEMX_B_EquipSerialStockData"
+      "ZEMX_B_EquipSerialStockData",
+      "ZEMX_B_EquipEmailData",
+      "ZEMX_B_EquipPhoneData",
+      "ZEMX_B_EquipFaxData"
     ],
     "composite": [
       "ZEMX_I_Equipment",
@@ -42,7 +49,12 @@
       "ZEMX_I_EquipPartner",
       "ZEMX_I_EquipStatus",
       "ZEMX_I_EquipLongText",
-      "ZEMX_I_EquipAddress"
+      "ZEMX_I_EquipAddress",
+      "ZEMX_I_EquipClass",
+      "ZEMX_I_EquipCharc",
+      "ZEMX_I_EquipEmail",
+      "ZEMX_I_EquipPhone",
+      "ZEMX_I_EquipFax"
     ],
     "consumption": [
       "ZEMX_C_EquipmentMig",
@@ -53,7 +65,12 @@
       "ZEMX_C_EquipStatusMig",
       "ZEMX_C_EquipUserStatusMig",
       "ZEMX_C_EquipLongTextMig",
-      "ZEMX_C_EquipAddressMig"
+      "ZEMX_C_EquipAddressMig",
+      "ZEMX_C_EquipClassMig",
+      "ZEMX_C_EquipCharcMig",
+      "ZEMX_C_EquipEmailMig",
+      "ZEMX_C_EquipPhoneMig",
+      "ZEMX_C_EquipFaxMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -79,7 +96,20 @@
     "ZEMX_C_EquipStatusMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_EquipUserStatusMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_EquipLongTextMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_C_EquipAddressMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_C_EquipAddressMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipClass": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipClassMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipCharc": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipCharcMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_EquipEmailData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipEmail": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipEmailMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_EquipPhoneData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipPhone": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipPhoneMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_EquipFaxData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipFax": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipFaxMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

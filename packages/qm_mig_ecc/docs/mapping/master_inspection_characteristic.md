@@ -42,6 +42,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `Language` | QPMT-SPRACHE | customer interface field: Language (unconfirmed) | copy | yes |
 | `CharacteristicDescription` | QPMT-KURZTEXT | customer interface field: CharacteristicDescription (unconfirmed) | copy | yes |
 
+## `ZQMX_C_MasterCharLongTextMig`
+
+- Source: `ZQMX_I_MasterCharLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data. Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZQMX_C_MasterCharMigCount` (ECC) vs `-` (S/4HANA) per `Plant`

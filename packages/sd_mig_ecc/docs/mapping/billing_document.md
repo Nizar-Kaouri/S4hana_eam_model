@@ -25,6 +25,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `CompanyCode` | VBRK-BUKRS | customer interface field: CompanyCode (unconfirmed) | information only | yes |
 | `TransactionCurrency` | VBRK-WAERK | customer interface field: TransactionCurrency (unconfirmed) | information only | yes |
 | `Payer` | VBRK-KUNRG | customer interface field: Payer (unconfirmed) | information only | yes |
+| `AccountingTransferStatus` | VBRK-RFBSK | - | copy |  |
 
 ## `ZSDX_C_BillingItemMig`
 
@@ -44,6 +45,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `NetAmount` | VBRP-NETWR | customer interface field: NetAmount (unconfirmed) | information only | yes |
 | `ReferenceDocument` | VBRP-VGBEL | customer interface field: ReferenceDocument (unconfirmed) | information only | yes |
 | `ReferenceDocumentItem` | VBRP-VGPOS | customer interface field: ReferenceDocumentItem (unconfirmed) | information only | yes |
+| `ItemShortText` | VBRP-ARKTX | - | copy |  |
 
 ## `ZSDX_C_BillingPartnerMig`
 
@@ -112,6 +114,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AddressCountry` | ADRC-COUNTRY | - | copy |  |
 | `AddressRegion` | ADRC-REGION | - | copy |  |
 | `AddressLanguage` | ADRC-LANGU | - | copy |  |
+
+## `ZSDX_C_BillingLongTextMig`
+
+- Source: `ZSDX_I_BillingLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Reconciliation
 

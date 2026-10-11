@@ -21,5 +21,7 @@ define view ZSDX_I_DeliveryItem
       src.DeliveryQuantity as DeliveryQuantity,
       src.SalesUnit as SalesUnit,
       src.ReferenceDocument as ReferenceDocument,
-      src.ReferenceDocumentItem as ReferenceDocumentItem
+      src.ReferenceDocumentItem as ReferenceDocumentItem,
+      src.ItemShortText as ItemShortText,
+      src.Batch as Batch
 }

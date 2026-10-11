@@ -55,6 +55,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ProfitCenterName` | CEPCT-KTEXT | customer interface field: ProfitCenterName (unconfirmed) | copy | yes |
 | `ProfitCenterDescription` | CEPCT-LTEXT | customer interface field: ProfitCenterDescription (unconfirmed) | copy | yes |
 
+## `ZCOX_C_ProfitCtrLongTextMig`
+
+- Source: `ZCOX_I_ProfitCtrLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZCOX_C_ProfitCenterMigCount` (ECC) vs `ZCOT_I_ProfitCenterCount` (S/4HANA) per `ProfitCenter`

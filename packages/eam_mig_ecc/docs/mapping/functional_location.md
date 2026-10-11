@@ -123,6 +123,174 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AddressRegion` | ADRC-REGION | - | copy |  |
 | `AddressLanguage` | ADRC-LANGU | - | copy |  |
 
+## `ZEMX_C_FuncLocPartnerMig`
+
+- Source: `ZEMX_I_FuncLocPartner`
+- Keys: `FunctionalLocation`, `PartnerFunction`, `PartnerCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
+| `PartnerFunction` | IHPA-PARVW | - | copy |  |
+| `PartnerCounter` | IHPA-COUNTER | - | copy |  |
+| `Partner` | IHPA-PARNR | - | copy |  |
+
+## `ZEMX_C_FuncLocStatusMig`
+
+- Source: `ZEMX_I_FuncLocStatus`
+- Keys: `FunctionalLocation`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | source: FunctionalLocation | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | source: StatusKind | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## `ZEMX_C_FuncLocUserStatusMig`
+
+- Source: `ZEMX_I_FuncLocUserStatus`
+- Keys: `FunctionalLocation`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | source: FunctionalLocation | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | source: StatusKind | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## `ZEMX_C_FuncLocClassMig`
+
+- Source: `ZEMX_I_FuncLocClass`
+- Keys: `FunctionalLocation`, `ClassType`, `Class`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | source: FunctionalLocation | - | copy |  |
+| `ClassType` | KSSK-KLART | - | copy |  |
+| `Class` | KLAH-CLASS | - | copy |  |
+| `ClassificationStatus` | KSSK-STATU | - | copy |  |
+
+## `ZEMX_C_FuncLocCharcMig`
+
+- Source: `ZEMX_I_FuncLocCharc`
+- Keys: `FunctionalLocation`, `ClassType`, `Characteristic`, `CharcValuePositionNumber`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | source: FunctionalLocation | - | copy |  |
+| `ClassType` | AUSP-KLART | - | copy |  |
+| `Characteristic` | CABN-ATNAM | - | copy |  |
+| `CharcValuePositionNumber` | AUSP-ATZHL | - | copy |  |
+| `CharcValue` | AUSP-ATWRT | - | copy |  |
+| `CharcFromNumericValue` | AUSP-ATFLV | - | copy |  |
+| `CharcToNumericValue` | AUSP-ATFLB | - | copy |  |
+| `CharcValueDependency` | AUSP-ATCOD | - | copy |  |
+
+## `ZEMX_C_FuncLocEmailMig`
+
+- Source: `ZEMX_I_FuncLocEmail`
+- Keys: `FunctionalLocation`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
+| `AddressNumber` | ADR6-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR6-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR6-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR6-CONSNUMBER | - | copy |  |
+| `EmailAddress` | ADR6-SMTP_ADDR | - | copy |  |
+| `IsDefaultCommunication` | ADR6-FLGDEFAULT | - | copy |  |
+
+## `ZEMX_C_FuncLocPhoneMig`
+
+- Source: `ZEMX_I_FuncLocPhone`
+- Keys: `FunctionalLocation`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
+| `AddressNumber` | ADR2-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR2-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR2-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR2-CONSNUMBER | - | copy |  |
+| `Telephone` | ADR2-TEL_NUMBER | - | copy |  |
+| `TelephoneExtension` | ADR2-TEL_EXTENS | - | copy |  |
+| `IsDefaultCommunication` | ADR2-FLGDEFAULT | - | copy |  |
+
+## `ZEMX_C_FuncLocFaxMig`
+
+- Source: `ZEMX_I_FuncLocFax`
+- Keys: `FunctionalLocation`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
+| `AddressNumber` | ADR3-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR3-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR3-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR3-CONSNUMBER | - | copy |  |
+| `FaxNumber` | ADR3-FAX_NUMBER | - | copy |  |
+| `FaxExtension` | ADR3-FAX_EXTENS | - | copy |  |
+| `IsDefaultCommunication` | ADR3-FLGDEFAULT | - | copy |  |
+
+## `ZEMX_C_FuncLocLongTextMig`
+
+- Source: `ZEMX_I_FuncLocLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
+## `ZEMX_C_FuncLocBOMMig`
+
+- Source: `ZEMX_I_FuncLocBOM`
+- Keys: `FunctionalLocation`, `Plant`, `BOMUsage`, `BillOfMaterial`, `BOMAlternative`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Select the functional-location BOM assignments with the same prepared functional locations. Derive the approved BOM category T / number / alternative and node populations for the existing equipment_bom header, selection and item exports. Apply their documented ECM/key-date workflow; source BOM numbers are mapped to target identities.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | TPST-TPLNR | - | copy |  |
+| `Plant` | TPST-WERKS | - | copy |  |
+| `BOMUsage` | TPST-STLAN | - | copy |  |
+| `BillOfMaterial` | TPST-STLNR | - | copy |  |
+| `BOMAlternative` | TPST-STLAL | - | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |

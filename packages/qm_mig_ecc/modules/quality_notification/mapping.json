@@ -311,10 +311,157 @@
           "target": "",
           "rule": "copy",
           "compare": false
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "reference",
       "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZQMX_C_NotifPartnerMig",
+      "source_view": "ZQMX_I_NotifPartner",
+      "scope_filter": "",
+      "keys": [
+        "QualityNotification",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "fields": [
+        {
+          "element": "QualityNotification",
+          "source": "QMEL-QMNUM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "IHPA-PARVW",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerCounter",
+          "source": "IHPA-COUNTER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Partner",
+          "source": "IHPA-PARNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded."
+    },
+    {
+      "consumption_view": "ZQMX_C_NotifUserStatusMig",
+      "source_view": "ZQMX_I_NotifUserStatus",
+      "scope_filter": "",
+      "keys": [
+        "QualityNotification",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "QualityNotification",
+          "source": "QMEL-QMNUM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "JEST-OBJNR",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "StatusKind",
+          "source": "derived: first character of JEST-STAT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO."
+    },
+    {
+      "consumption_view": "ZQMX_C_NotifLongTextMig",
+      "source_view": "ZQMX_I_NotifLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
     }
   ],
   "not_migrated": [

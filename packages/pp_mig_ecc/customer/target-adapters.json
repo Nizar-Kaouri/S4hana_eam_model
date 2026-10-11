@@ -66,7 +66,10 @@
     "target_export": "target/ZPPX_C_ProductionOperMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
-    "supplementary_source_fields": []
+    "supplementary_source_fields": [
+      "ControlKey",
+      "SubOperation"
+    ]
   },
   "ZPPX_C_OperationQuantMig": {
     "module": "production_order_operation",
@@ -346,7 +349,84 @@
       "ObjectNumber",
       "StatusCode",
       "StatusKind",
-      "StatusChangeNumber"
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZPPX_C_OrderUserStatusMig": {
+    "module": "production_order",
+    "key": [
+      "ManufacturingOrder",
+      "StatusCode"
+    ],
+    "fields": [],
+    "target_export": "target/ZPPX_C_OrderUserStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "ManufacturingOrder",
+      "StatusCode",
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZPPX_C_OrderLongTextMig": {
+    "module": "production_order",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZPPX_C_OrderLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZPPX_C_RoutingLongTextMig": {
+    "module": "routing",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZPPX_C_RoutingLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZPPX_C_BOMLongTextMig": {
+    "module": "bill_of_material",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZPPX_C_BOMLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
     ]
   }
 }

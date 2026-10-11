@@ -20,5 +20,18 @@ define view ZCOX_B_OrderSettlemenData
       src.perbz as SettlementType,
       src.prozs as SettlementPercentage,
       src.kostl as ReceiverCostCenter,
-      src.aufnr as ReceiverOrder
+      src.aufnr as ReceiverOrder,
+      src.konty as ReceiverCategory,
+      @Semantics.amount.currencyCode: 'SettlementCurrency'
+      src.betrr as SettlementAmount,
+      src.bwaer as SettlementCurrency,
+      src.kokrs as ControllingArea,
+      src.bukrs as ReceiverCompanyCode,
+      src.anln1 as ReceiverMasterAsset,
+      src.anln2 as ReceiverAsset,
+      src.pspnr as ReceiverWBSInternalID,
+      src.gabja as ValidFromFiscalYear,
+      src.gabpe as ValidFromPeriod,
+      src.gbisj as ValidToFiscalYear,
+      src.gbisp as ValidToPeriod
 }

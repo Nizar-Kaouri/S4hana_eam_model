@@ -21,5 +21,12 @@ define view ZMMX_B_MaterialData
       src.brgew as GrossWeight,
       src.ntgew as NetWeight,
       src.gewei as WeightUnit,
-      src.lvorm as DeletionFlag
+      src.lvorm as DeletionFlag,
+      src.mbrsh as IndustrySector,
+      src.spart as Division,
+      src.bismt as OldMaterialNumber,
+      src.extwg as ExternalProductGroup,
+      src.mstae as CrossPlantMaterialStatus,
+      src.mstde as MaterialStatusValidFrom,
+      src.xchpf as BatchManagementRequired
 }

@@ -22,5 +22,7 @@ define view ZSDX_B_DeliveryItemData
       src.lfimg as DeliveryQuantity,
       src.vrkme as SalesUnit,
       src.vgbel as ReferenceDocument,
-      src.vgpos as ReferenceDocumentItem
+      src.vgpos as ReferenceDocumentItem,
+      src.arktx as ItemShortText,
+      src.charg as Batch
 }

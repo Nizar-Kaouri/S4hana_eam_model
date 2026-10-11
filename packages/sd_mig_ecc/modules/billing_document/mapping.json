@@ -65,6 +65,13 @@
           "target": "customer interface field: Payer (unconfirmed)",
           "rule": "info",
           "compare": true
+        },
+        {
+          "element": "AccountingTransferStatus",
+          "source": "VBRK-RFBSK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "reference",
@@ -134,6 +141,13 @@
           "target": "customer interface field: ReferenceDocumentItem (unconfirmed)",
           "rule": "info",
           "compare": true
+        },
+        {
+          "element": "ItemShortText",
+          "source": "VBRP-ARKTX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "reference",
@@ -490,6 +504,49 @@
       ],
       "delivery_mode": "reference",
       "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZSDX_C_BillingLongTextMig",
+      "source_view": "ZSDX_I_BillingLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
     }
   ],
   "not_migrated": [],

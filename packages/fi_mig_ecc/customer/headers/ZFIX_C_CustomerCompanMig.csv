@@ -1,1 +1,1 @@
-Customer,CompanyCode,ReconciliationAccount,PaymentTerms,PaymentMethods,DeletionFlag
+Customer,CompanyCode,ReconciliationAccount,PaymentTerms,PaymentMethods,DeletionFlag,PaymentBlock,SortKey,PlanningGroup

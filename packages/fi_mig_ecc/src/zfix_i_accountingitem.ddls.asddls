@@ -23,5 +23,12 @@ define view ZFIX_I_AccountingItem
       src.DocumentAmount as DocumentAmount,
       src.CompanyCodeAmount as CompanyCodeAmount,
       src.ClearingDate as ClearingDate,
-      src.ClearingDocument as ClearingDocument
+      src.ClearingDocument as ClearingDocument,
+      src.ItemText as ItemText,
+      src.Assignment as Assignment,
+      src.Customer as Customer,
+      src.Supplier as Supplier,
+      src.TaxCode as TaxCode,
+      src.CostCenter as CostCenter,
+      src.ProfitCenter as ProfitCenter
 }

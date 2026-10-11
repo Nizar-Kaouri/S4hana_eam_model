@@ -21,7 +21,9 @@
     "basic": [
       "ZEMX_B_ObjectPartner"
     ],
-    "composite": [],
+    "composite": [
+      "ZEMX_I_ObjectPartner"
+    ],
     "consumption": [
       "ZEMX_C_ObjectPartnerMig",
       "ZEMX_C_ObjectPartnerMigCount"
@@ -33,7 +35,8 @@
   "no_dcl_by_design": {
     "ZEMX_B_ObjectPartner": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_ObjectPartnerMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_C_ObjectPartnerMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_C_ObjectPartnerMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_ObjectPartner": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

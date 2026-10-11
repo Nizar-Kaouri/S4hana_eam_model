@@ -77,6 +77,55 @@
           "target": "customer interface field: DeletionFlag (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "IndustrySector",
+          "source": "MARA-MBRSH",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Division",
+          "source": "MARA-SPART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "OldMaterialNumber",
+          "source": "MARA-BISMT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ExternalProductGroup",
+          "source": "MARA-EXTWG",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CrossPlantMaterialStatus",
+          "source": "MARA-MSTAE",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "MaterialStatusValidFrom",
+          "source": "MARA-MSTDE",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BatchManagementRequired",
+          "source": "MARA-XCHPF",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "master",
@@ -173,10 +222,115 @@
           "target": "customer interface field: DeletionFlag (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "MRPGroup",
+          "source": "MARC-DISGR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "LotSizingProcedure",
+          "source": "MARC-DISLS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SpecialProcurementType",
+          "source": "MARC-SOBSL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AvailabilityCheck",
+          "source": "MARC-MTVFP",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SafetyStock",
+          "source": "MARC-EISBE",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "MinimumLotSize",
+          "source": "MARC-BSTMI",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "MaximumLotSize",
+          "source": "MARC-BSTMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FixedLotSize",
+          "source": "MARC-BSTFE",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PlannedDeliveryTime",
+          "source": "MARC-PLIFZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "GoodsReceiptProcessingTime",
+          "source": "MARC-WEBAZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "InHouseProductionTime",
+          "source": "MARC-DZEIT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IssueStorageLocation",
+          "source": "MARC-LGPRO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ExternalProcStorageLocation",
+          "source": "MARC-LGFSB",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SerialNumberProfile",
+          "source": "MARC-SERNP",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BatchManagementRequired",
+          "source": "MARC-XCHPF",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "master",
-      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone. Safety stock and lot-size quantities use the selected material base unit from C_MaterialMig; processing/delivery times are days."
     },
     {
       "consumption_view": "ZMMX_C_MaterialLocatiMig",
@@ -427,6 +581,607 @@
       ],
       "delivery_mode": "master",
       "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialSalesMig",
+      "source_view": "ZMMX_I_MaterialSales",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "SalesOrganization",
+        "DistributionChannel"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MVKE-MATNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SalesOrganization",
+          "source": "MVKE-VKORG",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "DistributionChannel",
+          "source": "MVKE-VTWEG",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SalesUnit",
+          "source": "MVKE-VRKME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "DeliveringPlant",
+          "source": "MVKE-DWERK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SalesStatus",
+          "source": "MVKE-VMSTA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SalesStatusValidFrom",
+          "source": "MVKE-VMSTD",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ItemCategoryGroup",
+          "source": "MVKE-MTPOS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AccountAssignmentGroup",
+          "source": "MVKE-KTGRM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "MVKE-LVORM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialTaxMig",
+      "source_view": "ZMMX_I_MaterialTax",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "DepartureCountry"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MLAN-MATNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "DepartureCountry",
+          "source": "MLAN-ALAND",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification1",
+          "source": "MLAN-TAXM1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification2",
+          "source": "MLAN-TAXM2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification3",
+          "source": "MLAN-TAXM3",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification4",
+          "source": "MLAN-TAXM4",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification5",
+          "source": "MLAN-TAXM5",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification6",
+          "source": "MLAN-TAXM6",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification7",
+          "source": "MLAN-TAXM7",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification8",
+          "source": "MLAN-TAXM8",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxClassification9",
+          "source": "MLAN-TAXM9",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialMRPAreaMig",
+      "source_view": "ZMMX_I_MaterialMRPArea",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "MRPArea"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MDMA-MATNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "MRPArea",
+          "source": "MDMA-BERID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "MRPType",
+          "source": "MDMA-DISMM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "MRPController",
+          "source": "MDMA-DISPO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "LotSizingProcedure",
+          "source": "MDMA-DISLS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "SpecialProcurementType",
+          "source": "MDMA-SOBSL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "MDMA-LOEKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialEANMig",
+      "source_view": "ZMMX_I_MaterialEAN",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "AlternativeUnit",
+        "EANCounter"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MEAN-MATNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AlternativeUnit",
+          "source": "MEAN-MEINH",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "EANCounter",
+          "source": "MEAN-LFNUM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "EAN",
+          "source": "MEAN-EAN11",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "EANCategory",
+          "source": "MEAN-EANTP",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "MainEAN",
+          "source": "MEAN-HPEAN",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialLongTextMig",
+      "source_view": "ZMMX_I_MaterialLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    },
+    {
+      "consumption_view": "ZMMX_C_ClassObjectMig",
+      "source_view": "ZMMX_I_ClassObject",
+      "scope_filter": "",
+      "keys": [
+        "ClassificationInternalID"
+      ],
+      "fields": [
+        {
+          "element": "ClassificationInternalID",
+          "source": "INOB-CUOBJ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "INOB-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ObjectTable",
+          "source": "INOB-OBTAB",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassifiedObject",
+          "source": "INOB-OBJEK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialClassMig",
+      "source_view": "ZMMX_I_MaterialClass",
+      "scope_filter": "",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Class"
+      ],
+      "fields": [
+        {
+          "element": "ClassifiedObject",
+          "source": "KSSK-OBJEK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "KSSK-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Class",
+          "source": "KLAH-CLASS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassificationStatus",
+          "source": "KSSK-STATU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve complete native classification/ECM keys. Use the explicit full-key business-owner link file and INOB where the class type uses internal CUOBJ; do not assume OBJEK equals MATNR or concatenate an external batch label. Resolve class/characteristic names and target object IDs; evaluate source ECM effectivity before posting through supported classification interfaces."
+    },
+    {
+      "consumption_view": "ZMMX_C_BatchClassMig",
+      "source_view": "ZMMX_I_BatchClass",
+      "scope_filter": "",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Class"
+      ],
+      "fields": [
+        {
+          "element": "ClassifiedObject",
+          "source": "KSSK-OBJEK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "KSSK-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Class",
+          "source": "KLAH-CLASS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassificationStatus",
+          "source": "KSSK-STATU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve complete native classification/ECM keys. Use the explicit full-key business-owner link file and INOB where the class type uses internal CUOBJ; do not assume OBJEK equals MATNR or concatenate an external batch label. Resolve class/characteristic names and target object IDs; evaluate source ECM effectivity before posting through supported classification interfaces."
+    },
+    {
+      "consumption_view": "ZMMX_C_MaterialCharcMig",
+      "source_view": "ZMMX_I_MaterialCharc",
+      "scope_filter": "",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "fields": [
+        {
+          "element": "ClassifiedObject",
+          "source": "AUSP-OBJEK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "AUSP-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Characteristic",
+          "source": "CABN-ATNAM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValuePositionNumber",
+          "source": "AUSP-ATZHL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValue",
+          "source": "AUSP-ATWRT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcFromNumericValue",
+          "source": "AUSP-ATFLV",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcToNumericValue",
+          "source": "AUSP-ATFLB",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValueDependency",
+          "source": "AUSP-ATCOD",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve complete native classification/ECM keys. Use the explicit full-key business-owner link file and INOB where the class type uses internal CUOBJ; do not assume OBJEK equals MATNR or concatenate an external batch label. Resolve class/characteristic names and target object IDs; evaluate source ECM effectivity before posting through supported classification interfaces."
+    },
+    {
+      "consumption_view": "ZMMX_C_BatchCharcMig",
+      "source_view": "ZMMX_I_BatchCharc",
+      "scope_filter": "",
+      "keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "fields": [
+        {
+          "element": "ClassifiedObject",
+          "source": "AUSP-OBJEK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "AUSP-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Characteristic",
+          "source": "CABN-ATNAM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValuePositionNumber",
+          "source": "AUSP-ATZHL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValue",
+          "source": "AUSP-ATWRT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcFromNumericValue",
+          "source": "AUSP-ATFLV",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcToNumericValue",
+          "source": "AUSP-ATFLB",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValueDependency",
+          "source": "AUSP-ATCOD",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve complete native classification/ECM keys. Use the explicit full-key business-owner link file and INOB where the class type uses internal CUOBJ; do not assume OBJEK equals MATNR or concatenate an external batch label. Resolve class/characteristic names and target object IDs; evaluate source ECM effectivity before posting through supported classification interfaces."
     }
   ],
   "not_migrated": [],

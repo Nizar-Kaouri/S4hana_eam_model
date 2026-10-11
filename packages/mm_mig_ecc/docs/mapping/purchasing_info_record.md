@@ -47,6 +47,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `PriceUnitOfMeasure` | EINE-BPRME | customer interface field: PriceUnitOfMeasure (unconfirmed) | copy | yes |
 | `DeletionFlag` | EINE-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
 
+## `ZMMX_C_InfoRecordLongTextMig`
+
+- Source: `ZMMX_I_InfoRecordLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data. Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZMMX_C_InfoRecordMigCount` (ECC) vs `-` (S/4HANA) per `PurchasingInfoRecord`

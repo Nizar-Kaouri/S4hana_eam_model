@@ -884,6 +884,328 @@
       ],
       "delivery_mode": "reference",
       "preprocessing": "Reference data: preserve keys and select the required versions; do not write SAP tables directly. Long text payloads require READ_TEXT; address numbers are regenerated in the target."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipClassMig",
+      "source_view": "ZEMX_I_EquipClass",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "ClassType",
+        "Class"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "source: Equipment",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "KSSK-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Class",
+          "source": "KLAH-CLASS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassificationStatus",
+          "source": "KSSK-STATU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipCharcMig",
+      "source_view": "ZEMX_I_EquipCharc",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "source: Equipment",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ClassType",
+          "source": "AUSP-KLART",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Characteristic",
+          "source": "CABN-ATNAM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValuePositionNumber",
+          "source": "AUSP-ATZHL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValue",
+          "source": "AUSP-ATWRT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcFromNumericValue",
+          "source": "AUSP-ATFLV",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcToNumericValue",
+          "source": "AUSP-ATFLB",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CharcValueDependency",
+          "source": "AUSP-ATCOD",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipEmailMig",
+      "source_view": "ZEMX_I_EquipEmail",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR6-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR6-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR6-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR6-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "EmailAddress",
+          "source": "ADR6-SMTP_ADDR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR6-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipPhoneMig",
+      "source_view": "ZEMX_I_EquipPhone",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR2-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR2-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR2-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR2-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Telephone",
+          "source": "ADR2-TEL_NUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TelephoneExtension",
+          "source": "ADR2-TEL_EXTENS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR2-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipFaxMig",
+      "source_view": "ZEMX_I_EquipFax",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR3-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR3-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR3-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR3-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FaxNumber",
+          "source": "ADR3-FAX_NUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FaxExtension",
+          "source": "ADR3-FAX_EXTENS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR3-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
     }
   ],
   "not_migrated": [

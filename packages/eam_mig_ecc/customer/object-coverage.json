@@ -1,0 +1,1744 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "classification": {
+      "native_tables": [
+        "KSSK",
+        "KLAH",
+        "AUSP"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_ClassAssignmentMig",
+          "interface": "ZEMX_I_ClassAssignment",
+          "keys": [
+            "ClassifiedObject",
+            "ClassType",
+            "Class"
+          ],
+          "mode": "master",
+          "fields": [
+            "ClassifiedObject",
+            "ClassType",
+            "Class",
+            "ClassificationStatus"
+          ]
+        },
+        {
+          "view": "ZEMX_C_CharcValueMig",
+          "interface": "ZEMX_I_CharcValue",
+          "keys": [
+            "ClassifiedObject",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber"
+          ],
+          "mode": "master",
+          "fields": [
+            "ClassifiedObject",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber",
+            "CharcValue",
+            "CharcFromNumericValue",
+            "CharcToNumericValue",
+            "CharcValueDependency"
+          ]
+        }
+      ],
+      "boundary": "Class assignments and characteristic values of technical objects."
+    },
+    "core": {
+      "native_tables": [
+        "ILOA",
+        "JEST",
+        "CABN",
+        "ADRC"
+      ],
+      "structures": [],
+      "boundary": "Shared basic views: location / account assignment, status flags, characteristics."
+    },
+    "equipment": {
+      "native_tables": [
+        "ADRC",
+        "EQBS",
+        "EQKT",
+        "EQUI",
+        "EQUZ",
+        "ILOA",
+        "ADR6",
+        "ADR2",
+        "ADR3"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_EquipmentMig",
+          "interface": "ZEMX_I_Equipment",
+          "keys": [
+            "Equipment"
+          ],
+          "mode": "master",
+          "fields": [
+            "Equipment",
+            "EquipmentCategory",
+            "TechnicalObjectType",
+            "AuthorizationGroup",
+            "ValidityStartDate",
+            "MaintenancePlanningPlant",
+            "MaintenancePlannerGroup",
+            "MainWorkCenter",
+            "MainWorkCenterPlant",
+            "FunctionalLocation",
+            "SuperordinateEquipment",
+            "EquipInstallationPositionNmbr",
+            "TechnicalIdentificationNumber",
+            "MaintenancePlant",
+            "PlantSection",
+            "AssetLocation",
+            "AssetRoom",
+            "ABCIndicator",
+            "SortField",
+            "CompanyCode",
+            "BusinessArea",
+            "ControllingArea",
+            "CostCenter",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "StandingOrder",
+            "Material",
+            "SerialNumber",
+            "AssetManufacturerName",
+            "ManufacturerCountry",
+            "ManufacturerModelNumber",
+            "ManufacturerPartNmbr",
+            "ManufacturerSerialNumber",
+            "ConstructionYear",
+            "ConstructionMonth",
+            "InventoryNumber",
+            "OperationStartDate",
+            "EquipmentSizeDimension",
+            "GrossWeight",
+            "WeightUnit",
+            "AcquisitionDate",
+            "AcquisitionValue",
+            "Currency",
+            "LastChangeDate",
+            "AddressNumber",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage",
+            "HasStandardAddress"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipmentTextMig",
+          "interface": "ZEMX_I_EquipText",
+          "keys": [
+            "Equipment",
+            "Language"
+          ],
+          "mode": "master",
+          "fields": [
+            "Equipment",
+            "Language",
+            "EquipmentName"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipSerialStockMig",
+          "interface": "ZEMX_I_EquipSerialStock",
+          "keys": [
+            "Equipment"
+          ],
+          "mode": "reference",
+          "fields": [
+            "Equipment",
+            "StockPlant",
+            "StorageLocation",
+            "Batch",
+            "SpecialStock"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipPartnerMig",
+          "interface": "ZEMX_I_EquipPartner",
+          "keys": [
+            "Equipment",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Equipment",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipStatusMig",
+          "interface": "ZEMX_I_EquipStatus",
+          "keys": [
+            "Equipment",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "Equipment",
+            "StatusCode",
+            "StatusKind",
+            "StatusProfile",
+            "StatusChangeNumber"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipUserStatusMig",
+          "interface": "ZEMX_I_EquipStatus",
+          "keys": [
+            "Equipment",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Equipment",
+            "StatusCode",
+            "StatusKind",
+            "StatusProfile",
+            "StatusChangeNumber"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipLongTextMig",
+          "interface": "ZEMX_I_EquipLongText",
+          "keys": [
+            "Equipment",
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "Equipment",
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipAddressMig",
+          "interface": "ZEMX_I_EquipAddress",
+          "keys": [
+            "Equipment",
+            "AddressValidFrom",
+            "AddressVersion"
+          ],
+          "mode": "reference",
+          "fields": [
+            "Equipment",
+            "AddressNumber",
+            "AddressValidFrom",
+            "AddressVersion",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipClassMig",
+          "interface": "ZEMX_I_EquipClass",
+          "keys": [
+            "Equipment",
+            "ClassType",
+            "Class"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Equipment",
+            "ClassType",
+            "Class",
+            "ClassificationStatus"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipCharcMig",
+          "interface": "ZEMX_I_EquipCharc",
+          "keys": [
+            "Equipment",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Equipment",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber",
+            "CharcValue",
+            "CharcFromNumericValue",
+            "CharcToNumericValue",
+            "CharcValueDependency"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipEmailMig",
+          "interface": "ZEMX_I_EquipEmail",
+          "keys": [
+            "Equipment",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Equipment",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "EmailAddress",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipPhoneMig",
+          "interface": "ZEMX_I_EquipPhone",
+          "keys": [
+            "Equipment",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Equipment",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "Telephone",
+            "TelephoneExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZEMX_C_EquipFaxMig",
+          "interface": "ZEMX_I_EquipFax",
+          "keys": [
+            "Equipment",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Equipment",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "FaxNumber",
+            "FaxExtension",
+            "IsDefaultCommunication"
+          ]
+        }
+      ],
+      "boundary": "Current equipment master with standard postal address, multilingual texts, scoped partners, active statuses, user statuses, long-text index and address versions. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md."
+    },
+    "equipment_bom": {
+      "native_tables": [
+        "EQST",
+        "STAS",
+        "STKO",
+        "STPO"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_EquipBOMAssignMig",
+          "interface": "ZEMX_I_EquipBOMAssign",
+          "keys": [
+            "Equipment",
+            "Plant",
+            "BOMUsage",
+            "BOMAlternative"
+          ],
+          "mode": "master",
+          "fields": [
+            "Equipment",
+            "Plant",
+            "BOMUsage",
+            "BillOfMaterial",
+            "BOMAlternative"
+          ]
+        },
+        {
+          "view": "ZEMX_C_BOMHeaderMig",
+          "interface": "ZEMX_I_BOMHeader",
+          "keys": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMAlternative",
+            "HeaderCounter"
+          ],
+          "mode": "version_ledger",
+          "fields": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMAlternative",
+            "HeaderCounter",
+            "ValidityStartDate",
+            "IsMarkedForDeletion",
+            "BaseQuantity",
+            "BaseUnit"
+          ]
+        },
+        {
+          "view": "ZEMX_C_BOMSelectionMig",
+          "interface": "ZEMX_I_BOMSelection",
+          "keys": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMAlternative",
+            "BOMItemNode",
+            "SelectionCounter"
+          ],
+          "mode": "version_ledger",
+          "fields": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMAlternative",
+            "BOMItemNode",
+            "SelectionCounter",
+            "ValidityStartDate",
+            "IsMarkedForDeletion"
+          ]
+        },
+        {
+          "view": "ZEMX_C_BOMItemMig",
+          "interface": "ZEMX_I_BOMItem",
+          "keys": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMItemNode",
+            "ItemCounter"
+          ],
+          "mode": "version_ledger",
+          "fields": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMItemNode",
+            "ItemCounter",
+            "ValidityStartDate",
+            "BOMItemNumber",
+            "BOMItemCategory",
+            "ComponentMaterial",
+            "ComponentQuantity",
+            "ComponentUnit",
+            "IsMarkedForDeletion"
+          ]
+        }
+      ],
+      "boundary": "Equipment BOM assignments and versioned header, selection and item ledgers."
+    },
+    "functional_location": {
+      "native_tables": [
+        "ADR2",
+        "ADR3",
+        "ADR6",
+        "IFLOS",
+        "IFLOT",
+        "IFLOTX",
+        "STXH",
+        "TPST"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_FuncLocMig",
+          "interface": "ZEMX_I_FuncLoc",
+          "keys": [
+            "FunctionalLocation"
+          ],
+          "mode": "master",
+          "fields": [
+            "FunctionalLocation",
+            "FunctionalLocationCategory",
+            "FuncLocationStructure",
+            "SuperiorFunctionalLocation",
+            "TechnicalObjectType",
+            "AuthorizationGroup",
+            "MaintenancePlanningPlant",
+            "MaintenancePlannerGroup",
+            "EquipInstallationIsAllowed",
+            "EquipIsSingleInstallation",
+            "ConstructionType",
+            "AssetManufacturerName",
+            "ConstructionYear",
+            "InventoryNumber",
+            "OperationStartDate",
+            "MaintenancePlant",
+            "PlantSection",
+            "AssetLocation",
+            "AssetRoom",
+            "ABCIndicator",
+            "SortField",
+            "CompanyCode",
+            "BusinessArea",
+            "ControllingArea",
+            "CostCenter",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "StandingOrder",
+            "LastChangeDate",
+            "AddressNumber",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage",
+            "HasStandardAddress"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocTextMig",
+          "interface": "ZEMX_I_FuncLocText",
+          "keys": [
+            "FunctionalLocation",
+            "Language"
+          ],
+          "mode": "master",
+          "fields": [
+            "FunctionalLocation",
+            "Language",
+            "FunctionalLocationName"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocLabelMig",
+          "interface": "ZEMX_I_FuncLocLabel",
+          "keys": [
+            "FunctionalLocation",
+            "LabelingSystem"
+          ],
+          "mode": "master",
+          "fields": [
+            "FunctionalLocation",
+            "LabelingSystem",
+            "AlternativeLabel",
+            "IsActiveLabel"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocAddressMig",
+          "interface": "ZEMX_I_FuncLocAddress",
+          "keys": [
+            "FunctionalLocation",
+            "AddressValidFrom",
+            "AddressVersion"
+          ],
+          "mode": "reference",
+          "fields": [
+            "FunctionalLocation",
+            "AddressNumber",
+            "AddressValidFrom",
+            "AddressVersion",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocPartnerMig",
+          "interface": "ZEMX_I_FuncLocPartner",
+          "keys": [
+            "FunctionalLocation",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "FunctionalLocation",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocStatusMig",
+          "interface": "ZEMX_I_FuncLocStatus",
+          "keys": [
+            "FunctionalLocation",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "FunctionalLocation",
+            "StatusCode",
+            "StatusKind",
+            "StatusProfile",
+            "StatusChangeNumber"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocUserStatusMig",
+          "interface": "ZEMX_I_FuncLocUserStatus",
+          "keys": [
+            "FunctionalLocation",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "FunctionalLocation",
+            "StatusCode",
+            "StatusKind",
+            "StatusProfile",
+            "StatusChangeNumber"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocClassMig",
+          "interface": "ZEMX_I_FuncLocClass",
+          "keys": [
+            "FunctionalLocation",
+            "ClassType",
+            "Class"
+          ],
+          "mode": "posting",
+          "fields": [
+            "FunctionalLocation",
+            "ClassType",
+            "Class",
+            "ClassificationStatus"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocCharcMig",
+          "interface": "ZEMX_I_FuncLocCharc",
+          "keys": [
+            "FunctionalLocation",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber"
+          ],
+          "mode": "posting",
+          "fields": [
+            "FunctionalLocation",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber",
+            "CharcValue",
+            "CharcFromNumericValue",
+            "CharcToNumericValue",
+            "CharcValueDependency"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocEmailMig",
+          "interface": "ZEMX_I_FuncLocEmail",
+          "keys": [
+            "FunctionalLocation",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "FunctionalLocation",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "EmailAddress",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocPhoneMig",
+          "interface": "ZEMX_I_FuncLocPhone",
+          "keys": [
+            "FunctionalLocation",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "FunctionalLocation",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "Telephone",
+            "TelephoneExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocFaxMig",
+          "interface": "ZEMX_I_FuncLocFax",
+          "keys": [
+            "FunctionalLocation",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "FunctionalLocation",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "FaxNumber",
+            "FaxExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocLongTextMig",
+          "interface": "ZEMX_I_FuncLocLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        },
+        {
+          "view": "ZEMX_C_FuncLocBOMMig",
+          "interface": "ZEMX_I_FuncLocBOM",
+          "keys": [
+            "FunctionalLocation",
+            "Plant",
+            "BOMUsage",
+            "BillOfMaterial",
+            "BOMAlternative"
+          ],
+          "mode": "posting",
+          "fields": [
+            "FunctionalLocation",
+            "Plant",
+            "BOMUsage",
+            "BillOfMaterial",
+            "BOMAlternative"
+          ]
+        }
+      ],
+      "boundary": "Functional locations, texts and alternative labels. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md."
+    },
+    "long_text": {
+      "native_tables": [
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_LongTextIndexMig",
+          "interface": "ZEMX_I_LongTextIndex",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "master",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Index of long texts of EAM objects (content via READ_TEXT in the load program)."
+    },
+    "maintenance_notification": {
+      "native_tables": [
+        "QMEL",
+        "QMFE",
+        "QMIH",
+        "QMMA",
+        "QMSM",
+        "QMUR",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_MaintNotificationMig",
+          "interface": "ZEMX_I_MaintNotification",
+          "keys": [
+            "MaintenanceNotification"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceNotification",
+            "NotificationType",
+            "NotificationText",
+            "MaintPriority",
+            "MaintPriorityType",
+            "NotificationDate",
+            "NotificationTime",
+            "ReportedByUser",
+            "RequiredStartDate",
+            "RequiredEndDate",
+            "NotificationCatalog",
+            "NotificationCodeGroup",
+            "NotificationCode",
+            "Equipment",
+            "FunctionalLocation",
+            "MaintenancePlanningPlant",
+            "MaintenancePlannerGroup",
+            "MainWorkCenter",
+            "MainWorkCenterPlant",
+            "MaintenancePlant",
+            "PlantSection",
+            "MaintenanceObjectIsDown",
+            "MalfunctionStartDate",
+            "MalfunctionStartTime",
+            "MalfunctionEndDate",
+            "MalfunctionEndTime",
+            "LastChangeDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintNotifItemMig",
+          "interface": "ZEMX_I_MaintNotifItem",
+          "keys": [
+            "MaintenanceNotification",
+            "MaintNotificationItem"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceNotification",
+            "MaintNotificationItem",
+            "ObjectPartCodeGroup",
+            "ObjectPartCode",
+            "DamageCodeGroup",
+            "DamageCode",
+            "MaintNotifItemText"
+          ]
+        },
+        {
+          "view": "ZEMX_C_NotifCauseMig",
+          "interface": "ZEMX_I_NotifCause",
+          "keys": [
+            "MaintenanceNotification",
+            "MaintNotificationItem",
+            "CauseNumber"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceNotification",
+            "MaintNotificationItem",
+            "CauseNumber",
+            "CauseCodeGroup",
+            "CauseCode",
+            "CauseText"
+          ]
+        },
+        {
+          "view": "ZEMX_C_NotifTaskMig",
+          "interface": "ZEMX_I_NotifTask",
+          "keys": [
+            "MaintenanceNotification",
+            "TaskNumber"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceNotification",
+            "TaskNumber",
+            "MaintNotificationItem",
+            "TaskCodeGroup",
+            "TaskCode",
+            "TaskText",
+            "PartnerFunction",
+            "ResponsiblePartner",
+            "PlannedStartDate",
+            "PlannedEndDate",
+            "CompletionDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_NotifActivityMig",
+          "interface": "ZEMX_I_NotifActivity",
+          "keys": [
+            "MaintenanceNotification",
+            "ActivityNumber"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceNotification",
+            "ActivityNumber",
+            "MaintNotificationItem",
+            "ActivityCodeGroup",
+            "ActivityCode",
+            "ActivityText",
+            "ActivityStartDate",
+            "ActivityEndDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintNotifPartnerMig",
+          "interface": "ZEMX_I_MaintNotifPartner",
+          "keys": [
+            "MaintenanceNotification",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "MaintenanceNotification",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintNotifStatusMig",
+          "interface": "ZEMX_I_MaintNotifStatus",
+          "keys": [
+            "MaintenanceNotification",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "MaintenanceNotification",
+            "StatusCode",
+            "StatusKind",
+            "StatusProfile",
+            "StatusChangeNumber"
+          ]
+        },
+        {
+          "view": "ZEMX_C_NotifUserStatusMig",
+          "interface": "ZEMX_I_MaintNotifUserStatus",
+          "keys": [
+            "MaintenanceNotification",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "MaintenanceNotification",
+            "StatusCode",
+            "StatusKind",
+            "StatusProfile",
+            "StatusChangeNumber"
+          ]
+        },
+        {
+          "view": "ZEMX_C_NotifLongTextMig",
+          "interface": "ZEMX_I_NotifLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Open PM notifications with items, causes, tasks and activities. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md."
+    },
+    "maintenance_order": {
+      "native_tables": [
+        "AFIH",
+        "AFKO",
+        "AFVC",
+        "AFVV",
+        "AUFK",
+        "COBRB",
+        "IHSG",
+        "RESB",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_MaintOrderMig",
+          "interface": "ZEMX_I_MaintOrder",
+          "keys": [
+            "MaintenanceOrder"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceOrder",
+            "MaintenanceOrderType",
+            "MaintenanceOrderDesc",
+            "MaintenanceActivityType",
+            "MaintPriority",
+            "MaintOrdBasicStartDate",
+            "MaintOrdBasicEndDate",
+            "MaintenancePlanningPlant",
+            "MaintenancePlannerGroup",
+            "MainWorkCenter",
+            "MainWorkCenterPlant",
+            "MaintenancePlant",
+            "CompanyCode",
+            "BusinessArea",
+            "ControllingArea",
+            "ResponsibleCostCenter",
+            "CostCenter",
+            "MaintenanceNotification",
+            "Equipment",
+            "FunctionalLocation",
+            "MaintenancePlan",
+            "MaintenanceItem",
+            "MaintObjectSystemCondition",
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Currency",
+            "LastChangeDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintOrderOperationMig",
+          "interface": "ZEMX_I_MaintOrderOperation",
+          "keys": [
+            "MaintenanceOrder",
+            "MaintenanceOrderOperation",
+            "MaintenanceOrderSubOperation"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceOrder",
+            "MaintenanceOrderOperation",
+            "MaintenanceOrderSubOperation",
+            "OperationDescription",
+            "OperationControlKey",
+            "WorkCenter",
+            "WorkCenterPlant",
+            "Plant",
+            "ActivityType",
+            "PlannedWorkQuantity",
+            "PlannedWorkQuantityUnit",
+            "OperationDuration",
+            "OperationDurationUnit"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintOrderComponentMig",
+          "interface": "ZEMX_I_MaintOrderComponent",
+          "keys": [
+            "MaintenanceOrder",
+            "ReservationItem"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceOrder",
+            "ReservationItem",
+            "MaintenanceOrderOperation",
+            "BOMItemNumber",
+            "BOMItemCategory",
+            "Material",
+            "Plant",
+            "StorageLocation",
+            "MatlCompRequirementDate",
+            "RequirementQuantityInBaseUnit",
+            "WithdrawnQuantity",
+            "BaseUnit"
+          ]
+        },
+        {
+          "view": "ZEMX_C_OrderSettlementMig",
+          "interface": "ZEMX_I_OrderSettlement",
+          "keys": [
+            "ObjectNumber",
+            "DistributionRuleNumber",
+            "DistributionRuleGroup"
+          ],
+          "mode": "scoped_extract",
+          "fields": [
+            "ObjectNumber",
+            "DistributionRuleNumber",
+            "SettlementType",
+            "ReceiverCategory",
+            "SettlementPercentage",
+            "SettlementAmount",
+            "Currency",
+            "ControllingArea",
+            "CompanyCode",
+            "ReceiverCostCenter",
+            "ReceiverOrder",
+            "ReceiverAsset",
+            "ReceiverAssetSubnumber",
+            "ReceiverWBSInternalID",
+            "ValidFromYear",
+            "ValidFromPeriod",
+            "ValidToYear",
+            "ValidToPeriod",
+            "MaintenanceOrder",
+            "DistributionRuleGroup"
+          ]
+        },
+        {
+          "view": "ZEMX_C_OrderPermitMig",
+          "interface": "ZEMX_I_OrderPermit",
+          "keys": [
+            "ObjectNumber",
+            "Permit"
+          ],
+          "mode": "scoped_extract",
+          "fields": [
+            "ObjectNumber",
+            "Permit",
+            "MaintenanceOrder"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintOrderPartnerMig",
+          "interface": "ZEMX_I_MaintOrderPartner",
+          "keys": [
+            "MaintenanceOrder",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "MaintenanceOrder",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintOrderStatusMig",
+          "interface": "ZEMX_I_MaintOrderStatus",
+          "keys": [
+            "MaintenanceOrder",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "MaintenanceOrder",
+            "StatusCode",
+            "StatusKind",
+            "StatusProfile",
+            "StatusChangeNumber"
+          ]
+        },
+        {
+          "view": "ZEMX_C_OrderUserStatusMig",
+          "interface": "ZEMX_I_MaintOrderUserStatus",
+          "keys": [
+            "MaintenanceOrder",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "MaintenanceOrder",
+            "StatusCode",
+            "StatusKind",
+            "StatusProfile",
+            "StatusChangeNumber"
+          ]
+        },
+        {
+          "view": "ZEMX_C_OrderLongTextMig",
+          "interface": "ZEMX_I_OrderLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Open maintenance orders with operations, components, settlement rows and permit assignments. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md."
+    },
+    "maintenance_plan": {
+      "native_tables": [
+        "MHIS",
+        "MMPT",
+        "MPLA",
+        "MPOS",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_MaintenancePlanMig",
+          "interface": "ZEMX_I_MaintenancePlan",
+          "keys": [
+            "MaintenancePlan"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenancePlan",
+            "MaintenancePlanDesc",
+            "MaintenancePlanCategory",
+            "MaintenanceStrategy",
+            "AuthorizationGroup",
+            "SchedulingPeriod",
+            "SchedulingPeriodUnit",
+            "CallHorizonPercent",
+            "CycleModificationFactor",
+            "SchedulingIndicator",
+            "LateCompletionShiftFactor",
+            "LateCompletionTolerance",
+            "EarlyCompletionShiftFactor",
+            "EarlyCompletionTolerance",
+            "FactoryCalendar",
+            "LastCompletionDate",
+            "LastChangeDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintenanceItemMig",
+          "interface": "ZEMX_I_MaintenanceItem",
+          "keys": [
+            "MaintenanceItem"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenanceItem",
+            "MaintenancePlan",
+            "MaintenanceItemDescription",
+            "Equipment",
+            "FunctionalLocation",
+            "MaintenancePlanningPlant",
+            "MaintenancePlannerGroup",
+            "MainWorkCenter",
+            "MainWorkCenterPlant",
+            "MaintenanceOrderType",
+            "NotificationType",
+            "MaintenanceActivityType",
+            "MaintPriority",
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "BusinessArea",
+            "LastChangeDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MaintPlanCycleMig",
+          "interface": "ZEMX_I_MaintPlanCycle",
+          "keys": [
+            "MaintenancePlan",
+            "MaintenancePlanCycle"
+          ],
+          "mode": "master",
+          "fields": [
+            "MaintenancePlan",
+            "MaintenancePlanCycle",
+            "CycleValue",
+            "CycleUnit",
+            "CycleText",
+            "MeasuringPoint"
+          ]
+        },
+        {
+          "view": "ZEMX_C_PlanLongTextMig",
+          "interface": "ZEMX_I_PlanLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Maintenance plans with items, cycles and the schedule restart point."
+    },
+    "measurement_document": {
+      "native_tables": [
+        "IMRG"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_MeasReadingMig",
+          "interface": "ZEMX_I_MeasPointLastReading",
+          "keys": [
+            "MeasuringPoint"
+          ],
+          "mode": "master",
+          "fields": [
+            "MeasuringPoint",
+            "MsmtRdngDate",
+            "MsmtRdngTime",
+            "MsmtRdngByUser",
+            "MeasurementReading",
+            "MeasurementCounterReading",
+            "MsmtReadingInEntryUnit",
+            "MsmtEntryUnit",
+            "MsmtValuationCode",
+            "MeasurementDocumentText"
+          ]
+        }
+      ],
+      "boundary": "Last reading per measuring point (initial readings on S/4HANA)."
+    },
+    "measuring_point": {
+      "native_tables": [
+        "IMPTT",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_MeasuringPointMig",
+          "interface": "ZEMX_I_MeasuringPoint",
+          "keys": [
+            "MeasuringPoint"
+          ],
+          "mode": "master",
+          "fields": [
+            "MeasuringPoint",
+            "MeasuringPointDescription",
+            "MeasuringPointCategory",
+            "MeasuringPointPositionNumber",
+            "MeasuringPointObjectType",
+            "TechnicalObjectKey",
+            "Characteristic",
+            "MeasuringPointIsCounter",
+            "MeasuringPointDecimalPlaces",
+            "MeasurementRangeUnit",
+            "LowerRangeLimit",
+            "UpperRangeLimit",
+            "TargetValue",
+            "CodeGroup",
+            "MeasuringPointIsInactive",
+            "AuthorizationGroup",
+            "LastChangeDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_MeasPointLongTextMig",
+          "interface": "ZEMX_I_MeasPointLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Measuring points and counters of equipment and functional locations."
+    },
+    "object_partner": {
+      "native_tables": [
+        "IHPA"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_ObjectPartnerMig",
+          "interface": "ZEMX_I_ObjectPartner",
+          "keys": [
+            "PartnerObjectKey",
+            "PartnerFunction",
+            "PartnerCounter",
+            "PartnerObjectType"
+          ],
+          "mode": "master",
+          "fields": [
+            "PartnerObjectKey",
+            "PartnerFunction",
+            "PartnerCounter",
+            "PartnerObjectType",
+            "Partner"
+          ]
+        }
+      ],
+      "boundary": "Partner assignments of technical objects, notifications and orders."
+    },
+    "object_status": {
+      "native_tables": [
+        "JEST",
+        "JSTO",
+        "TJ30T"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_UserStatusMig",
+          "interface": "ZEMX_I_ObjectStatus",
+          "keys": [
+            "StatusObjectKey",
+            "StatusCode",
+            "StatusObjectType"
+          ],
+          "mode": "master",
+          "fields": [
+            "StatusObjectKey",
+            "StatusCode",
+            "StatusObjectType",
+            "StatusProfile"
+          ]
+        }
+      ],
+      "boundary": "Active user statuses of technical objects, notifications and orders."
+    },
+    "task_list": {
+      "native_tables": [
+        "EAPL",
+        "PLAS",
+        "PLFH",
+        "PLKO",
+        "PLMZ",
+        "PLPO",
+        "PLWP",
+        "STXH",
+        "TAPL"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_TaskListMig",
+          "interface": "ZEMX_I_TaskListCurrent",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter"
+          ],
+          "mode": "master",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "ValidityStartDate",
+            "TaskListDesc",
+            "Plant",
+            "TaskListUsage",
+            "TaskListStatus",
+            "MaintenancePlannerGroup",
+            "MainWorkCenter",
+            "MainWorkCenterPlant",
+            "MaintenanceStrategy",
+            "MaintObjectSystemCondition",
+            "LastChangeDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_TaskListOperationMig",
+          "interface": "ZEMX_I_TaskListOperation",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "TaskListSequence",
+            "TaskListOperation"
+          ],
+          "mode": "master",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "TaskListSequence",
+            "TaskListOperation",
+            "TaskListSubOperation",
+            "OperationControlKey",
+            "OperationText",
+            "WorkCenter",
+            "WorkCenterPlant",
+            "Plant",
+            "ActivityType",
+            "PlannedWorkQuantity",
+            "PlannedWorkQuantityUnit",
+            "OperationDuration",
+            "OperationDurationUnit",
+            "NumberOfCapacities"
+          ]
+        },
+        {
+          "view": "ZEMX_C_TaskListAllocationMig",
+          "interface": "ZEMX_I_TaskListObjectAssgmt",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Equipment",
+            "FunctionalLocation",
+            "AdditionalCriteriaCounter",
+            "AssignmentCounter"
+          ],
+          "mode": "version_ledger",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Equipment",
+            "FunctionalLocation",
+            "AdditionalCriteriaCounter",
+            "AssignmentCounter",
+            "IsMarkedForDeletion"
+          ]
+        },
+        {
+          "view": "ZEMX_C_TaskListCompMig",
+          "interface": "ZEMX_I_TaskListComp",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "OperationInternalID",
+            "AllocationNumber",
+            "VersionCounter"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "OperationInternalID",
+            "VersionCounter",
+            "AllocationNumber",
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMAlternative",
+            "BOMItemNode"
+          ]
+        },
+        {
+          "view": "ZEMX_C_TaskListPRTMig",
+          "interface": "ZEMX_I_TaskListPRT",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "OperationInternalID",
+            "PRTItem",
+            "VersionCounter"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "OperationInternalID",
+            "VersionCounter",
+            "PRTItem",
+            "PRTObjectType",
+            "PRTInternalID",
+            "PRTControlKey"
+          ]
+        },
+        {
+          "view": "ZEMX_C_TaskListPackageMig",
+          "interface": "ZEMX_I_TaskListPackage",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "OperationInternalID",
+            "MaintenancePackage",
+            "VersionCounter"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "OperationInternalID",
+            "VersionCounter",
+            "MaintenancePackage"
+          ]
+        },
+        {
+          "view": "ZEMX_C_TaskListLongTextMig",
+          "interface": "ZEMX_I_TaskListLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Maintenance task lists with operations, object allocation, component/PRT/package references and provisional latest-counter selection."
+    },
+    "work_center": {
+      "native_tables": [
+        "CRCA",
+        "CRCO",
+        "CRHD",
+        "CRTX",
+        "KAKO"
+      ],
+      "structures": [
+        {
+          "view": "ZEMX_C_WorkCenterMig",
+          "interface": "ZEMX_I_WorkCenter",
+          "keys": [
+            "WorkCenter",
+            "Plant"
+          ],
+          "mode": "master",
+          "fields": [
+            "WorkCenter",
+            "Plant",
+            "WorkCenterCategoryCode",
+            "WorkCenterResponsible",
+            "TaskListUsage",
+            "ValidityStartDate",
+            "ValidityEndDate"
+          ]
+        },
+        {
+          "view": "ZEMX_C_WorkCenterTextMig",
+          "interface": "ZEMX_I_WorkCenterText",
+          "keys": [
+            "WorkCenter",
+            "Plant",
+            "Language"
+          ],
+          "mode": "master",
+          "fields": [
+            "WorkCenter",
+            "Plant",
+            "Language",
+            "WorkCenterText"
+          ]
+        },
+        {
+          "view": "ZEMX_C_WorkCenterCostCtrMig",
+          "interface": "ZEMX_I_WorkCenterCostCenter",
+          "keys": [
+            "WorkCenter",
+            "Plant",
+            "ValidityEndDate",
+            "ActivityTypeSet",
+            "CostCenterAssgmtCounter"
+          ],
+          "mode": "master",
+          "fields": [
+            "WorkCenter",
+            "Plant",
+            "ValidityEndDate",
+            "ValidityStartDate",
+            "ControllingArea",
+            "CostCenter",
+            "ActivityTypeSet",
+            "CostCenterAssgmtCounter"
+          ]
+        },
+        {
+          "view": "ZEMX_C_WorkCenterCapacityMig",
+          "interface": "ZEMX_I_WorkCenterCapacity",
+          "keys": [
+            "ObjectType",
+            "WorkCenterInternalID",
+            "CapacityAssignment"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ObjectType",
+            "WorkCenterInternalID",
+            "CapacityAssignment",
+            "CapacityInternalID",
+            "ValidityStartDate",
+            "ValidityEndDate",
+            "CapacityFormula",
+            "WorkCenter"
+          ]
+        },
+        {
+          "view": "ZEMX_C_CapacityHeaderMig",
+          "interface": "ZEMX_I_CapacityHeader",
+          "keys": [
+            "CapacityInternalID"
+          ],
+          "mode": "reference",
+          "fields": [
+            "CapacityInternalID",
+            "CapacityCategory",
+            "CapacityName"
+          ]
+        }
+      ],
+      "boundary": "Work-center headers, texts, cost centers and capacity references."
+    }
+  }
+}

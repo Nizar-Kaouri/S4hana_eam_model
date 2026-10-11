@@ -10,7 +10,9 @@
     "ZFAX_C_AssetPostingMig": "exports/ZFAX_C_AssetPostingMig.csv",
     "ZFAX_C_AssetPostingMig_Scope": "selection/ZFAX_C_AssetPostingMig.csv",
     "ZFAX_C_AssetBalanceMig": "exports/ZFAX_C_AssetBalanceMig.csv",
-    "ZFAX_C_AssetBalanceMig_Scope": "selection/ZFAX_C_AssetBalanceMig.csv"
+    "ZFAX_C_AssetBalanceMig_Scope": "selection/ZFAX_C_AssetBalanceMig.csv",
+    "ZFAX_C_AssetLongTextMig": "exports/ZFAX_C_AssetLongTextMig.csv",
+    "ZFAX_C_AssetLongTextMig_Links": "text-links/ZFAX_C_AssetLongTextMig.csv"
   },
   "steps": [
     {
@@ -190,6 +192,18 @@
         "MasterFixedAsset",
         "FixedAsset"
       ]
+    },
+    {
+      "name": "ZFAX_C_AssetLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZFAX_C_AssetLongTextMig",
+      "parent": "ZFAX_C_AssetMig_Prepared",
+      "links": "ZFAX_C_AssetLongTextMig_Links",
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ]
     }
   ],
   "outputs": [
@@ -197,6 +211,7 @@
     "ZFAX_C_AssetPostingMig_Prepared",
     "ZFAX_C_AssetMig_Prepared",
     "ZFAX_C_AssetAssignmenMig_Prepared",
-    "ZFAX_C_DepreciationMig_Prepared"
+    "ZFAX_C_DepreciationMig_Prepared",
+    "ZFAX_C_AssetLongTextMig_Prepared"
   ]
 }

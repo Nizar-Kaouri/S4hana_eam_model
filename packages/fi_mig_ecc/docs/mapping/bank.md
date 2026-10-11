@@ -77,6 +77,65 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AddressRegion` | ADRC-REGION | - | copy |  |
 | `AddressLanguage` | ADRC-LANGU | - | copy |  |
 
+## `ZFIX_C_BankEmailMig`
+
+- Source: `ZFIX_I_BankEmail`
+- Keys: `BankCountry`, `BankKey`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `BankCountry` | BNKA-BANKS | - | copy |  |
+| `BankKey` | BNKA-BANKL | - | copy |  |
+| `AddressNumber` | ADR6-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR6-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR6-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR6-CONSNUMBER | - | copy |  |
+| `EmailAddress` | ADR6-SMTP_ADDR | - | copy |  |
+| `IsDefaultCommunication` | ADR6-FLGDEFAULT | - | copy |  |
+
+## `ZFIX_C_BankPhoneMig`
+
+- Source: `ZFIX_I_BankPhone`
+- Keys: `BankCountry`, `BankKey`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `BankCountry` | BNKA-BANKS | - | copy |  |
+| `BankKey` | BNKA-BANKL | - | copy |  |
+| `AddressNumber` | ADR2-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR2-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR2-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR2-CONSNUMBER | - | copy |  |
+| `Telephone` | ADR2-TEL_NUMBER | - | copy |  |
+| `TelephoneExtension` | ADR2-TEL_EXTENS | - | copy |  |
+| `IsDefaultCommunication` | ADR2-FLGDEFAULT | - | copy |  |
+
+## `ZFIX_C_BankFaxMig`
+
+- Source: `ZFIX_I_BankFax`
+- Keys: `BankCountry`, `BankKey`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `BankCountry` | BNKA-BANKS | - | copy |  |
+| `BankKey` | BNKA-BANKL | - | copy |  |
+| `AddressNumber` | ADR3-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR3-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR3-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR3-CONSNUMBER | - | copy |  |
+| `FaxNumber` | ADR3-FAX_NUMBER | - | copy |  |
+| `FaxExtension` | ADR3-FAX_EXTENS | - | copy |  |
+| `IsDefaultCommunication` | ADR3-FLGDEFAULT | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZFIX_C_BankMigCount` (ECC) vs `-` (S/4HANA) per `BankCountry`

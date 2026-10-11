@@ -13,7 +13,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 
 ## `ZEMX_C_ObjectPartnerMig`
 
-- Source: `ZEMX_B_ObjectPartner`
+- Source: `ZEMX_I_ObjectPartner`
 - Keys: `PartnerObjectKey`, `PartnerFunction`, `PartnerCounter`, `PartnerObjectType`
 - Scope: `src.IsMarkedForDeletion = ''`
 
@@ -31,6 +31,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 |---|---|---|---|
 | `ZEMX_B_ObjectPartner` | `ObjectNumber` | IHPA-OBJNR | not migrated: rebuilt on S/4HANA from the object key |
 | `ZEMX_B_ObjectPartner` | `IsMarkedForDeletion` | IHPA-KZLOESCH | scope flag |
+| `ZEMX_I_ObjectPartner` | `IsMarkedForDeletion` | IHPA-KZLOESCH | Used to exclude deleted records in the consumption scope; not a posting field. |
 
 ## Reconciliation
 

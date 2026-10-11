@@ -288,5 +288,240 @@
       "WBSElementInternalID"
     ],
     "kind": "child"
+  },
+  "ZPSX_C_NetworkPartnerMig": {
+    "module": "network",
+    "keys": [
+      "Network",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkUserStatusMig": {
+    "module": "network",
+    "keys": [
+      "Network",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkComponentMig": {
+    "module": "network",
+    "keys": [
+      "Reservation",
+      "ReservationItem",
+      "RecordType"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_ProjectPartnerMig": {
+    "module": "project",
+    "keys": [
+      "ProjectInternalID",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_ProjectUserStatusMig": {
+    "module": "project",
+    "keys": [
+      "ProjectInternalID",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSPartnerMig": {
+    "module": "wbs_element",
+    "keys": [
+      "WBSElementInternalID",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_WBSUserStatusMig": {
+    "module": "wbs_element",
+    "keys": [
+      "WBSElementInternalID",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkSettleMig": {
+    "module": "network",
+    "keys": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_ProjectSettleMig": {
+    "module": "project",
+    "keys": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSSettleMig": {
+    "module": "wbs_element",
+    "keys": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_ProjectLongTextMig": {
+    "kind": "text_child",
+    "module": "project",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPSX_C_ProjectMig",
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "links": "ZPSX_C_ProjectLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZPSX_C_WBSLongTextMig": {
+    "kind": "text_child",
+    "module": "wbs_element",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPSX_C_WBSMig",
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "links": "ZPSX_C_WBSLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZPSX_C_NetworkLongTextMig": {
+    "kind": "text_child",
+    "module": "network",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "parent_keys": [
+      "Network"
+    ],
+    "links": "ZPSX_C_NetworkLongTextMig_Links",
+    "operation": "text_scope"
   }
 }

@@ -21,6 +21,7 @@ OrderSettlement source data
 
 - `ObjectNumber`
 - `DistributionRuleNumber`
+- `DistributionRuleGroup`
 
 ## Associations defined here
 

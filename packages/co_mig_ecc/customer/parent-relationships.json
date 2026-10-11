@@ -76,5 +76,44 @@
       "AllocationCycle",
       "ValidityStartDate"
     ]
+  },
+  "ZCOX_C_OrderPartnerMig": {
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_OrderUserStatusMig": {
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_CostElementTextMig": {
+    "parent": "ZCOX_C_CostElementMig",
+    "child_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "parent_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "parent_identity": [
+      "ChartOfAccounts",
+      "CostElement"
+    ]
   }
 }

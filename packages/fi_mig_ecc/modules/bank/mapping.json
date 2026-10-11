@@ -364,6 +364,239 @@
       ],
       "delivery_mode": "reference",
       "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
+    },
+    {
+      "consumption_view": "ZFIX_C_BankEmailMig",
+      "source_view": "ZFIX_I_BankEmail",
+      "scope_filter": "",
+      "keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "BankCountry",
+          "source": "BNKA-BANKS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BankKey",
+          "source": "BNKA-BANKL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR6-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR6-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR6-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR6-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "EmailAddress",
+          "source": "ADR6-SMTP_ADDR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR6-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
+    },
+    {
+      "consumption_view": "ZFIX_C_BankPhoneMig",
+      "source_view": "ZFIX_I_BankPhone",
+      "scope_filter": "",
+      "keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "BankCountry",
+          "source": "BNKA-BANKS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BankKey",
+          "source": "BNKA-BANKL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR2-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR2-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR2-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR2-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Telephone",
+          "source": "ADR2-TEL_NUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TelephoneExtension",
+          "source": "ADR2-TEL_EXTENS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR2-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
+    },
+    {
+      "consumption_view": "ZFIX_C_BankFaxMig",
+      "source_view": "ZFIX_I_BankFax",
+      "scope_filter": "",
+      "keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "BankCountry",
+          "source": "BNKA-BANKS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BankKey",
+          "source": "BNKA-BANKL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR3-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR3-PERSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR3-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR3-CONSNUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FaxNumber",
+          "source": "ADR3-FAX_NUMBER",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FaxExtension",
+          "source": "ADR3-FAX_EXTENS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR3-FLGDEFAULT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
     }
   ],
   "not_migrated": [],

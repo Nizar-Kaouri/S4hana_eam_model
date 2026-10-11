@@ -13,11 +13,14 @@
 define view ZCOX_I_OrderStatus
   as select from ZCOX_B_OrderStatusData as st
     inner join ZCOX_I_InternalOrder as obj on obj.ObjectNumber = st.ObjectNumber
+    association [0..1] to ZCOX_B_StatusProfileData as _Profile
+      on $projection.ObjectNumber = _Profile.ObjectNumber
 {
 key obj.InternalOrder as InternalOrder,
   key st.StatusCode as StatusCode,
       st.ObjectNumber as ObjectNumber,
       substring( st.StatusCode, 1, 1 ) as StatusKind,
-      st.StatusChangeNumber as StatusChangeNumber
+      st.StatusChangeNumber as StatusChangeNumber,
+      _Profile.StatusProfile as StatusProfile
 }
 where st.StatusIsInactive = ''

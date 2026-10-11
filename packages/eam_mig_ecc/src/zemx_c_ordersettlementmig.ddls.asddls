@@ -18,6 +18,7 @@ define view ZEMX_C_OrderSettlementMig
   key src.ObjectNumber as ObjectNumber,
       @EndUserText.label: 'Distribution Rule Number'
   key src.DistributionRuleNumber as DistributionRuleNumber,
+  key src.DistributionRuleGroup as DistributionRuleGroup,
       @EndUserText.label: 'Settlement Type'
       src.SettlementType as SettlementType,
       @EndUserText.label: 'Receiver Category'

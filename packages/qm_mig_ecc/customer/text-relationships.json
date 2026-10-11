@@ -1,0 +1,52 @@
+{
+  "ZQMX_C_NotifLongTextMig": {
+    "module": "quality_notification",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZQMX_C_NotifLongTextMig_Links",
+    "payload_helper": "zqmx_qm_text_export.prog.abap"
+  },
+  "ZQMX_C_PlanLongTextMig": {
+    "module": "inspection_plan",
+    "parent": "ZQMX_C_InspectPlanHeaMig",
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZQMX_C_PlanLongTextMig_Links",
+    "payload_helper": "zqmx_qm_text_export.prog.abap"
+  },
+  "ZQMX_C_MasterCharLongTextMig": {
+    "module": "master_inspection_characteristic",
+    "parent": "ZQMX_C_MasterCharMig",
+    "parent_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZQMX_C_MasterCharLongTextMig_Links",
+    "payload_helper": "zqmx_qm_text_export.prog.abap"
+  }
+}

@@ -14,7 +14,8 @@
     "PLAS",
     "PLKO",
     "PLMK",
-    "PLPO"
+    "PLPO",
+    "STXH"
   ],
   "sap_released_views": [],
   "hard_dependencies": [],
@@ -25,14 +26,16 @@
       "ZQMX_B_InspectPlanMatData",
       "ZQMX_B_InspectPlanSelData",
       "ZQMX_B_InspectPlanOpeData",
-      "ZQMX_B_PlanCharacteriData"
+      "ZQMX_B_PlanCharacteriData",
+      "ZQMX_B_PlanLTIndexData"
     ],
     "composite": [
       "ZQMX_I_InspectPlanHea",
       "ZQMX_I_InspectPlanMat",
       "ZQMX_I_InspectPlanSel",
       "ZQMX_I_InspectPlanOpe",
-      "ZQMX_I_PlanCharacteri"
+      "ZQMX_I_PlanCharacteri",
+      "ZQMX_I_PlanLongText"
     ],
     "consumption": [
       "ZQMX_C_InspectPlanHeaMig",
@@ -40,7 +43,8 @@
       "ZQMX_C_InspectPlanMatMig",
       "ZQMX_C_InspectPlanSelMig",
       "ZQMX_C_InspectPlanOpeMig",
-      "ZQMX_C_PlanCharacteriMig"
+      "ZQMX_C_PlanCharacteriMig",
+      "ZQMX_C_PlanLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -62,7 +66,10 @@
     "ZQMX_C_InspectPlanOpeMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_B_PlanCharacteriData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_I_PlanCharacteri": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZQMX_C_PlanCharacteriMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZQMX_C_PlanCharacteriMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_I_PlanLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_PlanLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_B_PlanLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

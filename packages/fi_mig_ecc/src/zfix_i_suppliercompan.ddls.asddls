@@ -18,5 +18,8 @@ define view ZFIX_I_SupplierCompan
       src.ReconciliationAccount as ReconciliationAccount,
       src.PaymentTerms as PaymentTerms,
       src.PaymentMethods as PaymentMethods,
-      src.DeletionFlag as DeletionFlag
+      src.DeletionFlag as DeletionFlag,
+      src.PaymentBlock as PaymentBlock,
+      src.SortKey as SortKey,
+      src.PlanningGroup as PlanningGroup
 }

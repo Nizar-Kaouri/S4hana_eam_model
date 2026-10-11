@@ -204,6 +204,96 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AddressRegion` | ADRC-REGION | - | copy |  |
 | `AddressLanguage` | ADRC-LANGU | - | copy |  |
 
+## `ZEMX_C_EquipClassMig`
+
+- Source: `ZEMX_I_EquipClass`
+- Keys: `Equipment`, `ClassType`, `Class`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | source: Equipment | - | copy |  |
+| `ClassType` | KSSK-KLART | - | copy |  |
+| `Class` | KLAH-CLASS | - | copy |  |
+| `ClassificationStatus` | KSSK-STATU | - | copy |  |
+
+## `ZEMX_C_EquipCharcMig`
+
+- Source: `ZEMX_I_EquipCharc`
+- Keys: `Equipment`, `ClassType`, `Characteristic`, `CharcValuePositionNumber`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | source: Equipment | - | copy |  |
+| `ClassType` | AUSP-KLART | - | copy |  |
+| `Characteristic` | CABN-ATNAM | - | copy |  |
+| `CharcValuePositionNumber` | AUSP-ATZHL | - | copy |  |
+| `CharcValue` | AUSP-ATWRT | - | copy |  |
+| `CharcFromNumericValue` | AUSP-ATFLV | - | copy |  |
+| `CharcToNumericValue` | AUSP-ATFLB | - | copy |  |
+| `CharcValueDependency` | AUSP-ATCOD | - | copy |  |
+
+## `ZEMX_C_EquipEmailMig`
+
+- Source: `ZEMX_I_EquipEmail`
+- Keys: `Equipment`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQUI-EQUNR | - | copy |  |
+| `AddressNumber` | ADR6-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR6-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR6-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR6-CONSNUMBER | - | copy |  |
+| `EmailAddress` | ADR6-SMTP_ADDR | - | copy |  |
+| `IsDefaultCommunication` | ADR6-FLGDEFAULT | - | copy |  |
+
+## `ZEMX_C_EquipPhoneMig`
+
+- Source: `ZEMX_I_EquipPhone`
+- Keys: `Equipment`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQUI-EQUNR | - | copy |  |
+| `AddressNumber` | ADR2-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR2-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR2-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR2-CONSNUMBER | - | copy |  |
+| `Telephone` | ADR2-TEL_NUMBER | - | copy |  |
+| `TelephoneExtension` | ADR2-TEL_EXTENS | - | copy |  |
+| `IsDefaultCommunication` | ADR2-FLGDEFAULT | - | copy |  |
+
+## `ZEMX_C_EquipFaxMig`
+
+- Source: `ZEMX_I_EquipFax`
+- Keys: `Equipment`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQUI-EQUNR | - | copy |  |
+| `AddressNumber` | ADR3-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR3-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR3-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR3-CONSNUMBER | - | copy |  |
+| `FaxNumber` | ADR3-FAX_NUMBER | - | copy |  |
+| `FaxExtension` | ADR3-FAX_EXTENS | - | copy |  |
+| `IsDefaultCommunication` | ADR3-FLGDEFAULT | - | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |

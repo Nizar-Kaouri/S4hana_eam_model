@@ -11,7 +11,8 @@
   ],
   "sap_tables": [
     "QPMK",
-    "QPMT"
+    "QPMT",
+    "STXH"
   ],
   "sap_released_views": [],
   "hard_dependencies": [],
@@ -19,16 +20,19 @@
     "tables": [],
     "basic": [
       "ZQMX_B_MasterCharData",
-      "ZQMX_B_MasterCharTextData"
+      "ZQMX_B_MasterCharTextData",
+      "ZQMX_B_MasterCharLTIndexData"
     ],
     "composite": [
       "ZQMX_I_MasterChar",
-      "ZQMX_I_MasterCharText"
+      "ZQMX_I_MasterCharText",
+      "ZQMX_I_MasterCharLongText"
     ],
     "consumption": [
       "ZQMX_C_MasterCharMig",
       "ZQMX_C_MasterCharMigCount",
-      "ZQMX_C_MasterCharTextMig"
+      "ZQMX_C_MasterCharTextMig",
+      "ZQMX_C_MasterCharLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -41,7 +45,10 @@
     "ZQMX_C_MasterCharMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_B_MasterCharTextData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_I_MasterCharText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZQMX_C_MasterCharTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZQMX_C_MasterCharTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_I_MasterCharLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_MasterCharLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_B_MasterCharLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

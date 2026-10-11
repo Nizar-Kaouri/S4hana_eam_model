@@ -25,6 +25,8 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `OperationText` | AFVC-LTXA1 | customer interface field: OperationText (unconfirmed) | information only | yes |
 | `WorkCenterInternalID` | AFVC-ARBID | customer interface field: WorkCenterInternalID (unconfirmed) | information only | yes |
 | `Plant` | AFVC-WERKS | customer interface field: Plant (unconfirmed) | information only | yes |
+| `ControlKey` | AFVC-STEUS | - | copy |  |
+| `SubOperation` | AFVC-UVORN | - | copy |  |
 
 ## `ZPPX_C_OperationQuantMig`
 

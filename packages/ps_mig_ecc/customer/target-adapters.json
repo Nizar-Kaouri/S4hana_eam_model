@@ -121,7 +121,9 @@
     "target_export": "target/ZPSX_C_NetworkActivitMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
-    "supplementary_source_fields": []
+    "supplementary_source_fields": [
+      "Plant"
+    ]
   },
   "ZPSX_C_NetworkQuantitMig": {
     "module": "network",
@@ -265,7 +267,8 @@
       "ObjectNumber",
       "StatusCode",
       "StatusKind",
-      "StatusChangeNumber"
+      "StatusChangeNumber",
+      "StatusProfile"
     ]
   },
   "ZPSX_C_ProjectStatusMig": {
@@ -287,7 +290,8 @@
       "ObjectNumber",
       "StatusCode",
       "StatusKind",
-      "StatusChangeNumber"
+      "StatusChangeNumber",
+      "StatusProfile"
     ]
   },
   "ZPSX_C_WBSStatusMig": {
@@ -309,7 +313,299 @@
       "ObjectNumber",
       "StatusCode",
       "StatusKind",
-      "StatusChangeNumber"
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZPSX_C_NetworkPartnerMig": {
+    "module": "network",
+    "key": [
+      "Network",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_NetworkPartnerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "Network",
+      "PartnerFunction",
+      "PartnerCounter",
+      "Partner"
+    ]
+  },
+  "ZPSX_C_NetworkUserStatusMig": {
+    "module": "network",
+    "key": [
+      "Network",
+      "StatusCode"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_NetworkUserStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "Network",
+      "StatusCode",
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZPSX_C_NetworkComponentMig": {
+    "module": "network",
+    "key": [
+      "Reservation",
+      "ReservationItem",
+      "RecordType"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_NetworkComponentMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "Reservation",
+      "ReservationItem",
+      "RecordType",
+      "Network",
+      "Material",
+      "Plant",
+      "StorageLocation",
+      "RequiredQuantity",
+      "Unit",
+      "DeletionFlag"
+    ]
+  },
+  "ZPSX_C_ProjectPartnerMig": {
+    "module": "project",
+    "key": [
+      "ProjectInternalID",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_ProjectPartnerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "ProjectInternalID",
+      "PartnerFunction",
+      "PartnerCounter",
+      "Partner"
+    ]
+  },
+  "ZPSX_C_ProjectUserStatusMig": {
+    "module": "project",
+    "key": [
+      "ProjectInternalID",
+      "StatusCode"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_ProjectUserStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "ProjectInternalID",
+      "StatusCode",
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZPSX_C_WBSPartnerMig": {
+    "module": "wbs_element",
+    "key": [
+      "WBSElementInternalID",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_WBSPartnerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "WBSElementInternalID",
+      "PartnerFunction",
+      "PartnerCounter",
+      "Partner"
+    ]
+  },
+  "ZPSX_C_WBSUserStatusMig": {
+    "module": "wbs_element",
+    "key": [
+      "WBSElementInternalID",
+      "StatusCode"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_WBSUserStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "WBSElementInternalID",
+      "StatusCode",
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZPSX_C_NetworkSettleMig": {
+    "module": "network",
+    "key": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_NetworkSettleMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule",
+      "SettlementType",
+      "SettlementPercentage",
+      "ReceiverCostCenter",
+      "ReceiverOrder",
+      "ReceiverCategory",
+      "SettlementAmount",
+      "SettlementCurrency",
+      "ControllingArea",
+      "ReceiverCompanyCode",
+      "ReceiverMasterAsset",
+      "ReceiverAsset",
+      "ReceiverWBSInternalID",
+      "ValidFromFiscalYear",
+      "ValidFromPeriod",
+      "ValidToFiscalYear",
+      "ValidToPeriod"
+    ]
+  },
+  "ZPSX_C_ProjectSettleMig": {
+    "module": "project",
+    "key": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_ProjectSettleMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule",
+      "SettlementType",
+      "SettlementPercentage",
+      "ReceiverCostCenter",
+      "ReceiverOrder",
+      "ReceiverCategory",
+      "SettlementAmount",
+      "SettlementCurrency",
+      "ControllingArea",
+      "ReceiverCompanyCode",
+      "ReceiverMasterAsset",
+      "ReceiverAsset",
+      "ReceiverWBSInternalID",
+      "ValidFromFiscalYear",
+      "ValidFromPeriod",
+      "ValidToFiscalYear",
+      "ValidToPeriod"
+    ]
+  },
+  "ZPSX_C_WBSSettleMig": {
+    "module": "wbs_element",
+    "key": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_WBSSettleMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule",
+      "SettlementType",
+      "SettlementPercentage",
+      "ReceiverCostCenter",
+      "ReceiverOrder",
+      "ReceiverCategory",
+      "SettlementAmount",
+      "SettlementCurrency",
+      "ControllingArea",
+      "ReceiverCompanyCode",
+      "ReceiverMasterAsset",
+      "ReceiverAsset",
+      "ReceiverWBSInternalID",
+      "ValidFromFiscalYear",
+      "ValidFromPeriod",
+      "ValidToFiscalYear",
+      "ValidToPeriod"
+    ]
+  },
+  "ZPSX_C_ProjectLongTextMig": {
+    "module": "project",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_ProjectLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZPSX_C_WBSLongTextMig": {
+    "module": "wbs_element",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_WBSLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZPSX_C_NetworkLongTextMig": {
+    "module": "network",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZPSX_C_NetworkLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
     ]
   }
 }

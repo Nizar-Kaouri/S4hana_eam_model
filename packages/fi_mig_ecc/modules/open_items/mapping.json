@@ -130,6 +130,20 @@
           "target": "customer interface field: DocumentCurrency (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "ItemText",
+          "source": "BSIS-SGTXT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxCode",
+          "source": "BSIS-MWSKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "open-item",
@@ -240,6 +254,20 @@
           "target": "customer interface field: DocumentCurrency (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "ItemText",
+          "source": "BSAS-SGTXT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxCode",
+          "source": "BSAS-MWSKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "open-item",
@@ -366,6 +394,20 @@
           "target": "customer interface field: DocumentCurrency (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "ItemText",
+          "source": "BSIK-SGTXT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxCode",
+          "source": "BSIK-MWSKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "open-item",
@@ -492,6 +534,20 @@
           "target": "customer interface field: DocumentCurrency (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "ItemText",
+          "source": "BSAK-SGTXT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxCode",
+          "source": "BSAK-MWSKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "open-item",
@@ -618,6 +674,20 @@
           "target": "customer interface field: DocumentCurrency (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "ItemText",
+          "source": "BSID-SGTXT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxCode",
+          "source": "BSID-MWSKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "open-item",
@@ -744,6 +814,20 @@
           "target": "customer interface field: DocumentCurrency (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "ItemText",
+          "source": "BSAD-SGTXT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxCode",
+          "source": "BSAD-MWSKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "open-item",

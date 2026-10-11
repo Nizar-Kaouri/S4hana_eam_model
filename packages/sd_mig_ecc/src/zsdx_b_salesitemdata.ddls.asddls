@@ -20,5 +20,7 @@ define view ZSDX_B_SalesItemData
       src.werks as Plant,
       src.kwmeng as OrderQuantity,
       src.vrkme as SalesUnit,
-      src.abgru as RejectionReason
+      src.abgru as RejectionReason,
+      src.arktx as ItemShortText,
+      src.pstyv as ItemCategory
 }

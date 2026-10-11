@@ -328,7 +328,8 @@
       "ObjectNumber",
       "StatusCode",
       "StatusKind",
-      "StatusChangeNumber"
+      "StatusChangeNumber",
+      "StatusProfile"
     ]
   },
   "ZQMX_C_NotifStatusMig": {
@@ -350,7 +351,121 @@
       "ObjectNumber",
       "StatusCode",
       "StatusKind",
-      "StatusChangeNumber"
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZQMX_C_LotUserStatusMig": {
+    "module": "inspection_lot",
+    "key": [
+      "InspectionLot",
+      "StatusCode"
+    ],
+    "fields": [],
+    "target_export": "target/ZQMX_C_LotUserStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "InspectionLot",
+      "StatusCode",
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZQMX_C_NotifPartnerMig": {
+    "module": "quality_notification",
+    "key": [
+      "QualityNotification",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "fields": [],
+    "target_export": "target/ZQMX_C_NotifPartnerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "QualityNotification",
+      "PartnerFunction",
+      "PartnerCounter",
+      "Partner"
+    ]
+  },
+  "ZQMX_C_NotifUserStatusMig": {
+    "module": "quality_notification",
+    "key": [
+      "QualityNotification",
+      "StatusCode"
+    ],
+    "fields": [],
+    "target_export": "target/ZQMX_C_NotifUserStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "QualityNotification",
+      "StatusCode",
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZQMX_C_NotifLongTextMig": {
+    "module": "quality_notification",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZQMX_C_NotifLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZQMX_C_PlanLongTextMig": {
+    "module": "inspection_plan",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZQMX_C_PlanLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZQMX_C_MasterCharLongTextMig": {
+    "module": "master_inspection_characteristic",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZQMX_C_MasterCharLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
     ]
   }
 }

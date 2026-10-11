@@ -19,5 +19,7 @@ define view ZPPX_B_ProductionOperData
       src.vornr as Operation,
       src.ltxa1 as OperationText,
       src.arbid as WorkCenterInternalID,
-      src.werks as Plant
+      src.werks as Plant,
+      src.steus as ControlKey,
+      src.uvorn as SubOperation
 }

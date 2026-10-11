@@ -18,5 +18,7 @@ define view ZPPX_I_ProductionOper
       src.Operation as Operation,
       src.OperationText as OperationText,
       src.WorkCenterInternalID as WorkCenterInternalID,
-      src.Plant as Plant
+      src.Plant as Plant,
+      src.ControlKey as ControlKey,
+      src.SubOperation as SubOperation
 }

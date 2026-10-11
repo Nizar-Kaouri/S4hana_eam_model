@@ -42,7 +42,17 @@
     "ZSDX_C_DeliveryPartnerAddrMig": "exports/ZSDX_C_DeliveryPartnerAddrMig.csv",
     "ZSDX_C_DeliveryPartnerAddrMig_Scope": "selection/ZSDX_C_DeliveryPartnerAddrMig.csv",
     "ZSDX_C_SalesPartnerAddressMig": "exports/ZSDX_C_SalesPartnerAddressMig.csv",
-    "ZSDX_C_SalesPartnerAddressMig_Scope": "selection/ZSDX_C_SalesPartnerAddressMig.csv"
+    "ZSDX_C_SalesPartnerAddressMig_Scope": "selection/ZSDX_C_SalesPartnerAddressMig.csv",
+    "ZSDX_C_DeliveryStatusMig": "exports/ZSDX_C_DeliveryStatusMig.csv",
+    "ZSDX_C_DeliveryStatusMig_Scope": "selection/ZSDX_C_DeliveryStatusMig.csv",
+    "ZSDX_C_DlvItemStatusMig": "exports/ZSDX_C_DlvItemStatusMig.csv",
+    "ZSDX_C_DlvItemStatusMig_Scope": "selection/ZSDX_C_DlvItemStatusMig.csv",
+    "ZSDX_C_SalesLongTextMig": "exports/ZSDX_C_SalesLongTextMig.csv",
+    "ZSDX_C_SalesLongTextMig_Links": "text-links/ZSDX_C_SalesLongTextMig.csv",
+    "ZSDX_C_DeliveryLongTextMig": "exports/ZSDX_C_DeliveryLongTextMig.csv",
+    "ZSDX_C_DeliveryLongTextMig_Links": "text-links/ZSDX_C_DeliveryLongTextMig.csv",
+    "ZSDX_C_BillingLongTextMig": "exports/ZSDX_C_BillingLongTextMig.csv",
+    "ZSDX_C_BillingLongTextMig_Links": "text-links/ZSDX_C_BillingLongTextMig.csv"
   },
   "steps": [
     {
@@ -725,6 +735,95 @@
         "SalesDocumentItem",
         "PartnerFunction"
       ]
+    },
+    {
+      "name": "ZSDX_C_DeliveryStatusMig_Selected",
+      "operation": "selection",
+      "input": "ZSDX_C_DeliveryStatusMig",
+      "parent": "ZSDX_C_DeliveryStatusMig_Scope",
+      "child_keys": [
+        "DeliveryDocument"
+      ],
+      "parent_keys": [
+        "DeliveryDocument"
+      ]
+    },
+    {
+      "name": "ZSDX_C_DeliveryStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZSDX_C_DeliveryStatusMig_Selected",
+      "parent": "ZSDX_C_DeliveryMig_Prepared",
+      "child_keys": [
+        "DeliveryDocument"
+      ],
+      "parent_keys": [
+        "DeliveryDocument"
+      ],
+      "parent_identity": [
+        "DeliveryDocument"
+      ]
+    },
+    {
+      "name": "ZSDX_C_DlvItemStatusMig_Selected",
+      "operation": "selection",
+      "input": "ZSDX_C_DlvItemStatusMig",
+      "parent": "ZSDX_C_DlvItemStatusMig_Scope",
+      "child_keys": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ],
+      "parent_keys": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ]
+    },
+    {
+      "name": "ZSDX_C_DlvItemStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZSDX_C_DlvItemStatusMig_Selected",
+      "parent": "ZSDX_C_DeliveryItemMig_Prepared",
+      "child_keys": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ],
+      "parent_keys": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ],
+      "parent_identity": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ]
+    },
+    {
+      "name": "ZSDX_C_SalesLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZSDX_C_SalesLongTextMig",
+      "parent": "ZSDX_C_SalesOrderMig_Prepared",
+      "links": "ZSDX_C_SalesLongTextMig_Links",
+      "parent_keys": [
+        "SalesDocument"
+      ]
+    },
+    {
+      "name": "ZSDX_C_DeliveryLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZSDX_C_DeliveryLongTextMig",
+      "parent": "ZSDX_C_DeliveryMig_Prepared",
+      "links": "ZSDX_C_DeliveryLongTextMig_Links",
+      "parent_keys": [
+        "DeliveryDocument"
+      ]
+    },
+    {
+      "name": "ZSDX_C_BillingLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZSDX_C_BillingLongTextMig",
+      "parent": "ZSDX_C_BillingMig_Prepared",
+      "links": "ZSDX_C_BillingLongTextMig_Links",
+      "parent_keys": [
+        "BillingDocument"
+      ]
     }
   ],
   "outputs": [
@@ -748,6 +847,11 @@
     "ZSDX_C_SalesHeaderStaMig_Prepared",
     "ZSDX_C_SalesItemStatuMig_Prepared",
     "ZSDX_C_SalesFlowMig_Prepared",
-    "ZSDX_C_SalesPartnerAddressMig_Prepared"
+    "ZSDX_C_SalesPartnerAddressMig_Prepared",
+    "ZSDX_C_DeliveryStatusMig_Prepared",
+    "ZSDX_C_DlvItemStatusMig_Prepared",
+    "ZSDX_C_SalesLongTextMig_Prepared",
+    "ZSDX_C_DeliveryLongTextMig_Prepared",
+    "ZSDX_C_BillingLongTextMig_Prepared"
   ]
 }

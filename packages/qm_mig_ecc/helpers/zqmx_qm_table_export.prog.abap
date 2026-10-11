@@ -32,10 +32,28 @@ START-OF-SELECTION.
   TRANSLATE p_field TO UPPER CASE.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
-    WHEN 'MAPL' OR 'PLAS' OR 'PLKO' OR 'PLMK' OR 'PLPO'
-      OR 'QALS' OR 'QAMR' OR 'QAMV' OR 'QASE' OR 'QAVE'
-      OR 'QDSV' OR 'QMEL' OR 'QMFE' OR 'QMMA' OR 'QMSM'
-      OR 'QMUR' OR 'QPMK' OR 'QPMT'.
+    WHEN 'IHPA'
+      OR 'JEST'
+      OR 'JSTO'
+      OR 'MAPL'
+      OR 'PLAS'
+      OR 'PLKO'
+      OR 'PLMK'
+      OR 'PLPO'
+      OR 'QALS'
+      OR 'QAMR'
+      OR 'QAMV'
+      OR 'QASE'
+      OR 'QAVE'
+      OR 'QDSV'
+      OR 'QMEL'
+      OR 'QMFE'
+      OR 'QMMA'
+      OR 'QMSM'
+      OR 'QMUR'
+      OR 'QPMK'
+      OR 'QPMT'
+      OR 'STXH'.
       lv_allowed = abap_true.
   ENDCASE.
   IF lv_allowed <> abap_true OR p_max < 1 OR p_max > 1000000.

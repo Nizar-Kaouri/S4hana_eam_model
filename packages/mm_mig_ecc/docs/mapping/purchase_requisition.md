@@ -46,6 +46,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `GLAccount` | EBKN-SAKTO | customer interface field: GLAccount (unconfirmed) | copy | yes |
 | `WBSElementInternalID` | EBKN-PS_PSP_PNR | customer interface field: WBSElementInternalID (unconfirmed) | copy | yes |
 
+## `ZMMX_C_RequisitionLongTextMig`
+
+- Source: `ZMMX_I_RequisitionLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZMMX_C_RequisitionMigCount` (ECC) vs `ZMMT_I_RequisitionCount` (S/4HANA) per `PurchaseRequisition`

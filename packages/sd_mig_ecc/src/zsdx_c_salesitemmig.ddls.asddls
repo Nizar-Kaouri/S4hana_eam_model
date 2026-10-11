@@ -19,5 +19,7 @@ define view ZSDX_C_SalesItemMig
       src.Plant as Plant,
       src.OrderQuantity as OrderQuantity,
       src.SalesUnit as SalesUnit,
-      src.RejectionReason as RejectionReason
+      src.RejectionReason as RejectionReason,
+      src.ItemShortText as ItemShortText,
+      src.ItemCategory as ItemCategory
 }

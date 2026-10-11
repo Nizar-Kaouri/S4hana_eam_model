@@ -6,7 +6,7 @@ ModuPorter Asset Accounting version 1.0.0.
 |---|---|---:|
 | Asset fiscal year balances | asset_balance | 1 |
 | Asset transaction history | asset_transaction | 1 |
-| Fixed assets | fixed_asset | 3 |
+| Fixed assets | fixed_asset | 4 |
 
 ## Delivery boundaries
 
@@ -20,7 +20,7 @@ Asset Accounting has 3 modules and 5 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
-| Fixed assets | fixed_asset | 3 | master |
+| Fixed assets | fixed_asset | 4 | master |
 | Asset transaction history | asset_transaction | 1 | reference |
 | Asset fiscal year balances | asset_balance | 1 | balance |
 

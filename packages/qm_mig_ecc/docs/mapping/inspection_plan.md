@@ -83,7 +83,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ValidFromDate` | PLPO-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only | yes |
 | `DeletionFlag` | PLPO-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
 | `Operation` | PLPO-VORNR | customer interface field: Operation (unconfirmed) | information only | yes |
-| `OperationText` | PLPO-KTEXT | customer interface field: OperationText (unconfirmed) | information only | yes |
+| `OperationText` | PLPO-LTXA1 | customer interface field: OperationText (unconfirmed) | information only | yes |
 
 ## `ZQMX_C_PlanCharacteriMig`
 
@@ -103,6 +103,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ValidFromDate` | PLMK-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only | yes |
 | `DeletionFlag` | PLMK-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
 | `CharacteristicDescription` | PLMK-KURZTEXT | customer interface field: CharacteristicDescription (unconfirmed) | information only | yes |
+
+## `ZQMX_C_PlanLongTextMig`
+
+- Source: `ZQMX_I_PlanLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Reconciliation
 

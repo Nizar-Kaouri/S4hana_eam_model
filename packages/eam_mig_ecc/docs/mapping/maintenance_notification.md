@@ -115,6 +115,68 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ActivityStartDate` | QMMA-STARTDAT | QMMA-STARTDAT | copy |  |
 | `ActivityEndDate` | QMMA-ENDDAT | QMMA-ENDDAT | copy |  |
 
+## `ZEMX_C_MaintNotifPartnerMig`
+
+- Source: `ZEMX_I_MaintNotifPartner`
+- Keys: `MaintenanceNotification`, `PartnerFunction`, `PartnerCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `MaintenanceNotification` | QMEL-QMNUM | - | copy |  |
+| `PartnerFunction` | IHPA-PARVW | - | copy |  |
+| `PartnerCounter` | IHPA-COUNTER | - | copy |  |
+| `Partner` | IHPA-PARNR | - | copy |  |
+
+## `ZEMX_C_MaintNotifStatusMig`
+
+- Source: `ZEMX_I_MaintNotifStatus`
+- Keys: `MaintenanceNotification`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `MaintenanceNotification` | source: MaintenanceNotification | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | source: StatusKind | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## `ZEMX_C_NotifUserStatusMig`
+
+- Source: `ZEMX_I_MaintNotifUserStatus`
+- Keys: `MaintenanceNotification`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `MaintenanceNotification` | source: MaintenanceNotification | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | source: StatusKind | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## `ZEMX_C_NotifLongTextMig`
+
+- Source: `ZEMX_I_NotifLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |

@@ -1,0 +1,47 @@
+{
+  "ZSDX_C_SalesLongTextMig": {
+    "module": "sales_order",
+    "parent": "ZSDX_C_SalesOrderMig",
+    "parent_keys": [
+      "SalesDocument"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZSDX_C_SalesLongTextMig_Links",
+    "payload_helper": "zsdx_sd_text_export.prog.abap"
+  },
+  "ZSDX_C_DeliveryLongTextMig": {
+    "module": "outbound_delivery",
+    "parent": "ZSDX_C_DeliveryMig",
+    "parent_keys": [
+      "DeliveryDocument"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZSDX_C_DeliveryLongTextMig_Links",
+    "payload_helper": "zsdx_sd_text_export.prog.abap"
+  },
+  "ZSDX_C_BillingLongTextMig": {
+    "module": "billing_document",
+    "parent": "ZSDX_C_BillingMig",
+    "parent_keys": [
+      "BillingDocument"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZSDX_C_BillingLongTextMig_Links",
+    "payload_helper": "zsdx_sd_text_export.prog.abap"
+  }
+}

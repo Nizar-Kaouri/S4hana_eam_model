@@ -20,5 +20,12 @@ define view ZMMX_I_Material
       src.GrossWeight as GrossWeight,
       src.NetWeight as NetWeight,
       src.WeightUnit as WeightUnit,
-      src.DeletionFlag as DeletionFlag
+      src.DeletionFlag as DeletionFlag,
+      src.IndustrySector as IndustrySector,
+      src.Division as Division,
+      src.OldMaterialNumber as OldMaterialNumber,
+      src.ExternalProductGroup as ExternalProductGroup,
+      src.CrossPlantMaterialStatus as CrossPlantMaterialStatus,
+      src.MaterialStatusValidFrom as MaterialStatusValidFrom,
+      src.BatchManagementRequired as BatchManagementRequired
 }

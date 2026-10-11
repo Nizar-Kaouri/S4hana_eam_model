@@ -20,5 +20,11 @@ define view ZFIX_B_SupplierData
       src.regio as Region,
       src.ktokk as AccountGroup,
       src.loevm as DeletionFlag,
-      src.adrnr as AddressNumber
+      src.adrnr as AddressNumber,
+      src.stcd1 as TaxNumber1,
+      src.stcd2 as TaxNumber2,
+      src.stcd3 as TaxNumber3,
+      src.stcd4 as TaxNumber4,
+      src.stceg as VATRegistration,
+      src.spras as CorrespondenceLanguage
 }

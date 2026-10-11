@@ -76,6 +76,20 @@
           "target": "customer interface field: DocumentCurrency (unconfirmed)",
           "rule": "info",
           "compare": true
+        },
+        {
+          "element": "ReferenceDocument",
+          "source": "BKPF-XBLNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "HeaderText",
+          "source": "BKPF-BKTXT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "reference",
@@ -168,6 +182,55 @@
           "target": "customer interface field: ClearingDocument (unconfirmed)",
           "rule": "info",
           "compare": true
+        },
+        {
+          "element": "ItemText",
+          "source": "BSEG-SGTXT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Assignment",
+          "source": "BSEG-ZUONR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Customer",
+          "source": "BSEG-KUNNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Supplier",
+          "source": "BSEG-LIFNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TaxCode",
+          "source": "BSEG-MWSKZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "CostCenter",
+          "source": "BSEG-KOSTL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ProfitCenter",
+          "source": "BSEG-PRCTR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "reference",

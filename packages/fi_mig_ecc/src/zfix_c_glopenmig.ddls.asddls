@@ -25,5 +25,7 @@ define view ZFIX_C_GLOpenMig
       src.DebitCreditCode as DebitCreditCode,
       src.DocumentAmount as DocumentAmount,
       src.CompanyCodeAmount as CompanyCodeAmount,
-      src.DocumentCurrency as DocumentCurrency
+      src.DocumentCurrency as DocumentCurrency,
+      src.ItemText as ItemText,
+      src.TaxCode as TaxCode
 }

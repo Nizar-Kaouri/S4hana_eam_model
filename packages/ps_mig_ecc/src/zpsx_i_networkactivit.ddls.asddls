@@ -20,5 +20,6 @@ define view ZPSX_I_NetworkActivit
       src.WorkCenterInternalID as WorkCenterInternalID,
       src.ControlKey as ControlKey,
       src.ActivityDescription as ActivityDescription,
-      src.WBSElementInternalID as WBSElementInternalID
+      src.WBSElementInternalID as WBSElementInternalID,
+      src.Plant as Plant
 }

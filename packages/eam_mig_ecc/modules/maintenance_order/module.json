@@ -1,7 +1,7 @@
 {
   "name": "maintenance_order",
   "title": "Maintenance order",
-  "description": "Open maintenance orders with operations, components, settlement rows and permit assignments.",
+  "description": "Open maintenance orders with operations, components, settlement rows and permit assignments. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md.",
   "batch": 2,
   "version": "1.0.0",
   "status": "released",
@@ -18,12 +18,15 @@
     "AUFK",
     "COBRB",
     "IHSG",
-    "RESB"
+    "RESB",
+    "STXH"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
     "core",
-    "work_center"
+    "work_center",
+    "object_partner",
+    "object_status"
   ],
   "objects": {
     "tables": [],
@@ -35,14 +38,19 @@
       "ZEMX_B_OrderOperationValues",
       "ZEMX_B_ReservationItem",
       "ZEMX_B_OrderSettlementData",
-      "ZEMX_B_OrderPermitData"
+      "ZEMX_B_OrderPermitData",
+      "ZEMX_B_OrderLTIndexData"
     ],
     "composite": [
       "ZEMX_I_MaintOrder",
       "ZEMX_I_MaintOrderOperation",
       "ZEMX_I_MaintOrderComponent",
       "ZEMX_I_OrderSettlement",
-      "ZEMX_I_OrderPermit"
+      "ZEMX_I_OrderPermit",
+      "ZEMX_I_MaintOrderPartner",
+      "ZEMX_I_MaintOrderStatus",
+      "ZEMX_I_MaintOrderUserStatus",
+      "ZEMX_I_OrderLongText"
     ],
     "consumption": [
       "ZEMX_C_MaintOrderMig",
@@ -50,7 +58,11 @@
       "ZEMX_C_MaintOrderComponentMig",
       "ZEMX_C_MaintOrderMigCount",
       "ZEMX_C_OrderSettlementMig",
-      "ZEMX_C_OrderPermitMig"
+      "ZEMX_C_OrderPermitMig",
+      "ZEMX_C_MaintOrderPartnerMig",
+      "ZEMX_C_MaintOrderStatusMig",
+      "ZEMX_C_OrderUserStatusMig",
+      "ZEMX_C_OrderLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -75,7 +87,16 @@
     "ZEMX_C_OrderSettlementMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_B_OrderPermitData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_OrderPermit": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_C_OrderPermitMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_C_OrderPermitMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MaintOrderPartner": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_MaintOrderPartnerMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MaintOrderStatus": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_MaintOrderStatusMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MaintOrderUserStatus": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_OrderUserStatusMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_OrderLongText": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_OrderLongTextMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_OrderLTIndexData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

@@ -1,0 +1,23 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "Texts": "index.csv",
+    "PreparedMasters": "parents.csv",
+    "OwnerLinks": "links.csv"
+  },
+  "steps": [
+    {
+      "name": "ScopedTexts",
+      "operation": "text_scope",
+      "input": "Texts",
+      "parent": "PreparedMasters",
+      "links": "OwnerLinks",
+      "parent_keys": [
+        "Product"
+      ]
+    }
+  ],
+  "outputs": [
+    "ScopedTexts"
+  ]
+}

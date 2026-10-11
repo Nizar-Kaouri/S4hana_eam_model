@@ -10,6 +10,7 @@
     "reference"
   ],
   "sap_tables": [
+    "STXH",
     "VBRK",
     "VBRP"
   ],
@@ -22,20 +23,23 @@
     "tables": [],
     "basic": [
       "ZSDX_B_BillingData",
-      "ZSDX_B_BillingItemData"
+      "ZSDX_B_BillingItemData",
+      "ZSDX_B_BillingLTIndexData"
     ],
     "composite": [
       "ZSDX_I_Billing",
       "ZSDX_I_BillingItem",
       "ZSDX_I_BillingPartner",
-      "ZSDX_I_BillingPartnerAddr"
+      "ZSDX_I_BillingPartnerAddr",
+      "ZSDX_I_BillingLongText"
     ],
     "consumption": [
       "ZSDX_C_BillingMig",
       "ZSDX_C_BillingMigCount",
       "ZSDX_C_BillingItemMig",
       "ZSDX_C_BillingPartnerMig",
-      "ZSDX_C_BillingPartnerAddrMig"
+      "ZSDX_C_BillingPartnerAddrMig",
+      "ZSDX_C_BillingLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -52,7 +56,10 @@
     "ZSDX_I_BillingPartner": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZSDX_C_BillingPartnerMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZSDX_I_BillingPartnerAddr": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZSDX_C_BillingPartnerAddrMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZSDX_C_BillingPartnerAddrMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_I_BillingLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_C_BillingLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZSDX_B_BillingLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

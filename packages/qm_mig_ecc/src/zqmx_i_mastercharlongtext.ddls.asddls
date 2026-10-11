@@ -1,0 +1,20 @@
+// ModuPorter QM migration | Release 1.0.0
+// Purpose: Preserve the business key and selected parent population without flattening repeating records.
+// Example: Prepare a consistent cutover snapshot with customer/customer-cohort-project.json.
+@AbapCatalog.sqlViewName: 'ZQMX_SUP1'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'MasterCharLongText'
+@ObjectModel.usageType.dataClass: #MIXED
+@ObjectModel.usageType.serviceQuality: #D
+@ObjectModel.usageType.sizeCategory: #L
+@VDM.viewType: #COMPOSITE
+define view ZQMX_I_MasterCharLongText
+  as select from ZQMX_B_MasterCharLTIndexData as src
+{
+  key src.TextObject as TextObject,
+  key src.TextName as TextName,
+  key src.TextID as TextID,
+  key src.Language as Language
+}

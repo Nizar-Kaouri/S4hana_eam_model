@@ -413,7 +413,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     line = f"| {cells[1].strip()} | {links} | " + ", ".join(f"`{v}`" for v in views) + " |"
                 lines.append(line)
             zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite("\n".join(lines) + "\n"))
-        for doc in ("INSTALLATION.md", "NAMING.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "GETTING_STARTED.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md", "CUSTOMER_MANUAL_EN.md", "CUSTOMER_MANUAL_DE.md", "EQUIPMENT_ARCHITECTURE.md", "MASTER_CHILD_ARCHITECTURE.md"):
+        for doc in ("INSTALLATION.md", "NAMING.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "GETTING_STARTED.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md", "CUSTOMER_MANUAL_EN.md", "CUSTOMER_MANUAL_DE.md", "EQUIPMENT_ARCHITECTURE.md", "MASTER_CHILD_ARCHITECTURE.md", "OBJECT_COVERAGE.md", "LONG_TEXT_WORKFLOW.md", "CLASSIFICATION_WORKFLOW.md"):
             if released and doc == "CUSTOMER_TEST.md":
                 continue  # Historical validation records remain in the repository.
             extra = root / "docs" / doc
@@ -432,7 +432,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                 if asset.suffix == ".csv" and asset.stem.startswith(old_prefix) and asset.stem not in shipped_views:
                     continue
                 text = asset.read_text(encoding="utf-8")
-                if asset.name in ("structure-cohorts.json", "parent-relationships.json"):
+                if asset.name in ("structure-cohorts.json", "parent-relationships.json", "text-relationships.json", "classification-relationships.json"):
                     content = json.loads(text)
                     text = json.dumps({n: v for n, v in content.items() if n in shipped_views}, indent=2) + "\n"
                 elif asset.name in ("customer-cohort-project.json", "project.json"):
@@ -441,14 +441,14 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     # Module dependencies ensure selected parent structures are shipped too.
                     available = set(shipped_views) | {n for n in content["inputs"]
                                                      if not n.startswith(old_prefix + 'C_')
-                                                     or any(n == v + '_Scope' for v in shipped_views)}
+                                                     or any(n in (v + '_Scope', v + '_Links') for v in shipped_views)}
                     selected_steps = []
                     for step in content["steps"]:
-                        if step['input'] in available and (not step.get('parent') or step['parent'] in available):
+                        if step['input'] in available and (not step.get('parent') or step['parent'] in available) and (not step.get('links') or step['links'] in available):
                             selected_steps.append(step)
                             available.add(step['name'])
                     content["steps"] = selected_steps
-                    needed = {s[k] for s in selected_steps for k in ("input", "parent") if k in s}
+                    needed = {s[k] for s in selected_steps for k in ("input", "parent", "links") if k in s}
                     roots = [n for n in content["outputs"] if n in available]
                     needed.update(roots)
                     content["inputs"] = {n: p for n, p in content["inputs"].items() if n in needed}

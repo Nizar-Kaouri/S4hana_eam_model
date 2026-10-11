@@ -20,5 +20,7 @@ define view ZFIX_B_AccountingHeadData
       src.blart as AccountingDocumentType,
       src.bldat as DocumentDate,
       src.budat as PostingDate,
-      src.waers as DocumentCurrency
+      src.waers as DocumentCurrency,
+      src.xblnr as ReferenceDocument,
+      src.bktxt as HeaderText
 }

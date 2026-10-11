@@ -56,7 +56,39 @@
     "ZEMX_C_EquipUserStatusMig": "ZEMX_C_EquipUserStatusMig.csv",
     "ZEMX_C_EquipLongTextMig": "ZEMX_C_EquipLongTextMig.csv",
     "ZEMX_C_EquipAddressMig": "ZEMX_C_EquipAddressMig.csv",
-    "ZEMX_C_FuncLocAddressMig": "ZEMX_C_FuncLocAddressMig.csv"
+    "ZEMX_C_FuncLocAddressMig": "ZEMX_C_FuncLocAddressMig.csv",
+    "ZEMX_C_EquipClassMig": "ZEMX_C_EquipClassMig.csv",
+    "ZEMX_C_EquipCharcMig": "ZEMX_C_EquipCharcMig.csv",
+    "ZEMX_C_FuncLocPartnerMig": "ZEMX_C_FuncLocPartnerMig.csv",
+    "ZEMX_C_FuncLocStatusMig": "ZEMX_C_FuncLocStatusMig.csv",
+    "ZEMX_C_FuncLocUserStatusMig": "ZEMX_C_FuncLocUserStatusMig.csv",
+    "ZEMX_C_FuncLocClassMig": "ZEMX_C_FuncLocClassMig.csv",
+    "ZEMX_C_FuncLocCharcMig": "ZEMX_C_FuncLocCharcMig.csv",
+    "ZEMX_C_MaintNotifPartnerMig": "ZEMX_C_MaintNotifPartnerMig.csv",
+    "ZEMX_C_MaintNotifStatusMig": "ZEMX_C_MaintNotifStatusMig.csv",
+    "ZEMX_C_NotifUserStatusMig": "ZEMX_C_NotifUserStatusMig.csv",
+    "ZEMX_C_MaintOrderPartnerMig": "ZEMX_C_MaintOrderPartnerMig.csv",
+    "ZEMX_C_MaintOrderStatusMig": "ZEMX_C_MaintOrderStatusMig.csv",
+    "ZEMX_C_OrderUserStatusMig": "ZEMX_C_OrderUserStatusMig.csv",
+    "ZEMX_C_EquipEmailMig": "ZEMX_C_EquipEmailMig.csv",
+    "ZEMX_C_EquipPhoneMig": "ZEMX_C_EquipPhoneMig.csv",
+    "ZEMX_C_EquipFaxMig": "ZEMX_C_EquipFaxMig.csv",
+    "ZEMX_C_FuncLocEmailMig": "ZEMX_C_FuncLocEmailMig.csv",
+    "ZEMX_C_FuncLocPhoneMig": "ZEMX_C_FuncLocPhoneMig.csv",
+    "ZEMX_C_FuncLocFaxMig": "ZEMX_C_FuncLocFaxMig.csv",
+    "ZEMX_C_FuncLocLongTextMig": "ZEMX_C_FuncLocLongTextMig.csv",
+    "ZEMX_C_FuncLocLongTextMig_Links": "text-links/ZEMX_C_FuncLocLongTextMig.csv",
+    "ZEMX_C_NotifLongTextMig": "ZEMX_C_NotifLongTextMig.csv",
+    "ZEMX_C_NotifLongTextMig_Links": "text-links/ZEMX_C_NotifLongTextMig.csv",
+    "ZEMX_C_OrderLongTextMig": "ZEMX_C_OrderLongTextMig.csv",
+    "ZEMX_C_OrderLongTextMig_Links": "text-links/ZEMX_C_OrderLongTextMig.csv",
+    "ZEMX_C_PlanLongTextMig": "ZEMX_C_PlanLongTextMig.csv",
+    "ZEMX_C_PlanLongTextMig_Links": "text-links/ZEMX_C_PlanLongTextMig.csv",
+    "ZEMX_C_TaskListLongTextMig": "ZEMX_C_TaskListLongTextMig.csv",
+    "ZEMX_C_TaskListLongTextMig_Links": "text-links/ZEMX_C_TaskListLongTextMig.csv",
+    "ZEMX_C_MeasPointLongTextMig": "ZEMX_C_MeasPointLongTextMig.csv",
+    "ZEMX_C_MeasPointLongTextMig_Links": "text-links/ZEMX_C_MeasPointLongTextMig.csv",
+    "ZEMX_C_FuncLocBOMMig": "ZEMX_C_FuncLocBOMMig.csv"
   },
   "steps": [
     {
@@ -1025,6 +1057,368 @@
         "WorkCenter",
         "Plant"
       ]
+    },
+    {
+      "name": "ZEMX_C_EquipClassMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipClassMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipCharcMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipCharcMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocPartnerMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocPartnerMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocStatusMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocStatusMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocUserStatusMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocUserStatusMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocClassMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocClassMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocCharcMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocCharcMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintNotifPartnerMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintNotifPartnerMig",
+      "parent": "ZEMX_C_MaintNotificationMig",
+      "child_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_identity": [
+        "MaintenanceNotification"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintNotifStatusMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintNotifStatusMig",
+      "parent": "ZEMX_C_MaintNotificationMig",
+      "child_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_identity": [
+        "MaintenanceNotification"
+      ]
+    },
+    {
+      "name": "ZEMX_C_NotifUserStatusMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_NotifUserStatusMig",
+      "parent": "ZEMX_C_MaintNotificationMig",
+      "child_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_identity": [
+        "MaintenanceNotification"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintOrderPartnerMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintOrderPartnerMig",
+      "parent": "ZEMX_C_MaintOrderMig",
+      "child_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_identity": [
+        "MaintenanceOrder"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintOrderStatusMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintOrderStatusMig",
+      "parent": "ZEMX_C_MaintOrderMig",
+      "child_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_identity": [
+        "MaintenanceOrder"
+      ]
+    },
+    {
+      "name": "ZEMX_C_OrderUserStatusMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_OrderUserStatusMig",
+      "parent": "ZEMX_C_MaintOrderMig",
+      "child_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_identity": [
+        "MaintenanceOrder"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipEmailMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipEmailMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipPhoneMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipPhoneMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipFaxMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipFaxMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocEmailMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocEmailMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocPhoneMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocPhoneMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocFaxMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocFaxMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocLongTextMig_scoped",
+      "operation": "text_scope",
+      "input": "ZEMX_C_FuncLocLongTextMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "links": "ZEMX_C_FuncLocLongTextMig_Links",
+      "parent_keys": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_NotifLongTextMig_scoped",
+      "operation": "text_scope",
+      "input": "ZEMX_C_NotifLongTextMig",
+      "parent": "ZEMX_C_MaintNotificationMig",
+      "links": "ZEMX_C_NotifLongTextMig_Links",
+      "parent_keys": [
+        "MaintenanceNotification"
+      ]
+    },
+    {
+      "name": "ZEMX_C_OrderLongTextMig_scoped",
+      "operation": "text_scope",
+      "input": "ZEMX_C_OrderLongTextMig",
+      "parent": "ZEMX_C_MaintOrderMig",
+      "links": "ZEMX_C_OrderLongTextMig_Links",
+      "parent_keys": [
+        "MaintenanceOrder"
+      ]
+    },
+    {
+      "name": "ZEMX_C_PlanLongTextMig_scoped",
+      "operation": "text_scope",
+      "input": "ZEMX_C_PlanLongTextMig",
+      "parent": "ZEMX_C_MaintenancePlanMig",
+      "links": "ZEMX_C_PlanLongTextMig_Links",
+      "parent_keys": [
+        "MaintenancePlan"
+      ]
+    },
+    {
+      "name": "ZEMX_C_TaskListLongTextMig_scoped",
+      "operation": "text_scope",
+      "input": "ZEMX_C_TaskListLongTextMig",
+      "parent": "ZEMX_C_TaskListMig",
+      "links": "ZEMX_C_TaskListLongTextMig_Links",
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MeasPointLongTextMig_scoped",
+      "operation": "text_scope",
+      "input": "ZEMX_C_MeasPointLongTextMig",
+      "parent": "ZEMX_C_MeasuringPointMig",
+      "links": "ZEMX_C_MeasPointLongTextMig_Links",
+      "parent_keys": [
+        "MeasuringPoint"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocBOMMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocBOMMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
     }
   ],
   "outputs": [
@@ -1074,6 +1468,32 @@
     "ZEMX_C_WorkCenterTextMig_scoped",
     "ZEMX_C_WorkCenterCostCtrMig_scoped",
     "ZEMX_C_WorkCenterCapacityMig_scoped",
-    "ZEMX_C_CapacityHeaderMig_scoped"
+    "ZEMX_C_CapacityHeaderMig_scoped",
+    "ZEMX_C_EquipClassMig_scoped",
+    "ZEMX_C_EquipCharcMig_scoped",
+    "ZEMX_C_FuncLocPartnerMig_scoped",
+    "ZEMX_C_FuncLocStatusMig_scoped",
+    "ZEMX_C_FuncLocUserStatusMig_scoped",
+    "ZEMX_C_FuncLocClassMig_scoped",
+    "ZEMX_C_FuncLocCharcMig_scoped",
+    "ZEMX_C_MaintNotifPartnerMig_scoped",
+    "ZEMX_C_MaintNotifStatusMig_scoped",
+    "ZEMX_C_NotifUserStatusMig_scoped",
+    "ZEMX_C_MaintOrderPartnerMig_scoped",
+    "ZEMX_C_MaintOrderStatusMig_scoped",
+    "ZEMX_C_OrderUserStatusMig_scoped",
+    "ZEMX_C_EquipEmailMig_scoped",
+    "ZEMX_C_EquipPhoneMig_scoped",
+    "ZEMX_C_EquipFaxMig_scoped",
+    "ZEMX_C_FuncLocEmailMig_scoped",
+    "ZEMX_C_FuncLocPhoneMig_scoped",
+    "ZEMX_C_FuncLocFaxMig_scoped",
+    "ZEMX_C_FuncLocLongTextMig_scoped",
+    "ZEMX_C_NotifLongTextMig_scoped",
+    "ZEMX_C_OrderLongTextMig_scoped",
+    "ZEMX_C_PlanLongTextMig_scoped",
+    "ZEMX_C_TaskListLongTextMig_scoped",
+    "ZEMX_C_MeasPointLongTextMig_scoped",
+    "ZEMX_C_FuncLocBOMMig_scoped"
   ]
 }

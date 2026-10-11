@@ -36,7 +36,15 @@
     "ZPPX_C_ConfirmationMig": "exports/ZPPX_C_ConfirmationMig.csv",
     "ZPPX_C_ConfirmationMig_Scope": "selection/ZPPX_C_ConfirmationMig.csv",
     "ZPPX_C_OrderStatusMig": "exports/ZPPX_C_OrderStatusMig.csv",
-    "ZPPX_C_OrderStatusMig_Scope": "selection/ZPPX_C_OrderStatusMig.csv"
+    "ZPPX_C_OrderStatusMig_Scope": "selection/ZPPX_C_OrderStatusMig.csv",
+    "ZPPX_C_OrderUserStatusMig": "exports/ZPPX_C_OrderUserStatusMig.csv",
+    "ZPPX_C_OrderUserStatusMig_Scope": "selection/ZPPX_C_OrderUserStatusMig.csv",
+    "ZPPX_C_OrderLongTextMig": "exports/ZPPX_C_OrderLongTextMig.csv",
+    "ZPPX_C_OrderLongTextMig_Links": "text-links/ZPPX_C_OrderLongTextMig.csv",
+    "ZPPX_C_RoutingLongTextMig": "exports/ZPPX_C_RoutingLongTextMig.csv",
+    "ZPPX_C_RoutingLongTextMig_Links": "text-links/ZPPX_C_RoutingLongTextMig.csv",
+    "ZPPX_C_BOMLongTextMig": "exports/ZPPX_C_BOMLongTextMig.csv",
+    "ZPPX_C_BOMLongTextMig_Links": "text-links/ZPPX_C_BOMLongTextMig.csv"
   },
   "steps": [
     {
@@ -448,6 +456,71 @@
         "Sequence",
         "InternalCounter"
       ]
+    },
+    {
+      "name": "ZPPX_C_OrderUserStatusMig_Selected",
+      "operation": "selection",
+      "input": "ZPPX_C_OrderUserStatusMig",
+      "parent": "ZPPX_C_OrderUserStatusMig_Scope",
+      "child_keys": [
+        "ManufacturingOrder",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder",
+        "StatusCode"
+      ]
+    },
+    {
+      "name": "ZPPX_C_OrderUserStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPPX_C_OrderUserStatusMig_Selected",
+      "parent": "ZPPX_C_ProductionOrdeMig_Prepared",
+      "child_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_identity": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_OrderLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZPPX_C_OrderLongTextMig",
+      "parent": "ZPPX_C_ProductionOrdeMig_Prepared",
+      "links": "ZPPX_C_OrderLongTextMig_Links",
+      "parent_keys": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_RoutingLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZPPX_C_RoutingLongTextMig",
+      "parent": "ZPPX_C_RoutingHeaderMig_Prepared",
+      "links": "ZPPX_C_RoutingLongTextMig_Links",
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "InternalCounter"
+      ]
+    },
+    {
+      "name": "ZPPX_C_BOMLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZPPX_C_BOMLongTextMig",
+      "parent": "ZPPX_C_BOMHeaderMig_Prepared",
+      "links": "ZPPX_C_BOMLongTextMig_Links",
+      "parent_keys": [
+        "BOMCategory",
+        "BillOfMaterial",
+        "BillOfMaterialVariant",
+        "InternalCounter"
+      ]
     }
   ],
   "outputs": [
@@ -468,6 +541,10 @@
     "ZPPX_C_RoutingMateriaMig_Prepared",
     "ZPPX_C_RoutingSelectiMig_Prepared",
     "ZPPX_C_RoutingOperatiMig_Prepared",
-    "ZPPX_C_RoutingSequencMig_Prepared"
+    "ZPPX_C_RoutingSequencMig_Prepared",
+    "ZPPX_C_OrderUserStatusMig_Prepared",
+    "ZPPX_C_OrderLongTextMig_Prepared",
+    "ZPPX_C_RoutingLongTextMig_Prepared",
+    "ZPPX_C_BOMLongTextMig_Prepared"
   ]
 }

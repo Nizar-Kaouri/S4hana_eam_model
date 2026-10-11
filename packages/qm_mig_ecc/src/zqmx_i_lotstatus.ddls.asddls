@@ -13,11 +13,14 @@
 define view ZQMX_I_LotStatus
   as select from ZQMX_B_LotStatusData as st
     inner join ZQMX_I_InspectionLot as obj on obj.ObjectNumber = st.ObjectNumber
+    association [0..1] to ZQMX_B_StatusProfileData as _Profile
+      on $projection.ObjectNumber = _Profile.ObjectNumber
 {
 key obj.InspectionLot as InspectionLot,
   key st.StatusCode as StatusCode,
       st.ObjectNumber as ObjectNumber,
       substring( st.StatusCode, 1, 1 ) as StatusKind,
-      st.StatusChangeNumber as StatusChangeNumber
+      st.StatusChangeNumber as StatusChangeNumber,
+      _Profile.StatusProfile as StatusProfile
 }
 where st.StatusIsInactive = ''

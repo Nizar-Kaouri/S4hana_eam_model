@@ -1,7 +1,7 @@
 {
   "name": "maintenance_notification",
   "title": "Maintenance notification",
-  "description": "Open PM notifications with items, causes, tasks and activities.",
+  "description": "Open PM notifications with items, causes, tasks and activities. Dedicated applicable child exports preserve partners, profiles/user statuses, texts and object identity; see OBJECT_COVERAGE.md.",
   "batch": 2,
   "version": "1.0.0",
   "status": "released",
@@ -16,12 +16,15 @@
     "QMIH",
     "QMMA",
     "QMSM",
-    "QMUR"
+    "QMUR",
+    "STXH"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
     "core",
-    "work_center"
+    "work_center",
+    "object_partner",
+    "object_status"
   ],
   "objects": {
     "tables": [],
@@ -31,14 +34,19 @@
       "ZEMX_B_NotificationItemData",
       "ZEMX_B_NotifCauseData",
       "ZEMX_B_NotifTaskData",
-      "ZEMX_B_NotifActivityData"
+      "ZEMX_B_NotifActivityData",
+      "ZEMX_B_NotifLTIndexData"
     ],
     "composite": [
       "ZEMX_I_MaintNotification",
       "ZEMX_I_MaintNotifItem",
       "ZEMX_I_NotifCause",
       "ZEMX_I_NotifTask",
-      "ZEMX_I_NotifActivity"
+      "ZEMX_I_NotifActivity",
+      "ZEMX_I_MaintNotifPartner",
+      "ZEMX_I_MaintNotifStatus",
+      "ZEMX_I_MaintNotifUserStatus",
+      "ZEMX_I_NotifLongText"
     ],
     "consumption": [
       "ZEMX_C_MaintNotificationMig",
@@ -46,7 +54,11 @@
       "ZEMX_C_MaintNotifMigCount",
       "ZEMX_C_NotifCauseMig",
       "ZEMX_C_NotifTaskMig",
-      "ZEMX_C_NotifActivityMig"
+      "ZEMX_C_NotifActivityMig",
+      "ZEMX_C_MaintNotifPartnerMig",
+      "ZEMX_C_MaintNotifStatusMig",
+      "ZEMX_C_NotifUserStatusMig",
+      "ZEMX_C_NotifLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -69,7 +81,16 @@
     "ZEMX_C_NotifTaskMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_B_NotifActivityData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_NotifActivity": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_C_NotifActivityMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_C_NotifActivityMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MaintNotifPartner": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_MaintNotifPartnerMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MaintNotifStatus": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_MaintNotifStatusMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MaintNotifUserStatus": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_NotifUserStatusMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_NotifLongText": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_NotifLongTextMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_NotifLTIndexData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

@@ -116,6 +116,25 @@ def parent_scope(rows, parents, child_columns, parent_columns, parent_identity):
     return [r for r in rows if identity(r, child_columns) in allowed]
 
 
+def linked_scope(rows, parents, links, row_keys, parent_keys):
+    """Scope a native full-key child via explicit, unambiguous business-owner links."""
+    exported = unique(rows, row_keys, 'linked source index')
+    selected = unique(parents, parent_keys, 'text business parent')
+    require(links, row_keys + parent_keys, 'business owner links')
+    unique(links, row_keys, 'business owner links')
+    linked = {identity(r, row_keys): identity(r, parent_keys) for r in links}
+    if set(linked) - exported:
+        raise InputError('business links refer to identities absent from the source index')
+    return [r for r in rows if identity(r, row_keys) in linked
+            and linked[identity(r, row_keys)] in selected]
+
+
+def text_scope(rows, parents, links, parent_keys):
+    """Preserve the complete SAPscript key; never guess TDNAME ownership."""
+    return linked_scope(rows, parents, links,
+                        ['TextObject', 'TextName', 'TextID', 'Language'], parent_keys)
+
+
 def document_item_scope(rows, items, child_columns, parent_columns, parent_identity,
                         header_item_value="000000"):
     """Keep document header records or records belonging to a selected item.

@@ -37,6 +37,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AuthorizationGroup` | IMPTT-BEGRU | IMPTT-BEGRU | copy |  |
 | `LastChangeDate` | IMPTT-AEDAT | - | information only |  |
 
+## `ZEMX_C_MeasPointLongTextMig`
+
+- Source: `ZEMX_I_MeasPointLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |

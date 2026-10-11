@@ -19,5 +19,7 @@ define view ZFIX_C_AccountingHeadMig
       src.AccountingDocumentType as AccountingDocumentType,
       src.DocumentDate as DocumentDate,
       src.PostingDate as PostingDate,
-      src.DocumentCurrency as DocumentCurrency
+      src.DocumentCurrency as DocumentCurrency,
+      src.ReferenceDocument as ReferenceDocument,
+      src.HeaderText as HeaderText
 }

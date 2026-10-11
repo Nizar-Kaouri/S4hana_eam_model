@@ -1,0 +1,914 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "goods_movement": {
+      "native_tables": [
+        "MKPF",
+        "MSEG"
+      ],
+      "structures": [
+        {
+          "view": "ZMMX_C_MatDocHeaderMig",
+          "interface": "ZMMX_I_MatDocHeader",
+          "keys": [
+            "MaterialDocument",
+            "MaterialDocumentYear"
+          ],
+          "mode": "reference",
+          "fields": [
+            "MaterialDocument",
+            "MaterialDocumentYear",
+            "DocumentDate",
+            "PostingDate",
+            "ReferenceDocument"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MatDocItemMig",
+          "interface": "ZMMX_I_MatDocItem",
+          "keys": [
+            "MaterialDocument",
+            "MaterialDocumentYear",
+            "MaterialDocumentItem"
+          ],
+          "mode": "reference",
+          "fields": [
+            "MaterialDocument",
+            "MaterialDocumentYear",
+            "MaterialDocumentItem",
+            "Product",
+            "Plant",
+            "StorageLocation",
+            "GoodsMovementType",
+            "Quantity",
+            "Unit",
+            "LocalAmount",
+            "DebitCreditCode"
+          ]
+        }
+      ],
+      "boundary": "Goods movement history source records, preparation and comparison contracts."
+    },
+    "material_stock": {
+      "native_tables": [
+        "MARD",
+        "MCHB",
+        "MSKA",
+        "MSLB"
+      ],
+      "structures": [
+        {
+          "view": "ZMMX_C_LocationStockMig",
+          "interface": "ZMMX_I_LocationStock",
+          "keys": [
+            "Product",
+            "Plant",
+            "StorageLocation"
+          ],
+          "mode": "balance",
+          "fields": [
+            "Product",
+            "Plant",
+            "StorageLocation",
+            "UnrestrictedStock",
+            "QualityInspectionStock",
+            "BlockedStock",
+            "TransferStock"
+          ]
+        },
+        {
+          "view": "ZMMX_C_BatchStockMig",
+          "interface": "ZMMX_I_BatchStock",
+          "keys": [
+            "Product",
+            "Plant",
+            "StorageLocation",
+            "Batch"
+          ],
+          "mode": "balance",
+          "fields": [
+            "Product",
+            "Plant",
+            "StorageLocation",
+            "Batch",
+            "UnrestrictedStock",
+            "QualityInspectionStock",
+            "BlockedStock"
+          ]
+        },
+        {
+          "view": "ZMMX_C_SalesOrderStocMig",
+          "interface": "ZMMX_I_SalesOrderStoc",
+          "keys": [
+            "Product",
+            "Plant",
+            "StorageLocation",
+            "Batch",
+            "SpecialStock",
+            "SalesOrder",
+            "SalesOrderItem"
+          ],
+          "mode": "balance",
+          "fields": [
+            "Product",
+            "Plant",
+            "StorageLocation",
+            "Batch",
+            "SpecialStock",
+            "SalesOrder",
+            "SalesOrderItem",
+            "UnrestrictedStock",
+            "QualityInspectionStock"
+          ]
+        },
+        {
+          "view": "ZMMX_C_SupplierStockMig",
+          "interface": "ZMMX_I_SupplierStock",
+          "keys": [
+            "Product",
+            "Plant",
+            "Batch",
+            "SpecialStock",
+            "Supplier"
+          ],
+          "mode": "balance",
+          "fields": [
+            "Product",
+            "Plant",
+            "Batch",
+            "SpecialStock",
+            "Supplier",
+            "UnrestrictedStock",
+            "QualityInspectionStock"
+          ]
+        }
+      ],
+      "boundary": "Inventory balances source records, preparation and comparison contracts."
+    },
+    "product": {
+      "native_tables": [
+        "AUSP",
+        "CABN",
+        "INOB",
+        "KLAH",
+        "KSSK",
+        "MAKT",
+        "MARA",
+        "MARC",
+        "MARD",
+        "MARM",
+        "MBEW",
+        "MCH1",
+        "MCHA",
+        "MDMA",
+        "MEAN",
+        "MLAN",
+        "MVKE",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZMMX_C_MaterialMig",
+          "interface": "ZMMX_I_Material",
+          "keys": [
+            "Product"
+          ],
+          "mode": "master",
+          "fields": [
+            "Product",
+            "ProductType",
+            "ProductGroup",
+            "BaseUnit",
+            "GrossWeight",
+            "NetWeight",
+            "WeightUnit",
+            "DeletionFlag",
+            "IndustrySector",
+            "Division",
+            "OldMaterialNumber",
+            "ExternalProductGroup",
+            "CrossPlantMaterialStatus",
+            "MaterialStatusValidFrom",
+            "BatchManagementRequired"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialTextMig",
+          "interface": "ZMMX_I_MaterialText",
+          "keys": [
+            "Product",
+            "Language"
+          ],
+          "mode": "master",
+          "fields": [
+            "Product",
+            "Language",
+            "ProductDescription"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialPlantMig",
+          "interface": "ZMMX_I_MaterialPlant",
+          "keys": [
+            "Product",
+            "Plant"
+          ],
+          "mode": "master",
+          "fields": [
+            "Product",
+            "Plant",
+            "MRPType",
+            "MRPController",
+            "ProcurementType",
+            "PurchasingGroup",
+            "DeletionFlag",
+            "MRPGroup",
+            "LotSizingProcedure",
+            "SpecialProcurementType",
+            "AvailabilityCheck",
+            "SafetyStock",
+            "MinimumLotSize",
+            "MaximumLotSize",
+            "FixedLotSize",
+            "PlannedDeliveryTime",
+            "GoodsReceiptProcessingTime",
+            "InHouseProductionTime",
+            "IssueStorageLocation",
+            "ExternalProcStorageLocation",
+            "SerialNumberProfile",
+            "BatchManagementRequired"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialLocatiMig",
+          "interface": "ZMMX_I_MaterialLocati",
+          "keys": [
+            "Product",
+            "Plant",
+            "StorageLocation"
+          ],
+          "mode": "master",
+          "fields": [
+            "Product",
+            "Plant",
+            "StorageLocation",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialUnitMig",
+          "interface": "ZMMX_I_MaterialUnit",
+          "keys": [
+            "Product",
+            "AlternativeUnit"
+          ],
+          "mode": "master",
+          "fields": [
+            "Product",
+            "AlternativeUnit",
+            "Numerator",
+            "Denominator",
+            "InternationalArticleNumber"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialValueMig",
+          "interface": "ZMMX_I_MaterialValue",
+          "keys": [
+            "Product",
+            "ValuationArea",
+            "ValuationType"
+          ],
+          "mode": "master",
+          "fields": [
+            "Product",
+            "ValuationArea",
+            "ValuationType",
+            "ValuationClass",
+            "PriceControl",
+            "StandardPrice",
+            "MovingAveragePrice",
+            "PriceUnit"
+          ]
+        },
+        {
+          "view": "ZMMX_C_BatchGeneralMig",
+          "interface": "ZMMX_I_BatchGeneral",
+          "keys": [
+            "Product",
+            "Batch"
+          ],
+          "mode": "master",
+          "fields": [
+            "Product",
+            "Batch",
+            "ManufactureDate",
+            "ExpirationDate"
+          ]
+        },
+        {
+          "view": "ZMMX_C_BatchPlantMig",
+          "interface": "ZMMX_I_BatchPlant",
+          "keys": [
+            "Product",
+            "Plant",
+            "Batch"
+          ],
+          "mode": "master",
+          "fields": [
+            "Product",
+            "Plant",
+            "Batch",
+            "ManufactureDate",
+            "ExpirationDate"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialSalesMig",
+          "interface": "ZMMX_I_MaterialSales",
+          "keys": [
+            "Product",
+            "SalesOrganization",
+            "DistributionChannel"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Product",
+            "SalesOrganization",
+            "DistributionChannel",
+            "SalesUnit",
+            "DeliveringPlant",
+            "SalesStatus",
+            "SalesStatusValidFrom",
+            "ItemCategoryGroup",
+            "AccountAssignmentGroup",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialTaxMig",
+          "interface": "ZMMX_I_MaterialTax",
+          "keys": [
+            "Product",
+            "DepartureCountry"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Product",
+            "DepartureCountry",
+            "TaxClassification1",
+            "TaxClassification2",
+            "TaxClassification3",
+            "TaxClassification4",
+            "TaxClassification5",
+            "TaxClassification6",
+            "TaxClassification7",
+            "TaxClassification8",
+            "TaxClassification9"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialMRPAreaMig",
+          "interface": "ZMMX_I_MaterialMRPArea",
+          "keys": [
+            "Product",
+            "MRPArea"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Product",
+            "MRPArea",
+            "MRPType",
+            "MRPController",
+            "LotSizingProcedure",
+            "SpecialProcurementType",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialEANMig",
+          "interface": "ZMMX_I_MaterialEAN",
+          "keys": [
+            "Product",
+            "AlternativeUnit",
+            "EANCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Product",
+            "AlternativeUnit",
+            "EANCounter",
+            "EAN",
+            "EANCategory",
+            "MainEAN"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialLongTextMig",
+          "interface": "ZMMX_I_MaterialLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        },
+        {
+          "view": "ZMMX_C_ClassObjectMig",
+          "interface": "ZMMX_I_ClassObject",
+          "keys": [
+            "ClassificationInternalID"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ClassificationInternalID",
+            "ClassType",
+            "ObjectTable",
+            "ClassifiedObject"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialClassMig",
+          "interface": "ZMMX_I_MaterialClass",
+          "keys": [
+            "ClassifiedObject",
+            "ClassType",
+            "Class"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ClassifiedObject",
+            "ClassType",
+            "Class",
+            "ClassificationStatus"
+          ]
+        },
+        {
+          "view": "ZMMX_C_BatchClassMig",
+          "interface": "ZMMX_I_BatchClass",
+          "keys": [
+            "ClassifiedObject",
+            "ClassType",
+            "Class"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ClassifiedObject",
+            "ClassType",
+            "Class",
+            "ClassificationStatus"
+          ]
+        },
+        {
+          "view": "ZMMX_C_MaterialCharcMig",
+          "interface": "ZMMX_I_MaterialCharc",
+          "keys": [
+            "ClassifiedObject",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ClassifiedObject",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber",
+            "CharcValue",
+            "CharcFromNumericValue",
+            "CharcToNumericValue",
+            "CharcValueDependency"
+          ]
+        },
+        {
+          "view": "ZMMX_C_BatchCharcMig",
+          "interface": "ZMMX_I_BatchCharc",
+          "keys": [
+            "ClassifiedObject",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ClassifiedObject",
+            "ClassType",
+            "Characteristic",
+            "CharcValuePositionNumber",
+            "CharcValue",
+            "CharcFromNumericValue",
+            "CharcToNumericValue",
+            "CharcValueDependency"
+          ]
+        }
+      ],
+      "boundary": "Material master source records, preparation and comparison contracts."
+    },
+    "purchase_order": {
+      "native_tables": [
+        "EKBE",
+        "EKET",
+        "EKKN",
+        "EKKO",
+        "EKPA",
+        "EKPO",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZMMX_C_PurchaseOrderMig",
+          "interface": "ZMMX_I_PurchaseOrder",
+          "keys": [
+            "PurchaseOrder"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchaseOrder",
+            "CompanyCode",
+            "PurchaseOrderType",
+            "Supplier",
+            "PurchasingOrganization",
+            "PurchasingGroup",
+            "DocumentCurrency"
+          ]
+        },
+        {
+          "view": "ZMMX_C_PurchaseItemMig",
+          "interface": "ZMMX_I_PurchaseItem",
+          "keys": [
+            "PurchaseOrder",
+            "PurchaseOrderItem"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchaseOrder",
+            "PurchaseOrderItem",
+            "Material",
+            "Plant",
+            "OrderQuantity",
+            "OrderUnit",
+            "DeletionFlag",
+            "DeliveryCompleted",
+            "FinalInvoice"
+          ]
+        },
+        {
+          "view": "ZMMX_C_PurchaseScheduMig",
+          "interface": "ZMMX_I_PurchaseSchedu",
+          "keys": [
+            "PurchaseOrder",
+            "PurchaseOrderItem",
+            "ScheduleLine"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchaseOrder",
+            "PurchaseOrderItem",
+            "ScheduleLine",
+            "DeliveryDate",
+            "ScheduledQuantity",
+            "ReceivedQuantity"
+          ]
+        },
+        {
+          "view": "ZMMX_C_PurchaseAssignMig",
+          "interface": "ZMMX_I_PurchaseAssign",
+          "keys": [
+            "PurchaseOrder",
+            "PurchaseOrderItem",
+            "AccountAssignmentNumber"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchaseOrder",
+            "PurchaseOrderItem",
+            "AccountAssignmentNumber",
+            "CostCenter",
+            "OrderID",
+            "GLAccount",
+            "WBSElementInternalID"
+          ]
+        },
+        {
+          "view": "ZMMX_C_PurchaseHistorMig",
+          "interface": "ZMMX_I_PurchaseHistor",
+          "keys": [
+            "PurchaseOrder",
+            "PurchaseOrderItem",
+            "AccountAssignmentNumber",
+            "HistoryCategory",
+            "FiscalYear",
+            "DocumentNumber",
+            "DocumentItem"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchaseOrder",
+            "PurchaseOrderItem",
+            "AccountAssignmentNumber",
+            "HistoryCategory",
+            "FiscalYear",
+            "DocumentNumber",
+            "DocumentItem",
+            "PostingDate",
+            "Quantity",
+            "DebitCreditCode"
+          ]
+        },
+        {
+          "view": "ZMMX_C_PurchasePartnerMig",
+          "interface": "ZMMX_I_PurchasePartner",
+          "keys": [
+            "PurchaseOrder",
+            "PurchasingOrganization",
+            "SupplierSubrange",
+            "Plant",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "PurchaseOrder",
+            "PurchasingOrganization",
+            "SupplierSubrange",
+            "Plant",
+            "PartnerFunction",
+            "PartnerCounter",
+            "PartnerSupplier",
+            "PartnerContact",
+            "DefaultPartner"
+          ]
+        },
+        {
+          "view": "ZMMX_C_PurchaseLongTextMig",
+          "interface": "ZMMX_I_PurchaseLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Purchase orders source records, preparation and comparison contracts."
+    },
+    "purchase_requisition": {
+      "native_tables": [
+        "EBAN",
+        "EBKN",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZMMX_C_RequisitionMig",
+          "interface": "ZMMX_I_Requisition",
+          "keys": [
+            "PurchaseRequisition",
+            "PurchaseRequisitionItem"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchaseRequisition",
+            "PurchaseRequisitionItem",
+            "Material",
+            "Plant",
+            "RequestedQuantity",
+            "Unit",
+            "DeletionFlag",
+            "ClosedFlag"
+          ]
+        },
+        {
+          "view": "ZMMX_C_ReqAssignmentMig",
+          "interface": "ZMMX_I_ReqAssignment",
+          "keys": [
+            "PurchaseRequisition",
+            "PurchaseRequisitionItem",
+            "AccountAssignmentNumber"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchaseRequisition",
+            "PurchaseRequisitionItem",
+            "AccountAssignmentNumber",
+            "CostCenter",
+            "OrderID",
+            "GLAccount",
+            "WBSElementInternalID"
+          ]
+        },
+        {
+          "view": "ZMMX_C_RequisitionLongTextMig",
+          "interface": "ZMMX_I_RequisitionLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Purchase requisitions source records, preparation and comparison contracts."
+    },
+    "purchasing_contract": {
+      "native_tables": [
+        "EKKN",
+        "EKKO",
+        "EKPA",
+        "EKPO",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZMMX_C_ContractHeaderMig",
+          "interface": "ZMMX_I_ContractHeader",
+          "keys": [
+            "PurchasingContract"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchasingContract",
+            "PurchasingDocumentCategory",
+            "ContractType",
+            "CompanyCode",
+            "Supplier",
+            "PurchasingOrganization",
+            "PurchasingGroup",
+            "Currency",
+            "ValidityStartDate",
+            "ValidityEndDate"
+          ]
+        },
+        {
+          "view": "ZMMX_C_ContractItemMig",
+          "interface": "ZMMX_I_ContractItem",
+          "keys": [
+            "PurchasingContract",
+            "PurchasingContractItem"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchasingContract",
+            "PurchasingContractItem",
+            "Product",
+            "Plant",
+            "TargetQuantity",
+            "OrderUnit",
+            "NetPrice",
+            "PriceUnit",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZMMX_C_ContractAssignMig",
+          "interface": "ZMMX_I_ContractAssign",
+          "keys": [
+            "PurchasingContract",
+            "PurchasingContractItem",
+            "AccountAssignmentNumber"
+          ],
+          "mode": "open-document",
+          "fields": [
+            "PurchasingContract",
+            "PurchasingContractItem",
+            "AccountAssignmentNumber",
+            "CostCenter",
+            "InternalOrder",
+            "WBSElementInternalID",
+            "GLAccount",
+            "DistributionPercentage"
+          ]
+        },
+        {
+          "view": "ZMMX_C_ContractPartnerMig",
+          "interface": "ZMMX_I_ContractPartner",
+          "keys": [
+            "PurchasingContract",
+            "PurchasingOrganization",
+            "SupplierSubrange",
+            "Plant",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "PurchasingContract",
+            "PurchasingOrganization",
+            "SupplierSubrange",
+            "Plant",
+            "PartnerFunction",
+            "PartnerCounter",
+            "PartnerSupplier",
+            "PartnerContact",
+            "DefaultPartner"
+          ]
+        },
+        {
+          "view": "ZMMX_C_ContractLongTextMig",
+          "interface": "ZMMX_I_ContractLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Purchasing contracts. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval."
+    },
+    "purchasing_info_record": {
+      "native_tables": [
+        "EINA",
+        "EINE",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZMMX_C_InfoRecordMig",
+          "interface": "ZMMX_I_InfoRecord",
+          "keys": [
+            "PurchasingInfoRecord"
+          ],
+          "mode": "master",
+          "fields": [
+            "PurchasingInfoRecord",
+            "Product",
+            "Supplier",
+            "ProductGroup",
+            "OrderUnit",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZMMX_C_InfoPurchOrgMig",
+          "interface": "ZMMX_I_InfoPurchOrg",
+          "keys": [
+            "PurchasingInfoRecord",
+            "PurchasingOrganization",
+            "InfoRecordCategory",
+            "Plant"
+          ],
+          "mode": "master",
+          "fields": [
+            "PurchasingInfoRecord",
+            "PurchasingOrganization",
+            "InfoRecordCategory",
+            "Plant",
+            "PurchasingGroup",
+            "Currency",
+            "NetPrice",
+            "PriceUnit",
+            "PriceUnitOfMeasure",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZMMX_C_InfoRecordLongTextMig",
+          "interface": "ZMMX_I_InfoRecordLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Purchasing info records. Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone."
+    }
+  }
+}

@@ -22,5 +22,5 @@ define view ZPPX_B_RoutingOperatiData
       src.aennr as ChangeNumber,
       src.loekz as DeletionFlag,
       src.vornr as Operation,
-      src.ktext as OperationText
+      src.ltxa1 as OperationText
 }

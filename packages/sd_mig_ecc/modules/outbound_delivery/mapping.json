@@ -141,6 +141,20 @@
           "target": "customer interface field: ReferenceDocumentItem (unconfirmed)",
           "rule": "info",
           "compare": true
+        },
+        {
+          "element": "ItemShortText",
+          "source": "LIPS-ARKTX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Batch",
+          "source": "LIPS-CHARG",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "reference",
@@ -497,6 +511,151 @@
       ],
       "delivery_mode": "reference",
       "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZSDX_C_DeliveryStatusMig",
+      "source_view": "ZSDX_I_DeliveryStatus",
+      "scope_filter": "",
+      "keys": [
+        "DeliveryDocument"
+      ],
+      "fields": [
+        {
+          "element": "DeliveryDocument",
+          "source": "VBUK-VBELN",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "OverallProcessingStatus",
+          "source": "VBUK-GBSTK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "GoodsMovementStatus",
+          "source": "VBUK-WBSTK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PickingStatus",
+          "source": "VBUK-KOSTK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillingStatus",
+          "source": "VBUK-FKSTK",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZSDX_C_DlvItemStatusMig",
+      "source_view": "ZSDX_I_DlvItemStatus",
+      "scope_filter": "",
+      "keys": [
+        "DeliveryDocument",
+        "DeliveryDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "DeliveryDocument",
+          "source": "VBUP-VBELN",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "DeliveryDocumentItem",
+          "source": "VBUP-POSNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "OverallProcessingStatus",
+          "source": "VBUP-GBSTA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "GoodsMovementStatus",
+          "source": "VBUP-WBSTA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PickingStatus",
+          "source": "VBUP-KOSTA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillingStatus",
+          "source": "VBUP-FKSTA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZSDX_C_DeliveryLongTextMig",
+      "source_view": "ZSDX_I_DeliveryLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
     }
   ],
   "not_migrated": [],

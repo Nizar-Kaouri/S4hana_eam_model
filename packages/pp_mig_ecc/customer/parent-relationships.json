@@ -85,5 +85,17 @@
     "parent_identity": [
       "ManufacturingOrder"
     ]
+  },
+  "ZPPX_C_OrderUserStatusMig": {
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
   }
 }

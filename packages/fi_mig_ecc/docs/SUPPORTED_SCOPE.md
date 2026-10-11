@@ -4,13 +4,13 @@ ModuPorter Financial Accounting version 1.0.0.
 
 | Module | ID | Extraction structures |
 |---|---|---:|
-| Bank master | bank | 2 |
-| Customer source data | customer | 4 |
-| G/L accounts | gl_account | 3 |
+| Bank master | bank | 5 |
+| Customer source data | customer | 18 |
+| G/L accounts | gl_account | 4 |
 | Accounting document history | gl_line_item | 2 |
 | Dedicated G/L opening balances | gl_opening_balance | 2 |
 | Current and cleared item indexes | open_items | 6 |
-| Supplier source data | supplier | 4 |
+| Supplier source data | supplier | 13 |
 
 ## Delivery boundaries
 
@@ -25,10 +25,10 @@ Financial Accounting has 7 modules and 20 extraction structures.
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
 | Dedicated G/L opening balances | gl_opening_balance | 2 | balance |
-| Bank master | bank | 2 | master |
-| G/L accounts | gl_account | 3 | master |
-| Supplier source data | supplier | 4 | master |
-| Customer source data | customer | 4 | master |
+| Bank master | bank | 5 | master |
+| G/L accounts | gl_account | 4 | master |
+| Supplier source data | supplier | 13 | master |
+| Customer source data | customer | 18 | master |
 | Accounting document history | gl_line_item | 2 | reference |
 | Current and cleared item indexes | open_items | 6 | open-item |
 

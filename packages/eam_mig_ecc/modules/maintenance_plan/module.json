@@ -11,10 +11,11 @@
     "migration"
   ],
   "sap_tables": [
+    "MHIS",
+    "MMPT",
     "MPLA",
     "MPOS",
-    "MMPT",
-    "MHIS"
+    "STXH"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
@@ -27,18 +28,22 @@
       "ZEMX_B_MaintenancePlanHeader",
       "ZEMX_B_MaintenanceItemHeader",
       "ZEMX_B_MaintPlanCycle",
-      "ZEMX_B_MaintPlanCallHistory"
+      "ZEMX_B_MaintPlanCallHistory",
+      "ZEMX_B_PlanLTIndexData"
     ],
     "composite": [
       "ZEMX_I_MaintPlanLastCall",
       "ZEMX_I_MaintenancePlan",
-      "ZEMX_I_MaintenanceItem"
+      "ZEMX_I_MaintenanceItem",
+      "ZEMX_I_PlanLongText",
+      "ZEMX_I_MaintPlanCycle"
     ],
     "consumption": [
       "ZEMX_C_MaintenancePlanMig",
       "ZEMX_C_MaintenanceItemMig",
       "ZEMX_C_MaintPlanCycleMig",
-      "ZEMX_C_MaintPlanMigCount"
+      "ZEMX_C_MaintPlanMigCount",
+      "ZEMX_C_PlanLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -55,7 +60,11 @@
     "ZEMX_C_MaintenancePlanMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_MaintenanceItemMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_MaintPlanCycleMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_C_MaintPlanMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_C_MaintPlanMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_PlanLongText": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_PlanLongTextMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_PlanLTIndexData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MaintPlanCycle": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

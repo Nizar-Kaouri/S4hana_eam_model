@@ -43,6 +43,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AddressRegion` | ADRC-REGION | - | copy |  |
 | `AddressLanguage` | ADRC-LANGU | - | copy |  |
 | `HasStandardAddress` | derived: presence of the standard ADRC record | - | information only |  |
+| `TaxNumber1` | KNA1-STCD1 | - | copy |  |
+| `TaxNumber2` | KNA1-STCD2 | - | copy |  |
+| `TaxNumber3` | KNA1-STCD3 | - | copy |  |
+| `TaxNumber4` | KNA1-STCD4 | - | copy |  |
+| `VATRegistration` | KNA1-STCEG | - | copy |  |
+| `CorrespondenceLanguage` | KNA1-SPRAS | - | copy |  |
 
 ## `ZFIX_C_CustomerCompanMig`
 
@@ -60,6 +66,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `PaymentTerms` | KNB1-ZTERM | customer interface field: PaymentTerms (unconfirmed) | copy | yes |
 | `PaymentMethods` | KNB1-ZWELS | customer interface field: PaymentMethods (unconfirmed) | copy | yes |
 | `DeletionFlag` | KNB1-LOEVM | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
+| `PaymentBlock` | KNB1-ZAHLS | - | copy |  |
+| `SortKey` | KNB1-ZUAWA | - | copy |  |
+| `PlanningGroup` | KNB1-FDGRV | - | copy |  |
 
 ## `ZFIX_C_CustomerSalesMig`
 
@@ -109,6 +118,266 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AddressCountry` | ADRC-COUNTRY | - | copy |  |
 | `AddressRegion` | ADRC-REGION | - | copy |  |
 | `AddressLanguage` | ADRC-LANGU | - | copy |  |
+
+## `ZFIX_C_CustomerBankMig`
+
+- Source: `ZFIX_I_CustomerBank`
+- Keys: `Customer`, `BankCountry`, `Bank`, `BankAccount`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | KNBK-KUNNR | - | copy |  |
+| `BankCountry` | KNBK-BANKS | - | copy |  |
+| `Bank` | KNBK-BANKL | - | copy |  |
+| `BankAccount` | KNBK-BANKN | - | copy |  |
+| `BankControlKey` | KNBK-BKONT | - | copy |  |
+| `PartnerBankType` | KNBK-BVTYP | - | copy |  |
+| `AccountHolder` | KNBK-KOINH | - | copy |  |
+
+## `ZFIX_C_CustomerWHTMig`
+
+- Source: `ZFIX_I_CustomerWHT`
+- Keys: `Customer`, `CompanyCode`, `WithholdingTaxType`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | KNBW-KUNNR | - | copy |  |
+| `CompanyCode` | KNBW-BUKRS | - | copy |  |
+| `WithholdingTaxType` | KNBW-WITHT | - | copy |  |
+| `WithholdingTaxCode` | KNBW-WT_WITHCD | - | copy |  |
+| `WithholdingTaxID` | KNBW-WT_WTSTCD | - | copy |  |
+| `ExemptionNumber` | KNBW-WT_EXNR | - | copy |  |
+| `ExemptionRate` | KNBW-WT_EXRT | - | copy |  |
+| `ExemptionValidFrom` | KNBW-WT_EXDF | - | copy |  |
+| `ExemptionValidTo` | KNBW-WT_EXDT | - | copy |  |
+
+## `ZFIX_C_CustomerDunningMig`
+
+- Source: `ZFIX_I_CustomerDunning`
+- Keys: `Customer`, `CompanyCode`, `DunningArea`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | KNB5-KUNNR | - | copy |  |
+| `CompanyCode` | KNB5-BUKRS | - | copy |  |
+| `DunningArea` | KNB5-MABER | - | copy |  |
+| `DunningProcedure` | KNB5-MAHNA | - | copy |  |
+| `DunningBlock` | KNB5-MANSP | - | copy |  |
+| `DunningLevel` | KNB5-MAHNS | - | copy |  |
+| `LastDunnedOn` | KNB5-MADAT | - | copy |  |
+| `DunningMemo` | KNB5-KVERM | - | copy |  |
+
+## `ZFIX_C_CustomerPartnerMig`
+
+- Source: `ZFIX_I_CustomerPartner`
+- Keys: `Customer`, `SalesOrganization`, `DistributionChannel`, `Division`, `PartnerFunction`, `PartnerCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | KNVP-KUNNR | - | copy |  |
+| `SalesOrganization` | KNVP-VKORG | - | copy |  |
+| `DistributionChannel` | KNVP-VTWEG | - | copy |  |
+| `Division` | KNVP-SPART | - | copy |  |
+| `PartnerFunction` | KNVP-PARVW | - | copy |  |
+| `PartnerCounter` | KNVP-PARZA | - | copy |  |
+| `PartnerCustomer` | KNVP-KUNN2 | - | copy |  |
+| `PartnerSupplier` | KNVP-LIFNR | - | copy |  |
+| `PartnerContact` | KNVP-PARNR | - | copy |  |
+| `PartnerPersonnel` | KNVP-PERNR | - | copy |  |
+| `DefaultPartner` | KNVP-DEFPA | - | copy |  |
+
+## `ZFIX_C_CustomerTaxMig`
+
+- Source: `ZFIX_I_CustomerTax`
+- Keys: `Customer`, `DepartureCountry`, `TaxCategory`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | KNVI-KUNNR | - | copy |  |
+| `DepartureCountry` | KNVI-ALAND | - | copy |  |
+| `TaxCategory` | KNVI-TATYP | - | copy |  |
+| `TaxClassification` | KNVI-TAXKD | - | copy |  |
+
+## `ZFIX_C_CustomerContactMig`
+
+- Source: `ZFIX_I_CustomerContact`
+- Keys: `ContactPerson`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ContactPerson` | KNVK-PARNR | - | copy |  |
+| `Customer` | KNVK-KUNNR | - | copy |  |
+| `FirstName` | KNVK-NAMEV | - | copy |  |
+| `LastName` | KNVK-NAME1 | - | copy |  |
+| `Department` | KNVK-ABTNR | - | copy |  |
+| `Function` | KNVK-PAFKT | - | copy |  |
+| `Telephone` | KNVK-TELF1 | - | copy |  |
+| `PersonNumber` | KNVK-PRSNR | - | copy |  |
+
+## `ZFIX_C_CustomerEmailMig`
+
+- Source: `ZFIX_I_CustomerEmail`
+- Keys: `Customer`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | KNA1-KUNNR | - | copy |  |
+| `AddressNumber` | ADR6-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR6-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR6-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR6-CONSNUMBER | - | copy |  |
+| `EmailAddress` | ADR6-SMTP_ADDR | - | copy |  |
+| `IsDefaultCommunication` | ADR6-FLGDEFAULT | - | copy |  |
+
+## `ZFIX_C_CustomerPhoneMig`
+
+- Source: `ZFIX_I_CustomerPhone`
+- Keys: `Customer`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | KNA1-KUNNR | - | copy |  |
+| `AddressNumber` | ADR2-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR2-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR2-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR2-CONSNUMBER | - | copy |  |
+| `Telephone` | ADR2-TEL_NUMBER | - | copy |  |
+| `TelephoneExtension` | ADR2-TEL_EXTENS | - | copy |  |
+| `IsDefaultCommunication` | ADR2-FLGDEFAULT | - | copy |  |
+
+## `ZFIX_C_CustomerFaxMig`
+
+- Source: `ZFIX_I_CustomerFax`
+- Keys: `Customer`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | KNA1-KUNNR | - | copy |  |
+| `AddressNumber` | ADR3-ADDRNUMBER | - | information only |  |
+| `PersonNumber` | ADR3-PERSNUMBER | - | copy |  |
+| `CommunicationValidFrom` | ADR3-DATE_FROM | - | copy |  |
+| `CommunicationCounter` | ADR3-CONSNUMBER | - | copy |  |
+| `FaxNumber` | ADR3-FAX_NUMBER | - | copy |  |
+| `FaxExtension` | ADR3-FAX_EXTENS | - | copy |  |
+| `IsDefaultCommunication` | ADR3-FLGDEFAULT | - | copy |  |
+
+## `ZFIX_C_ContactEmailMig`
+
+- Source: `ZFIX_I_ContactEmail`
+- Keys: `ContactPerson`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ContactPerson` | KNVK-PARNR | - | copy |  |
+| `AddressNumber` | source: AddressNumber | - | information only |  |
+| `PersonNumber` | KNVK-PRSNR | - | copy |  |
+| `CommunicationValidFrom` | source: CommunicationValidFrom | - | copy |  |
+| `CommunicationCounter` | source: CommunicationCounter | - | copy |  |
+| `Customer` | KNVK-KUNNR | - | copy |  |
+| `EmailAddress` | source: EmailAddress | - | copy |  |
+| `IsDefaultCommunication` | source: IsDefaultCommunication | - | copy |  |
+
+## `ZFIX_C_ContactPhoneMig`
+
+- Source: `ZFIX_I_ContactPhone`
+- Keys: `ContactPerson`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ContactPerson` | KNVK-PARNR | - | copy |  |
+| `AddressNumber` | source: AddressNumber | - | information only |  |
+| `PersonNumber` | KNVK-PRSNR | - | copy |  |
+| `CommunicationValidFrom` | source: CommunicationValidFrom | - | copy |  |
+| `CommunicationCounter` | source: CommunicationCounter | - | copy |  |
+| `Customer` | KNVK-KUNNR | - | copy |  |
+| `Telephone` | KNVK-TELF1 | - | copy |  |
+| `TelephoneExtension` | source: TelephoneExtension | - | copy |  |
+| `IsDefaultCommunication` | source: IsDefaultCommunication | - | copy |  |
+
+## `ZFIX_C_ContactFaxMig`
+
+- Source: `ZFIX_I_ContactFax`
+- Keys: `ContactPerson`, `AddressNumber`, `PersonNumber`, `CommunicationValidFrom`, `CommunicationCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ContactPerson` | KNVK-PARNR | - | copy |  |
+| `AddressNumber` | source: AddressNumber | - | information only |  |
+| `PersonNumber` | KNVK-PRSNR | - | copy |  |
+| `CommunicationValidFrom` | source: CommunicationValidFrom | - | copy |  |
+| `CommunicationCounter` | source: CommunicationCounter | - | copy |  |
+| `Customer` | KNVK-KUNNR | - | copy |  |
+| `FaxNumber` | source: FaxNumber | - | copy |  |
+| `FaxExtension` | source: FaxExtension | - | copy |  |
+| `IsDefaultCommunication` | source: IsDefaultCommunication | - | copy |  |
+
+## `ZFIX_C_CustomerLongTextMig`
+
+- Source: `ZFIX_I_CustomerLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
+## `ZFIX_C_CustomerIBANMig`
+
+- Source: `ZFIX_I_CustomerIBAN`
+- Keys: `Customer`, `BankCountry`, `Bank`, `BankAccount`, `BankControlKey`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Optional IBAN child joined through the full bank/control-key identity. A missing IBAN leaves the bank master/detail exports intact. Load only the selected customer/supplier bank population through a supported interface; preserve leading zeros in account and bank identifiers.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Customer` | source: Customer | - | copy |  |
+| `BankCountry` | TIBAN-BANKS | - | copy |  |
+| `Bank` | TIBAN-BANKL | - | copy |  |
+| `BankAccount` | TIBAN-BANKN | - | copy |  |
+| `BankControlKey` | TIBAN-BKONT | - | copy |  |
+| `IBAN` | TIBAN-IBAN | - | copy |  |
 
 ## Reconciliation
 

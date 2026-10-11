@@ -33,7 +33,10 @@
     "target_export": "target/ZSDX_C_SalesItemMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
-    "supplementary_source_fields": []
+    "supplementary_source_fields": [
+      "ItemShortText",
+      "ItemCategory"
+    ]
   },
   "ZSDX_C_SalesScheduleMig": {
     "module": "sales_order",
@@ -189,7 +192,10 @@
     "target_export": "target/ZSDX_C_DeliveryItemMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
-    "supplementary_source_fields": []
+    "supplementary_source_fields": [
+      "ItemShortText",
+      "Batch"
+    ]
   },
   "ZSDX_C_BillingMig": {
     "module": "billing_document",
@@ -206,7 +212,9 @@
     "target_export": "target/ZSDX_C_BillingMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
-    "supplementary_source_fields": []
+    "supplementary_source_fields": [
+      "AccountingTransferStatus"
+    ]
   },
   "ZSDX_C_BillingItemMig": {
     "module": "billing_document",
@@ -225,7 +233,9 @@
     "target_export": "target/ZSDX_C_BillingItemMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
-    "supplementary_source_fields": []
+    "supplementary_source_fields": [
+      "ItemShortText"
+    ]
   },
   "ZSDX_C_ConditionHdrMig": {
     "module": "pricing_condition",
@@ -328,7 +338,33 @@
     ],
     "target_export": "target/ZSDX_C_BillingPartnerMig.csv",
     "adapter_status": "customer-selected supported business interface; address versions reference only",
-    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.",
+    "supplementary_source_fields": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction",
+      "Customer",
+      "Supplier",
+      "PersonnelNumber",
+      "AddressNumber",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage",
+      "HasStandardAddress"
+    ]
   },
   "ZSDX_C_BillingPartnerAddrMig": {
     "module": "billing_document",
@@ -360,7 +396,31 @@
     ],
     "target_export": "target/ZSDX_C_BillingPartnerAddrMig.csv",
     "adapter_status": "customer-selected supported business interface; address versions reference only",
-    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.",
+    "supplementary_source_fields": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction",
+      "AddressNumber",
+      "AddressValidFrom",
+      "AddressVersion",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage"
+    ]
   },
   "ZSDX_C_DeliveryPartnerMig": {
     "module": "outbound_delivery",
@@ -394,7 +454,33 @@
     ],
     "target_export": "target/ZSDX_C_DeliveryPartnerMig.csv",
     "adapter_status": "customer-selected supported business interface; address versions reference only",
-    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.",
+    "supplementary_source_fields": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction",
+      "Customer",
+      "Supplier",
+      "PersonnelNumber",
+      "AddressNumber",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage",
+      "HasStandardAddress"
+    ]
   },
   "ZSDX_C_DeliveryPartnerAddrMig": {
     "module": "outbound_delivery",
@@ -426,7 +512,31 @@
     ],
     "target_export": "target/ZSDX_C_DeliveryPartnerAddrMig.csv",
     "adapter_status": "customer-selected supported business interface; address versions reference only",
-    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.",
+    "supplementary_source_fields": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction",
+      "AddressNumber",
+      "AddressValidFrom",
+      "AddressVersion",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage"
+    ]
   },
   "ZSDX_C_SalesPartnerAddressMig": {
     "module": "sales_order",
@@ -458,6 +568,123 @@
     ],
     "target_export": "target/ZSDX_C_SalesPartnerAddressMig.csv",
     "adapter_status": "customer-selected supported business interface; address versions reference only",
-    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.",
+    "supplementary_source_fields": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "PartnerFunction",
+      "AddressNumber",
+      "AddressValidFrom",
+      "AddressVersion",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage"
+    ]
+  },
+  "ZSDX_C_DeliveryStatusMig": {
+    "module": "outbound_delivery",
+    "key": [
+      "DeliveryDocument"
+    ],
+    "fields": [],
+    "target_export": "target/ZSDX_C_DeliveryStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "DeliveryDocument",
+      "OverallProcessingStatus",
+      "GoodsMovementStatus",
+      "PickingStatus",
+      "BillingStatus"
+    ]
+  },
+  "ZSDX_C_DlvItemStatusMig": {
+    "module": "outbound_delivery",
+    "key": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ],
+    "fields": [],
+    "target_export": "target/ZSDX_C_DlvItemStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "OverallProcessingStatus",
+      "GoodsMovementStatus",
+      "PickingStatus",
+      "BillingStatus"
+    ]
+  },
+  "ZSDX_C_SalesLongTextMig": {
+    "module": "sales_order",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZSDX_C_SalesLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZSDX_C_DeliveryLongTextMig": {
+    "module": "outbound_delivery",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZSDX_C_DeliveryLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZSDX_C_BillingLongTextMig": {
+    "module": "billing_document",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZSDX_C_BillingLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
   }
 }

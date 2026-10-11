@@ -10,9 +10,18 @@
     "master"
   ],
   "sap_tables": [
+    "ADR2",
+    "ADR3",
+    "ADR6",
     "LFA1",
     "LFB1",
-    "LFM1"
+    "LFB5",
+    "LFBK",
+    "LFBW",
+    "LFM1",
+    "STXH",
+    "WYT3",
+    "TIBAN"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
@@ -23,20 +32,47 @@
     "basic": [
       "ZFIX_B_SupplierData",
       "ZFIX_B_SupplierCompanData",
-      "ZFIX_B_SupplierPurchaData"
+      "ZFIX_B_SupplierPurchaData",
+      "ZFIX_B_SupplierBankData",
+      "ZFIX_B_SupplierWHTData",
+      "ZFIX_B_SupplierDunningData",
+      "ZFIX_B_SupplierPartnerData",
+      "ZFIX_B_SupplierEmailData",
+      "ZFIX_B_SupplierPhoneData",
+      "ZFIX_B_SupplierFaxData",
+      "ZFIX_B_SupplierLTIndexData",
+      "ZFIX_B_SupplierIBANData"
     ],
     "composite": [
       "ZFIX_I_Supplier",
       "ZFIX_I_SupplierCompan",
       "ZFIX_I_SupplierPurcha",
-      "ZFIX_I_SupplierAddress"
+      "ZFIX_I_SupplierAddress",
+      "ZFIX_I_SupplierBank",
+      "ZFIX_I_SupplierWHT",
+      "ZFIX_I_SupplierDunning",
+      "ZFIX_I_SupplierPartner",
+      "ZFIX_I_SupplierEmail",
+      "ZFIX_I_SupplierPhone",
+      "ZFIX_I_SupplierFax",
+      "ZFIX_I_SupplierLongText",
+      "ZFIX_I_SupplierIBAN"
     ],
     "consumption": [
       "ZFIX_C_SupplierMig",
       "ZFIX_C_SupplierMigCount",
       "ZFIX_C_SupplierCompanMig",
       "ZFIX_C_SupplierPurchaMig",
-      "ZFIX_C_SupplierAddressMig"
+      "ZFIX_C_SupplierAddressMig",
+      "ZFIX_C_SupplierBankMig",
+      "ZFIX_C_SupplierWHTMig",
+      "ZFIX_C_SupplierDunningMig",
+      "ZFIX_C_SupplierPartnerMig",
+      "ZFIX_C_SupplierEmailMig",
+      "ZFIX_C_SupplierPhoneMig",
+      "ZFIX_C_SupplierFaxMig",
+      "ZFIX_C_SupplierLongTextMig",
+      "ZFIX_C_SupplierIBANMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -54,7 +90,34 @@
     "ZFIX_I_SupplierPurcha": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_C_SupplierPurchaMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_I_SupplierAddress": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZFIX_C_SupplierAddressMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZFIX_C_SupplierAddressMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierBankData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierBank": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierBankMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierWHTData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierWHT": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierWHTMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierDunningData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierDunning": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierDunningMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierPartnerData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierPartner": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierPartnerMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierEmailData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierEmail": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierEmailMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierPhoneData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierPhone": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierPhoneMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierFaxData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierFax": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierFaxMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_SupplierIBANData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierIBAN": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierIBANMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

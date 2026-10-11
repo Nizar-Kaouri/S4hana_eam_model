@@ -6,8 +6,8 @@ Version 1.0.0
 |---|---:|
 | goods_movement | 7 |
 | material_stock | 13 |
-| product | 25 |
-| purchase_order | 16 |
-| purchase_requisition | 7 |
-| purchasing_contract | 10 |
-| purchasing_info_record | 7 |
+| product | 57 |
+| purchase_order | 22 |
+| purchase_requisition | 10 |
+| purchasing_contract | 16 |
+| purchasing_info_record | 10 |

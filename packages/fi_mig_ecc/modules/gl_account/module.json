@@ -12,7 +12,8 @@
   "sap_tables": [
     "SKA1",
     "SKAT",
-    "SKB1"
+    "SKB1",
+    "STXH"
   ],
   "sap_released_views": [],
   "hard_dependencies": [],
@@ -20,19 +21,22 @@
     "tables": [],
     "basic": [
       "ZFIX_B_GLAccountData",
+      "ZFIX_B_GLCompanyData",
       "ZFIX_B_GLAccountTextData",
-      "ZFIX_B_GLCompanyData"
+      "ZFIX_B_GLAccountLTIndexData"
     ],
     "composite": [
       "ZFIX_I_GLAccount",
       "ZFIX_I_GLAccountText",
-      "ZFIX_I_GLCompany"
+      "ZFIX_I_GLCompany",
+      "ZFIX_I_GLAccountLongText"
     ],
     "consumption": [
       "ZFIX_C_GLAccountMig",
       "ZFIX_C_GLAccountMigCount",
       "ZFIX_C_GLAccountTextMig",
-      "ZFIX_C_GLCompanyMig"
+      "ZFIX_C_GLCompanyMig",
+      "ZFIX_C_GLAccountLongTextMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -48,7 +52,10 @@
     "ZFIX_C_GLAccountTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_B_GLCompanyData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_I_GLCompany": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZFIX_C_GLCompanyMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZFIX_C_GLCompanyMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_GLAccountLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_GLAccountLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_GLAccountLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

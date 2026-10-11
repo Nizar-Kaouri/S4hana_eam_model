@@ -24,6 +24,13 @@ define view ZFIX_I_Supplier
       src.DeletionFlag as DeletionFlag,
       src.AddressNumber as AddressNumber,
       case when _Address.AddressNumber is not null then 'X' else '' end as HasStandardAddress,
+      src.TaxNumber1 as TaxNumber1,
+      src.TaxNumber2 as TaxNumber2,
+      src.TaxNumber3 as TaxNumber3,
+      src.TaxNumber4 as TaxNumber4,
+      src.VATRegistration as VATRegistration,
+      src.CorrespondenceLanguage as CorrespondenceLanguage
+,
       _Address.AddressValidTo as AddressValidTo,
       _Address.AddressName1 as AddressName1,
       _Address.AddressName2 as AddressName2,
@@ -39,5 +46,4 @@ define view ZFIX_I_Supplier
       _Address.AddressPOBoxPostalCode as AddressPOBoxPostalCode,
       _Address.AddressCountry as AddressCountry,
       _Address.AddressRegion as AddressRegion,
-      _Address.AddressLanguage as AddressLanguage
-}
+      _Address.AddressLanguage as AddressLanguage}

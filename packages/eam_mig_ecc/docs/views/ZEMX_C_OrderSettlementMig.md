@@ -21,6 +21,7 @@ OrderSettlement migration extract
 
 - `ObjectNumber`
 - `DistributionRuleNumber`
+- `DistributionRuleGroup`
 
 ## Associations defined here
 

@@ -240,5 +240,32 @@
       "BillingDocumentItem",
       "PartnerFunction"
     ]
+  },
+  "ZSDX_C_DeliveryStatusMig": {
+    "parent": "ZSDX_C_DeliveryMig",
+    "child_keys": [
+      "DeliveryDocument"
+    ],
+    "parent_keys": [
+      "DeliveryDocument"
+    ],
+    "parent_identity": [
+      "DeliveryDocument"
+    ]
+  },
+  "ZSDX_C_DlvItemStatusMig": {
+    "parent": "ZSDX_C_DeliveryItemMig",
+    "child_keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ],
+    "parent_keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ],
+    "parent_identity": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem"
+    ]
   }
 }

@@ -1,0 +1,1449 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "address": {
+      "native_tables": [
+        "ADRC"
+      ],
+      "structures": [],
+      "boundary": "Complete native ADRC keys shared by customer, supplier and bank masters."
+    },
+    "bank": {
+      "native_tables": [
+        "BNKA",
+        "ADR6",
+        "ADR2",
+        "ADR3"
+      ],
+      "structures": [
+        {
+          "view": "ZFIX_C_BankMig",
+          "interface": "ZFIX_I_Bank",
+          "keys": [
+            "BankCountry",
+            "BankKey"
+          ],
+          "mode": "master",
+          "fields": [
+            "BankCountry",
+            "BankKey",
+            "BankName",
+            "City",
+            "Street",
+            "SWIFTCode",
+            "DeletionFlag",
+            "AddressNumber",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage",
+            "HasStandardAddress"
+          ]
+        },
+        {
+          "view": "ZFIX_C_BankAddressMig",
+          "interface": "ZFIX_I_BankAddress",
+          "keys": [
+            "BankCountry",
+            "BankKey",
+            "AddressValidFrom",
+            "AddressVersion"
+          ],
+          "mode": "reference",
+          "fields": [
+            "BankCountry",
+            "BankKey",
+            "AddressNumber",
+            "AddressValidFrom",
+            "AddressVersion",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage"
+          ]
+        },
+        {
+          "view": "ZFIX_C_BankEmailMig",
+          "interface": "ZFIX_I_BankEmail",
+          "keys": [
+            "BankCountry",
+            "BankKey",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "BankCountry",
+            "BankKey",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "EmailAddress",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_BankPhoneMig",
+          "interface": "ZFIX_I_BankPhone",
+          "keys": [
+            "BankCountry",
+            "BankKey",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "BankCountry",
+            "BankKey",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "Telephone",
+            "TelephoneExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_BankFaxMig",
+          "interface": "ZFIX_I_BankFax",
+          "keys": [
+            "BankCountry",
+            "BankKey",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "BankCountry",
+            "BankKey",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "FaxNumber",
+            "FaxExtension",
+            "IsDefaultCommunication"
+          ]
+        }
+      ],
+      "boundary": "Bank master. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
+    },
+    "customer": {
+      "native_tables": [
+        "ADR2",
+        "ADR3",
+        "ADR6",
+        "KNA1",
+        "KNB1",
+        "KNB5",
+        "KNBK",
+        "KNBW",
+        "KNVI",
+        "KNVK",
+        "KNVP",
+        "KNVV",
+        "STXH",
+        "TIBAN"
+      ],
+      "structures": [
+        {
+          "view": "ZFIX_C_CustomerMig",
+          "interface": "ZFIX_I_Customer",
+          "keys": [
+            "Customer"
+          ],
+          "mode": "master",
+          "fields": [
+            "Customer",
+            "CustomerName",
+            "Country",
+            "Region",
+            "AccountGroup",
+            "DeletionFlag",
+            "AddressNumber",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage",
+            "HasStandardAddress",
+            "TaxNumber1",
+            "TaxNumber2",
+            "TaxNumber3",
+            "TaxNumber4",
+            "VATRegistration",
+            "CorrespondenceLanguage"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerCompanMig",
+          "interface": "ZFIX_I_CustomerCompan",
+          "keys": [
+            "Customer",
+            "CompanyCode"
+          ],
+          "mode": "master",
+          "fields": [
+            "Customer",
+            "CompanyCode",
+            "ReconciliationAccount",
+            "PaymentTerms",
+            "PaymentMethods",
+            "DeletionFlag",
+            "PaymentBlock",
+            "SortKey",
+            "PlanningGroup"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerSalesMig",
+          "interface": "ZFIX_I_CustomerSales",
+          "keys": [
+            "Customer",
+            "SalesOrganization",
+            "DistributionChannel",
+            "Division"
+          ],
+          "mode": "master",
+          "fields": [
+            "Customer",
+            "SalesOrganization",
+            "DistributionChannel",
+            "Division",
+            "Currency",
+            "PaymentTerms",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerAddressMig",
+          "interface": "ZFIX_I_CustomerAddress",
+          "keys": [
+            "Customer",
+            "AddressValidFrom",
+            "AddressVersion"
+          ],
+          "mode": "reference",
+          "fields": [
+            "Customer",
+            "AddressNumber",
+            "AddressValidFrom",
+            "AddressVersion",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerBankMig",
+          "interface": "ZFIX_I_CustomerBank",
+          "keys": [
+            "Customer",
+            "BankCountry",
+            "Bank",
+            "BankAccount"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "BankCountry",
+            "Bank",
+            "BankAccount",
+            "BankControlKey",
+            "PartnerBankType",
+            "AccountHolder"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerWHTMig",
+          "interface": "ZFIX_I_CustomerWHT",
+          "keys": [
+            "Customer",
+            "CompanyCode",
+            "WithholdingTaxType"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "CompanyCode",
+            "WithholdingTaxType",
+            "WithholdingTaxCode",
+            "WithholdingTaxID",
+            "ExemptionNumber",
+            "ExemptionRate",
+            "ExemptionValidFrom",
+            "ExemptionValidTo"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerDunningMig",
+          "interface": "ZFIX_I_CustomerDunning",
+          "keys": [
+            "Customer",
+            "CompanyCode",
+            "DunningArea"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "CompanyCode",
+            "DunningArea",
+            "DunningProcedure",
+            "DunningBlock",
+            "DunningLevel",
+            "LastDunnedOn",
+            "DunningMemo"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerPartnerMig",
+          "interface": "ZFIX_I_CustomerPartner",
+          "keys": [
+            "Customer",
+            "SalesOrganization",
+            "DistributionChannel",
+            "Division",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "SalesOrganization",
+            "DistributionChannel",
+            "Division",
+            "PartnerFunction",
+            "PartnerCounter",
+            "PartnerCustomer",
+            "PartnerSupplier",
+            "PartnerContact",
+            "PartnerPersonnel",
+            "DefaultPartner"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerTaxMig",
+          "interface": "ZFIX_I_CustomerTax",
+          "keys": [
+            "Customer",
+            "DepartureCountry",
+            "TaxCategory"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "DepartureCountry",
+            "TaxCategory",
+            "TaxClassification"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerContactMig",
+          "interface": "ZFIX_I_CustomerContact",
+          "keys": [
+            "ContactPerson"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ContactPerson",
+            "Customer",
+            "FirstName",
+            "LastName",
+            "Department",
+            "Function",
+            "Telephone",
+            "PersonNumber"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerEmailMig",
+          "interface": "ZFIX_I_CustomerEmail",
+          "keys": [
+            "Customer",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "EmailAddress",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerPhoneMig",
+          "interface": "ZFIX_I_CustomerPhone",
+          "keys": [
+            "Customer",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "Telephone",
+            "TelephoneExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerFaxMig",
+          "interface": "ZFIX_I_CustomerFax",
+          "keys": [
+            "Customer",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "FaxNumber",
+            "FaxExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_ContactEmailMig",
+          "interface": "ZFIX_I_ContactEmail",
+          "keys": [
+            "ContactPerson",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ContactPerson",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "Customer",
+            "EmailAddress",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_ContactPhoneMig",
+          "interface": "ZFIX_I_ContactPhone",
+          "keys": [
+            "ContactPerson",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ContactPerson",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "Customer",
+            "Telephone",
+            "TelephoneExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_ContactFaxMig",
+          "interface": "ZFIX_I_ContactFax",
+          "keys": [
+            "ContactPerson",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ContactPerson",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "Customer",
+            "FaxNumber",
+            "FaxExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerLongTextMig",
+          "interface": "ZFIX_I_CustomerLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        },
+        {
+          "view": "ZFIX_C_CustomerIBANMig",
+          "interface": "ZFIX_I_CustomerIBAN",
+          "keys": [
+            "Customer",
+            "BankCountry",
+            "Bank",
+            "BankAccount",
+            "BankControlKey"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Customer",
+            "BankCountry",
+            "Bank",
+            "BankAccount",
+            "BankControlKey",
+            "IBAN"
+          ]
+        }
+      ],
+      "boundary": "Customer source data source records, preparation and comparison contracts."
+    },
+    "gl_account": {
+      "native_tables": [
+        "SKA1",
+        "SKAT",
+        "SKB1",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZFIX_C_GLAccountMig",
+          "interface": "ZFIX_I_GLAccount",
+          "keys": [
+            "ChartOfAccounts",
+            "GLAccount"
+          ],
+          "mode": "master",
+          "fields": [
+            "ChartOfAccounts",
+            "GLAccount",
+            "AccountGroup",
+            "BalanceSheetAccount",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZFIX_C_GLAccountTextMig",
+          "interface": "ZFIX_I_GLAccountText",
+          "keys": [
+            "Language",
+            "ChartOfAccounts",
+            "GLAccount"
+          ],
+          "mode": "master",
+          "fields": [
+            "Language",
+            "ChartOfAccounts",
+            "GLAccount",
+            "GLAccountName",
+            "GLAccountDescription"
+          ]
+        },
+        {
+          "view": "ZFIX_C_GLCompanyMig",
+          "interface": "ZFIX_I_GLCompany",
+          "keys": [
+            "CompanyCode",
+            "GLAccount"
+          ],
+          "mode": "master",
+          "fields": [
+            "CompanyCode",
+            "GLAccount",
+            "AccountCurrency",
+            "OpenItemManagement",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZFIX_C_GLAccountLongTextMig",
+          "interface": "ZFIX_I_GLAccountLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "G/L accounts source records, preparation and comparison contracts."
+    },
+    "gl_line_item": {
+      "native_tables": [
+        "BKPF",
+        "BSEG"
+      ],
+      "structures": [
+        {
+          "view": "ZFIX_C_AccountingHeadMig",
+          "interface": "ZFIX_I_AccountingHead",
+          "keys": [
+            "CompanyCode",
+            "AccountingDocument",
+            "FiscalYear"
+          ],
+          "mode": "reference",
+          "fields": [
+            "CompanyCode",
+            "AccountingDocument",
+            "FiscalYear",
+            "AccountingDocumentType",
+            "DocumentDate",
+            "PostingDate",
+            "DocumentCurrency",
+            "ReferenceDocument",
+            "HeaderText"
+          ]
+        },
+        {
+          "view": "ZFIX_C_AccountingItemMig",
+          "interface": "ZFIX_I_AccountingItem",
+          "keys": [
+            "CompanyCode",
+            "AccountingDocument",
+            "FiscalYear",
+            "AccountingDocumentItem"
+          ],
+          "mode": "reference",
+          "fields": [
+            "CompanyCode",
+            "AccountingDocument",
+            "FiscalYear",
+            "AccountingDocumentItem",
+            "GLAccount",
+            "AccountType",
+            "DebitCreditCode",
+            "DocumentAmount",
+            "CompanyCodeAmount",
+            "ClearingDate",
+            "ClearingDocument",
+            "ItemText",
+            "Assignment",
+            "Customer",
+            "Supplier",
+            "TaxCode",
+            "CostCenter",
+            "ProfitCenter"
+          ]
+        }
+      ],
+      "boundary": "Accounting document history source records, preparation and comparison contracts."
+    },
+    "gl_opening_balance": {
+      "native_tables": [
+        "FAGLFLEXT",
+        "GLT0"
+      ],
+      "structures": [
+        {
+          "view": "ZFIX_C_ClassicBalanceMig",
+          "interface": "ZFIX_I_ClassicBalance",
+          "keys": [
+            "Ledger",
+            "RecordType",
+            "Version",
+            "CompanyCode",
+            "FiscalYear",
+            "GLAccount",
+            "BusinessArea",
+            "TransactionCurrency",
+            "DebitCreditCode"
+          ],
+          "mode": "balance",
+          "fields": [
+            "Ledger",
+            "RecordType",
+            "Version",
+            "CompanyCode",
+            "FiscalYear",
+            "GLAccount",
+            "BusinessArea",
+            "TransactionCurrency",
+            "DebitCreditCode",
+            "TransactionAmount00",
+            "LocalAmount00",
+            "TransactionAmount01",
+            "LocalAmount01",
+            "TransactionAmount02",
+            "LocalAmount02",
+            "TransactionAmount03",
+            "LocalAmount03",
+            "TransactionAmount04",
+            "LocalAmount04",
+            "TransactionAmount05",
+            "LocalAmount05",
+            "TransactionAmount06",
+            "LocalAmount06",
+            "TransactionAmount07",
+            "LocalAmount07",
+            "TransactionAmount08",
+            "LocalAmount08",
+            "TransactionAmount09",
+            "LocalAmount09",
+            "TransactionAmount10",
+            "LocalAmount10",
+            "TransactionAmount11",
+            "LocalAmount11",
+            "TransactionAmount12",
+            "LocalAmount12",
+            "TransactionAmount13",
+            "LocalAmount13",
+            "TransactionAmount14",
+            "LocalAmount14",
+            "TransactionAmount15",
+            "LocalAmount15",
+            "TransactionAmount16",
+            "LocalAmount16"
+          ]
+        },
+        {
+          "view": "ZFIX_C_NewGLBalanceMig",
+          "interface": "ZFIX_I_NewGLBalance",
+          "keys": [
+            "Ledger",
+            "RecordType",
+            "Version",
+            "FiscalYear",
+            "GLAccount",
+            "CompanyCode",
+            "CostCenter",
+            "ProfitCenter",
+            "FunctionalArea",
+            "BusinessArea",
+            "Segment",
+            "PartnerCostCenter",
+            "PartnerProfitCenter",
+            "PartnerFunctionalArea",
+            "PartnerBusinessArea",
+            "TradingPartner",
+            "PartnerSegment",
+            "TransactionCurrency",
+            "BaseUnit",
+            "DebitCreditCode"
+          ],
+          "mode": "balance",
+          "fields": [
+            "Ledger",
+            "RecordType",
+            "Version",
+            "FiscalYear",
+            "GLAccount",
+            "CompanyCode",
+            "CostCenter",
+            "ProfitCenter",
+            "FunctionalArea",
+            "BusinessArea",
+            "Segment",
+            "PartnerCostCenter",
+            "PartnerProfitCenter",
+            "PartnerFunctionalArea",
+            "PartnerBusinessArea",
+            "TradingPartner",
+            "PartnerSegment",
+            "TransactionCurrency",
+            "BaseUnit",
+            "DebitCreditCode",
+            "BusinessTransaction",
+            "TransactionAmount00",
+            "LocalAmount00",
+            "GroupAmount00",
+            "OtherAmount00",
+            "TransactionAmount01",
+            "LocalAmount01",
+            "GroupAmount01",
+            "OtherAmount01",
+            "TransactionAmount02",
+            "LocalAmount02",
+            "GroupAmount02",
+            "OtherAmount02",
+            "TransactionAmount03",
+            "LocalAmount03",
+            "GroupAmount03",
+            "OtherAmount03",
+            "TransactionAmount04",
+            "LocalAmount04",
+            "GroupAmount04",
+            "OtherAmount04",
+            "TransactionAmount05",
+            "LocalAmount05",
+            "GroupAmount05",
+            "OtherAmount05",
+            "TransactionAmount06",
+            "LocalAmount06",
+            "GroupAmount06",
+            "OtherAmount06",
+            "TransactionAmount07",
+            "LocalAmount07",
+            "GroupAmount07",
+            "OtherAmount07",
+            "TransactionAmount08",
+            "LocalAmount08",
+            "GroupAmount08",
+            "OtherAmount08",
+            "TransactionAmount09",
+            "LocalAmount09",
+            "GroupAmount09",
+            "OtherAmount09",
+            "TransactionAmount10",
+            "LocalAmount10",
+            "GroupAmount10",
+            "OtherAmount10",
+            "TransactionAmount11",
+            "LocalAmount11",
+            "GroupAmount11",
+            "OtherAmount11",
+            "TransactionAmount12",
+            "LocalAmount12",
+            "GroupAmount12",
+            "OtherAmount12",
+            "TransactionAmount13",
+            "LocalAmount13",
+            "GroupAmount13",
+            "OtherAmount13",
+            "TransactionAmount14",
+            "LocalAmount14",
+            "GroupAmount14",
+            "OtherAmount14",
+            "TransactionAmount15",
+            "LocalAmount15",
+            "GroupAmount15",
+            "OtherAmount15",
+            "TransactionAmount16",
+            "LocalAmount16",
+            "GroupAmount16",
+            "OtherAmount16"
+          ]
+        }
+      ],
+      "boundary": "Dedicated G/L opening balances. Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied."
+    },
+    "open_items": {
+      "native_tables": [
+        "BSAD",
+        "BSAK",
+        "BSAS",
+        "BSID",
+        "BSIK",
+        "BSIS"
+      ],
+      "structures": [
+        {
+          "view": "ZFIX_C_GLOpenMig",
+          "interface": "ZFIX_I_GLOpen",
+          "keys": [
+            "CompanyCode",
+            "GLAccount",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem"
+          ],
+          "mode": "open-item",
+          "fields": [
+            "CompanyCode",
+            "GLAccount",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem",
+            "PostingDate",
+            "DebitCreditCode",
+            "DocumentAmount",
+            "CompanyCodeAmount",
+            "DocumentCurrency",
+            "ItemText",
+            "TaxCode"
+          ]
+        },
+        {
+          "view": "ZFIX_C_GLClearedMig",
+          "interface": "ZFIX_I_GLCleared",
+          "keys": [
+            "CompanyCode",
+            "GLAccount",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem"
+          ],
+          "mode": "open-item",
+          "fields": [
+            "CompanyCode",
+            "GLAccount",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem",
+            "PostingDate",
+            "DebitCreditCode",
+            "DocumentAmount",
+            "CompanyCodeAmount",
+            "DocumentCurrency",
+            "ItemText",
+            "TaxCode"
+          ]
+        },
+        {
+          "view": "ZFIX_C_APOpenMig",
+          "interface": "ZFIX_I_APOpen",
+          "keys": [
+            "CompanyCode",
+            "Supplier",
+            "SpecialGLTransactionType",
+            "SpecialGLCode",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem"
+          ],
+          "mode": "open-item",
+          "fields": [
+            "CompanyCode",
+            "Supplier",
+            "SpecialGLTransactionType",
+            "SpecialGLCode",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem",
+            "PostingDate",
+            "DebitCreditCode",
+            "DocumentAmount",
+            "CompanyCodeAmount",
+            "DocumentCurrency",
+            "ItemText",
+            "TaxCode"
+          ]
+        },
+        {
+          "view": "ZFIX_C_APClearedMig",
+          "interface": "ZFIX_I_APCleared",
+          "keys": [
+            "CompanyCode",
+            "Supplier",
+            "SpecialGLTransactionType",
+            "SpecialGLCode",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem"
+          ],
+          "mode": "open-item",
+          "fields": [
+            "CompanyCode",
+            "Supplier",
+            "SpecialGLTransactionType",
+            "SpecialGLCode",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem",
+            "PostingDate",
+            "DebitCreditCode",
+            "DocumentAmount",
+            "CompanyCodeAmount",
+            "DocumentCurrency",
+            "ItemText",
+            "TaxCode"
+          ]
+        },
+        {
+          "view": "ZFIX_C_AROpenMig",
+          "interface": "ZFIX_I_AROpen",
+          "keys": [
+            "CompanyCode",
+            "Customer",
+            "SpecialGLTransactionType",
+            "SpecialGLCode",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem"
+          ],
+          "mode": "open-item",
+          "fields": [
+            "CompanyCode",
+            "Customer",
+            "SpecialGLTransactionType",
+            "SpecialGLCode",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem",
+            "PostingDate",
+            "DebitCreditCode",
+            "DocumentAmount",
+            "CompanyCodeAmount",
+            "DocumentCurrency",
+            "ItemText",
+            "TaxCode"
+          ]
+        },
+        {
+          "view": "ZFIX_C_ARClearedMig",
+          "interface": "ZFIX_I_ARCleared",
+          "keys": [
+            "CompanyCode",
+            "Customer",
+            "SpecialGLTransactionType",
+            "SpecialGLCode",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem"
+          ],
+          "mode": "open-item",
+          "fields": [
+            "CompanyCode",
+            "Customer",
+            "SpecialGLTransactionType",
+            "SpecialGLCode",
+            "ClearingDate",
+            "ClearingDocument",
+            "AssignmentReference",
+            "FiscalYear",
+            "AccountingDocument",
+            "AccountingDocumentItem",
+            "PostingDate",
+            "DebitCreditCode",
+            "DocumentAmount",
+            "CompanyCodeAmount",
+            "DocumentCurrency",
+            "ItemText",
+            "TaxCode"
+          ]
+        }
+      ],
+      "boundary": "Current and cleared item indexes source records, preparation and comparison contracts."
+    },
+    "supplier": {
+      "native_tables": [
+        "ADR2",
+        "ADR3",
+        "ADR6",
+        "LFA1",
+        "LFB1",
+        "LFB5",
+        "LFBK",
+        "LFBW",
+        "LFM1",
+        "STXH",
+        "WYT3",
+        "TIBAN"
+      ],
+      "structures": [
+        {
+          "view": "ZFIX_C_SupplierMig",
+          "interface": "ZFIX_I_Supplier",
+          "keys": [
+            "Supplier"
+          ],
+          "mode": "master",
+          "fields": [
+            "Supplier",
+            "SupplierName",
+            "Country",
+            "Region",
+            "AccountGroup",
+            "DeletionFlag",
+            "AddressNumber",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage",
+            "HasStandardAddress",
+            "TaxNumber1",
+            "TaxNumber2",
+            "TaxNumber3",
+            "TaxNumber4",
+            "VATRegistration",
+            "CorrespondenceLanguage"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierCompanMig",
+          "interface": "ZFIX_I_SupplierCompan",
+          "keys": [
+            "Supplier",
+            "CompanyCode"
+          ],
+          "mode": "master",
+          "fields": [
+            "Supplier",
+            "CompanyCode",
+            "ReconciliationAccount",
+            "PaymentTerms",
+            "PaymentMethods",
+            "DeletionFlag",
+            "PaymentBlock",
+            "SortKey",
+            "PlanningGroup"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierPurchaMig",
+          "interface": "ZFIX_I_SupplierPurcha",
+          "keys": [
+            "Supplier",
+            "PurchasingOrganization"
+          ],
+          "mode": "master",
+          "fields": [
+            "Supplier",
+            "PurchasingOrganization",
+            "OrderCurrency",
+            "PaymentTerms",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierAddressMig",
+          "interface": "ZFIX_I_SupplierAddress",
+          "keys": [
+            "Supplier",
+            "AddressValidFrom",
+            "AddressVersion"
+          ],
+          "mode": "reference",
+          "fields": [
+            "Supplier",
+            "AddressNumber",
+            "AddressValidFrom",
+            "AddressVersion",
+            "AddressValidTo",
+            "AddressName1",
+            "AddressName2",
+            "AddressName3",
+            "AddressName4",
+            "AddressStreet",
+            "AddressHouseNumber",
+            "AddressHouseNumberSupplement",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressLanguage"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierBankMig",
+          "interface": "ZFIX_I_SupplierBank",
+          "keys": [
+            "Supplier",
+            "BankCountry",
+            "Bank",
+            "BankAccount"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Supplier",
+            "BankCountry",
+            "Bank",
+            "BankAccount",
+            "BankControlKey",
+            "PartnerBankType",
+            "AccountHolder"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierWHTMig",
+          "interface": "ZFIX_I_SupplierWHT",
+          "keys": [
+            "Supplier",
+            "CompanyCode",
+            "WithholdingTaxType"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Supplier",
+            "CompanyCode",
+            "WithholdingTaxType",
+            "WithholdingTaxCode",
+            "WithholdingTaxID",
+            "ExemptionNumber",
+            "ExemptionRate",
+            "ExemptionValidFrom",
+            "ExemptionValidTo"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierDunningMig",
+          "interface": "ZFIX_I_SupplierDunning",
+          "keys": [
+            "Supplier",
+            "CompanyCode",
+            "DunningArea"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Supplier",
+            "CompanyCode",
+            "DunningArea",
+            "DunningProcedure",
+            "DunningBlock",
+            "DunningLevel",
+            "LastDunnedOn",
+            "DunningMemo"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierPartnerMig",
+          "interface": "ZFIX_I_SupplierPartner",
+          "keys": [
+            "Supplier",
+            "PurchasingOrganization",
+            "SupplierSubrange",
+            "Plant",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Supplier",
+            "PurchasingOrganization",
+            "SupplierSubrange",
+            "Plant",
+            "PartnerFunction",
+            "PartnerCounter",
+            "PartnerSupplier",
+            "PartnerContact",
+            "DefaultPartner"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierEmailMig",
+          "interface": "ZFIX_I_SupplierEmail",
+          "keys": [
+            "Supplier",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Supplier",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "EmailAddress",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierPhoneMig",
+          "interface": "ZFIX_I_SupplierPhone",
+          "keys": [
+            "Supplier",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Supplier",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "Telephone",
+            "TelephoneExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierFaxMig",
+          "interface": "ZFIX_I_SupplierFax",
+          "keys": [
+            "Supplier",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Supplier",
+            "AddressNumber",
+            "PersonNumber",
+            "CommunicationValidFrom",
+            "CommunicationCounter",
+            "FaxNumber",
+            "FaxExtension",
+            "IsDefaultCommunication"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierLongTextMig",
+          "interface": "ZFIX_I_SupplierLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        },
+        {
+          "view": "ZFIX_C_SupplierIBANMig",
+          "interface": "ZFIX_I_SupplierIBAN",
+          "keys": [
+            "Supplier",
+            "BankCountry",
+            "Bank",
+            "BankAccount",
+            "BankControlKey"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Supplier",
+            "BankCountry",
+            "Bank",
+            "BankAccount",
+            "BankControlKey",
+            "IBAN"
+          ]
+        }
+      ],
+      "boundary": "Supplier source data source records, preparation and comparison contracts."
+    }
+  }
+}

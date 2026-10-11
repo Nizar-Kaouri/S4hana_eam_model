@@ -301,5 +301,77 @@
       "ManufacturingOrder"
     ],
     "kind": "child"
+  },
+  "ZPPX_C_OrderUserStatusMig": {
+    "module": "production_order",
+    "keys": [
+      "ManufacturingOrder",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  },
+  "ZPPX_C_OrderLongTextMig": {
+    "kind": "text_child",
+    "module": "production_order",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "links": "ZPPX_C_OrderLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZPPX_C_RoutingLongTextMig": {
+    "kind": "text_child",
+    "module": "routing",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPPX_C_RoutingHeaderMig",
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "links": "ZPPX_C_RoutingLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZPPX_C_BOMLongTextMig": {
+    "kind": "text_child",
+    "module": "bill_of_material",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPPX_C_BOMHeaderMig",
+    "parent_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BillOfMaterialVariant",
+      "InternalCounter"
+    ],
+    "links": "ZPPX_C_BOMLongTextMig_Links",
+    "operation": "text_scope"
   }
 }

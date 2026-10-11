@@ -21,5 +21,11 @@ define view ZFAX_B_AssetData
       src.txt50 as FixedAssetDescription,
       src.invnr as InventoryNumber,
       src.aktiv as AssetCapitalizationDate,
-      src.deakt as AssetDeactivationDate
+      src.deakt as AssetDeactivationDate,
+      src.txa50 as AssetDescription2,
+      src.sernr as SerialNumber,
+      src.herst as Manufacturer,
+      @Semantics.quantity.unitOfMeasure: 'QuantityUnit'
+      src.menge as Quantity,
+      src.meins as QuantityUnit
 }

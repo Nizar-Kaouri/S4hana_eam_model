@@ -6,11 +6,11 @@ ModuPorter Materials Management version 1.0.0.
 |---|---|---:|
 | Goods movement history | goods_movement | 2 |
 | Inventory balances | material_stock | 4 |
-| Material master | product | 8 |
-| Purchase orders | purchase_order | 5 |
-| Purchase requisitions | purchase_requisition | 2 |
-| Purchasing contracts | purchasing_contract | 3 |
-| Purchasing info records | purchasing_info_record | 2 |
+| Material master | product | 18 |
+| Purchase orders | purchase_order | 7 |
+| Purchase requisitions | purchase_requisition | 3 |
+| Purchasing contracts | purchasing_contract | 5 |
+| Purchasing info records | purchasing_info_record | 3 |
 
 ## Delivery boundaries
 
@@ -24,13 +24,13 @@ Materials Management has 7 modules and 26 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
-| Purchasing contracts | purchasing_contract | 3 | open-document |
-| Purchasing info records | purchasing_info_record | 2 | master |
-| Material master | product | 8 | master |
+| Purchasing contracts | purchasing_contract | 5 | open-document |
+| Purchasing info records | purchasing_info_record | 3 | master |
+| Material master | product | 18 | master |
 | Inventory balances | material_stock | 4 | balance |
 | Goods movement history | goods_movement | 2 | reference |
-| Purchase requisitions | purchase_requisition | 2 | open-document |
-| Purchase orders | purchase_order | 5 | open-document |
+| Purchase requisitions | purchase_requisition | 3 | open-document |
+| Purchase orders | purchase_order | 7 | open-document |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/mm; they are not duplicated as migration payloads.
 

@@ -289,7 +289,7 @@
     },
     {
       "consumption_view": "ZEMX_C_MaintPlanCycleMig",
-      "source_view": "ZEMX_B_MaintPlanCycle",
+      "source_view": "ZEMX_I_MaintPlanCycle",
       "scope_filter": "_MaintenancePlan.IsMarkedForDeletion = ''",
       "keys": [
         "MaintenancePlan",
@@ -339,6 +339,49 @@
           "compare": false
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_PlanLongTextMig",
+      "source_view": "ZEMX_I_PlanLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
     }
   ],
   "not_migrated": [

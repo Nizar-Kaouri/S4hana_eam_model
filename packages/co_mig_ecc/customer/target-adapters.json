@@ -131,7 +131,20 @@
     "target_export": "target/ZCOX_C_OrderSettlemenMig.csv",
     "adapter_status": "customer implementation required",
     "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
-    "supplementary_source_fields": []
+    "supplementary_source_fields": [
+      "ReceiverCategory",
+      "SettlementAmount",
+      "SettlementCurrency",
+      "ControllingArea",
+      "ReceiverCompanyCode",
+      "ReceiverMasterAsset",
+      "ReceiverAsset",
+      "ReceiverWBSInternalID",
+      "ValidFromFiscalYear",
+      "ValidFromPeriod",
+      "ValidToFiscalYear",
+      "ValidToPeriod"
+    ]
   },
   "ZCOX_C_CostActualMig": {
     "module": "cost_actuals",
@@ -378,7 +391,140 @@
       "ObjectNumber",
       "StatusCode",
       "StatusKind",
-      "StatusChangeNumber"
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZCOX_C_CostElementTextMig": {
+    "module": "cost_element",
+    "key": [
+      "Language",
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "fields": [],
+    "target_export": "target/ZCOX_C_CostElementTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "Language",
+      "ChartOfAccounts",
+      "CostElement",
+      "CostElementName",
+      "CostElementDescription"
+    ]
+  },
+  "ZCOX_C_OrderPartnerMig": {
+    "module": "internal_order",
+    "key": [
+      "InternalOrder",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "fields": [],
+    "target_export": "target/ZCOX_C_OrderPartnerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "InternalOrder",
+      "PartnerFunction",
+      "PartnerCounter",
+      "Partner"
+    ]
+  },
+  "ZCOX_C_OrderUserStatusMig": {
+    "module": "internal_order",
+    "key": [
+      "InternalOrder",
+      "StatusCode"
+    ],
+    "fields": [],
+    "target_export": "target/ZCOX_C_OrderUserStatusMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "InternalOrder",
+      "StatusCode",
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber",
+      "StatusProfile"
+    ]
+  },
+  "ZCOX_C_CostCenterLongTextMig": {
+    "module": "cost_center",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZCOX_C_CostCenterLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZCOX_C_ProfitCtrLongTextMig": {
+    "module": "profit_center",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZCOX_C_ProfitCtrLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZCOX_C_CostElementLongTextMig": {
+    "module": "cost_element",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZCOX_C_CostElementLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZCOX_C_OrderLongTextMig": {
+    "module": "internal_order",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZCOX_C_OrderLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
     ]
   }
 }

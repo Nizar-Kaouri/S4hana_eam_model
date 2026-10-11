@@ -18,5 +18,6 @@ define view ZSDX_C_BillingMig
       src.BillingDocumentDate as BillingDocumentDate,
       src.CompanyCode as CompanyCode,
       src.TransactionCurrency as TransactionCurrency,
-      src.Payer as Payer
+      src.Payer as Payer,
+      src.AccountingTransferStatus as AccountingTransferStatus
 }

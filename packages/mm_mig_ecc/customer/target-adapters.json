@@ -15,7 +15,16 @@
     ],
     "target_export": "target/ZMMX_C_MaterialMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": [
+      "IndustrySector",
+      "Division",
+      "OldMaterialNumber",
+      "ExternalProductGroup",
+      "CrossPlantMaterialStatus",
+      "MaterialStatusValidFrom",
+      "BatchManagementRequired"
+    ]
   },
   "ZMMX_C_MaterialTextMig": {
     "module": "product",
@@ -28,7 +37,8 @@
     ],
     "target_export": "target/ZMMX_C_MaterialTextMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_MaterialPlantMig": {
     "module": "product",
@@ -45,7 +55,24 @@
     ],
     "target_export": "target/ZMMX_C_MaterialPlantMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": [
+      "MRPGroup",
+      "LotSizingProcedure",
+      "SpecialProcurementType",
+      "AvailabilityCheck",
+      "SafetyStock",
+      "MinimumLotSize",
+      "MaximumLotSize",
+      "FixedLotSize",
+      "PlannedDeliveryTime",
+      "GoodsReceiptProcessingTime",
+      "InHouseProductionTime",
+      "IssueStorageLocation",
+      "ExternalProcStorageLocation",
+      "SerialNumberProfile",
+      "BatchManagementRequired"
+    ]
   },
   "ZMMX_C_MaterialLocatiMig": {
     "module": "product",
@@ -59,7 +86,8 @@
     ],
     "target_export": "target/ZMMX_C_MaterialLocatiMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_MaterialUnitMig": {
     "module": "product",
@@ -74,7 +102,8 @@
     ],
     "target_export": "target/ZMMX_C_MaterialUnitMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_MaterialValueMig": {
     "module": "product",
@@ -92,7 +121,8 @@
     ],
     "target_export": "target/ZMMX_C_MaterialValueMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_BatchGeneralMig": {
     "module": "product",
@@ -106,7 +136,8 @@
     ],
     "target_export": "target/ZMMX_C_BatchGeneralMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_BatchPlantMig": {
     "module": "product",
@@ -121,7 +152,8 @@
     ],
     "target_export": "target/ZMMX_C_BatchPlantMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_LocationStockMig": {
     "module": "material_stock",
@@ -138,7 +170,8 @@
     ],
     "target_export": "target/ZMMX_C_LocationStockMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_BatchStockMig": {
     "module": "material_stock",
@@ -155,7 +188,8 @@
     ],
     "target_export": "target/ZMMX_C_BatchStockMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_SalesOrderStocMig": {
     "module": "material_stock",
@@ -174,7 +208,8 @@
     ],
     "target_export": "target/ZMMX_C_SalesOrderStocMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_SupplierStockMig": {
     "module": "material_stock",
@@ -191,7 +226,8 @@
     ],
     "target_export": "target/ZMMX_C_SupplierStockMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_MatDocHeaderMig": {
     "module": "goods_movement",
@@ -206,7 +242,8 @@
     ],
     "target_export": "target/ZMMX_C_MatDocHeaderMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_MatDocItemMig": {
     "module": "goods_movement",
@@ -227,7 +264,8 @@
     ],
     "target_export": "target/ZMMX_C_MatDocItemMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_RequisitionMig": {
     "module": "purchase_requisition",
@@ -245,7 +283,8 @@
     ],
     "target_export": "target/ZMMX_C_RequisitionMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_ReqAssignmentMig": {
     "module": "purchase_requisition",
@@ -262,7 +301,8 @@
     ],
     "target_export": "target/ZMMX_C_ReqAssignmentMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_PurchaseOrderMig": {
     "module": "purchase_order",
@@ -279,7 +319,8 @@
     ],
     "target_export": "target/ZMMX_C_PurchaseOrderMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_PurchaseItemMig": {
     "module": "purchase_order",
@@ -298,7 +339,8 @@
     ],
     "target_export": "target/ZMMX_C_PurchaseItemMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_PurchaseScheduMig": {
     "module": "purchase_order",
@@ -314,7 +356,8 @@
     ],
     "target_export": "target/ZMMX_C_PurchaseScheduMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_PurchaseAssignMig": {
     "module": "purchase_order",
@@ -331,7 +374,8 @@
     ],
     "target_export": "target/ZMMX_C_PurchaseAssignMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_PurchaseHistorMig": {
     "module": "purchase_order",
@@ -351,7 +395,8 @@
     ],
     "target_export": "target/ZMMX_C_PurchaseHistorMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_InfoRecordMig": {
     "module": "purchasing_info_record",
@@ -367,7 +412,8 @@
     ],
     "target_export": "target/ZMMX_C_InfoRecordMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_InfoPurchOrgMig": {
     "module": "purchasing_info_record",
@@ -387,7 +433,8 @@
     ],
     "target_export": "target/ZMMX_C_InfoPurchOrgMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_ContractHeaderMig": {
     "module": "purchasing_contract",
@@ -407,7 +454,8 @@
     ],
     "target_export": "target/ZMMX_C_ContractHeaderMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_ContractItemMig": {
     "module": "purchasing_contract",
@@ -426,7 +474,8 @@
     ],
     "target_export": "target/ZMMX_C_ContractItemMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZMMX_C_ContractAssignMig": {
     "module": "purchasing_contract",
@@ -444,6 +493,340 @@
     ],
     "target_export": "target/ZMMX_C_ContractAssignMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
+  },
+  "ZMMX_C_MaterialSalesMig": {
+    "module": "product",
+    "key": [
+      "Product",
+      "SalesOrganization",
+      "DistributionChannel"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_MaterialSalesMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "Product",
+      "SalesOrganization",
+      "DistributionChannel",
+      "SalesUnit",
+      "DeliveringPlant",
+      "SalesStatus",
+      "SalesStatusValidFrom",
+      "ItemCategoryGroup",
+      "AccountAssignmentGroup",
+      "DeletionFlag"
+    ]
+  },
+  "ZMMX_C_MaterialTaxMig": {
+    "module": "product",
+    "key": [
+      "Product",
+      "DepartureCountry"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_MaterialTaxMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "Product",
+      "DepartureCountry",
+      "TaxClassification1",
+      "TaxClassification2",
+      "TaxClassification3",
+      "TaxClassification4",
+      "TaxClassification5",
+      "TaxClassification6",
+      "TaxClassification7",
+      "TaxClassification8",
+      "TaxClassification9"
+    ]
+  },
+  "ZMMX_C_MaterialMRPAreaMig": {
+    "module": "product",
+    "key": [
+      "Product",
+      "MRPArea"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_MaterialMRPAreaMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "Product",
+      "MRPArea",
+      "MRPType",
+      "MRPController",
+      "LotSizingProcedure",
+      "SpecialProcurementType",
+      "DeletionFlag"
+    ]
+  },
+  "ZMMX_C_MaterialEANMig": {
+    "module": "product",
+    "key": [
+      "Product",
+      "AlternativeUnit",
+      "EANCounter"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_MaterialEANMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "Product",
+      "AlternativeUnit",
+      "EANCounter",
+      "EAN",
+      "EANCategory",
+      "MainEAN"
+    ]
+  },
+  "ZMMX_C_PurchasePartnerMig": {
+    "module": "purchase_order",
+    "key": [
+      "PurchaseOrder",
+      "PurchasingOrganization",
+      "SupplierSubrange",
+      "Plant",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_PurchasePartnerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "PurchaseOrder",
+      "PurchasingOrganization",
+      "SupplierSubrange",
+      "Plant",
+      "PartnerFunction",
+      "PartnerCounter",
+      "PartnerSupplier",
+      "PartnerContact",
+      "DefaultPartner"
+    ]
+  },
+  "ZMMX_C_ContractPartnerMig": {
+    "module": "purchasing_contract",
+    "key": [
+      "PurchasingContract",
+      "PurchasingOrganization",
+      "SupplierSubrange",
+      "Plant",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_ContractPartnerMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Use a supported business interface for posting; supplementary/reference fields do not imply a target API.",
+    "supplementary_source_fields": [
+      "PurchasingContract",
+      "PurchasingOrganization",
+      "SupplierSubrange",
+      "Plant",
+      "PartnerFunction",
+      "PartnerCounter",
+      "PartnerSupplier",
+      "PartnerContact",
+      "DefaultPartner"
+    ]
+  },
+  "ZMMX_C_MaterialLongTextMig": {
+    "module": "product",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_MaterialLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZMMX_C_PurchaseLongTextMig": {
+    "module": "purchase_order",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_PurchaseLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZMMX_C_RequisitionLongTextMig": {
+    "module": "purchase_requisition",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_RequisitionLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZMMX_C_ContractLongTextMig": {
+    "module": "purchasing_contract",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_ContractLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZMMX_C_InfoRecordLongTextMig": {
+    "module": "purchasing_info_record",
+    "key": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_InfoRecordLongTextMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Read source payload through READ_TEXT; rebuild the target text identity using migrated business keys and target text customizing. This index is not text content.",
+    "supplementary_source_fields": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZMMX_C_ClassObjectMig": {
+    "module": "product",
+    "key": [
+      "ClassificationInternalID"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_ClassObjectMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Map native classification object identities and class/characteristic IDs to target business keys and definitions; do not post raw INOB/KSSK/AUSP records.",
+    "supplementary_source_fields": [
+      "ClassificationInternalID",
+      "ClassType",
+      "ObjectTable",
+      "ClassifiedObject"
+    ]
+  },
+  "ZMMX_C_MaterialClassMig": {
+    "module": "product",
+    "key": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_MaterialClassMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Map native classification object identities and class/characteristic IDs to target business keys and definitions; do not post raw INOB/KSSK/AUSP records.",
+    "supplementary_source_fields": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class",
+      "ClassificationStatus"
+    ]
+  },
+  "ZMMX_C_BatchClassMig": {
+    "module": "product",
+    "key": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_BatchClassMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Map native classification object identities and class/characteristic IDs to target business keys and definitions; do not post raw INOB/KSSK/AUSP records.",
+    "supplementary_source_fields": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class",
+      "ClassificationStatus"
+    ]
+  },
+  "ZMMX_C_MaterialCharcMig": {
+    "module": "product",
+    "key": [
+      "ClassifiedObject",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_MaterialCharcMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Map native classification object identities and class/characteristic IDs to target business keys and definitions; do not post raw INOB/KSSK/AUSP records.",
+    "supplementary_source_fields": [
+      "ClassifiedObject",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber",
+      "CharcValue",
+      "CharcFromNumericValue",
+      "CharcToNumericValue",
+      "CharcValueDependency"
+    ]
+  },
+  "ZMMX_C_BatchCharcMig": {
+    "module": "product",
+    "key": [
+      "ClassifiedObject",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber"
+    ],
+    "fields": [],
+    "target_export": "target/ZMMX_C_BatchCharcMig.csv",
+    "adapter_status": "customer implementation required",
+    "notes": "Map native classification object identities and class/characteristic IDs to target business keys and definitions; do not post raw INOB/KSSK/AUSP records.",
+    "supplementary_source_fields": [
+      "ClassifiedObject",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber",
+      "CharcValue",
+      "CharcFromNumericValue",
+      "CharcToNumericValue",
+      "CharcValueDependency"
+    ]
   }
 }

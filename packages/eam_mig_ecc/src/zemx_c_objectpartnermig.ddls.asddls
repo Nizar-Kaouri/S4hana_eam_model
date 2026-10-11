@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_ObjectPartnerMig
-  as select from ZEMX_B_ObjectPartner as src
+  as select from ZEMX_I_ObjectPartner as src
 {
       @EndUserText.label: 'Partner Object Key'
   key src.PartnerObjectKey  as PartnerObjectKey,

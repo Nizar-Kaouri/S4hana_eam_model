@@ -21,6 +21,7 @@ OrderSettlement migration business data
 
 - `ObjectNumber`
 - `DistributionRuleNumber`
+- `DistributionRuleGroup`
 
 ## Associations defined here
 

@@ -57,6 +57,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `OpenItemManagement` | SKB1-XOPVW | customer interface field: OpenItemManagement (unconfirmed) | copy | yes |
 | `DeletionFlag` | SKB1-XLOEB | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
 
+## `ZFIX_C_GLAccountLongTextMig`
+
+- Source: `ZFIX_I_GLAccountLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZFIX_C_GLAccountMigCount` (ECC) vs `ZFIT_I_GLAccountCount` (S/4HANA) per `ChartOfAccounts`

@@ -3,54 +3,54 @@
     "pack": "EAM",
     "version": "1.0.0",
     "file": "ModuPorter-EAM-Customer-Pack-1.0.0.zip",
-    "sha256": "84009529c0518fe45483592280c8f0408c3dba123f67f38f59b436c644687dde"
+    "sha256": "39be5d52738250dee845f2d629a628618684239a03c19d855a0e0efb789566b8"
   },
   {
     "pack": "FI-AA",
     "version": "1.0.0",
     "file": "ModuPorter-FI-AA-Customer-Pack-1.0.0.zip",
-    "sha256": "e8553db6a760ff596ffe714bf1aaee231a993ba960e79d12a129d3deccb9ee3a"
+    "sha256": "0fdc642dad408a9ed32977a871c2b974de630e8101a0da2c8cd9fb2042d3ec6e"
   },
   {
     "pack": "MM",
     "version": "1.0.0",
     "file": "ModuPorter-MM-Customer-Pack-1.0.0.zip",
-    "sha256": "9f27de752b771381707d9f6846530cefd479f62de9f1a971ec9b0fc2a3f665fd"
+    "sha256": "926a7a3e0c651b5e2730ac19a0b79c6fde8c7d0a1e259b4e2af6c05c985d9ee2"
   },
   {
     "pack": "QM",
     "version": "1.0.0",
     "file": "ModuPorter-QM-Customer-Pack-1.0.0.zip",
-    "sha256": "85123bba3b1d200a0882e4063c07c3a9c1bed2eabf5fbcef66f9c4bb54a62103"
+    "sha256": "8c01b06fe5a055f3abd324795d3379ae293c8fc6b7b3dece83eb1f1028c35cba"
   },
   {
     "pack": "PS",
     "version": "1.0.0",
     "file": "ModuPorter-PS-Customer-Pack-1.0.0.zip",
-    "sha256": "108b73a0f747772d88c29171555a83fe90b81ae7f5b10e2e42e9035b38428b50"
+    "sha256": "3a343038a49721d8e11af7fcb34827a705ed220da4667c3736803055d65eeb99"
   },
   {
     "pack": "PP",
     "version": "1.0.0",
     "file": "ModuPorter-PP-Customer-Pack-1.0.0.zip",
-    "sha256": "008495a663e497fe5f32b001cc5cbfac4d9ddf3ddc99558016e4bb1b32605f38"
+    "sha256": "b5fe0746625c68329c47df5431291de105cca525ddaf3a6a223e4b4884a47e47"
   },
   {
     "pack": "CO",
     "version": "1.0.0",
     "file": "ModuPorter-CO-Customer-Pack-1.0.0.zip",
-    "sha256": "580c4446135d94bc2790b9f669cd57c062744794e69d7273ba07061ea9a31f26"
+    "sha256": "97e26b58bf667cfb0dbdb37b7f9b0e6f16a782d7afee1322a5bce9718317cfd0"
   },
   {
     "pack": "FI",
     "version": "1.0.0",
     "file": "ModuPorter-FI-Customer-Pack-1.0.0.zip",
-    "sha256": "3b012e161f9f098055b5fb004167342d53aa3cfd6d5f042e3ce191afaa5b14a1"
+    "sha256": "df4481a8fb973ec157994550b12c2d5ab6cda4275938053ece805b6356851a93"
   },
   {
     "pack": "SD",
     "version": "1.0.0",
     "file": "ModuPorter-SD-Customer-Pack-1.0.0.zip",
-    "sha256": "5678ec120d223e536c1e6f335c6541fca1154c9e202ff7247725cb9f64f49aa4"
+    "sha256": "5c0e6ad548dcd669e12012925beeec641174f9f64e17d02667dcee6c51d4ed15"
   }
 ]

@@ -4,11 +4,11 @@ ModuPorter Quality Management version 1.0.0.
 
 | Module | ID | Extraction structures |
 |---|---|---:|
-| Inspection lots | inspection_lot | 3 |
-| Inspection plan reference | inspection_plan | 5 |
+| Inspection lots | inspection_lot | 4 |
+| Inspection plan reference | inspection_plan | 6 |
 | Inspection results | inspection_result | 3 |
-| Master inspection characteristics | master_inspection_characteristic | 2 |
-| Quality notifications | quality_notification | 6 |
+| Master inspection characteristics | master_inspection_characteristic | 3 |
+| Quality notifications | quality_notification | 9 |
 | Sampling procedures | sampling_procedure | 1 |
 
 ## Delivery boundaries
@@ -24,11 +24,11 @@ Quality Management has 6 modules and 18 extraction structures.
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
 | Sampling procedures | sampling_procedure | 1 | configuration-reference |
-| Master inspection characteristics | master_inspection_characteristic | 2 | master |
-| Inspection lots | inspection_lot | 3 | process-reference |
+| Master inspection characteristics | master_inspection_characteristic | 3 | master |
+| Inspection lots | inspection_lot | 4 | process-reference |
 | Inspection results | inspection_result | 3 | reference |
-| Quality notifications | quality_notification | 6 | process-reference |
-| Inspection plan reference | inspection_plan | 5 | effectivity-reference |
+| Quality notifications | quality_notification | 9 | process-reference |
+| Inspection plan reference | inspection_plan | 6 | effectivity-reference |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/qm; they are not duplicated as migration payloads.
 

@@ -1,0 +1,611 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "allocation_cycle": {
+      "native_tables": [
+        "T811C",
+        "T811S"
+      ],
+      "structures": [
+        {
+          "view": "ZCOX_C_AllocCycleMig",
+          "interface": "ZCOX_I_AllocCycle",
+          "keys": [
+            "AllocationTable",
+            "AllocationCycle",
+            "ValidityStartDate"
+          ],
+          "mode": "configuration-reference",
+          "fields": [
+            "AllocationTable",
+            "AllocationCycle",
+            "ValidityStartDate",
+            "ValidityEndDate"
+          ]
+        },
+        {
+          "view": "ZCOX_C_AllocSegmentMig",
+          "interface": "ZCOX_I_AllocSegment",
+          "keys": [
+            "AllocationTable",
+            "AllocationCycle",
+            "ValidityStartDate",
+            "SegmentSequence"
+          ],
+          "mode": "configuration-reference",
+          "fields": [
+            "AllocationTable",
+            "AllocationCycle",
+            "ValidityStartDate",
+            "SegmentSequence",
+            "SegmentName"
+          ]
+        }
+      ],
+      "boundary": "Allocation cycles and segments. Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target."
+    },
+    "cost_actuals": {
+      "native_tables": [
+        "COEP"
+      ],
+      "structures": [
+        {
+          "view": "ZCOX_C_CostActualMig",
+          "interface": "ZCOX_I_CostActual",
+          "keys": [
+            "ControllingArea",
+            "COAccountingDocument",
+            "COAccountingDocumentItem"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ControllingArea",
+            "COAccountingDocument",
+            "COAccountingDocumentItem",
+            "FiscalYear",
+            "ObjectNumber",
+            "CostElement",
+            "ValueType",
+            "BusinessTransaction",
+            "TransactionAmount",
+            "TransactionCurrency"
+          ]
+        }
+      ],
+      "boundary": "Actual cost history source records, preparation and comparison contracts."
+    },
+    "cost_center": {
+      "native_tables": [
+        "CSKS",
+        "CSKT",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZCOX_C_CostCenterMig",
+          "interface": "ZCOX_I_CostCenter",
+          "keys": [
+            "ControllingArea",
+            "CostCenter",
+            "ValidityEndDate"
+          ],
+          "mode": "master",
+          "fields": [
+            "ControllingArea",
+            "CostCenter",
+            "ValidityEndDate",
+            "ValidityStartDate",
+            "CompanyCode",
+            "ProfitCenter",
+            "CostCenterCategory",
+            "ResponsiblePerson",
+            "AddressStreet",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressLanguage",
+            "PhoneNumber1",
+            "PhoneNumber2",
+            "FaxNumber"
+          ]
+        },
+        {
+          "view": "ZCOX_C_CostCenterTextMig",
+          "interface": "ZCOX_I_CostCenterText",
+          "keys": [
+            "Language",
+            "ControllingArea",
+            "CostCenter",
+            "ValidityEndDate"
+          ],
+          "mode": "master",
+          "fields": [
+            "Language",
+            "ControllingArea",
+            "CostCenter",
+            "ValidityEndDate",
+            "CostCenterName",
+            "CostCenterDescription"
+          ]
+        },
+        {
+          "view": "ZCOX_C_CostCenterLongTextMig",
+          "interface": "ZCOX_I_CostCenterLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Cost centers source records, preparation and comparison contracts."
+    },
+    "cost_element": {
+      "native_tables": [
+        "CSKA",
+        "CSKB",
+        "CSKU",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZCOX_C_CostElementMig",
+          "interface": "ZCOX_I_CostElement",
+          "keys": [
+            "ChartOfAccounts",
+            "CostElement"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ChartOfAccounts",
+            "CostElement",
+            "CreationDate"
+          ]
+        },
+        {
+          "view": "ZCOX_C_CostElementAreMig",
+          "interface": "ZCOX_I_CostElementAre",
+          "keys": [
+            "ControllingArea",
+            "CostElement",
+            "ValidityEndDate"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ControllingArea",
+            "CostElement",
+            "ValidityEndDate",
+            "ValidityStartDate",
+            "CostElementCategory"
+          ]
+        },
+        {
+          "view": "ZCOX_C_CostElementTextMig",
+          "interface": "ZCOX_I_CostElementText",
+          "keys": [
+            "Language",
+            "ChartOfAccounts",
+            "CostElement"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Language",
+            "ChartOfAccounts",
+            "CostElement",
+            "CostElementName",
+            "CostElementDescription"
+          ]
+        },
+        {
+          "view": "ZCOX_C_CostElementLongTextMig",
+          "interface": "ZCOX_I_CostElementLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Cost element references source records, preparation and comparison contracts."
+    },
+    "internal_order": {
+      "native_tables": [
+        "AUFK",
+        "COBRB",
+        "IHPA",
+        "JEST",
+        "JSTO",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZCOX_C_InternalOrderMig",
+          "interface": "ZCOX_I_InternalOrder",
+          "keys": [
+            "InternalOrder"
+          ],
+          "mode": "master",
+          "fields": [
+            "InternalOrder",
+            "InternalOrderType",
+            "OrderCategory",
+            "InternalOrderDescription",
+            "CompanyCode",
+            "ControllingArea",
+            "ResponsibleCostCenter",
+            "ProfitCenter",
+            "ObjectNumber"
+          ]
+        },
+        {
+          "view": "ZCOX_C_OrderSettlemenMig",
+          "interface": "ZCOX_I_OrderSettlemen",
+          "keys": [
+            "ObjectNumber",
+            "DistributionRuleGroup",
+            "DistributionRule"
+          ],
+          "mode": "master",
+          "fields": [
+            "ObjectNumber",
+            "DistributionRuleGroup",
+            "DistributionRule",
+            "SettlementType",
+            "SettlementPercentage",
+            "ReceiverCostCenter",
+            "ReceiverOrder",
+            "ReceiverCategory",
+            "SettlementAmount",
+            "SettlementCurrency",
+            "ControllingArea",
+            "ReceiverCompanyCode",
+            "ReceiverMasterAsset",
+            "ReceiverAsset",
+            "ReceiverWBSInternalID",
+            "ValidFromFiscalYear",
+            "ValidFromPeriod",
+            "ValidToFiscalYear",
+            "ValidToPeriod"
+          ]
+        },
+        {
+          "view": "ZCOX_C_OrderStatusMig",
+          "interface": "ZCOX_I_OrderStatus",
+          "keys": [
+            "InternalOrder",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "InternalOrder",
+            "ObjectNumber",
+            "StatusCode",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZCOX_C_OrderPartnerMig",
+          "interface": "ZCOX_I_OrderPartner",
+          "keys": [
+            "InternalOrder",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "InternalOrder",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZCOX_C_OrderUserStatusMig",
+          "interface": "ZCOX_I_OrderUserStatus",
+          "keys": [
+            "InternalOrder",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "InternalOrder",
+            "StatusCode",
+            "ObjectNumber",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZCOX_C_OrderLongTextMig",
+          "interface": "ZCOX_I_OrderLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Internal orders source records, preparation and comparison contracts."
+    },
+    "planning": {
+      "native_tables": [
+        "COSP",
+        "COSS"
+      ],
+      "structures": [
+        {
+          "view": "ZCOX_C_PrimaryPlanMig",
+          "interface": "ZCOX_I_PrimaryPlan",
+          "keys": [
+            "Ledger",
+            "ObjectNumber",
+            "FiscalYear",
+            "ValueType",
+            "PlanVersion",
+            "CostElement",
+            "OriginGroup",
+            "BusinessTransaction",
+            "TradingPartner",
+            "PartnerBusinessArea",
+            "DebitCreditCode",
+            "PeriodBlock"
+          ],
+          "mode": "planning-reference",
+          "fields": [
+            "Ledger",
+            "ObjectNumber",
+            "FiscalYear",
+            "ValueType",
+            "PlanVersion",
+            "CostElement",
+            "OriginGroup",
+            "BusinessTransaction",
+            "TradingPartner",
+            "PartnerBusinessArea",
+            "DebitCreditCode",
+            "PeriodBlock",
+            "TransactionCurrency",
+            "ControllingAmount01",
+            "ObjectAmount01",
+            "TransactionAmount01",
+            "ControllingAmount02",
+            "ObjectAmount02",
+            "TransactionAmount02",
+            "ControllingAmount03",
+            "ObjectAmount03",
+            "TransactionAmount03",
+            "ControllingAmount04",
+            "ObjectAmount04",
+            "TransactionAmount04",
+            "ControllingAmount05",
+            "ObjectAmount05",
+            "TransactionAmount05",
+            "ControllingAmount06",
+            "ObjectAmount06",
+            "TransactionAmount06",
+            "ControllingAmount07",
+            "ObjectAmount07",
+            "TransactionAmount07",
+            "ControllingAmount08",
+            "ObjectAmount08",
+            "TransactionAmount08",
+            "ControllingAmount09",
+            "ObjectAmount09",
+            "TransactionAmount09",
+            "ControllingAmount10",
+            "ObjectAmount10",
+            "TransactionAmount10",
+            "ControllingAmount11",
+            "ObjectAmount11",
+            "TransactionAmount11",
+            "ControllingAmount12",
+            "ObjectAmount12",
+            "TransactionAmount12",
+            "ControllingAmount13",
+            "ObjectAmount13",
+            "TransactionAmount13",
+            "ControllingAmount14",
+            "ObjectAmount14",
+            "TransactionAmount14",
+            "ControllingAmount15",
+            "ObjectAmount15",
+            "TransactionAmount15",
+            "ControllingAmount16",
+            "ObjectAmount16",
+            "TransactionAmount16"
+          ]
+        },
+        {
+          "view": "ZCOX_C_SecondaryPlanMig",
+          "interface": "ZCOX_I_SecondaryPlan",
+          "keys": [
+            "Ledger",
+            "ObjectNumber",
+            "FiscalYear",
+            "ValueType",
+            "PlanVersion",
+            "CostElement",
+            "OriginGroup",
+            "BusinessTransaction",
+            "TradingPartner",
+            "PartnerBusinessArea",
+            "DebitCreditCode",
+            "PeriodBlock"
+          ],
+          "mode": "planning-reference",
+          "fields": [
+            "Ledger",
+            "ObjectNumber",
+            "FiscalYear",
+            "ValueType",
+            "PlanVersion",
+            "CostElement",
+            "OriginGroup",
+            "BusinessTransaction",
+            "TradingPartner",
+            "PartnerBusinessArea",
+            "DebitCreditCode",
+            "PeriodBlock",
+            "TransactionCurrency",
+            "ControllingAmount01",
+            "ObjectAmount01",
+            "TransactionAmount01",
+            "ControllingAmount02",
+            "ObjectAmount02",
+            "TransactionAmount02",
+            "ControllingAmount03",
+            "ObjectAmount03",
+            "TransactionAmount03",
+            "ControllingAmount04",
+            "ObjectAmount04",
+            "TransactionAmount04",
+            "ControllingAmount05",
+            "ObjectAmount05",
+            "TransactionAmount05",
+            "ControllingAmount06",
+            "ObjectAmount06",
+            "TransactionAmount06",
+            "ControllingAmount07",
+            "ObjectAmount07",
+            "TransactionAmount07",
+            "ControllingAmount08",
+            "ObjectAmount08",
+            "TransactionAmount08",
+            "ControllingAmount09",
+            "ObjectAmount09",
+            "TransactionAmount09",
+            "ControllingAmount10",
+            "ObjectAmount10",
+            "TransactionAmount10",
+            "ControllingAmount11",
+            "ObjectAmount11",
+            "TransactionAmount11",
+            "ControllingAmount12",
+            "ObjectAmount12",
+            "TransactionAmount12",
+            "ControllingAmount13",
+            "ObjectAmount13",
+            "TransactionAmount13",
+            "ControllingAmount14",
+            "ObjectAmount14",
+            "TransactionAmount14",
+            "ControllingAmount15",
+            "ObjectAmount15",
+            "TransactionAmount15",
+            "ControllingAmount16",
+            "ObjectAmount16",
+            "TransactionAmount16"
+          ]
+        }
+      ],
+      "boundary": "CO primary and secondary cost planning. COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01\u201316, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types."
+    },
+    "profit_center": {
+      "native_tables": [
+        "CEPC",
+        "CEPCT",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZCOX_C_ProfitCenterMig",
+          "interface": "ZCOX_I_ProfitCenter",
+          "keys": [
+            "ProfitCenter",
+            "ValidityEndDate",
+            "ControllingArea"
+          ],
+          "mode": "master",
+          "fields": [
+            "ProfitCenter",
+            "ValidityEndDate",
+            "ControllingArea",
+            "ValidityStartDate",
+            "ResponsiblePerson",
+            "Segment",
+            "AddressStreet",
+            "AddressCity",
+            "AddressDistrict",
+            "AddressPostalCode",
+            "AddressCountry",
+            "AddressRegion",
+            "AddressPOBox",
+            "AddressPOBoxPostalCode",
+            "AddressLanguage",
+            "PhoneNumber1",
+            "PhoneNumber2",
+            "FaxNumber"
+          ]
+        },
+        {
+          "view": "ZCOX_C_ProfitCenterTeMig",
+          "interface": "ZCOX_I_ProfitCenterTe",
+          "keys": [
+            "Language",
+            "ProfitCenter",
+            "ValidityEndDate",
+            "ControllingArea"
+          ],
+          "mode": "master",
+          "fields": [
+            "Language",
+            "ProfitCenter",
+            "ValidityEndDate",
+            "ControllingArea",
+            "ProfitCenterName",
+            "ProfitCenterDescription"
+          ]
+        },
+        {
+          "view": "ZCOX_C_ProfitCtrLongTextMig",
+          "interface": "ZCOX_I_ProfitCtrLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Profit centers source records, preparation and comparison contracts."
+    }
+  }
+}

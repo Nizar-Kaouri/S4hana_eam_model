@@ -7,10 +7,10 @@ ModuPorter Project System version 1.0.0.
 | Project overall and annual budgets | budget | 2 |
 | Project commitments | commitment | 1 |
 | Investment programs and measures | investment_measure | 3 |
-| Project networks and activities | network | 5 |
-| Projects | project | 2 |
+| Project networks and activities | network | 10 |
+| Projects | project | 6 |
 | Project cost history | project_cost | 1 |
-| WBS elements | wbs_element | 3 |
+| WBS elements | wbs_element | 7 |
 
 ## Delivery boundaries
 
@@ -27,9 +27,9 @@ Project System has 7 modules and 14 extraction structures.
 | Investment programs and measures | investment_measure | 3 | configuration-reference |
 | Project commitments | commitment | 1 | reference |
 | Project overall and annual budgets | budget | 2 | balance |
-| Project networks and activities | network | 5 | process-reference |
-| Projects | project | 2 | master |
-| WBS elements | wbs_element | 3 | master |
+| Project networks and activities | network | 10 | process-reference |
+| Projects | project | 6 | master |
+| WBS elements | wbs_element | 7 | master |
 | Project cost history | project_cost | 1 | reference |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/ps; they are not duplicated as migration payloads.

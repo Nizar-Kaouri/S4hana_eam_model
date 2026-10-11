@@ -19,5 +19,8 @@ define view ZFIX_B_CustomerCompanData
       src.akont as ReconciliationAccount,
       src.zterm as PaymentTerms,
       src.zwels as PaymentMethods,
-      src.loevm as DeletionFlag
+      src.loevm as DeletionFlag,
+      src.zahls as PaymentBlock,
+      src.zuawa as SortKey,
+      src.fdgrv as PlanningGroup
 }

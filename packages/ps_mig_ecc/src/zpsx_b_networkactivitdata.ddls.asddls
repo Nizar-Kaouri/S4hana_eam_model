@@ -21,5 +21,6 @@ define view ZPSX_B_NetworkActivitData
       src.arbid as WorkCenterInternalID,
       src.steus as ControlKey,
       src.ltxa1 as ActivityDescription,
-      src.projn as WBSElementInternalID
+      src.projn as WBSElementInternalID,
+      src.werks as Plant
 }

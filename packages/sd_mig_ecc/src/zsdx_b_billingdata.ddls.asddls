@@ -19,5 +19,6 @@ define view ZSDX_B_BillingData
       src.fkdat as BillingDocumentDate,
       src.bukrs as CompanyCode,
       src.waerk as TransactionCurrency,
-      src.kunrg as Payer
+      src.kunrg as Payer,
+      src.rfbsk as AccountingTransferStatus
 }

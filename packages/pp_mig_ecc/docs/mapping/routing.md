@@ -84,7 +84,7 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ChangeNumber` | PLPO-AENNR | customer interface field: ChangeNumber (unconfirmed) | information only | yes |
 | `DeletionFlag` | PLPO-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
 | `Operation` | PLPO-VORNR | customer interface field: Operation (unconfirmed) | information only | yes |
-| `OperationText` | PLPO-KTEXT | customer interface field: OperationText (unconfirmed) | information only | yes |
+| `OperationText` | PLPO-LTXA1 | customer interface field: OperationText (unconfirmed) | information only | yes |
 
 ## `ZPPX_C_RoutingSequencMig`
 
@@ -103,6 +103,21 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `InternalCounter` | PLFL-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only | yes |
 | `ValidFromDate` | PLFL-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only | yes |
 | `DeletionFlag` | PLFL-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
+
+## `ZPPX_C_RoutingLongTextMig`
+
+- Source: `ZPPX_I_RoutingLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
 
 ## Reconciliation
 

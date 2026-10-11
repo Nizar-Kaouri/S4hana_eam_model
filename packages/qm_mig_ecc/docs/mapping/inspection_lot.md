@@ -61,6 +61,24 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `StatusCode` | JEST-STAT | - | copy |  |
 | `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
 | `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+
+## `ZQMX_C_LotUserStatusMig`
+
+- Source: `ZQMX_I_LotUserStatus`
+- Keys: `InspectionLot`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `InspectionLot` | QALS-PRUEFLOS | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `ObjectNumber` | JEST-OBJNR | - | information only |  |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
 
 ## Not delivered
 

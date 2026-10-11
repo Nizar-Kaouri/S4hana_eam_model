@@ -26,5 +26,7 @@ define view ZFIX_B_GLClearedData
       src.shkzg as DebitCreditCode,
       src.wrbtr as DocumentAmount,
       src.dmbtr as CompanyCodeAmount,
-      src.waers as DocumentCurrency
+      src.waers as DocumentCurrency,
+      src.sgtxt as ItemText,
+      src.mwskz as TaxCode
 }

@@ -11,7 +11,7 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_WorkCenterMig
-  as select from ZEMX_B_WorkCenterHeader as src
+  as select from ZEMX_I_WorkCenter as src
 {
       @EndUserText.label: 'Work Center'
   key src.WorkCenter             as WorkCenter,

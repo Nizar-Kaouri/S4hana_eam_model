@@ -71,6 +71,8 @@ def main():
         else:
             print("  [skip] abaplint: run `npm install` or set ABAPLINT=<path to abaplint>")
             ok = False
+    if not only:
+        ok &= run([sys.executable, "tools/check_pack_coverage.py"], REPO, dict(os.environ), "nine-pack business object coverage")
     if not only or only == "eam":
         print("shared:")
         ok &= run([sys.executable, "-m", "unittest", "discover", "-s", "tools/tests"], REPO, dict(os.environ), "unit tests (tools/tests)")

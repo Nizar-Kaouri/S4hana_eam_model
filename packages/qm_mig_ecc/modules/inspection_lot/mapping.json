@@ -188,10 +188,72 @@
           "target": "",
           "rule": "copy",
           "compare": false
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "reference",
       "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZQMX_C_LotUserStatusMig",
+      "source_view": "ZQMX_I_LotUserStatus",
+      "scope_filter": "",
+      "keys": [
+        "InspectionLot",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "InspectionLot",
+          "source": "QALS-PRUEFLOS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "JEST-OBJNR",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "StatusKind",
+          "source": "derived: first character of JEST-STAT",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO."
     }
   ],
   "not_migrated": [

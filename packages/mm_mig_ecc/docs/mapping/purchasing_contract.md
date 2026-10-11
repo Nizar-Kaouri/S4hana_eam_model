@@ -69,6 +69,41 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `GLAccount` | EKKN-SAKTO | customer interface field: GLAccount (unconfirmed) | copy | yes |
 | `DistributionPercentage` | EKKN-VPROZ | customer interface field: DistributionPercentage (unconfirmed) | copy | yes |
 
+## `ZMMX_C_ContractPartnerMig`
+
+- Source: `ZMMX_I_ContractPartner`
+- Keys: `PurchasingContract`, `PurchasingOrganization`, `SupplierSubrange`, `Plant`, `PartnerFunction`, `PartnerCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `PurchasingContract` | EKPA-EBELN | - | copy |  |
+| `PurchasingOrganization` | EKPA-EKORG | - | copy |  |
+| `SupplierSubrange` | EKPA-LTSNR | - | copy |  |
+| `Plant` | EKPA-WERKS | - | copy |  |
+| `PartnerFunction` | EKPA-PARVW | - | copy |  |
+| `PartnerCounter` | EKPA-PARZA | - | copy |  |
+| `PartnerSupplier` | EKPA-LIFN2 | - | copy |  |
+| `PartnerContact` | EKPA-PARNR | - | copy |  |
+| `DefaultPartner` | EKPA-DEFPA | - | copy |  |
+
+## `ZMMX_C_ContractLongTextMig`
+
+- Source: `ZMMX_I_ContractLongText`
+- Keys: `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data. Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
 ## Reconciliation
 
 - Counts: `ZMMX_C_ContractHeaderMigCount` (ECC) vs `-` (S/4HANA) per `PurchasingContract`
