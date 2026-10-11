@@ -32,141 +32,121 @@
           "element": "ControllingArea",
           "source": "CSKS-KOKRS",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "CSKS-KOSTL",
           "target": "customer interface field: CostCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidityEndDate",
           "source": "CSKS-DATBI",
           "target": "customer interface field: ValidityEndDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "CSKS-DATAB",
           "target": "customer interface field: ValidityStartDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "CSKS-BUKRS",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProfitCenter",
           "source": "CSKS-PRCTR",
           "target": "customer interface field: ProfitCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CostCenterCategory",
           "source": "CSKS-KOSAR",
           "target": "customer interface field: CostCenterCategory (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ResponsiblePerson",
           "source": "CSKS-VERAK",
           "target": "customer interface field: ResponsiblePerson (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AddressStreet",
           "source": "CSKS-STRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCity",
           "source": "CSKS-ORT01",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressDistrict",
           "source": "CSKS-ORT02",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPostalCode",
           "source": "CSKS-PSTLZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCountry",
           "source": "CSKS-LAND1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressRegion",
           "source": "CSKS-REGIO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBox",
           "source": "CSKS-PFACH",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBoxPostalCode",
           "source": "CSKS-PSTL2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressLanguage",
           "source": "CSKS-SPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PhoneNumber1",
           "source": "CSKS-TELF1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PhoneNumber2",
           "source": "CSKS-TELF2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FaxNumber",
           "source": "CSKS-TELFX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -187,43 +167,37 @@
           "element": "Language",
           "source": "CSKT-SPRAS",
           "target": "customer interface field: Language (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "CSKT-KOKRS",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "CSKT-KOSTL",
           "target": "customer interface field: CostCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidityEndDate",
           "source": "CSKT-DATBI",
           "target": "customer interface field: ValidityEndDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CostCenterName",
           "source": "CSKT-KTEXT",
           "target": "customer interface field: CostCenterName (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CostCenterDescription",
           "source": "CSKT-LTEXT",
           "target": "customer interface field: CostCenterDescription (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -244,29 +218,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -277,30 +247,13 @@
   "gaps": [
     "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZCOT_I_CostCenterCount",
+  "main_structure": "ZCOX_C_CostCenterMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_CostCenterMigCount",
     "dimensions": [
       {
         "element": "ControllingArea"
       }
-    ],
-    "source_count_view": "ZCOX_C_CostCenterMigCount",
-    "compare": {
-      "source_view": "ZCOX_C_CostCenterMig",
-      "target_view": "ZCOT_B_CostCenterCompare",
-      "key": [
-        "ControllingArea",
-        "CostCenter",
-        "ValidityEndDate"
-      ],
-      "fields": [
-        "ValidityStartDate",
-        "CompanyCode",
-        "ProfitCenter",
-        "CostCenterCategory"
-      ]
-    }
-  },
-  "main_structure": "ZCOX_C_CostCenterMig"
+    ]
+  }
 }

@@ -38,36 +38,31 @@
           "element": "PartnerObjectKey",
           "source": "IHPA: substring( ihpa.objnr, 3, 30 )",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "IHPA-PARVW",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "IHPA-COUNTER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerObjectType",
           "source": "IHPA: substring( ihpa.objnr, 1, 2 )",
           "target": "",
-          "rule": "derive:object type of the object number",
-          "compare": false
+          "rule": "derive:object type of the object number"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "IHPA-PARNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     }
@@ -92,10 +87,10 @@
       "reason": "Used to exclude deleted records in the consumption scope; not a posting field."
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [],
+  "main_structure": "ZEMX_C_ObjectPartnerMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_ObjectPartnerMigCount",
-    "target_count_view": null,
     "dimensions": [
       {
         "element": "PartnerObjectType"
@@ -104,9 +99,6 @@
         "element": "PartnerFunction"
       }
     ],
-    "measure": "RecordCount",
-    "compare": null
-  },
-  "gaps": [],
-  "main_structure": "ZEMX_C_ObjectPartnerMig"
+    "measure": "RecordCount"
+  }
 }

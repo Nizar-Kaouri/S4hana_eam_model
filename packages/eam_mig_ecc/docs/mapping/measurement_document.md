@@ -17,18 +17,18 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `MeasuringPoint`
 - Scope: `all rows`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `MeasuringPoint` | IMRG-POINT | IMRG-POINT | copy |  |
-| `MsmtRdngDate` | IMRG-IDATE | IMRG-IDATE | copy |  |
-| `MsmtRdngTime` | IMRG-ITIME | IMRG-ITIME | copy |  |
-| `MsmtRdngByUser` | IMRG-READR | IMRG-READR | copy |  |
-| `MeasurementReading` | IMRG-READG | IMRG-READG | convert (load program): float_si_to_unit |  |
-| `MeasurementCounterReading` | IMRG-CNTRR | IMRG-CNTRR | convert (load program): float_si_to_unit |  |
-| `MsmtReadingInEntryUnit` | IMRG-RECDV | IMRG-RECDV | copy |  |
-| `MsmtEntryUnit` | IMRG-RECDU | IMRG-RECDU | copy |  |
-| `MsmtValuationCode` | IMRG-VLCOD | IMRG-VLCOD | copy |  |
-| `MeasurementDocumentText` | IMRG-MDTXT | IMRG-MDTXT | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `MeasuringPoint` | IMRG-POINT | IMRG-POINT | copy |
+| `MsmtRdngDate` | IMRG-IDATE | IMRG-IDATE | copy |
+| `MsmtRdngTime` | IMRG-ITIME | IMRG-ITIME | copy |
+| `MsmtRdngByUser` | IMRG-READR | IMRG-READR | copy |
+| `MeasurementReading` | IMRG-READG | IMRG-READG | convert (load program): float_si_to_unit |
+| `MeasurementCounterReading` | IMRG-CNTRR | IMRG-CNTRR | convert (load program): float_si_to_unit |
+| `MsmtReadingInEntryUnit` | IMRG-RECDV | IMRG-RECDV | copy |
+| `MsmtEntryUnit` | IMRG-RECDU | IMRG-RECDU | copy |
+| `MsmtValuationCode` | IMRG-VLCOD | IMRG-VLCOD | copy |
+| `MeasurementDocumentText` | IMRG-MDTXT | IMRG-MDTXT | copy |
 
 ## Not delivered
 
@@ -36,13 +36,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 |---|---|---|---|
 | `ZEMX_I_MeasPointLastReading` | `MeasurementDocument` | IMRG-MDOCM | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZEMX_C_MeasReadingMigCount` (ECC) vs `-` (S/4HANA) per `MsmtEntryUnit`
-
-```bash
-python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module measurement_document --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZEMX_C_MeasReadingMigCount`
 
 ## Open gaps
 

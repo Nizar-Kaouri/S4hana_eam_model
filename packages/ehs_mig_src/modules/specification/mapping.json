@@ -12,7 +12,7 @@
       "ChangeState"
     ],
     "numbering": "keep",
-    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
   },
   "structures": [
     {
@@ -28,64 +28,55 @@
           "element": "RecordNumber",
           "source": "ESTRH-RECN",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.RecordNumber",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ChangeState",
           "source": "ESTRH-ACTN",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.ChangeState",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidFrom",
           "source": "ESTRH-VALFR",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.ValidFrom",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidTo",
           "source": "ESTRH-VALTO",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.ValidTo",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "ESTRH-DELFLG",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.DeletionFlag",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SpecificationID",
           "source": "ESTRH-SUBID",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.SpecificationID",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SpecificationCategory",
           "source": "ESTRH-SUBCAT",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.SpecificationCategory",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AuthorizationGroup",
           "source": "ESTRH-AUTHGRP",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.AuthorizationGroup",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Remark",
           "source": "ESTRH-REM",
           "target": "Native target evidence: ZEHT_B_SpecificationCompare.Remark",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -104,78 +95,67 @@
           "element": "RecordNumber",
           "source": "ESTRI-RECN",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.RecordNumber",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ChangeState",
           "source": "ESTRI-ACTN",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.ChangeState",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidFrom",
           "source": "ESTRI-VALFR",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.ValidFrom",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidTo",
           "source": "ESTRI-VALTO",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.ValidTo",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "ESTRI-DELFLG",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.DeletionFlag",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "RootRecordNumber",
           "source": "ESTRI-RECNROOT",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.RootRecordNumber",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "IdentifierType",
           "source": "ESTRI-IDTYPE",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.IdentifierType",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "IdentifierCategory",
           "source": "ESTRI-IDCAT",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.IdentifierCategory",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "ESTRI-LANGU",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.Language",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Identifier",
           "source": "ESTRI-IDENT",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.Identifier",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SortOrder",
           "source": "ESTRI-ORD",
           "target": "Native target evidence: ZEHT_B_SpecIdentifierCompare.SortOrder",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -189,31 +169,12 @@
     "SpecIdentifier: Native short identifier only; long-text interfaces and effective parent change-state relations remain pending.",
     "SpecProperty: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "dimensions": [],
-    "source_count_view": "ZEHX_C_SpecificationMigCount",
-    "target_count_view": "ZEHT_I_SpecificationCount",
-    "compare": {
-      "source_view": "ZEHX_C_SpecificationMig",
-      "target_view": "ZEHT_B_SpecificationCompare",
-      "key": [
-        "RecordNumber",
-        "ChangeState"
-      ],
-      "fields": [
-        "ValidFrom",
-        "ValidTo",
-        "DeletionFlag",
-        "SpecificationID",
-        "SpecificationCategory",
-        "AuthorizationGroup",
-        "Remark"
-      ]
-    }
-  },
   "main_structure": "ZEHX_C_SpecificationMig",
   "pending_dependencies": [
     "chemical_property"
-  ]
+  ],
+  "source_control": {
+    "source_count_view": "ZEHX_C_SpecificationMigCount",
+    "dimensions": []
+  }
 }

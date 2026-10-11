@@ -12,7 +12,7 @@
       "WarehouseOrder"
     ],
     "numbering": "keep",
-    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
   },
   "structures": [
     {
@@ -28,71 +28,61 @@
           "element": "Warehouse",
           "source": "/SCWM/WHO-LGNUM",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.Warehouse",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "WarehouseOrder",
           "source": "/SCWM/WHO-WHO",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.WarehouseOrder",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreationRule",
           "source": "/SCWM/WHO-WCR",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreationRule",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OrderStatus",
           "source": "/SCWM/WHO-STATUS",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.OrderStatus",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Queue",
           "source": "/SCWM/WHO-QUEUE",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.Queue",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActivityArea",
           "source": "/SCWM/WHO-AREAWHO",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.ActivityArea",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreatedAt",
           "source": "/SCWM/WHO-CREATED_AT",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreatedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreatedBy",
           "source": "/SCWM/WHO-CREATED_BY",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreatedBy",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StartedAt",
           "source": "/SCWM/WHO-STARTED_AT",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.StartedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ConfirmedAt",
           "source": "/SCWM/WHO-CONFIRMED_AT",
           "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.ConfirmedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -104,34 +94,14 @@
     "Actual DDIC, release, SAP activation and acceptance unverified.",
     "WarehouseOrder: All native warehouse-order records; customer must approve process state and cutover scope."
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "main_structure": "ZWMX_C_WarehouseOrderMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZWMX_C_WarehouseOrderMigCount",
     "dimensions": [
       {
         "element": "Warehouse"
       }
-    ],
-    "source_count_view": "ZWMX_C_WarehouseOrderMigCount",
-    "target_count_view": "ZWMT_I_WarehouseOrderCount",
-    "compare": {
-      "source_view": "ZWMX_C_WarehouseOrderMig",
-      "target_view": "ZWMT_B_WarehouseOrderCompare",
-      "key": [
-        "Warehouse",
-        "WarehouseOrder"
-      ],
-      "fields": [
-        "CreationRule",
-        "OrderStatus",
-        "Queue",
-        "ActivityArea",
-        "CreatedAt",
-        "CreatedBy",
-        "StartedAt",
-        "ConfirmedAt"
-      ]
-    }
-  },
-  "main_structure": "ZWMX_C_WarehouseOrderMig",
-  "pending_dependencies": []
+    ]
+  }
 }

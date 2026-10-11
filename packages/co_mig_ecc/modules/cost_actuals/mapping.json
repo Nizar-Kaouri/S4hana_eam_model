@@ -33,71 +33,61 @@
           "element": "ControllingArea",
           "source": "COEP-KOKRS",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "COAccountingDocument",
           "source": "COEP-BELNR",
           "target": "customer interface field: COAccountingDocument (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "COAccountingDocumentItem",
           "source": "COEP-BUZEI",
           "target": "customer interface field: COAccountingDocumentItem (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "FiscalYear",
           "source": "COEP-GJAHR",
           "target": "customer interface field: FiscalYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectNumber",
           "source": "COEP-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CostElement",
           "source": "COEP-KSTAR",
           "target": "customer interface field: CostElement (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValueType",
           "source": "COEP-WRTTP",
           "target": "customer interface field: ValueType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BusinessTransaction",
           "source": "COEP-VRGNG",
           "target": "customer interface field: BusinessTransaction (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount",
           "source": "COEP-WTGBTR",
           "target": "customer interface field: TransactionAmount (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionCurrency",
           "source": "COEP-TWAER",
           "target": "customer interface field: TransactionCurrency (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -108,15 +98,13 @@
   "gaps": [
     "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZCOX_C_CostActualMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_CostActualMigCount",
     "dimensions": [
       {
         "element": "ControllingArea"
       }
-    ],
-    "source_count_view": "ZCOX_C_CostActualMigCount"
-  },
-  "main_structure": "ZCOX_C_CostActualMig"
+    ]
+  }
 }

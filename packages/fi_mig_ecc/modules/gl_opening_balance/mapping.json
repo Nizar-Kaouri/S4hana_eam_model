@@ -44,302 +44,259 @@
           "element": "Ledger",
           "source": "GLT0-RLDNR",
           "target": "customer interface field: Ledger (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "RecordType",
           "source": "GLT0-RRCTY",
           "target": "customer interface field: RecordType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Version",
           "source": "GLT0-RVERS",
           "target": "customer interface field: Version (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "GLT0-BUKRS",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FiscalYear",
           "source": "GLT0-RYEAR",
           "target": "customer interface field: FiscalYear (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GLAccount",
           "source": "GLT0-RACCT",
           "target": "customer interface field: GLAccount (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BusinessArea",
           "source": "GLT0-RBUSA",
           "target": "customer interface field: BusinessArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionCurrency",
           "source": "GLT0-RTCUR",
           "target": "customer interface field: TransactionCurrency (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DebitCreditCode",
           "source": "GLT0-DRCRK",
           "target": "customer interface field: DebitCreditCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount00",
           "source": "GLT0-TSL00",
           "target": "customer interface field: TransactionAmount00 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount00",
           "source": "GLT0-HSL00",
           "target": "customer interface field: LocalAmount00 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount01",
           "source": "GLT0-TSL01",
           "target": "customer interface field: TransactionAmount01 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount01",
           "source": "GLT0-HSL01",
           "target": "customer interface field: LocalAmount01 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount02",
           "source": "GLT0-TSL02",
           "target": "customer interface field: TransactionAmount02 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount02",
           "source": "GLT0-HSL02",
           "target": "customer interface field: LocalAmount02 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount03",
           "source": "GLT0-TSL03",
           "target": "customer interface field: TransactionAmount03 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount03",
           "source": "GLT0-HSL03",
           "target": "customer interface field: LocalAmount03 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount04",
           "source": "GLT0-TSL04",
           "target": "customer interface field: TransactionAmount04 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount04",
           "source": "GLT0-HSL04",
           "target": "customer interface field: LocalAmount04 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount05",
           "source": "GLT0-TSL05",
           "target": "customer interface field: TransactionAmount05 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount05",
           "source": "GLT0-HSL05",
           "target": "customer interface field: LocalAmount05 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount06",
           "source": "GLT0-TSL06",
           "target": "customer interface field: TransactionAmount06 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount06",
           "source": "GLT0-HSL06",
           "target": "customer interface field: LocalAmount06 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount07",
           "source": "GLT0-TSL07",
           "target": "customer interface field: TransactionAmount07 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount07",
           "source": "GLT0-HSL07",
           "target": "customer interface field: LocalAmount07 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount08",
           "source": "GLT0-TSL08",
           "target": "customer interface field: TransactionAmount08 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount08",
           "source": "GLT0-HSL08",
           "target": "customer interface field: LocalAmount08 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount09",
           "source": "GLT0-TSL09",
           "target": "customer interface field: TransactionAmount09 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount09",
           "source": "GLT0-HSL09",
           "target": "customer interface field: LocalAmount09 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount10",
           "source": "GLT0-TSL10",
           "target": "customer interface field: TransactionAmount10 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount10",
           "source": "GLT0-HSL10",
           "target": "customer interface field: LocalAmount10 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount11",
           "source": "GLT0-TSL11",
           "target": "customer interface field: TransactionAmount11 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount11",
           "source": "GLT0-HSL11",
           "target": "customer interface field: LocalAmount11 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount12",
           "source": "GLT0-TSL12",
           "target": "customer interface field: TransactionAmount12 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount12",
           "source": "GLT0-HSL12",
           "target": "customer interface field: LocalAmount12 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount13",
           "source": "GLT0-TSL13",
           "target": "customer interface field: TransactionAmount13 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount13",
           "source": "GLT0-HSL13",
           "target": "customer interface field: LocalAmount13 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount14",
           "source": "GLT0-TSL14",
           "target": "customer interface field: TransactionAmount14 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount14",
           "source": "GLT0-HSL14",
           "target": "customer interface field: LocalAmount14 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount15",
           "source": "GLT0-TSL15",
           "target": "customer interface field: TransactionAmount15 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount15",
           "source": "GLT0-HSL15",
           "target": "customer interface field: LocalAmount15 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount16",
           "source": "GLT0-TSL16",
           "target": "customer interface field: TransactionAmount16 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount16",
           "source": "GLT0-HSL16",
           "target": "customer interface field: LocalAmount16 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "balance",
@@ -376,624 +333,535 @@
           "element": "Ledger",
           "source": "FAGLFLEXT-RLDNR",
           "target": "customer interface field: Ledger (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "RecordType",
           "source": "FAGLFLEXT-RRCTY",
           "target": "customer interface field: RecordType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Version",
           "source": "FAGLFLEXT-RVERS",
           "target": "customer interface field: Version (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FiscalYear",
           "source": "FAGLFLEXT-RYEAR",
           "target": "customer interface field: FiscalYear (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GLAccount",
           "source": "FAGLFLEXT-RACCT",
           "target": "customer interface field: GLAccount (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "FAGLFLEXT-RBUKRS",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "FAGLFLEXT-RCNTR",
           "target": "customer interface field: CostCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProfitCenter",
           "source": "FAGLFLEXT-PRCTR",
           "target": "customer interface field: ProfitCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FunctionalArea",
           "source": "FAGLFLEXT-RFAREA",
           "target": "customer interface field: FunctionalArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BusinessArea",
           "source": "FAGLFLEXT-RBUSA",
           "target": "customer interface field: BusinessArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Segment",
           "source": "FAGLFLEXT-SEGMENT",
           "target": "customer interface field: Segment (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PartnerCostCenter",
           "source": "FAGLFLEXT-SCNTR",
           "target": "customer interface field: PartnerCostCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PartnerProfitCenter",
           "source": "FAGLFLEXT-PPRCTR",
           "target": "customer interface field: PartnerProfitCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PartnerFunctionalArea",
           "source": "FAGLFLEXT-SFAREA",
           "target": "customer interface field: PartnerFunctionalArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PartnerBusinessArea",
           "source": "FAGLFLEXT-SBUSA",
           "target": "customer interface field: PartnerBusinessArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TradingPartner",
           "source": "FAGLFLEXT-RASSC",
           "target": "customer interface field: TradingPartner (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PartnerSegment",
           "source": "FAGLFLEXT-PSEGMENT",
           "target": "customer interface field: PartnerSegment (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionCurrency",
           "source": "FAGLFLEXT-RTCUR",
           "target": "customer interface field: TransactionCurrency (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BaseUnit",
           "source": "FAGLFLEXT-RUNIT",
           "target": "customer interface field: BaseUnit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DebitCreditCode",
           "source": "FAGLFLEXT-DRCRK",
           "target": "customer interface field: DebitCreditCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BusinessTransaction",
           "source": "FAGLFLEXT-ACTIV",
           "target": "customer interface field: BusinessTransaction (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount00",
           "source": "FAGLFLEXT-TSL00",
           "target": "customer interface field: TransactionAmount00 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount00",
           "source": "FAGLFLEXT-HSL00",
           "target": "customer interface field: LocalAmount00 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount00",
           "source": "FAGLFLEXT-KSL00",
           "target": "customer interface field: GroupAmount00 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount00",
           "source": "FAGLFLEXT-OSL00",
           "target": "customer interface field: OtherAmount00 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount01",
           "source": "FAGLFLEXT-TSL01",
           "target": "customer interface field: TransactionAmount01 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount01",
           "source": "FAGLFLEXT-HSL01",
           "target": "customer interface field: LocalAmount01 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount01",
           "source": "FAGLFLEXT-KSL01",
           "target": "customer interface field: GroupAmount01 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount01",
           "source": "FAGLFLEXT-OSL01",
           "target": "customer interface field: OtherAmount01 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount02",
           "source": "FAGLFLEXT-TSL02",
           "target": "customer interface field: TransactionAmount02 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount02",
           "source": "FAGLFLEXT-HSL02",
           "target": "customer interface field: LocalAmount02 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount02",
           "source": "FAGLFLEXT-KSL02",
           "target": "customer interface field: GroupAmount02 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount02",
           "source": "FAGLFLEXT-OSL02",
           "target": "customer interface field: OtherAmount02 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount03",
           "source": "FAGLFLEXT-TSL03",
           "target": "customer interface field: TransactionAmount03 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount03",
           "source": "FAGLFLEXT-HSL03",
           "target": "customer interface field: LocalAmount03 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount03",
           "source": "FAGLFLEXT-KSL03",
           "target": "customer interface field: GroupAmount03 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount03",
           "source": "FAGLFLEXT-OSL03",
           "target": "customer interface field: OtherAmount03 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount04",
           "source": "FAGLFLEXT-TSL04",
           "target": "customer interface field: TransactionAmount04 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount04",
           "source": "FAGLFLEXT-HSL04",
           "target": "customer interface field: LocalAmount04 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount04",
           "source": "FAGLFLEXT-KSL04",
           "target": "customer interface field: GroupAmount04 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount04",
           "source": "FAGLFLEXT-OSL04",
           "target": "customer interface field: OtherAmount04 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount05",
           "source": "FAGLFLEXT-TSL05",
           "target": "customer interface field: TransactionAmount05 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount05",
           "source": "FAGLFLEXT-HSL05",
           "target": "customer interface field: LocalAmount05 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount05",
           "source": "FAGLFLEXT-KSL05",
           "target": "customer interface field: GroupAmount05 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount05",
           "source": "FAGLFLEXT-OSL05",
           "target": "customer interface field: OtherAmount05 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount06",
           "source": "FAGLFLEXT-TSL06",
           "target": "customer interface field: TransactionAmount06 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount06",
           "source": "FAGLFLEXT-HSL06",
           "target": "customer interface field: LocalAmount06 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount06",
           "source": "FAGLFLEXT-KSL06",
           "target": "customer interface field: GroupAmount06 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount06",
           "source": "FAGLFLEXT-OSL06",
           "target": "customer interface field: OtherAmount06 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount07",
           "source": "FAGLFLEXT-TSL07",
           "target": "customer interface field: TransactionAmount07 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount07",
           "source": "FAGLFLEXT-HSL07",
           "target": "customer interface field: LocalAmount07 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount07",
           "source": "FAGLFLEXT-KSL07",
           "target": "customer interface field: GroupAmount07 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount07",
           "source": "FAGLFLEXT-OSL07",
           "target": "customer interface field: OtherAmount07 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount08",
           "source": "FAGLFLEXT-TSL08",
           "target": "customer interface field: TransactionAmount08 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount08",
           "source": "FAGLFLEXT-HSL08",
           "target": "customer interface field: LocalAmount08 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount08",
           "source": "FAGLFLEXT-KSL08",
           "target": "customer interface field: GroupAmount08 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount08",
           "source": "FAGLFLEXT-OSL08",
           "target": "customer interface field: OtherAmount08 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount09",
           "source": "FAGLFLEXT-TSL09",
           "target": "customer interface field: TransactionAmount09 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount09",
           "source": "FAGLFLEXT-HSL09",
           "target": "customer interface field: LocalAmount09 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount09",
           "source": "FAGLFLEXT-KSL09",
           "target": "customer interface field: GroupAmount09 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount09",
           "source": "FAGLFLEXT-OSL09",
           "target": "customer interface field: OtherAmount09 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount10",
           "source": "FAGLFLEXT-TSL10",
           "target": "customer interface field: TransactionAmount10 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount10",
           "source": "FAGLFLEXT-HSL10",
           "target": "customer interface field: LocalAmount10 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount10",
           "source": "FAGLFLEXT-KSL10",
           "target": "customer interface field: GroupAmount10 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount10",
           "source": "FAGLFLEXT-OSL10",
           "target": "customer interface field: OtherAmount10 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount11",
           "source": "FAGLFLEXT-TSL11",
           "target": "customer interface field: TransactionAmount11 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount11",
           "source": "FAGLFLEXT-HSL11",
           "target": "customer interface field: LocalAmount11 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount11",
           "source": "FAGLFLEXT-KSL11",
           "target": "customer interface field: GroupAmount11 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount11",
           "source": "FAGLFLEXT-OSL11",
           "target": "customer interface field: OtherAmount11 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount12",
           "source": "FAGLFLEXT-TSL12",
           "target": "customer interface field: TransactionAmount12 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount12",
           "source": "FAGLFLEXT-HSL12",
           "target": "customer interface field: LocalAmount12 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount12",
           "source": "FAGLFLEXT-KSL12",
           "target": "customer interface field: GroupAmount12 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount12",
           "source": "FAGLFLEXT-OSL12",
           "target": "customer interface field: OtherAmount12 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount13",
           "source": "FAGLFLEXT-TSL13",
           "target": "customer interface field: TransactionAmount13 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount13",
           "source": "FAGLFLEXT-HSL13",
           "target": "customer interface field: LocalAmount13 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount13",
           "source": "FAGLFLEXT-KSL13",
           "target": "customer interface field: GroupAmount13 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount13",
           "source": "FAGLFLEXT-OSL13",
           "target": "customer interface field: OtherAmount13 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount14",
           "source": "FAGLFLEXT-TSL14",
           "target": "customer interface field: TransactionAmount14 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount14",
           "source": "FAGLFLEXT-HSL14",
           "target": "customer interface field: LocalAmount14 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount14",
           "source": "FAGLFLEXT-KSL14",
           "target": "customer interface field: GroupAmount14 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount14",
           "source": "FAGLFLEXT-OSL14",
           "target": "customer interface field: OtherAmount14 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount15",
           "source": "FAGLFLEXT-TSL15",
           "target": "customer interface field: TransactionAmount15 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount15",
           "source": "FAGLFLEXT-HSL15",
           "target": "customer interface field: LocalAmount15 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount15",
           "source": "FAGLFLEXT-KSL15",
           "target": "customer interface field: GroupAmount15 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount15",
           "source": "FAGLFLEXT-OSL15",
           "target": "customer interface field: OtherAmount15 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionAmount16",
           "source": "FAGLFLEXT-TSL16",
           "target": "customer interface field: TransactionAmount16 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocalAmount16",
           "source": "FAGLFLEXT-HSL16",
           "target": "customer interface field: LocalAmount16 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GroupAmount16",
           "source": "FAGLFLEXT-KSL16",
           "target": "customer interface field: GroupAmount16 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OtherAmount16",
           "source": "FAGLFLEXT-OSL16",
           "target": "customer interface field: OtherAmount16 (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "balance",
@@ -1005,15 +873,13 @@
     "Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.",
     "Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZFIX_C_ClassicBalanceMig",
+  "source_control": {
+    "source_count_view": "ZFIX_C_ClassicBalanceMigCount",
     "dimensions": [
       {
         "element": "Ledger"
       }
-    ],
-    "source_count_view": "ZFIX_C_ClassicBalanceMigCount"
-  },
-  "main_structure": "ZFIX_C_ClassicBalanceMig"
+    ]
+  }
 }

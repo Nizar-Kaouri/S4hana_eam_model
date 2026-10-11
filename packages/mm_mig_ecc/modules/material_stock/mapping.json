@@ -32,50 +32,43 @@
           "element": "Product",
           "source": "MARD-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "MARD-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "StorageLocation",
           "source": "MARD-LGORT",
           "target": "customer interface field: StorageLocation (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "UnrestrictedStock",
           "source": "MARD-LABST",
           "target": "customer interface field: UnrestrictedStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "QualityInspectionStock",
           "source": "MARD-INSME",
           "target": "customer interface field: QualityInspectionStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BlockedStock",
           "source": "MARD-SPEME",
           "target": "customer interface field: BlockedStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransferStock",
           "source": "MARD-UMLME",
           "target": "customer interface field: TransferStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "balance",
@@ -96,50 +89,43 @@
           "element": "Product",
           "source": "MCHB-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "MCHB-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "StorageLocation",
           "source": "MCHB-LGORT",
           "target": "customer interface field: StorageLocation (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Batch",
           "source": "MCHB-CHARG",
           "target": "customer interface field: Batch (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "UnrestrictedStock",
           "source": "MCHB-CLABS",
           "target": "customer interface field: UnrestrictedStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "QualityInspectionStock",
           "source": "MCHB-CINSM",
           "target": "customer interface field: QualityInspectionStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BlockedStock",
           "source": "MCHB-CSPEM",
           "target": "customer interface field: BlockedStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "balance",
@@ -163,64 +149,55 @@
           "element": "Product",
           "source": "MSKA-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "MSKA-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "StorageLocation",
           "source": "MSKA-LGORT",
           "target": "customer interface field: StorageLocation (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Batch",
           "source": "MSKA-CHARG",
           "target": "customer interface field: Batch (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SpecialStock",
           "source": "MSKA-SOBKZ",
           "target": "customer interface field: SpecialStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesOrder",
           "source": "MSKA-VBELN",
           "target": "customer interface field: SalesOrder (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesOrderItem",
           "source": "MSKA-POSNR",
           "target": "customer interface field: SalesOrderItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "UnrestrictedStock",
           "source": "MSKA-KALAB",
           "target": "customer interface field: UnrestrictedStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "QualityInspectionStock",
           "source": "MSKA-KAINS",
           "target": "customer interface field: QualityInspectionStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "balance",
@@ -242,50 +219,43 @@
           "element": "Product",
           "source": "MSLB-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "MSLB-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Batch",
           "source": "MSLB-CHARG",
           "target": "customer interface field: Batch (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SpecialStock",
           "source": "MSLB-SOBKZ",
           "target": "customer interface field: SpecialStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Supplier",
           "source": "MSLB-LIFNR",
           "target": "customer interface field: Supplier (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "UnrestrictedStock",
           "source": "MSLB-LBLAB",
           "target": "customer interface field: UnrestrictedStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "QualityInspectionStock",
           "source": "MSLB-LBINS",
           "target": "customer interface field: QualityInspectionStock (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "balance",
@@ -296,15 +266,13 @@
   "gaps": [
     "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZMMX_C_LocationStockMig",
+  "source_control": {
+    "source_count_view": "ZMMX_C_LocationStockMigCount",
     "dimensions": [
       {
         "element": "Product"
       }
-    ],
-    "source_count_view": "ZMMX_C_LocationStockMigCount"
-  },
-  "main_structure": "ZMMX_C_LocationStockMig"
+    ]
+  }
 }

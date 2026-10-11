@@ -17,15 +17,15 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **balance**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `Product` | MARD-MATNR | customer interface field: Product (unconfirmed) | copy | yes |
-| `Plant` | MARD-WERKS | customer interface field: Plant (unconfirmed) | copy | yes |
-| `StorageLocation` | MARD-LGORT | customer interface field: StorageLocation (unconfirmed) | copy | yes |
-| `UnrestrictedStock` | MARD-LABST | customer interface field: UnrestrictedStock (unconfirmed) | copy | yes |
-| `QualityInspectionStock` | MARD-INSME | customer interface field: QualityInspectionStock (unconfirmed) | copy | yes |
-| `BlockedStock` | MARD-SPEME | customer interface field: BlockedStock (unconfirmed) | copy | yes |
-| `TransferStock` | MARD-UMLME | customer interface field: TransferStock (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `Product` | MARD-MATNR | customer interface field: Product (unconfirmed) | copy |
+| `Plant` | MARD-WERKS | customer interface field: Plant (unconfirmed) | copy |
+| `StorageLocation` | MARD-LGORT | customer interface field: StorageLocation (unconfirmed) | copy |
+| `UnrestrictedStock` | MARD-LABST | customer interface field: UnrestrictedStock (unconfirmed) | copy |
+| `QualityInspectionStock` | MARD-INSME | customer interface field: QualityInspectionStock (unconfirmed) | copy |
+| `BlockedStock` | MARD-SPEME | customer interface field: BlockedStock (unconfirmed) | copy |
+| `TransferStock` | MARD-UMLME | customer interface field: TransferStock (unconfirmed) | copy |
 
 ## `ZMMX_C_BatchStockMig`
 
@@ -35,15 +35,15 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **balance**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `Product` | MCHB-MATNR | customer interface field: Product (unconfirmed) | copy | yes |
-| `Plant` | MCHB-WERKS | customer interface field: Plant (unconfirmed) | copy | yes |
-| `StorageLocation` | MCHB-LGORT | customer interface field: StorageLocation (unconfirmed) | copy | yes |
-| `Batch` | MCHB-CHARG | customer interface field: Batch (unconfirmed) | copy | yes |
-| `UnrestrictedStock` | MCHB-CLABS | customer interface field: UnrestrictedStock (unconfirmed) | copy | yes |
-| `QualityInspectionStock` | MCHB-CINSM | customer interface field: QualityInspectionStock (unconfirmed) | copy | yes |
-| `BlockedStock` | MCHB-CSPEM | customer interface field: BlockedStock (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `Product` | MCHB-MATNR | customer interface field: Product (unconfirmed) | copy |
+| `Plant` | MCHB-WERKS | customer interface field: Plant (unconfirmed) | copy |
+| `StorageLocation` | MCHB-LGORT | customer interface field: StorageLocation (unconfirmed) | copy |
+| `Batch` | MCHB-CHARG | customer interface field: Batch (unconfirmed) | copy |
+| `UnrestrictedStock` | MCHB-CLABS | customer interface field: UnrestrictedStock (unconfirmed) | copy |
+| `QualityInspectionStock` | MCHB-CINSM | customer interface field: QualityInspectionStock (unconfirmed) | copy |
+| `BlockedStock` | MCHB-CSPEM | customer interface field: BlockedStock (unconfirmed) | copy |
 
 ## `ZMMX_C_SalesOrderStocMig`
 
@@ -53,17 +53,17 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **balance**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `Product` | MSKA-MATNR | customer interface field: Product (unconfirmed) | copy | yes |
-| `Plant` | MSKA-WERKS | customer interface field: Plant (unconfirmed) | copy | yes |
-| `StorageLocation` | MSKA-LGORT | customer interface field: StorageLocation (unconfirmed) | copy | yes |
-| `Batch` | MSKA-CHARG | customer interface field: Batch (unconfirmed) | copy | yes |
-| `SpecialStock` | MSKA-SOBKZ | customer interface field: SpecialStock (unconfirmed) | copy | yes |
-| `SalesOrder` | MSKA-VBELN | customer interface field: SalesOrder (unconfirmed) | copy | yes |
-| `SalesOrderItem` | MSKA-POSNR | customer interface field: SalesOrderItem (unconfirmed) | copy | yes |
-| `UnrestrictedStock` | MSKA-KALAB | customer interface field: UnrestrictedStock (unconfirmed) | copy | yes |
-| `QualityInspectionStock` | MSKA-KAINS | customer interface field: QualityInspectionStock (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `Product` | MSKA-MATNR | customer interface field: Product (unconfirmed) | copy |
+| `Plant` | MSKA-WERKS | customer interface field: Plant (unconfirmed) | copy |
+| `StorageLocation` | MSKA-LGORT | customer interface field: StorageLocation (unconfirmed) | copy |
+| `Batch` | MSKA-CHARG | customer interface field: Batch (unconfirmed) | copy |
+| `SpecialStock` | MSKA-SOBKZ | customer interface field: SpecialStock (unconfirmed) | copy |
+| `SalesOrder` | MSKA-VBELN | customer interface field: SalesOrder (unconfirmed) | copy |
+| `SalesOrderItem` | MSKA-POSNR | customer interface field: SalesOrderItem (unconfirmed) | copy |
+| `UnrestrictedStock` | MSKA-KALAB | customer interface field: UnrestrictedStock (unconfirmed) | copy |
+| `QualityInspectionStock` | MSKA-KAINS | customer interface field: QualityInspectionStock (unconfirmed) | copy |
 
 ## `ZMMX_C_SupplierStockMig`
 
@@ -73,23 +73,19 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **balance**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `Product` | MSLB-MATNR | customer interface field: Product (unconfirmed) | copy | yes |
-| `Plant` | MSLB-WERKS | customer interface field: Plant (unconfirmed) | copy | yes |
-| `Batch` | MSLB-CHARG | customer interface field: Batch (unconfirmed) | copy | yes |
-| `SpecialStock` | MSLB-SOBKZ | customer interface field: SpecialStock (unconfirmed) | copy | yes |
-| `Supplier` | MSLB-LIFNR | customer interface field: Supplier (unconfirmed) | copy | yes |
-| `UnrestrictedStock` | MSLB-LBLAB | customer interface field: UnrestrictedStock (unconfirmed) | copy | yes |
-| `QualityInspectionStock` | MSLB-LBINS | customer interface field: QualityInspectionStock (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `Product` | MSLB-MATNR | customer interface field: Product (unconfirmed) | copy |
+| `Plant` | MSLB-WERKS | customer interface field: Plant (unconfirmed) | copy |
+| `Batch` | MSLB-CHARG | customer interface field: Batch (unconfirmed) | copy |
+| `SpecialStock` | MSLB-SOBKZ | customer interface field: SpecialStock (unconfirmed) | copy |
+| `Supplier` | MSLB-LIFNR | customer interface field: Supplier (unconfirmed) | copy |
+| `UnrestrictedStock` | MSLB-LBLAB | customer interface field: UnrestrictedStock (unconfirmed) | copy |
+| `QualityInspectionStock` | MSLB-LBINS | customer interface field: QualityInspectionStock (unconfirmed) | copy |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZMMX_C_LocationStockMigCount` (ECC) vs `-` (S/4HANA) per `Product`
-
-```bash
-python3 tools/mig_reconcile.py counts --product mm_mig_ecc --module material_stock --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZMMX_C_LocationStockMigCount`
 
 ## Open gaps
 

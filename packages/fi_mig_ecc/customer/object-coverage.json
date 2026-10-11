@@ -582,7 +582,7 @@
           ]
         }
       ],
-      "boundary": "Customer source data source records, preparation and comparison contracts."
+      "boundary": "Customer source data source records, source preparation contracts."
     },
     "gl_account": {
       "native_tables": [
@@ -659,7 +659,7 @@
           ]
         }
       ],
-      "boundary": "G/L accounts source records, preparation and comparison contracts."
+      "boundary": "G/L accounts source records, source preparation contracts."
     },
     "gl_line_item": {
       "native_tables": [
@@ -720,7 +720,7 @@
           ]
         }
       ],
-      "boundary": "Accounting document history source records, preparation and comparison contracts."
+      "boundary": "Accounting document history source records, source preparation contracts."
     },
     "gl_opening_balance": {
       "native_tables": [
@@ -1129,7 +1129,7 @@
           ]
         }
       ],
-      "boundary": "Current and cleared item indexes source records, preparation and comparison contracts."
+      "boundary": "Current and cleared item indexes source records, source preparation contracts."
     },
     "supplier": {
       "native_tables": [
@@ -1443,7 +1443,7 @@
           ]
         }
       ],
-      "boundary": "Supplier source data source records, preparation and comparison contracts."
+      "boundary": "Supplier source data source records, source preparation contracts."
     }
   }
 }

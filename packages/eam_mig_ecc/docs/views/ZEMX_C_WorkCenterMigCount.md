@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Record count of the work centers delivered by ZEMX_C_WorkCenterMig per Plant, WorkCenterCategoryCode; compared with the same count on S/4HANA by tools/mig_reconcile.py.
+Record count of the work centers delivered by ZEMX_C_WorkCenterMig per Plant, WorkCenterCategoryCode.
 
 ## Keys
 
@@ -32,4 +32,4 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 
 ## Example use case
 
-Export this view before the load and the S/4HANA count view after it; the reconcile tool lists every Plant / WorkCenterCategoryCode combination whose counts differ.
+Export this source count view to record the selected extraction population by its dimensions.

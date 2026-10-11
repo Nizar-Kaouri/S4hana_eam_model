@@ -1,6 +1,6 @@
 // ModuPorter EAM migration | Release 1.0.0
-// Purpose: Record count of the work centers delivered by ZEMX_C_WorkCenterMig per Plant, WorkCenterCategoryCode; compared with the same count on S/4HANA by tools/mig_reconcile.py.
-// Example: Export this view before the load and the S/4HANA count view after it; the reconcile tool lists every Plant / WorkCenterCategoryCode combination whose counts differ.
+// Purpose: Record count of the work centers delivered by ZEMX_C_WorkCenterMig per Plant, WorkCenterCategoryCode.
+// Example: Export this source count view to record the selected extraction population by its dimensions.
 @AbapCatalog.sqlViewName: 'ZEMX_CWCN'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

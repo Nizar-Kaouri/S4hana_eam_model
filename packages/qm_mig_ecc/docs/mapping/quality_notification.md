@@ -17,14 +17,14 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **process-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `QualityNotification` | QMEL-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only | yes |
-| `NotificationType` | QMEL-QMART | customer interface field: NotificationType (unconfirmed) | information only | yes |
-| `NotificationText` | QMEL-QMTXT | customer interface field: NotificationText (unconfirmed) | information only | yes |
-| `Material` | QMEL-MATNR | customer interface field: Material (unconfirmed) | information only | yes |
-| `Plant` | QMEL-WERK | customer interface field: Plant (unconfirmed) | information only | yes |
-| `ObjectNumber` | QMEL-OBJNR | customer interface field: ObjectNumber (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `QualityNotification` | QMEL-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only |
+| `NotificationType` | QMEL-QMART | customer interface field: NotificationType (unconfirmed) | information only |
+| `NotificationText` | QMEL-QMTXT | customer interface field: NotificationText (unconfirmed) | information only |
+| `Material` | QMEL-MATNR | customer interface field: Material (unconfirmed) | information only |
+| `Plant` | QMEL-WERK | customer interface field: Plant (unconfirmed) | information only |
+| `ObjectNumber` | QMEL-OBJNR | customer interface field: ObjectNumber (unconfirmed) | information only |
 
 ## `ZQMX_C_QualityItemMig`
 
@@ -34,13 +34,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **process-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `QualityNotification` | QMFE-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only | yes |
-| `NotificationItem` | QMFE-FENUM | customer interface field: NotificationItem (unconfirmed) | information only | yes |
-| `DefectCodeGroup` | QMFE-FEGRP | customer interface field: DefectCodeGroup (unconfirmed) | information only | yes |
-| `DefectCode` | QMFE-FECOD | customer interface field: DefectCode (unconfirmed) | information only | yes |
-| `DefectText` | QMFE-FETXT | customer interface field: DefectText (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `QualityNotification` | QMFE-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only |
+| `NotificationItem` | QMFE-FENUM | customer interface field: NotificationItem (unconfirmed) | information only |
+| `DefectCodeGroup` | QMFE-FEGRP | customer interface field: DefectCodeGroup (unconfirmed) | information only |
+| `DefectCode` | QMFE-FECOD | customer interface field: DefectCode (unconfirmed) | information only |
+| `DefectText` | QMFE-FETXT | customer interface field: DefectText (unconfirmed) | information only |
 
 ## `ZQMX_C_QualityCauseMig`
 
@@ -50,14 +50,14 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **process-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `QualityNotification` | QMUR-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only | yes |
-| `NotificationItem` | QMUR-FENUM | customer interface field: NotificationItem (unconfirmed) | information only | yes |
-| `CauseNumber` | QMUR-URNUM | customer interface field: CauseNumber (unconfirmed) | information only | yes |
-| `CauseCodeGroup` | QMUR-URGRP | customer interface field: CauseCodeGroup (unconfirmed) | information only | yes |
-| `CauseCode` | QMUR-URCOD | customer interface field: CauseCode (unconfirmed) | information only | yes |
-| `CauseText` | QMUR-URTXT | customer interface field: CauseText (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `QualityNotification` | QMUR-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only |
+| `NotificationItem` | QMUR-FENUM | customer interface field: NotificationItem (unconfirmed) | information only |
+| `CauseNumber` | QMUR-URNUM | customer interface field: CauseNumber (unconfirmed) | information only |
+| `CauseCodeGroup` | QMUR-URGRP | customer interface field: CauseCodeGroup (unconfirmed) | information only |
+| `CauseCode` | QMUR-URCOD | customer interface field: CauseCode (unconfirmed) | information only |
+| `CauseText` | QMUR-URTXT | customer interface field: CauseText (unconfirmed) | information only |
 
 ## `ZQMX_C_QualityTaskMig`
 
@@ -67,13 +67,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **process-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `QualityNotification` | QMSM-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only | yes |
-| `TaskNumber` | QMSM-MANUM | customer interface field: TaskNumber (unconfirmed) | information only | yes |
-| `TaskCodeGroup` | QMSM-MNGRP | customer interface field: TaskCodeGroup (unconfirmed) | information only | yes |
-| `TaskCode` | QMSM-MNCOD | customer interface field: TaskCode (unconfirmed) | information only | yes |
-| `TaskText` | QMSM-MATXT | customer interface field: TaskText (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `QualityNotification` | QMSM-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only |
+| `TaskNumber` | QMSM-MANUM | customer interface field: TaskNumber (unconfirmed) | information only |
+| `TaskCodeGroup` | QMSM-MNGRP | customer interface field: TaskCodeGroup (unconfirmed) | information only |
+| `TaskCode` | QMSM-MNCOD | customer interface field: TaskCode (unconfirmed) | information only |
+| `TaskText` | QMSM-MATXT | customer interface field: TaskText (unconfirmed) | information only |
 
 ## `ZQMX_C_QualityActivitMig`
 
@@ -83,13 +83,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **process-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `QualityNotification` | QMMA-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only | yes |
-| `ActivityNumber` | QMMA-MANUM | customer interface field: ActivityNumber (unconfirmed) | information only | yes |
-| `ActivityCodeGroup` | QMMA-MNGRP | customer interface field: ActivityCodeGroup (unconfirmed) | information only | yes |
-| `ActivityCode` | QMMA-MNCOD | customer interface field: ActivityCode (unconfirmed) | information only | yes |
-| `ActivityText` | QMMA-MATXT | customer interface field: ActivityText (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `QualityNotification` | QMMA-QMNUM | customer interface field: QualityNotification (unconfirmed) | information only |
+| `ActivityNumber` | QMMA-MANUM | customer interface field: ActivityNumber (unconfirmed) | information only |
+| `ActivityCodeGroup` | QMMA-MNGRP | customer interface field: ActivityCodeGroup (unconfirmed) | information only |
+| `ActivityCode` | QMMA-MNCOD | customer interface field: ActivityCode (unconfirmed) | information only |
+| `ActivityText` | QMMA-MATXT | customer interface field: ActivityText (unconfirmed) | information only |
 
 ## `ZQMX_C_NotifStatusMig`
 
@@ -99,14 +99,14 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `QualityNotification` | QMEL-QMNUM | - | copy |  |
-| `ObjectNumber` | JEST-OBJNR | - | information only |  |
-| `StatusCode` | JEST-STAT | - | copy |  |
-| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
-| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
-| `StatusProfile` | JSTO-STSMA | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `QualityNotification` | QMEL-QMNUM | - | copy |
+| `ObjectNumber` | JEST-OBJNR | - | information only |
+| `StatusCode` | JEST-STAT | - | copy |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |
+| `StatusProfile` | JSTO-STSMA | - | copy |
 
 ## `ZQMX_C_NotifPartnerMig`
 
@@ -116,12 +116,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `QualityNotification` | QMEL-QMNUM | - | copy |  |
-| `PartnerFunction` | IHPA-PARVW | - | copy |  |
-| `PartnerCounter` | IHPA-COUNTER | - | copy |  |
-| `Partner` | IHPA-PARNR | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `QualityNotification` | QMEL-QMNUM | - | copy |
+| `PartnerFunction` | IHPA-PARVW | - | copy |
+| `PartnerCounter` | IHPA-COUNTER | - | copy |
+| `Partner` | IHPA-PARNR | - | copy |
 
 ## `ZQMX_C_NotifUserStatusMig`
 
@@ -131,14 +131,14 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `QualityNotification` | QMEL-QMNUM | - | copy |  |
-| `StatusCode` | JEST-STAT | - | copy |  |
-| `ObjectNumber` | JEST-OBJNR | - | information only |  |
-| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
-| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
-| `StatusProfile` | JSTO-STSMA | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `QualityNotification` | QMEL-QMNUM | - | copy |
+| `StatusCode` | JEST-STAT | - | copy |
+| `ObjectNumber` | JEST-OBJNR | - | information only |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |
+| `StatusProfile` | JSTO-STSMA | - | copy |
 
 ## `ZQMX_C_NotifLongTextMig`
 
@@ -148,12 +148,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | - | copy |  |
-| `TextName` | STXH-TDNAME | - | copy |  |
-| `TextID` | STXH-TDID | - | copy |  |
-| `Language` | STXH-TDSPRAS | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |
+| `TextName` | STXH-TDNAME | - | copy |
+| `TextID` | STXH-TDID | - | copy |
+| `Language` | STXH-TDSPRAS | - | copy |
 
 ## Not delivered
 
@@ -161,15 +161,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 |---|---|---|---|
 | `ZQMX_B_NotifStatusData` | `StatusIsInactive` | JEST-INACT | Selection predicate retains only active source statuses. |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZQMX_C_QualityNotificMigCount` (ECC) vs `ZQMT_I_QualityNotificCount` (S/4HANA) per `QualityNotification`
-- Records and fields: `ZQMX_C_QualityNotificMig` vs `ZQMT_B_QualityNotificCompare` on `QualityNotification`; compared: `NotificationType`, `NotificationText`, `Material`
-
-```bash
-python3 tools/mig_reconcile.py counts --product qm_mig_ecc --module quality_notification --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --product qm_mig_ecc --module quality_notification --source ecc_extract.csv --target s4_compare.csv
-```
+- Source count view: `ZQMX_C_QualityNotificMigCount`
 
 ## Open gaps
 

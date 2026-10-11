@@ -1,7 +1,7 @@
 {
   "name": "material_stock",
   "title": "Inventory balances",
-  "description": "Inventory balances source records, preparation and comparison contracts.",
+  "description": "Inventory balances source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

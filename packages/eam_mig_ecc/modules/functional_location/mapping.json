@@ -30,330 +30,283 @@
           "element": "FunctionalLocation",
           "source": "IFLOT-TPLNR",
           "target": "IFLOT-TPLNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocationCategory",
           "source": "IFLOT-FLTYP",
           "target": "IFLOT-FLTYP",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FuncLocationStructure",
           "source": "IFLOT-TPLKZ",
           "target": "IFLOT-TPLKZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SuperiorFunctionalLocation",
           "source": "IFLOT-TPLMA",
           "target": "IFLOT-TPLMA",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TechnicalObjectType",
           "source": "IFLOT-EQART",
           "target": "IFLOT-EQART",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AuthorizationGroup",
           "source": "IFLOT-BEGRU",
           "target": "IFLOT-BEGRU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanningPlant",
           "source": "IFLOT-IWERK",
           "target": "IFLOT-IWERK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "IFLOT-INGRP",
           "target": "IFLOT-INGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EquipInstallationIsAllowed",
           "source": "IFLOT-IEQUI",
           "target": "IFLOT-IEQUI",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EquipIsSingleInstallation",
           "source": "IFLOT-EINZL",
           "target": "IFLOT-EINZL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ConstructionType",
           "source": "IFLOT-SUBMT",
           "target": "IFLOT-SUBMT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssetManufacturerName",
           "source": "IFLOT-HERST",
           "target": "IFLOT-HERST",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ConstructionYear",
           "source": "IFLOT-BAUJJ",
           "target": "IFLOT-BAUJJ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "InventoryNumber",
           "source": "IFLOT-INVNR",
           "target": "IFLOT-INVNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationStartDate",
           "source": "IFLOT-INBDT",
           "target": "IFLOT-INBDT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PlantSection",
           "source": "ILOA-BEBER",
           "target": "ILOA-BEBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssetLocation",
           "source": "ILOA-STORT",
           "target": "ILOA-STORT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssetRoom",
           "source": "ILOA-MSGRP",
           "target": "ILOA-MSGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ABCIndicator",
           "source": "ILOA-ABCKZ",
           "target": "ILOA-ABCKZ",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SortField",
           "source": "ILOA-EQFNR",
           "target": "ILOA-EQFNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "ILOA-BUKRS",
           "target": "ILOA-BUKRS",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BusinessArea",
           "source": "ILOA-GSBER",
           "target": "ILOA-GSBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "ILOA-KOKRS",
           "target": "ILOA-KOKRS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "ILOA-KOSTL",
           "target": "ILOA-KOSTL",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MasterFixedAsset",
           "source": "ILOA-ANLNR",
           "target": "ILOA-ANLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FixedAsset",
           "source": "ILOA-ANLUN",
           "target": "ILOA-ANLUN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StandingOrder",
           "source": "ILOA-DAUFN",
           "target": "",
-          "rule": "derive:follow-up step after the order load",
-          "compare": false
+          "rule": "derive:follow-up step after the order load"
         },
         {
           "element": "LastChangeDate",
           "source": "IFLOT-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "AddressNumber",
           "source": "ILOA-ADRNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "AddressValidTo",
           "source": "ADRC-DATE_TO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName1",
           "source": "ADRC-NAME1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName2",
           "source": "ADRC-NAME2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName3",
           "source": "ADRC-NAME3",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName4",
           "source": "ADRC-NAME4",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressStreet",
           "source": "ADRC-STREET",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumber",
           "source": "ADRC-HOUSE_NUM1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumberSupplement",
           "source": "ADRC-HOUSE_NUM2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCity",
           "source": "ADRC-CITY1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressDistrict",
           "source": "ADRC-CITY2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPostalCode",
           "source": "ADRC-POST_CODE1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBox",
           "source": "ADRC-PO_BOX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBoxPostalCode",
           "source": "ADRC-POST_CODE2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCountry",
           "source": "ADRC-COUNTRY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressRegion",
           "source": "ADRC-REGION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressLanguage",
           "source": "ADRC-LANGU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "HasStandardAddress",
           "source": "derived: presence of the standard ADRC record",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ]
     },
@@ -370,22 +323,19 @@
           "element": "FunctionalLocation",
           "source": "IFLOTX-TPLNR",
           "target": "IFLOTX-TPLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "IFLOTX-SPRAS",
           "target": "IFLOTX-SPRAS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocationName",
           "source": "IFLOTX-PLTXT",
           "target": "IFLOTX-PLTXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -402,29 +352,25 @@
           "element": "FunctionalLocation",
           "source": "IFLOS-TPLNR",
           "target": "IFLOS-TPLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LabelingSystem",
           "source": "IFLOS-ALTNR",
           "target": "IFLOS-ALTNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AlternativeLabel",
           "source": "IFLOS-STRNO",
           "target": "IFLOS-STRNO",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsActiveLabel",
           "source": "IFLOS-ACTVS",
           "target": "IFLOS-ACTVS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -442,141 +388,121 @@
           "element": "FunctionalLocation",
           "source": "IFLOT-TPLNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADRC-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "AddressValidFrom",
           "source": "ADRC-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressVersion",
           "source": "ADRC-NATION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressValidTo",
           "source": "ADRC-DATE_TO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName1",
           "source": "ADRC-NAME1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName2",
           "source": "ADRC-NAME2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName3",
           "source": "ADRC-NAME3",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName4",
           "source": "ADRC-NAME4",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressStreet",
           "source": "ADRC-STREET",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumber",
           "source": "ADRC-HOUSE_NUM1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumberSupplement",
           "source": "ADRC-HOUSE_NUM2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCity",
           "source": "ADRC-CITY1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressDistrict",
           "source": "ADRC-CITY2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPostalCode",
           "source": "ADRC-POST_CODE1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBox",
           "source": "ADRC-PO_BOX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBoxPostalCode",
           "source": "ADRC-POST_CODE2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCountry",
           "source": "ADRC-COUNTRY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressRegion",
           "source": "ADRC-REGION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressLanguage",
           "source": "ADRC-LANGU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -596,29 +522,25 @@
           "element": "FunctionalLocation",
           "source": "IFLOT-TPLNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -637,36 +559,31 @@
           "element": "FunctionalLocation",
           "source": "source: FunctionalLocation",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "source: StatusKind",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -685,36 +602,31 @@
           "element": "FunctionalLocation",
           "source": "source: FunctionalLocation",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "source: StatusKind",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -734,29 +646,25 @@
           "element": "FunctionalLocation",
           "source": "source: FunctionalLocation",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "KSSK-KLART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Class",
           "source": "KLAH-CLASS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassificationStatus",
           "source": "KSSK-STATU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -777,57 +685,49 @@
           "element": "FunctionalLocation",
           "source": "source: FunctionalLocation",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "AUSP-KLART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Characteristic",
           "source": "CABN-ATNAM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValuePositionNumber",
           "source": "AUSP-ATZHL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValue",
           "source": "AUSP-ATWRT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcFromNumericValue",
           "source": "AUSP-ATFLV",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcToNumericValue",
           "source": "AUSP-ATFLB",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValueDependency",
           "source": "AUSP-ATCOD",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -849,50 +749,43 @@
           "element": "FunctionalLocation",
           "source": "IFLOT-TPLNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADR6-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "PersonNumber",
           "source": "ADR6-PERSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationValidFrom",
           "source": "ADR6-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationCounter",
           "source": "ADR6-CONSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EmailAddress",
           "source": "ADR6-SMTP_ADDR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsDefaultCommunication",
           "source": "ADR6-FLGDEFAULT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -914,57 +807,49 @@
           "element": "FunctionalLocation",
           "source": "IFLOT-TPLNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADR2-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "PersonNumber",
           "source": "ADR2-PERSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationValidFrom",
           "source": "ADR2-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationCounter",
           "source": "ADR2-CONSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Telephone",
           "source": "ADR2-TEL_NUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TelephoneExtension",
           "source": "ADR2-TEL_EXTENS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsDefaultCommunication",
           "source": "ADR2-FLGDEFAULT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -986,57 +871,49 @@
           "element": "FunctionalLocation",
           "source": "IFLOT-TPLNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADR3-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "PersonNumber",
           "source": "ADR3-PERSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationValidFrom",
           "source": "ADR3-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationCounter",
           "source": "ADR3-CONSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FaxNumber",
           "source": "ADR3-FAX_NUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FaxExtension",
           "source": "ADR3-FAX_EXTENS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsDefaultCommunication",
           "source": "ADR3-FLGDEFAULT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -1057,29 +934,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -1101,36 +974,31 @@
           "element": "FunctionalLocation",
           "source": "TPST-TPLNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "TPST-WERKS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMUsage",
           "source": "TPST-STLAN",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BillOfMaterial",
           "source": "TPST-STLNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMAlternative",
           "source": "TPST-STLAL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -1163,10 +1031,12 @@
       "reason": "info"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks."
+  ],
+  "main_structure": "ZEMX_C_FuncLocMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_FuncLocMigCount",
-    "target_count_view": "ZEMT_I_FuncLocCount",
     "dimensions": [
       {
         "element": "MaintenancePlanningPlant"
@@ -1175,27 +1045,6 @@
         "element": "FunctionalLocationCategory"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_FuncLocMig",
-      "target_view": "ZEMT_B_FuncLocCompare",
-      "key": [
-        "FunctionalLocation"
-      ],
-      "fields": [
-        "FunctionalLocationCategory",
-        "SuperiorFunctionalLocation",
-        "TechnicalObjectType",
-        "MaintenancePlanningPlant",
-        "MaintenancePlant",
-        "ABCIndicator",
-        "CompanyCode",
-        "CostCenter"
-      ]
-    }
-  },
-  "gaps": [
-    "Compatibility note: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks."
-  ],
-  "main_structure": "ZEMX_C_FuncLocMig"
+    "measure": "RecordCount"
+  }
 }

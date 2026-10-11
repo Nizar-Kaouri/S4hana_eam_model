@@ -143,7 +143,7 @@
           ]
         }
       ],
-      "boundary": "Billing document reference source records, preparation and comparison contracts."
+      "boundary": "Billing document reference source records, source preparation contracts."
     },
     "outbound_delivery": {
       "native_tables": [
@@ -314,7 +314,7 @@
           ]
         }
       ],
-      "boundary": "Outbound delivery reference source records, preparation and comparison contracts."
+      "boundary": "Outbound delivery reference source records, source preparation contracts."
     },
     "pricing_condition": {
       "native_tables": [
@@ -623,7 +623,7 @@
           ]
         }
       ],
-      "boundary": "Sales orders source records, preparation and comparison contracts."
+      "boundary": "Sales orders source records, source preparation contracts."
     }
   }
 }

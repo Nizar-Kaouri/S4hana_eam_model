@@ -36,36 +36,31 @@
           "element": "Equipment",
           "source": "EQST-EQUNR",
           "target": "EQST-EQUNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "EQST-WERKS",
           "target": "EQST-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMUsage",
           "source": "EQST-STLAN",
           "target": "EQST-STLAN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BillOfMaterial",
           "source": "EQST-STLNR",
           "target": "EQST-STLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMAlternative",
           "source": "EQST-STLAL",
           "target": "EQST-STLAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -84,57 +79,49 @@
           "element": "BOMCategory",
           "source": "STKO-STLTY",
           "target": "STKO-STLTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BillOfMaterial",
           "source": "STKO-STLNR",
           "target": "STKO-STLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMAlternative",
           "source": "STKO-STLAL",
           "target": "STKO-STLAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "HeaderCounter",
           "source": "STKO-STKOZ",
           "target": "STKO-STKOZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "STKO-DATUV",
           "target": "STKO-DATUV",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsMarkedForDeletion",
           "source": "STKO-LKENZ",
           "target": "STKO-LKENZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BaseQuantity",
           "source": "STKO-BMENG",
           "target": "STKO-BMENG",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BaseUnit",
           "source": "STKO-BMEIN",
           "target": "STKO-BMEIN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "version_ledger",
@@ -156,50 +143,43 @@
           "element": "BOMCategory",
           "source": "STAS-STLTY",
           "target": "STAS-STLTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BillOfMaterial",
           "source": "STAS-STLNR",
           "target": "STAS-STLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMAlternative",
           "source": "STAS-STLAL",
           "target": "STAS-STLAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMItemNode",
           "source": "STAS-STLKN",
           "target": "STAS-STLKN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SelectionCounter",
           "source": "STAS-STASZ",
           "target": "STAS-STASZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "STAS-DATUV",
           "target": "STAS-DATUV",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsMarkedForDeletion",
           "source": "STAS-LKENZ",
           "target": "STAS-LKENZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "version_ledger",
@@ -220,78 +200,67 @@
           "element": "BOMCategory",
           "source": "STPO-STLTY",
           "target": "STPO-STLTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BillOfMaterial",
           "source": "STPO-STLNR",
           "target": "STPO-STLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMItemNode",
           "source": "STPO-STLKN",
           "target": "STPO-STLKN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ItemCounter",
           "source": "STPO-STPOZ",
           "target": "STPO-STPOZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "STPO-DATUV",
           "target": "STPO-DATUV",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMItemNumber",
           "source": "STPO-POSNR",
           "target": "STPO-POSNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMItemCategory",
           "source": "STPO-POSTP",
           "target": "STPO-POSTP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ComponentMaterial",
           "source": "STPO-IDNRK",
           "target": "STPO-IDNRK",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ComponentQuantity",
           "source": "STPO-MENGE",
           "target": "STPO-MENGE",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ComponentUnit",
           "source": "STPO-MEINS",
           "target": "STPO-MEINS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsMarkedForDeletion",
           "source": "STPO-LKENZ",
           "target": "STPO-LKENZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "version_ledger",
@@ -301,10 +270,8 @@
   "not_migrated": [],
   "gaps": [],
   "main_structure": "ZEMX_C_EquipBOMAssignMig",
-  "reconciliation": {
-    "source_values": "source",
+  "source_control": {
     "source_count_view": "ZEMX_C_EquipBOMMigCount",
-    "target_count_view": null,
     "dimensions": [
       {
         "element": "Plant"
@@ -313,7 +280,6 @@
         "element": "BOMUsage"
       }
     ],
-    "measure": "RecordCount",
-    "compare": null
+    "measure": "RecordCount"
   }
 }

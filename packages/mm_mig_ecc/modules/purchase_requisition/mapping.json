@@ -30,57 +30,49 @@
           "element": "PurchaseRequisition",
           "source": "EBAN-BANFN",
           "target": "customer interface field: PurchaseRequisition (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PurchaseRequisitionItem",
           "source": "EBAN-BNFPO",
           "target": "customer interface field: PurchaseRequisitionItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Material",
           "source": "EBAN-MATNR",
           "target": "customer interface field: Material (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "EBAN-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "RequestedQuantity",
           "source": "EBAN-MENGE",
           "target": "customer interface field: RequestedQuantity (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Unit",
           "source": "EBAN-MEINS",
           "target": "customer interface field: Unit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "EBAN-LOEKZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ClosedFlag",
           "source": "EBAN-EBAKZ",
           "target": "customer interface field: ClosedFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -100,50 +92,43 @@
           "element": "PurchaseRequisition",
           "source": "EBKN-BANFN",
           "target": "customer interface field: PurchaseRequisition (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PurchaseRequisitionItem",
           "source": "EBKN-BNFPO",
           "target": "customer interface field: PurchaseRequisitionItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AccountAssignmentNumber",
           "source": "EBKN-ZEBKN",
           "target": "customer interface field: AccountAssignmentNumber (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "EBKN-KOSTL",
           "target": "customer interface field: CostCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OrderID",
           "source": "EBKN-AUFNR",
           "target": "customer interface field: OrderID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GLAccount",
           "source": "EBKN-SAKTO",
           "target": "customer interface field: GLAccount (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "WBSElementInternalID",
           "source": "EBKN-PS_PSP_PNR",
           "target": "customer interface field: WBSElementInternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -164,29 +149,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -197,27 +178,13 @@
   "gaps": [
     "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZMMT_I_RequisitionCount",
+  "main_structure": "ZMMX_C_RequisitionMig",
+  "source_control": {
+    "source_count_view": "ZMMX_C_RequisitionMigCount",
     "dimensions": [
       {
         "element": "PurchaseRequisition"
       }
-    ],
-    "source_count_view": "ZMMX_C_RequisitionMigCount",
-    "compare": {
-      "source_view": "ZMMX_C_RequisitionMig",
-      "target_view": "ZMMT_B_RequisitionCompare",
-      "key": [
-        "PurchaseRequisition",
-        "PurchaseRequisitionItem"
-      ],
-      "fields": [
-        "Material",
-        "Plant"
-      ]
-    }
-  },
-  "main_structure": "ZMMX_C_RequisitionMig"
+    ]
+  }
 }

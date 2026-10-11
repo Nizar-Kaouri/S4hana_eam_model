@@ -28,50 +28,43 @@
           "element": "WBSElementInternalID",
           "source": "PRPS-PSPNR",
           "target": "customer interface field: WBSElementInternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "WBSElementExternalID",
           "source": "PRPS-POSID",
           "target": "customer interface field: WBSElementExternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "WBSElementDescription",
           "source": "PRPS-POST1",
           "target": "customer interface field: WBSElementDescription (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProjectInternalID",
           "source": "PRPS-PSPHI",
           "target": "customer interface field: ProjectInternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "PRPS-PBUKR",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "PRPS-PKOKR",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "PRPS-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -89,36 +82,31 @@
           "element": "WBSElementInternalID",
           "source": "PRHI-POSNR",
           "target": "customer interface field: WBSElementInternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ParentWBSElementInternalID",
           "source": "PRHI-UP",
           "target": "customer interface field: ParentWBSElementInternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FirstChildInternalID",
           "source": "PRHI-DOWN",
           "target": "customer interface field: FirstChildInternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PreviousSiblingInternalID",
           "source": "PRHI-LEFT",
           "target": "customer interface field: PreviousSiblingInternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "NextSiblingInternalID",
           "source": "PRHI-RIGHT",
           "target": "customer interface field: NextSiblingInternalID (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -137,43 +125,37 @@
           "element": "WBSElementInternalID",
           "source": "PRPS-PSPNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -193,29 +175,25 @@
           "element": "WBSElementInternalID",
           "source": "PRPS-PSPNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -234,43 +212,37 @@
           "element": "WBSElementInternalID",
           "source": "PRPS-PSPNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -290,134 +262,115 @@
           "element": "ObjectNumber",
           "source": "COBRB-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "DistributionRuleGroup",
           "source": "COBRB-BUREG",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DistributionRule",
           "source": "COBRB-LFDNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementType",
           "source": "COBRB-PERBZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementPercentage",
           "source": "COBRB-PROZS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCostCenter",
           "source": "COBRB-KOSTL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverOrder",
           "source": "COBRB-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCategory",
           "source": "COBRB-KONTY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementAmount",
           "source": "COBRB-BETRR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementCurrency",
           "source": "COBRB-BWAER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "COBRB-KOKRS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCompanyCode",
           "source": "COBRB-BUKRS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverMasterAsset",
           "source": "COBRB-ANLN1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverAsset",
           "source": "COBRB-ANLN2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverWBSInternalID",
           "source": "COBRB-PSPNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidFromFiscalYear",
           "source": "COBRB-GABJA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidFromPeriod",
           "source": "COBRB-GABPE",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidToFiscalYear",
           "source": "COBRB-GBISJ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidToPeriod",
           "source": "COBRB-GBISP",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -438,29 +391,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -478,26 +427,13 @@
   "gaps": [
     "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZPST_I_WBSCount",
+  "main_structure": "ZPSX_C_WBSMig",
+  "source_control": {
+    "source_count_view": "ZPSX_C_WBSMigCount",
     "dimensions": [
       {
         "element": "WBSElementInternalID"
       }
-    ],
-    "source_count_view": "ZPSX_C_WBSMigCount",
-    "compare": {
-      "source_view": "ZPSX_C_WBSMig",
-      "target_view": "ZPST_B_WBSCompare",
-      "key": [
-        "WBSElementInternalID"
-      ],
-      "fields": [
-        "WBSElementExternalID",
-        "WBSElementDescription"
-      ]
-    }
-  },
-  "main_structure": "ZPSX_C_WBSMig"
+    ]
+  }
 }

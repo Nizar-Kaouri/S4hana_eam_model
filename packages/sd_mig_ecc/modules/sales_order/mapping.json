@@ -26,50 +26,43 @@
           "element": "SalesDocument",
           "source": "VBAK-VBELN",
           "target": "customer interface field: SalesDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesDocumentType",
           "source": "VBAK-AUART",
           "target": "customer interface field: SalesDocumentType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesOrganization",
           "source": "VBAK-VKORG",
           "target": "customer interface field: SalesOrganization (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DistributionChannel",
           "source": "VBAK-VTWEG",
           "target": "customer interface field: DistributionChannel (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Division",
           "source": "VBAK-SPART",
           "target": "customer interface field: Division (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SoldToParty",
           "source": "VBAK-KUNNR",
           "target": "customer interface field: SoldToParty (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TransactionCurrency",
           "source": "VBAK-WAERK",
           "target": "customer interface field: TransactionCurrency (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -88,64 +81,55 @@
           "element": "SalesDocument",
           "source": "VBAP-VBELN",
           "target": "customer interface field: SalesDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesDocumentItem",
           "source": "VBAP-POSNR",
           "target": "customer interface field: SalesDocumentItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Material",
           "source": "VBAP-MATNR",
           "target": "customer interface field: Material (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "VBAP-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OrderQuantity",
           "source": "VBAP-KWMENG",
           "target": "customer interface field: OrderQuantity (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesUnit",
           "source": "VBAP-VRKME",
           "target": "customer interface field: SalesUnit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "RejectionReason",
           "source": "VBAP-ABGRU",
           "target": "customer interface field: RejectionReason (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ItemShortText",
           "source": "VBAP-ARKTX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ItemCategory",
           "source": "VBAP-PSTYV",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -165,43 +149,37 @@
           "element": "SalesDocument",
           "source": "VBEP-VBELN",
           "target": "customer interface field: SalesDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesDocumentItem",
           "source": "VBEP-POSNR",
           "target": "customer interface field: SalesDocumentItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ScheduleLine",
           "source": "VBEP-ETENR",
           "target": "customer interface field: ScheduleLine (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeliveryDate",
           "source": "VBEP-EDATU",
           "target": "customer interface field: DeliveryDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OrderQuantity",
           "source": "VBEP-WMENG",
           "target": "customer interface field: OrderQuantity (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ConfirmedQuantity",
           "source": "VBEP-BMENG",
           "target": "customer interface field: ConfirmedQuantity (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -220,43 +198,37 @@
           "element": "SalesDocument",
           "source": "VBKD-VBELN",
           "target": "customer interface field: SalesDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesDocumentItem",
           "source": "VBKD-POSNR",
           "target": "customer interface field: SalesDocumentItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CustomerPurchaseOrder",
           "source": "VBKD-BSTKD",
           "target": "customer interface field: CustomerPurchaseOrder (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PaymentTerms",
           "source": "VBKD-ZTERM",
           "target": "customer interface field: PaymentTerms (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "IncotermsClassification",
           "source": "VBKD-INCO1",
           "target": "customer interface field: IncotermsClassification (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "IncotermsLocation",
           "source": "VBKD-INCO2",
           "target": "customer interface field: IncotermsLocation (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -276,169 +248,145 @@
           "element": "SalesDocument",
           "source": "VBPA-VBELN",
           "target": "customer interface field: SalesDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesDocumentItem",
           "source": "VBPA-POSNR",
           "target": "customer interface field: SalesDocumentItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "VBPA-PARVW",
           "target": "customer interface field: PartnerFunction (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Customer",
           "source": "VBPA-KUNNR",
           "target": "customer interface field: Customer (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Supplier",
           "source": "VBPA-LIFNR",
           "target": "customer interface field: Supplier (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PersonnelNumber",
           "source": "VBPA-PERNR",
           "target": "customer interface field: PersonnelNumber (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "VBPA-ADRNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "AddressValidTo",
           "source": "ADRC-DATE_TO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName1",
           "source": "ADRC-NAME1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName2",
           "source": "ADRC-NAME2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName3",
           "source": "ADRC-NAME3",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName4",
           "source": "ADRC-NAME4",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressStreet",
           "source": "ADRC-STREET",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumber",
           "source": "ADRC-HOUSE_NUM1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumberSupplement",
           "source": "ADRC-HOUSE_NUM2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCity",
           "source": "ADRC-CITY1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressDistrict",
           "source": "ADRC-CITY2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPostalCode",
           "source": "ADRC-POST_CODE1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBox",
           "source": "ADRC-PO_BOX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBoxPostalCode",
           "source": "ADRC-POST_CODE2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCountry",
           "source": "ADRC-COUNTRY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressRegion",
           "source": "ADRC-REGION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressLanguage",
           "source": "ADRC-LANGU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "HasStandardAddress",
           "source": "derived: presence of the standard ADRC record",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ],
       "delivery_mode": "open-document",
@@ -456,29 +404,25 @@
           "element": "SalesDocument",
           "source": "VBUK-VBELN",
           "target": "customer interface field: SalesDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OverallProcessingStatus",
           "source": "VBUK-GBSTK",
           "target": "customer interface field: OverallProcessingStatus (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeliveryStatus",
           "source": "VBUK-LFSTK",
           "target": "customer interface field: DeliveryStatus (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BillingStatus",
           "source": "VBUK-FKSTK",
           "target": "customer interface field: BillingStatus (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -497,36 +441,31 @@
           "element": "SalesDocument",
           "source": "VBUP-VBELN",
           "target": "customer interface field: SalesDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SalesDocumentItem",
           "source": "VBUP-POSNR",
           "target": "customer interface field: SalesDocumentItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OverallProcessingStatus",
           "source": "VBUP-GBSTA",
           "target": "customer interface field: OverallProcessingStatus (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeliveryStatus",
           "source": "VBUP-LFSTA",
           "target": "customer interface field: DeliveryStatus (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BillingStatus",
           "source": "VBUP-FKSTA",
           "target": "customer interface field: BillingStatus (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -548,50 +487,43 @@
           "element": "PrecedingDocument",
           "source": "VBFA-VBELV",
           "target": "customer interface field: PrecedingDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PrecedingDocumentItem",
           "source": "VBFA-POSNV",
           "target": "customer interface field: PrecedingDocumentItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SubsequentDocument",
           "source": "VBFA-VBELN",
           "target": "customer interface field: SubsequentDocument (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SubsequentDocumentItem",
           "source": "VBFA-POSNN",
           "target": "customer interface field: SubsequentDocumentItem (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SubsequentDocumentCategory",
           "source": "VBFA-VBTYP_N",
           "target": "customer interface field: SubsequentDocumentCategory (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PrecedingDocumentCategory",
           "source": "VBFA-VBTYP_V",
           "target": "customer interface field: PrecedingDocumentCategory (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ReferencedQuantity",
           "source": "VBFA-RFMNG",
           "target": "customer interface field: ReferencedQuantity (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "open-document",
@@ -613,155 +545,133 @@
           "element": "SalesDocument",
           "source": "VBPA-VBELN",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SalesDocumentItem",
           "source": "VBPA-POSNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "VBPA-PARVW",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADRC-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "AddressValidFrom",
           "source": "ADRC-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressVersion",
           "source": "ADRC-NATION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressValidTo",
           "source": "ADRC-DATE_TO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName1",
           "source": "ADRC-NAME1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName2",
           "source": "ADRC-NAME2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName3",
           "source": "ADRC-NAME3",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName4",
           "source": "ADRC-NAME4",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressStreet",
           "source": "ADRC-STREET",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumber",
           "source": "ADRC-HOUSE_NUM1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumberSupplement",
           "source": "ADRC-HOUSE_NUM2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCity",
           "source": "ADRC-CITY1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressDistrict",
           "source": "ADRC-CITY2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPostalCode",
           "source": "ADRC-POST_CODE1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBox",
           "source": "ADRC-PO_BOX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBoxPostalCode",
           "source": "ADRC-POST_CODE2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCountry",
           "source": "ADRC-COUNTRY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressRegion",
           "source": "ADRC-REGION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressLanguage",
           "source": "ADRC-LANGU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -782,29 +692,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -815,30 +721,13 @@
   "gaps": [
     "Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZSDT_I_SalesOrderCount",
+  "main_structure": "ZSDX_C_SalesOrderMig",
+  "source_control": {
+    "source_count_view": "ZSDX_C_SalesOrderMigCount",
     "dimensions": [
       {
         "element": "SalesDocument"
       }
-    ],
-    "source_count_view": "ZSDX_C_SalesOrderMigCount",
-    "compare": {
-      "source_view": "ZSDX_C_SalesOrderMig",
-      "target_view": "ZSDT_B_SalesOrderCompare",
-      "key": [
-        "SalesDocument"
-      ],
-      "fields": [
-        "SalesDocumentType",
-        "SalesOrganization",
-        "DistributionChannel",
-        "Division",
-        "SoldToParty",
-        "TransactionCurrency"
-      ]
-    }
-  },
-  "main_structure": "ZSDX_C_SalesOrderMig"
+    ]
+  }
 }

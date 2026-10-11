@@ -1,7 +1,7 @@
 {
   "name": "profit_center",
   "title": "Profit centers",
-  "description": "Profit centers source records, preparation and comparison contracts.",
+  "description": "Profit centers source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

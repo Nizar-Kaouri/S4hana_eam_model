@@ -52,428 +52,367 @@
           "element": "Ledger",
           "source": "COSP-LEDNR",
           "target": "customer interface field: Ledger (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectNumber",
           "source": "COSP-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "FiscalYear",
           "source": "COSP-GJAHR",
           "target": "customer interface field: FiscalYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValueType",
           "source": "COSP-WRTTP",
           "target": "customer interface field: ValueType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PlanVersion",
           "source": "COSP-VERSN",
           "target": "customer interface field: PlanVersion (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CostElement",
           "source": "COSP-KSTAR",
           "target": "customer interface field: CostElement (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OriginGroup",
           "source": "COSP-HRKFT",
           "target": "customer interface field: OriginGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BusinessTransaction",
           "source": "COSP-VRGNG",
           "target": "customer interface field: BusinessTransaction (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TradingPartner",
           "source": "COSP-VBUND",
           "target": "customer interface field: TradingPartner (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PartnerBusinessArea",
           "source": "COSP-PARGB",
           "target": "customer interface field: PartnerBusinessArea (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DebitCreditCode",
           "source": "COSP-BEKNZ",
           "target": "customer interface field: DebitCreditCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PeriodBlock",
           "source": "COSP-PERBL",
           "target": "customer interface field: PeriodBlock (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionCurrency",
           "source": "COSP-TWAER",
           "target": "customer interface field: TransactionCurrency (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount01",
           "source": "COSP-WKG001",
           "target": "customer interface field: ControllingAmount01 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount01",
           "source": "COSP-WOG001",
           "target": "customer interface field: ObjectAmount01 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount01",
           "source": "COSP-WTG001",
           "target": "customer interface field: TransactionAmount01 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount02",
           "source": "COSP-WKG002",
           "target": "customer interface field: ControllingAmount02 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount02",
           "source": "COSP-WOG002",
           "target": "customer interface field: ObjectAmount02 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount02",
           "source": "COSP-WTG002",
           "target": "customer interface field: TransactionAmount02 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount03",
           "source": "COSP-WKG003",
           "target": "customer interface field: ControllingAmount03 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount03",
           "source": "COSP-WOG003",
           "target": "customer interface field: ObjectAmount03 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount03",
           "source": "COSP-WTG003",
           "target": "customer interface field: TransactionAmount03 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount04",
           "source": "COSP-WKG004",
           "target": "customer interface field: ControllingAmount04 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount04",
           "source": "COSP-WOG004",
           "target": "customer interface field: ObjectAmount04 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount04",
           "source": "COSP-WTG004",
           "target": "customer interface field: TransactionAmount04 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount05",
           "source": "COSP-WKG005",
           "target": "customer interface field: ControllingAmount05 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount05",
           "source": "COSP-WOG005",
           "target": "customer interface field: ObjectAmount05 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount05",
           "source": "COSP-WTG005",
           "target": "customer interface field: TransactionAmount05 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount06",
           "source": "COSP-WKG006",
           "target": "customer interface field: ControllingAmount06 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount06",
           "source": "COSP-WOG006",
           "target": "customer interface field: ObjectAmount06 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount06",
           "source": "COSP-WTG006",
           "target": "customer interface field: TransactionAmount06 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount07",
           "source": "COSP-WKG007",
           "target": "customer interface field: ControllingAmount07 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount07",
           "source": "COSP-WOG007",
           "target": "customer interface field: ObjectAmount07 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount07",
           "source": "COSP-WTG007",
           "target": "customer interface field: TransactionAmount07 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount08",
           "source": "COSP-WKG008",
           "target": "customer interface field: ControllingAmount08 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount08",
           "source": "COSP-WOG008",
           "target": "customer interface field: ObjectAmount08 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount08",
           "source": "COSP-WTG008",
           "target": "customer interface field: TransactionAmount08 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount09",
           "source": "COSP-WKG009",
           "target": "customer interface field: ControllingAmount09 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount09",
           "source": "COSP-WOG009",
           "target": "customer interface field: ObjectAmount09 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount09",
           "source": "COSP-WTG009",
           "target": "customer interface field: TransactionAmount09 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount10",
           "source": "COSP-WKG010",
           "target": "customer interface field: ControllingAmount10 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount10",
           "source": "COSP-WOG010",
           "target": "customer interface field: ObjectAmount10 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount10",
           "source": "COSP-WTG010",
           "target": "customer interface field: TransactionAmount10 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount11",
           "source": "COSP-WKG011",
           "target": "customer interface field: ControllingAmount11 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount11",
           "source": "COSP-WOG011",
           "target": "customer interface field: ObjectAmount11 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount11",
           "source": "COSP-WTG011",
           "target": "customer interface field: TransactionAmount11 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount12",
           "source": "COSP-WKG012",
           "target": "customer interface field: ControllingAmount12 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount12",
           "source": "COSP-WOG012",
           "target": "customer interface field: ObjectAmount12 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount12",
           "source": "COSP-WTG012",
           "target": "customer interface field: TransactionAmount12 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount13",
           "source": "COSP-WKG013",
           "target": "customer interface field: ControllingAmount13 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount13",
           "source": "COSP-WOG013",
           "target": "customer interface field: ObjectAmount13 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount13",
           "source": "COSP-WTG013",
           "target": "customer interface field: TransactionAmount13 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount14",
           "source": "COSP-WKG014",
           "target": "customer interface field: ControllingAmount14 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount14",
           "source": "COSP-WOG014",
           "target": "customer interface field: ObjectAmount14 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount14",
           "source": "COSP-WTG014",
           "target": "customer interface field: TransactionAmount14 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount15",
           "source": "COSP-WKG015",
           "target": "customer interface field: ControllingAmount15 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount15",
           "source": "COSP-WOG015",
           "target": "customer interface field: ObjectAmount15 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount15",
           "source": "COSP-WTG015",
           "target": "customer interface field: TransactionAmount15 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount16",
           "source": "COSP-WKG016",
           "target": "customer interface field: ControllingAmount16 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount16",
           "source": "COSP-WOG016",
           "target": "customer interface field: ObjectAmount16 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount16",
           "source": "COSP-WTG016",
           "target": "customer interface field: TransactionAmount16 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "planning-reference",
@@ -502,428 +441,367 @@
           "element": "Ledger",
           "source": "COSS-LEDNR",
           "target": "customer interface field: Ledger (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectNumber",
           "source": "COSS-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "FiscalYear",
           "source": "COSS-GJAHR",
           "target": "customer interface field: FiscalYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValueType",
           "source": "COSS-WRTTP",
           "target": "customer interface field: ValueType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PlanVersion",
           "source": "COSS-VERSN",
           "target": "customer interface field: PlanVersion (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CostElement",
           "source": "COSS-KSTAR",
           "target": "customer interface field: CostElement (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OriginGroup",
           "source": "COSS-HRKFT",
           "target": "customer interface field: OriginGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BusinessTransaction",
           "source": "COSS-VRGNG",
           "target": "customer interface field: BusinessTransaction (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TradingPartner",
           "source": "COSS-VBUND",
           "target": "customer interface field: TradingPartner (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PartnerBusinessArea",
           "source": "COSS-PARGB",
           "target": "customer interface field: PartnerBusinessArea (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DebitCreditCode",
           "source": "COSS-BEKNZ",
           "target": "customer interface field: DebitCreditCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PeriodBlock",
           "source": "COSS-PERBL",
           "target": "customer interface field: PeriodBlock (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionCurrency",
           "source": "COSS-TWAER",
           "target": "customer interface field: TransactionCurrency (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount01",
           "source": "COSS-WKG001",
           "target": "customer interface field: ControllingAmount01 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount01",
           "source": "COSS-WOG001",
           "target": "customer interface field: ObjectAmount01 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount01",
           "source": "COSS-WTG001",
           "target": "customer interface field: TransactionAmount01 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount02",
           "source": "COSS-WKG002",
           "target": "customer interface field: ControllingAmount02 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount02",
           "source": "COSS-WOG002",
           "target": "customer interface field: ObjectAmount02 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount02",
           "source": "COSS-WTG002",
           "target": "customer interface field: TransactionAmount02 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount03",
           "source": "COSS-WKG003",
           "target": "customer interface field: ControllingAmount03 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount03",
           "source": "COSS-WOG003",
           "target": "customer interface field: ObjectAmount03 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount03",
           "source": "COSS-WTG003",
           "target": "customer interface field: TransactionAmount03 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount04",
           "source": "COSS-WKG004",
           "target": "customer interface field: ControllingAmount04 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount04",
           "source": "COSS-WOG004",
           "target": "customer interface field: ObjectAmount04 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount04",
           "source": "COSS-WTG004",
           "target": "customer interface field: TransactionAmount04 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount05",
           "source": "COSS-WKG005",
           "target": "customer interface field: ControllingAmount05 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount05",
           "source": "COSS-WOG005",
           "target": "customer interface field: ObjectAmount05 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount05",
           "source": "COSS-WTG005",
           "target": "customer interface field: TransactionAmount05 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount06",
           "source": "COSS-WKG006",
           "target": "customer interface field: ControllingAmount06 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount06",
           "source": "COSS-WOG006",
           "target": "customer interface field: ObjectAmount06 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount06",
           "source": "COSS-WTG006",
           "target": "customer interface field: TransactionAmount06 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount07",
           "source": "COSS-WKG007",
           "target": "customer interface field: ControllingAmount07 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount07",
           "source": "COSS-WOG007",
           "target": "customer interface field: ObjectAmount07 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount07",
           "source": "COSS-WTG007",
           "target": "customer interface field: TransactionAmount07 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount08",
           "source": "COSS-WKG008",
           "target": "customer interface field: ControllingAmount08 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount08",
           "source": "COSS-WOG008",
           "target": "customer interface field: ObjectAmount08 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount08",
           "source": "COSS-WTG008",
           "target": "customer interface field: TransactionAmount08 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount09",
           "source": "COSS-WKG009",
           "target": "customer interface field: ControllingAmount09 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount09",
           "source": "COSS-WOG009",
           "target": "customer interface field: ObjectAmount09 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount09",
           "source": "COSS-WTG009",
           "target": "customer interface field: TransactionAmount09 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount10",
           "source": "COSS-WKG010",
           "target": "customer interface field: ControllingAmount10 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount10",
           "source": "COSS-WOG010",
           "target": "customer interface field: ObjectAmount10 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount10",
           "source": "COSS-WTG010",
           "target": "customer interface field: TransactionAmount10 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount11",
           "source": "COSS-WKG011",
           "target": "customer interface field: ControllingAmount11 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount11",
           "source": "COSS-WOG011",
           "target": "customer interface field: ObjectAmount11 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount11",
           "source": "COSS-WTG011",
           "target": "customer interface field: TransactionAmount11 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount12",
           "source": "COSS-WKG012",
           "target": "customer interface field: ControllingAmount12 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount12",
           "source": "COSS-WOG012",
           "target": "customer interface field: ObjectAmount12 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount12",
           "source": "COSS-WTG012",
           "target": "customer interface field: TransactionAmount12 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount13",
           "source": "COSS-WKG013",
           "target": "customer interface field: ControllingAmount13 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount13",
           "source": "COSS-WOG013",
           "target": "customer interface field: ObjectAmount13 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount13",
           "source": "COSS-WTG013",
           "target": "customer interface field: TransactionAmount13 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount14",
           "source": "COSS-WKG014",
           "target": "customer interface field: ControllingAmount14 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount14",
           "source": "COSS-WOG014",
           "target": "customer interface field: ObjectAmount14 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount14",
           "source": "COSS-WTG014",
           "target": "customer interface field: TransactionAmount14 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount15",
           "source": "COSS-WKG015",
           "target": "customer interface field: ControllingAmount15 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount15",
           "source": "COSS-WOG015",
           "target": "customer interface field: ObjectAmount15 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount15",
           "source": "COSS-WTG015",
           "target": "customer interface field: TransactionAmount15 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingAmount16",
           "source": "COSS-WKG016",
           "target": "customer interface field: ControllingAmount16 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectAmount16",
           "source": "COSS-WOG016",
           "target": "customer interface field: ObjectAmount16 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TransactionAmount16",
           "source": "COSS-WTG016",
           "target": "customer interface field: TransactionAmount16 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "planning-reference",
@@ -935,15 +813,13 @@
     "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope.",
     "COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01\u201316, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZCOX_C_PrimaryPlanMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_PrimaryPlanMigCount",
     "dimensions": [
       {
         "element": "Ledger"
       }
-    ],
-    "source_count_view": "ZCOX_C_PrimaryPlanMigCount"
-  },
-  "main_structure": "ZCOX_C_PrimaryPlanMig"
+    ]
+  }
 }

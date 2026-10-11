@@ -1,7 +1,7 @@
 {
   "name": "internal_order",
   "title": "Internal orders",
-  "description": "Internal orders source records, preparation and comparison contracts.",
+  "description": "Internal orders source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

@@ -26,43 +26,37 @@
           "element": "QualityNotification",
           "source": "QMEL-QMNUM",
           "target": "customer interface field: QualityNotification (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "NotificationType",
           "source": "QMEL-QMART",
           "target": "customer interface field: NotificationType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "NotificationText",
           "source": "QMEL-QMTXT",
           "target": "customer interface field: NotificationText (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Material",
           "source": "QMEL-MATNR",
           "target": "customer interface field: Material (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "QMEL-WERK",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectNumber",
           "source": "QMEL-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -81,36 +75,31 @@
           "element": "QualityNotification",
           "source": "QMFE-QMNUM",
           "target": "customer interface field: QualityNotification (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "NotificationItem",
           "source": "QMFE-FENUM",
           "target": "customer interface field: NotificationItem (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DefectCodeGroup",
           "source": "QMFE-FEGRP",
           "target": "customer interface field: DefectCodeGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DefectCode",
           "source": "QMFE-FECOD",
           "target": "customer interface field: DefectCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DefectText",
           "source": "QMFE-FETXT",
           "target": "customer interface field: DefectText (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -130,43 +119,37 @@
           "element": "QualityNotification",
           "source": "QMUR-QMNUM",
           "target": "customer interface field: QualityNotification (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "NotificationItem",
           "source": "QMUR-FENUM",
           "target": "customer interface field: NotificationItem (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CauseNumber",
           "source": "QMUR-URNUM",
           "target": "customer interface field: CauseNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CauseCodeGroup",
           "source": "QMUR-URGRP",
           "target": "customer interface field: CauseCodeGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CauseCode",
           "source": "QMUR-URCOD",
           "target": "customer interface field: CauseCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CauseText",
           "source": "QMUR-URTXT",
           "target": "customer interface field: CauseText (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -185,36 +168,31 @@
           "element": "QualityNotification",
           "source": "QMSM-QMNUM",
           "target": "customer interface field: QualityNotification (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskNumber",
           "source": "QMSM-MANUM",
           "target": "customer interface field: TaskNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskCodeGroup",
           "source": "QMSM-MNGRP",
           "target": "customer interface field: TaskCodeGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskCode",
           "source": "QMSM-MNCOD",
           "target": "customer interface field: TaskCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskText",
           "source": "QMSM-MATXT",
           "target": "customer interface field: TaskText (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -233,36 +211,31 @@
           "element": "QualityNotification",
           "source": "QMMA-QMNUM",
           "target": "customer interface field: QualityNotification (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActivityNumber",
           "source": "QMMA-MANUM",
           "target": "customer interface field: ActivityNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActivityCodeGroup",
           "source": "QMMA-MNGRP",
           "target": "customer interface field: ActivityCodeGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActivityCode",
           "source": "QMMA-MNCOD",
           "target": "customer interface field: ActivityCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActivityText",
           "source": "QMMA-MATXT",
           "target": "customer interface field: ActivityText (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -281,43 +254,37 @@
           "element": "QualityNotification",
           "source": "QMEL-QMNUM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -337,29 +304,25 @@
           "element": "QualityNotification",
           "source": "QMEL-QMNUM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -378,43 +341,37 @@
           "element": "QualityNotification",
           "source": "QMEL-QMNUM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -435,29 +392,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -475,27 +428,13 @@
   "gaps": [
     "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZQMT_I_QualityNotificCount",
+  "main_structure": "ZQMX_C_QualityNotificMig",
+  "source_control": {
+    "source_count_view": "ZQMX_C_QualityNotificMigCount",
     "dimensions": [
       {
         "element": "QualityNotification"
       }
-    ],
-    "source_count_view": "ZQMX_C_QualityNotificMigCount",
-    "compare": {
-      "source_view": "ZQMX_C_QualityNotificMig",
-      "target_view": "ZQMT_B_QualityNotificCompare",
-      "key": [
-        "QualityNotification"
-      ],
-      "fields": [
-        "NotificationType",
-        "NotificationText",
-        "Material"
-      ]
-    }
-  },
-  "main_structure": "ZQMX_C_QualityNotificMig"
+    ]
+  }
 }

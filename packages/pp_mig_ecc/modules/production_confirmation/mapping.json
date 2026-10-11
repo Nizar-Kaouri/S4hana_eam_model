@@ -31,78 +31,67 @@
           "element": "ConfirmationNumber",
           "source": "AFRU-RUECK",
           "target": "customer interface field: ConfirmationNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ConfirmationCounter",
           "source": "AFRU-RMZHL",
           "target": "customer interface field: ConfirmationCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ManufacturingOrder",
           "source": "AFRU-AUFNR",
           "target": "customer interface field: ManufacturingOrder (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Operation",
           "source": "AFRU-VORNR",
           "target": "customer interface field: Operation (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PostingDate",
           "source": "AFRU-BUDAT",
           "target": "customer interface field: PostingDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "FinalConfirmation",
           "source": "AFRU-AUERU",
           "target": "customer interface field: FinalConfirmation (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ReversalFlag",
           "source": "AFRU-STOKZ",
           "target": "customer interface field: ReversalFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ReversalCounter",
           "source": "AFRU-STZHL",
           "target": "customer interface field: ReversalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "YieldQuantity",
           "source": "AFRU-LMNGA",
           "target": "customer interface field: YieldQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ScrapQuantity",
           "source": "AFRU-XMNGA",
           "target": "customer interface field: ScrapQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ConfirmationUnit",
           "source": "AFRU-GMEIN",
           "target": "customer interface field: ConfirmationUnit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -114,15 +103,13 @@
     "BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data.",
     "Preserve confirmation/counter identity and reversal relationships; do not delete reversals and assume the remaining history is net yield. Target order/operation mapping and posting periods must be approved. Reposting confirmations can trigger backflush, goods movements, activity allocations and accounting; confirmation history is reference-only unless a supported process migration explicitly authorizes those effects."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZPPX_C_ConfirmationMig",
+  "source_control": {
+    "source_count_view": "ZPPX_C_ConfirmationMigCount",
     "dimensions": [
       {
         "element": "ConfirmationNumber"
       }
-    ],
-    "source_count_view": "ZPPX_C_ConfirmationMigCount"
-  },
-  "main_structure": "ZPPX_C_ConfirmationMig"
+    ]
+  }
 }

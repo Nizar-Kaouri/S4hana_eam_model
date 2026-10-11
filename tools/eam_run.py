@@ -9,7 +9,7 @@ import tempfile
 from pathlib import Path
 
 from eam_prepare import aliases, closure, cohort, document_item_scope, identity, join, linked_scope, parent_scope, snapshot, text_scope, unique, write_csv
-from mig_reconcile import CsvRows, InputError, read_csv, require
+from migration_csv import CsvRows, InputError, read_csv, require
 
 
 def run(project_path, output_path):

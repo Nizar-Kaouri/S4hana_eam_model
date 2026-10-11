@@ -1,7 +1,7 @@
 {
   "name": "routing",
   "title": "Routing reference",
-  "description": "Routing reference source records, preparation and comparison contracts.",
+  "description": "Routing reference source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

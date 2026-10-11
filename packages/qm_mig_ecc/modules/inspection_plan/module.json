@@ -1,7 +1,7 @@
 {
   "name": "inspection_plan",
   "title": "Inspection plan reference",
-  "description": "Inspection plan reference source records, preparation and comparison contracts.",
+  "description": "Inspection plan reference source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

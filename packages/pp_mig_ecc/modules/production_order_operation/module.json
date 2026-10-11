@@ -1,7 +1,7 @@
 {
   "name": "production_order_operation",
   "title": "Production order operations",
-  "description": "Production order operations source records, preparation and comparison contracts.",
+  "description": "Production order operations source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

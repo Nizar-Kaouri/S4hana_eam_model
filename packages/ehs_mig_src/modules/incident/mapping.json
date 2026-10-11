@@ -11,7 +11,7 @@
       "IncidentUUID"
     ],
     "numbering": "keep",
-    "note": "Map regenerated target UUIDs before comparing; current client is implicit."
+    "note": "Map regenerated target UUIDs during loading; current client is implicit."
   },
   "structures": [
     {
@@ -26,43 +26,37 @@
           "element": "IncidentUUID",
           "source": "EHHSSD_INC_ROOT-DB_KEY",
           "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "IncidentID",
           "source": "EHHSSD_INC_ROOT-ID",
           "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "IncidentCategory",
           "source": "EHHSSD_INC_ROOT-CATEGORY",
           "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentCategory",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "IncidentStatus",
           "source": "EHHSSD_INC_ROOT-STATUS",
           "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentStatus",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ReportingRequired",
           "source": "EHHSSD_INC_ROOT-REPORT_REQ_TS",
           "target": "Native target evidence: ZEHT_B_IncidentCompare.ReportingRequired",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Fatality",
           "source": "EHHSSD_INC_ROOT-FATALITY_TS",
           "target": "Native target evidence: ZEHT_B_IncidentCompare.Fatality",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -80,120 +74,103 @@
           "element": "ActionUUID",
           "source": "EHHSSD_IAC_ROOT-DB_KEY",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActionID",
           "source": "EHHSSD_IAC_ROOT-ID",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActionCategory",
           "source": "EHHSSD_IAC_ROOT-CATEGORY",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionCategory",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActionStatus",
           "source": "EHHSSD_IAC_ROOT-STATUS",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionStatus",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActionType",
           "source": "EHHSSD_IAC_ROOT-TYPE",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionType",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Priority",
           "source": "EHHSSD_IAC_ROOT-PRIORITY",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Priority",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ProtectionGoal",
           "source": "EHHSSD_IAC_ROOT-PROT_GOAL",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ProtectionGoal",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Effectiveness",
           "source": "EHHSSD_IAC_ROOT-EFFECTIV",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Effectiveness",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DueTimestamp",
           "source": "EHHSSD_IAC_ROOT-DUE_TIMESTAMP",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.DueTimestamp",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DueTimeZone",
           "source": "EHHSSD_IAC_ROOT-DUE_TI_ZO",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.DueTimeZone",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ResponsiblePerson",
           "source": "EHHSSD_IAC_ROOT-RESP_ID",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ResponsiblePerson",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Implementer",
           "source": "EHHSSD_IAC_ROOT-IMPLEM_ID",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Implementer",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Approver",
           "source": "EHHSSD_IAC_ROOT-APPR_ID",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Approver",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ImplementedAt",
           "source": "EHHSSD_IAC_ROOT-IMPL_TIMESTAMP",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ImplementedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ImplementationTimeZone",
           "source": "EHHSSD_IAC_ROOT-IMPL_TI_ZO",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ImplementationTimeZone",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ApprovedAt",
           "source": "EHHSSD_IAC_ROOT-APPR_TIMESTAMP",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ApprovedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ApprovalTimeZone",
           "source": "EHHSSD_IAC_ROOT-APPR_TI_ZO",
           "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ApprovalTimeZone",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -207,28 +184,12 @@
     "IncidentPerson: Person identity/name fields are resolved from HCM/business partners/users; roles come from a separate node. Native reference keys, role cardinality and person resolution remain pending.",
     "IncidentAction: Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "source_count_view": "ZEHX_C_IncidentMigCount",
-    "target_count_view": "ZEHT_I_IncidentCount",
-    "dimensions": [],
-    "compare": {
-      "source_view": "ZEHX_C_IncidentMig",
-      "target_view": "ZEHT_B_IncidentCompare",
-      "key": [
-        "IncidentUUID"
-      ],
-      "fields": [
-        "IncidentID",
-        "IncidentCategory",
-        "IncidentStatus",
-        "ReportingRequired",
-        "Fatality"
-      ]
-    }
-  },
   "main_structure": "ZEHX_C_IncidentMig",
   "pending_dependencies": [
     "ehs_location"
-  ]
+  ],
+  "source_control": {
+    "source_count_view": "ZEHX_C_IncidentMigCount",
+    "dimensions": []
+  }
 }

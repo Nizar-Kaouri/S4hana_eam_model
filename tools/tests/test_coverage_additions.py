@@ -8,7 +8,7 @@ import zipfile
 from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT/'tools'))
-from mig_reconcile import CsvRows, InputError
+from migration_csv import CsvRows, InputError
 from migration_ddic import check
 
 
@@ -77,17 +77,15 @@ class CoverageDeliveryTest(unittest.TestCase):
                 self.assertTrue(set(project['outputs']) <= available)
                 self.assertTrue(any(s['operation'] == 'parent_scope' for s in project['steps']))
 
-    def test_additions_have_empty_scope_and_target_contracts(self):
+    def test_additions_have_empty_scope(self):
         additions = json.loads((ROOT/'tools/coverage_additions.json').read_text(encoding='utf-8'))
         self.assertEqual(sum(len(d['modules']) for d in additions.values()), 15)
         for code, domain in additions.items():
             base = ROOT/'packages'/f'{code}_mig_ecc'
-            adapters = json.loads((base/'customer/target-adapters.json').read_text(encoding='utf-8'))
             for module in domain['modules']:
                 mapping = json.loads((base/'modules'/module['name']/'mapping.json').read_text(encoding='utf-8'))
                 for structure in mapping['structures']:
                     name = structure['consumption_view']
-                    self.assertEqual(adapters[name]['key'], structure['keys'])
                     self.assertEqual(len((base/'customer/selection'/f'{name}.csv').read_text(encoding='utf-8-sig').splitlines()), 1)
                     self.assertIn(module['boundary'], structure['preprocessing'])
 

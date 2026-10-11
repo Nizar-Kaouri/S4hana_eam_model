@@ -34,120 +34,103 @@
           "element": "MaintenancePlan",
           "source": "MPLA-WARPL",
           "target": "MPLA-WARPL",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanDesc",
           "source": "MPLA-WPTXT",
           "target": "MPLA-WPTXT",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanCategory",
           "source": "MPLA-MPTYP",
           "target": "MPLA-MPTYP",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenanceStrategy",
           "source": "MPLA-STRAT",
           "target": "MPLA-STRAT",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AuthorizationGroup",
           "source": "MPLA-BEGRU",
           "target": "MPLA-BEGRU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SchedulingPeriod",
           "source": "MPLA-ABRHO",
           "target": "MPLA-ABRHO",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SchedulingPeriodUnit",
           "source": "MPLA-HUNIT",
           "target": "MPLA-HUNIT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CallHorizonPercent",
           "source": "MPLA-HORIZ",
           "target": "MPLA-HORIZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CycleModificationFactor",
           "source": "MPLA-SFAKT",
           "target": "MPLA-SFAKT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SchedulingIndicator",
           "source": "MPLA-STICH",
           "target": "MPLA-STICH",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LateCompletionShiftFactor",
           "source": "MPLA-VSPOS",
           "target": "MPLA-VSPOS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LateCompletionTolerance",
           "source": "MPLA-TOPOS",
           "target": "MPLA-TOPOS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EarlyCompletionShiftFactor",
           "source": "MPLA-VSNEG",
           "target": "MPLA-VSNEG",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EarlyCompletionTolerance",
           "source": "MPLA-TONEG",
           "target": "MPLA-TONEG",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FactoryCalendar",
           "source": "MPLA-FABKL",
           "target": "MPLA-FABKL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LastCompletionDate",
           "source": "derived: max( cal.CompletionDate ) from MHIS-LRMDT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LastChangeDate",
           "source": "MPLA-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ]
     },
@@ -163,127 +146,109 @@
           "element": "MaintenanceItem",
           "source": "MPOS-WAPOS",
           "target": "MPOS-WAPOS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlan",
           "source": "MPOS-WARPL",
           "target": "MPOS-WARPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceItemDescription",
           "source": "MPOS-PSTXT",
           "target": "MPOS-PSTXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Equipment",
           "source": "MPOS-EQUNR",
           "target": "MPOS-EQUNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocation",
           "source": "MPOS-TPLNR",
           "target": "MPOS-TPLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanningPlant",
           "source": "MPOS-IWERK",
           "target": "MPOS-IWERK",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "MPOS-WPGRP",
           "target": "MPOS-WPGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceOrderType",
           "source": "MPOS-AUART",
           "target": "MPOS-AUART",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "NotificationType",
           "source": "MPOS-QMART",
           "target": "MPOS-QMART",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceActivityType",
           "source": "MPOS-ILART",
           "target": "MPOS-ILART",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintPriority",
           "source": "MPOS-PRIOK",
           "target": "MPOS-PRIOK",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListType",
           "source": "MPOS-PLNTY",
           "target": "MPOS-PLNTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroup",
           "source": "MPOS-PLNNR",
           "target": "MPOS-PLNNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "MPOS-PLNAL",
           "target": "MPOS-PLNAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BusinessArea",
           "source": "ILOA-GSBER",
           "target": "ILOA-GSBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LastChangeDate",
           "source": "MPOS-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ]
     },
@@ -300,43 +265,37 @@
           "element": "MaintenancePlan",
           "source": "MMPT-WARPL",
           "target": "MMPT-WARPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanCycle",
           "source": "MMPT-NUMMER",
           "target": "MMPT-NUMMER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CycleValue",
           "source": "MMPT-ZYKL1",
           "target": "MMPT-ZYKL1",
-          "rule": "convert:float_si_to_unit",
-          "compare": false
+          "rule": "convert:float_si_to_unit"
         },
         {
           "element": "CycleUnit",
           "source": "MMPT-ZEIEH",
           "target": "MMPT-ZEIEH",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CycleText",
           "source": "MMPT-PAK_TEXT",
           "target": "MMPT-PAK_TEXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MeasuringPoint",
           "source": "MMPT-POINT",
           "target": "MMPT-POINT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -355,29 +314,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -434,10 +389,12 @@
       "reason": "info"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: open calls (orders / notifications created by scheduling) must be completed or migrated as open orders before the plan is restarted, otherwise calls are duplicated"
+  ],
+  "main_structure": "ZEMX_C_MaintenancePlanMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_MaintPlanMigCount",
-    "target_count_view": "ZEMT_I_MaintPlanCount",
     "dimensions": [
       {
         "element": "MaintenancePlanCategory"
@@ -446,22 +403,6 @@
         "element": "MaintenanceStrategy"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_MaintenancePlanMig",
-      "target_view": "ZEMT_B_MaintPlanCompare",
-      "key": [
-        "MaintenancePlan"
-      ],
-      "fields": [
-        "MaintenancePlanDesc",
-        "MaintenancePlanCategory",
-        "MaintenanceStrategy"
-      ]
-    }
-  },
-  "gaps": [
-    "Compatibility note: open calls (orders / notifications created by scheduling) must be completed or migrated as open orders before the plan is restarted, otherwise calls are duplicated"
-  ],
-  "main_structure": "ZEMX_C_MaintenancePlanMig"
+    "measure": "RecordCount"
+  }
 }

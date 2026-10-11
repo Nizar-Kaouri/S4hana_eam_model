@@ -1,7 +1,7 @@
 {
   "name": "outbound_delivery",
   "title": "Outbound delivery reference",
-  "description": "Outbound delivery reference source records, preparation and comparison contracts.",
+  "description": "Outbound delivery reference source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

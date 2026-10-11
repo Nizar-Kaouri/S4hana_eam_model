@@ -17,11 +17,11 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `ChartOfAccounts` | CSKA-KTOPL | customer interface field: ChartOfAccounts (unconfirmed) | information only | yes |
-| `CostElement` | CSKA-KSTAR | customer interface field: CostElement (unconfirmed) | information only | yes |
-| `CreationDate` | CSKA-ERSDA | customer interface field: CreationDate (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `ChartOfAccounts` | CSKA-KTOPL | customer interface field: ChartOfAccounts (unconfirmed) | information only |
+| `CostElement` | CSKA-KSTAR | customer interface field: CostElement (unconfirmed) | information only |
+| `CreationDate` | CSKA-ERSDA | customer interface field: CreationDate (unconfirmed) | information only |
 
 ## `ZCOX_C_CostElementAreMig`
 
@@ -31,13 +31,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `ControllingArea` | CSKB-KOKRS | customer interface field: ControllingArea (unconfirmed) | information only | yes |
-| `CostElement` | CSKB-KSTAR | customer interface field: CostElement (unconfirmed) | information only | yes |
-| `ValidityEndDate` | CSKB-DATBI | customer interface field: ValidityEndDate (unconfirmed) | information only | yes |
-| `ValidityStartDate` | CSKB-DATAB | customer interface field: ValidityStartDate (unconfirmed) | information only | yes |
-| `CostElementCategory` | CSKB-KATYP | customer interface field: CostElementCategory (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `ControllingArea` | CSKB-KOKRS | customer interface field: ControllingArea (unconfirmed) | information only |
+| `CostElement` | CSKB-KSTAR | customer interface field: CostElement (unconfirmed) | information only |
+| `ValidityEndDate` | CSKB-DATBI | customer interface field: ValidityEndDate (unconfirmed) | information only |
+| `ValidityStartDate` | CSKB-DATAB | customer interface field: ValidityStartDate (unconfirmed) | information only |
+| `CostElementCategory` | CSKB-KATYP | customer interface field: CostElementCategory (unconfirmed) | information only |
 
 ## `ZCOX_C_CostElementTextMig`
 
@@ -47,13 +47,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `Language` | CSKU-SPRAS | - | copy |  |
-| `ChartOfAccounts` | CSKU-KTOPL | - | copy |  |
-| `CostElement` | CSKU-KSTAR | - | copy |  |
-| `CostElementName` | CSKU-KTEXT | - | copy |  |
-| `CostElementDescription` | CSKU-LTEXT | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `Language` | CSKU-SPRAS | - | copy |
+| `ChartOfAccounts` | CSKU-KTOPL | - | copy |
+| `CostElement` | CSKU-KSTAR | - | copy |
+| `CostElementName` | CSKU-KTEXT | - | copy |
+| `CostElementDescription` | CSKU-LTEXT | - | copy |
 
 ## `ZCOX_C_CostElementLongTextMig`
 
@@ -63,20 +63,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | - | copy |  |
-| `TextName` | STXH-TDNAME | - | copy |  |
-| `TextID` | STXH-TDID | - | copy |  |
-| `Language` | STXH-TDSPRAS | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |
+| `TextName` | STXH-TDNAME | - | copy |
+| `TextID` | STXH-TDID | - | copy |
+| `Language` | STXH-TDSPRAS | - | copy |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZCOX_C_CostElementMigCount` (ECC) vs `-` (S/4HANA) per `ChartOfAccounts`
-
-```bash
-python3 tools/mig_reconcile.py counts --product co_mig_ecc --module cost_element --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZCOX_C_CostElementMigCount`
 
 ## Open gaps
 

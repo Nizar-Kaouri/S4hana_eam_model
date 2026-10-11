@@ -26,64 +26,55 @@
           "element": "InspectionLot",
           "source": "QALS-PRUEFLOS",
           "target": "customer interface field: InspectionLot (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "QALS-WERK",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Material",
           "source": "QALS-MATNR",
           "target": "customer interface field: Material (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Batch",
           "source": "QALS-CHARG",
           "target": "customer interface field: Batch (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InspectionType",
           "source": "QALS-ART",
           "target": "customer interface field: InspectionType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InspectionLotOrigin",
           "source": "QALS-HERKUNFT",
           "target": "customer interface field: InspectionLotOrigin (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InspectionLotQuantity",
           "source": "QALS-LOSMENGE",
           "target": "customer interface field: InspectionLotQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Unit",
           "source": "QALS-MENGENEINH",
           "target": "customer interface field: Unit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectNumber",
           "source": "QALS-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -103,43 +94,37 @@
           "element": "InspectionLot",
           "source": "QAVE-PRUEFLOS",
           "target": "customer interface field: InspectionLot (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "UsageDecisionType",
           "source": "QAVE-KZART",
           "target": "customer interface field: UsageDecisionType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "UsageDecisionCounter",
           "source": "QAVE-ZAEHLER",
           "target": "customer interface field: UsageDecisionCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "UsageDecisionCode",
           "source": "QAVE-VCODE",
           "target": "customer interface field: UsageDecisionCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "UsageDecisionCodeGroup",
           "source": "QAVE-VCODEGRP",
           "target": "customer interface field: UsageDecisionCodeGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "UsageDecisionDate",
           "source": "QAVE-VDATUM",
           "target": "customer interface field: UsageDecisionDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -158,43 +143,37 @@
           "element": "InspectionLot",
           "source": "QALS-PRUEFLOS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -213,43 +192,37 @@
           "element": "InspectionLot",
           "source": "QALS-PRUEFLOS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -267,29 +240,13 @@
   "gaps": [
     "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZQMT_I_InspectionLotCount",
+  "main_structure": "ZQMX_C_InspectionLotMig",
+  "source_control": {
+    "source_count_view": "ZQMX_C_InspectionLotMigCount",
     "dimensions": [
       {
         "element": "InspectionLot"
       }
-    ],
-    "source_count_view": "ZQMX_C_InspectionLotMigCount",
-    "compare": {
-      "source_view": "ZQMX_C_InspectionLotMig",
-      "target_view": "ZQMT_B_InspectionLotCompare",
-      "key": [
-        "InspectionLot"
-      ],
-      "fields": [
-        "Plant",
-        "Material",
-        "Batch",
-        "InspectionType",
-        "InspectionLotOrigin"
-      ]
-    }
-  },
-  "main_structure": "ZQMX_C_InspectionLotMig"
+    ]
+  }
 }

@@ -479,7 +479,7 @@
           ]
         }
       ],
-      "boundary": "Projects source records, preparation and comparison contracts."
+      "boundary": "Projects source records, source preparation contracts."
     },
     "project_cost": {
       "native_tables": [
@@ -509,7 +509,7 @@
           ]
         }
       ],
-      "boundary": "Project cost history source records, preparation and comparison contracts."
+      "boundary": "Project cost history source records, source preparation contracts."
     },
     "wbs_element": {
       "native_tables": [
@@ -651,7 +651,7 @@
           ]
         }
       ],
-      "boundary": "WBS elements source records, preparation and comparison contracts."
+      "boundary": "WBS elements source records, source preparation contracts."
     }
   }
 }

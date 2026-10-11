@@ -14,7 +14,7 @@
       "DocumentUUID"
     ],
     "numbering": "keep",
-    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
   },
   "structures": [
     {
@@ -29,36 +29,31 @@
           "element": "DocumentUUID",
           "source": "/SCMTMS/D_TORROT-DB_KEY",
           "target": "Native target evidence: ZTMT_B_FreightOrderCompare.DocumentUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DocumentID",
           "source": "/SCMTMS/D_TORROT-TOR_ID",
           "target": "Native target evidence: ZTMT_B_FreightOrderCompare.DocumentID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DocumentCategory",
           "source": "/SCMTMS/D_TORROT-TOR_CAT",
           "target": "Native target evidence: ZTMT_B_FreightOrderCompare.DocumentCategory",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DocumentType",
           "source": "/SCMTMS/D_TORROT-TOR_TYPE",
           "target": "Native target evidence: ZTMT_B_FreightOrderCompare.DocumentType",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "LifecycleStatus",
           "source": "/SCMTMS/D_TORROT-LIFECYCLE",
           "target": "Native target evidence: ZTMT_B_FreightOrderCompare.LifecycleStatus",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -76,36 +71,31 @@
           "element": "ItemUUID",
           "source": "/SCMTMS/D_TORITE-DB_KEY",
           "target": "Native target evidence: ZTMT_B_FreightOrdItemCompare.ItemUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DocumentUUID",
           "source": "/SCMTMS/D_TORITE-PARENT_KEY",
           "target": "Native target evidence: ZTMT_B_FreightOrdItemCompare.DocumentUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ItemID",
           "source": "/SCMTMS/D_TORITE-ITEM_ID",
           "target": "Native target evidence: ZTMT_B_FreightOrdItemCompare.ItemID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ItemCategory",
           "source": "/SCMTMS/D_TORITE-ITEM_CAT",
           "target": "Native target evidence: ZTMT_B_FreightOrdItemCompare.ItemCategory",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ItemType",
           "source": "/SCMTMS/D_TORITE-ITEM_TYPE",
           "target": "Native target evidence: ZTMT_B_FreightOrdItemCompare.ItemType",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -132,36 +122,31 @@
           "element": "StopUUID",
           "source": "/SCMTMS/D_TORSTP-DB_KEY",
           "target": "Native target evidence: ZTMT_B_FreightOrdStopCompare.StopUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DocumentUUID",
           "source": "/SCMTMS/D_TORSTP-PARENT_KEY",
           "target": "Native target evidence: ZTMT_B_FreightOrdStopCompare.DocumentUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StopID",
           "source": "/SCMTMS/D_TORSTP-STOP_ID",
           "target": "Native target evidence: ZTMT_B_FreightOrdStopCompare.StopID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StopCategory",
           "source": "/SCMTMS/D_TORSTP-STOP_CAT",
           "target": "Native target evidence: ZTMT_B_FreightOrdStopCompare.StopCategory",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "SequencePosition",
           "source": "/SCMTMS/D_TORSTP-STOP_SEQ_POS",
           "target": "Native target evidence: ZTMT_B_FreightOrdStopCompare.SequencePosition",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -185,27 +170,12 @@
     "FreightOrdStop: Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
     "FreightStage: STOP_SUCCESSOR existence documented. Exact predecessor/successor native fields, keys and stage interpretation unresolved; STOP_ID order is not a substitute."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "dimensions": [],
-    "source_count_view": "ZTMX_C_FreightOrderMigCount",
-    "target_count_view": "ZTMT_I_FreightOrderCount",
-    "compare": {
-      "source_view": "ZTMX_C_FreightOrderMig",
-      "target_view": "ZTMT_B_FreightOrderCompare",
-      "key": [
-        "DocumentUUID"
-      ],
-      "fields": [
-        "DocumentID",
-        "DocumentCategory",
-        "DocumentType",
-        "LifecycleStatus"
-      ]
-    }
-  },
   "main_structure": "ZTMX_C_FreightOrderMig",
   "pending_dependencies": [
     "transport_resource"
-  ]
+  ],
+  "source_control": {
+    "source_count_view": "ZTMX_C_FreightOrderMigCount",
+    "dimensions": []
+  }
 }

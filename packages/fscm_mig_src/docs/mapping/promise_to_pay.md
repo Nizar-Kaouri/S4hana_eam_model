@@ -5,7 +5,7 @@
 - **Read by:** Customer-selected supported business interface; native views are read-only
 - **Load after:** - (first level)
 - **Business key:** `CaseUUID` · numbering **keep**
-- **Key rule:** Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison.
+- **Key rule:** Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading.
 
 The consumption views deliver the values **exactly as stored in SAP source**. Changing values (new plants, new numbers, ...) is up to the load program.
 
@@ -17,29 +17,23 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 - Delivery mode: **process-reference**
 - Before posting: Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.
 
-| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `CaseUUID` | UDM_P2P_ATTR-CASE_GUID | Native target evidence: ZFCT_B_PaymentPromiseCompare.CaseUUID | information only | yes |
-| `CompanyCode` | UDM_P2P_ATTR-FIN_COMP_CODE | Native target evidence: ZFCT_B_PaymentPromiseCompare.CompanyCode | information only | yes |
-| `Customer` | UDM_P2P_ATTR-FIN_CUSTOMER | Native target evidence: ZFCT_B_PaymentPromiseCompare.Customer | information only | yes |
-| `Currency` | UDM_P2P_ATTR-FIN_P2P_CURR | Native target evidence: ZFCT_B_PaymentPromiseCompare.Currency | information only | yes |
-| `DueDate` | UDM_P2P_ATTR-FIN_P2P_DUE_DATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.DueDate | information only | yes |
-| `PromiseDate` | UDM_P2P_ATTR-FIN_P2P_DATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseDate | information only | yes |
-| `PromiseState` | UDM_P2P_ATTR-FIN_P2P_STATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseState | information only | yes |
-| `PromiseLevel` | UDM_P2P_ATTR-FIN_P2P_LEVEL | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseLevel | information only | yes |
-| `PromisedBy` | UDM_P2P_ATTR-FIN_PROMISED_BY | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedBy | information only | yes |
-| `PromisedAmount` | UDM_P2P_ATTR-FIN_PROMISED_AMT | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedAmount | information only | yes |
-| `PaidAmount` | UDM_P2P_ATTR-FIN_PAID_AMOUNT | Native target evidence: ZFCT_B_PaymentPromiseCompare.PaidAmount | information only | yes |
+| Element | Source (SAP source) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `CaseUUID` | UDM_P2P_ATTR-CASE_GUID | Native target evidence: ZFCT_B_PaymentPromiseCompare.CaseUUID | information only |
+| `CompanyCode` | UDM_P2P_ATTR-FIN_COMP_CODE | Native target evidence: ZFCT_B_PaymentPromiseCompare.CompanyCode | information only |
+| `Customer` | UDM_P2P_ATTR-FIN_CUSTOMER | Native target evidence: ZFCT_B_PaymentPromiseCompare.Customer | information only |
+| `Currency` | UDM_P2P_ATTR-FIN_P2P_CURR | Native target evidence: ZFCT_B_PaymentPromiseCompare.Currency | information only |
+| `DueDate` | UDM_P2P_ATTR-FIN_P2P_DUE_DATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.DueDate | information only |
+| `PromiseDate` | UDM_P2P_ATTR-FIN_P2P_DATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseDate | information only |
+| `PromiseState` | UDM_P2P_ATTR-FIN_P2P_STATE | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseState | information only |
+| `PromiseLevel` | UDM_P2P_ATTR-FIN_P2P_LEVEL | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseLevel | information only |
+| `PromisedBy` | UDM_P2P_ATTR-FIN_PROMISED_BY | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedBy | information only |
+| `PromisedAmount` | UDM_P2P_ATTR-FIN_PROMISED_AMT | Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedAmount | information only |
+| `PaidAmount` | UDM_P2P_ATTR-FIN_PAID_AMOUNT | Native target evidence: ZFCT_B_PaymentPromiseCompare.PaidAmount | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZFCX_C_PaymentPromiseMigCount` (SAP source) vs `ZFCT_I_PaymentPromiseCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZFCX_C_PaymentPromiseMig` vs `ZFCT_B_PaymentPromiseCompare` on `CaseUUID`; compared: `CompanyCode`, `Customer`, `Currency`, `DueDate`, `PromiseDate`, `PromiseState`, `PromiseLevel`, `PromisedBy`, `PromisedAmount`, `PaidAmount`
-
-```bash
-python3 tools/mig_reconcile.py counts --product fscm_mig_src --module promise_to_pay --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --product fscm_mig_src --module promise_to_pay --source ecc_extract.csv --target s4_compare.csv
-```
+- Source count view: `ZFCX_C_PaymentPromiseMigCount`
 
 ## Open gaps
 

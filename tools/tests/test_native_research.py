@@ -8,8 +8,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path[:0]=[str(ROOT),str(ROOT/'tools')]
 os.environ.setdefault('VDM_PRODUCT','eam')
 import build_package as bp
-from eam_prepare import compare_structure
-from mig_reconcile import CsvRows
+from migration_csv import CsvRows
 
 class NativeResearchTest(unittest.TestCase):
     def test_rewritten_freight_child_delivery_keeps_parent_filter_and_order(self):
@@ -30,19 +29,5 @@ class NativeResearchTest(unittest.TestCase):
                     self.assertNotIn('ZTMX_',text)
                 self.assertNotIn('tools/migration_stage.py',z.namelist())
 
-    def test_customer_compare_detects_changed_exposure_amount_and_currency(self):
-        p=ROOT/'packages/fscm_mig_src/modules/credit_exposure/mapping.json'
-        mapping=json.loads(p.read_text());view=mapping['main_structure'];st=mapping['structures'][0]
-        cols=[f['element'] for f in st['fields']]
-        row=dict(zip(cols,['0000123','0001','100','EUR','100.00','20.00']))
-        source=CsvRows([row],cols)
-        same=compare_structure(mapping,view,source,CsvRows([row],cols))
-        self.assertTrue(same[1])
-        changed=compare_structure(mapping,view,source,CsvRows([{**row,'ExposureAmount':'120.00'}],cols))
-        self.assertFalse(changed[1])
-        # Currency participates in the declared native grain, so a different currency
-        # must be an unmatched record rather than silently compared/consolidated.
-        other=compare_structure(mapping,view,source,CsvRows([{**row,'Currency':'USD'}],cols))
-        self.assertFalse(other[1])
 
 if __name__=='__main__':unittest.main()

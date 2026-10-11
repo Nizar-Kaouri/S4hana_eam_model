@@ -19,7 +19,6 @@
   "reserve_prefix_chars": 1,
   "kind": "migration-source",
   "system": "ecc",
-  "migration_pair": "sd_mig_s4",
   "map_title": "ZSDX Sales and Distribution Migration - ECC Source Map",
   "map_area": "Sales and Distribution migration source (ECC tables)",
   "map_initial": "ZSDX_B_SalesOrderData",

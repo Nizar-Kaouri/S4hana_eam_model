@@ -117,7 +117,7 @@
           ]
         }
       ],
-      "boundary": "Material bills of material source records, preparation and comparison contracts."
+      "boundary": "Material bills of material source records, source preparation contracts."
     },
     "production_confirmation": {
       "native_tables": [
@@ -261,7 +261,7 @@
           ]
         }
       ],
-      "boundary": "Production orders source records, preparation and comparison contracts."
+      "boundary": "Production orders source records, source preparation contracts."
     },
     "production_order_operation": {
       "native_tables": [
@@ -329,7 +329,7 @@
           ]
         }
       ],
-      "boundary": "Production order operations source records, preparation and comparison contracts."
+      "boundary": "Production order operations source records, source preparation contracts."
     },
     "production_version": {
       "native_tables": [
@@ -503,7 +503,7 @@
           ]
         }
       ],
-      "boundary": "Routing reference source records, preparation and comparison contracts."
+      "boundary": "Routing reference source records, source preparation contracts."
     }
   }
 }

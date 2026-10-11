@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
 from eam_prepare import parent_scope, document_item_scope
 from eam_run import run
-from mig_reconcile import CsvRows, InputError
+from migration_csv import CsvRows, InputError
 CODES=['eam','fi_aa','mm','qm','ps','pp','co','fi','sd']
 
 class ParentScopeTests(unittest.TestCase):
@@ -42,7 +42,7 @@ class ParentScopeTests(unittest.TestCase):
             example=ROOT/'packages'/f'{code}_mig_ecc'/'customer/examples/parent-scope/project.json'
             with self.subTest(pack=code),tempfile.TemporaryDirectory() as tmp:
                 run(example,Path(tmp)/'prepared')
-                from mig_reconcile import read_csv
+                from migration_csv import read_csv
                 self.assertEqual(len(read_csv(Path(tmp)/'prepared/SelectedParents.csv')),1)
                 children=read_csv(Path(tmp)/'prepared/ScopedChildren.csv')
                 self.assertEqual(len(children),2)

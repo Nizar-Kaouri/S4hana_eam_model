@@ -11,7 +11,7 @@
       "CaseUUID"
     ],
     "numbering": "keep",
-    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
   },
   "structures": [
     {
@@ -26,85 +26,73 @@
           "element": "CaseUUID",
           "source": "UDMCASEATTR00-CASE_GUID",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.CaseUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CompanyCode",
           "source": "UDMCASEATTR00-FIN_BUKRS",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.CompanyCode",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Customer",
           "source": "UDMCASEATTR00-FIN_KUNNR",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.Customer",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Coordinator",
           "source": "UDMCASEATTR00-FIN_COORDINATOR",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.Coordinator",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DisputeCurrency",
           "source": "UDMCASEATTR00-FIN_DISPUTE_CURR",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.DisputeCurrency",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DueDate",
           "source": "UDMCASEATTR00-FIN_DUE_DATE",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.DueDate",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "LogicalSystem",
           "source": "UDMCASEATTR00-FIN_LOG_SYSTEM",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.LogicalSystem",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OriginalAmount",
           "source": "UDMCASEATTR00-FIN_ORIGINAL_AMT",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.OriginalAmount",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DisputedAmount",
           "source": "UDMCASEATTR00-FIN_DISPUTED_AMT",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.DisputedAmount",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PaidAmount",
           "source": "UDMCASEATTR00-FIN_PAID_AMT",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.PaidAmount",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreditedAmount",
           "source": "UDMCASEATTR00-FIN_CREDITED_AMT",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.CreditedAmount",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "WrittenOffAmount",
           "source": "UDMCASEATTR00-FIN_WRT_OFF_AMT",
           "target": "Native target evidence: ZFCT_B_DisputeCaseCompare.WrittenOffAmount",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -122,99 +110,85 @@
           "element": "CaseUUID",
           "source": "SCMG_T_CASE_ATTR-CASE_GUID",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.CaseUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CaseType",
           "source": "SCMG_T_CASE_ATTR-CASE_TYPE",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.CaseType",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ExternalKey",
           "source": "SCMG_T_CASE_ATTR-EXT_KEY",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ExternalKey",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ExternalReference",
           "source": "SCMG_T_CASE_ATTR-EXT_REF",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ExternalReference",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreatedBy",
           "source": "SCMG_T_CASE_ATTR-CREATED_BY",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.CreatedBy",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreatedAt",
           "source": "SCMG_T_CASE_ATTR-CREATE_TIME",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.CreatedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ChangedBy",
           "source": "SCMG_T_CASE_ATTR-CHANGED_BY",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ChangedBy",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ChangedAt",
           "source": "SCMG_T_CASE_ATTR-CHANGE_TIME",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ChangedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Processor",
           "source": "SCMG_T_CASE_ATTR-PROCESSOR",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Processor",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Responsible",
           "source": "SCMG_T_CASE_ATTR-RESPONSIBLE",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Responsible",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Category",
           "source": "SCMG_T_CASE_ATTR-CATEGORY",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Category",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Priority",
           "source": "SCMG_T_CASE_ATTR-PRIORITY",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Priority",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Status",
           "source": "SCMG_T_CASE_ATTR-STAT_PARA",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.Status",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ReasonCode",
           "source": "SCMG_T_CASE_ATTR-REASON_CODE",
           "target": "Native target evidence: ZFCT_B_CaseAttributeCompare.ReasonCode",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -229,32 +203,10 @@
     "CaseAttribute: One wide native record per case UUID; not synthetic attribute-name/value rows. Includes general cases, not only disputes; approve case-type scope.",
     "CaseAttachment: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "dimensions": [],
-    "source_count_view": "ZFCX_C_DisputeCaseMigCount",
-    "target_count_view": "ZFCT_I_DisputeCaseCount",
-    "compare": {
-      "source_view": "ZFCX_C_DisputeCaseMig",
-      "target_view": "ZFCT_B_DisputeCaseCompare",
-      "key": [
-        "CaseUUID"
-      ],
-      "fields": [
-        "CompanyCode",
-        "Customer",
-        "Coordinator",
-        "DisputeCurrency",
-        "DueDate",
-        "LogicalSystem",
-        "OriginalAmount",
-        "DisputedAmount",
-        "PaidAmount",
-        "CreditedAmount",
-        "WrittenOffAmount"
-      ]
-    }
-  },
   "main_structure": "ZFCX_C_DisputeCaseMig",
-  "pending_dependencies": []
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZFCX_C_DisputeCaseMigCount",
+    "dimensions": []
+  }
 }

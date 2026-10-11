@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'));sys.path.insert(0,str(ROOT));os.environ.setdefault('VDM_PRODUCT','eam')
 import migration_stage as ms
 import build_package as bp
-from mig_reconcile import CsvRows,InputError,read_csv
+from migration_csv import CsvRows,InputError,read_csv
 
 
 class StageTest(unittest.TestCase):
@@ -69,17 +69,6 @@ class NativeDeliveryTest(unittest.TestCase):
                 pending=[c for c in coverage if c['module']=='warehouse_stock']
                 self.assertTrue(pending);self.assertTrue(all(c['status']=='PENDING' for c in pending))
 
-    def test_target_subset_reads_native_credit_table_without_write_helpers(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            archive,_=bp.build(['credit_segment'],root=ROOT/'packages/fscm_mig_s4',out=Path(tmp)/'credit.zip')
-            with zipfile.ZipFile(archive) as z:
-                contracts=json.loads(z.read('customer/target-adapters.json'))
-                self.assertEqual(len(contracts),1)
-                self.assertEqual(next(iter(contracts.values()))['native_table'],'UKMBP_CMS_SGM')
-                self.assertFalse(any('stage_load' in n or n.endswith('.tabl.xml') for n in z.namelist()))
-                ddls='\n'.join(z.read(n).decode() for n in z.namelist() if n.endswith('.asddls'))
-                self.assertIn('ukmbp_cms_sgm as src',ddls)
-                self.assertNotIn('SourceSystem',ddls)
 
 
 if __name__=='__main__':unittest.main()

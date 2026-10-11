@@ -30,57 +30,49 @@
           "element": "OperationRoutingNumber",
           "source": "AFVC-AUFPL",
           "target": "customer interface field: OperationRoutingNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationInternalID",
           "source": "AFVC-APLZL",
           "target": "customer interface field: OperationInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Operation",
           "source": "AFVC-VORNR",
           "target": "customer interface field: Operation (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationText",
           "source": "AFVC-LTXA1",
           "target": "customer interface field: OperationText (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "WorkCenterInternalID",
           "source": "AFVC-ARBID",
           "target": "customer interface field: WorkCenterInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "AFVC-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControlKey",
           "source": "AFVC-STEUS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SubOperation",
           "source": "AFVC-UVORN",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "process-reference",
@@ -99,43 +91,37 @@
           "element": "OperationRoutingNumber",
           "source": "AFVV-AUFPL",
           "target": "customer interface field: OperationRoutingNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationInternalID",
           "source": "AFVV-APLZL",
           "target": "customer interface field: OperationInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationQuantity",
           "source": "AFVV-MGVRG",
           "target": "customer interface field: OperationQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Unit",
           "source": "AFVV-MEINH",
           "target": "customer interface field: Unit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StandardValue1",
           "source": "AFVV-VGW01",
           "target": "customer interface field: StandardValue1 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StandardValueUnit1",
           "source": "AFVV-VGE01",
           "target": "customer interface field: StandardValueUnit1 (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -155,71 +141,61 @@
           "element": "Reservation",
           "source": "RESB-RSNUM",
           "target": "customer interface field: Reservation (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ReservationItem",
           "source": "RESB-RSPOS",
           "target": "customer interface field: ReservationItem (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "RecordType",
           "source": "RESB-RSART",
           "target": "customer interface field: RecordType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ManufacturingOrder",
           "source": "RESB-AUFNR",
           "target": "customer interface field: ManufacturingOrder (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Material",
           "source": "RESB-MATNR",
           "target": "customer interface field: Material (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "RESB-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StorageLocation",
           "source": "RESB-LGORT",
           "target": "customer interface field: StorageLocation (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "RequiredQuantity",
           "source": "RESB-BDMNG",
           "target": "customer interface field: RequiredQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Unit",
           "source": "RESB-MEINS",
           "target": "customer interface field: Unit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "RESB-XLOEK",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -230,15 +206,13 @@
   "gaps": [
     "BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZPPX_C_ProductionOperMig",
+  "source_control": {
+    "source_count_view": "ZPPX_C_ProductionOperMigCount",
     "dimensions": [
       {
         "element": "OperationRoutingNumber"
       }
-    ],
-    "source_count_view": "ZPPX_C_ProductionOperMigCount"
-  },
-  "main_structure": "ZPPX_C_ProductionOperMig"
+    ]
+  }
 }

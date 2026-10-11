@@ -26,106 +26,91 @@
           "element": "Product",
           "source": "MARA-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProductType",
           "source": "MARA-MTART",
           "target": "customer interface field: ProductType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProductGroup",
           "source": "MARA-MATKL",
           "target": "customer interface field: ProductGroup (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BaseUnit",
           "source": "MARA-MEINS",
           "target": "customer interface field: BaseUnit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GrossWeight",
           "source": "MARA-BRGEW",
           "target": "customer interface field: GrossWeight (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "NetWeight",
           "source": "MARA-NTGEW",
           "target": "customer interface field: NetWeight (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "WeightUnit",
           "source": "MARA-GEWEI",
           "target": "customer interface field: WeightUnit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "MARA-LVORM",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "IndustrySector",
           "source": "MARA-MBRSH",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Division",
           "source": "MARA-SPART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OldMaterialNumber",
           "source": "MARA-BISMT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ExternalProductGroup",
           "source": "MARA-EXTWG",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CrossPlantMaterialStatus",
           "source": "MARA-MSTAE",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaterialStatusValidFrom",
           "source": "MARA-MSTDE",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BatchManagementRequired",
           "source": "MARA-XCHPF",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -144,22 +129,19 @@
           "element": "Product",
           "source": "MAKT-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "MAKT-SPRAS",
           "target": "customer interface field: Language (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProductDescription",
           "source": "MAKT-MAKTX",
           "target": "customer interface field: ProductDescription (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -178,155 +160,133 @@
           "element": "Product",
           "source": "MARC-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "MARC-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MRPType",
           "source": "MARC-DISMM",
           "target": "customer interface field: MRPType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MRPController",
           "source": "MARC-DISPO",
           "target": "customer interface field: MRPController (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProcurementType",
           "source": "MARC-BESKZ",
           "target": "customer interface field: ProcurementType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PurchasingGroup",
           "source": "MARC-EKGRP",
           "target": "customer interface field: PurchasingGroup (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "MARC-LVORM",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MRPGroup",
           "source": "MARC-DISGR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LotSizingProcedure",
           "source": "MARC-DISLS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SpecialProcurementType",
           "source": "MARC-SOBSL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AvailabilityCheck",
           "source": "MARC-MTVFP",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SafetyStock",
           "source": "MARC-EISBE",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MinimumLotSize",
           "source": "MARC-BSTMI",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaximumLotSize",
           "source": "MARC-BSTMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FixedLotSize",
           "source": "MARC-BSTFE",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PlannedDeliveryTime",
           "source": "MARC-PLIFZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "GoodsReceiptProcessingTime",
           "source": "MARC-WEBAZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "InHouseProductionTime",
           "source": "MARC-DZEIT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IssueStorageLocation",
           "source": "MARC-LGPRO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ExternalProcStorageLocation",
           "source": "MARC-LGFSB",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SerialNumberProfile",
           "source": "MARC-SERNP",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BatchManagementRequired",
           "source": "MARC-XCHPF",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -346,29 +306,25 @@
           "element": "Product",
           "source": "MARD-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "MARD-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "StorageLocation",
           "source": "MARD-LGORT",
           "target": "customer interface field: StorageLocation (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "MARD-LVORM",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -387,36 +343,31 @@
           "element": "Product",
           "source": "MARM-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AlternativeUnit",
           "source": "MARM-MEINH",
           "target": "customer interface field: AlternativeUnit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Numerator",
           "source": "MARM-UMREZ",
           "target": "customer interface field: Numerator (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Denominator",
           "source": "MARM-UMREN",
           "target": "customer interface field: Denominator (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "InternationalArticleNumber",
           "source": "MARM-EAN11",
           "target": "customer interface field: InternationalArticleNumber (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -436,57 +387,49 @@
           "element": "Product",
           "source": "MBEW-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValuationArea",
           "source": "MBEW-BWKEY",
           "target": "customer interface field: ValuationArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValuationType",
           "source": "MBEW-BWTAR",
           "target": "customer interface field: ValuationType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValuationClass",
           "source": "MBEW-BKLAS",
           "target": "customer interface field: ValuationClass (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PriceControl",
           "source": "MBEW-VPRSV",
           "target": "customer interface field: PriceControl (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "StandardPrice",
           "source": "MBEW-STPRS",
           "target": "customer interface field: StandardPrice (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MovingAveragePrice",
           "source": "MBEW-VERPR",
           "target": "customer interface field: MovingAveragePrice (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PriceUnit",
           "source": "MBEW-PEINH",
           "target": "customer interface field: PriceUnit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -505,29 +448,25 @@
           "element": "Product",
           "source": "MCH1-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Batch",
           "source": "MCH1-CHARG",
           "target": "customer interface field: Batch (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ManufactureDate",
           "source": "MCH1-HSDAT",
           "target": "customer interface field: ManufactureDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ExpirationDate",
           "source": "MCH1-VFDAT",
           "target": "customer interface field: ExpirationDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -547,36 +486,31 @@
           "element": "Product",
           "source": "MCHA-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "MCHA-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Batch",
           "source": "MCHA-CHARG",
           "target": "customer interface field: Batch (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ManufactureDate",
           "source": "MCHA-HSDAT",
           "target": "customer interface field: ManufactureDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ExpirationDate",
           "source": "MCHA-VFDAT",
           "target": "customer interface field: ExpirationDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -596,71 +530,61 @@
           "element": "Product",
           "source": "MVKE-MATNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SalesOrganization",
           "source": "MVKE-VKORG",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DistributionChannel",
           "source": "MVKE-VTWEG",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SalesUnit",
           "source": "MVKE-VRKME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DeliveringPlant",
           "source": "MVKE-DWERK",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SalesStatus",
           "source": "MVKE-VMSTA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SalesStatusValidFrom",
           "source": "MVKE-VMSTD",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ItemCategoryGroup",
           "source": "MVKE-MTPOS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AccountAssignmentGroup",
           "source": "MVKE-KTGRM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "MVKE-LVORM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -679,78 +603,67 @@
           "element": "Product",
           "source": "MLAN-MATNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DepartureCountry",
           "source": "MLAN-ALAND",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification1",
           "source": "MLAN-TAXM1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification2",
           "source": "MLAN-TAXM2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification3",
           "source": "MLAN-TAXM3",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification4",
           "source": "MLAN-TAXM4",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification5",
           "source": "MLAN-TAXM5",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification6",
           "source": "MLAN-TAXM6",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification7",
           "source": "MLAN-TAXM7",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification8",
           "source": "MLAN-TAXM8",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaxClassification9",
           "source": "MLAN-TAXM9",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -769,50 +682,43 @@
           "element": "Product",
           "source": "MDMA-MATNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MRPArea",
           "source": "MDMA-BERID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MRPType",
           "source": "MDMA-DISMM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MRPController",
           "source": "MDMA-DISPO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LotSizingProcedure",
           "source": "MDMA-DISLS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SpecialProcurementType",
           "source": "MDMA-SOBSL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "MDMA-LOEKZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -832,43 +738,37 @@
           "element": "Product",
           "source": "MEAN-MATNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AlternativeUnit",
           "source": "MEAN-MEINH",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EANCounter",
           "source": "MEAN-LFNUM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EAN",
           "source": "MEAN-EAN11",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EANCategory",
           "source": "MEAN-EANTP",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainEAN",
           "source": "MEAN-HPEAN",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -889,29 +789,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -929,29 +825,25 @@
           "element": "ClassificationInternalID",
           "source": "INOB-CUOBJ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "INOB-KLART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectTable",
           "source": "INOB-OBTAB",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassifiedObject",
           "source": "INOB-OBJEK",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -971,29 +863,25 @@
           "element": "ClassifiedObject",
           "source": "KSSK-OBJEK",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "KSSK-KLART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Class",
           "source": "KLAH-CLASS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassificationStatus",
           "source": "KSSK-STATU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -1013,29 +901,25 @@
           "element": "ClassifiedObject",
           "source": "KSSK-OBJEK",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "KSSK-KLART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Class",
           "source": "KLAH-CLASS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassificationStatus",
           "source": "KSSK-STATU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -1056,57 +940,49 @@
           "element": "ClassifiedObject",
           "source": "AUSP-OBJEK",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "AUSP-KLART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Characteristic",
           "source": "CABN-ATNAM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValuePositionNumber",
           "source": "AUSP-ATZHL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValue",
           "source": "AUSP-ATWRT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcFromNumericValue",
           "source": "AUSP-ATFLV",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcToNumericValue",
           "source": "AUSP-ATFLB",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValueDependency",
           "source": "AUSP-ATCOD",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -1127,57 +1003,49 @@
           "element": "ClassifiedObject",
           "source": "AUSP-OBJEK",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "AUSP-KLART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Characteristic",
           "source": "CABN-ATNAM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValuePositionNumber",
           "source": "AUSP-ATZHL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValue",
           "source": "AUSP-ATWRT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcFromNumericValue",
           "source": "AUSP-ATFLV",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcToNumericValue",
           "source": "AUSP-ATFLB",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValueDependency",
           "source": "AUSP-ATCOD",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -1188,30 +1056,13 @@
   "gaps": [
     "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZMMT_I_MaterialCount",
+  "main_structure": "ZMMX_C_MaterialMig",
+  "source_control": {
+    "source_count_view": "ZMMX_C_MaterialMigCount",
     "dimensions": [
       {
         "element": "Product"
       }
-    ],
-    "source_count_view": "ZMMX_C_MaterialMigCount",
-    "compare": {
-      "source_view": "ZMMX_C_MaterialMig",
-      "target_view": "ZMMT_B_MaterialCompare",
-      "key": [
-        "Product"
-      ],
-      "fields": [
-        "ProductType",
-        "ProductGroup",
-        "BaseUnit",
-        "GrossWeight",
-        "NetWeight",
-        "WeightUnit"
-      ]
-    }
-  },
-  "main_structure": "ZMMX_C_MaterialMig"
+    ]
+  }
 }

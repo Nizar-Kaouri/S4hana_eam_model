@@ -12,7 +12,7 @@
       "ChangeState"
     ],
     "numbering": "keep",
-    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
   },
   "structures": [
     {
@@ -28,64 +28,55 @@
           "element": "RecordNumber",
           "source": "ESTPH-RECN",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.RecordNumber",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ChangeState",
           "source": "ESTPH-ACTN",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.ChangeState",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidFrom",
           "source": "ESTPH-VALFR",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.ValidFrom",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidTo",
           "source": "ESTPH-VALTO",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.ValidTo",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "ESTPH-DELFLG",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.DeletionFlag",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PhraseID",
           "source": "ESTPH-PHRID",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.PhraseID",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Remark",
           "source": "ESTPH-REM",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.Remark",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SourceLanguage",
           "source": "ESTPH-SRLANGU",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.SourceLanguage",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "UserDefinedName",
           "source": "ESTPH-USEXNAM",
           "target": "Native target evidence: ZEHT_B_PhraseCompare.UserDefinedName",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -104,57 +95,49 @@
           "element": "RecordNumber",
           "source": "ESTPJ-RECN",
           "target": "Native target evidence: ZEHT_B_PhraseSetCompare.RecordNumber",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ChangeState",
           "source": "ESTPJ-ACTN",
           "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ChangeState",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidFrom",
           "source": "ESTPJ-VALFR",
           "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ValidFrom",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidTo",
           "source": "ESTPJ-VALTO",
           "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ValidTo",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "ESTPJ-DELFLG",
           "target": "Native target evidence: ZEHT_B_PhraseSetCompare.DeletionFlag",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PhraseSet",
           "source": "ESTPJ-PHRSEL",
           "target": "Native target evidence: ZEHT_B_PhraseSetCompare.PhraseSet",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PhraseID",
           "source": "ESTPJ-PHRID",
           "target": "Native target evidence: ZEHT_B_PhraseSetCompare.PhraseID",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SortOrder",
           "source": "ESTPJ-ORD",
           "target": "Native target evidence: ZEHT_B_PhraseSetCompare.SortOrder",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -167,29 +150,10 @@
     "Phrase: Phrase header only. ESTPP multilingual text and graphics are pending; no invented Language key on the header.",
     "PhraseSet: Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "dimensions": [],
-    "source_count_view": "ZEHX_C_PhraseMigCount",
-    "target_count_view": "ZEHT_I_PhraseCount",
-    "compare": {
-      "source_view": "ZEHX_C_PhraseMig",
-      "target_view": "ZEHT_B_PhraseCompare",
-      "key": [
-        "RecordNumber",
-        "ChangeState"
-      ],
-      "fields": [
-        "ValidFrom",
-        "ValidTo",
-        "DeletionFlag",
-        "PhraseID",
-        "Remark",
-        "SourceLanguage",
-        "UserDefinedName"
-      ]
-    }
-  },
   "main_structure": "ZEHX_C_PhraseMig",
-  "pending_dependencies": []
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZEHX_C_PhraseMigCount",
+    "dimensions": []
+  }
 }

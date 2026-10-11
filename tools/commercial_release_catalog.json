@@ -8,28 +8,12 @@
     "CDS_objects": 241
   },
   {
-    "domain": "eam",
-    "product": "eam_mig_s4",
-    "version": "1.0.0",
-    "modules": 8,
-    "structures": 0,
-    "CDS_objects": 16
-  },
-  {
     "domain": "fi_aa",
     "product": "fi_aa_mig_ecc",
     "version": "1.0.0",
     "modules": 3,
     "structures": 6,
     "CDS_objects": 21
-  },
-  {
-    "domain": "fi_aa",
-    "product": "fi_aa_mig_s4",
-    "version": "1.0.0",
-    "modules": 3,
-    "structures": 0,
-    "CDS_objects": 2
   },
   {
     "domain": "mm",
@@ -40,28 +24,12 @@
     "CDS_objects": 135
   },
   {
-    "domain": "mm",
-    "product": "mm_mig_s4",
-    "version": "1.0.0",
-    "modules": 7,
-    "structures": 0,
-    "CDS_objects": 6
-  },
-  {
     "domain": "qm",
     "product": "qm_mig_ecc",
     "version": "1.0.0",
     "modules": 6,
     "structures": 26,
     "CDS_objects": 83
-  },
-  {
-    "domain": "qm",
-    "product": "qm_mig_s4",
-    "version": "1.0.0",
-    "modules": 6,
-    "structures": 0,
-    "CDS_objects": 4
   },
   {
     "domain": "ps",
@@ -72,28 +40,12 @@
     "CDS_objects": 93
   },
   {
-    "domain": "ps",
-    "product": "ps_mig_s4",
-    "version": "1.0.0",
-    "modules": 7,
-    "structures": 0,
-    "CDS_objects": 4
-  },
-  {
     "domain": "pp",
     "product": "pp_mig_ecc",
     "version": "1.0.0",
     "modules": 6,
     "structures": 22,
     "CDS_objects": 72
-  },
-  {
-    "domain": "pp",
-    "product": "pp_mig_s4",
-    "version": "1.0.0",
-    "modules": 6,
-    "structures": 0,
-    "CDS_objects": 2
   },
   {
     "domain": "co",
@@ -104,14 +56,6 @@
     "CDS_objects": 70
   },
   {
-    "domain": "co",
-    "product": "co_mig_s4",
-    "version": "1.0.0",
-    "modules": 7,
-    "structures": 0,
-    "CDS_objects": 6
-  },
-  {
     "domain": "fi",
     "product": "fi_mig_ecc",
     "version": "1.0.0",
@@ -120,27 +64,11 @@
     "CDS_objects": 152
   },
   {
-    "domain": "fi",
-    "product": "fi_mig_s4",
-    "version": "1.0.0",
-    "modules": 7,
-    "structures": 0,
-    "CDS_objects": 6
-  },
-  {
     "domain": "sd",
     "product": "sd_mig_ecc",
     "version": "1.0.0",
     "modules": 5,
     "structures": 26,
     "CDS_objects": 78
-  },
-  {
-    "domain": "sd",
-    "product": "sd_mig_s4",
-    "version": "1.0.0",
-    "modules": 4,
-    "structures": 0,
-    "CDS_objects": 6
   }
 ]

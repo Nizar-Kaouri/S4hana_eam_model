@@ -30,22 +30,19 @@
           "element": "InvestmentProgram",
           "source": "IMTP-PRNAM",
           "target": "customer interface field: InvestmentProgram (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ApprovalFiscalYear",
           "source": "IMTP-GJAHR",
           "target": "customer interface field: ApprovalFiscalYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InvestmentProgramDescription",
           "source": "IMTP-TXT50",
           "target": "customer interface field: InvestmentProgramDescription (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "configuration-reference",
@@ -63,36 +60,31 @@
           "element": "InvestmentPositionInternalID",
           "source": "IMPR-POSNR",
           "target": "customer interface field: InvestmentPositionInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InvestmentProgram",
           "source": "IMPR-PRNAM",
           "target": "customer interface field: InvestmentProgram (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ApprovalFiscalYear",
           "source": "IMPR-GJAHR",
           "target": "customer interface field: ApprovalFiscalYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InvestmentPosition",
           "source": "IMPR-POSID",
           "target": "customer interface field: InvestmentPosition (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectNumber",
           "source": "IMPR-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "configuration-reference",
@@ -112,29 +104,25 @@
           "element": "InvestmentPositionInternalID",
           "source": "IMZO-POSNR",
           "target": "customer interface field: InvestmentPositionInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AssignedObject",
           "source": "IMZO-OBJNR",
           "target": "customer interface field: AssignedObject (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ApprovalFiscalYear",
           "source": "IMZO-GJAHR",
           "target": "customer interface field: ApprovalFiscalYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AssignmentPercentage",
           "source": "IMZO-PROZU",
           "target": "customer interface field: AssignmentPercentage (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "configuration-reference",
@@ -146,15 +134,13 @@
     "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement.",
     "Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZPSX_C_InvestProgramMig",
+  "source_control": {
+    "source_count_view": "ZPSX_C_InvestProgramMigCount",
     "dimensions": [
       {
         "element": "InvestmentProgram"
       }
-    ],
-    "source_count_view": "ZPSX_C_InvestProgramMigCount"
-  },
-  "main_structure": "ZPSX_C_InvestProgramMig"
+    ]
+  }
 }

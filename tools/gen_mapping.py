@@ -3,7 +3,7 @@
 
 Writes
   docs/mapping/<module>.md    description of the consumption views (the template the load program reads):
-                              structures, keys, scope, fields with ECC source and S/4HANA target, reconciliation, gaps
+                              structures, keys, scope, fields with ECC source and S/4HANA target, source controls, gaps
   docs/MIGRATION_SEQUENCE.md  load order (levels) derived from sequence_after
 Usage: python3 tools/gen_mapping.py --product <product> [--check]
 Products whose library.json kind is not 'migration-source' are skipped.
@@ -33,7 +33,7 @@ def rule_text(rule):
 
 
 def module_doc(m, lib, status):
-    rec = m["reconciliation"]
+    rec = m["source_control"]
     lines = [f"# Migration interface: {m['module']}", "", status, "",
              f"- **Read by:** {m['target']['tool']}",
              f"- **Load after:** {', '.join(f'`{d}`' for d in m['sequence_after']) or '- (first level)'}",
@@ -49,28 +49,16 @@ def module_doc(m, lib, status):
                   f"- Keys: {', '.join(f'`{k}`' for k in st['keys'])}",
                   f"- Scope: `{st['scope_filter'] or 'all rows'}`",
                   *([f"- Delivery mode: **{st['delivery_mode']}**", f"- Before posting: {st.get('preprocessing', '')}"] if st.get('delivery_mode') else []), "",
-                  "| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |", "|---|---|---|---|---|"]
+                  "| Element | Source (ECC) | Target (S/4HANA) | Rule |", "|---|---|---|---|"]
         for f in st["fields"]:
-            lines.append(f"| `{f['element']}` | {cell(f['source'])} | {cell(f['target']) or '-'} | {cell(rule_text(f['rule']))} | "
-                         f"{'yes' if f['compare'] else ''} |")
+            lines.append(f"| `{f['element']}` | {cell(f['source'])} | {cell(f['target']) or '-'} | {cell(rule_text(f['rule']))} |")
         lines.append("")
     if m.get("not_migrated"):
         lines += ["## Not delivered", "", "| View | Element | Source | Reason |", "|---|---|---|---|"]
         lines += [f"| `{x['view']}` | `{x['element']}` | {cell(x['source'])} | {cell(rule_text(x['reason']))} |"
                   for x in m["not_migrated"]]
         lines.append("")
-    lines += ["## Reconciliation", "",
-              f"- Counts: `{rec['source_count_view']}` (ECC) vs `{rec['target_count_view'] or '-'}` "
-              "(S/4HANA)" + (" per " + ", ".join(f"`{d['element']}`" for d in rec["dimensions"]) if rec["dimensions"] else " as global candidate counts")]
-    if rec.get("compare"):
-        c = rec["compare"]
-        lines.append(f"- Records and fields: `{c['source_view']}` vs `{c['target_view']}` on "
-                     f"{', '.join(f'`{k}`' for k in c['key'])}; compared: {', '.join(f'`{x}`' for x in c['fields']) or '-'}")
-    lines += ["", "```bash",
-              f"python3 tools/mig_reconcile.py counts --product {ROOT.name} --module {m['module']} --source ecc_counts.csv --target s4_counts.csv"]
-    if rec.get("compare"):
-        lines.append(f"python3 tools/mig_reconcile.py records --product {ROOT.name} --module {m['module']} --source ecc_extract.csv --target s4_compare.csv")
-    lines += ["```", "", "## Open gaps", ""]
+    lines += ["## Source controls", "", f"- Source count view: `{rec.get('source_count_view', '-')}`", "", "## Open gaps", ""]
     lines += [f"- {g}" for g in m["gaps"]] or ["None known."]
     result = "\n".join(lines) + "\n"
     return result.replace("ECC", "SAP source") if lib.get("native_table_sources") else result

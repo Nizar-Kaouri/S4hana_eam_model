@@ -1,9 +1,0 @@
-﻿Object,Check,Status,SAP release,Client,Evidence,Finding
-ZFAT_I_AssetCompare,DDIC and key grain,NOT_TESTED,,,,
-ZFAT_I_AssetCompare,Activation,NOT_TESTED,,,,
-ZFAT_I_AssetCompare,Authorized and restricted read,NOT_TESTED,,,,
-ZFAT_I_AssetCompare,Scoped extraction and comparison,NOT_TESTED,,,,
-ZFAT_I_AssetCount,DDIC and key grain,NOT_TESTED,,,,
-ZFAT_I_AssetCount,Activation,NOT_TESTED,,,,
-ZFAT_I_AssetCount,Authorized and restricted read,NOT_TESTED,,,,
-ZFAT_I_AssetCount,Scoped extraction and comparison,NOT_TESTED,,,,

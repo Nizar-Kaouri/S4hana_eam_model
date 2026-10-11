@@ -38,71 +38,61 @@
           "element": "CompanyCode",
           "source": "ANEP-BUKRS",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "MasterFixedAsset",
           "source": "ANEP-ANLN1",
           "target": "customer interface field: MasterFixedAsset (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "FixedAsset",
           "source": "ANEP-ANLN2",
           "target": "customer interface field: FixedAsset (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "FiscalYear",
           "source": "ANEP-GJAHR",
           "target": "customer interface field: FiscalYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AssetLineItem",
           "source": "ANEP-LNRAN",
           "target": "customer interface field: AssetLineItem (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DepreciationArea",
           "source": "ANEP-AFABE",
           "target": "customer interface field: DepreciationArea (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AssetValueDate",
           "source": "ANEP-BZDAT",
           "target": "customer interface field: AssetValueDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AssetTransactionType",
           "source": "ANEP-BWASL",
           "target": "customer interface field: AssetTransactionType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AssetAmount",
           "source": "ANEP-ANBTR",
           "target": "customer interface field: AssetAmount (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AccountingDocument",
           "source": "ANEP-BELNR",
           "target": "customer interface field: AccountingDocument (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -113,15 +103,13 @@
   "gaps": [
     "Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZFAX_C_AssetPostingMig",
+  "source_control": {
+    "source_count_view": "ZFAX_C_AssetPostingMigCount",
     "dimensions": [
       {
         "element": "CompanyCode"
       }
-    ],
-    "source_count_view": "ZFAX_C_AssetPostingMigCount"
-  },
-  "main_structure": "ZFAX_C_AssetPostingMig"
+    ]
+  }
 }

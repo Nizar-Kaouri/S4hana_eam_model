@@ -17,16 +17,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **open-document**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `PurchaseRequisition` | EBAN-BANFN | customer interface field: PurchaseRequisition (unconfirmed) | copy | yes |
-| `PurchaseRequisitionItem` | EBAN-BNFPO | customer interface field: PurchaseRequisitionItem (unconfirmed) | copy | yes |
-| `Material` | EBAN-MATNR | customer interface field: Material (unconfirmed) | copy | yes |
-| `Plant` | EBAN-WERKS | customer interface field: Plant (unconfirmed) | copy | yes |
-| `RequestedQuantity` | EBAN-MENGE | customer interface field: RequestedQuantity (unconfirmed) | copy | yes |
-| `Unit` | EBAN-MEINS | customer interface field: Unit (unconfirmed) | copy | yes |
-| `DeletionFlag` | EBAN-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
-| `ClosedFlag` | EBAN-EBAKZ | customer interface field: ClosedFlag (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `PurchaseRequisition` | EBAN-BANFN | customer interface field: PurchaseRequisition (unconfirmed) | copy |
+| `PurchaseRequisitionItem` | EBAN-BNFPO | customer interface field: PurchaseRequisitionItem (unconfirmed) | copy |
+| `Material` | EBAN-MATNR | customer interface field: Material (unconfirmed) | copy |
+| `Plant` | EBAN-WERKS | customer interface field: Plant (unconfirmed) | copy |
+| `RequestedQuantity` | EBAN-MENGE | customer interface field: RequestedQuantity (unconfirmed) | copy |
+| `Unit` | EBAN-MEINS | customer interface field: Unit (unconfirmed) | copy |
+| `DeletionFlag` | EBAN-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | copy |
+| `ClosedFlag` | EBAN-EBAKZ | customer interface field: ClosedFlag (unconfirmed) | copy |
 
 ## `ZMMX_C_ReqAssignmentMig`
 
@@ -36,15 +36,15 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **open-document**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `PurchaseRequisition` | EBKN-BANFN | customer interface field: PurchaseRequisition (unconfirmed) | copy | yes |
-| `PurchaseRequisitionItem` | EBKN-BNFPO | customer interface field: PurchaseRequisitionItem (unconfirmed) | copy | yes |
-| `AccountAssignmentNumber` | EBKN-ZEBKN | customer interface field: AccountAssignmentNumber (unconfirmed) | copy | yes |
-| `CostCenter` | EBKN-KOSTL | customer interface field: CostCenter (unconfirmed) | copy | yes |
-| `OrderID` | EBKN-AUFNR | customer interface field: OrderID (unconfirmed) | copy | yes |
-| `GLAccount` | EBKN-SAKTO | customer interface field: GLAccount (unconfirmed) | copy | yes |
-| `WBSElementInternalID` | EBKN-PS_PSP_PNR | customer interface field: WBSElementInternalID (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `PurchaseRequisition` | EBKN-BANFN | customer interface field: PurchaseRequisition (unconfirmed) | copy |
+| `PurchaseRequisitionItem` | EBKN-BNFPO | customer interface field: PurchaseRequisitionItem (unconfirmed) | copy |
+| `AccountAssignmentNumber` | EBKN-ZEBKN | customer interface field: AccountAssignmentNumber (unconfirmed) | copy |
+| `CostCenter` | EBKN-KOSTL | customer interface field: CostCenter (unconfirmed) | copy |
+| `OrderID` | EBKN-AUFNR | customer interface field: OrderID (unconfirmed) | copy |
+| `GLAccount` | EBKN-SAKTO | customer interface field: GLAccount (unconfirmed) | copy |
+| `WBSElementInternalID` | EBKN-PS_PSP_PNR | customer interface field: WBSElementInternalID (unconfirmed) | copy |
 
 ## `ZMMX_C_RequisitionLongTextMig`
 
@@ -54,22 +54,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | - | copy |  |
-| `TextName` | STXH-TDNAME | - | copy |  |
-| `TextID` | STXH-TDID | - | copy |  |
-| `Language` | STXH-TDSPRAS | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |
+| `TextName` | STXH-TDNAME | - | copy |
+| `TextID` | STXH-TDID | - | copy |
+| `Language` | STXH-TDSPRAS | - | copy |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZMMX_C_RequisitionMigCount` (ECC) vs `ZMMT_I_RequisitionCount` (S/4HANA) per `PurchaseRequisition`
-- Records and fields: `ZMMX_C_RequisitionMig` vs `ZMMT_B_RequisitionCompare` on `PurchaseRequisition`, `PurchaseRequisitionItem`; compared: `Material`, `Plant`
-
-```bash
-python3 tools/mig_reconcile.py counts --product mm_mig_ecc --module purchase_requisition --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --product mm_mig_ecc --module purchase_requisition --source ecc_extract.csv --target s4_compare.csv
-```
+- Source count view: `ZMMX_C_RequisitionMigCount`
 
 ## Open gaps
 

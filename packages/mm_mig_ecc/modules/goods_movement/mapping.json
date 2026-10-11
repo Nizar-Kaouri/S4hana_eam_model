@@ -30,36 +30,31 @@
           "element": "MaterialDocument",
           "source": "MKPF-MBLNR",
           "target": "customer interface field: MaterialDocument (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "MaterialDocumentYear",
           "source": "MKPF-MJAHR",
           "target": "customer interface field: MaterialDocumentYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DocumentDate",
           "source": "MKPF-BLDAT",
           "target": "customer interface field: DocumentDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PostingDate",
           "source": "MKPF-BUDAT",
           "target": "customer interface field: PostingDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ReferenceDocument",
           "source": "MKPF-XBLNR",
           "target": "customer interface field: ReferenceDocument (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -79,78 +74,67 @@
           "element": "MaterialDocument",
           "source": "MSEG-MBLNR",
           "target": "customer interface field: MaterialDocument (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "MaterialDocumentYear",
           "source": "MSEG-MJAHR",
           "target": "customer interface field: MaterialDocumentYear (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "MaterialDocumentItem",
           "source": "MSEG-ZEILE",
           "target": "customer interface field: MaterialDocumentItem (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Product",
           "source": "MSEG-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "MSEG-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StorageLocation",
           "source": "MSEG-LGORT",
           "target": "customer interface field: StorageLocation (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "GoodsMovementType",
           "source": "MSEG-BWART",
           "target": "customer interface field: GoodsMovementType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Quantity",
           "source": "MSEG-MENGE",
           "target": "customer interface field: Quantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Unit",
           "source": "MSEG-MEINS",
           "target": "customer interface field: Unit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "LocalAmount",
           "source": "MSEG-DMBTR",
           "target": "customer interface field: LocalAmount (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DebitCreditCode",
           "source": "MSEG-SHKZG",
           "target": "customer interface field: DebitCreditCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -161,15 +145,13 @@
   "gaps": [
     "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZMMX_C_MatDocHeaderMig",
+  "source_control": {
+    "source_count_view": "ZMMX_C_MatDocHeaderMigCount",
     "dimensions": [
       {
         "element": "MaterialDocument"
       }
-    ],
-    "source_count_view": "ZMMX_C_MatDocHeaderMigCount"
-  },
-  "main_structure": "ZMMX_C_MatDocHeaderMig"
+    ]
+  }
 }

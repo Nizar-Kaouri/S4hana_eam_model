@@ -17,13 +17,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **master**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `ChartOfAccounts` | SKA1-KTOPL | customer interface field: ChartOfAccounts (unconfirmed) | copy | yes |
-| `GLAccount` | SKA1-SAKNR | customer interface field: GLAccount (unconfirmed) | copy | yes |
-| `AccountGroup` | SKA1-KTOKS | customer interface field: AccountGroup (unconfirmed) | copy | yes |
-| `BalanceSheetAccount` | SKA1-XBILK | customer interface field: BalanceSheetAccount (unconfirmed) | copy | yes |
-| `DeletionFlag` | SKA1-XLOEV | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `ChartOfAccounts` | SKA1-KTOPL | customer interface field: ChartOfAccounts (unconfirmed) | copy |
+| `GLAccount` | SKA1-SAKNR | customer interface field: GLAccount (unconfirmed) | copy |
+| `AccountGroup` | SKA1-KTOKS | customer interface field: AccountGroup (unconfirmed) | copy |
+| `BalanceSheetAccount` | SKA1-XBILK | customer interface field: BalanceSheetAccount (unconfirmed) | copy |
+| `DeletionFlag` | SKA1-XLOEV | customer interface field: DeletionFlag (unconfirmed) | copy |
 
 ## `ZFIX_C_GLAccountTextMig`
 
@@ -33,13 +33,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **master**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `Language` | SKAT-SPRAS | customer interface field: Language (unconfirmed) | copy | yes |
-| `ChartOfAccounts` | SKAT-KTOPL | customer interface field: ChartOfAccounts (unconfirmed) | copy | yes |
-| `GLAccount` | SKAT-SAKNR | customer interface field: GLAccount (unconfirmed) | copy | yes |
-| `GLAccountName` | SKAT-TXT20 | customer interface field: GLAccountName (unconfirmed) | copy | yes |
-| `GLAccountDescription` | SKAT-TXT50 | customer interface field: GLAccountDescription (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `Language` | SKAT-SPRAS | customer interface field: Language (unconfirmed) | copy |
+| `ChartOfAccounts` | SKAT-KTOPL | customer interface field: ChartOfAccounts (unconfirmed) | copy |
+| `GLAccount` | SKAT-SAKNR | customer interface field: GLAccount (unconfirmed) | copy |
+| `GLAccountName` | SKAT-TXT20 | customer interface field: GLAccountName (unconfirmed) | copy |
+| `GLAccountDescription` | SKAT-TXT50 | customer interface field: GLAccountDescription (unconfirmed) | copy |
 
 ## `ZFIX_C_GLCompanyMig`
 
@@ -49,13 +49,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **master**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `CompanyCode` | SKB1-BUKRS | customer interface field: CompanyCode (unconfirmed) | copy | yes |
-| `GLAccount` | SKB1-SAKNR | customer interface field: GLAccount (unconfirmed) | copy | yes |
-| `AccountCurrency` | SKB1-WAERS | customer interface field: AccountCurrency (unconfirmed) | copy | yes |
-| `OpenItemManagement` | SKB1-XOPVW | customer interface field: OpenItemManagement (unconfirmed) | copy | yes |
-| `DeletionFlag` | SKB1-XLOEB | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `CompanyCode` | SKB1-BUKRS | customer interface field: CompanyCode (unconfirmed) | copy |
+| `GLAccount` | SKB1-SAKNR | customer interface field: GLAccount (unconfirmed) | copy |
+| `AccountCurrency` | SKB1-WAERS | customer interface field: AccountCurrency (unconfirmed) | copy |
+| `OpenItemManagement` | SKB1-XOPVW | customer interface field: OpenItemManagement (unconfirmed) | copy |
+| `DeletionFlag` | SKB1-XLOEB | customer interface field: DeletionFlag (unconfirmed) | copy |
 
 ## `ZFIX_C_GLAccountLongTextMig`
 
@@ -65,22 +65,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | - | copy |  |
-| `TextName` | STXH-TDNAME | - | copy |  |
-| `TextID` | STXH-TDID | - | copy |  |
-| `Language` | STXH-TDSPRAS | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |
+| `TextName` | STXH-TDNAME | - | copy |
+| `TextID` | STXH-TDID | - | copy |
+| `Language` | STXH-TDSPRAS | - | copy |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZFIX_C_GLAccountMigCount` (ECC) vs `ZFIT_I_GLAccountCount` (S/4HANA) per `ChartOfAccounts`
-- Records and fields: `ZFIX_C_GLAccountMig` vs `ZFIT_B_GLAccountCompare` on `ChartOfAccounts`, `GLAccount`; compared: -
-
-```bash
-python3 tools/mig_reconcile.py counts --product fi_mig_ecc --module gl_account --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --product fi_mig_ecc --module gl_account --source ecc_extract.csv --target s4_compare.csv
-```
+- Source count view: `ZFIX_C_GLAccountMigCount`
 
 ## Open gaps
 

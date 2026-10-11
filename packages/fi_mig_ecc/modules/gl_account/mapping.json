@@ -28,36 +28,31 @@
           "element": "ChartOfAccounts",
           "source": "SKA1-KTOPL",
           "target": "customer interface field: ChartOfAccounts (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GLAccount",
           "source": "SKA1-SAKNR",
           "target": "customer interface field: GLAccount (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AccountGroup",
           "source": "SKA1-KTOKS",
           "target": "customer interface field: AccountGroup (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BalanceSheetAccount",
           "source": "SKA1-XBILK",
           "target": "customer interface field: BalanceSheetAccount (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "SKA1-XLOEV",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -77,36 +72,31 @@
           "element": "Language",
           "source": "SKAT-SPRAS",
           "target": "customer interface field: Language (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ChartOfAccounts",
           "source": "SKAT-KTOPL",
           "target": "customer interface field: ChartOfAccounts (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GLAccount",
           "source": "SKAT-SAKNR",
           "target": "customer interface field: GLAccount (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GLAccountName",
           "source": "SKAT-TXT20",
           "target": "customer interface field: GLAccountName (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GLAccountDescription",
           "source": "SKAT-TXT50",
           "target": "customer interface field: GLAccountDescription (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -125,36 +115,31 @@
           "element": "CompanyCode",
           "source": "SKB1-BUKRS",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "GLAccount",
           "source": "SKB1-SAKNR",
           "target": "customer interface field: GLAccount (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AccountCurrency",
           "source": "SKB1-WAERS",
           "target": "customer interface field: AccountCurrency (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OpenItemManagement",
           "source": "SKB1-XOPVW",
           "target": "customer interface field: OpenItemManagement (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "SKB1-XLOEB",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -175,29 +160,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -208,24 +189,13 @@
   "gaps": [
     "Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZFIT_I_GLAccountCount",
+  "main_structure": "ZFIX_C_GLAccountMig",
+  "source_control": {
+    "source_count_view": "ZFIX_C_GLAccountMigCount",
     "dimensions": [
       {
         "element": "ChartOfAccounts"
       }
-    ],
-    "source_count_view": "ZFIX_C_GLAccountMigCount",
-    "compare": {
-      "source_view": "ZFIX_C_GLAccountMig",
-      "target_view": "ZFIT_B_GLAccountCompare",
-      "key": [
-        "ChartOfAccounts",
-        "GLAccount"
-      ],
-      "fields": []
-    }
-  },
-  "main_structure": "ZFIX_C_GLAccountMig"
+    ]
+  }
 }

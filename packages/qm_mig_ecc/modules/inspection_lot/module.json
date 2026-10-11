@@ -1,7 +1,7 @@
 {
   "name": "inspection_lot",
   "title": "Inspection lots",
-  "description": "Inspection lots source records, preparation and comparison contracts.",
+  "description": "Inspection lots source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

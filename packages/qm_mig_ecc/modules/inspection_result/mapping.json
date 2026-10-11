@@ -32,29 +32,25 @@
           "element": "InspectionLot",
           "source": "QAMV-PRUEFLOS",
           "target": "customer interface field: InspectionLot (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationInternalID",
           "source": "QAMV-VORGLFNR",
           "target": "customer interface field: OperationInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CharacteristicNumber",
           "source": "QAMV-MERKNR",
           "target": "customer interface field: CharacteristicNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CharacteristicDescription",
           "source": "QAMV-KURZTEXT",
           "target": "customer interface field: CharacteristicDescription (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -74,43 +70,37 @@
           "element": "InspectionLot",
           "source": "QAMR-PRUEFLOS",
           "target": "customer interface field: InspectionLot (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationInternalID",
           "source": "QAMR-VORGLFNR",
           "target": "customer interface field: OperationInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CharacteristicNumber",
           "source": "QAMR-MERKNR",
           "target": "customer interface field: CharacteristicNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "MeanValue",
           "source": "QAMR-MITTELWERT",
           "target": "customer interface field: MeanValue (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "MinimumValue",
           "source": "QAMR-MIN",
           "target": "customer interface field: MinimumValue (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "MaximumValue",
           "source": "QAMR-MAX",
           "target": "customer interface field: MaximumValue (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -132,43 +122,37 @@
           "element": "InspectionLot",
           "source": "QASE-PRUEFLOS",
           "target": "customer interface field: InspectionLot (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationInternalID",
           "source": "QASE-VORGLFNR",
           "target": "customer interface field: OperationInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CharacteristicNumber",
           "source": "QASE-MERKNR",
           "target": "customer interface field: CharacteristicNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "SampleNumber",
           "source": "QASE-PROBENR",
           "target": "customer interface field: SampleNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ResultNumber",
           "source": "QASE-DETAILERG",
           "target": "customer interface field: ResultNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "MeasuredValue",
           "source": "QASE-MESSWERT",
           "target": "customer interface field: MeasuredValue (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -179,15 +163,13 @@
   "gaps": [
     "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZQMX_C_InspectCharactMig",
+  "source_control": {
+    "source_count_view": "ZQMX_C_InspectCharactMigCount",
     "dimensions": [
       {
         "element": "InspectionLot"
       }
-    ],
-    "source_count_view": "ZQMX_C_InspectCharactMigCount"
-  },
-  "main_structure": "ZQMX_C_InspectCharactMig"
+    ]
+  }
 }

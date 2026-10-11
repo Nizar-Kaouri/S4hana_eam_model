@@ -9,9 +9,7 @@ mapping.json documents them.
       the source view and has exactly the documented elements and keys; every element of the source view is either
       delivered or listed in not_migrated with its reason; rule kinds are known and carry their argument
   X4  sequence_after names existing modules and the load sequence has no cycle
-  X5  reconciliation: the count view counts the main consumption view by the listed dimensions; the target count
-      view and the compare view exist in the paired S/4HANA product (library.json 'migration_pair') with the same
-      dimensions / elements
+  X5  source control: the count view counts the main consumption view by its listed dimensions
   X6  key.numbering is keep | new | derived; the consumption view applies the documented scope filter
 Usage: python3 tools/validate_mapping.py --product <migration-source product>   (exit code 1 on any error)
 """
@@ -77,9 +75,6 @@ def main():
     err = errors.append
     lib = json.loads((ROOT / "library.json").read_text(encoding="utf-8"))
     modules = load_modules(ROOT)
-    pair_name = lib.get("migration_pair")
-    pair_root = vdm_paths.PACKAGES / pair_name if pair_name else None
-    pair_modules = load_modules(pair_root) if pair_root and pair_root.exists() else {}
     mappings = {}
     for name, mod in modules.items():
         consumption = mod["objects"].get("consumption", [])
@@ -145,7 +140,7 @@ def main():
         if m.get("key", {}).get("numbering") not in NUMBERING:
             err(f"X6 {name}: key.numbering must be one of {sorted(NUMBERING)}")
         # X5
-        rec = m.get("reconciliation", {})
+        rec = m.get("source_control", {})
         scv = rec.get("source_count_view")
         dims = [d["element"] for d in rec.get("dimensions", [])]
         if scv not in consumption:
@@ -156,32 +151,6 @@ def main():
                 err(f"X5 {name}: {scv} keys {sorted(keys)} / RecordCount do not match the dimensions {dims}")
             if not re.search(r"select\s+from\s+" + re.escape(m.get("main_structure", "")) + r"\b", source_text(ROOT, scv)):
                 err(f"X5 {name}: {scv} does not count the main structure {m.get('main_structure')}")
-        tcv = rec.get("target_count_view")
-        if tcv:
-            pm = pair_modules.get(name)
-            if not pm or tcv not in pm["objects"].get("composite", []):
-                err(f"X5 {name}: target_count_view {tcv} is not a composite view of {pair_name}:{name}")
-            else:
-                keys, names = elements(pair_root, tcv)
-                if set(dims) != keys or "RecordCount" not in names:
-                    err(f"X5 {name}: {tcv} keys {sorted(keys)} do not match the dimensions {dims}")
-        cmp_ = rec.get("compare")
-        if cmp_:
-            if cmp_["source_view"] not in consumption:
-                err(f"X5 {name}: compare.source_view {cmp_['source_view']} is not a consumption view of the module")
-            pm = pair_modules.get(name)
-            if not pm or cmp_["target_view"] not in pm["objects"].get("basic", []):
-                err(f"X5 {name}: compare.target_view {cmp_['target_view']} is not a basic view of {pair_name}:{name}")
-            else:
-                _, src_names = elements(ROOT, cmp_["source_view"])
-                tkeys, tnames = elements(pair_root, cmp_["target_view"])
-                for el in cmp_["key"] + cmp_["fields"]:
-                    if el not in src_names:
-                        err(f"X5 {name}: compare element {el} not in {cmp_['source_view']}")
-                    if el not in tnames:
-                        err(f"X5 {name}: compare element {el} not in {cmp_['target_view']}")
-                if set(cmp_["key"]) != tkeys:
-                    err(f"X5 {name}: compare key {cmp_['key']} != keys of {cmp_['target_view']} {sorted(tkeys)}")
     # X4
     for name, m in mappings.items():
         for dep in m.get("sequence_after", []):

@@ -17,22 +17,22 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`
 - Scope: `src.IsMarkedForDeletion = ''`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLKO-PLNTY | PLKO-PLNTY | copy | yes |
-| `TaskListGroup` | PLKO-PLNNR | PLKO-PLNNR | copy | yes |
-| `TaskListGroupCounter` | PLKO-PLNAL | PLKO-PLNAL | copy | yes |
-| `ValidityStartDate` | PLKO-DATUV | PLKO-DATUV | copy |  |
-| `TaskListDesc` | PLKO-KTEXT | PLKO-KTEXT | copy | yes |
-| `Plant` | PLKO-WERKS | PLKO-WERKS | copy | yes |
-| `TaskListUsage` | PLKO-VERWE | PLKO-VERWE | copy | yes |
-| `TaskListStatus` | PLKO-STATU | PLKO-STATU | copy | yes |
-| `MaintenancePlannerGroup` | PLKO-VAGRP | PLKO-VAGRP | copy | yes |
-| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
-| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | copy |  |
-| `MaintenanceStrategy` | PLKO-STRAT | PLKO-STRAT | copy | yes |
-| `MaintObjectSystemCondition` | PLKO-ANLZU | PLKO-ANLZU | copy |  |
-| `LastChangeDate` | PLKO-AEDAT | - | information only |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLKO-PLNTY | PLKO-PLNTY | copy |
+| `TaskListGroup` | PLKO-PLNNR | PLKO-PLNNR | copy |
+| `TaskListGroupCounter` | PLKO-PLNAL | PLKO-PLNAL | copy |
+| `ValidityStartDate` | PLKO-DATUV | PLKO-DATUV | copy |
+| `TaskListDesc` | PLKO-KTEXT | PLKO-KTEXT | copy |
+| `Plant` | PLKO-WERKS | PLKO-WERKS | copy |
+| `TaskListUsage` | PLKO-VERWE | PLKO-VERWE | copy |
+| `TaskListStatus` | PLKO-STATU | PLKO-STATU | copy |
+| `MaintenancePlannerGroup` | PLKO-VAGRP | PLKO-VAGRP | copy |
+| `MainWorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |
+| `MainWorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | copy |
+| `MaintenanceStrategy` | PLKO-STRAT | PLKO-STRAT | copy |
+| `MaintObjectSystemCondition` | PLKO-ANLZU | PLKO-ANLZU | copy |
+| `LastChangeDate` | PLKO-AEDAT | - | information only |
 
 ## `ZEMX_C_TaskListOperationMig`
 
@@ -40,25 +40,25 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`, `TaskListSequence`, `TaskListOperation`
 - Scope: `src.IsMarkedForDeletion = '' and src.OpAssignmentIsDeleted = '' and _TaskListCurrent.IsMarkedForDeletion = ''`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLAS-PLNTY | PLAS-PLNTY | copy |  |
-| `TaskListGroup` | PLAS-PLNNR | PLAS-PLNNR | copy |  |
-| `TaskListGroupCounter` | PLAS-PLNAL | PLAS-PLNAL | copy |  |
-| `TaskListSequence` | PLAS-PLNFL | PLAS-PLNFL | copy |  |
-| `TaskListOperation` | PLPO-VORNR | PLPO-VORNR | copy |  |
-| `TaskListSubOperation` | PLPO-UVORN | PLPO-UVORN | copy |  |
-| `OperationControlKey` | PLPO-STEUS | PLPO-STEUS | copy |  |
-| `OperationText` | PLPO-LTXA1 | PLPO-LTXA1 | copy |  |
-| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
-| `WorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | copy |  |
-| `Plant` | PLPO-WERKS | PLPO-WERKS | copy |  |
-| `ActivityType` | PLPO-LARNT | PLPO-LARNT | copy |  |
-| `PlannedWorkQuantity` | PLPO-ARBEI | PLPO-ARBEI | copy |  |
-| `PlannedWorkQuantityUnit` | PLPO-ARBEH | PLPO-ARBEH | copy: reference unit of a quantity - unit of measure customizing is transported, not mapped |  |
-| `OperationDuration` | PLPO-DAUNO | PLPO-DAUNO | copy |  |
-| `OperationDurationUnit` | PLPO-DAUNE | PLPO-DAUNE | copy: reference unit of a quantity - unit of measure customizing is transported, not mapped |  |
-| `NumberOfCapacities` | PLPO-ANZZL | PLPO-ANZZL | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLAS-PLNTY | PLAS-PLNTY | copy |
+| `TaskListGroup` | PLAS-PLNNR | PLAS-PLNNR | copy |
+| `TaskListGroupCounter` | PLAS-PLNAL | PLAS-PLNAL | copy |
+| `TaskListSequence` | PLAS-PLNFL | PLAS-PLNFL | copy |
+| `TaskListOperation` | PLPO-VORNR | PLPO-VORNR | copy |
+| `TaskListSubOperation` | PLPO-UVORN | PLPO-UVORN | copy |
+| `OperationControlKey` | PLPO-STEUS | PLPO-STEUS | copy |
+| `OperationText` | PLPO-LTXA1 | PLPO-LTXA1 | copy |
+| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |
+| `WorkCenterPlant` | CRHD-WERKS | CRHD-WERKS | copy |
+| `Plant` | PLPO-WERKS | PLPO-WERKS | copy |
+| `ActivityType` | PLPO-LARNT | PLPO-LARNT | copy |
+| `PlannedWorkQuantity` | PLPO-ARBEI | PLPO-ARBEI | copy |
+| `PlannedWorkQuantityUnit` | PLPO-ARBEH | PLPO-ARBEH | copy: reference unit of a quantity - unit of measure customizing is transported, not mapped |
+| `OperationDuration` | PLPO-DAUNO | PLPO-DAUNO | copy |
+| `OperationDurationUnit` | PLPO-DAUNE | PLPO-DAUNE | copy: reference unit of a quantity - unit of measure customizing is transported, not mapped |
+| `NumberOfCapacities` | PLPO-ANZZL | PLPO-ANZZL | copy |
 
 ## `ZEMX_C_TaskListAllocationMig`
 
@@ -68,16 +68,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **version_ledger**
 - Before posting: Resolve EAPL/TAPL assignment counters, additional criteria and deletion states for the cutover date. Do not post every history row.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | EAPL-PLNTY | EAPL-PLNTY | copy |  |
-| `TaskListGroup` | EAPL-PLNNR | EAPL-PLNNR | copy |  |
-| `TaskListGroupCounter` | EAPL-PLNAL | EAPL-PLNAL | copy |  |
-| `Equipment` | EAPL-EQUNR (blank for TAPL functional-location assignments) | EAPL-EQUNR | copy |  |
-| `FunctionalLocation` | TAPL-TPLNR (blank for EAPL equipment assignments) | EAPL-TPLNR | copy |  |
-| `AdditionalCriteriaCounter` | EAPL/TAPL-ZKRIZ | - | copy |  |
-| `AssignmentCounter` | EAPL/TAPL-ZAEHL | - | copy |  |
-| `IsMarkedForDeletion` | EAPL/TAPL-LOEKZ | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | EAPL-PLNTY | EAPL-PLNTY | copy |
+| `TaskListGroup` | EAPL-PLNNR | EAPL-PLNNR | copy |
+| `TaskListGroupCounter` | EAPL-PLNAL | EAPL-PLNAL | copy |
+| `Equipment` | EAPL-EQUNR (blank for TAPL functional-location assignments) | EAPL-EQUNR | copy |
+| `FunctionalLocation` | TAPL-TPLNR (blank for EAPL equipment assignments) | EAPL-TPLNR | copy |
+| `AdditionalCriteriaCounter` | EAPL/TAPL-ZKRIZ | - | copy |
+| `AssignmentCounter` | EAPL/TAPL-ZAEHL | - | copy |
+| `IsMarkedForDeletion` | EAPL/TAPL-LOEKZ | - | copy |
 
 ## `ZEMX_C_TaskListCompMig`
 
@@ -87,18 +87,18 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLMZ-PLNTY | PLMZ-PLNTY | copy |  |
-| `TaskListGroup` | PLMZ-PLNNR | PLMZ-PLNNR | copy |  |
-| `TaskListGroupCounter` | PLMZ-PLNAL | PLMZ-PLNAL | copy |  |
-| `OperationInternalID` | PLMZ-PLNKN | PLMZ-PLNKN | copy |  |
-| `VersionCounter` | PLMZ-ZAEHL | PLMZ-ZAEHL | copy |  |
-| `AllocationNumber` | PLMZ-ZUONR | PLMZ-ZUONR | copy |  |
-| `BOMCategory` | PLMZ-STLTY | PLMZ-STLTY | copy |  |
-| `BillOfMaterial` | PLMZ-STLNR | PLMZ-STLNR | copy |  |
-| `BOMAlternative` | PLMZ-STLAL | PLMZ-STLAL | copy |  |
-| `BOMItemNode` | PLMZ-STLKN | PLMZ-STLKN | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLMZ-PLNTY | PLMZ-PLNTY | copy |
+| `TaskListGroup` | PLMZ-PLNNR | PLMZ-PLNNR | copy |
+| `TaskListGroupCounter` | PLMZ-PLNAL | PLMZ-PLNAL | copy |
+| `OperationInternalID` | PLMZ-PLNKN | PLMZ-PLNKN | copy |
+| `VersionCounter` | PLMZ-ZAEHL | PLMZ-ZAEHL | copy |
+| `AllocationNumber` | PLMZ-ZUONR | PLMZ-ZUONR | copy |
+| `BOMCategory` | PLMZ-STLTY | PLMZ-STLTY | copy |
+| `BillOfMaterial` | PLMZ-STLNR | PLMZ-STLNR | copy |
+| `BOMAlternative` | PLMZ-STLAL | PLMZ-STLAL | copy |
+| `BOMItemNode` | PLMZ-STLKN | PLMZ-STLKN | copy |
 
 ## `ZEMX_C_TaskListPRTMig`
 
@@ -108,17 +108,17 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLFH-PLNTY | PLFH-PLNTY | copy |  |
-| `TaskListGroup` | PLFH-PLNNR | PLFH-PLNNR | copy |  |
-| `TaskListGroupCounter` | PLFH-PLNAL | PLFH-PLNAL | copy |  |
-| `OperationInternalID` | PLFH-PLNKN | PLFH-PLNKN | copy |  |
-| `VersionCounter` | PLFH-ZAEHL | PLFH-ZAEHL | copy |  |
-| `PRTItem` | PLFH-PSNFH | PLFH-PSNFH | copy |  |
-| `PRTObjectType` | PLFH-OBJTY | PLFH-OBJTY | copy |  |
-| `PRTInternalID` | PLFH-OBJID | PLFH-OBJID | copy |  |
-| `PRTControlKey` | PLFH-STEUF | PLFH-STEUF | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLFH-PLNTY | PLFH-PLNTY | copy |
+| `TaskListGroup` | PLFH-PLNNR | PLFH-PLNNR | copy |
+| `TaskListGroupCounter` | PLFH-PLNAL | PLFH-PLNAL | copy |
+| `OperationInternalID` | PLFH-PLNKN | PLFH-PLNKN | copy |
+| `VersionCounter` | PLFH-ZAEHL | PLFH-ZAEHL | copy |
+| `PRTItem` | PLFH-PSNFH | PLFH-PSNFH | copy |
+| `PRTObjectType` | PLFH-OBJTY | PLFH-OBJTY | copy |
+| `PRTInternalID` | PLFH-OBJID | PLFH-OBJID | copy |
+| `PRTControlKey` | PLFH-STEUF | PLFH-STEUF | copy |
 
 ## `ZEMX_C_TaskListPackageMig`
 
@@ -128,14 +128,14 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Highest recorded counters are provisional, not effective-date resolved. Resolve operation nodes, BOM items and PRT technical IDs to business keys before posting.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLWP-PLNTY | PLWP-PLNTY | copy |  |
-| `TaskListGroup` | PLWP-PLNNR | PLWP-PLNNR | copy |  |
-| `TaskListGroupCounter` | PLWP-PLNAL | PLWP-PLNAL | copy |  |
-| `OperationInternalID` | PLWP-PLNKN | PLWP-PLNKN | copy |  |
-| `VersionCounter` | PLWP-ZAEHL | PLWP-ZAEHL | copy |  |
-| `MaintenancePackage` | PLWP-PAKET | PLWP-PAKET | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLWP-PLNTY | PLWP-PLNTY | copy |
+| `TaskListGroup` | PLWP-PLNNR | PLWP-PLNNR | copy |
+| `TaskListGroupCounter` | PLWP-PLNAL | PLWP-PLNAL | copy |
+| `OperationInternalID` | PLWP-PLNKN | PLWP-PLNKN | copy |
+| `VersionCounter` | PLWP-ZAEHL | PLWP-ZAEHL | copy |
+| `MaintenancePackage` | PLWP-PAKET | PLWP-PAKET | copy |
 
 ## `ZEMX_C_TaskListLongTextMig`
 
@@ -145,12 +145,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | - | copy |  |
-| `TextName` | STXH-TDNAME | - | copy |  |
-| `TextID` | STXH-TDID | - | copy |  |
-| `Language` | STXH-TDSPRAS | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |
+| `TextName` | STXH-TDNAME | - | copy |
+| `TextID` | STXH-TDID | - | copy |
+| `Language` | STXH-TDSPRAS | - | copy |
 
 ## Not delivered
 
@@ -170,15 +170,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_TaskListPRT` | `IsMarkedForDeletion` | PLFH-LOEKZ | scope flag |
 | `ZEMX_I_TaskListPackage` | `IsMarkedForDeletion` | PLWP-LOEKZ | scope flag |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZEMX_C_TaskListMigCount` (ECC) vs `ZEMT_I_TaskListCount` (S/4HANA) per `TaskListType`, `Plant`
-- Records and fields: `ZEMX_C_TaskListMig` vs `ZEMT_B_TaskListCompare` on `TaskListType`, `TaskListGroup`, `TaskListGroupCounter`; compared: `TaskListDesc`, `Plant`, `TaskListUsage`, `TaskListStatus`, `MaintenancePlannerGroup`, `MaintenanceStrategy`
-
-```bash
-python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module task_list --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --product eam_mig_ecc --module task_list --source ecc_extract.csv --target s4_compare.csv
-```
+- Source count view: `ZEMX_C_TaskListMigCount`
 
 ## Open gaps
 

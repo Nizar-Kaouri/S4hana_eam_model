@@ -20,4 +20,4 @@ First restrict ZEMX_C_LongTextIndexMig to an explicit selected-text cohort, incl
 
 Run ZEMX_EAM_TEXT_EXPORT with that TSV and a new output CSV. It calls READ_TEXT for every key, retaining line order and SAPscript format. Empty texts have LineNumber 0; missing/error texts stop publication of the whole payload and appear in the SAP list log. Keys, format tags and text lines use escaped CSV quoting. P_MAX bounds the selected text key count (default 10000). The report requires STXH display authorization; also test authorization through READ_TEXT on your system. It performs no SAVE_TEXT or COMMIT.
 
-Repeat on the target with mapped text keys, then compare ordered Format/Text payloads with the long-text comparison contract. Creating/posting target texts remains part of the customer's loading program.
+Preserve ordered Format/Text payloads. Creating texts remains part of the customer's loading program.

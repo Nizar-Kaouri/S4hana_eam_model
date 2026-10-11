@@ -11,7 +11,7 @@
       "ContactUUID"
     ],
     "numbering": "keep",
-    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
   },
   "structures": [
     {
@@ -26,78 +26,67 @@
           "element": "ContactUUID",
           "source": "UDM_CCT_ATTR-CCT_GUID",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ContactDate",
           "source": "UDM_CCT_ATTR-CCT_DATE",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactDate",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ContactResult",
           "source": "UDM_CCT_ATTR-CCT_RESULT",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactResult",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ContactType",
           "source": "UDM_CCT_ATTR-CCT_TYPE",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactType",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ContactDirection",
           "source": "UDM_CCT_ATTR-CCT_DIRECTION",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactDirection",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Reached",
           "source": "UDM_CCT_ATTR-XREACHED",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.Reached",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CollectionSegment",
           "source": "UDM_CCT_ATTR-COLL_SEGMENT",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.CollectionSegment",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CollectionSpecialist",
           "source": "UDM_CCT_ATTR-COLL_SPECIALIST",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.CollectionSpecialist",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BusinessPartner",
           "source": "UDM_CCT_ATTR-CUSTOMER",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.BusinessPartner",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ContactName",
           "source": "UDM_CCT_ATTR-CCT_NAME",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactName",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ChangedAt",
           "source": "UDM_CCT_ATTR-CHANGED_AT",
           "target": "Native target evidence: ZFCT_B_CollectContactCompare.ChangedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -110,33 +99,12 @@
     "CollectContact: Contact attributes only; associated items and resubmissions remain pending.",
     "CollectTask: Public worklist fields do not establish the planned resubmission/follow-up task structure; substituting another business object would change scope."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "dimensions": [],
-    "source_count_view": "ZFCX_C_CollectContactMigCount",
-    "target_count_view": "ZFCT_I_CollectContactCount",
-    "compare": {
-      "source_view": "ZFCX_C_CollectContactMig",
-      "target_view": "ZFCT_B_CollectContactCompare",
-      "key": [
-        "ContactUUID"
-      ],
-      "fields": [
-        "ContactDate",
-        "ContactResult",
-        "ContactType",
-        "ContactDirection",
-        "Reached",
-        "CollectionSegment",
-        "CollectionSpecialist",
-        "BusinessPartner",
-        "ContactName",
-        "ChangedAt"
-      ]
-    }
-  },
   "main_structure": "ZFCX_C_CollectContactMig",
   "pending_dependencies": [
     "collections_profile"
-  ]
+  ],
+  "source_control": {
+    "source_count_view": "ZFCX_C_CollectContactMigCount",
+    "dimensions": []
+  }
 }

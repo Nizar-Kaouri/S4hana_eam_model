@@ -17,11 +17,11 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **configuration-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `InvestmentProgram` | IMTP-PRNAM | customer interface field: InvestmentProgram (unconfirmed) | information only | yes |
-| `ApprovalFiscalYear` | IMTP-GJAHR | customer interface field: ApprovalFiscalYear (unconfirmed) | information only | yes |
-| `InvestmentProgramDescription` | IMTP-TXT50 | customer interface field: InvestmentProgramDescription (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `InvestmentProgram` | IMTP-PRNAM | customer interface field: InvestmentProgram (unconfirmed) | information only |
+| `ApprovalFiscalYear` | IMTP-GJAHR | customer interface field: ApprovalFiscalYear (unconfirmed) | information only |
+| `InvestmentProgramDescription` | IMTP-TXT50 | customer interface field: InvestmentProgramDescription (unconfirmed) | information only |
 
 ## `ZPSX_C_InvestPositionMig`
 
@@ -31,13 +31,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **configuration-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `InvestmentPositionInternalID` | IMPR-POSNR | customer interface field: InvestmentPositionInternalID (unconfirmed) | information only | yes |
-| `InvestmentProgram` | IMPR-PRNAM | customer interface field: InvestmentProgram (unconfirmed) | information only | yes |
-| `ApprovalFiscalYear` | IMPR-GJAHR | customer interface field: ApprovalFiscalYear (unconfirmed) | information only | yes |
-| `InvestmentPosition` | IMPR-POSID | customer interface field: InvestmentPosition (unconfirmed) | information only | yes |
-| `ObjectNumber` | IMPR-OBJNR | customer interface field: ObjectNumber (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `InvestmentPositionInternalID` | IMPR-POSNR | customer interface field: InvestmentPositionInternalID (unconfirmed) | information only |
+| `InvestmentProgram` | IMPR-PRNAM | customer interface field: InvestmentProgram (unconfirmed) | information only |
+| `ApprovalFiscalYear` | IMPR-GJAHR | customer interface field: ApprovalFiscalYear (unconfirmed) | information only |
+| `InvestmentPosition` | IMPR-POSID | customer interface field: InvestmentPosition (unconfirmed) | information only |
+| `ObjectNumber` | IMPR-OBJNR | customer interface field: ObjectNumber (unconfirmed) | information only |
 
 ## `ZPSX_C_InvestAssignMig`
 
@@ -47,20 +47,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **configuration-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `InvestmentPositionInternalID` | IMZO-POSNR | customer interface field: InvestmentPositionInternalID (unconfirmed) | information only | yes |
-| `AssignedObject` | IMZO-OBJNR | customer interface field: AssignedObject (unconfirmed) | information only | yes |
-| `ApprovalFiscalYear` | IMZO-GJAHR | customer interface field: ApprovalFiscalYear (unconfirmed) | information only | yes |
-| `AssignmentPercentage` | IMZO-PROZU | customer interface field: AssignmentPercentage (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `InvestmentPositionInternalID` | IMZO-POSNR | customer interface field: InvestmentPositionInternalID (unconfirmed) | information only |
+| `AssignedObject` | IMZO-OBJNR | customer interface field: AssignedObject (unconfirmed) | information only |
+| `ApprovalFiscalYear` | IMZO-GJAHR | customer interface field: ApprovalFiscalYear (unconfirmed) | information only |
+| `AssignmentPercentage` | IMZO-PROZU | customer interface field: AssignmentPercentage (unconfirmed) | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZPSX_C_InvestProgramMigCount` (ECC) vs `-` (S/4HANA) per `InvestmentProgram`
-
-```bash
-python3 tools/mig_reconcile.py counts --product ps_mig_ecc --module investment_measure --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZPSX_C_InvestProgramMigCount`
 
 ## Open gaps
 

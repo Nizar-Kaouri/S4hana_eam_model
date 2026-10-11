@@ -32,57 +32,49 @@
           "element": "TaskListType",
           "source": "PLKO-PLNTY",
           "target": "customer interface field: TaskListType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListGroup",
           "source": "PLKO-PLNNR",
           "target": "customer interface field: TaskListGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "PLKO-PLNAL",
           "target": "customer interface field: TaskListGroupCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InternalCounter",
           "source": "PLKO-ZAEHL",
           "target": "customer interface field: InternalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidFromDate",
           "source": "PLKO-DATUV",
           "target": "customer interface field: ValidFromDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ChangeNumber",
           "source": "PLKO-AENNR",
           "target": "customer interface field: ChangeNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "PLKO-LOEKZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListDescription",
           "source": "PLKO-KTEXT",
           "target": "customer interface field: TaskListDescription (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -105,57 +97,49 @@
           "element": "Material",
           "source": "MAPL-MATNR",
           "target": "customer interface field: Material (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "MAPL-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListType",
           "source": "MAPL-PLNTY",
           "target": "customer interface field: TaskListType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListGroup",
           "source": "MAPL-PLNNR",
           "target": "customer interface field: TaskListGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "MAPL-PLNAL",
           "target": "customer interface field: TaskListGroupCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InternalCounter",
           "source": "MAPL-ZAEHL",
           "target": "customer interface field: InternalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidFromDate",
           "source": "MAPL-DATUV",
           "target": "customer interface field: ValidFromDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "MAPL-LOEKZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -178,57 +162,49 @@
           "element": "TaskListType",
           "source": "PLAS-PLNTY",
           "target": "customer interface field: TaskListType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListGroup",
           "source": "PLAS-PLNNR",
           "target": "customer interface field: TaskListGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "PLAS-PLNAL",
           "target": "customer interface field: TaskListGroupCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Sequence",
           "source": "PLAS-PLNFL",
           "target": "customer interface field: Sequence (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListNode",
           "source": "PLAS-PLNKN",
           "target": "customer interface field: TaskListNode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InternalCounter",
           "source": "PLAS-ZAEHL",
           "target": "customer interface field: InternalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidFromDate",
           "source": "PLAS-DATUV",
           "target": "customer interface field: ValidFromDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "PLAS-LOEKZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -249,57 +225,49 @@
           "element": "TaskListType",
           "source": "PLPO-PLNTY",
           "target": "customer interface field: TaskListType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListGroup",
           "source": "PLPO-PLNNR",
           "target": "customer interface field: TaskListGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListNode",
           "source": "PLPO-PLNKN",
           "target": "customer interface field: TaskListNode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InternalCounter",
           "source": "PLPO-ZAEHL",
           "target": "customer interface field: InternalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidFromDate",
           "source": "PLPO-DATUV",
           "target": "customer interface field: ValidFromDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "PLPO-LOEKZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Operation",
           "source": "PLPO-VORNR",
           "target": "customer interface field: Operation (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationText",
           "source": "PLPO-LTXA1",
           "target": "customer interface field: OperationText (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -321,57 +289,49 @@
           "element": "TaskListType",
           "source": "PLMK-PLNTY",
           "target": "customer interface field: TaskListType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListGroup",
           "source": "PLMK-PLNNR",
           "target": "customer interface field: TaskListGroup (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TaskListNode",
           "source": "PLMK-PLNKN",
           "target": "customer interface field: TaskListNode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CharacteristicNumber",
           "source": "PLMK-MERKNR",
           "target": "customer interface field: CharacteristicNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InternalCounter",
           "source": "PLMK-ZAEHL",
           "target": "customer interface field: InternalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidFromDate",
           "source": "PLMK-DATUV",
           "target": "customer interface field: ValidFromDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "PLMK-LOEKZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CharacteristicDescription",
           "source": "PLMK-KURZTEXT",
           "target": "customer interface field: CharacteristicDescription (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -392,29 +352,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -425,15 +381,13 @@
   "gaps": [
     "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZQMX_C_InspectPlanHeaMig",
+  "source_control": {
+    "source_count_view": "ZQMX_C_InspectPlanHeaMigCount",
     "dimensions": [
       {
         "element": "TaskListType"
       }
-    ],
-    "source_count_view": "ZQMX_C_InspectPlanHeaMigCount"
-  },
-  "main_structure": "ZQMX_C_InspectPlanHeaMig"
+    ]
+  }
 }

@@ -26,22 +26,19 @@
           "element": "SamplingProcedure",
           "source": "QDSV-STICHPRVER",
           "target": "customer interface field: SamplingProcedure (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "SamplingType",
           "source": "QDSV-STICHPRART",
           "target": "customer interface field: SamplingType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValuationMode",
           "source": "QDSV-BEWERTART",
           "target": "customer interface field: ValuationMode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "configuration-reference",
@@ -53,15 +50,13 @@
     "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.",
     "DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZQMX_C_SamplingProcMig",
+  "source_control": {
+    "source_count_view": "ZQMX_C_SamplingProcMigCount",
     "dimensions": [
       {
         "element": "SamplingProcedure"
       }
-    ],
-    "source_count_view": "ZQMX_C_SamplingProcMigCount"
-  },
-  "main_structure": "ZQMX_C_SamplingProcMig"
+    ]
+  }
 }

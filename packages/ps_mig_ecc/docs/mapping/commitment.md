@@ -17,29 +17,25 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `ObjectNumber` | COOI-OBJNR | customer interface field: ObjectNumber (unconfirmed) | information only | yes |
-| `FiscalYear` | COOI-GJAHR | customer interface field: FiscalYear (unconfirmed) | information only | yes |
-| `ValueType` | COOI-WRTTP | customer interface field: ValueType (unconfirmed) | information only | yes |
-| `Version` | COOI-VERSN | customer interface field: Version (unconfirmed) | information only | yes |
-| `CostElement` | COOI-KSTAR | customer interface field: CostElement (unconfirmed) | information only | yes |
-| `OriginGroup` | COOI-HRKFT | customer interface field: OriginGroup (unconfirmed) | information only | yes |
-| `BusinessTransaction` | COOI-VRGNG | customer interface field: BusinessTransaction (unconfirmed) | information only | yes |
-| `CommitmentDocument` | COOI-BELNR | customer interface field: CommitmentDocument (unconfirmed) | information only | yes |
-| `CommitmentItem` | COOI-BUZEI | customer interface field: CommitmentItem (unconfirmed) | information only | yes |
-| `TransactionCurrency` | COOI-TWAER | customer interface field: TransactionCurrency (unconfirmed) | information only | yes |
-| `TransactionAmount` | COOI-WTGBTR | customer interface field: TransactionAmount (unconfirmed) | information only | yes |
-| `ObjectCurrencyAmount` | COOI-WOGBTR | customer interface field: ObjectCurrencyAmount (unconfirmed) | information only | yes |
-| `ControllingAreaAmount` | COOI-WKGBTR | customer interface field: ControllingAreaAmount (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `ObjectNumber` | COOI-OBJNR | customer interface field: ObjectNumber (unconfirmed) | information only |
+| `FiscalYear` | COOI-GJAHR | customer interface field: FiscalYear (unconfirmed) | information only |
+| `ValueType` | COOI-WRTTP | customer interface field: ValueType (unconfirmed) | information only |
+| `Version` | COOI-VERSN | customer interface field: Version (unconfirmed) | information only |
+| `CostElement` | COOI-KSTAR | customer interface field: CostElement (unconfirmed) | information only |
+| `OriginGroup` | COOI-HRKFT | customer interface field: OriginGroup (unconfirmed) | information only |
+| `BusinessTransaction` | COOI-VRGNG | customer interface field: BusinessTransaction (unconfirmed) | information only |
+| `CommitmentDocument` | COOI-BELNR | customer interface field: CommitmentDocument (unconfirmed) | information only |
+| `CommitmentItem` | COOI-BUZEI | customer interface field: CommitmentItem (unconfirmed) | information only |
+| `TransactionCurrency` | COOI-TWAER | customer interface field: TransactionCurrency (unconfirmed) | information only |
+| `TransactionAmount` | COOI-WTGBTR | customer interface field: TransactionAmount (unconfirmed) | information only |
+| `ObjectCurrencyAmount` | COOI-WOGBTR | customer interface field: ObjectCurrencyAmount (unconfirmed) | information only |
+| `ControllingAreaAmount` | COOI-WKGBTR | customer interface field: ControllingAreaAmount (unconfirmed) | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZPSX_C_CommitmentMigCount` (ECC) vs `-` (S/4HANA) per `ObjectNumber`
-
-```bash
-python3 tools/mig_reconcile.py counts --product ps_mig_ecc --module commitment --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZPSX_C_CommitmentMigCount`
 
 ## Open gaps
 

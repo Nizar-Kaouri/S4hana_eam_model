@@ -1,7 +1,7 @@
 {
   "name": "quality_notification",
   "title": "Quality notifications",
-  "description": "Quality notifications source records, preparation and comparison contracts.",
+  "description": "Quality notifications source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

@@ -206,7 +206,7 @@ class BuildMigrationTest(unittest.TestCase):
         args = argparse.Namespace(all=True, product_all=None, modules=[])
         _, manifest = bb.build(args, "ZACME_", "ZACME_VDM", out=self.tmp / "c.zip")
         self.assertNotIn("eam_mig_ecc", manifest["products"])
-        self.assertIn("eam_mig_s4", manifest["products"])
+        self.assertFalse(any(n.endswith("_mig_s4") for n in manifest["products"]))
 
 
 if __name__ == "__main__":

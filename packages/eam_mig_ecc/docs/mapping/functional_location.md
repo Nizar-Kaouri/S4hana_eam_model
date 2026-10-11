@@ -17,55 +17,55 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `FunctionalLocation`
 - Scope: `src.IsMarkedForDeletion = ''`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | IFLOT-TPLNR | IFLOT-TPLNR | copy | yes |
-| `FunctionalLocationCategory` | IFLOT-FLTYP | IFLOT-FLTYP | copy | yes |
-| `FuncLocationStructure` | IFLOT-TPLKZ | IFLOT-TPLKZ | copy |  |
-| `SuperiorFunctionalLocation` | IFLOT-TPLMA | IFLOT-TPLMA | copy | yes |
-| `TechnicalObjectType` | IFLOT-EQART | IFLOT-EQART | copy | yes |
-| `AuthorizationGroup` | IFLOT-BEGRU | IFLOT-BEGRU | copy |  |
-| `MaintenancePlanningPlant` | IFLOT-IWERK | IFLOT-IWERK | copy | yes |
-| `MaintenancePlannerGroup` | IFLOT-INGRP | IFLOT-INGRP | copy |  |
-| `EquipInstallationIsAllowed` | IFLOT-IEQUI | IFLOT-IEQUI | copy |  |
-| `EquipIsSingleInstallation` | IFLOT-EINZL | IFLOT-EINZL | copy |  |
-| `ConstructionType` | IFLOT-SUBMT | IFLOT-SUBMT | copy |  |
-| `AssetManufacturerName` | IFLOT-HERST | IFLOT-HERST | copy |  |
-| `ConstructionYear` | IFLOT-BAUJJ | IFLOT-BAUJJ | copy |  |
-| `InventoryNumber` | IFLOT-INVNR | IFLOT-INVNR | copy |  |
-| `OperationStartDate` | IFLOT-INBDT | IFLOT-INBDT | copy |  |
-| `MaintenancePlant` | ILOA-SWERK | ILOA-SWERK | copy | yes |
-| `PlantSection` | ILOA-BEBER | ILOA-BEBER | copy |  |
-| `AssetLocation` | ILOA-STORT | ILOA-STORT | copy |  |
-| `AssetRoom` | ILOA-MSGRP | ILOA-MSGRP | copy |  |
-| `ABCIndicator` | ILOA-ABCKZ | ILOA-ABCKZ | copy | yes |
-| `SortField` | ILOA-EQFNR | ILOA-EQFNR | copy |  |
-| `CompanyCode` | ILOA-BUKRS | ILOA-BUKRS | copy | yes |
-| `BusinessArea` | ILOA-GSBER | ILOA-GSBER | copy |  |
-| `ControllingArea` | ILOA-KOKRS | ILOA-KOKRS | copy |  |
-| `CostCenter` | ILOA-KOSTL | ILOA-KOSTL | copy | yes |
-| `MasterFixedAsset` | ILOA-ANLNR | ILOA-ANLNR | copy |  |
-| `FixedAsset` | ILOA-ANLUN | ILOA-ANLUN | copy |  |
-| `StandingOrder` | ILOA-DAUFN | - | derived: follow-up step after the order load |  |
-| `LastChangeDate` | IFLOT-AEDAT | - | information only |  |
-| `AddressNumber` | ILOA-ADRNR | - | information only |  |
-| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
-| `AddressName1` | ADRC-NAME1 | - | copy |  |
-| `AddressName2` | ADRC-NAME2 | - | copy |  |
-| `AddressName3` | ADRC-NAME3 | - | copy |  |
-| `AddressName4` | ADRC-NAME4 | - | copy |  |
-| `AddressStreet` | ADRC-STREET | - | copy |  |
-| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
-| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
-| `AddressCity` | ADRC-CITY1 | - | copy |  |
-| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
-| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
-| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
-| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
-| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
-| `AddressRegion` | ADRC-REGION | - | copy |  |
-| `AddressLanguage` | ADRC-LANGU | - | copy |  |
-| `HasStandardAddress` | derived: presence of the standard ADRC record | - | information only |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | IFLOT-TPLNR | copy |
+| `FunctionalLocationCategory` | IFLOT-FLTYP | IFLOT-FLTYP | copy |
+| `FuncLocationStructure` | IFLOT-TPLKZ | IFLOT-TPLKZ | copy |
+| `SuperiorFunctionalLocation` | IFLOT-TPLMA | IFLOT-TPLMA | copy |
+| `TechnicalObjectType` | IFLOT-EQART | IFLOT-EQART | copy |
+| `AuthorizationGroup` | IFLOT-BEGRU | IFLOT-BEGRU | copy |
+| `MaintenancePlanningPlant` | IFLOT-IWERK | IFLOT-IWERK | copy |
+| `MaintenancePlannerGroup` | IFLOT-INGRP | IFLOT-INGRP | copy |
+| `EquipInstallationIsAllowed` | IFLOT-IEQUI | IFLOT-IEQUI | copy |
+| `EquipIsSingleInstallation` | IFLOT-EINZL | IFLOT-EINZL | copy |
+| `ConstructionType` | IFLOT-SUBMT | IFLOT-SUBMT | copy |
+| `AssetManufacturerName` | IFLOT-HERST | IFLOT-HERST | copy |
+| `ConstructionYear` | IFLOT-BAUJJ | IFLOT-BAUJJ | copy |
+| `InventoryNumber` | IFLOT-INVNR | IFLOT-INVNR | copy |
+| `OperationStartDate` | IFLOT-INBDT | IFLOT-INBDT | copy |
+| `MaintenancePlant` | ILOA-SWERK | ILOA-SWERK | copy |
+| `PlantSection` | ILOA-BEBER | ILOA-BEBER | copy |
+| `AssetLocation` | ILOA-STORT | ILOA-STORT | copy |
+| `AssetRoom` | ILOA-MSGRP | ILOA-MSGRP | copy |
+| `ABCIndicator` | ILOA-ABCKZ | ILOA-ABCKZ | copy |
+| `SortField` | ILOA-EQFNR | ILOA-EQFNR | copy |
+| `CompanyCode` | ILOA-BUKRS | ILOA-BUKRS | copy |
+| `BusinessArea` | ILOA-GSBER | ILOA-GSBER | copy |
+| `ControllingArea` | ILOA-KOKRS | ILOA-KOKRS | copy |
+| `CostCenter` | ILOA-KOSTL | ILOA-KOSTL | copy |
+| `MasterFixedAsset` | ILOA-ANLNR | ILOA-ANLNR | copy |
+| `FixedAsset` | ILOA-ANLUN | ILOA-ANLUN | copy |
+| `StandingOrder` | ILOA-DAUFN | - | derived: follow-up step after the order load |
+| `LastChangeDate` | IFLOT-AEDAT | - | information only |
+| `AddressNumber` | ILOA-ADRNR | - | information only |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |
+| `AddressName1` | ADRC-NAME1 | - | copy |
+| `AddressName2` | ADRC-NAME2 | - | copy |
+| `AddressName3` | ADRC-NAME3 | - | copy |
+| `AddressName4` | ADRC-NAME4 | - | copy |
+| `AddressStreet` | ADRC-STREET | - | copy |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |
+| `AddressCity` | ADRC-CITY1 | - | copy |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |
+| `AddressRegion` | ADRC-REGION | - | copy |
+| `AddressLanguage` | ADRC-LANGU | - | copy |
+| `HasStandardAddress` | derived: presence of the standard ADRC record | - | information only |
 
 ## `ZEMX_C_FuncLocTextMig`
 
@@ -73,11 +73,11 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `FunctionalLocation`, `Language`
 - Scope: `_FuncLoc.IsMarkedForDeletion = ''`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | IFLOTX-TPLNR | IFLOTX-TPLNR | copy |  |
-| `Language` | IFLOTX-SPRAS | IFLOTX-SPRAS | copy |  |
-| `FunctionalLocationName` | IFLOTX-PLTXT | IFLOTX-PLTXT | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | IFLOTX-TPLNR | IFLOTX-TPLNR | copy |
+| `Language` | IFLOTX-SPRAS | IFLOTX-SPRAS | copy |
+| `FunctionalLocationName` | IFLOTX-PLTXT | IFLOTX-PLTXT | copy |
 
 ## `ZEMX_C_FuncLocLabelMig`
 
@@ -85,12 +85,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `FunctionalLocation`, `LabelingSystem`
 - Scope: `_Parent.IsMarkedForDeletion = ''`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | IFLOS-TPLNR | IFLOS-TPLNR | copy |  |
-| `LabelingSystem` | IFLOS-ALTNR | IFLOS-ALTNR | copy |  |
-| `AlternativeLabel` | IFLOS-STRNO | IFLOS-STRNO | copy |  |
-| `IsActiveLabel` | IFLOS-ACTVS | IFLOS-ACTVS | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | IFLOS-TPLNR | IFLOS-TPLNR | copy |
+| `LabelingSystem` | IFLOS-ALTNR | IFLOS-ALTNR | copy |
+| `AlternativeLabel` | IFLOS-STRNO | IFLOS-STRNO | copy |
+| `IsActiveLabel` | IFLOS-ACTVS | IFLOS-ACTVS | copy |
 
 ## `ZEMX_C_FuncLocAddressMig`
 
@@ -100,28 +100,28 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
-| `AddressNumber` | ADRC-ADDRNUMBER | - | information only |  |
-| `AddressValidFrom` | ADRC-DATE_FROM | - | copy |  |
-| `AddressVersion` | ADRC-NATION | - | copy |  |
-| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
-| `AddressName1` | ADRC-NAME1 | - | copy |  |
-| `AddressName2` | ADRC-NAME2 | - | copy |  |
-| `AddressName3` | ADRC-NAME3 | - | copy |  |
-| `AddressName4` | ADRC-NAME4 | - | copy |  |
-| `AddressStreet` | ADRC-STREET | - | copy |  |
-| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
-| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
-| `AddressCity` | ADRC-CITY1 | - | copy |  |
-| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
-| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
-| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
-| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
-| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
-| `AddressRegion` | ADRC-REGION | - | copy |  |
-| `AddressLanguage` | ADRC-LANGU | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |
+| `AddressNumber` | ADRC-ADDRNUMBER | - | information only |
+| `AddressValidFrom` | ADRC-DATE_FROM | - | copy |
+| `AddressVersion` | ADRC-NATION | - | copy |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |
+| `AddressName1` | ADRC-NAME1 | - | copy |
+| `AddressName2` | ADRC-NAME2 | - | copy |
+| `AddressName3` | ADRC-NAME3 | - | copy |
+| `AddressName4` | ADRC-NAME4 | - | copy |
+| `AddressStreet` | ADRC-STREET | - | copy |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |
+| `AddressCity` | ADRC-CITY1 | - | copy |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |
+| `AddressRegion` | ADRC-REGION | - | copy |
+| `AddressLanguage` | ADRC-LANGU | - | copy |
 
 ## `ZEMX_C_FuncLocPartnerMig`
 
@@ -131,12 +131,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
-| `PartnerFunction` | IHPA-PARVW | - | copy |  |
-| `PartnerCounter` | IHPA-COUNTER | - | copy |  |
-| `Partner` | IHPA-PARNR | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |
+| `PartnerFunction` | IHPA-PARVW | - | copy |
+| `PartnerCounter` | IHPA-COUNTER | - | copy |
+| `Partner` | IHPA-PARNR | - | copy |
 
 ## `ZEMX_C_FuncLocStatusMig`
 
@@ -146,13 +146,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | source: FunctionalLocation | - | copy |  |
-| `StatusCode` | JEST-STAT | - | copy |  |
-| `StatusKind` | source: StatusKind | - | copy |  |
-| `StatusProfile` | JSTO-STSMA | - | copy |  |
-| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | source: FunctionalLocation | - | copy |
+| `StatusCode` | JEST-STAT | - | copy |
+| `StatusKind` | source: StatusKind | - | copy |
+| `StatusProfile` | JSTO-STSMA | - | copy |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |
 
 ## `ZEMX_C_FuncLocUserStatusMig`
 
@@ -162,13 +162,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | source: FunctionalLocation | - | copy |  |
-| `StatusCode` | JEST-STAT | - | copy |  |
-| `StatusKind` | source: StatusKind | - | copy |  |
-| `StatusProfile` | JSTO-STSMA | - | copy |  |
-| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | source: FunctionalLocation | - | copy |
+| `StatusCode` | JEST-STAT | - | copy |
+| `StatusKind` | source: StatusKind | - | copy |
+| `StatusProfile` | JSTO-STSMA | - | copy |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |
 
 ## `ZEMX_C_FuncLocClassMig`
 
@@ -178,12 +178,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | source: FunctionalLocation | - | copy |  |
-| `ClassType` | KSSK-KLART | - | copy |  |
-| `Class` | KLAH-CLASS | - | copy |  |
-| `ClassificationStatus` | KSSK-STATU | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | source: FunctionalLocation | - | copy |
+| `ClassType` | KSSK-KLART | - | copy |
+| `Class` | KLAH-CLASS | - | copy |
+| `ClassificationStatus` | KSSK-STATU | - | copy |
 
 ## `ZEMX_C_FuncLocCharcMig`
 
@@ -193,16 +193,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | source: FunctionalLocation | - | copy |  |
-| `ClassType` | AUSP-KLART | - | copy |  |
-| `Characteristic` | CABN-ATNAM | - | copy |  |
-| `CharcValuePositionNumber` | AUSP-ATZHL | - | copy |  |
-| `CharcValue` | AUSP-ATWRT | - | copy |  |
-| `CharcFromNumericValue` | AUSP-ATFLV | - | copy |  |
-| `CharcToNumericValue` | AUSP-ATFLB | - | copy |  |
-| `CharcValueDependency` | AUSP-ATCOD | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | source: FunctionalLocation | - | copy |
+| `ClassType` | AUSP-KLART | - | copy |
+| `Characteristic` | CABN-ATNAM | - | copy |
+| `CharcValuePositionNumber` | AUSP-ATZHL | - | copy |
+| `CharcValue` | AUSP-ATWRT | - | copy |
+| `CharcFromNumericValue` | AUSP-ATFLV | - | copy |
+| `CharcToNumericValue` | AUSP-ATFLB | - | copy |
+| `CharcValueDependency` | AUSP-ATCOD | - | copy |
 
 ## `ZEMX_C_FuncLocEmailMig`
 
@@ -212,15 +212,15 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
-| `AddressNumber` | ADR6-ADDRNUMBER | - | information only |  |
-| `PersonNumber` | ADR6-PERSNUMBER | - | copy |  |
-| `CommunicationValidFrom` | ADR6-DATE_FROM | - | copy |  |
-| `CommunicationCounter` | ADR6-CONSNUMBER | - | copy |  |
-| `EmailAddress` | ADR6-SMTP_ADDR | - | copy |  |
-| `IsDefaultCommunication` | ADR6-FLGDEFAULT | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |
+| `AddressNumber` | ADR6-ADDRNUMBER | - | information only |
+| `PersonNumber` | ADR6-PERSNUMBER | - | copy |
+| `CommunicationValidFrom` | ADR6-DATE_FROM | - | copy |
+| `CommunicationCounter` | ADR6-CONSNUMBER | - | copy |
+| `EmailAddress` | ADR6-SMTP_ADDR | - | copy |
+| `IsDefaultCommunication` | ADR6-FLGDEFAULT | - | copy |
 
 ## `ZEMX_C_FuncLocPhoneMig`
 
@@ -230,16 +230,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
-| `AddressNumber` | ADR2-ADDRNUMBER | - | information only |  |
-| `PersonNumber` | ADR2-PERSNUMBER | - | copy |  |
-| `CommunicationValidFrom` | ADR2-DATE_FROM | - | copy |  |
-| `CommunicationCounter` | ADR2-CONSNUMBER | - | copy |  |
-| `Telephone` | ADR2-TEL_NUMBER | - | copy |  |
-| `TelephoneExtension` | ADR2-TEL_EXTENS | - | copy |  |
-| `IsDefaultCommunication` | ADR2-FLGDEFAULT | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |
+| `AddressNumber` | ADR2-ADDRNUMBER | - | information only |
+| `PersonNumber` | ADR2-PERSNUMBER | - | copy |
+| `CommunicationValidFrom` | ADR2-DATE_FROM | - | copy |
+| `CommunicationCounter` | ADR2-CONSNUMBER | - | copy |
+| `Telephone` | ADR2-TEL_NUMBER | - | copy |
+| `TelephoneExtension` | ADR2-TEL_EXTENS | - | copy |
+| `IsDefaultCommunication` | ADR2-FLGDEFAULT | - | copy |
 
 ## `ZEMX_C_FuncLocFaxMig`
 
@@ -249,16 +249,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
-| `AddressNumber` | ADR3-ADDRNUMBER | - | information only |  |
-| `PersonNumber` | ADR3-PERSNUMBER | - | copy |  |
-| `CommunicationValidFrom` | ADR3-DATE_FROM | - | copy |  |
-| `CommunicationCounter` | ADR3-CONSNUMBER | - | copy |  |
-| `FaxNumber` | ADR3-FAX_NUMBER | - | copy |  |
-| `FaxExtension` | ADR3-FAX_EXTENS | - | copy |  |
-| `IsDefaultCommunication` | ADR3-FLGDEFAULT | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |
+| `AddressNumber` | ADR3-ADDRNUMBER | - | information only |
+| `PersonNumber` | ADR3-PERSNUMBER | - | copy |
+| `CommunicationValidFrom` | ADR3-DATE_FROM | - | copy |
+| `CommunicationCounter` | ADR3-CONSNUMBER | - | copy |
+| `FaxNumber` | ADR3-FAX_NUMBER | - | copy |
+| `FaxExtension` | ADR3-FAX_EXTENS | - | copy |
+| `IsDefaultCommunication` | ADR3-FLGDEFAULT | - | copy |
 
 ## `ZEMX_C_FuncLocLongTextMig`
 
@@ -268,12 +268,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | - | copy |  |
-| `TextName` | STXH-TDNAME | - | copy |  |
-| `TextID` | STXH-TDID | - | copy |  |
-| `Language` | STXH-TDSPRAS | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |
+| `TextName` | STXH-TDNAME | - | copy |
+| `TextID` | STXH-TDID | - | copy |
+| `Language` | STXH-TDSPRAS | - | copy |
 
 ## `ZEMX_C_FuncLocBOMMig`
 
@@ -283,13 +283,13 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Select the functional-location BOM assignments with the same prepared functional locations. Derive the approved BOM category T / number / alternative and node populations for the existing equipment_bom header, selection and item exports. Apply their documented ECM/key-date workflow; source BOM numbers are mapped to target identities.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `FunctionalLocation` | TPST-TPLNR | - | copy |  |
-| `Plant` | TPST-WERKS | - | copy |  |
-| `BOMUsage` | TPST-STLAN | - | copy |  |
-| `BillOfMaterial` | TPST-STLNR | - | copy |  |
-| `BOMAlternative` | TPST-STLAL | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `FunctionalLocation` | TPST-TPLNR | - | copy |
+| `Plant` | TPST-WERKS | - | copy |
+| `BOMUsage` | TPST-STLAN | - | copy |
+| `BillOfMaterial` | TPST-STLNR | - | copy |
+| `BOMAlternative` | TPST-STLAL | - | copy |
 
 ## Not delivered
 
@@ -300,15 +300,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_FuncLoc` | `CreationDate` | IFLOT-ERDAT | information only |
 | `ZEMX_I_FuncLoc` | `CreatedByUser` | IFLOT-ERNAM | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZEMX_C_FuncLocMigCount` (ECC) vs `ZEMT_I_FuncLocCount` (S/4HANA) per `MaintenancePlanningPlant`, `FunctionalLocationCategory`
-- Records and fields: `ZEMX_C_FuncLocMig` vs `ZEMT_B_FuncLocCompare` on `FunctionalLocation`; compared: `FunctionalLocationCategory`, `SuperiorFunctionalLocation`, `TechnicalObjectType`, `MaintenancePlanningPlant`, `MaintenancePlant`, `ABCIndicator`, `CompanyCode`, `CostCenter`
-
-```bash
-python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module functional_location --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --product eam_mig_ecc --module functional_location --source ecc_extract.csv --target s4_compare.csv
-```
+- Source count view: `ZEMX_C_FuncLocMigCount`
 
 ## Open gaps
 

@@ -7,7 +7,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import eam_prepare as ep
-import mig_reconcile as mr
+import migration_csv as mr
 
 
 class SnapshotTest(unittest.TestCase):
@@ -111,30 +111,8 @@ class CustomerFlowTest(unittest.TestCase):
                 eam_run.run(path, failed)
             self.assertFalse(failed.exists())
 
-    def test_every_documented_structure_has_an_executable_comparison_contract(self):
-        root = Path(__file__).resolve().parents[2] / "packages/eam_mig_ecc"
-        count = 0
-        for path in root.glob("modules/*/mapping.json"):
-            mapping = json.loads(path.read_text())
-            for structure in mapping["structures"]:
-                row = {f["element"]: f["element"] for f in structure["fields"]}
-                report, ok = ep.compare_structure(mapping, structure["consumption_view"], [row], [row])
-                self.assertTrue(ok)
-                fields = [e for e in row if e not in structure["keys"]]
-                if fields:
-                    self.assertFalse(ep.compare_structure(mapping, structure["consumption_view"], [row], [{**row, fields[0]: "DIFFERENT"}])[1])
-                count += 1
-        self.assertGreaterEqual(count, 41)
 
-    def test_actual_ddic_keys_drive_raw_comparison_and_exclude_client(self):
-        mapping = ep.raw_contract([{"FIELDNAME": "MANDT", "KEYFLAG": "X"},
-                                  {"FIELDNAME": "ID", "KEYFLAG": "X"}, {"FIELDNAME": "VALUE", "KEYFLAG": ""}])
-        self.assertEqual(mapping["reconciliation"]["compare"], {"key": ["ID"], "fields": ["VALUE"]})
 
-    def test_text_whitespace_is_significant_when_requested(self):
-        mapping = {"module": "text", "reconciliation": {"compare": {"key": ["ID"], "fields": ["Text"]}}}
-        result = mr.records(mapping, [{"ID": "1", "Text": " leading"}], [{"ID": "1", "Text": "leading"}], mr.Maps(None), exact_fields=["Text"])
-        self.assertIn("Text", result["mismatches"])
 
     def test_customer_cli_preserves_payload_and_protects_inputs(self):
         with tempfile.TemporaryDirectory() as folder:

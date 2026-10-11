@@ -17,12 +17,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `StatusObjectKey`, `StatusCode`, `StatusObjectType`
 - Scope: `src.StatusKind = 'E'`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `StatusObjectKey` | JEST: substring( jest.objnr, 3, 30 ) | - | copy |  |
-| `StatusCode` | JEST-STAT | JEST-STAT | copy |  |
-| `StatusObjectType` | JEST: substring( jest.objnr, 1, 2 ) | - | derived: object type of the object number |  |
-| `StatusProfile` | JSTO-STSMA | JSTO-STSMA | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `StatusObjectKey` | JEST: substring( jest.objnr, 3, 30 ) | - | copy |
+| `StatusCode` | JEST-STAT | JEST-STAT | copy |
+| `StatusObjectType` | JEST: substring( jest.objnr, 1, 2 ) | - | derived: object type of the object number |
+| `StatusProfile` | JSTO-STSMA | JSTO-STSMA | copy |
 
 ## Not delivered
 
@@ -32,13 +32,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_ObjectStatus` | `StatusKind` | JEST: substring( jest.stat, 1, 1 ) | scope flag |
 | `ZEMX_I_ObjectStatus` | `StatusChangeNumber` | JEST-CHGNR | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZEMX_C_UserStatusMigCount` (ECC) vs `-` (S/4HANA) per `StatusObjectType`, `StatusCode`
-
-```bash
-python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module object_status --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZEMX_C_UserStatusMigCount`
 
 ## Open gaps
 

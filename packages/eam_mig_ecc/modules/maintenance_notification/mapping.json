@@ -32,190 +32,163 @@
           "element": "MaintenanceNotification",
           "source": "QMEL-QMNUM",
           "target": "QMEL-QMNUM",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "NotificationType",
           "source": "QMEL-QMART",
           "target": "QMEL-QMART",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "NotificationText",
           "source": "QMEL-QMTXT",
           "target": "QMEL-QMTXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintPriority",
           "source": "QMEL-PRIOK",
           "target": "QMEL-PRIOK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintPriorityType",
           "source": "QMEL-ARTPR",
           "target": "QMEL-ARTPR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "NotificationDate",
           "source": "QMEL-QMDAT",
           "target": "QMEL-QMDAT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "NotificationTime",
           "source": "QMEL-MZEIT",
           "target": "QMEL-MZEIT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReportedByUser",
           "source": "QMEL-QMNAM",
           "target": "QMEL-QMNAM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "RequiredStartDate",
           "source": "QMEL-STRMN",
           "target": "QMEL-STRMN",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "RequiredEndDate",
           "source": "QMEL-LTRMN",
           "target": "QMEL-LTRMN",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "NotificationCatalog",
           "source": "QMEL-QMKAT",
           "target": "QMEL-QMKAT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "NotificationCodeGroup",
           "source": "QMEL-QMGRP",
           "target": "QMEL-QMGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "NotificationCode",
           "source": "QMEL-QMCOD",
           "target": "QMEL-QMCOD",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Equipment",
           "source": "QMIH-EQUNR",
           "target": "QMIH-EQUNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocation",
           "source": "ILOA-TPLNR",
           "target": "ILOA-TPLNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanningPlant",
           "source": "QMIH-IWERK",
           "target": "QMIH-IWERK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "QMIH-INGRP",
           "target": "QMIH-INGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PlantSection",
           "source": "ILOA-BEBER",
           "target": "ILOA-BEBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceObjectIsDown",
           "source": "QMIH-MSAUS",
           "target": "QMIH-MSAUS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MalfunctionStartDate",
           "source": "QMIH-AUSVN",
           "target": "QMIH-AUSVN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MalfunctionStartTime",
           "source": "QMIH-AUZTV",
           "target": "QMIH-AUZTV",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MalfunctionEndDate",
           "source": "QMIH-AUSBS",
           "target": "QMIH-AUSBS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MalfunctionEndTime",
           "source": "QMIH-AUZTB",
           "target": "QMIH-AUZTB",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LastChangeDate",
           "source": "QMEL-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ]
     },
@@ -232,50 +205,43 @@
           "element": "MaintenanceNotification",
           "source": "QMFE-QMNUM",
           "target": "QMFE-QMNUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintNotificationItem",
           "source": "QMFE-FENUM",
           "target": "QMFE-FENUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectPartCodeGroup",
           "source": "QMFE-OTGRP",
           "target": "QMFE-OTGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectPartCode",
           "source": "QMFE-OTEIL",
           "target": "QMFE-OTEIL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DamageCodeGroup",
           "source": "QMFE-FEGRP",
           "target": "QMFE-FEGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DamageCode",
           "source": "QMFE-FECOD",
           "target": "QMFE-FECOD",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintNotifItemText",
           "source": "QMFE-FETXT",
           "target": "QMFE-FETXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -293,43 +259,37 @@
           "element": "MaintenanceNotification",
           "source": "QMUR-QMNUM",
           "target": "QMUR-QMNUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintNotificationItem",
           "source": "QMUR-FENUM",
           "target": "QMUR-FENUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CauseNumber",
           "source": "QMUR-URNUM",
           "target": "QMUR-URNUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CauseCodeGroup",
           "source": "QMUR-URGRP",
           "target": "QMUR-URGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CauseCode",
           "source": "QMUR-URCOD",
           "target": "QMUR-URCOD",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CauseText",
           "source": "QMUR-URTXT",
           "target": "QMUR-URTXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -346,78 +306,67 @@
           "element": "MaintenanceNotification",
           "source": "QMSM-QMNUM",
           "target": "QMSM-QMNUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskNumber",
           "source": "QMSM-MANUM",
           "target": "QMSM-MANUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintNotificationItem",
           "source": "QMSM-FENUM",
           "target": "QMSM-FENUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskCodeGroup",
           "source": "QMSM-MNGRP",
           "target": "QMSM-MNGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskCode",
           "source": "QMSM-MNCOD",
           "target": "QMSM-MNCOD",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskText",
           "source": "QMSM-MATXT",
           "target": "QMSM-MATXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "QMSM-PARVW",
           "target": "QMSM-PARVW",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ResponsiblePartner",
           "source": "QMSM-PARNR",
           "target": "QMSM-PARNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PlannedStartDate",
           "source": "QMSM-PSTER",
           "target": "QMSM-PSTER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PlannedEndDate",
           "source": "QMSM-PETER",
           "target": "QMSM-PETER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CompletionDate",
           "source": "QMSM-ERLDAT",
           "target": "QMSM-ERLDAT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -434,57 +383,49 @@
           "element": "MaintenanceNotification",
           "source": "QMMA-QMNUM",
           "target": "QMMA-QMNUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ActivityNumber",
           "source": "QMMA-MANUM",
           "target": "QMMA-MANUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintNotificationItem",
           "source": "QMMA-FENUM",
           "target": "QMMA-FENUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ActivityCodeGroup",
           "source": "QMMA-MNGRP",
           "target": "QMMA-MNGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ActivityCode",
           "source": "QMMA-MNCOD",
           "target": "QMMA-MNCOD",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ActivityText",
           "source": "QMMA-MATXT",
           "target": "QMMA-MATXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ActivityStartDate",
           "source": "QMMA-STARTDAT",
           "target": "QMMA-STARTDAT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ActivityEndDate",
           "source": "QMMA-ENDDAT",
           "target": "QMMA-ENDDAT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -502,29 +443,25 @@
           "element": "MaintenanceNotification",
           "source": "QMEL-QMNUM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -543,36 +480,31 @@
           "element": "MaintenanceNotification",
           "source": "source: MaintenanceNotification",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "source: StatusKind",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -591,36 +523,31 @@
           "element": "MaintenanceNotification",
           "source": "source: MaintenanceNotification",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "source: StatusKind",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -641,29 +568,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -732,10 +655,12 @@
       "reason": "scope"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: confirm notification child keys, deletion fields, task statuses and date fields before real-system activation."
+  ],
+  "main_structure": "ZEMX_C_MaintNotificationMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_MaintNotifMigCount",
-    "target_count_view": "ZEMT_I_MaintNotifCount",
     "dimensions": [
       {
         "element": "NotificationType"
@@ -744,26 +669,6 @@
         "element": "MaintenancePlanningPlant"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_MaintNotificationMig",
-      "target_view": "ZEMT_B_MaintNotifCompare",
-      "key": [
-        "MaintenanceNotification"
-      ],
-      "fields": [
-        "NotificationType",
-        "MaintPriority",
-        "RequiredStartDate",
-        "RequiredEndDate",
-        "Equipment",
-        "FunctionalLocation",
-        "MaintenancePlanningPlant"
-      ]
-    }
-  },
-  "gaps": [
-    "Compatibility note: confirm notification child keys, deletion fields, task statuses and date fields before real-system activation."
-  ],
-  "main_structure": "ZEMX_C_MaintNotificationMig"
+    "measure": "RecordCount"
+  }
 }

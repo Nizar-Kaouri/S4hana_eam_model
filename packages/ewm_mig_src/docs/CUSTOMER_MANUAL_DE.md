@@ -12,8 +12,6 @@ Quell- und Zielpaket getrennt importieren und ACTIVATION_ORDER.txt befolgen. Nat
 
 Consumption-Daten mit CDS-Spaltennamen nach customer/exports exportieren. System, Mandant, Exportzeit und freigegebene Population separat protokollieren. Der Tabellenbericht exportiert Rohspalten und wendet keine Consumption-Filter an. VollstÃ¤ndige native SchlÃ¼ssel in customer/selection eintragen; leere Auswahl erzeugt null Zeilen. `python tools/migration_run.py --project customer/customer-cohort-project.json --out prepared` ausfÃ¼hren. Fachliche ZustÃ¤nde, Stichtag und Eltern-/Kindbeziehungen zusÃ¤tzlich prÃ¼fen.
 
-Dieselbe Zielpopulation aus nativen Vergleichsviews exportieren. Neu erzeugte UUIDs und geÃ¤nderte Nummern vor dem Vergleich anhand einer geprÃ¼ften Zuordnung abgleichen; OriginalschlÃ¼ssel separat erhalten. Gleiche UUIDs in verschiedenen Systemen werden nicht vorausgesetzt. migration_prepare.py compare mit passendem Mapping und View nutzen. ZÃ¤hlviews zÃ¤hlen breite KandidatenbestÃ¤nde; dieselbe Population anwenden.
-
 EHS-Ã„nderungsstÃ¤nde RECN/ACTN, GÃ¼ltigkeit und LÃ¶schkennzeichen erhalten. Kein ungeprÃ¼fter Filter auf den letzten Stand. TM-Kategorien und Lebenszyklus prÃ¼fen; allgemeine Fallattribute enthalten mehrere Fallarten. Fehlende Nutzdaten bleiben offen. Aktivierung, SchlÃ¼sseldeutigkeit, Berechtigungen, ExtraktionsvollstÃ¤ndigkeit und Vergleich in customer/TEST_RESULTS.csv mit tatsÃ¤chlichen SAP-Nachweisen dokumentieren.
 
 Nur Leseextraktion; keine Buchungsadapter oder Anlage von ZielgeschÃ¤ftsobjekten.## Rechercheaktualisierung

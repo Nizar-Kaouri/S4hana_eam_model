@@ -28,50 +28,43 @@
           "element": "Network",
           "source": "AUFK-AUFNR",
           "target": "customer interface field: Network (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "NetworkType",
           "source": "AUFK-AUART",
           "target": "customer interface field: NetworkType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControllingArea",
           "source": "AUFK-KOKRS",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CompanyCode",
           "source": "AUFK-BUKRS",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "AUFK-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "NetworkDescription",
           "source": "AUFK-KTEXT",
           "target": "customer interface field: NetworkDescription (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectNumber",
           "source": "AUFK-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -89,29 +82,25 @@
           "element": "Network",
           "source": "AFKO-AUFNR",
           "target": "customer interface field: Network (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "RoutingNumber",
           "source": "AFKO-AUFPL",
           "target": "customer interface field: RoutingNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BasicStartDate",
           "source": "AFKO-GSTRP",
           "target": "customer interface field: BasicStartDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BasicFinishDate",
           "source": "AFKO-GLTRP",
           "target": "customer interface field: BasicFinishDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -130,64 +119,55 @@
           "element": "RoutingNumber",
           "source": "AFVC-AUFPL",
           "target": "customer interface field: RoutingNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationInternalID",
           "source": "AFVC-APLZL",
           "target": "customer interface field: OperationInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Activity",
           "source": "AFVC-VORNR",
           "target": "customer interface field: Activity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Sequence",
           "source": "AFVC-PLNFL",
           "target": "customer interface field: Sequence (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "WorkCenterInternalID",
           "source": "AFVC-ARBID",
           "target": "customer interface field: WorkCenterInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ControlKey",
           "source": "AFVC-STEUS",
           "target": "customer interface field: ControlKey (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ActivityDescription",
           "source": "AFVC-LTXA1",
           "target": "customer interface field: ActivityDescription (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "WBSElementInternalID",
           "source": "AFVC-PROJN",
           "target": "customer interface field: WBSElementInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "AFVC-WERKS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "process-reference",
@@ -206,43 +186,37 @@
           "element": "RoutingNumber",
           "source": "AFVV-AUFPL",
           "target": "customer interface field: RoutingNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationInternalID",
           "source": "AFVV-APLZL",
           "target": "customer interface field: OperationInternalID (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "WorkQuantity",
           "source": "AFVV-ARBEI",
           "target": "customer interface field: WorkQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "WorkUnit",
           "source": "AFVV-ARBEH",
           "target": "customer interface field: WorkUnit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Duration",
           "source": "AFVV-DAUNO",
           "target": "customer interface field: Duration (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DurationUnit",
           "source": "AFVV-DAUNE",
           "target": "customer interface field: DurationUnit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -261,43 +235,37 @@
           "element": "Network",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -317,29 +285,25 @@
           "element": "Network",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -358,43 +322,37 @@
           "element": "Network",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -414,71 +372,61 @@
           "element": "Reservation",
           "source": "RESB-RSNUM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReservationItem",
           "source": "RESB-RSPOS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "RecordType",
           "source": "RESB-RSART",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Network",
           "source": "RESB-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Material",
           "source": "RESB-MATNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "RESB-WERKS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StorageLocation",
           "source": "RESB-LGORT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "RequiredQuantity",
           "source": "RESB-BDMNG",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Unit",
           "source": "RESB-MEINS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "RESB-XLOEK",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -498,134 +446,115 @@
           "element": "ObjectNumber",
           "source": "COBRB-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "DistributionRuleGroup",
           "source": "COBRB-BUREG",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DistributionRule",
           "source": "COBRB-LFDNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementType",
           "source": "COBRB-PERBZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementPercentage",
           "source": "COBRB-PROZS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCostCenter",
           "source": "COBRB-KOSTL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverOrder",
           "source": "COBRB-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCategory",
           "source": "COBRB-KONTY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementAmount",
           "source": "COBRB-BETRR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementCurrency",
           "source": "COBRB-BWAER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "COBRB-KOKRS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCompanyCode",
           "source": "COBRB-BUKRS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverMasterAsset",
           "source": "COBRB-ANLN1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverAsset",
           "source": "COBRB-ANLN2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverWBSInternalID",
           "source": "COBRB-PSPNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidFromFiscalYear",
           "source": "COBRB-GABJA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidFromPeriod",
           "source": "COBRB-GABPE",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidToFiscalYear",
           "source": "COBRB-GBISJ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidToPeriod",
           "source": "COBRB-GBISP",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -646,29 +575,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -687,15 +612,13 @@
     "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement.",
     "AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZPSX_C_NetworkHeaderMig",
+  "source_control": {
+    "source_count_view": "ZPSX_C_NetworkHeaderMigCount",
     "dimensions": [
       {
         "element": "Network"
       }
-    ],
-    "source_count_view": "ZPSX_C_NetworkHeaderMigCount"
-  },
-  "main_structure": "ZPSX_C_NetworkHeaderMig"
+    ]
+  }
 }

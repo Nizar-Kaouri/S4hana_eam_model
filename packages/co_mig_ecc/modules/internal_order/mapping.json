@@ -29,64 +29,55 @@
           "element": "InternalOrder",
           "source": "AUFK-AUFNR",
           "target": "customer interface field: InternalOrder (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "InternalOrderType",
           "source": "AUFK-AUART",
           "target": "customer interface field: InternalOrderType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OrderCategory",
           "source": "AUFK-AUTYP",
           "target": "customer interface field: OrderCategory (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "InternalOrderDescription",
           "source": "AUFK-KTEXT",
           "target": "customer interface field: InternalOrderDescription (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "AUFK-BUKRS",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "AUFK-KOKRS",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ResponsibleCostCenter",
           "source": "AUFK-KOSTV",
           "target": "customer interface field: ResponsibleCostCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProfitCenter",
           "source": "AUFK-PRCTR",
           "target": "customer interface field: ProfitCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "AUFK-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -106,134 +97,115 @@
           "element": "ObjectNumber",
           "source": "COBRB-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DistributionRuleGroup",
           "source": "COBRB-BUREG",
           "target": "customer interface field: DistributionRuleGroup (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DistributionRule",
           "source": "COBRB-LFDNR",
           "target": "customer interface field: DistributionRule (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SettlementType",
           "source": "COBRB-PERBZ",
           "target": "customer interface field: SettlementType (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SettlementPercentage",
           "source": "COBRB-PROZS",
           "target": "customer interface field: SettlementPercentage (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ReceiverCostCenter",
           "source": "COBRB-KOSTL",
           "target": "customer interface field: ReceiverCostCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ReceiverOrder",
           "source": "COBRB-AUFNR",
           "target": "customer interface field: ReceiverOrder (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ReceiverCategory",
           "source": "COBRB-KONTY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementAmount",
           "source": "COBRB-BETRR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementCurrency",
           "source": "COBRB-BWAER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "COBRB-KOKRS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCompanyCode",
           "source": "COBRB-BUKRS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverMasterAsset",
           "source": "COBRB-ANLN1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverAsset",
           "source": "COBRB-ANLN2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverWBSInternalID",
           "source": "COBRB-PSPNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidFromFiscalYear",
           "source": "COBRB-GABJA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidFromPeriod",
           "source": "COBRB-GABPE",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidToFiscalYear",
           "source": "COBRB-GBISJ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidToPeriod",
           "source": "COBRB-GBISP",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -252,43 +224,37 @@
           "element": "InternalOrder",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -308,29 +274,25 @@
           "element": "InternalOrder",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -349,43 +311,37 @@
           "element": "InternalOrder",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -406,29 +362,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -446,30 +398,13 @@
   "gaps": [
     "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZCOT_I_InternalOrderCount",
+  "main_structure": "ZCOX_C_InternalOrderMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_InternalOrderMigCount",
     "dimensions": [
       {
         "element": "InternalOrder"
       }
-    ],
-    "source_count_view": "ZCOX_C_InternalOrderMigCount",
-    "compare": {
-      "source_view": "ZCOX_C_InternalOrderMig",
-      "target_view": "ZCOT_B_InternalOrderCompare",
-      "key": [
-        "InternalOrder"
-      ],
-      "fields": [
-        "InternalOrderType",
-        "InternalOrderDescription",
-        "CompanyCode",
-        "ControllingArea",
-        "ResponsibleCostCenter",
-        "ProfitCenter"
-      ]
-    }
-  },
-  "main_structure": "ZCOX_C_InternalOrderMig"
+    ]
+  }
 }

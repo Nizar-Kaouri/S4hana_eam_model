@@ -17,16 +17,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **effectivity-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLKO-PLNTY | customer interface field: TaskListType (unconfirmed) | information only | yes |
-| `TaskListGroup` | PLKO-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only | yes |
-| `TaskListGroupCounter` | PLKO-PLNAL | customer interface field: TaskListGroupCounter (unconfirmed) | information only | yes |
-| `InternalCounter` | PLKO-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only | yes |
-| `ValidFromDate` | PLKO-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only | yes |
-| `ChangeNumber` | PLKO-AENNR | customer interface field: ChangeNumber (unconfirmed) | information only | yes |
-| `DeletionFlag` | PLKO-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
-| `TaskListDescription` | PLKO-KTEXT | customer interface field: TaskListDescription (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLKO-PLNTY | customer interface field: TaskListType (unconfirmed) | information only |
+| `TaskListGroup` | PLKO-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only |
+| `TaskListGroupCounter` | PLKO-PLNAL | customer interface field: TaskListGroupCounter (unconfirmed) | information only |
+| `InternalCounter` | PLKO-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only |
+| `ValidFromDate` | PLKO-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only |
+| `ChangeNumber` | PLKO-AENNR | customer interface field: ChangeNumber (unconfirmed) | information only |
+| `DeletionFlag` | PLKO-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only |
+| `TaskListDescription` | PLKO-KTEXT | customer interface field: TaskListDescription (unconfirmed) | information only |
 
 ## `ZPPX_C_RoutingMateriaMig`
 
@@ -36,16 +36,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **effectivity-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `Material` | MAPL-MATNR | customer interface field: Material (unconfirmed) | information only | yes |
-| `Plant` | MAPL-WERKS | customer interface field: Plant (unconfirmed) | information only | yes |
-| `TaskListType` | MAPL-PLNTY | customer interface field: TaskListType (unconfirmed) | information only | yes |
-| `TaskListGroup` | MAPL-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only | yes |
-| `TaskListGroupCounter` | MAPL-PLNAL | customer interface field: TaskListGroupCounter (unconfirmed) | information only | yes |
-| `InternalCounter` | MAPL-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only | yes |
-| `ValidFromDate` | MAPL-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only | yes |
-| `DeletionFlag` | MAPL-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `Material` | MAPL-MATNR | customer interface field: Material (unconfirmed) | information only |
+| `Plant` | MAPL-WERKS | customer interface field: Plant (unconfirmed) | information only |
+| `TaskListType` | MAPL-PLNTY | customer interface field: TaskListType (unconfirmed) | information only |
+| `TaskListGroup` | MAPL-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only |
+| `TaskListGroupCounter` | MAPL-PLNAL | customer interface field: TaskListGroupCounter (unconfirmed) | information only |
+| `InternalCounter` | MAPL-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only |
+| `ValidFromDate` | MAPL-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only |
+| `DeletionFlag` | MAPL-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only |
 
 ## `ZPPX_C_RoutingSelectiMig`
 
@@ -55,16 +55,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **effectivity-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLAS-PLNTY | customer interface field: TaskListType (unconfirmed) | information only | yes |
-| `TaskListGroup` | PLAS-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only | yes |
-| `TaskListGroupCounter` | PLAS-PLNAL | customer interface field: TaskListGroupCounter (unconfirmed) | information only | yes |
-| `Sequence` | PLAS-PLNFL | customer interface field: Sequence (unconfirmed) | information only | yes |
-| `TaskListNode` | PLAS-PLNKN | customer interface field: TaskListNode (unconfirmed) | information only | yes |
-| `InternalCounter` | PLAS-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only | yes |
-| `ValidFromDate` | PLAS-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only | yes |
-| `DeletionFlag` | PLAS-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLAS-PLNTY | customer interface field: TaskListType (unconfirmed) | information only |
+| `TaskListGroup` | PLAS-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only |
+| `TaskListGroupCounter` | PLAS-PLNAL | customer interface field: TaskListGroupCounter (unconfirmed) | information only |
+| `Sequence` | PLAS-PLNFL | customer interface field: Sequence (unconfirmed) | information only |
+| `TaskListNode` | PLAS-PLNKN | customer interface field: TaskListNode (unconfirmed) | information only |
+| `InternalCounter` | PLAS-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only |
+| `ValidFromDate` | PLAS-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only |
+| `DeletionFlag` | PLAS-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only |
 
 ## `ZPPX_C_RoutingOperatiMig`
 
@@ -74,17 +74,17 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **effectivity-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLPO-PLNTY | customer interface field: TaskListType (unconfirmed) | information only | yes |
-| `TaskListGroup` | PLPO-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only | yes |
-| `TaskListNode` | PLPO-PLNKN | customer interface field: TaskListNode (unconfirmed) | information only | yes |
-| `InternalCounter` | PLPO-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only | yes |
-| `ValidFromDate` | PLPO-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only | yes |
-| `ChangeNumber` | PLPO-AENNR | customer interface field: ChangeNumber (unconfirmed) | information only | yes |
-| `DeletionFlag` | PLPO-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
-| `Operation` | PLPO-VORNR | customer interface field: Operation (unconfirmed) | information only | yes |
-| `OperationText` | PLPO-LTXA1 | customer interface field: OperationText (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLPO-PLNTY | customer interface field: TaskListType (unconfirmed) | information only |
+| `TaskListGroup` | PLPO-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only |
+| `TaskListNode` | PLPO-PLNKN | customer interface field: TaskListNode (unconfirmed) | information only |
+| `InternalCounter` | PLPO-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only |
+| `ValidFromDate` | PLPO-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only |
+| `ChangeNumber` | PLPO-AENNR | customer interface field: ChangeNumber (unconfirmed) | information only |
+| `DeletionFlag` | PLPO-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only |
+| `Operation` | PLPO-VORNR | customer interface field: Operation (unconfirmed) | information only |
+| `OperationText` | PLPO-LTXA1 | customer interface field: OperationText (unconfirmed) | information only |
 
 ## `ZPPX_C_RoutingSequencMig`
 
@@ -94,15 +94,15 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **effectivity-reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TaskListType` | PLFL-PLNTY | customer interface field: TaskListType (unconfirmed) | information only | yes |
-| `TaskListGroup` | PLFL-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only | yes |
-| `TaskListGroupCounter` | PLFL-PLNAL | customer interface field: TaskListGroupCounter (unconfirmed) | information only | yes |
-| `Sequence` | PLFL-PLNFL | customer interface field: Sequence (unconfirmed) | information only | yes |
-| `InternalCounter` | PLFL-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only | yes |
-| `ValidFromDate` | PLFL-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only | yes |
-| `DeletionFlag` | PLFL-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TaskListType` | PLFL-PLNTY | customer interface field: TaskListType (unconfirmed) | information only |
+| `TaskListGroup` | PLFL-PLNNR | customer interface field: TaskListGroup (unconfirmed) | information only |
+| `TaskListGroupCounter` | PLFL-PLNAL | customer interface field: TaskListGroupCounter (unconfirmed) | information only |
+| `Sequence` | PLFL-PLNFL | customer interface field: Sequence (unconfirmed) | information only |
+| `InternalCounter` | PLFL-ZAEHL | customer interface field: InternalCounter (unconfirmed) | information only |
+| `ValidFromDate` | PLFL-DATUV | customer interface field: ValidFromDate (unconfirmed) | information only |
+| `DeletionFlag` | PLFL-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | information only |
 
 ## `ZPPX_C_RoutingLongTextMig`
 
@@ -112,20 +112,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | - | copy |  |
-| `TextName` | STXH-TDNAME | - | copy |  |
-| `TextID` | STXH-TDID | - | copy |  |
-| `Language` | STXH-TDSPRAS | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |
+| `TextName` | STXH-TDNAME | - | copy |
+| `TextID` | STXH-TDID | - | copy |
+| `Language` | STXH-TDSPRAS | - | copy |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZPPX_C_RoutingHeaderMigCount` (ECC) vs `-` (S/4HANA) per `TaskListType`
-
-```bash
-python3 tools/mig_reconcile.py counts --product pp_mig_ecc --module routing --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZPPX_C_RoutingHeaderMigCount`
 
 ## Open gaps
 

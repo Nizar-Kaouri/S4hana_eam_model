@@ -9,7 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 from eam_prepare import unique
-from mig_reconcile import CsvRows, InputError, read_csv, require
+from migration_csv import CsvRows, InputError, read_csv, require
 
 
 def validate(rows, contract):

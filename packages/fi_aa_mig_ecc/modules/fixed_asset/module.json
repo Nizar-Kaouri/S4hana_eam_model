@@ -1,7 +1,7 @@
 {
   "name": "fixed_asset",
   "title": "Fixed assets",
-  "description": "Fixed assets source records, preparation and comparison contracts.",
+  "description": "Fixed assets source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

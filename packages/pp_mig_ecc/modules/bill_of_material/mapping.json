@@ -34,50 +34,43 @@
           "element": "Material",
           "source": "MAST-MATNR",
           "target": "customer interface field: Material (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Plant",
           "source": "MAST-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BillOfMaterialUsage",
           "source": "MAST-STLAN",
           "target": "customer interface field: BillOfMaterialUsage (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BillOfMaterial",
           "source": "MAST-STLNR",
           "target": "customer interface field: BillOfMaterial (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BillOfMaterialVariant",
           "source": "MAST-STLAL",
           "target": "customer interface field: BillOfMaterialVariant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "LotSizeFrom",
           "source": "MAST-LOSVN",
           "target": "customer interface field: LotSizeFrom (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "LotSizeTo",
           "source": "MAST-LOSBS",
           "target": "customer interface field: LotSizeTo (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -98,64 +91,55 @@
           "element": "BOMCategory",
           "source": "STKO-STLTY",
           "target": "customer interface field: BOMCategory (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BillOfMaterial",
           "source": "STKO-STLNR",
           "target": "customer interface field: BillOfMaterial (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BillOfMaterialVariant",
           "source": "STKO-STLAL",
           "target": "customer interface field: BillOfMaterialVariant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InternalCounter",
           "source": "STKO-STKOZ",
           "target": "customer interface field: InternalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidFromDate",
           "source": "STKO-DATUV",
           "target": "customer interface field: ValidFromDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ChangeNumber",
           "source": "STKO-AENNR",
           "target": "customer interface field: ChangeNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "STKO-LKENZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BaseQuantity",
           "source": "STKO-BMENG",
           "target": "customer interface field: BaseQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BaseUnit",
           "source": "STKO-BMEIN",
           "target": "customer interface field: BaseUnit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -177,57 +161,49 @@
           "element": "BOMCategory",
           "source": "STAS-STLTY",
           "target": "customer interface field: BOMCategory (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BillOfMaterial",
           "source": "STAS-STLNR",
           "target": "customer interface field: BillOfMaterial (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BillOfMaterialVariant",
           "source": "STAS-STLAL",
           "target": "customer interface field: BillOfMaterialVariant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BOMNode",
           "source": "STAS-STLKN",
           "target": "customer interface field: BOMNode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InternalCounter",
           "source": "STAS-STASZ",
           "target": "customer interface field: InternalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidFromDate",
           "source": "STAS-DATUV",
           "target": "customer interface field: ValidFromDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ChangeNumber",
           "source": "STAS-AENNR",
           "target": "customer interface field: ChangeNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "STAS-LKENZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -248,78 +224,67 @@
           "element": "BOMCategory",
           "source": "STPO-STLTY",
           "target": "customer interface field: BOMCategory (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BillOfMaterial",
           "source": "STPO-STLNR",
           "target": "customer interface field: BillOfMaterial (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BOMNode",
           "source": "STPO-STLKN",
           "target": "customer interface field: BOMNode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "InternalCounter",
           "source": "STPO-STPOZ",
           "target": "customer interface field: InternalCounter (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidFromDate",
           "source": "STPO-DATUV",
           "target": "customer interface field: ValidFromDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ChangeNumber",
           "source": "STPO-AENNR",
           "target": "customer interface field: ChangeNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeletionFlag",
           "source": "STPO-LKENZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Component",
           "source": "STPO-IDNRK",
           "target": "customer interface field: Component (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ItemNumber",
           "source": "STPO-POSNR",
           "target": "customer interface field: ItemNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ComponentQuantity",
           "source": "STPO-MENGE",
           "target": "customer interface field: ComponentQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Unit",
           "source": "STPO-MEINS",
           "target": "customer interface field: Unit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "effectivity-reference",
@@ -340,29 +305,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -373,15 +334,13 @@
   "gaps": [
     "BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZPPX_C_MaterialBOMMig",
+  "source_control": {
+    "source_count_view": "ZPPX_C_MaterialBOMMigCount",
     "dimensions": [
       {
         "element": "Material"
       }
-    ],
-    "source_count_view": "ZPPX_C_MaterialBOMMigCount"
-  },
-  "main_structure": "ZPPX_C_MaterialBOMMig"
+    ]
+  }
 }

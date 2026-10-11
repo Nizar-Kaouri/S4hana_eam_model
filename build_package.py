@@ -366,12 +366,12 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
         manifest.pop("warning")
         manifest.pop("with_tests")
         manifest["version"] = library["version"]
-        manifest["delivery_scope"] = "Read-only migration templates and comparison contracts; target business-object posting is customer-managed."
+        manifest["delivery_scope"] = "Read-only source extraction templates and field mappings; loading is customer-managed."
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as zf:
         if released:
             zf.writestr("README.md", rewrite((root / "README.md").read_text(encoding="utf-8")))
         elif (root / "docs" / "CUSTOMER_TEST.md").exists():
-            zf.writestr("README.md", rewrite((root / "README.md").read_text(encoding="utf-8")) if library.get("kind") == "migration-target" else ("# ModuPorter migration customer package\n\n"
+            zf.writestr("README.md", ("# ModuPorter migration customer package\n\n"
                 + f"Product: {root.name}. Package: {new_package}. Prefix: {new_prefix}.\n\n"
                 + "Start with docs/CUSTOMER_TEST.md and docs/SUPPORTED_SCOPE.md. Import the src/ library through abapGit on the appropriate system. "
                 + "Optional SAP reports live in helpers/ and are created separately in SE38. "
@@ -454,8 +454,6 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     content["inputs"] = {n: p for n, p in content["inputs"].items() if n in needed}
                     content["outputs"] = roots
                     text = json.dumps(content, indent=2) + "\n"
-                elif asset.name == "target-adapters.json":
-                    text = json.dumps({n: c for n, c in json.loads(text).items() if c["module"] in resolved}, indent=2) + "\n"
                 elif asset.name == "coverage-requirements.json":
                     text = json.dumps({n: c for n, c in json.loads(text).items() if n in resolved}, indent=2) + "\n"
                 elif asset.name in ("staging-contracts.json", "source-adapters.json"):
@@ -464,36 +462,10 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     text = json.dumps([c for c in json.loads(text) if c["module"] in resolved], indent=2) + "\n"
                 relative = asset.relative_to(root)
                 zf.writestr(asset_path(relative), rewrite_asset(text))
-            for tool in ("mig_reconcile.py", "eam_prepare.py", "eam_run.py", "migration_prepare.py", "migration_run.py", "migration_business.py", "migration_ddic.py", "migration_stage.py"):
+            for tool in ("migration_csv.py", "eam_prepare.py", "eam_run.py", "migration_prepare.py", "migration_run.py", "migration_business.py", "migration_ddic.py", "migration_stage.py"):
                 if tool == "migration_stage.py" and library.get("native_table_sources"):
                     continue
                 zf.writestr("tools/" + tool, (vdm_paths.REPO / "tools" / tool).read_text(encoding="utf-8"))
-            # The existing main-object CLI resolves mappings by product/module.
-            for mod in resolved:
-                mp = root / "modules" / mod / "mapping.json"
-                if mp.exists():
-                    zf.writestr(f"packages/{root.name}/modules/{mod}/mapping.json", rewrite(mp.read_text(encoding="utf-8")))
-        if library.get("kind") == "migration-target" and (root / "customer").exists():
-            for asset in sorted((root / "customer").rglob("*")):
-                if asset.is_file():
-                    if released and asset.name == "TEST_RESULTS.csv":
-                        continue
-                    content = asset.read_text(encoding="utf-8-sig")
-                    if asset.name == "target-adapters.json":
-                        content = json.dumps({n: c for n, c in json.loads(content).items() if c["module"] in resolved}, indent=2) + "\n"
-                    elif asset.name == "coverage-requirements.json":
-                        content = json.dumps({n: c for n, c in json.loads(content).items() if n in resolved}, indent=2) + "\n"
-                    elif asset.name == "staging-contracts.json":
-                        content = json.dumps({n: c for n, c in json.loads(content).items() if c["module"] in resolved}, indent=2) + "\n"
-                    elif asset.name == "native-coverage.json":
-                        content = json.dumps([c for c in json.loads(content) if c["module"] in resolved], indent=2) + "\n"
-                    zf.writestr(asset_path(asset.relative_to(root)), rewrite_asset(content))
-            if (root / "customer" / "staging-contracts.json").exists():
-                for helper in sorted((root / "helpers").glob("*")):
-                    if helper.is_file():
-                        zf.writestr("helpers/" + rewrite(helper.name), rewrite(helper.read_text(encoding="utf-8")))
-                for tool in ("migration_stage.py", "migration_ddic.py", "eam_prepare.py", "mig_reconcile.py"):
-                    zf.writestr("tools/" + tool, (vdm_paths.REPO / "tools" / tool).read_text(encoding="utf-8"))
         if library.get("kind") == "migration-source":
             import csv
             import io

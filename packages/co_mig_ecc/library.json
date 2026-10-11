@@ -19,7 +19,6 @@
   "reserve_prefix_chars": 1,
   "kind": "migration-source",
   "system": "ecc",
-  "migration_pair": "co_mig_s4",
   "map_title": "ZCOX Controlling Migration - ECC Source Map",
   "map_area": "Controlling migration source (ECC tables)",
   "map_initial": "ZCOX_B_CostCenterData",

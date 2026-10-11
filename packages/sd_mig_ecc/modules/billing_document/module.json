@@ -1,7 +1,7 @@
 {
   "name": "billing_document",
   "title": "Billing document reference",
-  "description": "Billing document reference source records, preparation and comparison contracts.",
+  "description": "Billing document reference source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

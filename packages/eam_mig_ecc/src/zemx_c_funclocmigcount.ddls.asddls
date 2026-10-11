@@ -1,6 +1,6 @@
 // ModuPorter EAM migration | Release 1.0.0
-// Purpose: Record count of the functional locations delivered by ZEMX_C_FuncLocMig per MaintenancePlanningPlant, FunctionalLocationCategory; compared with the same count on S/4HANA by tools/mig_reconcile.py.
-// Example: Export this view before the load and the S/4HANA count view after it; the reconcile tool lists every MaintenancePlanningPlant / FunctionalLocationCategory combination whose counts differ.
+// Purpose: Record count of the functional locations delivered by ZEMX_C_FuncLocMig per MaintenancePlanningPlant, FunctionalLocationCategory.
+// Example: Export this source count view to record the selected extraction population by its dimensions.
 @AbapCatalog.sqlViewName: 'ZEMX_CFLN'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

@@ -8,35 +8,17 @@ Location/revision tables documented through CDS sources, but plant/type/validity
 
 https://help.sap.com/docs/sustainability-data-integration/b15a1be1941c44d4be60ba206536283d/d9e248b0ad88425fbea9284fd51d7.html
 
-
-
-
 ## EHSLocHierarchy — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-
-
-
-
-
 
 ## ChemicalProp — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
 
-
-
-
-
-
 ## PropertyUnit — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-
-
-
-
-
 
 ## Specification — NATIVE_DRAFT
 
@@ -44,26 +26,15 @@ Classic specification model. Preserve all change states; no unverified latest-re
 
 https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/60a5ce5314894208e10000000a174cb4.html
 
-
-
-
 ## SpecIdentifier — NATIVE_DRAFT
 
 Native short identifier only; long-text interfaces and effective parent change-state relations remain pending.
 
 https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/63a5ce5314894208e10000000a174cb4.html
 
-
-
-
 ## SpecProperty — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-
-
-
-
-
 
 ## Phrase — NATIVE_DRAFT
 
@@ -71,17 +42,11 @@ Phrase header only. ESTPP multilingual text and graphics are pending; no invente
 
 https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html
 
-
-
-
 ## PhraseSet — NATIVE_DRAFT
 
 Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys.
 
 https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html
-
-
-
 
 ## Incident — NATIVE_DRAFT
 
@@ -98,35 +63,19 @@ Person identity/name fields are resolved from HCM/business partners/users; roles
 
 https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/8eec3c50906ea902e10000000a44176f.html
 
-
-
-
 ## IncidentAction — NATIVE_DRAFT
 
 Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded.
 
 https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/55ea3c50906ea902e10000000a44176f.html?locale=en-US
 
-
-
-
 ## RiskAssessment — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
 
-
-
-
-
-
 ## RiskHazard — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-
-
-
-
-
 
 ## RiskControl — PENDING
 
@@ -134,71 +83,35 @@ Extractor origin fields are derived/transient rather than a documented physical 
 
 https://help.sap.com/docs/EHSM/cfce61ea9ac64c53a591bfcd66d98f56/021df34fd9c2d247e10000000a44176f.html?version=4.0
 
-
-
-
 ## DataClassifier — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-
-
-
-
-
 
 ## DataCollection — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
 
-
-
-
-
-
 ## Measurement — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-
-
-
-
-
 
 ## ComplianceReq — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
 
-
-
-
-
-
 ## ComplianceScen — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
 
-
-
-
-
-
 ## ComplianceLink — PENDING
 
 Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-
-
-
-
-
 
 ## DangerousGoods — PENDING
 
 Classic classification records and administration fields documented; material dangerous-goods master mapping, regulation references and complete classification payload remain unresolved.
 
 https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html
-
-
-
 
 ## DGTransport — PENDING
 

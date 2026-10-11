@@ -37,29 +37,25 @@
           "element": "StatusObjectKey",
           "source": "JEST: substring( jest.objnr, 3, 30 )",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "JEST-STAT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusObjectType",
           "source": "JEST: substring( jest.objnr, 1, 2 )",
           "target": "",
-          "rule": "derive:object type of the object number",
-          "compare": false
+          "rule": "derive:object type of the object number"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "JSTO-STSMA",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     }
@@ -84,10 +80,12 @@
       "reason": "info"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: user status codes are defined per status profile; the same status code can mean different statuses in different profiles - deliver StatusProfile with the code"
+  ],
+  "main_structure": "ZEMX_C_UserStatusMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_UserStatusMigCount",
-    "target_count_view": null,
     "dimensions": [
       {
         "element": "StatusObjectType"
@@ -96,11 +94,6 @@
         "element": "StatusCode"
       }
     ],
-    "measure": "RecordCount",
-    "compare": null
-  },
-  "gaps": [
-    "Compatibility note: user status codes are defined per status profile; the same status code can mean different statuses in different profiles - deliver StatusProfile with the code"
-  ],
-  "main_structure": "ZEMX_C_UserStatusMig"
+    "measure": "RecordCount"
+  }
 }

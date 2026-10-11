@@ -11,7 +11,7 @@
       "DeliveryUUID"
     ],
     "numbering": "keep",
-    "note": "Map regenerated target UUIDs before comparing; current client is implicit."
+    "note": "Map regenerated target UUIDs during loading; current client is implicit."
   },
   "structures": [
     {
@@ -26,57 +26,49 @@
           "element": "DeliveryUUID",
           "source": "/SCDL/DB_PROCH_I-DOCID",
           "target": "Native target evidence: ZWMT_B_WhDeliveryCompare.DeliveryUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Delivery",
           "source": "/SCDL/DB_PROCH_I-DOCNO",
           "target": "Native target evidence: ZWMT_B_WhDeliveryCompare.Delivery",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeliveryType",
           "source": "/SCDL/DB_PROCH_I-DOCTYPE",
           "target": "Native target evidence: ZWMT_B_WhDeliveryCompare.DeliveryType",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeliveryCategory",
           "source": "/SCDL/DB_PROCH_I-DOCCAT",
           "target": "Native target evidence: ZWMT_B_WhDeliveryCompare.DeliveryCategory",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Incoterms",
           "source": "/SCDL/DB_PROCH_I-INCO1",
           "target": "Native target evidence: ZWMT_B_WhDeliveryCompare.Incoterms",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "IncotermsLocation",
           "source": "/SCDL/DB_PROCH_I-INCO2",
           "target": "Native target evidence: ZWMT_B_WhDeliveryCompare.IncotermsLocation",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreatedBy",
           "source": "/SCDL/DB_PROCH_I-CREUSER",
           "target": "Native target evidence: ZWMT_B_WhDeliveryCompare.CreatedBy",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreatedAt",
           "source": "/SCDL/DB_PROCH_I-CRETST",
           "target": "Native target evidence: ZWMT_B_WhDeliveryCompare.CreatedAt",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -95,120 +87,103 @@
           "element": "DeliveryUUID",
           "source": "/SCDL/DB_PROCI_I-DOCID",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.DeliveryUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeliveryItemUUID",
           "source": "/SCDL/DB_PROCI_I-ITEMID",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.DeliveryItemUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "DeliveryItem",
           "source": "/SCDL/DB_PROCI_I-ITEMNO",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.DeliveryItem",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ItemType",
           "source": "/SCDL/DB_PROCI_I-ITEMTYPE",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.ItemType",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ItemCategory",
           "source": "/SCDL/DB_PROCI_I-ITEMCAT",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.ItemCategory",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ProductUUID",
           "source": "/SCDL/DB_PROCI_I-PRODUCTID",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.ProductUUID",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Product",
           "source": "/SCDL/DB_PROCI_I-PRODUCTNO",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.Product",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "EnteredProduct",
           "source": "/SCDL/DB_PROCI_I-PRODUCTENT",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.EnteredProduct",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Priority",
           "source": "/SCDL/DB_PROCI_I-PRIORITY",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.Priority",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Batch",
           "source": "/SCDL/DB_PROCI_I-BATCHNO",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.Batch",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StockUsage",
           "source": "/SCDL/DB_PROCI_I-STOCK_USAGE",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.StockUsage",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StockCategory",
           "source": "/SCDL/DB_PROCI_I-STOCK_CATEGORY",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.StockCategory",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StockOwner",
           "source": "/SCDL/DB_PROCI_I-STOCK_OWNER",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.StockOwner",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "StockOwnerRole",
           "source": "/SCDL/DB_PROCI_I-STOCK_OWNER_ROLE",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.StockOwnerRole",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "EntitledParty",
           "source": "/SCDL/DB_PROCI_I-ENTITLED",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.EntitledParty",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "EntitledPartyRole",
           "source": "/SCDL/DB_PROCI_I-ENTITLED_ROLE",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.EntitledPartyRole",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Warehouse",
           "source": "/SCDL/DB_PROCI_I-LGNUM",
           "target": "Native target evidence: ZWMT_B_WhDeliveryItemCompare.Warehouse",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -221,30 +196,12 @@
     "WhDelivery: Inbound delivery header only. Outbound branch, partner-role selection, status and cutover eligibility remain pending; do not interpret the broad snapshot as open deliveries.",
     "WhDeliveryItem: Inbound items only; DOCID/ITEMID candidate grain must be confirmed in DDIC. Quantities belong to role-qualified /SCDL/DB_ADDMEAS records, not invented item QTY columns. Outbound branch, quantity/date roles, status and parent cohort closure remain pending."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "source_count_view": "ZWMX_C_WhDeliveryMigCount",
-    "target_count_view": "ZWMT_I_WhDeliveryCount",
-    "dimensions": [],
-    "compare": {
-      "source_view": "ZWMX_C_WhDeliveryMig",
-      "target_view": "ZWMT_B_WhDeliveryCompare",
-      "key": [
-        "DeliveryUUID"
-      ],
-      "fields": [
-        "Delivery",
-        "DeliveryType",
-        "DeliveryCategory",
-        "Incoterms",
-        "IncotermsLocation",
-        "CreatedBy",
-        "CreatedAt"
-      ]
-    }
-  },
   "main_structure": "ZWMX_C_WhDeliveryMig",
   "pending_dependencies": [
     "warehouse_product"
-  ]
+  ],
+  "source_control": {
+    "source_count_view": "ZWMX_C_WhDeliveryMigCount",
+    "dimensions": []
+  }
 }

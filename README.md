@@ -2,25 +2,25 @@
 
 Naming: **B_ = Basic, I_ = Interface (Composite), C_ = Consumption**. See [naming guidance](docs/NAMING.md).
 
-Commercial migration templates for EAM/PM, FI-AA, MM, QM, PS, PP, CO, FI and SD. **Release 1.0.0** contains 170 source extraction structures and 644 source/target CDS objects.
+Commercial migration templates for EAM/PM, FI-AA, MM, QM, PS, PP, CO, FI and SD. **Release 1.0.0** contains 296 source extraction structures and 945 source CDS objects.
 
-Each domain has `<domain>_mig_ecc` for SAP ECC extraction and mappings, and `<domain>_mig_s4` for S/4HANA comparison. Source architecture: SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption. Posting uses the customer-selected SAP interface.
+Each released domain has `<domain>_mig_ecc` for SAP ECC source extraction and field mappings. Source architecture: SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption. Posting uses the customer-selected SAP interface.
 
 See [customer downloads and bilingual manuals](docs/customer/commercial/README.md) and [product scope](PRODUCT_CHECKLIST.md). Individual module selection automatically includes required dependencies. Functional SAP annotations remain part of the templates.
 
 ## Commercial packs
 
-| Pack | Source structures | Source CDS | Target CDS | Download |
-|---|---:|---:|---:|---|
-| EAM | 41 | 158 | 16 | [ModuPorter-EAM-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-EAM-Customer-Pack-1.0.0.zip) |
-| FI-AA | 5 | 18 | 2 | [ModuPorter-FI-AA-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-FI-AA-Customer-Pack-1.0.0.zip) |
-| MM | 26 | 85 | 6 | [ModuPorter-MM-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-MM-Customer-Pack-1.0.0.zip) |
-| QM | 18 | 60 | 4 | [ModuPorter-QM-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-QM-Customer-Pack-1.0.0.zip) |
-| PS | 14 | 49 | 4 | [ModuPorter-PS-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-PS-Customer-Pack-1.0.0.zip) |
-| PP | 17 | 57 | 2 | [ModuPorter-PP-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-PP-Customer-Pack-1.0.0.zip) |
-| CO | 13 | 46 | 6 | [ModuPorter-CO-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-CO-Customer-Pack-1.0.0.zip) |
-| FI | 20 | 67 | 6 | [ModuPorter-FI-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-FI-Customer-Pack-1.0.0.zip) |
-| SD | 16 | 52 | 6 | [ModuPorter-SD-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-SD-Customer-Pack-1.0.0.zip) |
+| Pack | Source structures | Source CDS | Download |
+|---|---:|---:|---|
+| EAM | 73 | 241 | [Download](docs/customer/commercial/ModuPorter-EAM-Customer-Pack-1.0.0.zip) |
+| FI-AA | 6 | 21 | [Download](docs/customer/commercial/ModuPorter-FI-AA-Customer-Pack-1.0.0.zip) |
+| MM | 42 | 135 | [Download](docs/customer/commercial/ModuPorter-MM-Customer-Pack-1.0.0.zip) |
+| QM | 26 | 83 | [Download](docs/customer/commercial/ModuPorter-QM-Customer-Pack-1.0.0.zip) |
+| PS | 30 | 93 | [Download](docs/customer/commercial/ModuPorter-PS-Customer-Pack-1.0.0.zip) |
+| PP | 22 | 72 | [Download](docs/customer/commercial/ModuPorter-PP-Customer-Pack-1.0.0.zip) |
+| CO | 21 | 70 | [Download](docs/customer/commercial/ModuPorter-CO-Customer-Pack-1.0.0.zip) |
+| FI | 50 | 152 | [Download](docs/customer/commercial/ModuPorter-FI-Customer-Pack-1.0.0.zip) |
+| SD | 26 | 78 | [Download](docs/customer/commercial/ModuPorter-SD-Customer-Pack-1.0.0.zip) |
 
 
 ## Separate analytics add-ons
@@ -54,8 +54,8 @@ tools/                       shared tooling (every tool takes --product <name>)
   sync_xml.py, gen_docs.py, gen_checklist.py, gen_model_map.py, todo_verify_report.py, validate_repo.py
   catalog.py, validate_bridge.py   cross-product name index and bridge rules (B1-B7)
   validate_mapping.py, gen_mapping.py   migration mapping rules (X1-X6) and mapping docs / map templates
-  mig_reconcile.py           reconcile ECC and S/4HANA exports (counts, records, fields)
-  tests/                     unit tests of the builds and the reconcile tool
+  migration_csv.py           CSV reading and source export validation
+  tests/                     unit tests of builds and source preparation
 packages/<product>/          one product
   src/                       abapGit objects (DDLS, DCLS, DDLX + XML), flat, one ABAP package
   modules/<module>/module.json
@@ -66,7 +66,7 @@ packages/<product>/          one product
   README.md, BATCH_REPORT.md, ACTIVATION_CHECKLIST.md
 ```
 
-**Migration products** (`kind` `migration-source` / `migration-target` in `library.json`) follow the SAP VDM
+**Migration products** (`kind` `migration-source` in `library.json`) follow the SAP VDM
 naming: `B_` Basic and `I_` Interface (Composite), `C_` consumption (`layer_prefixes` in `library.json`). On ECC (`system: ecc`) the views are
 classic CDS views on tables without DCL (validator rule M12); hard rule 1 reads *released `I_` views on
 S/4HANA, direct table reads on the ECC side*. Details: [`packages/eam_mig_ecc/README.md`](packages/eam_mig_ecc/README.md).
@@ -92,8 +92,6 @@ python3 build_package.py --product eam equipment maintenance_order --prefix ZACM
 python3 build_bundle.py eam:equipment fi_aa:rpt_asset_balance --prefix ZACME_ --package ZACME_VDM
 python3 build_bundle.py --all --with-tests --prefix ZACME_ --package ZACME_VDM   # all S/4HANA products
 python3 build_package.py --product eam_mig_ecc equipment --prefix ZACME_ --package ZACME_MIG   # ECC extraction
-python3 build_package.py --product eam_mig_s4  equipment --prefix ZACME_ --package ZACME_MIG   # S/4 reconciliation
-python3 tools/mig_reconcile.py counts --module equipment --source ecc.csv --target s4.csv --maps maps/
 python3 tools/new_product.py ehs --prefix ZEHS_ --package ZEHS_VDM --title "Environment, Health and Safety" --area EHS
 ```
 
@@ -107,7 +105,7 @@ abapGit expects one `.abapgit.xml` at the repository root.
 
 ## EWM TM FSCM EHS native drafts
 
-Version 0.3.0 extends the native drafts and replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption for 27 documented structure drafts, with native target comparison views. The 32-module coverage plan contains 72 structures: 45 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these eight products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
+Version 0.3.0 extends the native drafts and replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption for 27 documented structure drafts, as source extraction templates. The 32-module coverage plan contains 72 structures: 45 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these four source products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
 
 See [bilingual customer guides and VDM maps](docs/customer/new-domains/README.md). Industry solutions remain out of scope.
 

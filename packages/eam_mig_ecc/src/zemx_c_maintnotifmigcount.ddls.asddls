@@ -1,6 +1,6 @@
 // ModuPorter EAM migration | Release 1.0.0
-// Purpose: Record count of the open maintenance notifications delivered by ZEMX_C_MaintNotificationMig per NotificationType, MaintenancePlanningPlant; compared with the same count on S/4HANA by tools/mig_reconcile.py.
-// Example: Export this view before the load and the S/4HANA count view after it; the reconcile tool lists every NotificationType / MaintenancePlanningPlant combination whose counts differ.
+// Purpose: Record count of the open maintenance notifications delivered by ZEMX_C_MaintNotificationMig per NotificationType, MaintenancePlanningPlant.
+// Example: Export this source count view to record the selected extraction population by its dimensions.
 @AbapCatalog.sqlViewName: 'ZEMX_CNON'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

@@ -6,7 +6,7 @@ This checks complete single-client table grain, not activation or posting suppor
 import argparse
 import json
 from pathlib import Path
-from mig_reconcile import InputError, read_csv, require
+from migration_csv import InputError, read_csv, require
 
 
 def check(mapping, view, schema):

@@ -28,22 +28,19 @@
           "element": "ChartOfAccounts",
           "source": "CSKA-KTOPL",
           "target": "customer interface field: ChartOfAccounts (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CostElement",
           "source": "CSKA-KSTAR",
           "target": "customer interface field: CostElement (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CreationDate",
           "source": "CSKA-ERSDA",
           "target": "customer interface field: CreationDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -63,36 +60,31 @@
           "element": "ControllingArea",
           "source": "CSKB-KOKRS",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CostElement",
           "source": "CSKB-KSTAR",
           "target": "customer interface field: CostElement (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidityEndDate",
           "source": "CSKB-DATBI",
           "target": "customer interface field: ValidityEndDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidityStartDate",
           "source": "CSKB-DATAB",
           "target": "customer interface field: ValidityStartDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CostElementCategory",
           "source": "CSKB-KATYP",
           "target": "customer interface field: CostElementCategory (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "reference",
@@ -112,36 +104,31 @@
           "element": "Language",
           "source": "CSKU-SPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ChartOfAccounts",
           "source": "CSKU-KTOPL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CostElement",
           "source": "CSKU-KSTAR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CostElementName",
           "source": "CSKU-KTEXT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CostElementDescription",
           "source": "CSKU-LTEXT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -162,29 +149,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -195,15 +178,13 @@
   "gaps": [
     "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZCOX_C_CostElementMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_CostElementMigCount",
     "dimensions": [
       {
         "element": "ChartOfAccounts"
       }
-    ],
-    "source_count_view": "ZCOX_C_CostElementMigCount"
-  },
-  "main_structure": "ZCOX_C_CostElementMig"
+    ]
+  }
 }

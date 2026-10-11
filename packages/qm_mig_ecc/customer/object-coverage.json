@@ -81,7 +81,7 @@
           ]
         }
       ],
-      "boundary": "Inspection lots source records, preparation and comparison contracts."
+      "boundary": "Inspection lots source records, source preparation contracts."
     },
     "inspection_plan": {
       "native_tables": [
@@ -221,7 +221,7 @@
           ]
         }
       ],
-      "boundary": "Inspection plan reference source records, preparation and comparison contracts."
+      "boundary": "Inspection plan reference source records, source preparation contracts."
     },
     "inspection_result": {
       "native_tables": [
@@ -285,7 +285,7 @@
           ]
         }
       ],
-      "boundary": "Inspection results source records, preparation and comparison contracts."
+      "boundary": "Inspection results source records, source preparation contracts."
     },
     "master_inspection_characteristic": {
       "native_tables": [
@@ -512,7 +512,7 @@
           ]
         }
       ],
-      "boundary": "Quality notifications source records, preparation and comparison contracts."
+      "boundary": "Quality notifications source records, source preparation contracts."
     },
     "sampling_procedure": {
       "native_tables": [

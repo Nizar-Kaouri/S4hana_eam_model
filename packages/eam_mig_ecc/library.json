@@ -19,7 +19,6 @@
   "reserve_prefix_chars": 1,
   "kind": "migration-source",
   "system": "ecc",
-  "migration_pair": "eam_mig_s4",
   "map_title": "ZEMX EAM Migration - ECC Source Map",
   "map_area": "EAM migration source (ECC tables)",
   "map_initial": "ZEMX_I_Equipment",

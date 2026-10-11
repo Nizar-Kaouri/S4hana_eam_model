@@ -15,7 +15,7 @@ import build_package as bp
 import eam_run
 import migration_business as mb
 import gen_docs
-from mig_reconcile import CsvRows, InputError
+from migration_csv import CsvRows, InputError
 
 
 class BusinessTest(unittest.TestCase):
@@ -35,9 +35,7 @@ class BusinessTest(unittest.TestCase):
         source = CsvRows([dict(zip(columns, r)) for r in [('001', 'EUR', '0.30', 'S'), ('002', 'EUR', '0.20', 'H'), ('003', 'USD', '0.10', 'S')]], columns)
         contract = {'key': ['ID'], 'group_by': ['Currency'], 'metrics': [{'field': 'Amount', 'dimension': 'Currency', 'basis': 'unsigned', 'sign_field': 'Sign', 'signs': {'S': '1', 'H': '-1'}}]}
         self.assertEqual(str(mb.totals(source, contract)[('EUR', 'Amount')]), '0.10')
-        self.assertEqual(mb.compare_totals(source, source, contract), [])
         changed = CsvRows([{**r, 'Amount': '0.31'} if r['ID'] == '001' else r for r in source], columns)
-        self.assertEqual(len(mb.compare_totals(source, changed, contract)), 1)
         with self.assertRaises(InputError):
             mb.totals(CsvRows([{**source[0], 'Sign': '?'}], columns), contract)
         with self.assertRaises(InputError):
@@ -47,10 +45,6 @@ class BusinessTest(unittest.TestCase):
                          {**source[1], 'Amount': '123456789012345678901234567890.00'}], columns)
         self.assertEqual(str(mb.totals(large, contract)[('EUR', 'Amount')]), '0.01')
 
-    def test_zero_missing_currency_group_is_still_a_difference(self):
-        contract = {'key': ['ID'], 'group_by': ['Currency'], 'metrics': [{'field': 'Amount', 'dimension': 'Currency', 'basis': 'signed'}]}
-        source = CsvRows([{'ID': '01', 'Currency': 'EUR', 'Amount': '0'}], ['ID', 'Currency', 'Amount'])
-        self.assertEqual(len(mb.compare_totals(source, CsvRows([], source.columns), contract)), 1)
 
 
 class DomainBuildTest(unittest.TestCase):
@@ -75,8 +69,7 @@ class DomainBuildTest(unittest.TestCase):
             self.assertEqual(set(manifest['resolved_modules']), {'product', 'purchase_order'})
             with zipfile.ZipFile(archive) as z:
                 project = json.loads(z.read('customer/customer-cohort-project.json'))
-                adapters = json.loads(z.read('customer/target-adapters.json'))
-                self.assertTrue(all(c['module'] in manifest['resolved_modules'] for c in adapters.values()))
+                self.assertNotIn('customer/target-adapters.json', z.namelist())
                 self.assertNotIn('ZMMX_', json.dumps(project))
                 for name in project['inputs'].values():
                     if name.startswith('selection/'):

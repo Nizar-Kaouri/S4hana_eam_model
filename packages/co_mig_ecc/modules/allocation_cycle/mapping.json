@@ -33,29 +33,25 @@
           "element": "AllocationTable",
           "source": "T811C-TAB",
           "target": "customer interface field: AllocationTable (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AllocationCycle",
           "source": "T811C-CYCLE",
           "target": "customer interface field: AllocationCycle (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidityStartDate",
           "source": "T811C-SDATE",
           "target": "customer interface field: ValidityStartDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidityEndDate",
           "source": "T811C-EDATE",
           "target": "customer interface field: ValidityEndDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "configuration-reference",
@@ -76,36 +72,31 @@
           "element": "AllocationTable",
           "source": "T811S-TAB",
           "target": "customer interface field: AllocationTable (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "AllocationCycle",
           "source": "T811S-CYCLE",
           "target": "customer interface field: AllocationCycle (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ValidityStartDate",
           "source": "T811S-SDATE",
           "target": "customer interface field: ValidityStartDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "SegmentSequence",
           "source": "T811S-SEQNR",
           "target": "customer interface field: SegmentSequence (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "SegmentName",
           "source": "T811S-SEGMENT",
           "target": "customer interface field: SegmentName (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "configuration-reference",
@@ -117,15 +108,13 @@
     "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope.",
     "Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZCOX_C_AllocCycleMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_AllocCycleMigCount",
     "dimensions": [
       {
         "element": "AllocationTable"
       }
-    ],
-    "source_count_view": "ZCOX_C_AllocCycleMigCount"
-  },
-  "main_structure": "ZCOX_C_AllocCycleMig"
+    ]
+  }
 }

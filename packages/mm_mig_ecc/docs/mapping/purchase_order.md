@@ -17,15 +17,15 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **open-document**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `PurchaseOrder` | EKKO-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy | yes |
-| `CompanyCode` | EKKO-BUKRS | customer interface field: CompanyCode (unconfirmed) | copy | yes |
-| `PurchaseOrderType` | EKKO-BSART | customer interface field: PurchaseOrderType (unconfirmed) | copy | yes |
-| `Supplier` | EKKO-LIFNR | customer interface field: Supplier (unconfirmed) | copy | yes |
-| `PurchasingOrganization` | EKKO-EKORG | customer interface field: PurchasingOrganization (unconfirmed) | copy | yes |
-| `PurchasingGroup` | EKKO-EKGRP | customer interface field: PurchasingGroup (unconfirmed) | copy | yes |
-| `DocumentCurrency` | EKKO-WAERS | customer interface field: DocumentCurrency (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `PurchaseOrder` | EKKO-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy |
+| `CompanyCode` | EKKO-BUKRS | customer interface field: CompanyCode (unconfirmed) | copy |
+| `PurchaseOrderType` | EKKO-BSART | customer interface field: PurchaseOrderType (unconfirmed) | copy |
+| `Supplier` | EKKO-LIFNR | customer interface field: Supplier (unconfirmed) | copy |
+| `PurchasingOrganization` | EKKO-EKORG | customer interface field: PurchasingOrganization (unconfirmed) | copy |
+| `PurchasingGroup` | EKKO-EKGRP | customer interface field: PurchasingGroup (unconfirmed) | copy |
+| `DocumentCurrency` | EKKO-WAERS | customer interface field: DocumentCurrency (unconfirmed) | copy |
 
 ## `ZMMX_C_PurchaseItemMig`
 
@@ -35,17 +35,17 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **open-document**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `PurchaseOrder` | EKPO-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy | yes |
-| `PurchaseOrderItem` | EKPO-EBELP | customer interface field: PurchaseOrderItem (unconfirmed) | copy | yes |
-| `Material` | EKPO-MATNR | customer interface field: Material (unconfirmed) | copy | yes |
-| `Plant` | EKPO-WERKS | customer interface field: Plant (unconfirmed) | copy | yes |
-| `OrderQuantity` | EKPO-MENGE | customer interface field: OrderQuantity (unconfirmed) | copy | yes |
-| `OrderUnit` | EKPO-MEINS | customer interface field: OrderUnit (unconfirmed) | copy | yes |
-| `DeletionFlag` | EKPO-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
-| `DeliveryCompleted` | EKPO-ELIKZ | customer interface field: DeliveryCompleted (unconfirmed) | copy | yes |
-| `FinalInvoice` | EKPO-EREKZ | customer interface field: FinalInvoice (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `PurchaseOrder` | EKPO-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy |
+| `PurchaseOrderItem` | EKPO-EBELP | customer interface field: PurchaseOrderItem (unconfirmed) | copy |
+| `Material` | EKPO-MATNR | customer interface field: Material (unconfirmed) | copy |
+| `Plant` | EKPO-WERKS | customer interface field: Plant (unconfirmed) | copy |
+| `OrderQuantity` | EKPO-MENGE | customer interface field: OrderQuantity (unconfirmed) | copy |
+| `OrderUnit` | EKPO-MEINS | customer interface field: OrderUnit (unconfirmed) | copy |
+| `DeletionFlag` | EKPO-LOEKZ | customer interface field: DeletionFlag (unconfirmed) | copy |
+| `DeliveryCompleted` | EKPO-ELIKZ | customer interface field: DeliveryCompleted (unconfirmed) | copy |
+| `FinalInvoice` | EKPO-EREKZ | customer interface field: FinalInvoice (unconfirmed) | copy |
 
 ## `ZMMX_C_PurchaseScheduMig`
 
@@ -55,14 +55,14 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **open-document**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `PurchaseOrder` | EKET-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy | yes |
-| `PurchaseOrderItem` | EKET-EBELP | customer interface field: PurchaseOrderItem (unconfirmed) | copy | yes |
-| `ScheduleLine` | EKET-ETENR | customer interface field: ScheduleLine (unconfirmed) | copy | yes |
-| `DeliveryDate` | EKET-EINDT | customer interface field: DeliveryDate (unconfirmed) | copy | yes |
-| `ScheduledQuantity` | EKET-MENGE | customer interface field: ScheduledQuantity (unconfirmed) | copy | yes |
-| `ReceivedQuantity` | EKET-WEMNG | customer interface field: ReceivedQuantity (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `PurchaseOrder` | EKET-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy |
+| `PurchaseOrderItem` | EKET-EBELP | customer interface field: PurchaseOrderItem (unconfirmed) | copy |
+| `ScheduleLine` | EKET-ETENR | customer interface field: ScheduleLine (unconfirmed) | copy |
+| `DeliveryDate` | EKET-EINDT | customer interface field: DeliveryDate (unconfirmed) | copy |
+| `ScheduledQuantity` | EKET-MENGE | customer interface field: ScheduledQuantity (unconfirmed) | copy |
+| `ReceivedQuantity` | EKET-WEMNG | customer interface field: ReceivedQuantity (unconfirmed) | copy |
 
 ## `ZMMX_C_PurchaseAssignMig`
 
@@ -72,15 +72,15 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **open-document**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `PurchaseOrder` | EKKN-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy | yes |
-| `PurchaseOrderItem` | EKKN-EBELP | customer interface field: PurchaseOrderItem (unconfirmed) | copy | yes |
-| `AccountAssignmentNumber` | EKKN-ZEKKN | customer interface field: AccountAssignmentNumber (unconfirmed) | copy | yes |
-| `CostCenter` | EKKN-KOSTL | customer interface field: CostCenter (unconfirmed) | copy | yes |
-| `OrderID` | EKKN-AUFNR | customer interface field: OrderID (unconfirmed) | copy | yes |
-| `GLAccount` | EKKN-SAKTO | customer interface field: GLAccount (unconfirmed) | copy | yes |
-| `WBSElementInternalID` | EKKN-PS_PSP_PNR | customer interface field: WBSElementInternalID (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `PurchaseOrder` | EKKN-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy |
+| `PurchaseOrderItem` | EKKN-EBELP | customer interface field: PurchaseOrderItem (unconfirmed) | copy |
+| `AccountAssignmentNumber` | EKKN-ZEKKN | customer interface field: AccountAssignmentNumber (unconfirmed) | copy |
+| `CostCenter` | EKKN-KOSTL | customer interface field: CostCenter (unconfirmed) | copy |
+| `OrderID` | EKKN-AUFNR | customer interface field: OrderID (unconfirmed) | copy |
+| `GLAccount` | EKKN-SAKTO | customer interface field: GLAccount (unconfirmed) | copy |
+| `WBSElementInternalID` | EKKN-PS_PSP_PNR | customer interface field: WBSElementInternalID (unconfirmed) | copy |
 
 ## `ZMMX_C_PurchaseHistorMig`
 
@@ -90,18 +90,18 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **open-document**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `PurchaseOrder` | EKBE-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy | yes |
-| `PurchaseOrderItem` | EKBE-EBELP | customer interface field: PurchaseOrderItem (unconfirmed) | copy | yes |
-| `AccountAssignmentNumber` | EKBE-ZEKKN | customer interface field: AccountAssignmentNumber (unconfirmed) | copy | yes |
-| `HistoryCategory` | EKBE-VGABE | customer interface field: HistoryCategory (unconfirmed) | copy | yes |
-| `FiscalYear` | EKBE-GJAHR | customer interface field: FiscalYear (unconfirmed) | copy | yes |
-| `DocumentNumber` | EKBE-BELNR | customer interface field: DocumentNumber (unconfirmed) | copy | yes |
-| `DocumentItem` | EKBE-BUZEI | customer interface field: DocumentItem (unconfirmed) | copy | yes |
-| `PostingDate` | EKBE-BUDAT | customer interface field: PostingDate (unconfirmed) | copy | yes |
-| `Quantity` | EKBE-MENGE | customer interface field: Quantity (unconfirmed) | copy | yes |
-| `DebitCreditCode` | EKBE-SHKZG | customer interface field: DebitCreditCode (unconfirmed) | copy | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `PurchaseOrder` | EKBE-EBELN | customer interface field: PurchaseOrder (unconfirmed) | copy |
+| `PurchaseOrderItem` | EKBE-EBELP | customer interface field: PurchaseOrderItem (unconfirmed) | copy |
+| `AccountAssignmentNumber` | EKBE-ZEKKN | customer interface field: AccountAssignmentNumber (unconfirmed) | copy |
+| `HistoryCategory` | EKBE-VGABE | customer interface field: HistoryCategory (unconfirmed) | copy |
+| `FiscalYear` | EKBE-GJAHR | customer interface field: FiscalYear (unconfirmed) | copy |
+| `DocumentNumber` | EKBE-BELNR | customer interface field: DocumentNumber (unconfirmed) | copy |
+| `DocumentItem` | EKBE-BUZEI | customer interface field: DocumentItem (unconfirmed) | copy |
+| `PostingDate` | EKBE-BUDAT | customer interface field: PostingDate (unconfirmed) | copy |
+| `Quantity` | EKBE-MENGE | customer interface field: Quantity (unconfirmed) | copy |
+| `DebitCreditCode` | EKBE-SHKZG | customer interface field: DebitCreditCode (unconfirmed) | copy |
 
 ## `ZMMX_C_PurchasePartnerMig`
 
@@ -111,17 +111,17 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **posting**
 - Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `PurchaseOrder` | EKPA-EBELN | - | copy |  |
-| `PurchasingOrganization` | EKPA-EKORG | - | copy |  |
-| `SupplierSubrange` | EKPA-LTSNR | - | copy |  |
-| `Plant` | EKPA-WERKS | - | copy |  |
-| `PartnerFunction` | EKPA-PARVW | - | copy |  |
-| `PartnerCounter` | EKPA-PARZA | - | copy |  |
-| `PartnerSupplier` | EKPA-LIFN2 | - | copy |  |
-| `PartnerContact` | EKPA-PARNR | - | copy |  |
-| `DefaultPartner` | EKPA-DEFPA | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `PurchaseOrder` | EKPA-EBELN | - | copy |
+| `PurchasingOrganization` | EKPA-EKORG | - | copy |
+| `SupplierSubrange` | EKPA-LTSNR | - | copy |
+| `Plant` | EKPA-WERKS | - | copy |
+| `PartnerFunction` | EKPA-PARVW | - | copy |
+| `PartnerCounter` | EKPA-PARZA | - | copy |
+| `PartnerSupplier` | EKPA-LIFN2 | - | copy |
+| `PartnerContact` | EKPA-PARNR | - | copy |
+| `DefaultPartner` | EKPA-DEFPA | - | copy |
 
 ## `ZMMX_C_PurchaseLongTextMig`
 
@@ -131,22 +131,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | - | copy |  |
-| `TextName` | STXH-TDNAME | - | copy |  |
-| `TextID` | STXH-TDID | - | copy |  |
-| `Language` | STXH-TDSPRAS | - | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | - | copy |
+| `TextName` | STXH-TDNAME | - | copy |
+| `TextID` | STXH-TDID | - | copy |
+| `Language` | STXH-TDSPRAS | - | copy |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZMMX_C_PurchaseOrderMigCount` (ECC) vs `ZMMT_I_PurchaseOrderCount` (S/4HANA) per `PurchaseOrder`
-- Records and fields: `ZMMX_C_PurchaseOrderMig` vs `ZMMT_B_PurchaseOrderCompare` on `PurchaseOrder`; compared: `CompanyCode`, `PurchaseOrderType`, `Supplier`, `PurchasingOrganization`, `PurchasingGroup`, `DocumentCurrency`
-
-```bash
-python3 tools/mig_reconcile.py counts --product mm_mig_ecc --module purchase_order --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --product mm_mig_ecc --module purchase_order --source ecc_extract.csv --target s4_compare.csv
-```
+- Source count view: `ZMMX_C_PurchaseOrderMigCount`
 
 ## Open gaps
 

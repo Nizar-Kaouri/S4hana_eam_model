@@ -36,99 +36,85 @@
           "element": "TaskListType",
           "source": "PLKO-PLNTY",
           "target": "PLKO-PLNTY",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TaskListGroup",
           "source": "PLKO-PLNNR",
           "target": "PLKO-PLNNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "PLKO-PLNAL",
           "target": "PLKO-PLNAL",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "PLKO-DATUV",
           "target": "PLKO-DATUV",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListDesc",
           "source": "PLKO-KTEXT",
           "target": "PLKO-KTEXT",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "PLKO-WERKS",
           "target": "PLKO-WERKS",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TaskListUsage",
           "source": "PLKO-VERWE",
           "target": "PLKO-VERWE",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TaskListStatus",
           "source": "PLKO-STATU",
           "target": "PLKO-STATU",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "PLKO-VAGRP",
           "target": "PLKO-VAGRP",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceStrategy",
           "source": "PLKO-STRAT",
           "target": "PLKO-STRAT",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintObjectSystemCondition",
           "source": "PLKO-ANLZU",
           "target": "PLKO-ANLZU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LastChangeDate",
           "source": "PLKO-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ]
     },
@@ -148,120 +134,103 @@
           "element": "TaskListType",
           "source": "PLAS-PLNTY",
           "target": "PLAS-PLNTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroup",
           "source": "PLAS-PLNNR",
           "target": "PLAS-PLNNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "PLAS-PLNAL",
           "target": "PLAS-PLNAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListSequence",
           "source": "PLAS-PLNFL",
           "target": "PLAS-PLNFL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListOperation",
           "source": "PLPO-VORNR",
           "target": "PLPO-VORNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListSubOperation",
           "source": "PLPO-UVORN",
           "target": "PLPO-UVORN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationControlKey",
           "source": "PLPO-STEUS",
           "target": "PLPO-STEUS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationText",
           "source": "PLPO-LTXA1",
           "target": "PLPO-LTXA1",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "WorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "PLPO-WERKS",
           "target": "PLPO-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ActivityType",
           "source": "PLPO-LARNT",
           "target": "PLPO-LARNT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PlannedWorkQuantity",
           "source": "PLPO-ARBEI",
           "target": "PLPO-ARBEI",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PlannedWorkQuantityUnit",
           "source": "PLPO-ARBEH",
           "target": "PLPO-ARBEH",
-          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped",
-          "compare": false
+          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped"
         },
         {
           "element": "OperationDuration",
           "source": "PLPO-DAUNO",
           "target": "PLPO-DAUNO",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationDurationUnit",
           "source": "PLPO-DAUNE",
           "target": "PLPO-DAUNE",
-          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped",
-          "compare": false
+          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped"
         },
         {
           "element": "NumberOfCapacities",
           "source": "PLPO-ANZZL",
           "target": "PLPO-ANZZL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -283,57 +252,49 @@
           "element": "TaskListType",
           "source": "EAPL-PLNTY",
           "target": "EAPL-PLNTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroup",
           "source": "EAPL-PLNNR",
           "target": "EAPL-PLNNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "EAPL-PLNAL",
           "target": "EAPL-PLNAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Equipment",
           "source": "EAPL-EQUNR (blank for TAPL functional-location assignments)",
           "target": "EAPL-EQUNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocation",
           "source": "TAPL-TPLNR (blank for EAPL equipment assignments)",
           "target": "EAPL-TPLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AdditionalCriteriaCounter",
           "source": "EAPL/TAPL-ZKRIZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssignmentCounter",
           "source": "EAPL/TAPL-ZAEHL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsMarkedForDeletion",
           "source": "EAPL/TAPL-LOEKZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "version_ledger",
@@ -356,71 +317,61 @@
           "element": "TaskListType",
           "source": "PLMZ-PLNTY",
           "target": "PLMZ-PLNTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroup",
           "source": "PLMZ-PLNNR",
           "target": "PLMZ-PLNNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "PLMZ-PLNAL",
           "target": "PLMZ-PLNAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationInternalID",
           "source": "PLMZ-PLNKN",
           "target": "PLMZ-PLNKN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "VersionCounter",
           "source": "PLMZ-ZAEHL",
           "target": "PLMZ-ZAEHL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AllocationNumber",
           "source": "PLMZ-ZUONR",
           "target": "PLMZ-ZUONR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMCategory",
           "source": "PLMZ-STLTY",
           "target": "PLMZ-STLTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BillOfMaterial",
           "source": "PLMZ-STLNR",
           "target": "PLMZ-STLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMAlternative",
           "source": "PLMZ-STLAL",
           "target": "PLMZ-STLAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMItemNode",
           "source": "PLMZ-STLKN",
           "target": "PLMZ-STLKN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -443,64 +394,55 @@
           "element": "TaskListType",
           "source": "PLFH-PLNTY",
           "target": "PLFH-PLNTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroup",
           "source": "PLFH-PLNNR",
           "target": "PLFH-PLNNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "PLFH-PLNAL",
           "target": "PLFH-PLNAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationInternalID",
           "source": "PLFH-PLNKN",
           "target": "PLFH-PLNKN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "VersionCounter",
           "source": "PLFH-ZAEHL",
           "target": "PLFH-ZAEHL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PRTItem",
           "source": "PLFH-PSNFH",
           "target": "PLFH-PSNFH",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PRTObjectType",
           "source": "PLFH-OBJTY",
           "target": "PLFH-OBJTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PRTInternalID",
           "source": "PLFH-OBJID",
           "target": "PLFH-OBJID",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PRTControlKey",
           "source": "PLFH-STEUF",
           "target": "PLFH-STEUF",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -523,43 +465,37 @@
           "element": "TaskListType",
           "source": "PLWP-PLNTY",
           "target": "PLWP-PLNTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroup",
           "source": "PLWP-PLNNR",
           "target": "PLWP-PLNNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "PLWP-PLNAL",
           "target": "PLWP-PLNAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationInternalID",
           "source": "PLWP-PLNKN",
           "target": "PLWP-PLNKN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "VersionCounter",
           "source": "PLWP-ZAEHL",
           "target": "PLWP-ZAEHL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePackage",
           "source": "PLWP-PAKET",
           "target": "PLWP-PAKET",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -580,29 +516,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -689,10 +621,12 @@
       "reason": "scope"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: highest recorded counters are provisional; resolve engineering-change effectivity and operation references at the customer cutover date before loading components, PRTs or packages."
+  ],
+  "main_structure": "ZEMX_C_TaskListMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_TaskListMigCount",
-    "target_count_view": "ZEMT_I_TaskListCount",
     "dimensions": [
       {
         "element": "TaskListType"
@@ -701,27 +635,6 @@
         "element": "Plant"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_TaskListMig",
-      "target_view": "ZEMT_B_TaskListCompare",
-      "key": [
-        "TaskListType",
-        "TaskListGroup",
-        "TaskListGroupCounter"
-      ],
-      "fields": [
-        "TaskListDesc",
-        "Plant",
-        "TaskListUsage",
-        "TaskListStatus",
-        "MaintenancePlannerGroup",
-        "MaintenanceStrategy"
-      ]
-    }
-  },
-  "gaps": [
-    "Compatibility note: highest recorded counters are provisional; resolve engineering-change effectivity and operation references at the customer cutover date before loading components, PRTs or packages."
-  ],
-  "main_structure": "ZEMX_C_TaskListMig"
+    "measure": "RecordCount"
+  }
 }

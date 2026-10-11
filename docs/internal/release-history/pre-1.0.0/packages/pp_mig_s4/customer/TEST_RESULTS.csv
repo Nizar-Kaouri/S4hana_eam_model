@@ -1,9 +1,0 @@
-﻿Object,Check,Status,SAP release,Client,Evidence,Finding
-ZPPT_I_ProductionOrdeCompare,DDIC and key grain,NOT_TESTED,,,,
-ZPPT_I_ProductionOrdeCompare,Activation,NOT_TESTED,,,,
-ZPPT_I_ProductionOrdeCompare,Authorized and restricted read,NOT_TESTED,,,,
-ZPPT_I_ProductionOrdeCompare,Scoped extraction and comparison,NOT_TESTED,,,,
-ZPPT_I_ProductionOrdeCount,DDIC and key grain,NOT_TESTED,,,,
-ZPPT_I_ProductionOrdeCount,Activation,NOT_TESTED,,,,
-ZPPT_I_ProductionOrdeCount,Authorized and restricted read,NOT_TESTED,,,,
-ZPPT_I_ProductionOrdeCount,Scoped extraction and comparison,NOT_TESTED,,,,

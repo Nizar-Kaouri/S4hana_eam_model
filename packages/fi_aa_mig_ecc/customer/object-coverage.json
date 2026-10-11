@@ -30,7 +30,7 @@
           ]
         }
       ],
-      "boundary": "Asset fiscal year balances source records, preparation and comparison contracts."
+      "boundary": "Asset fiscal year balances source records, source preparation contracts."
     },
     "asset_transaction": {
       "native_tables": [
@@ -63,7 +63,7 @@
           ]
         }
       ],
-      "boundary": "Asset transaction history source records, preparation and comparison contracts."
+      "boundary": "Asset transaction history source records, source preparation contracts."
     },
     "fixed_asset": {
       "native_tables": [
@@ -159,7 +159,7 @@
           ]
         }
       ],
-      "boundary": "Fixed assets source records, preparation and comparison contracts."
+      "boundary": "Fixed assets source records, source preparation contracts."
     }
   }
 }

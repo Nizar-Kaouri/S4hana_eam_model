@@ -72,7 +72,7 @@
           ]
         }
       ],
-      "boundary": "Actual cost history source records, preparation and comparison contracts."
+      "boundary": "Actual cost history source records, source preparation contracts."
     },
     "cost_center": {
       "native_tables": [
@@ -150,7 +150,7 @@
           ]
         }
       ],
-      "boundary": "Cost centers source records, preparation and comparison contracts."
+      "boundary": "Cost centers source records, source preparation contracts."
     },
     "cost_element": {
       "native_tables": [
@@ -226,7 +226,7 @@
           ]
         }
       ],
-      "boundary": "Cost element references source records, preparation and comparison contracts."
+      "boundary": "Cost element references source records, source preparation contracts."
     },
     "internal_order": {
       "native_tables": [
@@ -356,7 +356,7 @@
           ]
         }
       ],
-      "boundary": "Internal orders source records, preparation and comparison contracts."
+      "boundary": "Internal orders source records, source preparation contracts."
     },
     "planning": {
       "native_tables": [
@@ -605,7 +605,7 @@
           ]
         }
       ],
-      "boundary": "Profit centers source records, preparation and comparison contracts."
+      "boundary": "Profit centers source records, source preparation contracts."
     }
   }
 }

@@ -17,26 +17,22 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `ControllingArea` | COEP-KOKRS | customer interface field: ControllingArea (unconfirmed) | information only | yes |
-| `COAccountingDocument` | COEP-BELNR | customer interface field: COAccountingDocument (unconfirmed) | information only | yes |
-| `COAccountingDocumentItem` | COEP-BUZEI | customer interface field: COAccountingDocumentItem (unconfirmed) | information only | yes |
-| `FiscalYear` | COEP-GJAHR | customer interface field: FiscalYear (unconfirmed) | information only | yes |
-| `ObjectNumber` | COEP-OBJNR | customer interface field: ObjectNumber (unconfirmed) | information only | yes |
-| `CostElement` | COEP-KSTAR | customer interface field: CostElement (unconfirmed) | information only | yes |
-| `ValueType` | COEP-WRTTP | customer interface field: ValueType (unconfirmed) | information only | yes |
-| `BusinessTransaction` | COEP-VRGNG | customer interface field: BusinessTransaction (unconfirmed) | information only | yes |
-| `TransactionAmount` | COEP-WTGBTR | customer interface field: TransactionAmount (unconfirmed) | information only | yes |
-| `TransactionCurrency` | COEP-TWAER | customer interface field: TransactionCurrency (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `ControllingArea` | COEP-KOKRS | customer interface field: ControllingArea (unconfirmed) | information only |
+| `COAccountingDocument` | COEP-BELNR | customer interface field: COAccountingDocument (unconfirmed) | information only |
+| `COAccountingDocumentItem` | COEP-BUZEI | customer interface field: COAccountingDocumentItem (unconfirmed) | information only |
+| `FiscalYear` | COEP-GJAHR | customer interface field: FiscalYear (unconfirmed) | information only |
+| `ObjectNumber` | COEP-OBJNR | customer interface field: ObjectNumber (unconfirmed) | information only |
+| `CostElement` | COEP-KSTAR | customer interface field: CostElement (unconfirmed) | information only |
+| `ValueType` | COEP-WRTTP | customer interface field: ValueType (unconfirmed) | information only |
+| `BusinessTransaction` | COEP-VRGNG | customer interface field: BusinessTransaction (unconfirmed) | information only |
+| `TransactionAmount` | COEP-WTGBTR | customer interface field: TransactionAmount (unconfirmed) | information only |
+| `TransactionCurrency` | COEP-TWAER | customer interface field: TransactionCurrency (unconfirmed) | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZCOX_C_CostActualMigCount` (ECC) vs `-` (S/4HANA) per `ControllingArea`
-
-```bash
-python3 tools/mig_reconcile.py counts --product co_mig_ecc --module cost_actuals --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZCOX_C_CostActualMigCount`
 
 ## Open gaps
 

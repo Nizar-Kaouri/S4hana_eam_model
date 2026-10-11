@@ -14,7 +14,7 @@
       "CreditSegment"
     ],
     "numbering": "keep",
-    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
   },
   "structures": [
     {
@@ -30,64 +30,55 @@
           "element": "BusinessPartner",
           "source": "UKMBP_CMS_SGM-PARTNER",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.BusinessPartner",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "CreditSegment",
           "source": "UKMBP_CMS_SGM-CREDIT_SGMNT",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.CreditSegment",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Blocked",
           "source": "UKMBP_CMS_SGM-XBLOCKED",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.Blocked",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LimitValidTo",
           "source": "UKMBP_CMS_SGM-LIMIT_VALID_DATE",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.LimitValidTo",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LimitChangedOn",
           "source": "UKMBP_CMS_SGM-LIMIT_CHG_DATE",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.LimitChangedOn",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Coordinator",
           "source": "UKMBP_CMS_SGM-COORDINATOR",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.Coordinator",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BlockReason",
           "source": "UKMBP_CMS_SGM-BLOCK_REASON",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.BlockReason",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Critical",
           "source": "UKMBP_CMS_SGM-XCRITICAL",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.Critical",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ZeroLimit",
           "source": "UKMBP_CMS_SGM-X_LIMIT_ZERO",
           "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.ZeroLimit",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -99,29 +90,10 @@
     "Actual DDIC, release, SAP activation and acceptance unverified.",
     "CreditSegment: CreditLimit currency context remains pending: extractor documentation names segment CURRENCY while other releases use UKMCRED_SGM0C currency customizing. Resolve this release-specific contradiction before projecting amounts."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "dimensions": [],
-    "source_count_view": "ZFCX_C_CreditSegmentMigCount",
-    "target_count_view": "ZFCT_I_CreditSegmentCount",
-    "compare": {
-      "source_view": "ZFCX_C_CreditSegmentMig",
-      "target_view": "ZFCT_B_CreditSegmentCompare",
-      "key": [
-        "BusinessPartner",
-        "CreditSegment"
-      ],
-      "fields": [
-        "Blocked",
-        "LimitValidTo",
-        "LimitChangedOn",
-        "Coordinator",
-        "BlockReason",
-        "Critical",
-        "ZeroLimit"
-      ]
-    }
-  },
   "main_structure": "ZFCX_C_CreditSegmentMig",
-  "pending_dependencies": []
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZFCX_C_CreditSegmentMigCount",
+    "dimensions": []
+  }
 }

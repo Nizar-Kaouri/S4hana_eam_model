@@ -1,7 +1,7 @@
 {
   "name": "cost_element",
   "title": "Cost element references",
-  "description": "Cost element references source records, preparation and comparison contracts.",
+  "description": "Cost element references source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

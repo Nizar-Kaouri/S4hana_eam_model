@@ -1,7 +1,7 @@
 {
   "name": "bill_of_material",
   "title": "Material bills of material",
-  "description": "Material bills of material source records, preparation and comparison contracts.",
+  "description": "Material bills of material source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

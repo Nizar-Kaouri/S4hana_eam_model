@@ -11,7 +11,7 @@ ModuPorter Sales and Distribution version 1.0.0.
 
 ## Delivery boundaries
 
-Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+Read-only source extraction templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
 
 ## Domain details
 

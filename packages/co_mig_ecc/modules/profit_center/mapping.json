@@ -30,127 +30,109 @@
           "element": "ProfitCenter",
           "source": "CEPC-PRCTR",
           "target": "customer interface field: ProfitCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidityEndDate",
           "source": "CEPC-DATBI",
           "target": "customer interface field: ValidityEndDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "CEPC-KOKRS",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "CEPC-DATAB",
           "target": "customer interface field: ValidityStartDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ResponsiblePerson",
           "source": "CEPC-VERAK",
           "target": "customer interface field: ResponsiblePerson (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Segment",
           "source": "CEPC-SEGMENT",
           "target": "customer interface field: Segment (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AddressStreet",
           "source": "CEPC-STRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCity",
           "source": "CEPC-ORT01",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressDistrict",
           "source": "CEPC-ORT02",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPostalCode",
           "source": "CEPC-PSTLZ",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCountry",
           "source": "CEPC-LAND1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressRegion",
           "source": "CEPC-REGIO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBox",
           "source": "CEPC-PFACH",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBoxPostalCode",
           "source": "CEPC-PSTL2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressLanguage",
           "source": "CEPC-SPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PhoneNumber1",
           "source": "CEPC-TELF1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PhoneNumber2",
           "source": "CEPC-TELF2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FaxNumber",
           "source": "CEPC-TELFX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -171,43 +153,37 @@
           "element": "Language",
           "source": "CEPCT-SPRAS",
           "target": "customer interface field: Language (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProfitCenter",
           "source": "CEPCT-PRCTR",
           "target": "customer interface field: ProfitCenter (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidityEndDate",
           "source": "CEPCT-DATBI",
           "target": "customer interface field: ValidityEndDate (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "CEPCT-KOKRS",
           "target": "customer interface field: ControllingArea (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProfitCenterName",
           "source": "CEPCT-KTEXT",
           "target": "customer interface field: ProfitCenterName (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProfitCenterDescription",
           "source": "CEPCT-LTEXT",
           "target": "customer interface field: ProfitCenterDescription (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -228,29 +204,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -261,29 +233,13 @@
   "gaps": [
     "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZCOT_I_ProfitCenterCount",
+  "main_structure": "ZCOX_C_ProfitCenterMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_ProfitCenterMigCount",
     "dimensions": [
       {
         "element": "ProfitCenter"
       }
-    ],
-    "source_count_view": "ZCOX_C_ProfitCenterMigCount",
-    "compare": {
-      "source_view": "ZCOX_C_ProfitCenterMig",
-      "target_view": "ZCOT_B_ProfitCenterCompare",
-      "key": [
-        "ProfitCenter",
-        "ValidityEndDate",
-        "ControllingArea"
-      ],
-      "fields": [
-        "ValidityStartDate",
-        "ResponsiblePerson",
-        "Segment"
-      ]
-    }
-  },
-  "main_structure": "ZCOX_C_ProfitCenterMig"
+    ]
+  }
 }

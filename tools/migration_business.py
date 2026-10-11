@@ -10,7 +10,7 @@ from decimal import Decimal, InvalidOperation, localcontext
 from pathlib import Path
 
 from eam_prepare import date, unique, write_csv
-from mig_reconcile import CsvRows, InputError, read_csv, require
+from migration_csv import CsvRows, InputError, read_csv, require
 
 
 def open_items(exports, contract, cutover):
@@ -84,33 +84,19 @@ def totals(rows, contract):
     return result
 
 
-def compare_totals(source, target, contract):
-    left, right = totals(source, contract), totals(target, contract)
-    tolerance = number(contract.get('tolerance', '0'), 'tolerance')
-    if tolerance < 0:
-        raise InputError('tolerance must be nonnegative')
-    # A missing group is a difference even if its numeric total is zero.
-    differences = []
-    for key in sorted(set(left) | set(right)):
-        a, b = left.get(key, Decimal(0)), right.get(key, Decimal(0))
-        difference = add_exact(b, a.copy_negate())
-        if key not in left or key not in right or difference.copy_abs() > tolerance:
-            differences.append({'group': list(key), 'source': str(a), 'target': str(b), 'difference': str(difference)})
-    return differences
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('action', choices=['open-items', 'totals'])
     ap.add_argument('--input', nargs='+', required=True)
-    ap.add_argument('--target')
     ap.add_argument('--contract', required=True)
     ap.add_argument('--cutover')
     ap.add_argument('--out', required=True)
     args = ap.parse_args(argv)
     try:
         out = Path(args.out).resolve()
-        inputs = [Path(p).resolve() for p in args.input + [args.contract] + ([args.target] if args.target else [])]
+        inputs = [Path(p).resolve() for p in args.input + [args.contract]]
         if out in inputs or out.exists():
             raise InputError('choose a new output file; inputs and existing results are protected')
         contract = json.loads(Path(args.contract).read_text(encoding='utf-8'))
@@ -121,11 +107,11 @@ def main(argv=None):
             rows = open_items(exports, contract, args.cutover)
             write_csv(out, rows, rows.columns)
             return 0
-        if len(exports) != 1 or not args.target:
-            raise InputError('totals needs one source export and --target')
-        differences = compare_totals(exports[0], read_csv(args.target, preserve_values=True), contract)
-        out.write_text(json.dumps({'differences': differences, 'contract': contract}, indent=2) + '\n', encoding='utf-8')
-        return 1 if differences else 0
+        if len(exports) != 1:
+            raise InputError('totals needs one source export')
+        values = totals(exports[0], contract)
+        out.write_text(json.dumps({'totals': [{'group':list(k), 'amount':str(v)} for k,v in sorted(values.items())], 'contract':contract},indent=2)+'\n',encoding='utf-8')
+        return 0
     except (InputError, OSError, ValueError, KeyError) as exc:
         print(f'ERROR: {exc}')
         return 2

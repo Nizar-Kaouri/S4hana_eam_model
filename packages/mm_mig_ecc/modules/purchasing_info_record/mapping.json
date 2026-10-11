@@ -28,43 +28,37 @@
           "element": "PurchasingInfoRecord",
           "source": "EINA-INFNR",
           "target": "customer interface field: PurchasingInfoRecord (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Product",
           "source": "EINA-MATNR",
           "target": "customer interface field: Product (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Supplier",
           "source": "EINA-LIFNR",
           "target": "customer interface field: Supplier (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ProductGroup",
           "source": "EINA-MATKL",
           "target": "customer interface field: ProductGroup (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OrderUnit",
           "source": "EINA-MEINS",
           "target": "customer interface field: OrderUnit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "EINA-LOEKZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -85,71 +79,61 @@
           "element": "PurchasingInfoRecord",
           "source": "EINE-INFNR",
           "target": "customer interface field: PurchasingInfoRecord (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PurchasingOrganization",
           "source": "EINE-EKORG",
           "target": "customer interface field: PurchasingOrganization (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "InfoRecordCategory",
           "source": "EINE-ESOKZ",
           "target": "customer interface field: InfoRecordCategory (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "EINE-WERKS",
           "target": "customer interface field: Plant (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PurchasingGroup",
           "source": "EINE-EKGRP",
           "target": "customer interface field: PurchasingGroup (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Currency",
           "source": "EINE-WAERS",
           "target": "customer interface field: Currency (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "NetPrice",
           "source": "EINE-NETPR",
           "target": "customer interface field: NetPrice (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PriceUnit",
           "source": "EINE-PEINH",
           "target": "customer interface field: PriceUnit (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PriceUnitOfMeasure",
           "source": "EINE-BPRME",
           "target": "customer interface field: PriceUnitOfMeasure (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "EINE-LOEKZ",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -170,29 +154,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -204,15 +184,13 @@
     "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.",
     "Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZMMX_C_InfoRecordMig",
+  "source_control": {
+    "source_count_view": "ZMMX_C_InfoRecordMigCount",
     "dimensions": [
       {
         "element": "PurchasingInfoRecord"
       }
-    ],
-    "source_count_view": "ZMMX_C_InfoRecordMigCount"
-  },
-  "main_structure": "ZMMX_C_InfoRecordMig"
+    ]
+  }
 }

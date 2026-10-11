@@ -47,7 +47,7 @@
           ]
         }
       ],
-      "boundary": "Goods movement history source records, preparation and comparison contracts."
+      "boundary": "Goods movement history source records, source preparation contracts."
     },
     "material_stock": {
       "native_tables": [
@@ -143,7 +143,7 @@
           ]
         }
       ],
-      "boundary": "Inventory balances source records, preparation and comparison contracts."
+      "boundary": "Inventory balances source records, source preparation contracts."
     },
     "product": {
       "native_tables": [
@@ -509,7 +509,7 @@
           ]
         }
       ],
-      "boundary": "Material master source records, preparation and comparison contracts."
+      "boundary": "Material master source records, source preparation contracts."
     },
     "purchase_order": {
       "native_tables": [
@@ -664,7 +664,7 @@
           ]
         }
       ],
-      "boundary": "Purchase orders source records, preparation and comparison contracts."
+      "boundary": "Purchase orders source records, source preparation contracts."
     },
     "purchase_requisition": {
       "native_tables": [
@@ -729,7 +729,7 @@
           ]
         }
       ],
-      "boundary": "Purchase requisitions source records, preparation and comparison contracts."
+      "boundary": "Purchase requisitions source records, source preparation contracts."
     },
     "purchasing_contract": {
       "native_tables": [

@@ -28,176 +28,151 @@
           "element": "BankCountry",
           "source": "BNKA-BANKS",
           "target": "customer interface field: BankCountry (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BankKey",
           "source": "BNKA-BANKL",
           "target": "customer interface field: BankKey (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BankName",
           "source": "BNKA-BANKA",
           "target": "customer interface field: BankName (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "City",
           "source": "BNKA-ORT01",
           "target": "customer interface field: City (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Street",
           "source": "BNKA-STRAS",
           "target": "customer interface field: Street (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SWIFTCode",
           "source": "BNKA-SWIFT",
           "target": "customer interface field: SWIFTCode (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "BNKA-LOEVM",
           "target": "customer interface field: DeletionFlag (unconfirmed)",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "BNKA-ADRNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "AddressValidTo",
           "source": "ADRC-DATE_TO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName1",
           "source": "ADRC-NAME1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName2",
           "source": "ADRC-NAME2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName3",
           "source": "ADRC-NAME3",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName4",
           "source": "ADRC-NAME4",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressStreet",
           "source": "ADRC-STREET",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumber",
           "source": "ADRC-HOUSE_NUM1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumberSupplement",
           "source": "ADRC-HOUSE_NUM2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCity",
           "source": "ADRC-CITY1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressDistrict",
           "source": "ADRC-CITY2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPostalCode",
           "source": "ADRC-POST_CODE1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBox",
           "source": "ADRC-PO_BOX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBoxPostalCode",
           "source": "ADRC-POST_CODE2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCountry",
           "source": "ADRC-COUNTRY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressRegion",
           "source": "ADRC-REGION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressLanguage",
           "source": "ADRC-LANGU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "HasStandardAddress",
           "source": "derived: presence of the standard ADRC record",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ],
       "delivery_mode": "master",
@@ -218,148 +193,127 @@
           "element": "BankCountry",
           "source": "BNKA-BANKS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BankKey",
           "source": "BNKA-BANKL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADRC-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "AddressValidFrom",
           "source": "ADRC-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressVersion",
           "source": "ADRC-NATION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressValidTo",
           "source": "ADRC-DATE_TO",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName1",
           "source": "ADRC-NAME1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName2",
           "source": "ADRC-NAME2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName3",
           "source": "ADRC-NAME3",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressName4",
           "source": "ADRC-NAME4",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressStreet",
           "source": "ADRC-STREET",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumber",
           "source": "ADRC-HOUSE_NUM1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressHouseNumberSupplement",
           "source": "ADRC-HOUSE_NUM2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCity",
           "source": "ADRC-CITY1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressDistrict",
           "source": "ADRC-CITY2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPostalCode",
           "source": "ADRC-POST_CODE1",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBox",
           "source": "ADRC-PO_BOX",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressPOBoxPostalCode",
           "source": "ADRC-POST_CODE2",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressCountry",
           "source": "ADRC-COUNTRY",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressRegion",
           "source": "ADRC-REGION",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressLanguage",
           "source": "ADRC-LANGU",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -382,57 +336,49 @@
           "element": "BankCountry",
           "source": "BNKA-BANKS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BankKey",
           "source": "BNKA-BANKL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADR6-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "PersonNumber",
           "source": "ADR6-PERSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationValidFrom",
           "source": "ADR6-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationCounter",
           "source": "ADR6-CONSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EmailAddress",
           "source": "ADR6-SMTP_ADDR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsDefaultCommunication",
           "source": "ADR6-FLGDEFAULT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -455,64 +401,55 @@
           "element": "BankCountry",
           "source": "BNKA-BANKS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BankKey",
           "source": "BNKA-BANKL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADR2-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "PersonNumber",
           "source": "ADR2-PERSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationValidFrom",
           "source": "ADR2-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationCounter",
           "source": "ADR2-CONSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Telephone",
           "source": "ADR2-TEL_NUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TelephoneExtension",
           "source": "ADR2-TEL_EXTENS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsDefaultCommunication",
           "source": "ADR2-FLGDEFAULT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -535,64 +472,55 @@
           "element": "BankCountry",
           "source": "BNKA-BANKS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BankKey",
           "source": "BNKA-BANKL",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AddressNumber",
           "source": "ADR3-ADDRNUMBER",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "PersonNumber",
           "source": "ADR3-PERSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationValidFrom",
           "source": "ADR3-DATE_FROM",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CommunicationCounter",
           "source": "ADR3-CONSNUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FaxNumber",
           "source": "ADR3-FAX_NUMBER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FaxExtension",
           "source": "ADR3-FAX_EXTENS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "IsDefaultCommunication",
           "source": "ADR3-FLGDEFAULT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -604,15 +532,13 @@
     "Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.",
     "Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": null,
+  "main_structure": "ZFIX_C_BankMig",
+  "source_control": {
+    "source_count_view": "ZFIX_C_BankMigCount",
     "dimensions": [
       {
         "element": "BankCountry"
       }
-    ],
-    "source_count_view": "ZFIX_C_BankMigCount"
-  },
-  "main_structure": "ZFIX_C_BankMig"
+    ]
+  }
 }

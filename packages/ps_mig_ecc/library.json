@@ -19,7 +19,6 @@
   "reserve_prefix_chars": 1,
   "kind": "migration-source",
   "system": "ecc",
-  "migration_pair": "ps_mig_s4",
   "map_title": "ZPSX Project System Migration - ECC Source Map",
   "map_area": "Project System migration source (ECC tables)",
   "map_initial": "ZPSX_B_ProjectData",

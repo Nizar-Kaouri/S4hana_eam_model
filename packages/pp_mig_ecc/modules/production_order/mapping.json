@@ -26,50 +26,43 @@
           "element": "ManufacturingOrder",
           "source": "AUFK-AUFNR",
           "target": "customer interface field: ManufacturingOrder (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ManufacturingOrderType",
           "source": "AUFK-AUART",
           "target": "customer interface field: ManufacturingOrderType (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OrderCategory",
           "source": "AUFK-AUTYP",
           "target": "customer interface field: OrderCategory (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ManufacturingOrderText",
           "source": "AUFK-KTEXT",
           "target": "customer interface field: ManufacturingOrderText (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "CompanyCode",
           "source": "AUFK-BUKRS",
           "target": "customer interface field: CompanyCode (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ProductionPlant",
           "source": "AUFK-WERKS",
           "target": "customer interface field: ProductionPlant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ObjectNumber",
           "source": "AUFK-OBJNR",
           "target": "customer interface field: ObjectNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -87,43 +80,37 @@
           "element": "ManufacturingOrder",
           "source": "AFKO-AUFNR",
           "target": "customer interface field: ManufacturingOrder (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "OperationRoutingNumber",
           "source": "AFKO-AUFPL",
           "target": "customer interface field: OperationRoutingNumber (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "TotalQuantity",
           "source": "AFKO-GAMNG",
           "target": "customer interface field: TotalQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Unit",
           "source": "AFKO-GMEIN",
           "target": "customer interface field: Unit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BasicStartDate",
           "source": "AFKO-GSTRP",
           "target": "customer interface field: BasicStartDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "BasicEndDate",
           "source": "AFKO-GLTRP",
           "target": "customer interface field: BasicEndDate (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -142,43 +129,37 @@
           "element": "ManufacturingOrder",
           "source": "AFPO-AUFNR",
           "target": "customer interface field: ManufacturingOrder (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ManufacturingOrderItem",
           "source": "AFPO-POSNR",
           "target": "customer interface field: ManufacturingOrderItem (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Material",
           "source": "AFPO-MATNR",
           "target": "customer interface field: Material (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "ProductionPlant",
           "source": "AFPO-DWERK",
           "target": "customer interface field: ProductionPlant (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "PlannedQuantity",
           "source": "AFPO-PSMNG",
           "target": "customer interface field: PlannedQuantity (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         },
         {
           "element": "Unit",
           "source": "AFPO-MEINS",
           "target": "customer interface field: Unit (unconfirmed)",
-          "rule": "info",
-          "compare": true
+          "rule": "info"
         }
       ],
       "delivery_mode": "process-reference",
@@ -197,43 +178,37 @@
           "element": "ManufacturingOrder",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -252,43 +227,37 @@
           "element": "ManufacturingOrder",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ObjectNumber",
           "source": "JEST-OBJNR",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         },
         {
           "element": "StatusKind",
           "source": "derived: first character of JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -309,29 +278,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -349,28 +314,13 @@
   "gaps": [
     "BOMs and routings need key date, engineering change, usage, alternative and selected-node resolution. Preserve alternative sequences and dependencies. Production orders are process references unless the chosen target interface explicitly supports their state; confirmations, goods movements and costs must not be reposted as master data."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "target_count_view": "ZPPT_I_ProductionOrdeCount",
+  "main_structure": "ZPPX_C_ProductionOrdeMig",
+  "source_control": {
+    "source_count_view": "ZPPX_C_ProductionOrdeMigCount",
     "dimensions": [
       {
         "element": "ManufacturingOrder"
       }
-    ],
-    "source_count_view": "ZPPX_C_ProductionOrdeMigCount",
-    "compare": {
-      "source_view": "ZPPX_C_ProductionOrdeMig",
-      "target_view": "ZPPT_B_ProductionOrdeCompare",
-      "key": [
-        "ManufacturingOrder"
-      ],
-      "fields": [
-        "ManufacturingOrderType",
-        "ManufacturingOrderText",
-        "CompanyCode",
-        "ProductionPlant"
-      ]
-    }
-  },
-  "main_structure": "ZPPX_C_ProductionOrdeMig"
+    ]
+  }
 }

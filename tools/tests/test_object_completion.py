@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools'))
 from eam_prepare import linked_scope, text_scope
 from eam_run import run
-from mig_reconcile import CsvRows,InputError
+from migration_csv import CsvRows,InputError
 from check_pack_coverage import check
 
 class ObjectCompletionTests(unittest.TestCase):
@@ -52,7 +52,7 @@ class ObjectCompletionTests(unittest.TestCase):
             example=ROOT/'packages'/f'{code}_mig_ecc/customer/examples/text-scope/project.json'
             with self.subTest(pack=code),tempfile.TemporaryDirectory() as tmp:
                 run(example,Path(tmp)/'prepared')
-                from mig_reconcile import read_csv
+                from migration_csv import read_csv
                 rows=read_csv(Path(tmp)/'prepared/ScopedTexts.csv')
                 self.assertEqual(len(rows),2)
                 self.assertEqual({r['Language'] for r in rows},{'E','D'})

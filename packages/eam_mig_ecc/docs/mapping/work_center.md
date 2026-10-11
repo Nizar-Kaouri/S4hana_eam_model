@@ -17,15 +17,15 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `WorkCenter`, `Plant`
 - Scope: `src.IsMarkedForDeletion = ''`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy | yes |
-| `Plant` | CRHD-WERKS | CRHD-WERKS | copy | yes |
-| `WorkCenterCategoryCode` | CRHD-VERWE | CRHD-VERWE | copy | yes |
-| `WorkCenterResponsible` | CRHD-VERAN | CRHD-VERAN | copy | yes |
-| `TaskListUsage` | CRHD-PLANV | CRHD-PLANV | copy |  |
-| `ValidityStartDate` | CRHD-BEGDA | CRHD-BEGDA | copy | yes |
-| `ValidityEndDate` | CRHD-ENDDA | CRHD-ENDDA | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |
+| `Plant` | CRHD-WERKS | CRHD-WERKS | copy |
+| `WorkCenterCategoryCode` | CRHD-VERWE | CRHD-VERWE | copy |
+| `WorkCenterResponsible` | CRHD-VERAN | CRHD-VERAN | copy |
+| `TaskListUsage` | CRHD-PLANV | CRHD-PLANV | copy |
+| `ValidityStartDate` | CRHD-BEGDA | CRHD-BEGDA | copy |
+| `ValidityEndDate` | CRHD-ENDDA | CRHD-ENDDA | copy |
 
 ## `ZEMX_C_WorkCenterTextMig`
 
@@ -33,12 +33,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `WorkCenter`, `Plant`, `Language`
 - Scope: `src.IsMarkedForDeletion = ''`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
-| `Plant` | CRHD-WERKS | CRHD-WERKS | copy |  |
-| `Language` | CRTX-SPRAS | CRTX-SPRAS | copy |  |
-| `WorkCenterText` | CRTX-KTEXT | CRTX-KTEXT | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |
+| `Plant` | CRHD-WERKS | CRHD-WERKS | copy |
+| `Language` | CRTX-SPRAS | CRTX-SPRAS | copy |
+| `WorkCenterText` | CRTX-KTEXT | CRTX-KTEXT | copy |
 
 ## `ZEMX_C_WorkCenterCostCtrMig`
 
@@ -46,16 +46,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `WorkCenter`, `Plant`, `ValidityEndDate`, `ActivityTypeSet`, `CostCenterAssgmtCounter`
 - Scope: `src.IsMarkedForDeletion = ''`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
-| `Plant` | CRHD-WERKS | CRHD-WERKS | copy |  |
-| `ValidityEndDate` | CRCO-ENDDA | CRCO-ENDDA | copy |  |
-| `ValidityStartDate` | CRCO-BEGDA | CRCO-BEGDA | copy |  |
-| `ControllingArea` | CRCO-KOKRS | CRCO-KOKRS | copy |  |
-| `CostCenter` | CRCO-KOSTL | CRCO-KOSTL | copy |  |
-| `ActivityTypeSet` | CRCO-LASET | CRCO-LASET | copy |  |
-| `CostCenterAssgmtCounter` | CRCO-LANUM | CRCO-LANUM | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |
+| `Plant` | CRHD-WERKS | CRHD-WERKS | copy |
+| `ValidityEndDate` | CRCO-ENDDA | CRCO-ENDDA | copy |
+| `ValidityStartDate` | CRCO-BEGDA | CRCO-BEGDA | copy |
+| `ControllingArea` | CRCO-KOKRS | CRCO-KOKRS | copy |
+| `CostCenter` | CRCO-KOSTL | CRCO-KOSTL | copy |
+| `ActivityTypeSet` | CRCO-LASET | CRCO-LASET | copy |
+| `CostCenterAssgmtCounter` | CRCO-LANUM | CRCO-LANUM | copy |
 
 ## `ZEMX_C_WorkCenterCapacityMig`
 
@@ -65,16 +65,16 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Reference context only; select referenced identities and implement customer-specific target posting and prerequisites.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `ObjectType` | CRCA-OBJTY | CRCA-OBJTY | copy |  |
-| `WorkCenterInternalID` | CRCA-OBJID | CRCA-OBJID | copy |  |
-| `CapacityAssignment` | CRCA-CANUM | CRCA-CANUM | copy |  |
-| `CapacityInternalID` | CRCA-KAPID | CRCA-KAPID | copy |  |
-| `ValidityStartDate` | CRCA-BEGDA | CRCA-BEGDA | copy |  |
-| `ValidityEndDate` | CRCA-ENDDA | CRCA-ENDDA | copy |  |
-| `CapacityFormula` | CRCA-FORK2 | CRCA-FORK2 | copy |  |
-| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `ObjectType` | CRCA-OBJTY | CRCA-OBJTY | copy |
+| `WorkCenterInternalID` | CRCA-OBJID | CRCA-OBJID | copy |
+| `CapacityAssignment` | CRCA-CANUM | CRCA-CANUM | copy |
+| `CapacityInternalID` | CRCA-KAPID | CRCA-KAPID | copy |
+| `ValidityStartDate` | CRCA-BEGDA | CRCA-BEGDA | copy |
+| `ValidityEndDate` | CRCA-ENDDA | CRCA-ENDDA | copy |
+| `CapacityFormula` | CRCA-FORK2 | CRCA-FORK2 | copy |
+| `WorkCenter` | CRHD-ARBPL | CRHD-ARBPL | copy |
 
 ## `ZEMX_C_CapacityHeaderMig`
 
@@ -84,11 +84,11 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Reference context only; select referenced identities and implement customer-specific target posting and prerequisites.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `CapacityInternalID` | KAKO-KAPID | KAKO-KAPID | copy |  |
-| `CapacityCategory` | KAKO-KAPAR | KAKO-KAPAR | copy |  |
-| `CapacityName` | KAKO-NAME | KAKO-NAME | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `CapacityInternalID` | KAKO-KAPID | KAKO-KAPID | copy |
+| `CapacityCategory` | KAKO-KAPAR | KAKO-KAPAR | copy |
+| `CapacityName` | KAKO-NAME | KAKO-NAME | copy |
 
 ## Not delivered
 
@@ -103,15 +103,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_WorkCenterCostCenter` | `IsMarkedForDeletion` | CRHD-LVORM | scope flag |
 | `ZEMX_I_WorkCenter` | `IsMarkedForDeletion` | CRHD-LVORM | Used to exclude deleted records in the consumption scope; not a posting field. |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZEMX_C_WorkCenterMigCount` (ECC) vs `ZEMT_I_WorkCenterCount` (S/4HANA) per `Plant`, `WorkCenterCategoryCode`
-- Records and fields: `ZEMX_C_WorkCenterMig` vs `ZEMT_B_WorkCenterCompare` on `WorkCenter`, `Plant`; compared: `WorkCenterCategoryCode`, `WorkCenterResponsible`, `ValidityStartDate`
-
-```bash
-python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module work_center --source ecc_counts.csv --target s4_counts.csv
-python3 tools/mig_reconcile.py records --product eam_mig_ecc --module work_center --source ecc_extract.csv --target s4_compare.csv
-```
+- Source count view: `ZEMX_C_WorkCenterMigCount`
 
 ## Open gaps
 

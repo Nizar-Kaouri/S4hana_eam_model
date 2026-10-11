@@ -17,12 +17,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Keys: `TextObject`, `TextName`, `TextID`, `Language`
 - Scope: `all rows`
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `TextObject` | STXH-TDOBJECT | STXH-TDOBJECT | copy |  |
-| `TextName` | STXH-TDNAME | - | derived: object key + text ID specific suffix; rebuilt from the object key by the load program |  |
-| `TextID` | STXH-TDID | STXH-TDID | copy |  |
-| `Language` | STXH-TDSPRAS | STXH-TDSPRAS | copy |  |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `TextObject` | STXH-TDOBJECT | STXH-TDOBJECT | copy |
+| `TextName` | STXH-TDNAME | - | derived: object key + text ID specific suffix; rebuilt from the object key by the load program |
+| `TextID` | STXH-TDID | STXH-TDID | copy |
+| `Language` | STXH-TDSPRAS | STXH-TDSPRAS | copy |
 
 ## Not delivered
 
@@ -33,13 +33,9 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_B_LongTextHeader` | `LastChangeDate` | STXH-TDLDATE | information only |
 | `ZEMX_B_LongTextHeader` | `LastChangedByUser` | STXH-TDLUSER | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZEMX_C_LongTextMigCount` (ECC) vs `-` (S/4HANA) per `TextObject`, `TextID`
-
-```bash
-python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module long_text --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZEMX_C_LongTextMigCount`
 
 ## Open gaps
 

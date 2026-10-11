@@ -1,7 +1,7 @@
 {
   "name": "sales_order",
   "title": "Sales orders",
-  "description": "Sales orders source records, preparation and comparison contracts.",
+  "description": "Sales orders source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

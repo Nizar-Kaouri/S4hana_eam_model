@@ -35,197 +35,169 @@
           "element": "MaintenanceOrder",
           "source": "AUFK-AUFNR",
           "target": "AUFK-AUFNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenanceOrderType",
           "source": "AUFK-AUART",
           "target": "AUFK-AUART",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenanceOrderDesc",
           "source": "AUFK-KTEXT",
           "target": "AUFK-KTEXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceActivityType",
           "source": "AFIH-ILART",
           "target": "AFIH-ILART",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintPriority",
           "source": "AFIH-PRIOK",
           "target": "AFIH-PRIOK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintOrdBasicStartDate",
           "source": "AFKO-GSTRP",
           "target": "AFKO-GSTRP",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintOrdBasicEndDate",
           "source": "AFKO-GLTRP",
           "target": "AFKO-GLTRP",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanningPlant",
           "source": "AFIH-IWERK",
           "target": "AFIH-IWERK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "AFIH-INGPR",
           "target": "AFIH-INGPR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "AUFK-BUKRS",
           "target": "AUFK-BUKRS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BusinessArea",
           "source": "AUFK-GSBER",
           "target": "AUFK-GSBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "AUFK-KOKRS",
           "target": "AUFK-KOKRS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ResponsibleCostCenter",
           "source": "AUFK-KOSTV",
           "target": "AUFK-KOSTV",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "ILOA-KOSTL",
           "target": "ILOA-KOSTL",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenanceNotification",
           "source": "AFIH-QMNUM",
           "target": "AFIH-QMNUM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Equipment",
           "source": "AFIH-EQUNR",
           "target": "AFIH-EQUNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocation",
           "source": "ILOA-TPLNR",
           "target": "ILOA-TPLNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlan",
           "source": "AFIH-WARPL",
           "target": "AFIH-WARPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceItem",
           "source": "AFIH-WAPOS",
           "target": "AFIH-WAPOS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintObjectSystemCondition",
           "source": "AFIH-ANLZU",
           "target": "AFIH-ANLZU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListType",
           "source": "AFKO-PLNTY",
           "target": "AFKO-PLNTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroup",
           "source": "AFKO-PLNNR",
           "target": "AFKO-PLNNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TaskListGroupCounter",
           "source": "AFKO-PLNAL",
           "target": "AFKO-PLNAL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Currency",
           "source": "AUFK-WAERS",
           "target": "AUFK-WAERS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LastChangeDate",
           "source": "AUFK-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ]
     },
@@ -243,92 +215,79 @@
           "element": "MaintenanceOrder",
           "source": "AFKO-AUFNR",
           "target": "AFKO-AUFNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceOrderOperation",
           "source": "AFVC-VORNR",
           "target": "AFVC-VORNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceOrderSubOperation",
           "source": "AFVC-UVORN",
           "target": "AFVC-UVORN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationDescription",
           "source": "AFVC-LTXA1",
           "target": "AFVC-LTXA1",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationControlKey",
           "source": "AFVC-STEUS",
           "target": "AFVC-STEUS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "WorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "AFVC-WERKS",
           "target": "AFVC-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ActivityType",
           "source": "AFVC-LARNT",
           "target": "AFVC-LARNT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PlannedWorkQuantity",
           "source": "AFVV-ARBEI",
           "target": "AFVV-ARBEI",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PlannedWorkQuantityUnit",
           "source": "AFVV-ARBEH",
           "target": "AFVV-ARBEH",
-          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped",
-          "compare": false
+          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped"
         },
         {
           "element": "OperationDuration",
           "source": "AFVV-DAUNO",
           "target": "AFVV-DAUNO",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationDurationUnit",
           "source": "AFVV-DAUNE",
           "target": "AFVV-DAUNE",
-          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped",
-          "compare": false
+          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped"
         }
       ]
     },
@@ -345,85 +304,73 @@
           "element": "MaintenanceOrder",
           "source": "RESB-AUFNR",
           "target": "RESB-AUFNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReservationItem",
           "source": "RESB-RSPOS",
           "target": "RESB-RSPOS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceOrderOperation",
           "source": "AFVC-VORNR",
           "target": "AFVC-VORNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMItemNumber",
           "source": "RESB-POSNR",
           "target": "RESB-POSNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BOMItemCategory",
           "source": "RESB-POSTP",
           "target": "RESB-POSTP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Material",
           "source": "RESB-MATNR",
           "target": "RESB-MATNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "RESB-WERKS",
           "target": "RESB-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StorageLocation",
           "source": "RESB-LGORT",
           "target": "RESB-LGORT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MatlCompRequirementDate",
           "source": "RESB-BDTER",
           "target": "RESB-BDTER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "RequirementQuantityInBaseUnit",
           "source": "RESB-BDMNG",
           "target": "RESB-BDMNG",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "WithdrawnQuantity",
           "source": "RESB-ENMNG",
           "target": "RESB-ENMNG",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "BaseUnit",
           "source": "RESB-MEINS",
           "target": "RESB-MEINS",
-          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped",
-          "compare": false
+          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped"
         }
       ]
     },
@@ -441,141 +388,121 @@
           "element": "ObjectNumber",
           "source": "COBRB-OBJNR",
           "target": "COBRB-OBJNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DistributionRuleNumber",
           "source": "COBRB-LFDNR",
           "target": "COBRB-LFDNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementType",
           "source": "COBRB-PERBZ",
           "target": "COBRB-PERBZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCategory",
           "source": "COBRB-KONTY",
           "target": "COBRB-KONTY",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementPercentage",
           "source": "COBRB-PROZS",
           "target": "COBRB-PROZS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SettlementAmount",
           "source": "COBRB-BETRR",
           "target": "COBRB-BETRR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Currency",
           "source": "COBRB-BWAER",
           "target": "COBRB-BWAER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "COBRB-KOKRS",
           "target": "COBRB-KOKRS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "COBRB-BUKRS",
           "target": "COBRB-BUKRS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverCostCenter",
           "source": "COBRB-KOSTL",
           "target": "COBRB-KOSTL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverOrder",
           "source": "COBRB-AUFNR",
           "target": "COBRB-AUFNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverAsset",
           "source": "COBRB-ANLN1",
           "target": "COBRB-ANLN1",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverAssetSubnumber",
           "source": "COBRB-ANLN2",
           "target": "COBRB-ANLN2",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ReceiverWBSInternalID",
           "source": "COBRB-PSPNR",
           "target": "COBRB-PSPNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidFromYear",
           "source": "COBRB-GABJA",
           "target": "COBRB-GABJA",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidFromPeriod",
           "source": "COBRB-GABPE",
           "target": "COBRB-GABPE",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidToYear",
           "source": "COBRB-GBISJ",
           "target": "COBRB-GBISJ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidToPeriod",
           "source": "COBRB-GBISP",
           "target": "COBRB-GBISP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceOrder",
           "source": "AUFK-AUFNR",
           "target": "AUFK-AUFNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "DistributionRuleGroup",
           "source": "COBRB-BUREG",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "scoped_extract",
@@ -594,22 +521,19 @@
           "element": "ObjectNumber",
           "source": "IHSG-OBJNR",
           "target": "IHSG-OBJNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Permit",
           "source": "IHSG-PMPS",
           "target": "IHSG-PMPS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenanceOrder",
           "source": "AUFK-AUFNR",
           "target": "AUFK-AUFNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "scoped_extract",
@@ -629,29 +553,25 @@
           "element": "MaintenanceOrder",
           "source": "AUFK-AUFNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -670,36 +590,31 @@
           "element": "MaintenanceOrder",
           "source": "source: MaintenanceOrder",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "source: StatusKind",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -718,36 +633,31 @@
           "element": "MaintenanceOrder",
           "source": "source: MaintenanceOrder",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusCode",
           "source": "JEST-STAT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusKind",
           "source": "source: StatusKind",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusProfile",
           "source": "JSTO-STSMA",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StatusChangeNumber",
           "source": "JEST-CHGNR",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "posting",
@@ -768,29 +678,25 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ],
       "delivery_mode": "reference",
@@ -901,10 +807,13 @@
       "reason": "scope"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: settlement rules and permit assignments are delivered; verify IHSG identity, permit issue/status fields and settlement-profile requirements. Partners use object_partner.",
+    "Compatibility note: open orders with partial confirmations or goods issues need a cut-off decision (complete in ECC or migrate remaining work only)"
+  ],
+  "main_structure": "ZEMX_C_MaintOrderMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_MaintOrderMigCount",
-    "target_count_view": "ZEMT_I_MaintOrderCount",
     "dimensions": [
       {
         "element": "MaintenanceOrderType"
@@ -913,30 +822,6 @@
         "element": "MaintenancePlanningPlant"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_MaintOrderMig",
-      "target_view": "ZEMT_B_MaintOrderCompare",
-      "key": [
-        "MaintenanceOrder"
-      ],
-      "fields": [
-        "MaintenanceOrderType",
-        "MaintenanceActivityType",
-        "MaintPriority",
-        "MaintOrdBasicStartDate",
-        "MaintOrdBasicEndDate",
-        "MaintenancePlanningPlant",
-        "MainWorkCenter",
-        "CostCenter",
-        "Equipment",
-        "FunctionalLocation"
-      ]
-    }
-  },
-  "gaps": [
-    "Compatibility note: settlement rules and permit assignments are delivered; verify IHSG identity, permit issue/status fields and settlement-profile requirements. Partners use object_partner.",
-    "Compatibility note: open orders with partial confirmations or goods issues need a cut-off decision (complete in ECC or migrate remaining work only)"
-  ],
-  "main_structure": "ZEMX_C_MaintOrderMig"
+    "measure": "RecordCount"
+  }
 }

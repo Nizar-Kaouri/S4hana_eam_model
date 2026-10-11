@@ -11,7 +11,7 @@
       "LocationUUID"
     ],
     "numbering": "keep",
-    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger before comparison."
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
   },
   "structures": [
     {
@@ -26,36 +26,31 @@
           "element": "LocationUUID",
           "source": "/SAPAPO/LOC-LOCID",
           "target": "Native target evidence: ZTMT_B_TransportLocCompare.LocationUUID",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "LocationID",
           "source": "/SAPAPO/LOC-LOCNO",
           "target": "Native target evidence: ZTMT_B_TransportLocCompare.LocationID",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "DeletionFlag",
           "source": "/SAPAPO/LOC-LVORM",
           "target": "Native target evidence: ZTMT_B_TransportLocCompare.DeletionFlag",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Longitude",
           "source": "/SAPAPO/LOC-XPOS",
           "target": "Native target evidence: ZTMT_B_TransportLocCompare.Longitude",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Latitude",
           "source": "/SAPAPO/LOC-YPOS",
           "target": "Native target evidence: ZTMT_B_TransportLocCompare.Latitude",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         }
       ],
       "delivery_mode": "master",
@@ -67,25 +62,10 @@
     "Actual DDIC, release, SAP activation and acceptance unverified.",
     "TransportLoc: Internal location UUID is preserved. Address, location type and time zone payload remain pending."
   ],
-  "reconciliation": {
-    "source_values": "source",
-    "dimensions": [],
-    "source_count_view": "ZTMX_C_TransportLocMigCount",
-    "target_count_view": "ZTMT_I_TransportLocCount",
-    "compare": {
-      "source_view": "ZTMX_C_TransportLocMig",
-      "target_view": "ZTMT_B_TransportLocCompare",
-      "key": [
-        "LocationUUID"
-      ],
-      "fields": [
-        "LocationID",
-        "DeletionFlag",
-        "Longitude",
-        "Latitude"
-      ]
-    }
-  },
   "main_structure": "ZTMX_C_TransportLocMig",
-  "pending_dependencies": []
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZTMX_C_TransportLocMigCount",
+    "dimensions": []
+  }
 }

@@ -1,7 +1,7 @@
 {
   "name": "open_items",
   "title": "Current and cleared item indexes",
-  "description": "Current and cleared item indexes source records, preparation and comparison contracts.",
+  "description": "Current and cleared item indexes source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

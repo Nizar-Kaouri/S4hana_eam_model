@@ -1,7 +1,7 @@
 {
   "name": "gl_account",
   "title": "G/L accounts",
-  "description": "G/L accounts source records, preparation and comparison contracts.",
+  "description": "G/L accounts source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

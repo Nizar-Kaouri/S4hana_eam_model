@@ -17,12 +17,12 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `InspectionLot` | QAMV-PRUEFLOS | customer interface field: InspectionLot (unconfirmed) | information only | yes |
-| `OperationInternalID` | QAMV-VORGLFNR | customer interface field: OperationInternalID (unconfirmed) | information only | yes |
-| `CharacteristicNumber` | QAMV-MERKNR | customer interface field: CharacteristicNumber (unconfirmed) | information only | yes |
-| `CharacteristicDescription` | QAMV-KURZTEXT | customer interface field: CharacteristicDescription (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `InspectionLot` | QAMV-PRUEFLOS | customer interface field: InspectionLot (unconfirmed) | information only |
+| `OperationInternalID` | QAMV-VORGLFNR | customer interface field: OperationInternalID (unconfirmed) | information only |
+| `CharacteristicNumber` | QAMV-MERKNR | customer interface field: CharacteristicNumber (unconfirmed) | information only |
+| `CharacteristicDescription` | QAMV-KURZTEXT | customer interface field: CharacteristicDescription (unconfirmed) | information only |
 
 ## `ZQMX_C_CharacteristicMig`
 
@@ -32,14 +32,14 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `InspectionLot` | QAMR-PRUEFLOS | customer interface field: InspectionLot (unconfirmed) | information only | yes |
-| `OperationInternalID` | QAMR-VORGLFNR | customer interface field: OperationInternalID (unconfirmed) | information only | yes |
-| `CharacteristicNumber` | QAMR-MERKNR | customer interface field: CharacteristicNumber (unconfirmed) | information only | yes |
-| `MeanValue` | QAMR-MITTELWERT | customer interface field: MeanValue (unconfirmed) | information only | yes |
-| `MinimumValue` | QAMR-MIN | customer interface field: MinimumValue (unconfirmed) | information only | yes |
-| `MaximumValue` | QAMR-MAX | customer interface field: MaximumValue (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `InspectionLot` | QAMR-PRUEFLOS | customer interface field: InspectionLot (unconfirmed) | information only |
+| `OperationInternalID` | QAMR-VORGLFNR | customer interface field: OperationInternalID (unconfirmed) | information only |
+| `CharacteristicNumber` | QAMR-MERKNR | customer interface field: CharacteristicNumber (unconfirmed) | information only |
+| `MeanValue` | QAMR-MITTELWERT | customer interface field: MeanValue (unconfirmed) | information only |
+| `MinimumValue` | QAMR-MIN | customer interface field: MinimumValue (unconfirmed) | information only |
+| `MaximumValue` | QAMR-MAX | customer interface field: MaximumValue (unconfirmed) | information only |
 
 ## `ZQMX_C_SingleResultMig`
 
@@ -49,22 +49,18 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 - Delivery mode: **reference**
 - Before posting: Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 
-| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
-|---|---|---|---|---|
-| `InspectionLot` | QASE-PRUEFLOS | customer interface field: InspectionLot (unconfirmed) | information only | yes |
-| `OperationInternalID` | QASE-VORGLFNR | customer interface field: OperationInternalID (unconfirmed) | information only | yes |
-| `CharacteristicNumber` | QASE-MERKNR | customer interface field: CharacteristicNumber (unconfirmed) | information only | yes |
-| `SampleNumber` | QASE-PROBENR | customer interface field: SampleNumber (unconfirmed) | information only | yes |
-| `ResultNumber` | QASE-DETAILERG | customer interface field: ResultNumber (unconfirmed) | information only | yes |
-| `MeasuredValue` | QASE-MESSWERT | customer interface field: MeasuredValue (unconfirmed) | information only | yes |
+| Element | Source (ECC) | Target (S/4HANA) | Rule |
+|---|---|---|---|
+| `InspectionLot` | QASE-PRUEFLOS | customer interface field: InspectionLot (unconfirmed) | information only |
+| `OperationInternalID` | QASE-VORGLFNR | customer interface field: OperationInternalID (unconfirmed) | information only |
+| `CharacteristicNumber` | QASE-MERKNR | customer interface field: CharacteristicNumber (unconfirmed) | information only |
+| `SampleNumber` | QASE-PROBENR | customer interface field: SampleNumber (unconfirmed) | information only |
+| `ResultNumber` | QASE-DETAILERG | customer interface field: ResultNumber (unconfirmed) | information only |
+| `MeasuredValue` | QASE-MESSWERT | customer interface field: MeasuredValue (unconfirmed) | information only |
 
-## Reconciliation
+## Source controls
 
-- Counts: `ZQMX_C_InspectCharactMigCount` (ECC) vs `-` (S/4HANA) per `InspectionLot`
-
-```bash
-python3 tools/mig_reconcile.py counts --product qm_mig_ecc --module inspection_result --source ecc_counts.csv --target s4_counts.csv
-```
+- Source count view: `ZQMX_C_InspectCharactMigCount`
 
 ## Open gaps
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare and reconcile EAM CSV exports with explicit cutover and cohort contracts.
+"""Prepare EAM source CSV exports with explicit cutover and cohort contracts.
 
 Only reads exports and writes new files. Never connects to or posts into SAP.
 """
@@ -11,7 +11,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-from mig_reconcile import InputError, Maps, read_csv, records, records_report, require
+from migration_csv import InputError, read_csv, require
 
 
 def date(value, label):
@@ -210,18 +210,6 @@ def closure(rows, roots, key_column, reference_column, root_column):
     return [r for r in rows if r[key_column] in done]
 
 
-def compare_structure(mapping, view, source, target, maps=None, translate=False, fields=None):
-    matches = [s for s in mapping["structures"] if s["consumption_view"] == view]
-    if not matches:
-        raise InputError(f"unknown extraction structure {view}")
-    structure = matches[0]
-    selected = fields or [f["element"] for f in structure["fields"] if f["element"] not in structure["keys"]]
-    available = {f["element"] for f in structure["fields"]}
-    if set(selected) - available:
-        raise InputError(f"unknown comparison fields: {sorted(set(selected) - available)}")
-    contract = {"module": mapping["module"], "reconciliation": {"source_values": "source",
-                "compare": {"key": structure["keys"], "fields": selected}}}
-    return records_report(view, records(contract, source, target, maps or Maps(None), translate=translate))
 
 
 def write_csv(path, rows, columns):
@@ -231,20 +219,11 @@ def write_csv(path, rows, columns):
         writer.writerows(rows)
 
 
-def raw_contract(schema):
-    require(schema, ["FIELDNAME", "KEYFLAG"], "DDIC schema")
-    unique(schema, ["FIELDNAME"], "DDIC schema")
-    columns = [r["FIELDNAME"] for r in schema if r["FIELDNAME"] != "MANDT"]
-    keys = [r["FIELDNAME"] for r in schema if r["KEYFLAG"] == "X" and r["FIELDNAME"] != "MANDT"]
-    if not keys:
-        raise InputError("DDIC schema has no non-client key; supply a verified comparison contract")
-    return {"module": "raw table", "reconciliation": {"source_values": "source", "compare": {
-        "key": keys, "fields": [c for c in columns if c not in keys]}}}
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=["snapshot", "cohort", "join", "aliases", "compare", "compare-raw", "text-keys", "closure"])
+    parser.add_argument("action", choices=["snapshot", "cohort", "join", "aliases", "text-keys", "closure"])
     parser.add_argument("--input", required=True)
     parser.add_argument("--out", required=True)
     parser.add_argument("--contract")
@@ -252,17 +231,10 @@ def main(argv=None):
     parser.add_argument("--parent")
     parser.add_argument("--child-keys")
     parser.add_argument("--parent-keys")
-    parser.add_argument("--target")
-    parser.add_argument("--mapping")
-    parser.add_argument("--view")
-    parser.add_argument("--maps")
-    parser.add_argument("--translate", action="store_true")
-    parser.add_argument("--fields", help="explicit comma-separated comparison fields")
-    parser.add_argument("--schema", help="DDIC field catalogue from the SAP table exporter")
     args = parser.parse_args(argv)
     try:
         input_path, output_path = Path(args.input).resolve(), Path(args.out).resolve()
-        protected = [Path(p).resolve() for p in (args.input, args.parent, args.target, args.mapping, args.contract, args.schema) if p]
+        protected = [Path(p).resolve() for p in (args.input, args.parent, args.contract) if p]
         if output_path in protected or Path(str(output_path) + ".audit.json") in protected:
             raise InputError("output must not overwrite an input")
         rows = read_csv(input_path, preserve_values=True)
@@ -304,28 +276,6 @@ def main(argv=None):
                     raise InputError("text key exceeds SAP text-key lengths; use a one-character internal language key")
             output_path.write_text("".join("\t".join(row[c] for c in keys) + "\n" for row in rows), encoding="utf-8")
             return 0
-        elif args.action == "compare-raw":
-            if not args.target or not args.schema:
-                raise InputError("compare-raw needs --target and --schema")
-            mapping = raw_contract(read_csv(args.schema))
-            if contract:
-                if not contract.get("key") or not contract.get("fields"):
-                    raise InputError("raw comparison override needs key and fields")
-                mapping["reconciliation"]["compare"] = contract
-            report, ok = records_report("raw table", records(mapping, rows, read_csv(args.target, preserve_values=True),
-                                       Maps(args.maps), translate=args.translate,
-                                       exact_fields=contract.get("exact_fields", ["Text", "Format"])))
-            output_path.write_text(report, encoding="utf-8")
-            return 0 if ok else 1
-        else:
-            if not args.target or not args.mapping or not args.view:
-                raise InputError("compare needs --target, --mapping and --view")
-            mapping = json.loads(Path(args.mapping).read_text(encoding="utf-8"))
-            report, ok = compare_structure(mapping, args.view, rows, read_csv(args.target),
-                                           Maps(args.maps), args.translate,
-                                           args.fields.split(",") if args.fields else None)
-            output_path.write_text(report, encoding="utf-8")
-            return 0 if ok else 1
         write_csv(output_path, result, columns)
         audit = {"action": args.action, "input": str(input_path), "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
                  "input_rows": len(rows), "output_rows": len(result), "cutover": args.cutover,

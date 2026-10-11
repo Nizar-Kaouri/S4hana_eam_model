@@ -1,7 +1,7 @@
 {
   "name": "cost_actuals",
   "title": "Actual cost history",
-  "description": "Actual cost history source records, preparation and comparison contracts.",
+  "description": "Actual cost history source records, source preparation contracts.",
   "batch": 1,
   "version": "1.0.0",
   "status": "released",

@@ -19,7 +19,6 @@
   "reserve_prefix_chars": 1,
   "kind": "migration-source",
   "system": "source",
-  "migration_pair": "tm_mig_s4",
   "map_title": "Transportation Management native extraction",
   "map_area": "Native SAP tables",
   "map_initial": "ZTMX_B_TransportLocData",
