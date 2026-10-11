@@ -22,7 +22,24 @@
     ],
     "selection": "selection/ZFAX_C_AssetAssignmenMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "kind": "child"
   },
   "ZFAX_C_DepreciationMig": {
     "module": "fixed_asset",
@@ -35,7 +52,24 @@
     ],
     "selection": "selection/ZFAX_C_DepreciationMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "kind": "child"
   },
   "ZFAX_C_AssetPostingMig": {
     "module": "asset_transaction",
@@ -50,7 +84,24 @@
     ],
     "selection": "selection/ZFAX_C_AssetPostingMig.csv",
     "requires_business_approval": true,
-    "mode": "reference"
+    "mode": "reference",
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "kind": "child"
   },
   "ZFAX_C_AssetBalanceMig": {
     "module": "asset_balance",
@@ -64,6 +115,23 @@
     ],
     "selection": "selection/ZFAX_C_AssetBalanceMig.csv",
     "requires_business_approval": true,
-    "mode": "balance"
+    "mode": "balance",
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "kind": "child"
   }
 }

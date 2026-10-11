@@ -8,7 +8,7 @@ ModuPorter Controlling version 1.0.0.
 | Actual cost history | cost_actuals | 1 |
 | Cost centers | cost_center | 2 |
 | Cost element references | cost_element | 2 |
-| Internal orders | internal_order | 2 |
+| Internal orders | internal_order | 3 |
 | CO primary and secondary cost planning | planning | 2 |
 | Profit centers | profit_center | 2 |
 
@@ -28,7 +28,7 @@ Controlling has 7 modules and 13 extraction structures.
 | CO primary and secondary cost planning | planning | 2 | planning-reference |
 | Cost centers | cost_center | 2 | master |
 | Profit centers | profit_center | 2 | master |
-| Internal orders | internal_order | 2 | master |
+| Internal orders | internal_order | 3 | master |
 | Actual cost history | cost_actuals | 1 | reference |
 | Cost element references | cost_element | 2 | reference |
 
@@ -47,3 +47,5 @@ COSP/COSS also contain actuals: approve the plan value types and versions explic
 ### Allocation cycles and segments (`allocation_cycle`)
 
 Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target.
+
+Master and child preparation follows MASTER_CHILD_ARCHITECTURE.md; full source keys and selected parent populations are preserved.

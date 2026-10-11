@@ -18,7 +18,18 @@
     ],
     "selection": "selection/ZMMX_C_MaterialTextMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_MaterialPlantMig": {
     "module": "product",
@@ -29,7 +40,18 @@
     ],
     "selection": "selection/ZMMX_C_MaterialPlantMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_MaterialLocatiMig": {
     "module": "product",
@@ -41,7 +63,21 @@
     ],
     "selection": "selection/ZMMX_C_MaterialLocatiMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZMMX_C_MaterialPlantMig",
+    "child_keys": [
+      "Product",
+      "Plant"
+    ],
+    "parent_keys": [
+      "Product",
+      "Plant"
+    ],
+    "parent_identity": [
+      "Product",
+      "Plant"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_MaterialUnitMig": {
     "module": "product",
@@ -52,7 +88,18 @@
     ],
     "selection": "selection/ZMMX_C_MaterialUnitMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_MaterialValueMig": {
     "module": "product",
@@ -64,7 +111,18 @@
     ],
     "selection": "selection/ZMMX_C_MaterialValueMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_BatchGeneralMig": {
     "module": "product",
@@ -75,7 +133,18 @@
     ],
     "selection": "selection/ZMMX_C_BatchGeneralMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_BatchPlantMig": {
     "module": "product",
@@ -87,7 +156,21 @@
     ],
     "selection": "selection/ZMMX_C_BatchPlantMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZMMX_C_MaterialPlantMig",
+    "child_keys": [
+      "Product",
+      "Plant"
+    ],
+    "parent_keys": [
+      "Product",
+      "Plant"
+    ],
+    "parent_identity": [
+      "Product",
+      "Plant"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_LocationStockMig": {
     "module": "material_stock",
@@ -99,7 +182,18 @@
     ],
     "selection": "selection/ZMMX_C_LocationStockMig.csv",
     "requires_business_approval": true,
-    "mode": "balance"
+    "mode": "balance",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_BatchStockMig": {
     "module": "material_stock",
@@ -112,7 +206,18 @@
     ],
     "selection": "selection/ZMMX_C_BatchStockMig.csv",
     "requires_business_approval": true,
-    "mode": "balance"
+    "mode": "balance",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_SalesOrderStocMig": {
     "module": "material_stock",
@@ -128,7 +233,18 @@
     ],
     "selection": "selection/ZMMX_C_SalesOrderStocMig.csv",
     "requires_business_approval": true,
-    "mode": "balance"
+    "mode": "balance",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_SupplierStockMig": {
     "module": "material_stock",
@@ -142,7 +258,18 @@
     ],
     "selection": "selection/ZMMX_C_SupplierStockMig.csv",
     "requires_business_approval": true,
-    "mode": "balance"
+    "mode": "balance",
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_MatDocHeaderMig": {
     "module": "goods_movement",
@@ -165,7 +292,21 @@
     ],
     "selection": "selection/ZMMX_C_MatDocItemMig.csv",
     "requires_business_approval": true,
-    "mode": "reference"
+    "mode": "reference",
+    "parent": "ZMMX_C_MatDocHeaderMig",
+    "child_keys": [
+      "MaterialDocument",
+      "MaterialDocumentYear"
+    ],
+    "parent_keys": [
+      "MaterialDocument",
+      "MaterialDocumentYear"
+    ],
+    "parent_identity": [
+      "MaterialDocument",
+      "MaterialDocumentYear"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_RequisitionMig": {
     "module": "purchase_requisition",
@@ -188,7 +329,21 @@
     ],
     "selection": "selection/ZMMX_C_ReqAssignmentMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZMMX_C_RequisitionMig",
+    "child_keys": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "parent_keys": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "parent_identity": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_PurchaseOrderMig": {
     "module": "purchase_order",
@@ -209,7 +364,18 @@
     ],
     "selection": "selection/ZMMX_C_PurchaseItemMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZMMX_C_PurchaseOrderMig",
+    "child_keys": [
+      "PurchaseOrder"
+    ],
+    "parent_keys": [
+      "PurchaseOrder"
+    ],
+    "parent_identity": [
+      "PurchaseOrder"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_PurchaseScheduMig": {
     "module": "purchase_order",
@@ -221,7 +387,21 @@
     ],
     "selection": "selection/ZMMX_C_PurchaseScheduMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZMMX_C_PurchaseItemMig",
+    "child_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_identity": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_PurchaseAssignMig": {
     "module": "purchase_order",
@@ -233,7 +413,21 @@
     ],
     "selection": "selection/ZMMX_C_PurchaseAssignMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZMMX_C_PurchaseItemMig",
+    "child_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_identity": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_PurchaseHistorMig": {
     "module": "purchase_order",
@@ -249,7 +443,21 @@
     ],
     "selection": "selection/ZMMX_C_PurchaseHistorMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZMMX_C_PurchaseItemMig",
+    "child_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_identity": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_InfoRecordMig": {
     "module": "purchasing_info_record",
@@ -272,7 +480,18 @@
     ],
     "selection": "selection/ZMMX_C_InfoPurchOrgMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZMMX_C_InfoRecordMig",
+    "child_keys": [
+      "PurchasingInfoRecord"
+    ],
+    "parent_keys": [
+      "PurchasingInfoRecord"
+    ],
+    "parent_identity": [
+      "PurchasingInfoRecord"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_ContractHeaderMig": {
     "module": "purchasing_contract",
@@ -293,7 +512,18 @@
     ],
     "selection": "selection/ZMMX_C_ContractItemMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZMMX_C_ContractHeaderMig",
+    "child_keys": [
+      "PurchasingContract"
+    ],
+    "parent_keys": [
+      "PurchasingContract"
+    ],
+    "parent_identity": [
+      "PurchasingContract"
+    ],
+    "kind": "child"
   },
   "ZMMX_C_ContractAssignMig": {
     "module": "purchasing_contract",
@@ -305,6 +535,20 @@
     ],
     "selection": "selection/ZMMX_C_ContractAssignMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZMMX_C_ContractItemMig",
+    "child_keys": [
+      "PurchasingContract",
+      "PurchasingContractItem"
+    ],
+    "parent_keys": [
+      "PurchasingContract",
+      "PurchasingContractItem"
+    ],
+    "parent_identity": [
+      "PurchasingContract",
+      "PurchasingContractItem"
+    ],
+    "kind": "child"
   }
 }

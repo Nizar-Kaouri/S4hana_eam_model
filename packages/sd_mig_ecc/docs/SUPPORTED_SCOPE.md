@@ -4,10 +4,10 @@ ModuPorter Sales and Distribution version 1.0.0.
 
 | Module | ID | Extraction structures |
 |---|---|---:|
-| Billing document reference | billing_document | 2 |
-| Outbound delivery reference | outbound_delivery | 2 |
+| Billing document reference | billing_document | 4 |
+| Outbound delivery reference | outbound_delivery | 4 |
 | Pricing condition records and scales | pricing_condition | 4 |
-| Sales orders | sales_order | 8 |
+| Sales orders | sales_order | 9 |
 
 ## Delivery boundaries
 
@@ -22,9 +22,9 @@ Sales and Distribution has 4 modules and 16 extraction structures.
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
 | Pricing condition records and scales | pricing_condition | 4 | master |
-| Sales orders | sales_order | 8 | open-document |
-| Outbound delivery reference | outbound_delivery | 2 | reference |
-| Billing document reference | billing_document | 2 | reference |
+| Sales orders | sales_order | 9 | open-document |
+| Outbound delivery reference | outbound_delivery | 4 | reference |
+| Billing document reference | billing_document | 4 | reference |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/sd; they are not duplicated as migration payloads.
 
@@ -37,3 +37,5 @@ This scope does not imply every SAP feature is covered. Full-row allowlisted exp
 ### Pricing condition records and scales (`pricing_condition`)
 
 Export every configured condition access table (Axxx or customer tables) at its actual DDIC key and link KNUMH to KONH/KONP and scales. KONH alone loses the customer/material/sales-area access key; the configured access export is mandatory. Include supplements, exclusions, deletion, validity, calculation-type-specific percentages/currencies/units and scale type. Never confuse master condition records with document conditions (KONV/PRCD_ELEMENTS), or divide every rate by the same factor.
+
+Master and child preparation follows MASTER_CHILD_ARCHITECTURE.md; full source keys and selected parent populations are preserved.

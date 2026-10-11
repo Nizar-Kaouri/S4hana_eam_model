@@ -15,7 +15,9 @@
     "LFM1"
   ],
   "sap_released_views": [],
-  "hard_dependencies": [],
+  "hard_dependencies": [
+    "address"
+  ],
   "objects": {
     "tables": [],
     "basic": [
@@ -26,13 +28,15 @@
     "composite": [
       "ZFIX_I_Supplier",
       "ZFIX_I_SupplierCompan",
-      "ZFIX_I_SupplierPurcha"
+      "ZFIX_I_SupplierPurcha",
+      "ZFIX_I_SupplierAddress"
     ],
     "consumption": [
       "ZFIX_C_SupplierMig",
       "ZFIX_C_SupplierMigCount",
       "ZFIX_C_SupplierCompanMig",
-      "ZFIX_C_SupplierPurchaMig"
+      "ZFIX_C_SupplierPurchaMig",
+      "ZFIX_C_SupplierAddressMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -48,7 +52,9 @@
     "ZFIX_C_SupplierCompanMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_B_SupplierPurchaData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_I_SupplierPurcha": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZFIX_C_SupplierPurchaMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZFIX_C_SupplierPurchaMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_SupplierAddress": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_SupplierAddressMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

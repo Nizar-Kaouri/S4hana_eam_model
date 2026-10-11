@@ -20,5 +20,6 @@ define view ZFIX_B_BankData
       src.ort01 as City,
       src.stras as Street,
       src.swift as SWIFTCode,
-      src.loevm as DeletionFlag
+      src.loevm as DeletionFlag,
+      src.adrnr as AddressNumber
 }

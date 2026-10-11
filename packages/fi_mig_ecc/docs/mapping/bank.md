@@ -26,6 +26,56 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `Street` | BNKA-STRAS | customer interface field: Street (unconfirmed) | copy | yes |
 | `SWIFTCode` | BNKA-SWIFT | customer interface field: SWIFTCode (unconfirmed) | copy | yes |
 | `DeletionFlag` | BNKA-LOEVM | customer interface field: DeletionFlag (unconfirmed) | copy | yes |
+| `AddressNumber` | BNKA-ADRNR | - | information only |  |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
+| `AddressName1` | ADRC-NAME1 | - | copy |  |
+| `AddressName2` | ADRC-NAME2 | - | copy |  |
+| `AddressName3` | ADRC-NAME3 | - | copy |  |
+| `AddressName4` | ADRC-NAME4 | - | copy |  |
+| `AddressStreet` | ADRC-STREET | - | copy |  |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
+| `AddressCity` | ADRC-CITY1 | - | copy |  |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
+| `AddressRegion` | ADRC-REGION | - | copy |  |
+| `AddressLanguage` | ADRC-LANGU | - | copy |  |
+| `HasStandardAddress` | derived: presence of the standard ADRC record | - | information only |  |
+
+## `ZFIX_C_BankAddressMig`
+
+- Source: `ZFIX_I_BankAddress`
+- Keys: `BankCountry`, `BankKey`, `AddressValidFrom`, `AddressVersion`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `BankCountry` | BNKA-BANKS | - | copy |  |
+| `BankKey` | BNKA-BANKL | - | copy |  |
+| `AddressNumber` | ADRC-ADDRNUMBER | - | information only |  |
+| `AddressValidFrom` | ADRC-DATE_FROM | - | copy |  |
+| `AddressVersion` | ADRC-NATION | - | copy |  |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
+| `AddressName1` | ADRC-NAME1 | - | copy |  |
+| `AddressName2` | ADRC-NAME2 | - | copy |  |
+| `AddressName3` | ADRC-NAME3 | - | copy |  |
+| `AddressName4` | ADRC-NAME4 | - | copy |  |
+| `AddressStreet` | ADRC-STREET | - | copy |  |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
+| `AddressCity` | ADRC-CITY1 | - | copy |  |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
+| `AddressRegion` | ADRC-REGION | - | copy |  |
+| `AddressLanguage` | ADRC-LANGU | - | copy |  |
 
 ## Reconciliation
 

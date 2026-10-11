@@ -1,1 +1,1 @@
-Customer,CustomerName,Country,Region,AccountGroup,DeletionFlag
+Customer,CustomerName,Country,Region,AccountGroup,DeletionFlag,AddressNumber,AddressValidTo,AddressName1,AddressName2,AddressName3,AddressName4,AddressStreet,AddressHouseNumber,AddressHouseNumberSupplement,AddressCity,AddressDistrict,AddressPostalCode,AddressPOBox,AddressPOBoxPostalCode,AddressCountry,AddressRegion,AddressLanguage,HasStandardAddress

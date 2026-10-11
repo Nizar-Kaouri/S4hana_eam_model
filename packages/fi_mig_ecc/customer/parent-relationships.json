@@ -1,0 +1,122 @@
+{
+  "ZFIX_C_CustomerAddressMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_SupplierAddressMig": {
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ]
+  },
+  "ZFIX_C_BankAddressMig": {
+    "parent": "ZFIX_C_BankMig",
+    "child_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_identity": [
+      "BankCountry",
+      "BankKey"
+    ]
+  },
+  "ZFIX_C_GLAccountTextMig": {
+    "parent": "ZFIX_C_GLAccountMig",
+    "child_keys": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "parent_keys": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "parent_identity": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ]
+  },
+  "ZFIX_C_SupplierCompanMig": {
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ]
+  },
+  "ZFIX_C_SupplierPurchaMig": {
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ]
+  },
+  "ZFIX_C_CustomerCompanMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_CustomerSalesMig": {
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ]
+  },
+  "ZFIX_C_AccountingItemMig": {
+    "parent": "ZFIX_C_AccountingHeadMig",
+    "child_keys": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ]
+  }
+}

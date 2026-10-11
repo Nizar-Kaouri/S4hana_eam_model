@@ -69,7 +69,13 @@ class CoverageDeliveryTest(unittest.TestCase):
                 self.assertEqual(set(requirements), {'network'})
                 self.assertIn('tools/migration_ddic.py', z.namelist())
                 project = json.loads(z.read('customer/customer-cohort-project.json'))
-                self.assertEqual(len(project['steps']), 7)
+                available = set(project['inputs'])
+                for step in project['steps']:
+                    self.assertIn(step['input'], available)
+                    self.assertIn(step['parent'], available)
+                    available.add(step['name'])
+                self.assertTrue(set(project['outputs']) <= available)
+                self.assertTrue(any(s['operation'] == 'parent_scope' for s in project['steps']))
 
     def test_additions_have_empty_scope_and_target_contracts(self):
         additions = json.loads((ROOT/'tools/coverage_additions.json').read_text(encoding='utf-8'))

@@ -22,7 +22,24 @@
     ],
     "selection": "selection/ZCOX_C_CostCenterTextMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZCOX_C_CostCenterMig",
+    "child_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "parent_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "parent_identity": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "kind": "child"
   },
   "ZCOX_C_ProfitCenterMig": {
     "module": "profit_center",
@@ -47,7 +64,24 @@
     ],
     "selection": "selection/ZCOX_C_ProfitCenterTeMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZCOX_C_ProfitCenterMig",
+    "child_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "parent_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "parent_identity": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "kind": "child"
   },
   "ZCOX_C_InternalOrderMig": {
     "module": "internal_order",
@@ -69,7 +103,18 @@
     ],
     "selection": "selection/ZCOX_C_OrderSettlemenMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ],
+    "kind": "child"
   },
   "ZCOX_C_CostActualMig": {
     "module": "cost_actuals",
@@ -171,6 +216,45 @@
     ],
     "selection": "selection/ZCOX_C_AllocSegmentMig.csv",
     "requires_business_approval": true,
-    "mode": "configuration-reference"
+    "mode": "configuration-reference",
+    "parent": "ZCOX_C_AllocCycleMig",
+    "child_keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "parent_keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "parent_identity": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "kind": "child"
+  },
+  "ZCOX_C_OrderStatusMig": {
+    "module": "internal_order",
+    "table": "JEST",
+    "keys": [
+      "InternalOrder",
+      "StatusCode"
+    ],
+    "selection": "selection/ZCOX_C_OrderStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ],
+    "kind": "child"
   }
 }

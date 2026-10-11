@@ -5,7 +5,6 @@
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataExtraction.enabled: true
-@Analytics.dataExtraction.delta.byElement.name: 'LastChangeDate'
 @EndUserText.label: 'Functional location (migration)'
 @ObjectModel.usageType.dataClass: #MASTER
 @ObjectModel.usageType.serviceQuality: #D
@@ -71,6 +70,24 @@ define view ZEMX_C_FuncLocMig
       @EndUserText.label: 'Standing Order'
       src.StandingOrder              as StandingOrder,
       @EndUserText.label: 'Last Change Date'
-      src.LastChangeDate             as LastChangeDate
+      src.LastChangeDate             as LastChangeDate,
+      src.AddressNumber as AddressNumber,
+      src.AddressValidTo as AddressValidTo,
+      src.AddressName1 as AddressName1,
+      src.AddressName2 as AddressName2,
+      src.AddressName3 as AddressName3,
+      src.AddressName4 as AddressName4,
+      src.AddressStreet as AddressStreet,
+      src.AddressHouseNumber as AddressHouseNumber,
+      src.AddressHouseNumberSupplement as AddressHouseNumberSupplement,
+      src.AddressCity as AddressCity,
+      src.AddressDistrict as AddressDistrict,
+      src.AddressPostalCode as AddressPostalCode,
+      src.AddressPOBox as AddressPOBox,
+      src.AddressPOBoxPostalCode as AddressPOBoxPostalCode,
+      src.AddressCountry as AddressCountry,
+      src.AddressRegion as AddressRegion,
+      src.AddressLanguage as AddressLanguage,
+      src.HasStandardAddress as HasStandardAddress
 }
 where src.IsMarkedForDeletion = ''

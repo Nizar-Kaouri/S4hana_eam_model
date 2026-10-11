@@ -7,7 +7,7 @@ Load order derived from `sequence_after`. Objects on the same level can be loade
 | Level | Modules | Consumption views read by the load program |
 |---|---|---|
 | 1 | [`work_center`](mapping/work_center.md) | `ZEMX_C_WorkCenterMig`, `ZEMX_C_WorkCenterTextMig`, `ZEMX_C_WorkCenterCostCtrMig`, `ZEMX_C_WorkCenterCapacityMig`, `ZEMX_C_CapacityHeaderMig` |
-| 2 | [`functional_location`](mapping/functional_location.md) | `ZEMX_C_FuncLocMig`, `ZEMX_C_FuncLocTextMig`, `ZEMX_C_FuncLocLabelMig` |
+| 2 | [`functional_location`](mapping/functional_location.md) | `ZEMX_C_FuncLocMig`, `ZEMX_C_FuncLocTextMig`, `ZEMX_C_FuncLocLabelMig`, `ZEMX_C_FuncLocAddressMig` |
 | 3 | [`equipment`](mapping/equipment.md) | `ZEMX_C_EquipmentMig`, `ZEMX_C_EquipmentTextMig`, `ZEMX_C_EquipSerialStockMig`, `ZEMX_C_EquipPartnerMig`, `ZEMX_C_EquipStatusMig`, `ZEMX_C_EquipUserStatusMig`, `ZEMX_C_EquipLongTextMig`, `ZEMX_C_EquipAddressMig` |
 | 4 | [`classification`](mapping/classification.md), [`equipment_bom`](mapping/equipment_bom.md), [`maintenance_notification`](mapping/maintenance_notification.md), [`measuring_point`](mapping/measuring_point.md), [`task_list`](mapping/task_list.md) | `ZEMX_C_ClassAssignmentMig`, `ZEMX_C_CharcValueMig`, `ZEMX_C_EquipBOMAssignMig`, `ZEMX_C_BOMHeaderMig`, `ZEMX_C_BOMSelectionMig`, `ZEMX_C_BOMItemMig`, `ZEMX_C_MaintNotificationMig`, `ZEMX_C_MaintNotifItemMig`, `ZEMX_C_NotifCauseMig`, `ZEMX_C_NotifTaskMig`, `ZEMX_C_NotifActivityMig`, `ZEMX_C_MeasuringPointMig`, `ZEMX_C_TaskListMig`, `ZEMX_C_TaskListOperationMig`, `ZEMX_C_TaskListAllocationMig`, `ZEMX_C_TaskListCompMig`, `ZEMX_C_TaskListPRTMig`, `ZEMX_C_TaskListPackageMig` |
 | 5 | [`measurement_document`](mapping/measurement_document.md) | `ZEMX_C_MeasReadingMig` |

@@ -4,11 +4,11 @@ ModuPorter Quality Management version 1.0.0.
 
 | Module | ID | Extraction structures |
 |---|---|---:|
-| Inspection lots | inspection_lot | 2 |
+| Inspection lots | inspection_lot | 3 |
 | Inspection plan reference | inspection_plan | 5 |
 | Inspection results | inspection_result | 3 |
 | Master inspection characteristics | master_inspection_characteristic | 2 |
-| Quality notifications | quality_notification | 5 |
+| Quality notifications | quality_notification | 6 |
 | Sampling procedures | sampling_procedure | 1 |
 
 ## Delivery boundaries
@@ -25,9 +25,9 @@ Quality Management has 6 modules and 18 extraction structures.
 |---|---|---|---|
 | Sampling procedures | sampling_procedure | 1 | configuration-reference |
 | Master inspection characteristics | master_inspection_characteristic | 2 | master |
-| Inspection lots | inspection_lot | 2 | process-reference |
+| Inspection lots | inspection_lot | 3 | process-reference |
 | Inspection results | inspection_result | 3 | reference |
-| Quality notifications | quality_notification | 5 | process-reference |
+| Quality notifications | quality_notification | 6 | process-reference |
 | Inspection plan reference | inspection_plan | 5 | effectivity-reference |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/qm; they are not duplicated as migration payloads.
@@ -45,3 +45,5 @@ Retain plant, characteristic, version and language. Verify released status, quan
 ### Sampling procedures (`sampling_procedure`)
 
 DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.
+
+Master and child preparation follows MASTER_CHILD_ARCHITECTURE.md; full source keys and selected parent populations are preserved.

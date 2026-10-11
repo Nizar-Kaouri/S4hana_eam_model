@@ -23,7 +23,7 @@ Read Customer as source records; approve the key-date population before posting.
 
 ## Associations defined here
 
-- none
+- `_Address` → `ZFIX_B_Address` [0..1]
 
 ## Access control
 

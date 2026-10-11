@@ -13,7 +13,8 @@
     "AFKO",
     "AFVC",
     "AFVV",
-    "AUFK"
+    "AUFK",
+    "JEST"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
@@ -25,20 +26,23 @@
       "ZPSX_B_NetworkHeaderData",
       "ZPSX_B_NetworkPlanData",
       "ZPSX_B_NetworkActivitData",
-      "ZPSX_B_NetworkQuantitData"
+      "ZPSX_B_NetworkQuantitData",
+      "ZPSX_B_NetworkStatusData"
     ],
     "composite": [
       "ZPSX_I_NetworkHeader",
       "ZPSX_I_NetworkPlan",
       "ZPSX_I_NetworkActivit",
-      "ZPSX_I_NetworkQuantit"
+      "ZPSX_I_NetworkQuantit",
+      "ZPSX_I_NetworkStatus"
     ],
     "consumption": [
       "ZPSX_C_NetworkHeaderMig",
       "ZPSX_C_NetworkHeaderMigCount",
       "ZPSX_C_NetworkPlanMig",
       "ZPSX_C_NetworkActivitMig",
-      "ZPSX_C_NetworkQuantitMig"
+      "ZPSX_C_NetworkQuantitMig",
+      "ZPSX_C_NetworkStatusMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -57,7 +61,10 @@
     "ZPSX_C_NetworkActivitMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_B_NetworkQuantitData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_I_NetworkQuantit": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPSX_C_NetworkQuantitMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZPSX_C_NetworkQuantitMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_NetworkStatusData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_NetworkStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_NetworkStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

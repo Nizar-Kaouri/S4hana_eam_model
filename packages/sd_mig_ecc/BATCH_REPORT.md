@@ -4,7 +4,8 @@ Version 1.0.0
 
 | Module | Objects |
 |---|---:|
-| billing_document | 7 |
-| outbound_delivery | 7 |
+| address | 2 |
+| billing_document | 11 |
+| outbound_delivery | 11 |
 | pricing_condition | 13 |
-| sales_order | 25 |
+| sales_order | 26 |

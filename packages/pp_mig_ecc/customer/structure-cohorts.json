@@ -17,7 +17,18 @@
     ],
     "selection": "selection/ZPPX_C_ProductionHeadMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
   },
   "ZPPX_C_ProductionItemMig": {
     "module": "production_order",
@@ -28,7 +39,18 @@
     ],
     "selection": "selection/ZPPX_C_ProductionItemMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
   },
   "ZPPX_C_ProductionOperMig": {
     "module": "production_order_operation",
@@ -39,7 +61,18 @@
     ],
     "selection": "selection/ZPPX_C_ProductionOperMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionHeadMig",
+    "child_keys": [
+      "OperationRoutingNumber"
+    ],
+    "parent_keys": [
+      "OperationRoutingNumber"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
   },
   "ZPPX_C_OperationQuantMig": {
     "module": "production_order_operation",
@@ -50,7 +83,21 @@
     ],
     "selection": "selection/ZPPX_C_OperationQuantMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOperMig",
+    "child_keys": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_keys": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_identity": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "kind": "child"
   },
   "ZPPX_C_OrderComponentMig": {
     "module": "production_order_operation",
@@ -62,7 +109,18 @@
     ],
     "selection": "selection/ZPPX_C_OrderComponentMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
   },
   "ZPPX_C_MaterialBOMMig": {
     "module": "bill_of_material",
@@ -209,6 +267,39 @@
     ],
     "selection": "selection/ZPPX_C_ConfirmationMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
+  },
+  "ZPPX_C_OrderStatusMig": {
+    "module": "production_order",
+    "table": "JEST",
+    "keys": [
+      "ManufacturingOrder",
+      "StatusCode"
+    ],
+    "selection": "selection/ZPPX_C_OrderStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
   }
 }

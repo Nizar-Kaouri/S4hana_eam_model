@@ -19,5 +19,6 @@ define view ZFIX_B_CustomerData
       src.land1 as Country,
       src.regio as Region,
       src.ktokd as AccountGroup,
-      src.loevm as DeletionFlag
+      src.loevm as DeletionFlag,
+      src.adrnr as AddressNumber
 }

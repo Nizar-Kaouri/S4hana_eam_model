@@ -138,6 +138,358 @@
       ],
       "delivery_mode": "reference",
       "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_BillingPartnerMig",
+      "source_view": "ZSDX_I_BillingPartner",
+      "scope_filter": "",
+      "keys": [
+        "BillingDocument",
+        "BillingDocumentItem",
+        "PartnerFunction"
+      ],
+      "fields": [
+        {
+          "element": "BillingDocument",
+          "source": "VBPA-VBELN",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillingDocumentItem",
+          "source": "VBPA-POSNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "VBPA-PARVW",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Customer",
+          "source": "VBPA-KUNNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "Supplier",
+          "source": "VBPA-LIFNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PersonnelNumber",
+          "source": "VBPA-PERNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "VBPA-ADRNR",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "HasStandardAddress",
+          "source": "derived: presence of the standard ADRC record",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZSDX_C_BillingPartnerAddrMig",
+      "source_view": "ZSDX_I_BillingPartnerAddr",
+      "scope_filter": "",
+      "keys": [
+        "BillingDocument",
+        "BillingDocumentItem",
+        "PartnerFunction",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "fields": [
+        {
+          "element": "BillingDocument",
+          "source": "VBPA-VBELN",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BillingDocumentItem",
+          "source": "VBPA-POSNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "VBPA-PARVW",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADRC-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "AddressValidFrom",
+          "source": "ADRC-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressVersion",
+          "source": "ADRC-NATION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
     }
   ],
   "not_migrated": [],

@@ -55,7 +55,8 @@
     "ZEMX_C_EquipStatusMig": "ZEMX_C_EquipStatusMig.csv",
     "ZEMX_C_EquipUserStatusMig": "ZEMX_C_EquipUserStatusMig.csv",
     "ZEMX_C_EquipLongTextMig": "ZEMX_C_EquipLongTextMig.csv",
-    "ZEMX_C_EquipAddressMig": "ZEMX_C_EquipAddressMig.csv"
+    "ZEMX_C_EquipAddressMig": "ZEMX_C_EquipAddressMig.csv",
+    "ZEMX_C_FuncLocAddressMig": "ZEMX_C_FuncLocAddressMig.csv"
   },
   "steps": [
     {
@@ -87,7 +88,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_EquipmentTextMig_scoped",
+      "name": "ZEMX_C_EquipmentTextMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_EquipmentTextMig",
       "parent": "ZEMX_C_EquipmentMig",
@@ -99,7 +100,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_EquipSerialStockMig_scoped",
+      "name": "ZEMX_C_EquipSerialStockMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_EquipSerialStockMig",
       "parent": "ZEMX_C_EquipmentMig",
@@ -171,7 +172,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_FuncLocTextMig_scoped",
+      "name": "ZEMX_C_FuncLocTextMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_FuncLocTextMig",
       "parent": "ZEMX_C_FuncLocMig",
@@ -183,7 +184,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_FuncLocLabelMig_scoped",
+      "name": "ZEMX_C_FuncLocLabelMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_FuncLocLabelMig",
       "parent": "ZEMX_C_FuncLocMig",
@@ -213,7 +214,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_MaintNotifItemMig_scoped",
+      "name": "ZEMX_C_MaintNotifItemMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_MaintNotifItemMig",
       "parent": "ZEMX_C_MaintNotificationMig",
@@ -225,7 +226,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_NotifCauseMig_scoped",
+      "name": "ZEMX_C_NotifCauseMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_NotifCauseMig",
       "parent": "ZEMX_C_MaintNotificationMig",
@@ -237,7 +238,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_NotifTaskMig_scoped",
+      "name": "ZEMX_C_NotifTaskMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_NotifTaskMig",
       "parent": "ZEMX_C_MaintNotificationMig",
@@ -249,7 +250,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_NotifActivityMig_scoped",
+      "name": "ZEMX_C_NotifActivityMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_NotifActivityMig",
       "parent": "ZEMX_C_MaintNotificationMig",
@@ -261,7 +262,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_MaintOrderOperationMig_scoped",
+      "name": "ZEMX_C_MaintOrderOperationMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_MaintOrderOperationMig",
       "parent": "ZEMX_C_MaintOrderMig",
@@ -273,7 +274,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_MaintOrderComponentMig_scoped",
+      "name": "ZEMX_C_MaintOrderComponentMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_MaintOrderComponentMig",
       "parent": "ZEMX_C_MaintOrderMig",
@@ -285,7 +286,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_OrderSettlementMig_scoped",
+      "name": "ZEMX_C_OrderSettlementMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_OrderSettlementMig",
       "parent": "ZEMX_C_MaintOrderMig",
@@ -297,7 +298,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_OrderPermitMig_scoped",
+      "name": "ZEMX_C_OrderPermitMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_OrderPermitMig",
       "parent": "ZEMX_C_MaintOrderMig",
@@ -309,7 +310,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_MaintenanceItemMig_scoped",
+      "name": "ZEMX_C_MaintenanceItemMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_MaintenanceItemMig",
       "parent": "ZEMX_C_MaintenancePlanMig",
@@ -321,7 +322,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_MaintPlanCycleMig_scoped",
+      "name": "ZEMX_C_MaintPlanCycleMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_MaintPlanCycleMig",
       "parent": "ZEMX_C_MaintenancePlanMig",
@@ -333,7 +334,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_MeasReadingMig_scoped",
+      "name": "ZEMX_C_MeasReadingMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_MeasReadingMig",
       "parent": "ZEMX_C_MeasuringPointMig",
@@ -373,7 +374,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_TaskListOperationMig_scoped",
+      "name": "ZEMX_C_TaskListOperationMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_TaskListOperationMig",
       "parent": "ZEMX_C_TaskListMig",
@@ -389,7 +390,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_TaskListAllocationMig_scoped",
+      "name": "ZEMX_C_TaskListAllocationMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_TaskListAllocationMig",
       "parent": "ZEMX_C_TaskListMig",
@@ -405,7 +406,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_TaskListCompMig_scoped",
+      "name": "ZEMX_C_TaskListCompMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_TaskListCompMig",
       "parent": "ZEMX_C_TaskListMig",
@@ -421,7 +422,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_TaskListPRTMig_scoped",
+      "name": "ZEMX_C_TaskListPRTMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_TaskListPRTMig",
       "parent": "ZEMX_C_TaskListMig",
@@ -437,7 +438,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_TaskListPackageMig_scoped",
+      "name": "ZEMX_C_TaskListPackageMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_TaskListPackageMig",
       "parent": "ZEMX_C_TaskListMig",
@@ -453,7 +454,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_WorkCenterTextMig_scoped",
+      "name": "ZEMX_C_WorkCenterTextMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_WorkCenterTextMig",
       "parent": "ZEMX_C_WorkCenterMig",
@@ -467,7 +468,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_WorkCenterCostCtrMig_scoped",
+      "name": "ZEMX_C_WorkCenterCostCtrMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_WorkCenterCostCtrMig",
       "parent": "ZEMX_C_WorkCenterMig",
@@ -507,7 +508,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_EquipPartnerMig_scoped",
+      "name": "ZEMX_C_EquipPartnerMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_EquipPartnerMig",
       "parent": "ZEMX_C_EquipmentMig",
@@ -519,7 +520,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_EquipStatusMig_scoped",
+      "name": "ZEMX_C_EquipStatusMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_EquipStatusMig",
       "parent": "ZEMX_C_EquipmentMig",
@@ -531,7 +532,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_EquipUserStatusMig_scoped",
+      "name": "ZEMX_C_EquipUserStatusMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_EquipUserStatusMig",
       "parent": "ZEMX_C_EquipmentMig",
@@ -543,7 +544,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_EquipLongTextMig_scoped",
+      "name": "ZEMX_C_EquipLongTextMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_EquipLongTextMig",
       "parent": "ZEMX_C_EquipmentMig",
@@ -555,7 +556,7 @@
       ]
     },
     {
-      "name": "ZEMX_C_EquipAddressMig_scoped",
+      "name": "ZEMX_C_EquipAddressMig_scoped_BeforeParentScope",
       "operation": "cohort",
       "input": "ZEMX_C_EquipAddressMig",
       "parent": "ZEMX_C_EquipmentMig",
@@ -565,54 +566,514 @@
       "parent_keys": [
         "Equipment"
       ]
+    },
+    {
+      "name": "ZEMX_C_EquipmentTextMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipmentTextMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipSerialStockMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipSerialStockMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipPartnerMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipPartnerMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipStatusMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipStatusMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipUserStatusMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipUserStatusMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipLongTextMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipLongTextMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipAddressMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_EquipAddressMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ],
+      "parent_identity": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocTextMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocTextMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocLabelMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocLabelMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_FuncLocAddressMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_FuncLocAddressMig",
+      "parent": "ZEMX_C_FuncLocMig",
+      "child_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_keys": [
+        "FunctionalLocation"
+      ],
+      "parent_identity": [
+        "FunctionalLocation"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintNotifItemMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintNotifItemMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintNotificationMig",
+      "child_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_identity": [
+        "MaintenanceNotification"
+      ]
+    },
+    {
+      "name": "ZEMX_C_NotifCauseMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_NotifCauseMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintNotifItemMig_scoped",
+      "child_keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem"
+      ],
+      "parent_keys": [
+        "MaintenanceNotification",
+        "MaintNotificationItem"
+      ],
+      "parent_identity": [
+        "MaintenanceNotification",
+        "MaintNotificationItem"
+      ]
+    },
+    {
+      "name": "ZEMX_C_NotifTaskMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_NotifTaskMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintNotificationMig",
+      "child_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_identity": [
+        "MaintenanceNotification"
+      ]
+    },
+    {
+      "name": "ZEMX_C_NotifActivityMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_NotifActivityMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintNotificationMig",
+      "child_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_keys": [
+        "MaintenanceNotification"
+      ],
+      "parent_identity": [
+        "MaintenanceNotification"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintOrderOperationMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintOrderOperationMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintOrderMig",
+      "child_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_identity": [
+        "MaintenanceOrder"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintOrderComponentMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintOrderComponentMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintOrderMig",
+      "child_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_identity": [
+        "MaintenanceOrder"
+      ]
+    },
+    {
+      "name": "ZEMX_C_OrderSettlementMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_OrderSettlementMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintOrderMig",
+      "child_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_identity": [
+        "MaintenanceOrder"
+      ]
+    },
+    {
+      "name": "ZEMX_C_OrderPermitMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_OrderPermitMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintOrderMig",
+      "child_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_keys": [
+        "MaintenanceOrder"
+      ],
+      "parent_identity": [
+        "MaintenanceOrder"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintenanceItemMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintenanceItemMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintenancePlanMig",
+      "child_keys": [
+        "MaintenancePlan"
+      ],
+      "parent_keys": [
+        "MaintenancePlan"
+      ],
+      "parent_identity": [
+        "MaintenancePlan"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MaintPlanCycleMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MaintPlanCycleMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MaintenancePlanMig",
+      "child_keys": [
+        "MaintenancePlan"
+      ],
+      "parent_keys": [
+        "MaintenancePlan"
+      ],
+      "parent_identity": [
+        "MaintenancePlan"
+      ]
+    },
+    {
+      "name": "ZEMX_C_MeasReadingMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_MeasReadingMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_MeasuringPointMig",
+      "child_keys": [
+        "MeasuringPoint"
+      ],
+      "parent_keys": [
+        "MeasuringPoint"
+      ],
+      "parent_identity": [
+        "MeasuringPoint"
+      ]
+    },
+    {
+      "name": "ZEMX_C_TaskListOperationMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_TaskListOperationMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_TaskListMig",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_identity": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ]
+    },
+    {
+      "name": "ZEMX_C_TaskListAllocationMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_TaskListAllocationMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_TaskListMig",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_identity": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ]
+    },
+    {
+      "name": "ZEMX_C_TaskListCompMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_TaskListCompMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_TaskListMig",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_identity": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ]
+    },
+    {
+      "name": "ZEMX_C_TaskListPRTMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_TaskListPRTMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_TaskListMig",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_identity": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ]
+    },
+    {
+      "name": "ZEMX_C_TaskListPackageMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_TaskListPackageMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_TaskListMig",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ],
+      "parent_identity": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter"
+      ]
+    },
+    {
+      "name": "ZEMX_C_WorkCenterTextMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_WorkCenterTextMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_WorkCenterMig",
+      "child_keys": [
+        "WorkCenter",
+        "Plant"
+      ],
+      "parent_keys": [
+        "WorkCenter",
+        "Plant"
+      ],
+      "parent_identity": [
+        "WorkCenter",
+        "Plant"
+      ]
+    },
+    {
+      "name": "ZEMX_C_WorkCenterCostCtrMig_scoped",
+      "operation": "parent_scope",
+      "input": "ZEMX_C_WorkCenterCostCtrMig_scoped_BeforeParentScope",
+      "parent": "ZEMX_C_WorkCenterMig",
+      "child_keys": [
+        "WorkCenter",
+        "Plant"
+      ],
+      "parent_keys": [
+        "WorkCenter",
+        "Plant"
+      ],
+      "parent_identity": [
+        "WorkCenter",
+        "Plant"
+      ]
     }
   ],
   "outputs": [
-    "ZEMX_C_EquipmentMig",
-    "ZEMX_C_FuncLocMig",
-    "ZEMX_C_MaintNotificationMig",
-    "ZEMX_C_MaintOrderMig",
-    "ZEMX_C_MaintenancePlanMig",
-    "ZEMX_C_MeasuringPointMig",
-    "ZEMX_C_TaskListMig",
-    "ZEMX_C_WorkCenterMig",
     "ZEMX_C_ClassAssignmentMig_scoped",
     "ZEMX_C_CharcValueMig_scoped",
+    "ZEMX_C_EquipmentMig",
     "ZEMX_C_EquipmentTextMig_scoped",
     "ZEMX_C_EquipSerialStockMig_scoped",
+    "ZEMX_C_EquipPartnerMig_scoped",
+    "ZEMX_C_EquipStatusMig_scoped",
+    "ZEMX_C_EquipUserStatusMig_scoped",
+    "ZEMX_C_EquipLongTextMig_scoped",
+    "ZEMX_C_EquipAddressMig_scoped",
     "ZEMX_C_EquipBOMAssignMig_scoped",
     "ZEMX_C_BOMHeaderMig_scoped",
     "ZEMX_C_BOMSelectionMig_scoped",
     "ZEMX_C_BOMItemMig_scoped",
+    "ZEMX_C_FuncLocMig",
     "ZEMX_C_FuncLocTextMig_scoped",
     "ZEMX_C_FuncLocLabelMig_scoped",
+    "ZEMX_C_FuncLocAddressMig_scoped",
     "ZEMX_C_LongTextIndexMig_scoped",
+    "ZEMX_C_MaintNotificationMig",
     "ZEMX_C_MaintNotifItemMig_scoped",
     "ZEMX_C_NotifCauseMig_scoped",
     "ZEMX_C_NotifTaskMig_scoped",
     "ZEMX_C_NotifActivityMig_scoped",
+    "ZEMX_C_MaintOrderMig",
     "ZEMX_C_MaintOrderOperationMig_scoped",
     "ZEMX_C_MaintOrderComponentMig_scoped",
     "ZEMX_C_OrderSettlementMig_scoped",
     "ZEMX_C_OrderPermitMig_scoped",
+    "ZEMX_C_MaintenancePlanMig",
     "ZEMX_C_MaintenanceItemMig_scoped",
     "ZEMX_C_MaintPlanCycleMig_scoped",
+    "ZEMX_C_MeasuringPointMig",
     "ZEMX_C_MeasReadingMig_scoped",
     "ZEMX_C_ObjectPartnerMig_scoped",
     "ZEMX_C_UserStatusMig_scoped",
+    "ZEMX_C_TaskListMig",
     "ZEMX_C_TaskListOperationMig_scoped",
     "ZEMX_C_TaskListAllocationMig_scoped",
     "ZEMX_C_TaskListCompMig_scoped",
     "ZEMX_C_TaskListPRTMig_scoped",
     "ZEMX_C_TaskListPackageMig_scoped",
+    "ZEMX_C_WorkCenterMig",
     "ZEMX_C_WorkCenterTextMig_scoped",
     "ZEMX_C_WorkCenterCostCtrMig_scoped",
     "ZEMX_C_WorkCenterCapacityMig_scoped",
-    "ZEMX_C_CapacityHeaderMig_scoped",
-    "ZEMX_C_EquipPartnerMig_scoped",
-    "ZEMX_C_EquipStatusMig_scoped",
-    "ZEMX_C_EquipUserStatusMig_scoped",
-    "ZEMX_C_EquipLongTextMig_scoped",
-    "ZEMX_C_EquipAddressMig_scoped"
+    "ZEMX_C_CapacityHeaderMig_scoped"
   ]
 }

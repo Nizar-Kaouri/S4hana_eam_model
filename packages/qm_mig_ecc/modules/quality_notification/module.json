@@ -10,6 +10,7 @@
     "process-reference"
   ],
   "sap_tables": [
+    "JEST",
     "QMEL",
     "QMFE",
     "QMMA",
@@ -25,14 +26,16 @@
       "ZQMX_B_QualityItemData",
       "ZQMX_B_QualityCauseData",
       "ZQMX_B_QualityTaskData",
-      "ZQMX_B_QualityActivitData"
+      "ZQMX_B_QualityActivitData",
+      "ZQMX_B_NotifStatusData"
     ],
     "composite": [
       "ZQMX_I_QualityNotific",
       "ZQMX_I_QualityItem",
       "ZQMX_I_QualityCause",
       "ZQMX_I_QualityTask",
-      "ZQMX_I_QualityActivit"
+      "ZQMX_I_QualityActivit",
+      "ZQMX_I_NotifStatus"
     ],
     "consumption": [
       "ZQMX_C_QualityNotificMig",
@@ -40,7 +43,8 @@
       "ZQMX_C_QualityItemMig",
       "ZQMX_C_QualityCauseMig",
       "ZQMX_C_QualityTaskMig",
-      "ZQMX_C_QualityActivitMig"
+      "ZQMX_C_QualityActivitMig",
+      "ZQMX_C_NotifStatusMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -62,7 +66,10 @@
     "ZQMX_C_QualityTaskMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_B_QualityActivitData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZQMX_I_QualityActivit": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZQMX_C_QualityActivitMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZQMX_C_QualityActivitMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_B_NotifStatusData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_I_NotifStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_NotifStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

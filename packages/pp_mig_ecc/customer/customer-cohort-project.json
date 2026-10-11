@@ -34,91 +34,11 @@
     "ZPPX_C_ProdVersionMig": "exports/ZPPX_C_ProdVersionMig.csv",
     "ZPPX_C_ProdVersionMig_Scope": "selection/ZPPX_C_ProdVersionMig.csv",
     "ZPPX_C_ConfirmationMig": "exports/ZPPX_C_ConfirmationMig.csv",
-    "ZPPX_C_ConfirmationMig_Scope": "selection/ZPPX_C_ConfirmationMig.csv"
+    "ZPPX_C_ConfirmationMig_Scope": "selection/ZPPX_C_ConfirmationMig.csv",
+    "ZPPX_C_OrderStatusMig": "exports/ZPPX_C_OrderStatusMig.csv",
+    "ZPPX_C_OrderStatusMig_Scope": "selection/ZPPX_C_OrderStatusMig.csv"
   },
   "steps": [
-    {
-      "name": "ZPPX_C_ProductionOrdeMig_Prepared",
-      "operation": "selection",
-      "input": "ZPPX_C_ProductionOrdeMig",
-      "parent": "ZPPX_C_ProductionOrdeMig_Scope",
-      "child_keys": [
-        "ManufacturingOrder"
-      ],
-      "parent_keys": [
-        "ManufacturingOrder"
-      ]
-    },
-    {
-      "name": "ZPPX_C_ProductionHeadMig_Prepared",
-      "operation": "selection",
-      "input": "ZPPX_C_ProductionHeadMig",
-      "parent": "ZPPX_C_ProductionHeadMig_Scope",
-      "child_keys": [
-        "ManufacturingOrder"
-      ],
-      "parent_keys": [
-        "ManufacturingOrder"
-      ]
-    },
-    {
-      "name": "ZPPX_C_ProductionItemMig_Prepared",
-      "operation": "selection",
-      "input": "ZPPX_C_ProductionItemMig",
-      "parent": "ZPPX_C_ProductionItemMig_Scope",
-      "child_keys": [
-        "ManufacturingOrder",
-        "ManufacturingOrderItem"
-      ],
-      "parent_keys": [
-        "ManufacturingOrder",
-        "ManufacturingOrderItem"
-      ]
-    },
-    {
-      "name": "ZPPX_C_ProductionOperMig_Prepared",
-      "operation": "selection",
-      "input": "ZPPX_C_ProductionOperMig",
-      "parent": "ZPPX_C_ProductionOperMig_Scope",
-      "child_keys": [
-        "OperationRoutingNumber",
-        "OperationInternalID"
-      ],
-      "parent_keys": [
-        "OperationRoutingNumber",
-        "OperationInternalID"
-      ]
-    },
-    {
-      "name": "ZPPX_C_OperationQuantMig_Prepared",
-      "operation": "selection",
-      "input": "ZPPX_C_OperationQuantMig",
-      "parent": "ZPPX_C_OperationQuantMig_Scope",
-      "child_keys": [
-        "OperationRoutingNumber",
-        "OperationInternalID"
-      ],
-      "parent_keys": [
-        "OperationRoutingNumber",
-        "OperationInternalID"
-      ]
-    },
-    {
-      "name": "ZPPX_C_OrderComponentMig_Prepared",
-      "operation": "selection",
-      "input": "ZPPX_C_OrderComponentMig",
-      "parent": "ZPPX_C_OrderComponentMig_Scope",
-      "child_keys": [
-        "Reservation",
-        "ReservationItem",
-        "RecordType"
-      ],
-      "parent_keys": [
-        "Reservation",
-        "ReservationItem",
-        "RecordType"
-      ]
-    },
     {
       "name": "ZPPX_C_MaterialBOMMig_Prepared",
       "operation": "selection",
@@ -193,6 +113,240 @@
         "BillOfMaterial",
         "BOMNode",
         "InternalCounter"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ProductionOrdeMig_Prepared",
+      "operation": "selection",
+      "input": "ZPPX_C_ProductionOrdeMig",
+      "parent": "ZPPX_C_ProductionOrdeMig_Scope",
+      "child_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ConfirmationMig_Selected",
+      "operation": "selection",
+      "input": "ZPPX_C_ConfirmationMig",
+      "parent": "ZPPX_C_ConfirmationMig_Scope",
+      "child_keys": [
+        "ConfirmationNumber",
+        "ConfirmationCounter"
+      ],
+      "parent_keys": [
+        "ConfirmationNumber",
+        "ConfirmationCounter"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ConfirmationMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPPX_C_ConfirmationMig_Selected",
+      "parent": "ZPPX_C_ProductionOrdeMig_Prepared",
+      "child_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_identity": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ProductionHeadMig_Selected",
+      "operation": "selection",
+      "input": "ZPPX_C_ProductionHeadMig",
+      "parent": "ZPPX_C_ProductionHeadMig_Scope",
+      "child_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ProductionHeadMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPPX_C_ProductionHeadMig_Selected",
+      "parent": "ZPPX_C_ProductionOrdeMig_Prepared",
+      "child_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_identity": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ProductionItemMig_Selected",
+      "operation": "selection",
+      "input": "ZPPX_C_ProductionItemMig",
+      "parent": "ZPPX_C_ProductionItemMig_Scope",
+      "child_keys": [
+        "ManufacturingOrder",
+        "ManufacturingOrderItem"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder",
+        "ManufacturingOrderItem"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ProductionItemMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPPX_C_ProductionItemMig_Selected",
+      "parent": "ZPPX_C_ProductionOrdeMig_Prepared",
+      "child_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_identity": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZPPX_C_OrderStatusMig",
+      "parent": "ZPPX_C_OrderStatusMig_Scope",
+      "child_keys": [
+        "ManufacturingOrder",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder",
+        "StatusCode"
+      ],
+      "name": "ZPPX_C_OrderStatusMig_Selected"
+    },
+    {
+      "name": "ZPPX_C_OrderStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPPX_C_OrderStatusMig_Selected",
+      "parent": "ZPPX_C_ProductionOrdeMig_Prepared",
+      "child_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_identity": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ProductionOperMig_Selected",
+      "operation": "selection",
+      "input": "ZPPX_C_ProductionOperMig",
+      "parent": "ZPPX_C_ProductionOperMig_Scope",
+      "child_keys": [
+        "OperationRoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_keys": [
+        "OperationRoutingNumber",
+        "OperationInternalID"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ProductionOperMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPPX_C_ProductionOperMig_Selected",
+      "parent": "ZPPX_C_ProductionHeadMig_Prepared",
+      "child_keys": [
+        "OperationRoutingNumber"
+      ],
+      "parent_keys": [
+        "OperationRoutingNumber"
+      ],
+      "parent_identity": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_OperationQuantMig_Selected",
+      "operation": "selection",
+      "input": "ZPPX_C_OperationQuantMig",
+      "parent": "ZPPX_C_OperationQuantMig_Scope",
+      "child_keys": [
+        "OperationRoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_keys": [
+        "OperationRoutingNumber",
+        "OperationInternalID"
+      ]
+    },
+    {
+      "name": "ZPPX_C_OperationQuantMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPPX_C_OperationQuantMig_Selected",
+      "parent": "ZPPX_C_ProductionOperMig_Prepared",
+      "child_keys": [
+        "OperationRoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_keys": [
+        "OperationRoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_identity": [
+        "OperationRoutingNumber",
+        "OperationInternalID"
+      ]
+    },
+    {
+      "name": "ZPPX_C_OrderComponentMig_Selected",
+      "operation": "selection",
+      "input": "ZPPX_C_OrderComponentMig",
+      "parent": "ZPPX_C_OrderComponentMig_Scope",
+      "child_keys": [
+        "Reservation",
+        "ReservationItem",
+        "RecordType"
+      ],
+      "parent_keys": [
+        "Reservation",
+        "ReservationItem",
+        "RecordType"
+      ]
+    },
+    {
+      "name": "ZPPX_C_OrderComponentMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPPX_C_OrderComponentMig_Selected",
+      "parent": "ZPPX_C_ProductionOrdeMig_Prepared",
+      "child_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_keys": [
+        "ManufacturingOrder"
+      ],
+      "parent_identity": [
+        "ManufacturingOrder"
+      ]
+    },
+    {
+      "name": "ZPPX_C_ProdVersionMig_Prepared",
+      "operation": "selection",
+      "input": "ZPPX_C_ProdVersionMig",
+      "parent": "ZPPX_C_ProdVersionMig_Scope",
+      "child_keys": [
+        "Product",
+        "Plant",
+        "ProductionVersion"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant",
+        "ProductionVersion"
       ]
     },
     {
@@ -294,55 +448,26 @@
         "Sequence",
         "InternalCounter"
       ]
-    },
-    {
-      "name": "ZPPX_C_ProdVersionMig_Prepared",
-      "operation": "selection",
-      "input": "ZPPX_C_ProdVersionMig",
-      "parent": "ZPPX_C_ProdVersionMig_Scope",
-      "child_keys": [
-        "Product",
-        "Plant",
-        "ProductionVersion"
-      ],
-      "parent_keys": [
-        "Product",
-        "Plant",
-        "ProductionVersion"
-      ]
-    },
-    {
-      "name": "ZPPX_C_ConfirmationMig_Prepared",
-      "operation": "selection",
-      "input": "ZPPX_C_ConfirmationMig",
-      "parent": "ZPPX_C_ConfirmationMig_Scope",
-      "child_keys": [
-        "ConfirmationNumber",
-        "ConfirmationCounter"
-      ],
-      "parent_keys": [
-        "ConfirmationNumber",
-        "ConfirmationCounter"
-      ]
     }
   ],
   "outputs": [
-    "ZPPX_C_ProductionOrdeMig_Prepared",
-    "ZPPX_C_ProductionHeadMig_Prepared",
-    "ZPPX_C_ProductionItemMig_Prepared",
-    "ZPPX_C_ProductionOperMig_Prepared",
-    "ZPPX_C_OperationQuantMig_Prepared",
-    "ZPPX_C_OrderComponentMig_Prepared",
     "ZPPX_C_MaterialBOMMig_Prepared",
     "ZPPX_C_BOMHeaderMig_Prepared",
     "ZPPX_C_BOMSelectionMig_Prepared",
     "ZPPX_C_BOMItemMig_Prepared",
+    "ZPPX_C_ConfirmationMig_Prepared",
+    "ZPPX_C_ProductionOrdeMig_Prepared",
+    "ZPPX_C_ProductionHeadMig_Prepared",
+    "ZPPX_C_ProductionItemMig_Prepared",
+    "ZPPX_C_OrderStatusMig_Prepared",
+    "ZPPX_C_ProductionOperMig_Prepared",
+    "ZPPX_C_OperationQuantMig_Prepared",
+    "ZPPX_C_OrderComponentMig_Prepared",
+    "ZPPX_C_ProdVersionMig_Prepared",
     "ZPPX_C_RoutingHeaderMig_Prepared",
     "ZPPX_C_RoutingMateriaMig_Prepared",
     "ZPPX_C_RoutingSelectiMig_Prepared",
     "ZPPX_C_RoutingOperatiMig_Prepared",
-    "ZPPX_C_RoutingSequencMig_Prepared",
-    "ZPPX_C_ProdVersionMig_Prepared",
-    "ZPPX_C_ConfirmationMig_Prepared"
+    "ZPPX_C_RoutingSequencMig_Prepared"
   ]
 }

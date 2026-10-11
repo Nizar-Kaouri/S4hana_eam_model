@@ -1,0 +1,74 @@
+{
+  "ZFAX_C_AssetAssignmenMig": {
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ]
+  },
+  "ZFAX_C_DepreciationMig": {
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ]
+  },
+  "ZFAX_C_AssetBalanceMig": {
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ]
+  },
+  "ZFAX_C_AssetPostingMig": {
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ]
+  }
+}

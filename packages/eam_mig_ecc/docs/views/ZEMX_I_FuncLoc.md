@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Functional location with hierarchy, category, planning data, location / account assignment and deletion flag: the complete business object.
+Functional location with hierarchy, category, planning data, location / account assignment and deletion flag: the master record; repeating child records are separate.
 
 ## Keys
 
@@ -23,7 +23,7 @@ Functional location with hierarchy, category, planning data, location / account 
 
 ## Associations defined here
 
-- none
+- `_Address` → `ZEMX_B_Address` [0..1]
 
 ## Access control
 

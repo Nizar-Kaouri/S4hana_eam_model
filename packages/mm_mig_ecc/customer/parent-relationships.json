@@ -1,0 +1,266 @@
+{
+  "ZMMX_C_MaterialTextMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialPlantMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialUnitMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialValueMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_BatchGeneralMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MaterialLocatiMig": {
+    "parent": "ZMMX_C_MaterialPlantMig",
+    "child_keys": [
+      "Product",
+      "Plant"
+    ],
+    "parent_keys": [
+      "Product",
+      "Plant"
+    ],
+    "parent_identity": [
+      "Product",
+      "Plant"
+    ]
+  },
+  "ZMMX_C_BatchPlantMig": {
+    "parent": "ZMMX_C_MaterialPlantMig",
+    "child_keys": [
+      "Product",
+      "Plant"
+    ],
+    "parent_keys": [
+      "Product",
+      "Plant"
+    ],
+    "parent_identity": [
+      "Product",
+      "Plant"
+    ]
+  },
+  "ZMMX_C_LocationStockMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_BatchStockMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_SalesOrderStocMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_SupplierStockMig": {
+    "parent": "ZMMX_C_MaterialMig",
+    "child_keys": [
+      "Product"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "parent_identity": [
+      "Product"
+    ]
+  },
+  "ZMMX_C_MatDocItemMig": {
+    "parent": "ZMMX_C_MatDocHeaderMig",
+    "child_keys": [
+      "MaterialDocument",
+      "MaterialDocumentYear"
+    ],
+    "parent_keys": [
+      "MaterialDocument",
+      "MaterialDocumentYear"
+    ],
+    "parent_identity": [
+      "MaterialDocument",
+      "MaterialDocumentYear"
+    ]
+  },
+  "ZMMX_C_PurchaseItemMig": {
+    "parent": "ZMMX_C_PurchaseOrderMig",
+    "child_keys": [
+      "PurchaseOrder"
+    ],
+    "parent_keys": [
+      "PurchaseOrder"
+    ],
+    "parent_identity": [
+      "PurchaseOrder"
+    ]
+  },
+  "ZMMX_C_PurchaseScheduMig": {
+    "parent": "ZMMX_C_PurchaseItemMig",
+    "child_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_identity": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ]
+  },
+  "ZMMX_C_PurchaseAssignMig": {
+    "parent": "ZMMX_C_PurchaseItemMig",
+    "child_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_identity": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ]
+  },
+  "ZMMX_C_PurchaseHistorMig": {
+    "parent": "ZMMX_C_PurchaseItemMig",
+    "child_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_keys": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ],
+    "parent_identity": [
+      "PurchaseOrder",
+      "PurchaseOrderItem"
+    ]
+  },
+  "ZMMX_C_ReqAssignmentMig": {
+    "parent": "ZMMX_C_RequisitionMig",
+    "child_keys": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "parent_keys": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "parent_identity": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ]
+  },
+  "ZMMX_C_ContractItemMig": {
+    "parent": "ZMMX_C_ContractHeaderMig",
+    "child_keys": [
+      "PurchasingContract"
+    ],
+    "parent_keys": [
+      "PurchasingContract"
+    ],
+    "parent_identity": [
+      "PurchasingContract"
+    ]
+  },
+  "ZMMX_C_ContractAssignMig": {
+    "parent": "ZMMX_C_ContractItemMig",
+    "child_keys": [
+      "PurchasingContract",
+      "PurchasingContractItem"
+    ],
+    "parent_keys": [
+      "PurchasingContract",
+      "PurchasingContractItem"
+    ],
+    "parent_identity": [
+      "PurchasingContract",
+      "PurchasingContractItem"
+    ]
+  },
+  "ZMMX_C_InfoPurchOrgMig": {
+    "parent": "ZMMX_C_InfoRecordMig",
+    "child_keys": [
+      "PurchasingInfoRecord"
+    ],
+    "parent_keys": [
+      "PurchasingInfoRecord"
+    ],
+    "parent_identity": [
+      "PurchasingInfoRecord"
+    ]
+  }
+}

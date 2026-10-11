@@ -7,10 +7,10 @@ ModuPorter Project System version 1.0.0.
 | Project overall and annual budgets | budget | 2 |
 | Project commitments | commitment | 1 |
 | Investment programs and measures | investment_measure | 3 |
-| Project networks and activities | network | 4 |
-| Projects | project | 1 |
+| Project networks and activities | network | 5 |
+| Projects | project | 2 |
 | Project cost history | project_cost | 1 |
-| WBS elements | wbs_element | 2 |
+| WBS elements | wbs_element | 3 |
 
 ## Delivery boundaries
 
@@ -27,9 +27,9 @@ Project System has 7 modules and 14 extraction structures.
 | Investment programs and measures | investment_measure | 3 | configuration-reference |
 | Project commitments | commitment | 1 | reference |
 | Project overall and annual budgets | budget | 2 | balance |
-| Project networks and activities | network | 4 | process-reference |
-| Projects | project | 1 | master |
-| WBS elements | wbs_element | 2 | master |
+| Project networks and activities | network | 5 | process-reference |
+| Projects | project | 2 | master |
+| WBS elements | wbs_element | 3 | master |
 | Project cost history | project_cost | 1 | reference |
 
 The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/ps; they are not duplicated as migration payloads.
@@ -55,3 +55,5 @@ COOI grain and fields must be confirmed from DDIC before extraction. Tie commitm
 ### Investment programs and measures (`investment_measure`)
 
 Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.
+
+Master and child preparation follows MASTER_CHILD_ARCHITECTURE.md; full source keys and selected parent populations are preserved.

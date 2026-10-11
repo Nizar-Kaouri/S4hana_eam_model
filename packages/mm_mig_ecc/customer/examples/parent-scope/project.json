@@ -1,0 +1,41 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "Parents": "parents.csv",
+    "Approved": "selected-parents.csv",
+    "Children": "children.csv"
+  },
+  "steps": [
+    {
+      "name": "SelectedParents",
+      "operation": "selection",
+      "input": "Parents",
+      "parent": "Approved",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ScopedChildren",
+      "operation": "parent_scope",
+      "input": "Children",
+      "parent": "SelectedParents",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    }
+  ],
+  "outputs": [
+    "SelectedParents",
+    "ScopedChildren"
+  ]
+}

@@ -19,7 +19,18 @@
     ],
     "selection": "selection/ZQMX_C_UsageDecisionMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_InspectCharactMig": {
     "module": "inspection_result",
@@ -31,7 +42,18 @@
     ],
     "selection": "selection/ZQMX_C_InspectCharactMig.csv",
     "requires_business_approval": true,
-    "mode": "reference"
+    "mode": "reference",
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_CharacteristicMig": {
     "module": "inspection_result",
@@ -43,7 +65,24 @@
     ],
     "selection": "selection/ZQMX_C_CharacteristicMig.csv",
     "requires_business_approval": true,
-    "mode": "reference"
+    "mode": "reference",
+    "parent": "ZQMX_C_InspectCharactMig",
+    "child_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_identity": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_SingleResultMig": {
     "module": "inspection_result",
@@ -57,7 +96,24 @@
     ],
     "selection": "selection/ZQMX_C_SingleResultMig.csv",
     "requires_business_approval": true,
-    "mode": "reference"
+    "mode": "reference",
+    "parent": "ZQMX_C_InspectCharactMig",
+    "child_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_identity": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_QualityNotificMig": {
     "module": "quality_notification",
@@ -78,7 +134,18 @@
     ],
     "selection": "selection/ZQMX_C_QualityItemMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_QualityCauseMig": {
     "module": "quality_notification",
@@ -90,7 +157,21 @@
     ],
     "selection": "selection/ZQMX_C_QualityCauseMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZQMX_C_QualityItemMig",
+    "child_keys": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "parent_keys": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "parent_identity": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_QualityTaskMig": {
     "module": "quality_notification",
@@ -101,7 +182,18 @@
     ],
     "selection": "selection/ZQMX_C_QualityTaskMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_QualityActivitMig": {
     "module": "quality_notification",
@@ -112,7 +204,18 @@
     ],
     "selection": "selection/ZQMX_C_QualityActivitMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_InspectPlanHeaMig": {
     "module": "inspection_plan",
@@ -207,7 +310,24 @@
     ],
     "selection": "selection/ZQMX_C_MasterCharTextMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZQMX_C_MasterCharMig",
+    "child_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "parent_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "parent_identity": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "kind": "child"
   },
   "ZQMX_C_SamplingProcMig": {
     "module": "sampling_procedure",
@@ -218,5 +338,49 @@
     "selection": "selection/ZQMX_C_SamplingProcMig.csv",
     "requires_business_approval": true,
     "mode": "configuration-reference"
+  },
+  "ZQMX_C_LotStatusMig": {
+    "module": "inspection_lot",
+    "table": "JEST",
+    "keys": [
+      "InspectionLot",
+      "StatusCode"
+    ],
+    "selection": "selection/ZQMX_C_LotStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_NotifStatusMig": {
+    "module": "quality_notification",
+    "table": "JEST",
+    "keys": [
+      "QualityNotification",
+      "StatusCode"
+    ],
+    "selection": "selection/ZQMX_C_NotifStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ],
+    "kind": "child"
   }
 }

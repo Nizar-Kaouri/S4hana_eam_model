@@ -17,7 +17,18 @@
     ],
     "selection": "selection/ZPSX_C_WBSMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ],
+    "kind": "child"
   },
   "ZPSX_C_WBSHierarchyMig": {
     "module": "wbs_element",
@@ -27,7 +38,18 @@
     ],
     "selection": "selection/ZPSX_C_WBSHierarchyMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ],
+    "kind": "child"
   },
   "ZPSX_C_ProjectCostMig": {
     "module": "project_cost",
@@ -59,7 +81,18 @@
     ],
     "selection": "selection/ZPSX_C_NetworkPlanMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ],
+    "kind": "child"
   },
   "ZPSX_C_NetworkActivitMig": {
     "module": "network",
@@ -70,7 +103,18 @@
     ],
     "selection": "selection/ZPSX_C_NetworkActivitMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPSX_C_NetworkPlanMig",
+    "child_keys": [
+      "RoutingNumber"
+    ],
+    "parent_keys": [
+      "RoutingNumber"
+    ],
+    "parent_identity": [
+      "Network"
+    ],
+    "kind": "child"
   },
   "ZPSX_C_NetworkQuantitMig": {
     "module": "network",
@@ -81,7 +125,21 @@
     ],
     "selection": "selection/ZPSX_C_NetworkQuantitMig.csv",
     "requires_business_approval": true,
-    "mode": "process-reference"
+    "mode": "process-reference",
+    "parent": "ZPSX_C_NetworkActivitMig",
+    "child_keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_identity": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "kind": "child"
   },
   "ZPSX_C_OverallBudgetMig": {
     "module": "budget",
@@ -164,5 +222,71 @@
     "selection": "selection/ZPSX_C_InvestAssignMig.csv",
     "requires_business_approval": true,
     "mode": "configuration-reference"
+  },
+  "ZPSX_C_NetworkStatusMig": {
+    "module": "network",
+    "table": "JEST",
+    "keys": [
+      "Network",
+      "StatusCode"
+    ],
+    "selection": "selection/ZPSX_C_NetworkStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_ProjectStatusMig": {
+    "module": "project",
+    "table": "JEST",
+    "keys": [
+      "ProjectInternalID",
+      "StatusCode"
+    ],
+    "selection": "selection/ZPSX_C_ProjectStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_WBSStatusMig": {
+    "module": "wbs_element",
+    "table": "JEST",
+    "keys": [
+      "WBSElementInternalID",
+      "StatusCode"
+    ],
+    "selection": "selection/ZPSX_C_WBSStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ],
+    "kind": "child"
   }
 }

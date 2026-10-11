@@ -228,12 +228,138 @@
           "target": "",
           "rule": "info",
           "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ILOA-ADRNR",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "HasStandardAddress",
+          "source": "derived: presence of the standard ADRC record",
+          "target": "",
+          "rule": "info",
+          "compare": false
         }
       ]
     },
     {
       "consumption_view": "ZEMX_C_FuncLocTextMig",
-      "source_view": "ZEMX_B_FuncLocDesc",
+      "source_view": "ZEMX_I_FuncLocText",
       "scope_filter": "_FuncLoc.IsMarkedForDeletion = ''",
       "keys": [
         "FunctionalLocation",
@@ -301,6 +427,160 @@
           "compare": false
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocAddressMig",
+      "source_view": "ZEMX_I_FuncLocAddress",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADRC-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "AddressValidFrom",
+          "source": "ADRC-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressVersion",
+          "source": "ADRC-NATION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
     }
   ],
   "not_migrated": [
@@ -326,12 +606,6 @@
       "view": "ZEMX_I_FuncLoc",
       "element": "CreatedByUser",
       "source": "IFLOT-ERNAM",
-      "reason": "info"
-    },
-    {
-      "view": "ZEMX_B_FuncLocDesc",
-      "element": "HasLongText",
-      "source": "IFLOTX-KZLTX",
       "reason": "info"
     }
   ],

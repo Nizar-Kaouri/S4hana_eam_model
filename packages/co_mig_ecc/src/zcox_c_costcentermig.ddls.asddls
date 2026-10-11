@@ -20,5 +20,17 @@ define view ZCOX_C_CostCenterMig
       src.CompanyCode as CompanyCode,
       src.ProfitCenter as ProfitCenter,
       src.CostCenterCategory as CostCenterCategory,
-      src.ResponsiblePerson as ResponsiblePerson
+      src.ResponsiblePerson as ResponsiblePerson,
+      src.AddressStreet as AddressStreet,
+      src.AddressCity as AddressCity,
+      src.AddressDistrict as AddressDistrict,
+      src.AddressPostalCode as AddressPostalCode,
+      src.AddressCountry as AddressCountry,
+      src.AddressRegion as AddressRegion,
+      src.AddressPOBox as AddressPOBox,
+      src.AddressPOBoxPostalCode as AddressPOBoxPostalCode,
+      src.AddressLanguage as AddressLanguage,
+      src.PhoneNumber1 as PhoneNumber1,
+      src.PhoneNumber2 as PhoneNumber2,
+      src.FaxNumber as FaxNumber
 }

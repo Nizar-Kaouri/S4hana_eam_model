@@ -13,18 +13,22 @@
     "BNKA"
   ],
   "sap_released_views": [],
-  "hard_dependencies": [],
+  "hard_dependencies": [
+    "address"
+  ],
   "objects": {
     "tables": [],
     "basic": [
       "ZFIX_B_BankData"
     ],
     "composite": [
-      "ZFIX_I_Bank"
+      "ZFIX_I_Bank",
+      "ZFIX_I_BankAddress"
     ],
     "consumption": [
       "ZFIX_C_BankMig",
-      "ZFIX_C_BankMigCount"
+      "ZFIX_C_BankMigCount",
+      "ZFIX_C_BankAddressMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -34,7 +38,9 @@
     "ZFIX_B_BankData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_I_Bank": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZFIX_C_BankMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZFIX_C_BankMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZFIX_C_BankMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_BankAddress": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_BankAddressMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

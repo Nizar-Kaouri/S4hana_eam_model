@@ -83,6 +83,90 @@
           "target": "customer interface field: ResponsiblePerson (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "AddressStreet",
+          "source": "CSKS-STRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCity",
+          "source": "CSKS-ORT01",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "CSKS-ORT02",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "CSKS-PSTLZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCountry",
+          "source": "CSKS-LAND1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressRegion",
+          "source": "CSKS-REGIO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "CSKS-PFACH",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "CSKS-PSTL2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "CSKS-SPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PhoneNumber1",
+          "source": "CSKS-TELF1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PhoneNumber2",
+          "source": "CSKS-TELF2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FaxNumber",
+          "source": "CSKS-TELFX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "master",

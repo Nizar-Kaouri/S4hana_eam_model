@@ -37,6 +37,9 @@
     ],
     "parent_keys": [
       "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
     ]
   },
   "ZEMX_C_EquipSerialStockMig": {
@@ -46,6 +49,9 @@
       "Equipment"
     ],
     "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
       "Equipment"
     ]
   },
@@ -115,6 +121,9 @@
     ],
     "parent_keys": [
       "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
     ]
   },
   "ZEMX_C_FuncLocLabelMig": {
@@ -124,6 +133,9 @@
       "FunctionalLocation"
     ],
     "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
       "FunctionalLocation"
     ]
   },
@@ -157,16 +169,25 @@
     ],
     "parent_keys": [
       "MaintenanceNotification"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification"
     ]
   },
   "ZEMX_C_NotifCauseMig": {
     "kind": "child",
-    "parent": "ZEMX_C_MaintNotificationMig",
+    "parent": "ZEMX_C_MaintNotifItemMig",
     "child_keys": [
-      "MaintenanceNotification"
+      "MaintenanceNotification",
+      "MaintNotificationItem"
     ],
     "parent_keys": [
-      "MaintenanceNotification"
+      "MaintenanceNotification",
+      "MaintNotificationItem"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification",
+      "MaintNotificationItem"
     ]
   },
   "ZEMX_C_NotifTaskMig": {
@@ -177,6 +198,9 @@
     ],
     "parent_keys": [
       "MaintenanceNotification"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification"
     ]
   },
   "ZEMX_C_NotifActivityMig": {
@@ -186,6 +210,9 @@
       "MaintenanceNotification"
     ],
     "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_identity": [
       "MaintenanceNotification"
     ]
   },
@@ -203,6 +230,9 @@
     ],
     "parent_keys": [
       "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
     ]
   },
   "ZEMX_C_MaintOrderComponentMig": {
@@ -212,6 +242,9 @@
       "MaintenanceOrder"
     ],
     "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
       "MaintenanceOrder"
     ]
   },
@@ -223,6 +256,9 @@
     ],
     "parent_keys": [
       "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
     ]
   },
   "ZEMX_C_OrderPermitMig": {
@@ -232,6 +268,9 @@
       "MaintenanceOrder"
     ],
     "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
       "MaintenanceOrder"
     ]
   },
@@ -249,6 +288,9 @@
     ],
     "parent_keys": [
       "MaintenancePlan"
+    ],
+    "parent_identity": [
+      "MaintenancePlan"
     ]
   },
   "ZEMX_C_MaintPlanCycleMig": {
@@ -259,6 +301,9 @@
     ],
     "parent_keys": [
       "MaintenancePlan"
+    ],
+    "parent_identity": [
+      "MaintenancePlan"
     ]
   },
   "ZEMX_C_MeasReadingMig": {
@@ -268,6 +313,9 @@
       "MeasuringPoint"
     ],
     "parent_keys": [
+      "MeasuringPoint"
+    ],
+    "parent_identity": [
       "MeasuringPoint"
     ]
   },
@@ -321,6 +369,11 @@
       "TaskListType",
       "TaskListGroup",
       "TaskListGroupCounter"
+    ],
+    "parent_identity": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
     ]
   },
   "ZEMX_C_TaskListAllocationMig": {
@@ -332,6 +385,11 @@
       "TaskListGroupCounter"
     ],
     "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_identity": [
       "TaskListType",
       "TaskListGroup",
       "TaskListGroupCounter"
@@ -349,6 +407,11 @@
       "TaskListType",
       "TaskListGroup",
       "TaskListGroupCounter"
+    ],
+    "parent_identity": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
     ]
   },
   "ZEMX_C_TaskListPRTMig": {
@@ -363,6 +426,11 @@
       "TaskListType",
       "TaskListGroup",
       "TaskListGroupCounter"
+    ],
+    "parent_identity": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
     ]
   },
   "ZEMX_C_TaskListPackageMig": {
@@ -374,6 +442,11 @@
       "TaskListGroupCounter"
     ],
     "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_identity": [
       "TaskListType",
       "TaskListGroup",
       "TaskListGroupCounter"
@@ -396,6 +469,10 @@
     "parent_keys": [
       "WorkCenter",
       "Plant"
+    ],
+    "parent_identity": [
+      "WorkCenter",
+      "Plant"
     ]
   },
   "ZEMX_C_WorkCenterCostCtrMig": {
@@ -406,6 +483,10 @@
       "Plant"
     ],
     "parent_keys": [
+      "WorkCenter",
+      "Plant"
+    ],
+    "parent_identity": [
       "WorkCenter",
       "Plant"
     ]
@@ -440,6 +521,9 @@
     ],
     "parent_keys": [
       "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
     ]
   },
   "ZEMX_C_EquipStatusMig": {
@@ -449,6 +533,9 @@
       "Equipment"
     ],
     "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
       "Equipment"
     ]
   },
@@ -460,6 +547,9 @@
     ],
     "parent_keys": [
       "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
     ]
   },
   "ZEMX_C_EquipLongTextMig": {
@@ -469,6 +559,9 @@
       "Equipment"
     ],
     "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
       "Equipment"
     ]
   },
@@ -480,6 +573,32 @@
     ],
     "parent_keys": [
       "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
     ]
+  },
+  "ZEMX_C_FuncLocAddressMig": {
+    "module": "functional_location",
+    "table": "ADRC",
+    "keys": [
+      "FunctionalLocation",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "selection": "selection/ZEMX_C_FuncLocAddressMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ],
+    "kind": "child"
   }
 }

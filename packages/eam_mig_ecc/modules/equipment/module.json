@@ -33,8 +33,7 @@
       "ZEMX_B_EquipmentHeader",
       "ZEMX_B_EquipmentTimeSegment",
       "ZEMX_B_EquipmentDesc",
-      "ZEMX_B_EquipSerialStockData",
-      "ZEMX_B_Address"
+      "ZEMX_B_EquipSerialStockData"
     ],
     "composite": [
       "ZEMX_I_Equipment",
@@ -71,7 +70,6 @@
     "ZEMX_B_EquipSerialStockData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_EquipSerialStock": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_C_EquipSerialStockMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_B_Address": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_EquipText": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_EquipPartner": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_EquipStatus": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",

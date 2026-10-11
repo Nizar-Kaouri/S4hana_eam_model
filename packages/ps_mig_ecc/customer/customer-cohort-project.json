@@ -28,113 +28,15 @@
     "ZPSX_C_InvestPositionMig": "exports/ZPSX_C_InvestPositionMig.csv",
     "ZPSX_C_InvestPositionMig_Scope": "selection/ZPSX_C_InvestPositionMig.csv",
     "ZPSX_C_InvestAssignMig": "exports/ZPSX_C_InvestAssignMig.csv",
-    "ZPSX_C_InvestAssignMig_Scope": "selection/ZPSX_C_InvestAssignMig.csv"
+    "ZPSX_C_InvestAssignMig_Scope": "selection/ZPSX_C_InvestAssignMig.csv",
+    "ZPSX_C_NetworkStatusMig": "exports/ZPSX_C_NetworkStatusMig.csv",
+    "ZPSX_C_NetworkStatusMig_Scope": "selection/ZPSX_C_NetworkStatusMig.csv",
+    "ZPSX_C_ProjectStatusMig": "exports/ZPSX_C_ProjectStatusMig.csv",
+    "ZPSX_C_ProjectStatusMig_Scope": "selection/ZPSX_C_ProjectStatusMig.csv",
+    "ZPSX_C_WBSStatusMig": "exports/ZPSX_C_WBSStatusMig.csv",
+    "ZPSX_C_WBSStatusMig_Scope": "selection/ZPSX_C_WBSStatusMig.csv"
   },
   "steps": [
-    {
-      "name": "ZPSX_C_ProjectMig_Prepared",
-      "operation": "selection",
-      "input": "ZPSX_C_ProjectMig",
-      "parent": "ZPSX_C_ProjectMig_Scope",
-      "child_keys": [
-        "ProjectInternalID"
-      ],
-      "parent_keys": [
-        "ProjectInternalID"
-      ]
-    },
-    {
-      "name": "ZPSX_C_WBSMig_Prepared",
-      "operation": "selection",
-      "input": "ZPSX_C_WBSMig",
-      "parent": "ZPSX_C_WBSMig_Scope",
-      "child_keys": [
-        "WBSElementInternalID"
-      ],
-      "parent_keys": [
-        "WBSElementInternalID"
-      ]
-    },
-    {
-      "name": "ZPSX_C_WBSHierarchyMig_Prepared",
-      "operation": "selection",
-      "input": "ZPSX_C_WBSHierarchyMig",
-      "parent": "ZPSX_C_WBSHierarchyMig_Scope",
-      "child_keys": [
-        "WBSElementInternalID"
-      ],
-      "parent_keys": [
-        "WBSElementInternalID"
-      ]
-    },
-    {
-      "name": "ZPSX_C_ProjectCostMig_Prepared",
-      "operation": "selection",
-      "input": "ZPSX_C_ProjectCostMig",
-      "parent": "ZPSX_C_ProjectCostMig_Scope",
-      "child_keys": [
-        "ControllingArea",
-        "COAccountingDocument",
-        "COAccountingDocumentItem"
-      ],
-      "parent_keys": [
-        "ControllingArea",
-        "COAccountingDocument",
-        "COAccountingDocumentItem"
-      ]
-    },
-    {
-      "name": "ZPSX_C_NetworkHeaderMig_Prepared",
-      "operation": "selection",
-      "input": "ZPSX_C_NetworkHeaderMig",
-      "parent": "ZPSX_C_NetworkHeaderMig_Scope",
-      "child_keys": [
-        "Network"
-      ],
-      "parent_keys": [
-        "Network"
-      ]
-    },
-    {
-      "name": "ZPSX_C_NetworkPlanMig_Prepared",
-      "operation": "selection",
-      "input": "ZPSX_C_NetworkPlanMig",
-      "parent": "ZPSX_C_NetworkPlanMig_Scope",
-      "child_keys": [
-        "Network"
-      ],
-      "parent_keys": [
-        "Network"
-      ]
-    },
-    {
-      "name": "ZPSX_C_NetworkActivitMig_Prepared",
-      "operation": "selection",
-      "input": "ZPSX_C_NetworkActivitMig",
-      "parent": "ZPSX_C_NetworkActivitMig_Scope",
-      "child_keys": [
-        "RoutingNumber",
-        "OperationInternalID"
-      ],
-      "parent_keys": [
-        "RoutingNumber",
-        "OperationInternalID"
-      ]
-    },
-    {
-      "name": "ZPSX_C_NetworkQuantitMig_Prepared",
-      "operation": "selection",
-      "input": "ZPSX_C_NetworkQuantitMig",
-      "parent": "ZPSX_C_NetworkQuantitMig_Scope",
-      "child_keys": [
-        "RoutingNumber",
-        "OperationInternalID"
-      ],
-      "parent_keys": [
-        "RoutingNumber",
-        "OperationInternalID"
-      ]
-    },
     {
       "name": "ZPSX_C_OverallBudgetMig_Prepared",
       "operation": "selection",
@@ -250,22 +152,294 @@
         "AssignedObject",
         "ApprovalFiscalYear"
       ]
+    },
+    {
+      "name": "ZPSX_C_NetworkHeaderMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkHeaderMig",
+      "parent": "ZPSX_C_NetworkHeaderMig_Scope",
+      "child_keys": [
+        "Network"
+      ],
+      "parent_keys": [
+        "Network"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkPlanMig_Selected",
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkPlanMig",
+      "parent": "ZPSX_C_NetworkPlanMig_Scope",
+      "child_keys": [
+        "Network"
+      ],
+      "parent_keys": [
+        "Network"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkPlanMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPSX_C_NetworkPlanMig_Selected",
+      "parent": "ZPSX_C_NetworkHeaderMig_Prepared",
+      "child_keys": [
+        "Network"
+      ],
+      "parent_keys": [
+        "Network"
+      ],
+      "parent_identity": [
+        "Network"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkActivitMig_Selected",
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkActivitMig",
+      "parent": "ZPSX_C_NetworkActivitMig_Scope",
+      "child_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkActivitMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPSX_C_NetworkActivitMig_Selected",
+      "parent": "ZPSX_C_NetworkPlanMig_Prepared",
+      "child_keys": [
+        "RoutingNumber"
+      ],
+      "parent_keys": [
+        "RoutingNumber"
+      ],
+      "parent_identity": [
+        "Network"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkQuantitMig_Selected",
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkQuantitMig",
+      "parent": "ZPSX_C_NetworkQuantitMig_Scope",
+      "child_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_NetworkQuantitMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPSX_C_NetworkQuantitMig_Selected",
+      "parent": "ZPSX_C_NetworkActivitMig_Prepared",
+      "child_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_keys": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ],
+      "parent_identity": [
+        "RoutingNumber",
+        "OperationInternalID"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZPSX_C_NetworkStatusMig",
+      "parent": "ZPSX_C_NetworkStatusMig_Scope",
+      "child_keys": [
+        "Network",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "Network",
+        "StatusCode"
+      ],
+      "name": "ZPSX_C_NetworkStatusMig_Selected"
+    },
+    {
+      "name": "ZPSX_C_NetworkStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPSX_C_NetworkStatusMig_Selected",
+      "parent": "ZPSX_C_NetworkHeaderMig_Prepared",
+      "child_keys": [
+        "Network"
+      ],
+      "parent_keys": [
+        "Network"
+      ],
+      "parent_identity": [
+        "Network"
+      ]
+    },
+    {
+      "name": "ZPSX_C_ProjectMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_ProjectMig",
+      "parent": "ZPSX_C_ProjectMig_Scope",
+      "child_keys": [
+        "ProjectInternalID"
+      ],
+      "parent_keys": [
+        "ProjectInternalID"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZPSX_C_ProjectStatusMig",
+      "parent": "ZPSX_C_ProjectStatusMig_Scope",
+      "child_keys": [
+        "ProjectInternalID",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "ProjectInternalID",
+        "StatusCode"
+      ],
+      "name": "ZPSX_C_ProjectStatusMig_Selected"
+    },
+    {
+      "name": "ZPSX_C_ProjectStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPSX_C_ProjectStatusMig_Selected",
+      "parent": "ZPSX_C_ProjectMig_Prepared",
+      "child_keys": [
+        "ProjectInternalID"
+      ],
+      "parent_keys": [
+        "ProjectInternalID"
+      ],
+      "parent_identity": [
+        "ProjectInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_ProjectCostMig_Prepared",
+      "operation": "selection",
+      "input": "ZPSX_C_ProjectCostMig",
+      "parent": "ZPSX_C_ProjectCostMig_Scope",
+      "child_keys": [
+        "ControllingArea",
+        "COAccountingDocument",
+        "COAccountingDocumentItem"
+      ],
+      "parent_keys": [
+        "ControllingArea",
+        "COAccountingDocument",
+        "COAccountingDocumentItem"
+      ]
+    },
+    {
+      "name": "ZPSX_C_WBSMig_Selected",
+      "operation": "selection",
+      "input": "ZPSX_C_WBSMig",
+      "parent": "ZPSX_C_WBSMig_Scope",
+      "child_keys": [
+        "WBSElementInternalID"
+      ],
+      "parent_keys": [
+        "WBSElementInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_WBSMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPSX_C_WBSMig_Selected",
+      "parent": "ZPSX_C_ProjectMig_Prepared",
+      "child_keys": [
+        "ProjectInternalID"
+      ],
+      "parent_keys": [
+        "ProjectInternalID"
+      ],
+      "parent_identity": [
+        "ProjectInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_WBSHierarchyMig_Selected",
+      "operation": "selection",
+      "input": "ZPSX_C_WBSHierarchyMig",
+      "parent": "ZPSX_C_WBSHierarchyMig_Scope",
+      "child_keys": [
+        "WBSElementInternalID"
+      ],
+      "parent_keys": [
+        "WBSElementInternalID"
+      ]
+    },
+    {
+      "name": "ZPSX_C_WBSHierarchyMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPSX_C_WBSHierarchyMig_Selected",
+      "parent": "ZPSX_C_WBSMig_Prepared",
+      "child_keys": [
+        "WBSElementInternalID"
+      ],
+      "parent_keys": [
+        "WBSElementInternalID"
+      ],
+      "parent_identity": [
+        "WBSElementInternalID"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZPSX_C_WBSStatusMig",
+      "parent": "ZPSX_C_WBSStatusMig_Scope",
+      "child_keys": [
+        "WBSElementInternalID",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "WBSElementInternalID",
+        "StatusCode"
+      ],
+      "name": "ZPSX_C_WBSStatusMig_Selected"
+    },
+    {
+      "name": "ZPSX_C_WBSStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZPSX_C_WBSStatusMig_Selected",
+      "parent": "ZPSX_C_WBSMig_Prepared",
+      "child_keys": [
+        "WBSElementInternalID"
+      ],
+      "parent_keys": [
+        "WBSElementInternalID"
+      ],
+      "parent_identity": [
+        "WBSElementInternalID"
+      ]
     }
   ],
   "outputs": [
-    "ZPSX_C_ProjectMig_Prepared",
-    "ZPSX_C_WBSMig_Prepared",
-    "ZPSX_C_WBSHierarchyMig_Prepared",
-    "ZPSX_C_ProjectCostMig_Prepared",
-    "ZPSX_C_NetworkHeaderMig_Prepared",
-    "ZPSX_C_NetworkPlanMig_Prepared",
-    "ZPSX_C_NetworkActivitMig_Prepared",
-    "ZPSX_C_NetworkQuantitMig_Prepared",
     "ZPSX_C_OverallBudgetMig_Prepared",
     "ZPSX_C_AnnualBudgetMig_Prepared",
     "ZPSX_C_CommitmentMig_Prepared",
     "ZPSX_C_InvestProgramMig_Prepared",
     "ZPSX_C_InvestPositionMig_Prepared",
-    "ZPSX_C_InvestAssignMig_Prepared"
+    "ZPSX_C_InvestAssignMig_Prepared",
+    "ZPSX_C_NetworkHeaderMig_Prepared",
+    "ZPSX_C_NetworkPlanMig_Prepared",
+    "ZPSX_C_NetworkActivitMig_Prepared",
+    "ZPSX_C_NetworkQuantitMig_Prepared",
+    "ZPSX_C_NetworkStatusMig_Prepared",
+    "ZPSX_C_ProjectMig_Prepared",
+    "ZPSX_C_ProjectStatusMig_Prepared",
+    "ZPSX_C_ProjectCostMig_Prepared",
+    "ZPSX_C_WBSMig_Prepared",
+    "ZPSX_C_WBSHierarchyMig_Prepared",
+    "ZPSX_C_WBSStatusMig_Prepared"
   ]
 }

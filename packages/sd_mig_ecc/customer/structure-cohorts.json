@@ -18,7 +18,18 @@
     ],
     "selection": "selection/ZSDX_C_SalesItemMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZSDX_C_SalesOrderMig",
+    "child_keys": [
+      "SalesDocument"
+    ],
+    "parent_keys": [
+      "SalesDocument"
+    ],
+    "parent_identity": [
+      "SalesDocument"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_SalesScheduleMig": {
     "module": "sales_order",
@@ -30,7 +41,21 @@
     ],
     "selection": "selection/ZSDX_C_SalesScheduleMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZSDX_C_SalesItemMig",
+    "child_keys": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "parent_keys": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "parent_identity": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_SalesBusinessMig": {
     "module": "sales_order",
@@ -41,7 +66,18 @@
     ],
     "selection": "selection/ZSDX_C_SalesBusinessMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZSDX_C_SalesOrderMig",
+    "child_keys": [
+      "SalesDocument"
+    ],
+    "parent_keys": [
+      "SalesDocument"
+    ],
+    "parent_identity": [
+      "SalesDocument"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_SalesPartnerMig": {
     "module": "sales_order",
@@ -53,7 +89,18 @@
     ],
     "selection": "selection/ZSDX_C_SalesPartnerMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZSDX_C_SalesOrderMig",
+    "child_keys": [
+      "SalesDocument"
+    ],
+    "parent_keys": [
+      "SalesDocument"
+    ],
+    "parent_identity": [
+      "SalesDocument"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_SalesHeaderStaMig": {
     "module": "sales_order",
@@ -63,7 +110,18 @@
     ],
     "selection": "selection/ZSDX_C_SalesHeaderStaMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZSDX_C_SalesOrderMig",
+    "child_keys": [
+      "SalesDocument"
+    ],
+    "parent_keys": [
+      "SalesDocument"
+    ],
+    "parent_identity": [
+      "SalesDocument"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_SalesItemStatuMig": {
     "module": "sales_order",
@@ -74,7 +132,21 @@
     ],
     "selection": "selection/ZSDX_C_SalesItemStatuMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZSDX_C_SalesItemMig",
+    "child_keys": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "parent_keys": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "parent_identity": [
+      "SalesDocument",
+      "SalesDocumentItem"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_SalesFlowMig": {
     "module": "sales_order",
@@ -88,7 +160,18 @@
     ],
     "selection": "selection/ZSDX_C_SalesFlowMig.csv",
     "requires_business_approval": true,
-    "mode": "open-document"
+    "mode": "open-document",
+    "parent": "ZSDX_C_SalesOrderMig",
+    "child_keys": [
+      "PrecedingDocument"
+    ],
+    "parent_keys": [
+      "SalesDocument"
+    ],
+    "parent_identity": [
+      "SalesDocument"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_DeliveryMig": {
     "module": "outbound_delivery",
@@ -109,7 +192,18 @@
     ],
     "selection": "selection/ZSDX_C_DeliveryItemMig.csv",
     "requires_business_approval": true,
-    "mode": "reference"
+    "mode": "reference",
+    "parent": "ZSDX_C_DeliveryMig",
+    "child_keys": [
+      "DeliveryDocument"
+    ],
+    "parent_keys": [
+      "DeliveryDocument"
+    ],
+    "parent_identity": [
+      "DeliveryDocument"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_BillingMig": {
     "module": "billing_document",
@@ -130,7 +224,18 @@
     ],
     "selection": "selection/ZSDX_C_BillingItemMig.csv",
     "requires_business_approval": true,
-    "mode": "reference"
+    "mode": "reference",
+    "parent": "ZSDX_C_BillingMig",
+    "child_keys": [
+      "BillingDocument"
+    ],
+    "parent_keys": [
+      "BillingDocument"
+    ],
+    "parent_identity": [
+      "BillingDocument"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_ConditionHdrMig": {
     "module": "pricing_condition",
@@ -151,7 +256,18 @@
     ],
     "selection": "selection/ZSDX_C_ConditionItemMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZSDX_C_ConditionHdrMig",
+    "child_keys": [
+      "ConditionRecord"
+    ],
+    "parent_keys": [
+      "ConditionRecord"
+    ],
+    "parent_identity": [
+      "ConditionRecord"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_QuantityScaleMig": {
     "module": "pricing_condition",
@@ -163,7 +279,21 @@
     ],
     "selection": "selection/ZSDX_C_QuantityScaleMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZSDX_C_ConditionItemMig",
+    "child_keys": [
+      "ConditionRecord",
+      "ConditionItem"
+    ],
+    "parent_keys": [
+      "ConditionRecord",
+      "ConditionItem"
+    ],
+    "parent_identity": [
+      "ConditionRecord",
+      "ConditionItem"
+    ],
+    "kind": "child"
   },
   "ZSDX_C_ValueScaleMig": {
     "module": "pricing_condition",
@@ -175,6 +305,159 @@
     ],
     "selection": "selection/ZSDX_C_ValueScaleMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZSDX_C_ConditionItemMig",
+    "child_keys": [
+      "ConditionRecord",
+      "ConditionItem"
+    ],
+    "parent_keys": [
+      "ConditionRecord",
+      "ConditionItem"
+    ],
+    "parent_identity": [
+      "ConditionRecord",
+      "ConditionItem"
+    ],
+    "kind": "child"
+  },
+  "ZSDX_C_BillingPartnerMig": {
+    "module": "billing_document",
+    "keys": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction"
+    ],
+    "table": "VBPA",
+    "selection": "selection/ZSDX_C_BillingPartnerMig.csv",
+    "requires_business_approval": true,
+    "mode": "posting",
+    "parent": "ZSDX_C_BillingMig",
+    "child_keys": [
+      "BillingDocument"
+    ],
+    "parent_keys": [
+      "BillingDocument"
+    ],
+    "parent_identity": [
+      "BillingDocument"
+    ],
+    "kind": "child"
+  },
+  "ZSDX_C_BillingPartnerAddrMig": {
+    "module": "billing_document",
+    "keys": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "table": "ADRC",
+    "selection": "selection/ZSDX_C_BillingPartnerAddrMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZSDX_C_BillingPartnerMig",
+    "child_keys": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction"
+    ],
+    "parent_keys": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction"
+    ],
+    "parent_identity": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction"
+    ],
+    "kind": "child"
+  },
+  "ZSDX_C_DeliveryPartnerMig": {
+    "module": "outbound_delivery",
+    "keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction"
+    ],
+    "table": "VBPA",
+    "selection": "selection/ZSDX_C_DeliveryPartnerMig.csv",
+    "requires_business_approval": true,
+    "mode": "posting",
+    "parent": "ZSDX_C_DeliveryMig",
+    "child_keys": [
+      "DeliveryDocument"
+    ],
+    "parent_keys": [
+      "DeliveryDocument"
+    ],
+    "parent_identity": [
+      "DeliveryDocument"
+    ],
+    "kind": "child"
+  },
+  "ZSDX_C_DeliveryPartnerAddrMig": {
+    "module": "outbound_delivery",
+    "keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "table": "ADRC",
+    "selection": "selection/ZSDX_C_DeliveryPartnerAddrMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZSDX_C_DeliveryPartnerMig",
+    "child_keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction"
+    ],
+    "parent_keys": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction"
+    ],
+    "parent_identity": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction"
+    ],
+    "kind": "child"
+  },
+  "ZSDX_C_SalesPartnerAddressMig": {
+    "module": "sales_order",
+    "keys": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "PartnerFunction",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "table": "ADRC",
+    "selection": "selection/ZSDX_C_SalesPartnerAddressMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZSDX_C_SalesPartnerMig",
+    "child_keys": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "PartnerFunction"
+    ],
+    "parent_keys": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "PartnerFunction"
+    ],
+    "parent_identity": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "PartnerFunction"
+    ],
+    "kind": "child"
   }
 }

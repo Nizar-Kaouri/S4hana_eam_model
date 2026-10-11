@@ -72,10 +72,298 @@
           "target": "customer interface field: DeletionFlag (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "AddressNumber",
+          "source": "BNKA-ADRNR",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "HasStandardAddress",
+          "source": "derived: presence of the standard ADRC record",
+          "target": "",
+          "rule": "info",
+          "compare": false
         }
       ],
       "delivery_mode": "master",
       "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
+    },
+    {
+      "consumption_view": "ZFIX_C_BankAddressMig",
+      "source_view": "ZFIX_I_BankAddress",
+      "scope_filter": "",
+      "keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "fields": [
+        {
+          "element": "BankCountry",
+          "source": "BNKA-BANKS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "BankKey",
+          "source": "BNKA-BANKL",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADRC-ADDRNUMBER",
+          "target": "",
+          "rule": "info",
+          "compare": false
+        },
+        {
+          "element": "AddressValidFrom",
+          "source": "ADRC-DATE_FROM",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressVersion",
+          "source": "ADRC-NATION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance."
     }
   ],
   "not_migrated": [],

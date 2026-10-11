@@ -95,6 +95,24 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `Customer` | VBPA-KUNNR | customer interface field: Customer (unconfirmed) | copy | yes |
 | `Supplier` | VBPA-LIFNR | customer interface field: Supplier (unconfirmed) | copy | yes |
 | `PersonnelNumber` | VBPA-PERNR | customer interface field: PersonnelNumber (unconfirmed) | copy | yes |
+| `AddressNumber` | VBPA-ADRNR | - | information only |  |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
+| `AddressName1` | ADRC-NAME1 | - | copy |  |
+| `AddressName2` | ADRC-NAME2 | - | copy |  |
+| `AddressName3` | ADRC-NAME3 | - | copy |  |
+| `AddressName4` | ADRC-NAME4 | - | copy |  |
+| `AddressStreet` | ADRC-STREET | - | copy |  |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
+| `AddressCity` | ADRC-CITY1 | - | copy |  |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
+| `AddressRegion` | ADRC-REGION | - | copy |  |
+| `AddressLanguage` | ADRC-LANGU | - | copy |  |
+| `HasStandardAddress` | derived: presence of the standard ADRC record | - | information only |  |
 
 ## `ZSDX_C_SalesHeaderStaMig`
 
@@ -144,6 +162,39 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `SubsequentDocumentCategory` | VBFA-VBTYP_N | customer interface field: SubsequentDocumentCategory (unconfirmed) | copy | yes |
 | `PrecedingDocumentCategory` | VBFA-VBTYP_V | customer interface field: PrecedingDocumentCategory (unconfirmed) | copy | yes |
 | `ReferencedQuantity` | VBFA-RFMNG | customer interface field: ReferencedQuantity (unconfirmed) | copy | yes |
+
+## `ZSDX_C_SalesPartnerAddressMig`
+
+- Source: `ZSDX_I_SalesPartnerAddress`
+- Keys: `SalesDocument`, `SalesDocumentItem`, `PartnerFunction`, `AddressValidFrom`, `AddressVersion`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `SalesDocument` | VBPA-VBELN | - | copy |  |
+| `SalesDocumentItem` | VBPA-POSNR | - | copy |  |
+| `PartnerFunction` | VBPA-PARVW | - | copy |  |
+| `AddressNumber` | ADRC-ADDRNUMBER | - | information only |  |
+| `AddressValidFrom` | ADRC-DATE_FROM | - | copy |  |
+| `AddressVersion` | ADRC-NATION | - | copy |  |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
+| `AddressName1` | ADRC-NAME1 | - | copy |  |
+| `AddressName2` | ADRC-NAME2 | - | copy |  |
+| `AddressName3` | ADRC-NAME3 | - | copy |  |
+| `AddressName4` | ADRC-NAME4 | - | copy |  |
+| `AddressStreet` | ADRC-STREET | - | copy |  |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
+| `AddressCity` | ADRC-CITY1 | - | copy |  |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
+| `AddressRegion` | ADRC-REGION | - | copy |  |
+| `AddressLanguage` | ADRC-LANGU | - | copy |  |
 
 ## Reconciliation
 

@@ -61,6 +61,28 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `PlannedQuantity` | AFPO-PSMNG | customer interface field: PlannedQuantity (unconfirmed) | information only | yes |
 | `Unit` | AFPO-MEINS | customer interface field: Unit (unconfirmed) | information only | yes |
 
+## `ZPPX_C_OrderStatusMig`
+
+- Source: `ZPPX_I_OrderStatus`
+- Keys: `ManufacturingOrder`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ManufacturingOrder` | AUFK-AUFNR | - | copy |  |
+| `ObjectNumber` | JEST-OBJNR | - | information only |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## Not delivered
+
+| View | Element | Source | Reason |
+|---|---|---|---|
+| `ZPPX_B_OrderStatusData` | `StatusIsInactive` | JEST-INACT | Selection predicate retains only active source statuses. |
+
 ## Reconciliation
 
 - Counts: `ZPPX_C_ProductionOrdeMigCount` (ECC) vs `ZPPT_I_ProductionOrdeCount` (S/4HANA) per `ManufacturingOrder`

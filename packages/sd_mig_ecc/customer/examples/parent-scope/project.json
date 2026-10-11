@@ -1,0 +1,60 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "Parents": "parents.csv",
+    "Approved": "selected-parents.csv",
+    "Children": "children.csv",
+    "Items": "selected-items.csv"
+  },
+  "steps": [
+    {
+      "name": "SelectedParents",
+      "operation": "selection",
+      "input": "Parents",
+      "parent": "Approved",
+      "child_keys": [
+        "SalesDocument"
+      ],
+      "parent_keys": [
+        "SalesDocument"
+      ]
+    },
+    {
+      "name": "DocumentScoped",
+      "operation": "parent_scope",
+      "input": "Children",
+      "parent": "SelectedParents",
+      "child_keys": [
+        "SalesDocument"
+      ],
+      "parent_keys": [
+        "SalesDocument"
+      ],
+      "parent_identity": [
+        "SalesDocument"
+      ]
+    },
+    {
+      "name": "ScopedChildren",
+      "operation": "document_item_scope",
+      "input": "DocumentScoped",
+      "parent": "Items",
+      "child_keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ],
+      "parent_keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ],
+      "parent_identity": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ]
+    }
+  ],
+  "outputs": [
+    "SelectedParents",
+    "ScopedChildren"
+  ]
+}

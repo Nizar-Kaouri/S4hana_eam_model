@@ -16,7 +16,8 @@
     ],
     "target_export": "target/ZQMX_C_InspectionLotMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_UsageDecisionMig": {
     "module": "inspection_lot",
@@ -32,7 +33,8 @@
     ],
     "target_export": "target/ZQMX_C_UsageDecisionMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_InspectCharactMig": {
     "module": "inspection_result",
@@ -46,7 +48,8 @@
     ],
     "target_export": "target/ZQMX_C_InspectCharactMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_CharacteristicMig": {
     "module": "inspection_result",
@@ -62,7 +65,8 @@
     ],
     "target_export": "target/ZQMX_C_CharacteristicMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_SingleResultMig": {
     "module": "inspection_result",
@@ -78,7 +82,8 @@
     ],
     "target_export": "target/ZQMX_C_SingleResultMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_QualityNotificMig": {
     "module": "quality_notification",
@@ -94,7 +99,8 @@
     ],
     "target_export": "target/ZQMX_C_QualityNotificMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_QualityItemMig": {
     "module": "quality_notification",
@@ -109,7 +115,8 @@
     ],
     "target_export": "target/ZQMX_C_QualityItemMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_QualityCauseMig": {
     "module": "quality_notification",
@@ -125,7 +132,8 @@
     ],
     "target_export": "target/ZQMX_C_QualityCauseMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_QualityTaskMig": {
     "module": "quality_notification",
@@ -140,7 +148,8 @@
     ],
     "target_export": "target/ZQMX_C_QualityTaskMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_QualityActivitMig": {
     "module": "quality_notification",
@@ -155,7 +164,8 @@
     ],
     "target_export": "target/ZQMX_C_QualityActivitMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_InspectPlanHeaMig": {
     "module": "inspection_plan",
@@ -173,7 +183,8 @@
     ],
     "target_export": "target/ZQMX_C_InspectPlanHeaMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_InspectPlanMatMig": {
     "module": "inspection_plan",
@@ -191,7 +202,8 @@
     ],
     "target_export": "target/ZQMX_C_InspectPlanMatMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_InspectPlanSelMig": {
     "module": "inspection_plan",
@@ -209,7 +221,8 @@
     ],
     "target_export": "target/ZQMX_C_InspectPlanSelMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_InspectPlanOpeMig": {
     "module": "inspection_plan",
@@ -227,7 +240,8 @@
     ],
     "target_export": "target/ZQMX_C_InspectPlanOpeMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_PlanCharacteriMig": {
     "module": "inspection_plan",
@@ -245,7 +259,8 @@
     ],
     "target_export": "target/ZQMX_C_PlanCharacteriMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_MasterCharMig": {
     "module": "master_inspection_characteristic",
@@ -261,7 +276,8 @@
     ],
     "target_export": "target/ZQMX_C_MasterCharMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_MasterCharTextMig": {
     "module": "master_inspection_characteristic",
@@ -276,7 +292,8 @@
     ],
     "target_export": "target/ZQMX_C_MasterCharTextMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZQMX_C_SamplingProcMig": {
     "module": "sampling_procedure",
@@ -289,6 +306,51 @@
     ],
     "target_export": "target/ZQMX_C_SamplingProcMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
+  },
+  "ZQMX_C_LotStatusMig": {
+    "module": "inspection_lot",
+    "key": [
+      "InspectionLot",
+      "StatusCode"
+    ],
+    "fields": [
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber"
+    ],
+    "target_export": "target/ZQMX_C_LotStatusMig.csv",
+    "adapter_status": "reference export; not a posting adapter",
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.",
+    "supplementary_source_fields": [
+      "InspectionLot",
+      "ObjectNumber",
+      "StatusCode",
+      "StatusKind",
+      "StatusChangeNumber"
+    ]
+  },
+  "ZQMX_C_NotifStatusMig": {
+    "module": "quality_notification",
+    "key": [
+      "QualityNotification",
+      "StatusCode"
+    ],
+    "fields": [
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber"
+    ],
+    "target_export": "target/ZQMX_C_NotifStatusMig.csv",
+    "adapter_status": "reference export; not a posting adapter",
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.",
+    "supplementary_source_fields": [
+      "QualityNotification",
+      "ObjectNumber",
+      "StatusCode",
+      "StatusKind",
+      "StatusChangeNumber"
+    ]
   }
 }

@@ -18,5 +18,17 @@ define view ZCOX_I_ProfitCenter
   key src.ControllingArea as ControllingArea,
       src.ValidityStartDate as ValidityStartDate,
       src.ResponsiblePerson as ResponsiblePerson,
-      src.Segment as Segment
+      src.Segment as Segment,
+      src.AddressStreet as AddressStreet,
+      src.AddressCity as AddressCity,
+      src.AddressDistrict as AddressDistrict,
+      src.AddressPostalCode as AddressPostalCode,
+      src.AddressCountry as AddressCountry,
+      src.AddressRegion as AddressRegion,
+      src.AddressPOBox as AddressPOBox,
+      src.AddressPOBoxPostalCode as AddressPOBoxPostalCode,
+      src.AddressLanguage as AddressLanguage,
+      src.PhoneNumber1 as PhoneNumber1,
+      src.PhoneNumber2 as PhoneNumber2,
+      src.FaxNumber as FaxNumber
 }

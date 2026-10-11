@@ -6,5 +6,5 @@ Load order derived from `sequence_after`. Objects on the same level can be loade
 
 | Level | Modules | Consumption views read by the load program |
 |---|---|---|
-| 1 | [`pricing_condition`](mapping/pricing_condition.md), [`sales_order`](mapping/sales_order.md) | `ZSDX_C_ConditionHdrMig`, `ZSDX_C_ConditionItemMig`, `ZSDX_C_QuantityScaleMig`, `ZSDX_C_ValueScaleMig`, `ZSDX_C_SalesOrderMig`, `ZSDX_C_SalesItemMig`, `ZSDX_C_SalesScheduleMig`, `ZSDX_C_SalesBusinessMig`, `ZSDX_C_SalesPartnerMig`, `ZSDX_C_SalesHeaderStaMig`, `ZSDX_C_SalesItemStatuMig`, `ZSDX_C_SalesFlowMig` |
-| 2 | [`billing_document`](mapping/billing_document.md), [`outbound_delivery`](mapping/outbound_delivery.md) | `ZSDX_C_BillingMig`, `ZSDX_C_BillingItemMig`, `ZSDX_C_DeliveryMig`, `ZSDX_C_DeliveryItemMig` |
+| 1 | [`pricing_condition`](mapping/pricing_condition.md), [`sales_order`](mapping/sales_order.md) | `ZSDX_C_ConditionHdrMig`, `ZSDX_C_ConditionItemMig`, `ZSDX_C_QuantityScaleMig`, `ZSDX_C_ValueScaleMig`, `ZSDX_C_SalesOrderMig`, `ZSDX_C_SalesItemMig`, `ZSDX_C_SalesScheduleMig`, `ZSDX_C_SalesBusinessMig`, `ZSDX_C_SalesPartnerMig`, `ZSDX_C_SalesHeaderStaMig`, `ZSDX_C_SalesItemStatuMig`, `ZSDX_C_SalesFlowMig`, `ZSDX_C_SalesPartnerAddressMig` |
+| 2 | [`billing_document`](mapping/billing_document.md), [`outbound_delivery`](mapping/outbound_delivery.md) | `ZSDX_C_BillingMig`, `ZSDX_C_BillingItemMig`, `ZSDX_C_BillingPartnerMig`, `ZSDX_C_BillingPartnerAddrMig`, `ZSDX_C_DeliveryMig`, `ZSDX_C_DeliveryItemMig`, `ZSDX_C_DeliveryPartnerMig`, `ZSDX_C_DeliveryPartnerAddrMig` |

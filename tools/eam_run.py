@@ -8,7 +8,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from eam_prepare import aliases, closure, cohort, identity, join, snapshot, unique, write_csv
+from eam_prepare import aliases, closure, cohort, document_item_scope, identity, join, parent_scope, snapshot, unique, write_csv
 from mig_reconcile import CsvRows, InputError, read_csv, require
 
 
@@ -42,6 +42,13 @@ def run(project_path, output_path):
             rows = cohort(source, datasets[step["parent"]], step["child_keys"], step["parent_keys"])
         elif op == "cohort":
             rows = cohort(source, datasets[step["parent"]], step["child_keys"], step["parent_keys"])
+        elif op == "parent_scope":
+            rows = parent_scope(source, datasets[step["parent"]], step["child_keys"],
+                                step["parent_keys"], step["parent_identity"])
+        elif op == "document_item_scope":
+            rows = document_item_scope(source, datasets[step["parent"]], step["child_keys"],
+                                       step["parent_keys"], step["parent_identity"],
+                                       step.get("header_item_value", "000000"))
         elif op == "join":
             rows = join(source, datasets[step["parent"]], step["child_keys"], step["parent_keys"], step["fields"])
             columns = columns + list(step["fields"])

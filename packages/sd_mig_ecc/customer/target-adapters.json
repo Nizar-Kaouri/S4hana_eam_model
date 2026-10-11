@@ -14,7 +14,8 @@
     ],
     "target_export": "target/ZSDX_C_SalesOrderMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_SalesItemMig": {
     "module": "sales_order",
@@ -31,7 +32,8 @@
     ],
     "target_export": "target/ZSDX_C_SalesItemMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_SalesScheduleMig": {
     "module": "sales_order",
@@ -47,7 +49,8 @@
     ],
     "target_export": "target/ZSDX_C_SalesScheduleMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_SalesBusinessMig": {
     "module": "sales_order",
@@ -63,7 +66,8 @@
     ],
     "target_export": "target/ZSDX_C_SalesBusinessMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_SalesPartnerMig": {
     "module": "sales_order",
@@ -79,7 +83,27 @@
     ],
     "target_export": "target/ZSDX_C_SalesPartnerMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": [
+      "AddressNumber",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage",
+      "HasStandardAddress"
+    ]
   },
   "ZSDX_C_SalesHeaderStaMig": {
     "module": "sales_order",
@@ -93,7 +117,8 @@
     ],
     "target_export": "target/ZSDX_C_SalesHeaderStaMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_SalesItemStatuMig": {
     "module": "sales_order",
@@ -108,7 +133,8 @@
     ],
     "target_export": "target/ZSDX_C_SalesItemStatuMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_SalesFlowMig": {
     "module": "sales_order",
@@ -125,7 +151,8 @@
     ],
     "target_export": "target/ZSDX_C_SalesFlowMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_DeliveryMig": {
     "module": "outbound_delivery",
@@ -141,7 +168,8 @@
     ],
     "target_export": "target/ZSDX_C_DeliveryMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_DeliveryItemMig": {
     "module": "outbound_delivery",
@@ -160,7 +188,8 @@
     ],
     "target_export": "target/ZSDX_C_DeliveryItemMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_BillingMig": {
     "module": "billing_document",
@@ -176,7 +205,8 @@
     ],
     "target_export": "target/ZSDX_C_BillingMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_BillingItemMig": {
     "module": "billing_document",
@@ -194,7 +224,8 @@
     ],
     "target_export": "target/ZSDX_C_BillingItemMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_ConditionHdrMig": {
     "module": "pricing_condition",
@@ -211,7 +242,8 @@
     ],
     "target_export": "target/ZSDX_C_ConditionHdrMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_ConditionItemMig": {
     "module": "pricing_condition",
@@ -229,7 +261,8 @@
     ],
     "target_export": "target/ZSDX_C_ConditionItemMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_QuantityScaleMig": {
     "module": "pricing_condition",
@@ -244,7 +277,8 @@
     ],
     "target_export": "target/ZSDX_C_QuantityScaleMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZSDX_C_ValueScaleMig": {
     "module": "pricing_condition",
@@ -259,6 +293,171 @@
     ],
     "target_export": "target/ZSDX_C_ValueScaleMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
+  },
+  "ZSDX_C_BillingPartnerMig": {
+    "module": "billing_document",
+    "key": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction"
+    ],
+    "fields": [
+      "Customer",
+      "Supplier",
+      "PersonnelNumber",
+      "AddressNumber",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage",
+      "HasStandardAddress"
+    ],
+    "target_export": "target/ZSDX_C_BillingPartnerMig.csv",
+    "adapter_status": "customer-selected supported business interface; address versions reference only",
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+  },
+  "ZSDX_C_BillingPartnerAddrMig": {
+    "module": "billing_document",
+    "key": [
+      "BillingDocument",
+      "BillingDocumentItem",
+      "PartnerFunction",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "fields": [
+      "AddressNumber",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage"
+    ],
+    "target_export": "target/ZSDX_C_BillingPartnerAddrMig.csv",
+    "adapter_status": "customer-selected supported business interface; address versions reference only",
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+  },
+  "ZSDX_C_DeliveryPartnerMig": {
+    "module": "outbound_delivery",
+    "key": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction"
+    ],
+    "fields": [
+      "Customer",
+      "Supplier",
+      "PersonnelNumber",
+      "AddressNumber",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage",
+      "HasStandardAddress"
+    ],
+    "target_export": "target/ZSDX_C_DeliveryPartnerMig.csv",
+    "adapter_status": "customer-selected supported business interface; address versions reference only",
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+  },
+  "ZSDX_C_DeliveryPartnerAddrMig": {
+    "module": "outbound_delivery",
+    "key": [
+      "DeliveryDocument",
+      "DeliveryDocumentItem",
+      "PartnerFunction",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "fields": [
+      "AddressNumber",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage"
+    ],
+    "target_export": "target/ZSDX_C_DeliveryPartnerAddrMig.csv",
+    "adapter_status": "customer-selected supported business interface; address versions reference only",
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+  },
+  "ZSDX_C_SalesPartnerAddressMig": {
+    "module": "sales_order",
+    "key": [
+      "SalesDocument",
+      "SalesDocumentItem",
+      "PartnerFunction",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "fields": [
+      "AddressNumber",
+      "AddressValidTo",
+      "AddressName1",
+      "AddressName2",
+      "AddressName3",
+      "AddressName4",
+      "AddressStreet",
+      "AddressHouseNumber",
+      "AddressHouseNumberSupplement",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressLanguage"
+    ],
+    "target_export": "target/ZSDX_C_SalesPartnerAddressMig.csv",
+    "adapter_status": "customer-selected supported business interface; address versions reference only",
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
   }
 }

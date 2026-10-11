@@ -29,13 +29,16 @@
     ],
     "composite": [
       "ZEMX_I_FuncLoc",
-      "ZEMX_I_FuncLocLabel"
+      "ZEMX_I_FuncLocLabel",
+      "ZEMX_I_FuncLocAddress",
+      "ZEMX_I_FuncLocText"
     ],
     "consumption": [
       "ZEMX_C_FuncLocMig",
       "ZEMX_C_FuncLocTextMig",
       "ZEMX_C_FuncLocMigCount",
-      "ZEMX_C_FuncLocLabelMig"
+      "ZEMX_C_FuncLocLabelMig",
+      "ZEMX_C_FuncLocAddressMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -50,7 +53,10 @@
     "ZEMX_C_FuncLocMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_B_FuncLocLabelData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_FuncLocLabel": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_C_FuncLocLabelMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_C_FuncLocLabelMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_FuncLocAddress": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_FuncLocAddressMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_FuncLocText": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

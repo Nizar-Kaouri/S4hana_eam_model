@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Description | SalesPartnerData |
-| Module | `sales_order` |
+| Module | `address` |
 | Batch | 1 |
 | Layer | basic (`@VDM.viewType: #BASIC`) |
 | Kind | view |

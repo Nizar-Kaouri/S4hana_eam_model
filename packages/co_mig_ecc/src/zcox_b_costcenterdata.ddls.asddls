@@ -21,5 +21,17 @@ define view ZCOX_B_CostCenterData
       src.bukrs as CompanyCode,
       src.prctr as ProfitCenter,
       src.kosar as CostCenterCategory,
-      src.verak as ResponsiblePerson
+      src.verak as ResponsiblePerson,
+      src.stras as AddressStreet,
+      src.ort01 as AddressCity,
+      src.ort02 as AddressDistrict,
+      src.pstlz as AddressPostalCode,
+      src.land1 as AddressCountry,
+      src.regio as AddressRegion,
+      src.pfach as AddressPOBox,
+      src.pstl2 as AddressPOBoxPostalCode,
+      src.spras as AddressLanguage,
+      src.telf1 as PhoneNumber1,
+      src.telf2 as PhoneNumber2,
+      src.telfx as FaxNumber
 }

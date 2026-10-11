@@ -7,7 +7,7 @@ Version 1.0.0
 | budget | 7 |
 | commitment | 4 |
 | investment_measure | 10 |
-| network | 13 |
-| project | 4 |
+| network | 16 |
+| project | 7 |
 | project_cost | 4 |
-| wbs_element | 7 |
+| wbs_element | 10 |

@@ -67,6 +67,90 @@
           "target": "customer interface field: Segment (unconfirmed)",
           "rule": "copy",
           "compare": true
+        },
+        {
+          "element": "AddressStreet",
+          "source": "CEPC-STRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCity",
+          "source": "CEPC-ORT01",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "CEPC-ORT02",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "CEPC-PSTLZ",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressCountry",
+          "source": "CEPC-LAND1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressRegion",
+          "source": "CEPC-REGIO",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "CEPC-PFACH",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "CEPC-PSTL2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "CEPC-SPRAS",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PhoneNumber1",
+          "source": "CEPC-TELF1",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "PhoneNumber2",
+          "source": "CEPC-TELF2",
+          "target": "",
+          "rule": "copy",
+          "compare": false
+        },
+        {
+          "element": "FaxNumber",
+          "source": "CEPC-TELFX",
+          "target": "",
+          "rule": "copy",
+          "compare": false
         }
       ],
       "delivery_mode": "master",

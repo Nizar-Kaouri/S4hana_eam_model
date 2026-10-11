@@ -4,7 +4,7 @@ Standing project requirement: follow SAP documented best practices for every cha
 
 - Keep native tables -> B (Basic) -> I (Interface/Composite) -> C (Consumption).
 - Preserve business grain and complete keys. A declared to-one cardinality must be supported by the join predicates and actual source uniqueness.
-- Keep repeating texts, partners and statuses as child structures; align their Equipment scope with the master extract.
+- Keep repeating texts, partners and statuses as child structures; align their selected business-object scope with the master extract.
 - Use supported SAP business interfaces for posting; never write application tables directly or replay system statuses.
 - Retain source/target key mapping and SAP-generated address/object identities.
 - Do not label arbitrary custom architecture as SAP certified or claim unconfirmed target template fields.

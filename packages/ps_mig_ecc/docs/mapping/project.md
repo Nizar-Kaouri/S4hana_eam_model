@@ -26,6 +26,28 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ControllingArea` | PROJ-VKOKR | customer interface field: ControllingArea (unconfirmed) | copy | yes |
 | `ObjectNumber` | PROJ-OBJNR | customer interface field: ObjectNumber (unconfirmed) | copy | yes |
 
+## `ZPSX_C_ProjectStatusMig`
+
+- Source: `ZPSX_I_ProjectStatus`
+- Keys: `ProjectInternalID`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ProjectInternalID` | PROJ-PSPNR | - | copy |  |
+| `ObjectNumber` | JEST-OBJNR | - | information only |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## Not delivered
+
+| View | Element | Source | Reason |
+|---|---|---|---|
+| `ZPSX_B_ProjectStatusData` | `StatusIsInactive` | JEST-INACT | Selection predicate retains only active source statuses. |
+
 ## Reconciliation
 
 - Counts: `ZPSX_C_ProjectMigCount` (ECC) vs `ZPST_I_ProjectCount` (S/4HANA) per `ProjectInternalID`

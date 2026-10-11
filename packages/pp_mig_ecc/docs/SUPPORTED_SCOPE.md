@@ -6,7 +6,7 @@ ModuPorter Production Planning version 1.0.0.
 |---|---|---:|
 | Material bills of material | bill_of_material | 4 |
 | Production confirmations | production_confirmation | 1 |
-| Production orders | production_order | 3 |
+| Production orders | production_order | 4 |
 | Production order operations | production_order_operation | 3 |
 | Production versions | production_version | 1 |
 | Routing reference | routing | 5 |
@@ -25,7 +25,7 @@ Production Planning has 6 modules and 17 extraction structures.
 |---|---|---|---|
 | Production confirmations | production_confirmation | 1 | process-reference |
 | Production versions | production_version | 1 | effectivity-reference |
-| Production orders | production_order | 3 | process-reference |
+| Production orders | production_order | 4 | process-reference |
 | Production order operations | production_order_operation | 3 | process-reference |
 | Material bills of material | bill_of_material | 4 | effectivity-reference |
 | Routing reference | routing | 5 | effectivity-reference |
@@ -45,3 +45,5 @@ Verify production-version validity, lot-size ranges, lock/check status and the e
 ### Production confirmations (`production_confirmation`)
 
 Preserve confirmation/counter identity and reversal relationships; do not delete reversals and assume the remaining history is net yield. Target order/operation mapping and posting periods must be approved. Reposting confirmations can trigger backflush, goods movements, activity allocations and accounting; confirmation history is reference-only unless a supported process migration explicitly authorizes those effects.
+
+Master and child preparation follows MASTER_CHILD_ARCHITECTURE.md; full source keys and selected parent populations are preserved.

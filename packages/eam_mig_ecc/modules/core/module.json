@@ -12,7 +12,8 @@
   "sap_tables": [
     "ILOA",
     "JEST",
-    "CABN"
+    "CABN",
+    "ADRC"
   ],
   "sap_released_views": [],
   "hard_dependencies": [],
@@ -24,7 +25,8 @@
       "ZEMX_B_StatusNotifCompleted",
       "ZEMX_B_StatusTechCompleted",
       "ZEMX_B_StatusClosed",
-      "ZEMX_B_Characteristic"
+      "ZEMX_B_Characteristic",
+      "ZEMX_B_Address"
     ],
     "composite": [],
     "consumption": [],
@@ -38,7 +40,8 @@
     "ZEMX_B_StatusNotifCompleted": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_B_StatusTechCompleted": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_B_StatusClosed": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_B_Characteristic": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_B_Characteristic": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_Address": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

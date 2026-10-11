@@ -10,6 +10,7 @@
     "master"
   ],
   "sap_tables": [
+    "JEST",
     "PRHI",
     "PRPS"
   ],
@@ -21,16 +22,19 @@
     "tables": [],
     "basic": [
       "ZPSX_B_WBSData",
-      "ZPSX_B_WBSHierarchyData"
+      "ZPSX_B_WBSHierarchyData",
+      "ZPSX_B_WBSStatusData"
     ],
     "composite": [
       "ZPSX_I_WBS",
-      "ZPSX_I_WBSHierarchy"
+      "ZPSX_I_WBSHierarchy",
+      "ZPSX_I_WBSStatus"
     ],
     "consumption": [
       "ZPSX_C_WBSMig",
       "ZPSX_C_WBSMigCount",
-      "ZPSX_C_WBSHierarchyMig"
+      "ZPSX_C_WBSHierarchyMig",
+      "ZPSX_C_WBSStatusMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -43,7 +47,10 @@
     "ZPSX_C_WBSMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_B_WBSHierarchyData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_I_WBSHierarchy": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPSX_C_WBSHierarchyMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZPSX_C_WBSHierarchyMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_WBSStatusData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_WBSStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_WBSStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

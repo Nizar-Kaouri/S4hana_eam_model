@@ -129,7 +129,12 @@ class BuildMigrationTest(unittest.TestCase):
             shipped = {o['name'] for o in manifest['objects']}
             self.assertTrue(set(scopes) <= shipped)
             project = json.loads(zf.read('customer/contracts/customer-cohort-project.json'))
-            self.assertTrue(all(s['input'] in shipped for s in project['steps']))
+            available = set(project['inputs'])
+            for step in project['steps']:
+                self.assertIn(step['input'], available)
+                if step.get('parent'): self.assertIn(step['parent'], available)
+                available.add(step['name'])
+            self.assertTrue(set(project['outputs']) <= available)
         result = subprocess.run([sys.executable, 'tools/eam_run.py', '--project', 'customer/examples/workflow.json', '--out', 'example-results'], cwd=delivery, capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertTrue((delivery / 'example-results/PREPARATION_AUDIT.json').exists())

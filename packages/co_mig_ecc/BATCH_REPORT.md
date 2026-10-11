@@ -8,6 +8,6 @@ Version 1.0.0
 | cost_actuals | 4 |
 | cost_center | 7 |
 | cost_element | 7 |
-| internal_order | 7 |
+| internal_order | 10 |
 | planning | 7 |
 | profit_center | 7 |

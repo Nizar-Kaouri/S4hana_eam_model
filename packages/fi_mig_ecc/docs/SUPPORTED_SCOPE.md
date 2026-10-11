@@ -4,13 +4,13 @@ ModuPorter Financial Accounting version 1.0.0.
 
 | Module | ID | Extraction structures |
 |---|---|---:|
-| Bank master | bank | 1 |
-| Customer source data | customer | 3 |
+| Bank master | bank | 2 |
+| Customer source data | customer | 4 |
 | G/L accounts | gl_account | 3 |
 | Accounting document history | gl_line_item | 2 |
 | Dedicated G/L opening balances | gl_opening_balance | 2 |
 | Current and cleared item indexes | open_items | 6 |
-| Supplier source data | supplier | 3 |
+| Supplier source data | supplier | 4 |
 
 ## Delivery boundaries
 
@@ -25,10 +25,10 @@ Financial Accounting has 7 modules and 20 extraction structures.
 | Module | ID | Structures | Delivery mode |
 |---|---|---|---|
 | Dedicated G/L opening balances | gl_opening_balance | 2 | balance |
-| Bank master | bank | 1 | master |
+| Bank master | bank | 2 | master |
 | G/L accounts | gl_account | 3 | master |
-| Supplier source data | supplier | 3 | master |
-| Customer source data | customer | 3 | master |
+| Supplier source data | supplier | 4 | master |
+| Customer source data | customer | 4 | master |
 | Accounting document history | gl_line_item | 2 | reference |
 | Current and cleared item indexes | open_items | 6 | open-item |
 
@@ -47,3 +47,5 @@ Bank country and key identify the bank; preserve country-specific key formats an
 ### Dedicated G/L opening balances (`gl_opening_balance`)
 
 Choose classic OR new G/L for each ledger population; do not union both. DDIC must confirm all ledger dimensions and include any additional keys. Period 00 is carryforward, not period 01; calculate cutoff totals from the approved fiscal-year/period contract, including special periods only as intended. Enrich currency types from ledger/company configuration and classify accounts from SKB1. Exclude balances already supplied by FI-AA/AP/AR/open-item migration; reconcile migration clearing accounts to zero. No automatic totals-to-posting transformation is supplied.
+
+Master and child preparation follows MASTER_CHILD_ARCHITECTURE.md; full source keys and selected parent populations are preserved.

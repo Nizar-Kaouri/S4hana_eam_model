@@ -1,0 +1,101 @@
+{
+  "ZPSX_C_ProjectStatusMig": {
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSStatusMig": {
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkStatusMig": {
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_WBSMig": {
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSHierarchyMig": {
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkPlanMig": {
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkActivitMig": {
+    "parent": "ZPSX_C_NetworkPlanMig",
+    "child_keys": [
+      "RoutingNumber"
+    ],
+    "parent_keys": [
+      "RoutingNumber"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkQuantitMig": {
+    "parent": "ZPSX_C_NetworkActivitMig",
+    "child_keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_identity": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ]
+  }
+}

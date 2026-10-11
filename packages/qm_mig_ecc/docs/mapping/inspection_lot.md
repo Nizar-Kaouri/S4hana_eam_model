@@ -46,6 +46,28 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `UsageDecisionCodeGroup` | QAVE-VCODEGRP | customer interface field: UsageDecisionCodeGroup (unconfirmed) | information only | yes |
 | `UsageDecisionDate` | QAVE-VDATUM | customer interface field: UsageDecisionDate (unconfirmed) | information only | yes |
 
+## `ZQMX_C_LotStatusMig`
+
+- Source: `ZQMX_I_LotStatus`
+- Keys: `InspectionLot`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `InspectionLot` | QALS-PRUEFLOS | - | copy |  |
+| `ObjectNumber` | JEST-OBJNR | - | information only |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## Not delivered
+
+| View | Element | Source | Reason |
+|---|---|---|---|
+| `ZQMX_B_LotStatusData` | `StatusIsInactive` | JEST-INACT | Selection predicate retains only active source statuses. |
+
 ## Reconciliation
 
 - Counts: `ZQMX_C_InspectionLotMigCount` (ECC) vs `ZQMT_I_InspectionLotCount` (S/4HANA) per `InspectionLot`

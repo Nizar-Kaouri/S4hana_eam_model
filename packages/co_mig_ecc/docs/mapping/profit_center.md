@@ -25,6 +25,18 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ValidityStartDate` | CEPC-DATAB | customer interface field: ValidityStartDate (unconfirmed) | copy | yes |
 | `ResponsiblePerson` | CEPC-VERAK | customer interface field: ResponsiblePerson (unconfirmed) | copy | yes |
 | `Segment` | CEPC-SEGMENT | customer interface field: Segment (unconfirmed) | copy | yes |
+| `AddressStreet` | CEPC-STRAS | - | copy |  |
+| `AddressCity` | CEPC-ORT01 | - | copy |  |
+| `AddressDistrict` | CEPC-ORT02 | - | copy |  |
+| `AddressPostalCode` | CEPC-PSTLZ | - | copy |  |
+| `AddressCountry` | CEPC-LAND1 | - | copy |  |
+| `AddressRegion` | CEPC-REGIO | - | copy |  |
+| `AddressPOBox` | CEPC-PFACH | - | copy |  |
+| `AddressPOBoxPostalCode` | CEPC-PSTL2 | - | copy |  |
+| `AddressLanguage` | CEPC-SPRAS | - | copy |  |
+| `PhoneNumber1` | CEPC-TELF1 | - | copy |  |
+| `PhoneNumber2` | CEPC-TELF2 | - | copy |  |
+| `FaxNumber` | CEPC-TELFX | - | copy |  |
 
 ## `ZCOX_C_ProfitCenterTeMig`
 

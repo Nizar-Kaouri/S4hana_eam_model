@@ -15,7 +15,8 @@
   ],
   "sap_released_views": [],
   "hard_dependencies": [
-    "core"
+    "core",
+    "measuring_point"
   ],
   "objects": {
     "tables": [],

@@ -99,6 +99,39 @@ def cohort(rows, parents, child_columns, parent_columns):
     return [r for r in rows if identity(r, child_columns) in allowed]
 
 
+def parent_scope(rows, parents, child_columns, parent_columns, parent_identity):
+    """Scope children by references while validating the parent's full identity.
+
+    Different parent intervals/states may intentionally carry the same reference.
+    This projects a reference set; it never deduplicates parent or child payloads.
+    """
+    if len(child_columns) != len(parent_columns) or not child_columns:
+        raise InputError("parent_scope requires equal, nonempty reference key lists")
+    if not parent_identity:
+        raise InputError("parent_scope requires the parent's complete identity")
+    unique(parents, parent_identity, "prepared parent")
+    require(parents, parent_columns, "parent references")
+    require(rows, child_columns, "child references")
+    allowed = {identity(r, parent_columns) for r in parents}
+    return [r for r in rows if identity(r, child_columns) in allowed]
+
+
+def document_item_scope(rows, items, child_columns, parent_columns, parent_identity,
+                        header_item_value="000000"):
+    """Keep document header records or records belonging to a selected item.
+
+    Apply the document master scope first. The SAP header sentinel is not an item.
+    """
+    if len(child_columns) != 2 or len(parent_columns) != 2:
+        raise InputError("document_item_scope requires document and item key pairs")
+    unique(items, parent_identity, "prepared document items")
+    require(items, parent_columns, "document items")
+    require(rows, child_columns, "document child")
+    allowed = {identity(r, parent_columns) for r in items}
+    return [r for r in rows if r[child_columns[1]] == header_item_value
+            or identity(r, child_columns) in allowed]
+
+
 def join(rows, parents, child_columns, parent_columns, fields):
     """Many-to-one enrichment; reject orphan rows rather than silently losing them."""
     if len(child_columns) != len(parent_columns) or not child_columns:

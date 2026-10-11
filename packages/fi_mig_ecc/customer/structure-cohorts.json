@@ -20,7 +20,21 @@
     ],
     "selection": "selection/ZFIX_C_GLAccountTextMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZFIX_C_GLAccountMig",
+    "child_keys": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "parent_keys": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "parent_identity": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "kind": "child"
   },
   "ZFIX_C_GLCompanyMig": {
     "module": "gl_account",
@@ -52,7 +66,18 @@
     ],
     "selection": "selection/ZFIX_C_SupplierCompanMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ],
+    "kind": "child"
   },
   "ZFIX_C_SupplierPurchaMig": {
     "module": "supplier",
@@ -63,7 +88,18 @@
     ],
     "selection": "selection/ZFIX_C_SupplierPurchaMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ],
+    "kind": "child"
   },
   "ZFIX_C_CustomerMig": {
     "module": "customer",
@@ -84,7 +120,18 @@
     ],
     "selection": "selection/ZFIX_C_CustomerCompanMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ],
+    "kind": "child"
   },
   "ZFIX_C_CustomerSalesMig": {
     "module": "customer",
@@ -97,7 +144,18 @@
     ],
     "selection": "selection/ZFIX_C_CustomerSalesMig.csv",
     "requires_business_approval": true,
-    "mode": "master"
+    "mode": "master",
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ],
+    "kind": "child"
   },
   "ZFIX_C_AccountingHeadMig": {
     "module": "gl_line_item",
@@ -122,7 +180,24 @@
     ],
     "selection": "selection/ZFIX_C_AccountingItemMig.csv",
     "requires_business_approval": true,
-    "mode": "reference"
+    "mode": "reference",
+    "parent": "ZFIX_C_AccountingHeadMig",
+    "child_keys": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "AccountingDocument",
+      "FiscalYear"
+    ],
+    "kind": "child"
   },
   "ZFIX_C_GLOpenMig": {
     "module": "open_items",
@@ -291,5 +366,78 @@
     "selection": "selection/ZFIX_C_NewGLBalanceMig.csv",
     "requires_business_approval": true,
     "mode": "balance"
+  },
+  "ZFIX_C_BankAddressMig": {
+    "module": "bank",
+    "table": "ADRC",
+    "keys": [
+      "BankCountry",
+      "BankKey",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "selection": "selection/ZFIX_C_BankAddressMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZFIX_C_BankMig",
+    "child_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_keys": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "parent_identity": [
+      "BankCountry",
+      "BankKey"
+    ],
+    "kind": "child"
+  },
+  "ZFIX_C_CustomerAddressMig": {
+    "module": "customer",
+    "table": "ADRC",
+    "keys": [
+      "Customer",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "selection": "selection/ZFIX_C_CustomerAddressMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZFIX_C_CustomerMig",
+    "child_keys": [
+      "Customer"
+    ],
+    "parent_keys": [
+      "Customer"
+    ],
+    "parent_identity": [
+      "Customer"
+    ],
+    "kind": "child"
+  },
+  "ZFIX_C_SupplierAddressMig": {
+    "module": "supplier",
+    "table": "ADRC",
+    "keys": [
+      "Supplier",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "selection": "selection/ZFIX_C_SupplierAddressMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZFIX_C_SupplierMig",
+    "child_keys": [
+      "Supplier"
+    ],
+    "parent_keys": [
+      "Supplier"
+    ],
+    "parent_identity": [
+      "Supplier"
+    ],
+    "kind": "child"
   }
 }

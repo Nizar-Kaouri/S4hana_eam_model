@@ -48,10 +48,28 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `FixedAsset` | ILOA-ANLUN | ILOA-ANLUN | copy |  |
 | `StandingOrder` | ILOA-DAUFN | - | derived: follow-up step after the order load |  |
 | `LastChangeDate` | IFLOT-AEDAT | - | information only |  |
+| `AddressNumber` | ILOA-ADRNR | - | information only |  |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
+| `AddressName1` | ADRC-NAME1 | - | copy |  |
+| `AddressName2` | ADRC-NAME2 | - | copy |  |
+| `AddressName3` | ADRC-NAME3 | - | copy |  |
+| `AddressName4` | ADRC-NAME4 | - | copy |  |
+| `AddressStreet` | ADRC-STREET | - | copy |  |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
+| `AddressCity` | ADRC-CITY1 | - | copy |  |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
+| `AddressRegion` | ADRC-REGION | - | copy |  |
+| `AddressLanguage` | ADRC-LANGU | - | copy |  |
+| `HasStandardAddress` | derived: presence of the standard ADRC record | - | information only |  |
 
 ## `ZEMX_C_FuncLocTextMig`
 
-- Source: `ZEMX_B_FuncLocDesc`
+- Source: `ZEMX_I_FuncLocText`
 - Keys: `FunctionalLocation`, `Language`
 - Scope: `_FuncLoc.IsMarkedForDeletion = ''`
 
@@ -74,6 +92,37 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AlternativeLabel` | IFLOS-STRNO | IFLOS-STRNO | copy |  |
 | `IsActiveLabel` | IFLOS-ACTVS | IFLOS-ACTVS | copy |  |
 
+## `ZEMX_C_FuncLocAddressMig`
+
+- Source: `ZEMX_I_FuncLocAddress`
+- Keys: `FunctionalLocation`, `AddressValidFrom`, `AddressVersion`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `FunctionalLocation` | IFLOT-TPLNR | - | copy |  |
+| `AddressNumber` | ADRC-ADDRNUMBER | - | information only |  |
+| `AddressValidFrom` | ADRC-DATE_FROM | - | copy |  |
+| `AddressVersion` | ADRC-NATION | - | copy |  |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
+| `AddressName1` | ADRC-NAME1 | - | copy |  |
+| `AddressName2` | ADRC-NAME2 | - | copy |  |
+| `AddressName3` | ADRC-NAME3 | - | copy |  |
+| `AddressName4` | ADRC-NAME4 | - | copy |  |
+| `AddressStreet` | ADRC-STREET | - | copy |  |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
+| `AddressCity` | ADRC-CITY1 | - | copy |  |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
+| `AddressRegion` | ADRC-REGION | - | copy |  |
+| `AddressLanguage` | ADRC-LANGU | - | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |
@@ -82,7 +131,6 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_FuncLoc` | `IsMarkedForDeletion` | derived: case fl._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_FuncLoc` | `CreationDate` | IFLOT-ERDAT | information only |
 | `ZEMX_I_FuncLoc` | `CreatedByUser` | IFLOT-ERNAM | information only |
-| `ZEMX_B_FuncLocDesc` | `HasLongText` | IFLOTX-KZLTX | information only |
 
 ## Reconciliation
 

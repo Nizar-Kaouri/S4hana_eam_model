@@ -40,9 +40,170 @@
     "ZFIX_C_ClassicBalanceMig": "exports/ZFIX_C_ClassicBalanceMig.csv",
     "ZFIX_C_ClassicBalanceMig_Scope": "selection/ZFIX_C_ClassicBalanceMig.csv",
     "ZFIX_C_NewGLBalanceMig": "exports/ZFIX_C_NewGLBalanceMig.csv",
-    "ZFIX_C_NewGLBalanceMig_Scope": "selection/ZFIX_C_NewGLBalanceMig.csv"
+    "ZFIX_C_NewGLBalanceMig_Scope": "selection/ZFIX_C_NewGLBalanceMig.csv",
+    "ZFIX_C_BankAddressMig": "exports/ZFIX_C_BankAddressMig.csv",
+    "ZFIX_C_BankAddressMig_Scope": "selection/ZFIX_C_BankAddressMig.csv",
+    "ZFIX_C_CustomerAddressMig": "exports/ZFIX_C_CustomerAddressMig.csv",
+    "ZFIX_C_CustomerAddressMig_Scope": "selection/ZFIX_C_CustomerAddressMig.csv",
+    "ZFIX_C_SupplierAddressMig": "exports/ZFIX_C_SupplierAddressMig.csv",
+    "ZFIX_C_SupplierAddressMig_Scope": "selection/ZFIX_C_SupplierAddressMig.csv"
   },
   "steps": [
+    {
+      "name": "ZFIX_C_BankMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_BankMig",
+      "parent": "ZFIX_C_BankMig_Scope",
+      "child_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZFIX_C_BankAddressMig",
+      "parent": "ZFIX_C_BankAddressMig_Scope",
+      "child_keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "name": "ZFIX_C_BankAddressMig_Selected"
+    },
+    {
+      "name": "ZFIX_C_BankAddressMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_BankAddressMig_Selected",
+      "parent": "ZFIX_C_BankMig_Prepared",
+      "child_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_keys": [
+        "BankCountry",
+        "BankKey"
+      ],
+      "parent_identity": [
+        "BankCountry",
+        "BankKey"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerMig",
+      "parent": "ZFIX_C_CustomerMig_Scope",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerCompanMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerCompanMig",
+      "parent": "ZFIX_C_CustomerCompanMig_Scope",
+      "child_keys": [
+        "Customer",
+        "CompanyCode"
+      ],
+      "parent_keys": [
+        "Customer",
+        "CompanyCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerCompanMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerCompanMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerSalesMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerSalesMig",
+      "parent": "ZFIX_C_CustomerSalesMig_Scope",
+      "child_keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ],
+      "parent_keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ]
+    },
+    {
+      "name": "ZFIX_C_CustomerSalesMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerSalesMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZFIX_C_CustomerAddressMig",
+      "parent": "ZFIX_C_CustomerAddressMig_Scope",
+      "child_keys": [
+        "Customer",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "parent_keys": [
+        "Customer",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "name": "ZFIX_C_CustomerAddressMig_Selected"
+    },
+    {
+      "name": "ZFIX_C_CustomerAddressMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_CustomerAddressMig_Selected",
+      "parent": "ZFIX_C_CustomerMig_Prepared",
+      "child_keys": [
+        "Customer"
+      ],
+      "parent_keys": [
+        "Customer"
+      ],
+      "parent_identity": [
+        "Customer"
+      ]
+    },
     {
       "name": "ZFIX_C_GLAccountMig_Prepared",
       "operation": "selection",
@@ -58,7 +219,7 @@
       ]
     },
     {
-      "name": "ZFIX_C_GLAccountTextMig_Prepared",
+      "name": "ZFIX_C_GLAccountTextMig_Selected",
       "operation": "selection",
       "input": "ZFIX_C_GLAccountTextMig",
       "parent": "ZFIX_C_GLAccountTextMig_Scope",
@@ -69,6 +230,24 @@
       ],
       "parent_keys": [
         "Language",
+        "ChartOfAccounts",
+        "GLAccount"
+      ]
+    },
+    {
+      "name": "ZFIX_C_GLAccountTextMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_GLAccountTextMig_Selected",
+      "parent": "ZFIX_C_GLAccountMig_Prepared",
+      "child_keys": [
+        "ChartOfAccounts",
+        "GLAccount"
+      ],
+      "parent_keys": [
+        "ChartOfAccounts",
+        "GLAccount"
+      ],
+      "parent_identity": [
         "ChartOfAccounts",
         "GLAccount"
       ]
@@ -88,90 +267,6 @@
       ]
     },
     {
-      "name": "ZFIX_C_SupplierMig_Prepared",
-      "operation": "selection",
-      "input": "ZFIX_C_SupplierMig",
-      "parent": "ZFIX_C_SupplierMig_Scope",
-      "child_keys": [
-        "Supplier"
-      ],
-      "parent_keys": [
-        "Supplier"
-      ]
-    },
-    {
-      "name": "ZFIX_C_SupplierCompanMig_Prepared",
-      "operation": "selection",
-      "input": "ZFIX_C_SupplierCompanMig",
-      "parent": "ZFIX_C_SupplierCompanMig_Scope",
-      "child_keys": [
-        "Supplier",
-        "CompanyCode"
-      ],
-      "parent_keys": [
-        "Supplier",
-        "CompanyCode"
-      ]
-    },
-    {
-      "name": "ZFIX_C_SupplierPurchaMig_Prepared",
-      "operation": "selection",
-      "input": "ZFIX_C_SupplierPurchaMig",
-      "parent": "ZFIX_C_SupplierPurchaMig_Scope",
-      "child_keys": [
-        "Supplier",
-        "PurchasingOrganization"
-      ],
-      "parent_keys": [
-        "Supplier",
-        "PurchasingOrganization"
-      ]
-    },
-    {
-      "name": "ZFIX_C_CustomerMig_Prepared",
-      "operation": "selection",
-      "input": "ZFIX_C_CustomerMig",
-      "parent": "ZFIX_C_CustomerMig_Scope",
-      "child_keys": [
-        "Customer"
-      ],
-      "parent_keys": [
-        "Customer"
-      ]
-    },
-    {
-      "name": "ZFIX_C_CustomerCompanMig_Prepared",
-      "operation": "selection",
-      "input": "ZFIX_C_CustomerCompanMig",
-      "parent": "ZFIX_C_CustomerCompanMig_Scope",
-      "child_keys": [
-        "Customer",
-        "CompanyCode"
-      ],
-      "parent_keys": [
-        "Customer",
-        "CompanyCode"
-      ]
-    },
-    {
-      "name": "ZFIX_C_CustomerSalesMig_Prepared",
-      "operation": "selection",
-      "input": "ZFIX_C_CustomerSalesMig",
-      "parent": "ZFIX_C_CustomerSalesMig_Scope",
-      "child_keys": [
-        "Customer",
-        "SalesOrganization",
-        "DistributionChannel",
-        "Division"
-      ],
-      "parent_keys": [
-        "Customer",
-        "SalesOrganization",
-        "DistributionChannel",
-        "Division"
-      ]
-    },
-    {
       "name": "ZFIX_C_AccountingHeadMig_Prepared",
       "operation": "selection",
       "input": "ZFIX_C_AccountingHeadMig",
@@ -188,7 +283,7 @@
       ]
     },
     {
-      "name": "ZFIX_C_AccountingItemMig_Prepared",
+      "name": "ZFIX_C_AccountingItemMig_Selected",
       "operation": "selection",
       "input": "ZFIX_C_AccountingItemMig",
       "parent": "ZFIX_C_AccountingItemMig_Scope",
@@ -203,6 +298,105 @@
         "AccountingDocument",
         "FiscalYear",
         "AccountingDocumentItem"
+      ]
+    },
+    {
+      "name": "ZFIX_C_AccountingItemMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_AccountingItemMig_Selected",
+      "parent": "ZFIX_C_AccountingHeadMig_Prepared",
+      "child_keys": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear"
+      ],
+      "parent_identity": [
+        "CompanyCode",
+        "AccountingDocument",
+        "FiscalYear"
+      ]
+    },
+    {
+      "name": "ZFIX_C_ClassicBalanceMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_ClassicBalanceMig",
+      "parent": "ZFIX_C_ClassicBalanceMig_Scope",
+      "child_keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "CompanyCode",
+        "FiscalYear",
+        "GLAccount",
+        "BusinessArea",
+        "TransactionCurrency",
+        "DebitCreditCode"
+      ],
+      "parent_keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "CompanyCode",
+        "FiscalYear",
+        "GLAccount",
+        "BusinessArea",
+        "TransactionCurrency",
+        "DebitCreditCode"
+      ]
+    },
+    {
+      "name": "ZFIX_C_NewGLBalanceMig_Prepared",
+      "operation": "selection",
+      "input": "ZFIX_C_NewGLBalanceMig",
+      "parent": "ZFIX_C_NewGLBalanceMig_Scope",
+      "child_keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "FiscalYear",
+        "GLAccount",
+        "CompanyCode",
+        "CostCenter",
+        "ProfitCenter",
+        "FunctionalArea",
+        "BusinessArea",
+        "Segment",
+        "PartnerCostCenter",
+        "PartnerProfitCenter",
+        "PartnerFunctionalArea",
+        "PartnerBusinessArea",
+        "TradingPartner",
+        "PartnerSegment",
+        "TransactionCurrency",
+        "BaseUnit",
+        "DebitCreditCode"
+      ],
+      "parent_keys": [
+        "Ledger",
+        "RecordType",
+        "Version",
+        "FiscalYear",
+        "GLAccount",
+        "CompanyCode",
+        "CostCenter",
+        "ProfitCenter",
+        "FunctionalArea",
+        "BusinessArea",
+        "Segment",
+        "PartnerCostCenter",
+        "PartnerProfitCenter",
+        "PartnerFunctionalArea",
+        "PartnerBusinessArea",
+        "TradingPartner",
+        "PartnerSegment",
+        "TransactionCurrency",
+        "BaseUnit",
+        "DebitCreditCode"
       ]
     },
     {
@@ -378,118 +572,130 @@
       ]
     },
     {
-      "name": "ZFIX_C_BankMig_Prepared",
+      "name": "ZFIX_C_SupplierMig_Prepared",
       "operation": "selection",
-      "input": "ZFIX_C_BankMig",
-      "parent": "ZFIX_C_BankMig_Scope",
+      "input": "ZFIX_C_SupplierMig",
+      "parent": "ZFIX_C_SupplierMig_Scope",
       "child_keys": [
-        "BankCountry",
-        "BankKey"
+        "Supplier"
       ],
       "parent_keys": [
-        "BankCountry",
-        "BankKey"
+        "Supplier"
       ]
     },
     {
-      "name": "ZFIX_C_ClassicBalanceMig_Prepared",
+      "name": "ZFIX_C_SupplierCompanMig_Selected",
       "operation": "selection",
-      "input": "ZFIX_C_ClassicBalanceMig",
-      "parent": "ZFIX_C_ClassicBalanceMig_Scope",
+      "input": "ZFIX_C_SupplierCompanMig",
+      "parent": "ZFIX_C_SupplierCompanMig_Scope",
       "child_keys": [
-        "Ledger",
-        "RecordType",
-        "Version",
-        "CompanyCode",
-        "FiscalYear",
-        "GLAccount",
-        "BusinessArea",
-        "TransactionCurrency",
-        "DebitCreditCode"
+        "Supplier",
+        "CompanyCode"
       ],
       "parent_keys": [
-        "Ledger",
-        "RecordType",
-        "Version",
-        "CompanyCode",
-        "FiscalYear",
-        "GLAccount",
-        "BusinessArea",
-        "TransactionCurrency",
-        "DebitCreditCode"
+        "Supplier",
+        "CompanyCode"
       ]
     },
     {
-      "name": "ZFIX_C_NewGLBalanceMig_Prepared",
-      "operation": "selection",
-      "input": "ZFIX_C_NewGLBalanceMig",
-      "parent": "ZFIX_C_NewGLBalanceMig_Scope",
+      "name": "ZFIX_C_SupplierCompanMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierCompanMig_Selected",
+      "parent": "ZFIX_C_SupplierMig_Prepared",
       "child_keys": [
-        "Ledger",
-        "RecordType",
-        "Version",
-        "FiscalYear",
-        "GLAccount",
-        "CompanyCode",
-        "CostCenter",
-        "ProfitCenter",
-        "FunctionalArea",
-        "BusinessArea",
-        "Segment",
-        "PartnerCostCenter",
-        "PartnerProfitCenter",
-        "PartnerFunctionalArea",
-        "PartnerBusinessArea",
-        "TradingPartner",
-        "PartnerSegment",
-        "TransactionCurrency",
-        "BaseUnit",
-        "DebitCreditCode"
+        "Supplier"
       ],
       "parent_keys": [
-        "Ledger",
-        "RecordType",
-        "Version",
-        "FiscalYear",
-        "GLAccount",
-        "CompanyCode",
-        "CostCenter",
-        "ProfitCenter",
-        "FunctionalArea",
-        "BusinessArea",
-        "Segment",
-        "PartnerCostCenter",
-        "PartnerProfitCenter",
-        "PartnerFunctionalArea",
-        "PartnerBusinessArea",
-        "TradingPartner",
-        "PartnerSegment",
-        "TransactionCurrency",
-        "BaseUnit",
-        "DebitCreditCode"
+        "Supplier"
+      ],
+      "parent_identity": [
+        "Supplier"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierPurchaMig_Selected",
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierPurchaMig",
+      "parent": "ZFIX_C_SupplierPurchaMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "PurchasingOrganization"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "PurchasingOrganization"
+      ]
+    },
+    {
+      "name": "ZFIX_C_SupplierPurchaMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierPurchaMig_Selected",
+      "parent": "ZFIX_C_SupplierMig_Prepared",
+      "child_keys": [
+        "Supplier"
+      ],
+      "parent_keys": [
+        "Supplier"
+      ],
+      "parent_identity": [
+        "Supplier"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZFIX_C_SupplierAddressMig",
+      "parent": "ZFIX_C_SupplierAddressMig_Scope",
+      "child_keys": [
+        "Supplier",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "parent_keys": [
+        "Supplier",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "name": "ZFIX_C_SupplierAddressMig_Selected"
+    },
+    {
+      "name": "ZFIX_C_SupplierAddressMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFIX_C_SupplierAddressMig_Selected",
+      "parent": "ZFIX_C_SupplierMig_Prepared",
+      "child_keys": [
+        "Supplier"
+      ],
+      "parent_keys": [
+        "Supplier"
+      ],
+      "parent_identity": [
+        "Supplier"
       ]
     }
   ],
   "outputs": [
-    "ZFIX_C_GLAccountMig_Prepared",
-    "ZFIX_C_GLAccountTextMig_Prepared",
-    "ZFIX_C_GLCompanyMig_Prepared",
-    "ZFIX_C_SupplierMig_Prepared",
-    "ZFIX_C_SupplierCompanMig_Prepared",
-    "ZFIX_C_SupplierPurchaMig_Prepared",
+    "ZFIX_C_BankMig_Prepared",
+    "ZFIX_C_BankAddressMig_Prepared",
     "ZFIX_C_CustomerMig_Prepared",
     "ZFIX_C_CustomerCompanMig_Prepared",
     "ZFIX_C_CustomerSalesMig_Prepared",
+    "ZFIX_C_CustomerAddressMig_Prepared",
+    "ZFIX_C_GLAccountMig_Prepared",
+    "ZFIX_C_GLAccountTextMig_Prepared",
+    "ZFIX_C_GLCompanyMig_Prepared",
     "ZFIX_C_AccountingHeadMig_Prepared",
     "ZFIX_C_AccountingItemMig_Prepared",
+    "ZFIX_C_ClassicBalanceMig_Prepared",
+    "ZFIX_C_NewGLBalanceMig_Prepared",
     "ZFIX_C_GLOpenMig_Prepared",
     "ZFIX_C_GLClearedMig_Prepared",
     "ZFIX_C_APOpenMig_Prepared",
     "ZFIX_C_APClearedMig_Prepared",
     "ZFIX_C_AROpenMig_Prepared",
     "ZFIX_C_ARClearedMig_Prepared",
-    "ZFIX_C_BankMig_Prepared",
-    "ZFIX_C_ClassicBalanceMig_Prepared",
-    "ZFIX_C_NewGLBalanceMig_Prepared"
+    "ZFIX_C_SupplierMig_Prepared",
+    "ZFIX_C_SupplierCompanMig_Prepared",
+    "ZFIX_C_SupplierPurchaMig_Prepared",
+    "ZFIX_C_SupplierAddressMig_Prepared"
   ]
 }

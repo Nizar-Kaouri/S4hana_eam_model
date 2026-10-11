@@ -19,5 +19,6 @@ define view ZSDX_B_SalesPartnerData
   key src.parvw as PartnerFunction,
       src.kunnr as Customer,
       src.lifnr as Supplier,
-      src.pernr as PersonnelNumber
+      src.pernr as PersonnelNumber,
+      src.adrnr as AddressNumber
 }

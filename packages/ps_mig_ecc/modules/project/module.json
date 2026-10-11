@@ -10,6 +10,7 @@
     "master"
   ],
   "sap_tables": [
+    "JEST",
     "PROJ"
   ],
   "sap_released_views": [],
@@ -17,14 +18,17 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZPSX_B_ProjectData"
+      "ZPSX_B_ProjectData",
+      "ZPSX_B_ProjectStatusData"
     ],
     "composite": [
-      "ZPSX_I_Project"
+      "ZPSX_I_Project",
+      "ZPSX_I_ProjectStatus"
     ],
     "consumption": [
       "ZPSX_C_ProjectMig",
-      "ZPSX_C_ProjectMigCount"
+      "ZPSX_C_ProjectMigCount",
+      "ZPSX_C_ProjectStatusMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -34,7 +38,10 @@
     "ZPSX_B_ProjectData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_I_Project": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
     "ZPSX_C_ProjectMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
-    "ZPSX_C_ProjectMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+    "ZPSX_C_ProjectMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_ProjectStatusData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_ProjectStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_ProjectStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
   },
   "link_views": []
 }

@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Description | Technical object postal address |
-| Module | `equipment` |
+| Module | `core` |
 | Batch | 2 |
 | Layer | basic (`@VDM.viewType: #BASIC`) |
 | Kind | view |

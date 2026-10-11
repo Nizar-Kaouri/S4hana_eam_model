@@ -1,0 +1,155 @@
+{
+  "ZQMX_C_LotStatusMig": {
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ]
+  },
+  "ZQMX_C_NotifStatusMig": {
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  },
+  "ZQMX_C_UsageDecisionMig": {
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ]
+  },
+  "ZQMX_C_InspectCharactMig": {
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ]
+  },
+  "ZQMX_C_CharacteristicMig": {
+    "parent": "ZQMX_C_InspectCharactMig",
+    "child_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_identity": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ]
+  },
+  "ZQMX_C_SingleResultMig": {
+    "parent": "ZQMX_C_InspectCharactMig",
+    "child_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_identity": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ]
+  },
+  "ZQMX_C_MasterCharTextMig": {
+    "parent": "ZQMX_C_MasterCharMig",
+    "child_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "parent_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "parent_identity": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ]
+  },
+  "ZQMX_C_QualityItemMig": {
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  },
+  "ZQMX_C_QualityCauseMig": {
+    "parent": "ZQMX_C_QualityItemMig",
+    "child_keys": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "parent_keys": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "parent_identity": [
+      "QualityNotification",
+      "NotificationItem"
+    ]
+  },
+  "ZQMX_C_QualityTaskMig": {
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  },
+  "ZQMX_C_QualityActivitMig": {
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  }
+}

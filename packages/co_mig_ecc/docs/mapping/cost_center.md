@@ -27,6 +27,18 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ProfitCenter` | CSKS-PRCTR | customer interface field: ProfitCenter (unconfirmed) | copy | yes |
 | `CostCenterCategory` | CSKS-KOSAR | customer interface field: CostCenterCategory (unconfirmed) | copy | yes |
 | `ResponsiblePerson` | CSKS-VERAK | customer interface field: ResponsiblePerson (unconfirmed) | copy | yes |
+| `AddressStreet` | CSKS-STRAS | - | copy |  |
+| `AddressCity` | CSKS-ORT01 | - | copy |  |
+| `AddressDistrict` | CSKS-ORT02 | - | copy |  |
+| `AddressPostalCode` | CSKS-PSTLZ | - | copy |  |
+| `AddressCountry` | CSKS-LAND1 | - | copy |  |
+| `AddressRegion` | CSKS-REGIO | - | copy |  |
+| `AddressPOBox` | CSKS-PFACH | - | copy |  |
+| `AddressPOBoxPostalCode` | CSKS-PSTL2 | - | copy |  |
+| `AddressLanguage` | CSKS-SPRAS | - | copy |  |
+| `PhoneNumber1` | CSKS-TELF1 | - | copy |  |
+| `PhoneNumber2` | CSKS-TELF2 | - | copy |  |
+| `FaxNumber` | CSKS-TELFX | - | copy |  |
 
 ## `ZCOX_C_CostCenterTextMig`
 

@@ -1,1 +1,1 @@
-ProfitCenter,ValidityEndDate,ControllingArea,ValidityStartDate,ResponsiblePerson,Segment
+ProfitCenter,ValidityEndDate,ControllingArea,ValidityStartDate,ResponsiblePerson,Segment,AddressStreet,AddressCity,AddressDistrict,AddressPostalCode,AddressCountry,AddressRegion,AddressPOBox,AddressPOBoxPostalCode,AddressLanguage,PhoneNumber1,PhoneNumber2,FaxNumber

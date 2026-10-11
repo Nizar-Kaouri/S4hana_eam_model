@@ -30,43 +30,48 @@
       ]
     },
     {
-      "name": "ZFAX_C_AssetAssignmenMig_Prepared",
+      "name": "ZFAX_C_AssetBalanceMig_Selected",
       "operation": "selection",
-      "input": "ZFAX_C_AssetAssignmenMig",
-      "parent": "ZFAX_C_AssetAssignmenMig_Scope",
+      "input": "ZFAX_C_AssetBalanceMig",
+      "parent": "ZFAX_C_AssetBalanceMig_Scope",
       "child_keys": [
         "CompanyCode",
         "MasterFixedAsset",
         "FixedAsset",
-        "ValidityEndDate"
-      ],
-      "parent_keys": [
-        "CompanyCode",
-        "MasterFixedAsset",
-        "FixedAsset",
-        "ValidityEndDate"
-      ]
-    },
-    {
-      "name": "ZFAX_C_DepreciationMig_Prepared",
-      "operation": "selection",
-      "input": "ZFAX_C_DepreciationMig",
-      "parent": "ZFAX_C_DepreciationMig_Scope",
-      "child_keys": [
-        "CompanyCode",
-        "MasterFixedAsset",
-        "FixedAsset",
+        "FiscalYear",
         "DepreciationArea"
       ],
       "parent_keys": [
         "CompanyCode",
         "MasterFixedAsset",
         "FixedAsset",
+        "FiscalYear",
         "DepreciationArea"
       ]
     },
     {
-      "name": "ZFAX_C_AssetPostingMig_Prepared",
+      "name": "ZFAX_C_AssetBalanceMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFAX_C_AssetBalanceMig_Selected",
+      "parent": "ZFAX_C_AssetMig_Prepared",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_identity": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ]
+    },
+    {
+      "name": "ZFAX_C_AssetPostingMig_Selected",
       "operation": "selection",
       "input": "ZFAX_C_AssetPostingMig",
       "parent": "ZFAX_C_AssetPostingMig_Scope",
@@ -88,31 +93,110 @@
       ]
     },
     {
-      "name": "ZFAX_C_AssetBalanceMig_Prepared",
+      "name": "ZFAX_C_AssetPostingMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFAX_C_AssetPostingMig_Selected",
+      "parent": "ZFAX_C_AssetMig_Prepared",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_identity": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ]
+    },
+    {
+      "name": "ZFAX_C_AssetAssignmenMig_Selected",
       "operation": "selection",
-      "input": "ZFAX_C_AssetBalanceMig",
-      "parent": "ZFAX_C_AssetBalanceMig_Scope",
+      "input": "ZFAX_C_AssetAssignmenMig",
+      "parent": "ZFAX_C_AssetAssignmenMig_Scope",
       "child_keys": [
         "CompanyCode",
         "MasterFixedAsset",
         "FixedAsset",
-        "FiscalYear",
+        "ValidityEndDate"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "ValidityEndDate"
+      ]
+    },
+    {
+      "name": "ZFAX_C_AssetAssignmenMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFAX_C_AssetAssignmenMig_Selected",
+      "parent": "ZFAX_C_AssetMig_Prepared",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_identity": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ]
+    },
+    {
+      "name": "ZFAX_C_DepreciationMig_Selected",
+      "operation": "selection",
+      "input": "ZFAX_C_DepreciationMig",
+      "parent": "ZFAX_C_DepreciationMig_Scope",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
         "DepreciationArea"
       ],
       "parent_keys": [
         "CompanyCode",
         "MasterFixedAsset",
         "FixedAsset",
-        "FiscalYear",
         "DepreciationArea"
+      ]
+    },
+    {
+      "name": "ZFAX_C_DepreciationMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZFAX_C_DepreciationMig_Selected",
+      "parent": "ZFAX_C_AssetMig_Prepared",
+      "child_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
+      ],
+      "parent_identity": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset"
       ]
     }
   ],
   "outputs": [
+    "ZFAX_C_AssetBalanceMig_Prepared",
+    "ZFAX_C_AssetPostingMig_Prepared",
     "ZFAX_C_AssetMig_Prepared",
     "ZFAX_C_AssetAssignmenMig_Prepared",
-    "ZFAX_C_DepreciationMig_Prepared",
-    "ZFAX_C_AssetPostingMig_Prepared",
-    "ZFAX_C_AssetBalanceMig_Prepared"
+    "ZFAX_C_DepreciationMig_Prepared"
   ]
 }

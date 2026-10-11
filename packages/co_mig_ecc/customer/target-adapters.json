@@ -15,7 +15,21 @@
     ],
     "target_export": "target/ZCOX_C_CostCenterMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": [
+      "AddressStreet",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressLanguage",
+      "PhoneNumber1",
+      "PhoneNumber2",
+      "FaxNumber"
+    ]
   },
   "ZCOX_C_CostCenterTextMig": {
     "module": "cost_center",
@@ -31,7 +45,8 @@
     ],
     "target_export": "target/ZCOX_C_CostCenterTextMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_ProfitCenterMig": {
     "module": "profit_center",
@@ -47,7 +62,21 @@
     ],
     "target_export": "target/ZCOX_C_ProfitCenterMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": [
+      "AddressStreet",
+      "AddressCity",
+      "AddressDistrict",
+      "AddressPostalCode",
+      "AddressCountry",
+      "AddressRegion",
+      "AddressPOBox",
+      "AddressPOBoxPostalCode",
+      "AddressLanguage",
+      "PhoneNumber1",
+      "PhoneNumber2",
+      "FaxNumber"
+    ]
   },
   "ZCOX_C_ProfitCenterTeMig": {
     "module": "profit_center",
@@ -63,7 +92,8 @@
     ],
     "target_export": "target/ZCOX_C_ProfitCenterTeMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_InternalOrderMig": {
     "module": "internal_order",
@@ -82,7 +112,8 @@
     ],
     "target_export": "target/ZCOX_C_InternalOrderMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_OrderSettlemenMig": {
     "module": "internal_order",
@@ -99,7 +130,8 @@
     ],
     "target_export": "target/ZCOX_C_OrderSettlemenMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_CostActualMig": {
     "module": "cost_actuals",
@@ -119,7 +151,8 @@
     ],
     "target_export": "target/ZCOX_C_CostActualMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_CostElementMig": {
     "module": "cost_element",
@@ -132,7 +165,8 @@
     ],
     "target_export": "target/ZCOX_C_CostElementMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_CostElementAreMig": {
     "module": "cost_element",
@@ -147,7 +181,8 @@
     ],
     "target_export": "target/ZCOX_C_CostElementAreMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_PrimaryPlanMig": {
     "module": "planning",
@@ -218,7 +253,8 @@
     ],
     "target_export": "target/ZCOX_C_PrimaryPlanMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_SecondaryPlanMig": {
     "module": "planning",
@@ -289,7 +325,8 @@
     ],
     "target_export": "target/ZCOX_C_SecondaryPlanMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_AllocCycleMig": {
     "module": "allocation_cycle",
@@ -303,7 +340,8 @@
     ],
     "target_export": "target/ZCOX_C_AllocCycleMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
   },
   "ZCOX_C_AllocSegmentMig": {
     "module": "allocation_cycle",
@@ -318,6 +356,29 @@
     ],
     "target_export": "target/ZCOX_C_AllocSegmentMig.csv",
     "adapter_status": "customer implementation required",
-    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning."
+    "notes": "Export the same approved population using a verified released CDS/API or target business report, map IDs, and project these exact aliases. Source histories are compared only when the approved target migration transfers their business meaning.",
+    "supplementary_source_fields": []
+  },
+  "ZCOX_C_OrderStatusMig": {
+    "module": "internal_order",
+    "key": [
+      "InternalOrder",
+      "StatusCode"
+    ],
+    "fields": [
+      "ObjectNumber",
+      "StatusKind",
+      "StatusChangeNumber"
+    ],
+    "target_export": "target/ZCOX_C_OrderStatusMig.csv",
+    "adapter_status": "reference export; not a posting adapter",
+    "notes": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads.",
+    "supplementary_source_fields": [
+      "InternalOrder",
+      "ObjectNumber",
+      "StatusCode",
+      "StatusKind",
+      "StatusChangeNumber"
+    ]
   }
 }

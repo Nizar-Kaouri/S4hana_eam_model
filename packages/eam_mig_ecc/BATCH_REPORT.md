@@ -5,10 +5,10 @@ Version 1.0.0
 | Module | Objects |
 |---|---:|
 | classification | 8 |
-| core | 6 |
-| equipment | 21 |
+| core | 7 |
+| equipment | 20 |
 | equipment_bom | 13 |
-| functional_location | 9 |
+| functional_location | 12 |
 | long_text | 3 |
 | maintenance_notification | 17 |
 | maintenance_order | 19 |

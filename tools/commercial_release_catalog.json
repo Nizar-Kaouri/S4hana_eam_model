@@ -4,8 +4,8 @@
     "product": "eam_mig_ecc",
     "version": "1.0.0",
     "modules": 15,
-    "structures": 41,
-    "CDS_objects": 158
+    "structures": 47,
+    "CDS_objects": 172
   },
   {
     "domain": "eam",
@@ -52,8 +52,8 @@
     "product": "qm_mig_ecc",
     "version": "1.0.0",
     "modules": 6,
-    "structures": 18,
-    "CDS_objects": 60
+    "structures": 20,
+    "CDS_objects": 66
   },
   {
     "domain": "qm",
@@ -68,8 +68,8 @@
     "product": "ps_mig_ecc",
     "version": "1.0.0",
     "modules": 7,
-    "structures": 14,
-    "CDS_objects": 49
+    "structures": 17,
+    "CDS_objects": 58
   },
   {
     "domain": "ps",
@@ -84,8 +84,8 @@
     "product": "pp_mig_ecc",
     "version": "1.0.0",
     "modules": 6,
-    "structures": 17,
-    "CDS_objects": 57
+    "structures": 18,
+    "CDS_objects": 60
   },
   {
     "domain": "pp",
@@ -100,8 +100,8 @@
     "product": "co_mig_ecc",
     "version": "1.0.0",
     "modules": 7,
-    "structures": 13,
-    "CDS_objects": 46
+    "structures": 14,
+    "CDS_objects": 49
   },
   {
     "domain": "co",
@@ -115,9 +115,9 @@
     "domain": "fi",
     "product": "fi_mig_ecc",
     "version": "1.0.0",
-    "modules": 7,
-    "structures": 20,
-    "CDS_objects": 67
+    "modules": 8,
+    "structures": 23,
+    "CDS_objects": 74
   },
   {
     "domain": "fi",
@@ -131,9 +131,9 @@
     "domain": "sd",
     "product": "sd_mig_ecc",
     "version": "1.0.0",
-    "modules": 4,
-    "structures": 16,
-    "CDS_objects": 52
+    "modules": 5,
+    "structures": 21,
+    "CDS_objects": 63
   },
   {
     "domain": "sd",

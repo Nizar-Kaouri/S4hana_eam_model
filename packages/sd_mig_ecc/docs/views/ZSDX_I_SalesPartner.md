@@ -25,7 +25,7 @@ Read SalesPartner as source records; approve the key-date population before post
 
 ## Associations defined here
 
-- none
+- `_Address` → `ZSDX_B_Address` [0..1]
 
 ## Access control
 
