@@ -1,0 +1,147 @@
+{
+  "module": "storage_bin",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "Warehouse",
+      "StorageBin"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZWMX_C_StorageBinMig",
+      "source_view": "ZWMX_I_StorageBin",
+      "scope_filter": "",
+      "keys": [
+        "Warehouse",
+        "StorageBin"
+      ],
+      "fields": [
+        {
+          "element": "Warehouse",
+          "source": "/SCWM/LAGP-LGNUM",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.Warehouse",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageBin",
+          "source": "/SCWM/LAGP-LGPLA",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.StorageBin",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageType",
+          "source": "/SCWM/LAGP-LGTYP",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.StorageType",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageSection",
+          "source": "/SCWM/LAGP-LGBER",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.StorageSection",
+          "rule": "copy"
+        },
+        {
+          "element": "BinType",
+          "source": "/SCWM/LAGP-LPTYP",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.BinType",
+          "rule": "copy"
+        },
+        {
+          "element": "RemovalBlocked",
+          "source": "/SCWM/LAGP-SKZUA",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.RemovalBlocked",
+          "rule": "copy"
+        },
+        {
+          "element": "PutawayBlocked",
+          "source": "/SCWM/LAGP-SKZUE",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.PutawayBlocked",
+          "rule": "copy"
+        },
+        {
+          "element": "InventoryBlocked",
+          "source": "/SCWM/LAGP-SKZSI",
+          "target": "Native target evidence: ZWMT_B_StorageBinCompare.InventoryBlocked",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "EWM storage bins; LE-WM LAGP is a different model. Capacity fields await validated unit semantics. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    },
+    {
+      "consumption_view": "ZWMX_C_BinSortingMig",
+      "source_view": "ZWMX_I_BinSorting",
+      "scope_filter": "",
+      "keys": [
+        "Warehouse",
+        "StorageBin",
+        "ActivityArea",
+        "Activity"
+      ],
+      "fields": [
+        {
+          "element": "Warehouse",
+          "source": "/SCWM/LAGPS-LGNUM",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.Warehouse",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageBin",
+          "source": "/SCWM/LAGPS-LGPLA",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.StorageBin",
+          "rule": "copy"
+        },
+        {
+          "element": "ActivityArea",
+          "source": "/SCWM/LAGPS-AAREA",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.ActivityArea",
+          "rule": "copy"
+        },
+        {
+          "element": "Activity",
+          "source": "/SCWM/LAGPS-ACT_TYPE",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.Activity",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageType",
+          "source": "/SCWM/LAGPS-LGTYP",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.StorageType",
+          "rule": "copy"
+        },
+        {
+          "element": "SortSequence",
+          "source": "/SCWM/LAGPS-REIHF",
+          "target": "Native target evidence: ZWMT_B_BinSortingCompare.SortSequence",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "SortSequence is payload, not an invented key. Confirm exact DDIC key flags before activation. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "StorageBin: EWM storage bins; LE-WM LAGP is a different model. Capacity fields await validated unit semantics.",
+    "BinSorting: SortSequence is payload, not an invented key. Confirm exact DDIC key flags before activation."
+  ],
+  "main_structure": "ZWMX_C_StorageBinMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZWMX_C_StorageBinMigCount",
+    "dimensions": [
+      {
+        "element": "Warehouse"
+      }
+    ]
+  }
+}

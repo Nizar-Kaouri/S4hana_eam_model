@@ -1,0 +1,56 @@
+{
+  "name": "cost_center",
+  "title": "Cost centers",
+  "description": "Cost centers source records, source preparation contracts.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "master"
+  ],
+  "sap_tables": [
+    "CSKS",
+    "CSKT",
+    "STXH"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "profit_center"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZCOX_B_CostCenterData",
+      "ZCOX_B_CostCenterTextData",
+      "ZCOX_B_CostCenterLTIndexData"
+    ],
+    "composite": [
+      "ZCOX_I_CostCenter",
+      "ZCOX_I_CostCenterText",
+      "ZCOX_I_CostCenterLongText"
+    ],
+    "consumption": [
+      "ZCOX_C_CostCenterMig",
+      "ZCOX_C_CostCenterMigCount",
+      "ZCOX_C_CostCenterTextMig",
+      "ZCOX_C_CostCenterLongTextMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZCOX_B_CostCenterData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_CostCenter": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_CostCenterMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_CostCenterMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_B_CostCenterTextData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_CostCenterText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_CostCenterTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_I_CostCenterLongText": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_C_CostCenterLongTextMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZCOX_B_CostCenterLTIndexData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

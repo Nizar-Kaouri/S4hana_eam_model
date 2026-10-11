@@ -1,0 +1,40 @@
+{
+  "name": "sampling_procedure",
+  "title": "Sampling procedures",
+  "description": "Sampling procedures. DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "configuration-reference"
+  ],
+  "sap_tables": [
+    "QDSV"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZQMX_B_SamplingProcData"
+    ],
+    "composite": [
+      "ZQMX_I_SamplingProc"
+    ],
+    "consumption": [
+      "ZQMX_C_SamplingProcMig",
+      "ZQMX_C_SamplingProcMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZQMX_B_SamplingProcData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_I_SamplingProc": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_SamplingProcMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_SamplingProcMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

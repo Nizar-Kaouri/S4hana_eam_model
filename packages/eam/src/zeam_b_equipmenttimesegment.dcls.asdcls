@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Same SAP role as ZEAM_B_Equipment (see EQ-D01); the time segment view projects the same element names.
+@EndUserText.label: 'Equipment Time Segment'
+@MappingRole: true
+define role ZEAM_B_EquipmentTimeSegment {
+  grant
+    select
+      on
+        ZEAM_B_EquipmentTimeSegment
+          where
+            inheriting conditions from entity I_Equipment;
+}

@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZEAM_I_MAINTITEM</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Maintenance Item</DDTEXT>
+    <DDTEXT>Maintenance Item - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

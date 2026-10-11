@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZPPV_I_BOMITEM</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Bill of Material Item</DDTEXT>
+    <DDTEXT>Bill of Material Item - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

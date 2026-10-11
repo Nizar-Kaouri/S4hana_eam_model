@@ -1,7 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_MaintenanceOrder.
-// TODO-VERIFY[H] MO-D01: I_MaintenanceOrder has an access control role and every element it references is projected by ZEAM_I_MaintOrder
-@EndUserText.label: 'Maintenance Order'
+// Inherits the conditions of the basic view (see GEN-D02).
+@EndUserText.label: 'Maintenance Order - Cube'
 @MappingRole: true
 define role ZEAM_I_MaintOrder {
   grant
@@ -9,5 +8,5 @@ define role ZEAM_I_MaintOrder {
       on
         ZEAM_I_MaintOrder
           where
-            inheriting conditions from entity I_MaintenanceOrder;
+            inheriting conditions from entity ZEAM_B_MaintOrder;
 }

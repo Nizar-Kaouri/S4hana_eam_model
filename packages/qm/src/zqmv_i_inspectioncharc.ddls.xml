@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZQMV_I_INSPECTIONCHARC</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Inspection Characteristic Result</DDTEXT>
+    <DDTEXT>Inspection Result - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Project |
+| Description | Project - Cube |
 | Module | `project` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_EnterpriseProject` |
+| Data category | #CUBE |
+| Data source | `ZPSV_B_Project` |
 | Source file | `src/zpsv_i_project.ddls.asddls` |
 
 ## Purpose
 
-One row per project definition: external project number, description, project profile, processing status, company code, controlling area, profit center, responsible cost center, plant, currency and planned dates.
+Project cube: number of projects per profile, status, company code and responsible cost center.
 
 ## Keys
 
@@ -23,16 +23,16 @@ One row per project definition: external project number, description, project pr
 
 ## Associations defined here
 
-- `_CompanyCode` → `I_CompanyCode` [0..1]
+- `_Project` → `ZPSV_B_Project` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_EnterpriseProject`.
+Role inherits the conditions of `ZPSV_B_Project`.
 
 ## Example use case
 
-Projects per profile and status; shutdown projects of a plant.
+Number of released projects per profile and plant.
 
 ## Open verification items
 
-`PS-001`, `PS-002`, `PS-003`, `PS-D01` - see `BATCH_REPORT.md`.
+none

@@ -1,0 +1,12 @@
+// ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Open Purchase Order Items'
+@MappingRole: true
+define role ZMMV_I_OpenPurchaseOrder {
+  grant
+    select
+      on
+        ZMMV_I_OpenPurchaseOrder
+          where
+            inheriting conditions from entity ZMMV_B_PurchaseOrderItem;
+}

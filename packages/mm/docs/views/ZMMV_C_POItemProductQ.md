@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZMMV_R_POItemWithProduct` |
+| Data source | `ZMMV_I_POItemWithProduct` |
 | Source file | `src/zmmv_c_poitemproductq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZMMV_R_POItemWithProduct: purchase volume per purchasing organization and product group.
+Analytical query on ZMMV_I_POItemWithProduct: purchase volume per purchasing organization and product group.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZMMV_R_POItemWithProduct: purchase volume per purchasing org
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_POItemWithProduct (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_I_POItemWithProduct (see GEN-Q01).
 
 ## Example use case
 

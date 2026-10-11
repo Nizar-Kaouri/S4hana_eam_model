@@ -1,0 +1,12 @@
+// ZPPV PP VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - conditions of the data source (see GEN-D02).
+@EndUserText.label: 'Production Order with Material BOMs'
+@MappingRole: true
+define role ZPPV_B_ProdOrderWithBOM {
+  grant
+    select
+      on
+        ZPPV_B_ProdOrderWithBOM
+          where
+            inheriting conditions from entity ZPPV_B_ProductionOrder;
+}

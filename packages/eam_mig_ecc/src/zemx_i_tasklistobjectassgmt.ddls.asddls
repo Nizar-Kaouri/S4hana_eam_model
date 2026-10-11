@@ -1,5 +1,5 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Assignment of equipment task lists (type E) to equipment and of functional location task lists (type T) to functional locations (EAPL).
+// ModuPorter EAM migration | Release 1.0.0
+// Purpose: Task-list object allocation change states; customer resolves validity at cutover.
 // Example: Find the task lists of equipment 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_EAPL'
 @AbapCatalog.compiler.compareFilter: true
@@ -11,14 +11,44 @@
 @ObjectModel.usageType.dataClass: #MASTER
 @ObjectModel.usageType.serviceQuality: #D
 @ObjectModel.usageType.sizeCategory: #M
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view ZEMX_I_TaskListObjectAssgmt
-  as select from eapl
+  as select from ZEMX_B_EquipTaskListAsgmt as src
 {
-  key eapl.plnty as TaskListType,
-  key eapl.plnnr as TaskListGroup,
-  key eapl.plnal as TaskListGroupCounter,
-      // TODO-VERIFY[H] XTL-005: EAPL structure (PLNTY, PLNNR, PLNAL, EQUNR, TPLNR) and key
-      eapl.equnr as Equipment,
-      eapl.tplnr as FunctionalLocation
+      @EndUserText.label: 'TaskListType'
+  key src.TaskListType as TaskListType,
+      @EndUserText.label: 'TaskListGroup'
+  key src.TaskListGroup as TaskListGroup,
+      @EndUserText.label: 'TaskListGroupCounter'
+  key src.TaskListGroupCounter as TaskListGroupCounter,
+      @EndUserText.label: 'Equipment'
+  key src.Equipment as Equipment,
+      @EndUserText.label: 'FunctionalLocation'
+  key src.FunctionalLocation as FunctionalLocation,
+      @EndUserText.label: 'AdditionalCriteriaCounter'
+  key src.AdditionalCriteriaCounter as AdditionalCriteriaCounter,
+      @EndUserText.label: 'AssignmentCounter'
+  key src.AssignmentCounter as AssignmentCounter,
+      @EndUserText.label: 'IsMarkedForDeletion'
+      src.IsMarkedForDeletion as IsMarkedForDeletion
+}
+union all
+  select from ZEMX_B_FuncTaskListAsgmt as src
+{
+      @EndUserText.label: 'TaskListType'
+  key src.TaskListType as TaskListType,
+      @EndUserText.label: 'TaskListGroup'
+  key src.TaskListGroup as TaskListGroup,
+      @EndUserText.label: 'TaskListGroupCounter'
+  key src.TaskListGroupCounter as TaskListGroupCounter,
+      @EndUserText.label: 'Equipment'
+  key src.Equipment as Equipment,
+      @EndUserText.label: 'FunctionalLocation'
+  key src.FunctionalLocation as FunctionalLocation,
+      @EndUserText.label: 'AdditionalCriteriaCounter'
+  key src.AdditionalCriteriaCounter as AdditionalCriteriaCounter,
+      @EndUserText.label: 'AssignmentCounter'
+  key src.AssignmentCounter as AssignmentCounter,
+      @EndUserText.label: 'IsMarkedForDeletion'
+      src.IsMarkedForDeletion as IsMarkedForDeletion
 }

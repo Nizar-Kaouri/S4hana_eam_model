@@ -1,0 +1,168 @@
+{
+  "module": "master_inspection_characteristic",
+  "status": "released",
+  "target": {
+    "tool": "Customer-verified business interface; master restrictions apply",
+    "compatibility_notes": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZQMX_C_MasterCharMig",
+      "source_view": "ZQMX_I_MasterChar",
+      "scope_filter": "",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "fields": [
+        {
+          "element": "Plant",
+          "source": "QPMK-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "MasterInspectionCharacteristic",
+          "source": "QPMK-MKMNR",
+          "target": "customer interface field: MasterInspectionCharacteristic (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CharacteristicVersion",
+          "source": "QPMK-VERSION",
+          "target": "customer interface field: CharacteristicVersion (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "QPMK-GUELTIGAB",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "QPMK-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ControlIndicators",
+          "source": "QPMK-STEUERKZ",
+          "target": "customer interface field: ControlIndicators (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions. Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number."
+    },
+    {
+      "consumption_view": "ZQMX_C_MasterCharTextMig",
+      "source_view": "ZQMX_I_MasterCharText",
+      "scope_filter": "",
+      "keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "Plant",
+          "source": "QPMT-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "MasterInspectionCharacteristic",
+          "source": "QPMT-MKMNR",
+          "target": "customer interface field: MasterInspectionCharacteristic (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CharacteristicVersion",
+          "source": "QPMT-VERSION",
+          "target": "customer interface field: CharacteristicVersion (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "QPMT-SPRACHE",
+          "target": "customer interface field: Language (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CharacteristicDescription",
+          "source": "QPMT-KURZTEXT",
+          "target": "customer interface field: CharacteristicDescription (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions. Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number."
+    },
+    {
+      "consumption_view": "ZQMX_C_MasterCharLongTextMig",
+      "source_view": "ZQMX_I_MasterCharLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data. Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.",
+    "Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number."
+  ],
+  "main_structure": "ZQMX_C_MasterCharMig",
+  "source_control": {
+    "source_count_view": "ZQMX_C_MasterCharMigCount",
+    "dimensions": [
+      {
+        "element": "Plant"
+      }
+    ]
+  }
+}

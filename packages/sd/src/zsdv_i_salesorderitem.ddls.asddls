@@ -1,25 +1,24 @@
 // ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per sales order item: item category, material, material group, plant, order quantity, net
-//   value, processing status, rejection reason and a derived open flag.
-// Example: Order value per material group; open items per plant.
-// TODO-VERIFY[M] SD-004: I_SalesDocumentItem elements Material, MaterialGroup, Plant, OrderQuantity, OrderQuantityUnit, NetAmount, SDProcessStatus, SalesDocumentRjcnReason
+// Purpose: Sales order item cube: order value, quantity and number of (open) items per sales area, sold-to
+//   party, material and plant.
+// Example: Order intake per sales organization and month; open order value per customer.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Sales Order Item'
+@EndUserText.label: 'Sales Order Item - Cube'
+@Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'SalesDocumentItem'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZSDV_I_SalesOrderItem
-  as select from I_SalesDocumentItem
-  association [1..1] to ZSDV_I_SalesOrder as _SalesOrder on $projection.SalesDocument = _SalesOrder.SalesDocument
-  association [0..1] to I_Plant as _Plant on $projection.Plant = _Plant.Plant
+  as select from ZSDV_B_SalesOrderItem
 {
       @ObjectModel.foreignKey.association: '_SalesOrder'
   key SalesDocument,
@@ -30,19 +29,35 @@ define view entity ZSDV_I_SalesOrderItem
       @ObjectModel.foreignKey.association: '_Plant'
       Plant,
       OrderQuantityUnit,
-      @Semantics.quantity.unitOfMeasure: 'OrderQuantityUnit'
-      OrderQuantity,
       TransactionCurrency,
-      @Semantics.amount.currencyCode: 'TransactionCurrency'
-      NetAmount,
       SDProcessStatus,
       SalesDocumentRjcnReason,
-      @EndUserText.label: 'Item Is Open'
-      cast( case when SDProcessStatus <> 'C' and SalesDocumentRjcnReason = '' then 'X' else ' ' end as abap_boolean ) as SalesOrderItemIsOpen,
+      SalesOrderItemIsOpen,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @Semantics.quantity.unitOfMeasure: 'OrderQuantityUnit'
+      OrderQuantity,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Order Value'
+      @Semantics.amount.currencyCode: 'TransactionCurrency'
+      NetAmount,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Items'
+      cast( 1 as abap.int4 ) as NumberOfItems,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Open Items'
+      cast( case when SalesOrderItemIsOpen = 'X' then 1 else 0 end as abap.int4 ) as NumberOfOpenItems,
+
+      /* Order header characteristics */
+      _SalesOrder.SalesDocumentType,
+      _SalesOrder.SalesOrganization,
+      _SalesOrder.DistributionChannel,
+      _SalesOrder.OrganizationDivision,
+      _SalesOrder.SoldToParty,
+      _SalesOrder.SalesDocumentDate,
 
       /* Associations */
       _SalesOrder,
       _Plant
 }
-where
-  SDDocumentCategory = 'C'

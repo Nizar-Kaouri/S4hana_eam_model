@@ -18,40 +18,40 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZMMV_I_MaterialStock"
+      "ZMMV_B_MaterialStock"
     ],
     "composite": [
-      "ZMMV_R_MaterialStock"
+      "ZMMV_I_MaterialStock"
     ],
     "consumption": [
       "ZMMV_C_MaterialStockQ"
     ],
     "access_controls": [
-      "ZMMV_I_MaterialStock",
-      "ZMMV_R_MaterialStock"
+      "ZMMV_B_MaterialStock",
+      "ZMMV_I_MaterialStock"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZMMV_C_MaterialStockQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_MaterialStock (see GEN-Q01)."
+    "ZMMV_C_MaterialStockQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_MaterialStock (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZMMV_I_ProductWithStock",
+      "name": "ZMMV_B_ProductWithStock",
       "requires_modules": [
         "material_stock",
         "product"
       ],
-      "access_control": "ZMMV_I_ProductWithStock"
+      "access_control": "ZMMV_B_ProductWithStock"
     },
     {
-      "name": "ZMMV_R_StockWithProduct",
+      "name": "ZMMV_I_StockWithProduct",
       "requires_modules": [
         "material_stock",
         "product"
       ],
-      "access_control": "ZMMV_R_StockWithProduct"
+      "access_control": "ZMMV_I_StockWithProduct"
     },
     {
       "name": "ZMMV_C_StockProductQ",
@@ -59,7 +59,7 @@
         "material_stock",
         "product"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_StockWithProduct (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_I_StockWithProduct (see GEN-Q01)."
     }
   ]
 }

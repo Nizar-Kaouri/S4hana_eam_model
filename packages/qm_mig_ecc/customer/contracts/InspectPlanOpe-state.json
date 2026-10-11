@@ -1,0 +1,14 @@
+{
+  "mode": "state",
+  "identity": [
+    "TaskListType",
+    "TaskListGroup",
+    "TaskListNode"
+  ],
+  "valid_from": "ValidFromDate",
+  "counter": "InternalCounter",
+  "deletion": "DeletionFlag",
+  "deleted_values": [
+    "X"
+  ]
+}

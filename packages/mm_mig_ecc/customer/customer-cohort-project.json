@@ -1,0 +1,1192 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "ZMMX_C_MaterialMig": "exports/ZMMX_C_MaterialMig.csv",
+    "ZMMX_C_MaterialMig_Scope": "selection/ZMMX_C_MaterialMig.csv",
+    "ZMMX_C_MaterialTextMig": "exports/ZMMX_C_MaterialTextMig.csv",
+    "ZMMX_C_MaterialTextMig_Scope": "selection/ZMMX_C_MaterialTextMig.csv",
+    "ZMMX_C_MaterialPlantMig": "exports/ZMMX_C_MaterialPlantMig.csv",
+    "ZMMX_C_MaterialPlantMig_Scope": "selection/ZMMX_C_MaterialPlantMig.csv",
+    "ZMMX_C_MaterialLocatiMig": "exports/ZMMX_C_MaterialLocatiMig.csv",
+    "ZMMX_C_MaterialLocatiMig_Scope": "selection/ZMMX_C_MaterialLocatiMig.csv",
+    "ZMMX_C_MaterialUnitMig": "exports/ZMMX_C_MaterialUnitMig.csv",
+    "ZMMX_C_MaterialUnitMig_Scope": "selection/ZMMX_C_MaterialUnitMig.csv",
+    "ZMMX_C_MaterialValueMig": "exports/ZMMX_C_MaterialValueMig.csv",
+    "ZMMX_C_MaterialValueMig_Scope": "selection/ZMMX_C_MaterialValueMig.csv",
+    "ZMMX_C_BatchGeneralMig": "exports/ZMMX_C_BatchGeneralMig.csv",
+    "ZMMX_C_BatchGeneralMig_Scope": "selection/ZMMX_C_BatchGeneralMig.csv",
+    "ZMMX_C_BatchPlantMig": "exports/ZMMX_C_BatchPlantMig.csv",
+    "ZMMX_C_BatchPlantMig_Scope": "selection/ZMMX_C_BatchPlantMig.csv",
+    "ZMMX_C_LocationStockMig": "exports/ZMMX_C_LocationStockMig.csv",
+    "ZMMX_C_LocationStockMig_Scope": "selection/ZMMX_C_LocationStockMig.csv",
+    "ZMMX_C_BatchStockMig": "exports/ZMMX_C_BatchStockMig.csv",
+    "ZMMX_C_BatchStockMig_Scope": "selection/ZMMX_C_BatchStockMig.csv",
+    "ZMMX_C_SalesOrderStocMig": "exports/ZMMX_C_SalesOrderStocMig.csv",
+    "ZMMX_C_SalesOrderStocMig_Scope": "selection/ZMMX_C_SalesOrderStocMig.csv",
+    "ZMMX_C_SupplierStockMig": "exports/ZMMX_C_SupplierStockMig.csv",
+    "ZMMX_C_SupplierStockMig_Scope": "selection/ZMMX_C_SupplierStockMig.csv",
+    "ZMMX_C_MatDocHeaderMig": "exports/ZMMX_C_MatDocHeaderMig.csv",
+    "ZMMX_C_MatDocHeaderMig_Scope": "selection/ZMMX_C_MatDocHeaderMig.csv",
+    "ZMMX_C_MatDocItemMig": "exports/ZMMX_C_MatDocItemMig.csv",
+    "ZMMX_C_MatDocItemMig_Scope": "selection/ZMMX_C_MatDocItemMig.csv",
+    "ZMMX_C_RequisitionMig": "exports/ZMMX_C_RequisitionMig.csv",
+    "ZMMX_C_RequisitionMig_Scope": "selection/ZMMX_C_RequisitionMig.csv",
+    "ZMMX_C_ReqAssignmentMig": "exports/ZMMX_C_ReqAssignmentMig.csv",
+    "ZMMX_C_ReqAssignmentMig_Scope": "selection/ZMMX_C_ReqAssignmentMig.csv",
+    "ZMMX_C_PurchaseOrderMig": "exports/ZMMX_C_PurchaseOrderMig.csv",
+    "ZMMX_C_PurchaseOrderMig_Scope": "selection/ZMMX_C_PurchaseOrderMig.csv",
+    "ZMMX_C_PurchaseItemMig": "exports/ZMMX_C_PurchaseItemMig.csv",
+    "ZMMX_C_PurchaseItemMig_Scope": "selection/ZMMX_C_PurchaseItemMig.csv",
+    "ZMMX_C_PurchaseScheduMig": "exports/ZMMX_C_PurchaseScheduMig.csv",
+    "ZMMX_C_PurchaseScheduMig_Scope": "selection/ZMMX_C_PurchaseScheduMig.csv",
+    "ZMMX_C_PurchaseAssignMig": "exports/ZMMX_C_PurchaseAssignMig.csv",
+    "ZMMX_C_PurchaseAssignMig_Scope": "selection/ZMMX_C_PurchaseAssignMig.csv",
+    "ZMMX_C_PurchaseHistorMig": "exports/ZMMX_C_PurchaseHistorMig.csv",
+    "ZMMX_C_PurchaseHistorMig_Scope": "selection/ZMMX_C_PurchaseHistorMig.csv",
+    "ZMMX_C_InfoRecordMig": "exports/ZMMX_C_InfoRecordMig.csv",
+    "ZMMX_C_InfoRecordMig_Scope": "selection/ZMMX_C_InfoRecordMig.csv",
+    "ZMMX_C_InfoPurchOrgMig": "exports/ZMMX_C_InfoPurchOrgMig.csv",
+    "ZMMX_C_InfoPurchOrgMig_Scope": "selection/ZMMX_C_InfoPurchOrgMig.csv",
+    "ZMMX_C_ContractHeaderMig": "exports/ZMMX_C_ContractHeaderMig.csv",
+    "ZMMX_C_ContractHeaderMig_Scope": "selection/ZMMX_C_ContractHeaderMig.csv",
+    "ZMMX_C_ContractItemMig": "exports/ZMMX_C_ContractItemMig.csv",
+    "ZMMX_C_ContractItemMig_Scope": "selection/ZMMX_C_ContractItemMig.csv",
+    "ZMMX_C_ContractAssignMig": "exports/ZMMX_C_ContractAssignMig.csv",
+    "ZMMX_C_ContractAssignMig_Scope": "selection/ZMMX_C_ContractAssignMig.csv",
+    "ZMMX_C_MaterialSalesMig": "exports/ZMMX_C_MaterialSalesMig.csv",
+    "ZMMX_C_MaterialSalesMig_Scope": "selection/ZMMX_C_MaterialSalesMig.csv",
+    "ZMMX_C_MaterialTaxMig": "exports/ZMMX_C_MaterialTaxMig.csv",
+    "ZMMX_C_MaterialTaxMig_Scope": "selection/ZMMX_C_MaterialTaxMig.csv",
+    "ZMMX_C_MaterialMRPAreaMig": "exports/ZMMX_C_MaterialMRPAreaMig.csv",
+    "ZMMX_C_MaterialMRPAreaMig_Scope": "selection/ZMMX_C_MaterialMRPAreaMig.csv",
+    "ZMMX_C_MaterialEANMig": "exports/ZMMX_C_MaterialEANMig.csv",
+    "ZMMX_C_MaterialEANMig_Scope": "selection/ZMMX_C_MaterialEANMig.csv",
+    "ZMMX_C_PurchasePartnerMig": "exports/ZMMX_C_PurchasePartnerMig.csv",
+    "ZMMX_C_PurchasePartnerMig_Scope": "selection/ZMMX_C_PurchasePartnerMig.csv",
+    "ZMMX_C_ContractPartnerMig": "exports/ZMMX_C_ContractPartnerMig.csv",
+    "ZMMX_C_ContractPartnerMig_Scope": "selection/ZMMX_C_ContractPartnerMig.csv",
+    "ZMMX_C_MaterialLongTextMig": "exports/ZMMX_C_MaterialLongTextMig.csv",
+    "ZMMX_C_MaterialLongTextMig_Links": "text-links/ZMMX_C_MaterialLongTextMig.csv",
+    "ZMMX_C_PurchaseLongTextMig": "exports/ZMMX_C_PurchaseLongTextMig.csv",
+    "ZMMX_C_PurchaseLongTextMig_Links": "text-links/ZMMX_C_PurchaseLongTextMig.csv",
+    "ZMMX_C_RequisitionLongTextMig": "exports/ZMMX_C_RequisitionLongTextMig.csv",
+    "ZMMX_C_RequisitionLongTextMig_Links": "text-links/ZMMX_C_RequisitionLongTextMig.csv",
+    "ZMMX_C_ContractLongTextMig": "exports/ZMMX_C_ContractLongTextMig.csv",
+    "ZMMX_C_ContractLongTextMig_Links": "text-links/ZMMX_C_ContractLongTextMig.csv",
+    "ZMMX_C_InfoRecordLongTextMig": "exports/ZMMX_C_InfoRecordLongTextMig.csv",
+    "ZMMX_C_InfoRecordLongTextMig_Links": "text-links/ZMMX_C_InfoRecordLongTextMig.csv",
+    "ZMMX_C_ClassObjectMig": "exports/ZMMX_C_ClassObjectMig.csv",
+    "ZMMX_C_ClassObjectMig_Links": "classification-links/ZMMX_C_ClassObjectMig.csv",
+    "ZMMX_C_MaterialClassMig": "exports/ZMMX_C_MaterialClassMig.csv",
+    "ZMMX_C_MaterialClassMig_Links": "classification-links/ZMMX_C_MaterialClassMig.csv",
+    "ZMMX_C_BatchClassMig": "exports/ZMMX_C_BatchClassMig.csv",
+    "ZMMX_C_BatchClassMig_Links": "classification-links/ZMMX_C_BatchClassMig.csv",
+    "ZMMX_C_MaterialCharcMig": "exports/ZMMX_C_MaterialCharcMig.csv",
+    "ZMMX_C_MaterialCharcMig_Links": "classification-links/ZMMX_C_MaterialCharcMig.csv",
+    "ZMMX_C_BatchCharcMig": "exports/ZMMX_C_BatchCharcMig.csv",
+    "ZMMX_C_BatchCharcMig_Links": "classification-links/ZMMX_C_BatchCharcMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZMMX_C_MatDocHeaderMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_MatDocHeaderMig",
+      "parent": "ZMMX_C_MatDocHeaderMig_Scope",
+      "child_keys": [
+        "MaterialDocument",
+        "MaterialDocumentYear"
+      ],
+      "parent_keys": [
+        "MaterialDocument",
+        "MaterialDocumentYear"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MatDocItemMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MatDocItemMig",
+      "parent": "ZMMX_C_MatDocItemMig_Scope",
+      "child_keys": [
+        "MaterialDocument",
+        "MaterialDocumentYear",
+        "MaterialDocumentItem"
+      ],
+      "parent_keys": [
+        "MaterialDocument",
+        "MaterialDocumentYear",
+        "MaterialDocumentItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MatDocItemMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MatDocItemMig_Selected",
+      "parent": "ZMMX_C_MatDocHeaderMig_Prepared",
+      "child_keys": [
+        "MaterialDocument",
+        "MaterialDocumentYear"
+      ],
+      "parent_keys": [
+        "MaterialDocument",
+        "MaterialDocumentYear"
+      ],
+      "parent_identity": [
+        "MaterialDocument",
+        "MaterialDocumentYear"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialMig",
+      "parent": "ZMMX_C_MaterialMig_Scope",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_LocationStockMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_LocationStockMig",
+      "parent": "ZMMX_C_LocationStockMig_Scope",
+      "child_keys": [
+        "Product",
+        "Plant",
+        "StorageLocation"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant",
+        "StorageLocation"
+      ]
+    },
+    {
+      "name": "ZMMX_C_LocationStockMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_LocationStockMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_BatchStockMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_BatchStockMig",
+      "parent": "ZMMX_C_BatchStockMig_Scope",
+      "child_keys": [
+        "Product",
+        "Plant",
+        "StorageLocation",
+        "Batch"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant",
+        "StorageLocation",
+        "Batch"
+      ]
+    },
+    {
+      "name": "ZMMX_C_BatchStockMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_BatchStockMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_SalesOrderStocMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_SalesOrderStocMig",
+      "parent": "ZMMX_C_SalesOrderStocMig_Scope",
+      "child_keys": [
+        "Product",
+        "Plant",
+        "StorageLocation",
+        "Batch",
+        "SpecialStock",
+        "SalesOrder",
+        "SalesOrderItem"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant",
+        "StorageLocation",
+        "Batch",
+        "SpecialStock",
+        "SalesOrder",
+        "SalesOrderItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_SalesOrderStocMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_SalesOrderStocMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_SupplierStockMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_SupplierStockMig",
+      "parent": "ZMMX_C_SupplierStockMig_Scope",
+      "child_keys": [
+        "Product",
+        "Plant",
+        "Batch",
+        "SpecialStock",
+        "Supplier"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant",
+        "Batch",
+        "SpecialStock",
+        "Supplier"
+      ]
+    },
+    {
+      "name": "ZMMX_C_SupplierStockMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_SupplierStockMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialTextMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialTextMig",
+      "parent": "ZMMX_C_MaterialTextMig_Scope",
+      "child_keys": [
+        "Product",
+        "Language"
+      ],
+      "parent_keys": [
+        "Product",
+        "Language"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialTextMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialTextMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialPlantMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialPlantMig",
+      "parent": "ZMMX_C_MaterialPlantMig_Scope",
+      "child_keys": [
+        "Product",
+        "Plant"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialPlantMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialPlantMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialLocatiMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialLocatiMig",
+      "parent": "ZMMX_C_MaterialLocatiMig_Scope",
+      "child_keys": [
+        "Product",
+        "Plant",
+        "StorageLocation"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant",
+        "StorageLocation"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialLocatiMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialLocatiMig_Selected",
+      "parent": "ZMMX_C_MaterialPlantMig_Prepared",
+      "child_keys": [
+        "Product",
+        "Plant"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant"
+      ],
+      "parent_identity": [
+        "Product",
+        "Plant"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialUnitMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialUnitMig",
+      "parent": "ZMMX_C_MaterialUnitMig_Scope",
+      "child_keys": [
+        "Product",
+        "AlternativeUnit"
+      ],
+      "parent_keys": [
+        "Product",
+        "AlternativeUnit"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialUnitMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialUnitMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialValueMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialValueMig",
+      "parent": "ZMMX_C_MaterialValueMig_Scope",
+      "child_keys": [
+        "Product",
+        "ValuationArea",
+        "ValuationType"
+      ],
+      "parent_keys": [
+        "Product",
+        "ValuationArea",
+        "ValuationType"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialValueMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialValueMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_BatchGeneralMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_BatchGeneralMig",
+      "parent": "ZMMX_C_BatchGeneralMig_Scope",
+      "child_keys": [
+        "Product",
+        "Batch"
+      ],
+      "parent_keys": [
+        "Product",
+        "Batch"
+      ]
+    },
+    {
+      "name": "ZMMX_C_BatchGeneralMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_BatchGeneralMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_BatchPlantMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_BatchPlantMig",
+      "parent": "ZMMX_C_BatchPlantMig_Scope",
+      "child_keys": [
+        "Product",
+        "Plant",
+        "Batch"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant",
+        "Batch"
+      ]
+    },
+    {
+      "name": "ZMMX_C_BatchPlantMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_BatchPlantMig_Selected",
+      "parent": "ZMMX_C_MaterialPlantMig_Prepared",
+      "child_keys": [
+        "Product",
+        "Plant"
+      ],
+      "parent_keys": [
+        "Product",
+        "Plant"
+      ],
+      "parent_identity": [
+        "Product",
+        "Plant"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseOrderMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_PurchaseOrderMig",
+      "parent": "ZMMX_C_PurchaseOrderMig_Scope",
+      "child_keys": [
+        "PurchaseOrder"
+      ],
+      "parent_keys": [
+        "PurchaseOrder"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseItemMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_PurchaseItemMig",
+      "parent": "ZMMX_C_PurchaseItemMig_Scope",
+      "child_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ],
+      "parent_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseItemMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_PurchaseItemMig_Selected",
+      "parent": "ZMMX_C_PurchaseOrderMig_Prepared",
+      "child_keys": [
+        "PurchaseOrder"
+      ],
+      "parent_keys": [
+        "PurchaseOrder"
+      ],
+      "parent_identity": [
+        "PurchaseOrder"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseScheduMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_PurchaseScheduMig",
+      "parent": "ZMMX_C_PurchaseScheduMig_Scope",
+      "child_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "ScheduleLine"
+      ],
+      "parent_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "ScheduleLine"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseScheduMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_PurchaseScheduMig_Selected",
+      "parent": "ZMMX_C_PurchaseItemMig_Prepared",
+      "child_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ],
+      "parent_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ],
+      "parent_identity": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseAssignMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_PurchaseAssignMig",
+      "parent": "ZMMX_C_PurchaseAssignMig_Scope",
+      "child_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "AccountAssignmentNumber"
+      ],
+      "parent_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "AccountAssignmentNumber"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseAssignMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_PurchaseAssignMig_Selected",
+      "parent": "ZMMX_C_PurchaseItemMig_Prepared",
+      "child_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ],
+      "parent_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ],
+      "parent_identity": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseHistorMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_PurchaseHistorMig",
+      "parent": "ZMMX_C_PurchaseHistorMig_Scope",
+      "child_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "AccountAssignmentNumber",
+        "HistoryCategory",
+        "FiscalYear",
+        "DocumentNumber",
+        "DocumentItem"
+      ],
+      "parent_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem",
+        "AccountAssignmentNumber",
+        "HistoryCategory",
+        "FiscalYear",
+        "DocumentNumber",
+        "DocumentItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseHistorMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_PurchaseHistorMig_Selected",
+      "parent": "ZMMX_C_PurchaseItemMig_Prepared",
+      "child_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ],
+      "parent_keys": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ],
+      "parent_identity": [
+        "PurchaseOrder",
+        "PurchaseOrderItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_RequisitionMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_RequisitionMig",
+      "parent": "ZMMX_C_RequisitionMig_Scope",
+      "child_keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem"
+      ],
+      "parent_keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ReqAssignmentMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_ReqAssignmentMig",
+      "parent": "ZMMX_C_ReqAssignmentMig_Scope",
+      "child_keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem",
+        "AccountAssignmentNumber"
+      ],
+      "parent_keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem",
+        "AccountAssignmentNumber"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ReqAssignmentMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_ReqAssignmentMig_Selected",
+      "parent": "ZMMX_C_RequisitionMig_Prepared",
+      "child_keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem"
+      ],
+      "parent_keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem"
+      ],
+      "parent_identity": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractHeaderMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_ContractHeaderMig",
+      "parent": "ZMMX_C_ContractHeaderMig_Scope",
+      "child_keys": [
+        "PurchasingContract"
+      ],
+      "parent_keys": [
+        "PurchasingContract"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractItemMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_ContractItemMig",
+      "parent": "ZMMX_C_ContractItemMig_Scope",
+      "child_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "parent_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractItemMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_ContractItemMig_Selected",
+      "parent": "ZMMX_C_ContractHeaderMig_Prepared",
+      "child_keys": [
+        "PurchasingContract"
+      ],
+      "parent_keys": [
+        "PurchasingContract"
+      ],
+      "parent_identity": [
+        "PurchasingContract"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractAssignMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_ContractAssignMig",
+      "parent": "ZMMX_C_ContractAssignMig_Scope",
+      "child_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ],
+      "parent_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem",
+        "AccountAssignmentNumber"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractAssignMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_ContractAssignMig_Selected",
+      "parent": "ZMMX_C_ContractItemMig_Prepared",
+      "child_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "parent_keys": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ],
+      "parent_identity": [
+        "PurchasingContract",
+        "PurchasingContractItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_InfoRecordMig_Prepared",
+      "operation": "selection",
+      "input": "ZMMX_C_InfoRecordMig",
+      "parent": "ZMMX_C_InfoRecordMig_Scope",
+      "child_keys": [
+        "PurchasingInfoRecord"
+      ],
+      "parent_keys": [
+        "PurchasingInfoRecord"
+      ]
+    },
+    {
+      "name": "ZMMX_C_InfoPurchOrgMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_InfoPurchOrgMig",
+      "parent": "ZMMX_C_InfoPurchOrgMig_Scope",
+      "child_keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ],
+      "parent_keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ]
+    },
+    {
+      "name": "ZMMX_C_InfoPurchOrgMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_InfoPurchOrgMig_Selected",
+      "parent": "ZMMX_C_InfoRecordMig_Prepared",
+      "child_keys": [
+        "PurchasingInfoRecord"
+      ],
+      "parent_keys": [
+        "PurchasingInfoRecord"
+      ],
+      "parent_identity": [
+        "PurchasingInfoRecord"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialSalesMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialSalesMig",
+      "parent": "ZMMX_C_MaterialSalesMig_Scope",
+      "child_keys": [
+        "Product",
+        "SalesOrganization",
+        "DistributionChannel"
+      ],
+      "parent_keys": [
+        "Product",
+        "SalesOrganization",
+        "DistributionChannel"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialSalesMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialSalesMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialTaxMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialTaxMig",
+      "parent": "ZMMX_C_MaterialTaxMig_Scope",
+      "child_keys": [
+        "Product",
+        "DepartureCountry"
+      ],
+      "parent_keys": [
+        "Product",
+        "DepartureCountry"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialTaxMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialTaxMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialMRPAreaMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialMRPAreaMig",
+      "parent": "ZMMX_C_MaterialMRPAreaMig_Scope",
+      "child_keys": [
+        "Product",
+        "MRPArea"
+      ],
+      "parent_keys": [
+        "Product",
+        "MRPArea"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialMRPAreaMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialMRPAreaMig_Selected",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "child_keys": [
+        "Product"
+      ],
+      "parent_keys": [
+        "Product"
+      ],
+      "parent_identity": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialEANMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_MaterialEANMig",
+      "parent": "ZMMX_C_MaterialEANMig_Scope",
+      "child_keys": [
+        "Product",
+        "AlternativeUnit",
+        "EANCounter"
+      ],
+      "parent_keys": [
+        "Product",
+        "AlternativeUnit",
+        "EANCounter"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialEANMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_MaterialEANMig_Selected",
+      "parent": "ZMMX_C_MaterialUnitMig_Prepared",
+      "child_keys": [
+        "Product",
+        "AlternativeUnit"
+      ],
+      "parent_keys": [
+        "Product",
+        "AlternativeUnit"
+      ],
+      "parent_identity": [
+        "Product",
+        "AlternativeUnit"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchasePartnerMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_PurchasePartnerMig",
+      "parent": "ZMMX_C_PurchasePartnerMig_Scope",
+      "child_keys": [
+        "PurchaseOrder",
+        "PurchasingOrganization",
+        "SupplierSubrange",
+        "Plant",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "parent_keys": [
+        "PurchaseOrder",
+        "PurchasingOrganization",
+        "SupplierSubrange",
+        "Plant",
+        "PartnerFunction",
+        "PartnerCounter"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchasePartnerMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_PurchasePartnerMig_Selected",
+      "parent": "ZMMX_C_PurchaseOrderMig_Prepared",
+      "child_keys": [
+        "PurchaseOrder"
+      ],
+      "parent_keys": [
+        "PurchaseOrder"
+      ],
+      "parent_identity": [
+        "PurchaseOrder"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractPartnerMig_Selected",
+      "operation": "selection",
+      "input": "ZMMX_C_ContractPartnerMig",
+      "parent": "ZMMX_C_ContractPartnerMig_Scope",
+      "child_keys": [
+        "PurchasingContract",
+        "PurchasingOrganization",
+        "SupplierSubrange",
+        "Plant",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "parent_keys": [
+        "PurchasingContract",
+        "PurchasingOrganization",
+        "SupplierSubrange",
+        "Plant",
+        "PartnerFunction",
+        "PartnerCounter"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractPartnerMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZMMX_C_ContractPartnerMig_Selected",
+      "parent": "ZMMX_C_ContractHeaderMig_Prepared",
+      "child_keys": [
+        "PurchasingContract"
+      ],
+      "parent_keys": [
+        "PurchasingContract"
+      ],
+      "parent_identity": [
+        "PurchasingContract"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZMMX_C_MaterialLongTextMig",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "links": "ZMMX_C_MaterialLongTextMig_Links",
+      "parent_keys": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_PurchaseLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZMMX_C_PurchaseLongTextMig",
+      "parent": "ZMMX_C_PurchaseOrderMig_Prepared",
+      "links": "ZMMX_C_PurchaseLongTextMig_Links",
+      "parent_keys": [
+        "PurchaseOrder"
+      ]
+    },
+    {
+      "name": "ZMMX_C_RequisitionLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZMMX_C_RequisitionLongTextMig",
+      "parent": "ZMMX_C_RequisitionMig_Prepared",
+      "links": "ZMMX_C_RequisitionLongTextMig_Links",
+      "parent_keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ContractLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZMMX_C_ContractLongTextMig",
+      "parent": "ZMMX_C_ContractHeaderMig_Prepared",
+      "links": "ZMMX_C_ContractLongTextMig_Links",
+      "parent_keys": [
+        "PurchasingContract"
+      ]
+    },
+    {
+      "name": "ZMMX_C_InfoRecordLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZMMX_C_InfoRecordLongTextMig",
+      "parent": "ZMMX_C_InfoRecordMig_Prepared",
+      "links": "ZMMX_C_InfoRecordLongTextMig_Links",
+      "parent_keys": [
+        "PurchasingInfoRecord"
+      ]
+    },
+    {
+      "name": "ZMMX_C_ClassObjectMig_Prepared",
+      "operation": "linked_scope",
+      "input": "ZMMX_C_ClassObjectMig",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "links": "ZMMX_C_ClassObjectMig_Links",
+      "row_keys": [
+        "ClassificationInternalID"
+      ],
+      "parent_keys": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialClassMig_Prepared",
+      "operation": "linked_scope",
+      "input": "ZMMX_C_MaterialClassMig",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "links": "ZMMX_C_MaterialClassMig_Links",
+      "row_keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Class"
+      ],
+      "parent_keys": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_BatchClassMig_Prepared",
+      "operation": "linked_scope",
+      "input": "ZMMX_C_BatchClassMig",
+      "parent": "ZMMX_C_BatchGeneralMig_Prepared",
+      "links": "ZMMX_C_BatchClassMig_Links",
+      "row_keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Class"
+      ],
+      "parent_keys": [
+        "Product",
+        "Batch"
+      ]
+    },
+    {
+      "name": "ZMMX_C_MaterialCharcMig_Prepared",
+      "operation": "linked_scope",
+      "input": "ZMMX_C_MaterialCharcMig",
+      "parent": "ZMMX_C_MaterialMig_Prepared",
+      "links": "ZMMX_C_MaterialCharcMig_Links",
+      "row_keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "parent_keys": [
+        "Product"
+      ]
+    },
+    {
+      "name": "ZMMX_C_BatchCharcMig_Prepared",
+      "operation": "linked_scope",
+      "input": "ZMMX_C_BatchCharcMig",
+      "parent": "ZMMX_C_BatchGeneralMig_Prepared",
+      "links": "ZMMX_C_BatchCharcMig_Links",
+      "row_keys": [
+        "ClassifiedObject",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "parent_keys": [
+        "Product",
+        "Batch"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZMMX_C_MatDocHeaderMig_Prepared",
+    "ZMMX_C_MatDocItemMig_Prepared",
+    "ZMMX_C_LocationStockMig_Prepared",
+    "ZMMX_C_BatchStockMig_Prepared",
+    "ZMMX_C_SalesOrderStocMig_Prepared",
+    "ZMMX_C_SupplierStockMig_Prepared",
+    "ZMMX_C_MaterialMig_Prepared",
+    "ZMMX_C_MaterialTextMig_Prepared",
+    "ZMMX_C_MaterialPlantMig_Prepared",
+    "ZMMX_C_MaterialLocatiMig_Prepared",
+    "ZMMX_C_MaterialUnitMig_Prepared",
+    "ZMMX_C_MaterialValueMig_Prepared",
+    "ZMMX_C_BatchGeneralMig_Prepared",
+    "ZMMX_C_BatchPlantMig_Prepared",
+    "ZMMX_C_PurchaseOrderMig_Prepared",
+    "ZMMX_C_PurchaseItemMig_Prepared",
+    "ZMMX_C_PurchaseScheduMig_Prepared",
+    "ZMMX_C_PurchaseAssignMig_Prepared",
+    "ZMMX_C_PurchaseHistorMig_Prepared",
+    "ZMMX_C_RequisitionMig_Prepared",
+    "ZMMX_C_ReqAssignmentMig_Prepared",
+    "ZMMX_C_ContractHeaderMig_Prepared",
+    "ZMMX_C_ContractItemMig_Prepared",
+    "ZMMX_C_ContractAssignMig_Prepared",
+    "ZMMX_C_InfoRecordMig_Prepared",
+    "ZMMX_C_InfoPurchOrgMig_Prepared",
+    "ZMMX_C_MaterialSalesMig_Prepared",
+    "ZMMX_C_MaterialTaxMig_Prepared",
+    "ZMMX_C_MaterialMRPAreaMig_Prepared",
+    "ZMMX_C_MaterialEANMig_Prepared",
+    "ZMMX_C_PurchasePartnerMig_Prepared",
+    "ZMMX_C_ContractPartnerMig_Prepared",
+    "ZMMX_C_MaterialLongTextMig_Prepared",
+    "ZMMX_C_PurchaseLongTextMig_Prepared",
+    "ZMMX_C_RequisitionLongTextMig_Prepared",
+    "ZMMX_C_ContractLongTextMig_Prepared",
+    "ZMMX_C_InfoRecordLongTextMig_Prepared",
+    "ZMMX_C_ClassObjectMig_Prepared",
+    "ZMMX_C_MaterialClassMig_Prepared",
+    "ZMMX_C_BatchClassMig_Prepared",
+    "ZMMX_C_MaterialCharcMig_Prepared",
+    "ZMMX_C_BatchCharcMig_Prepared"
+  ]
+}

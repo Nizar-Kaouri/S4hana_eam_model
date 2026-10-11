@@ -1,9 +1,9 @@
 // ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZFIV_R_OpenItemWithSupplier: open and overdue amounts per supplier and aging
+// Purpose: Analytical query on ZFIV_I_OpenItemWithSupplier: open and overdue amounts per supplier and aging
 //   bucket.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // LINK VIEW (ships only when modules "open_items" AND "supplier" are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZFIV_R_OpenItemWithSupplier applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZFIV_I_OpenItemWithSupplier applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Payables Aging by Supplier'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -11,7 +11,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZFIV_C_PayablesAgingQ
   provider contract analytical_query
-  as projection on ZFIV_R_OpenItemWithSupplier
+  as projection on ZFIV_I_OpenItemWithSupplier
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

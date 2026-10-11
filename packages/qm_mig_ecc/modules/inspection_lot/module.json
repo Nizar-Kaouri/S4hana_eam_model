@@ -1,0 +1,61 @@
+{
+  "name": "inspection_lot",
+  "title": "Inspection lots",
+  "description": "Inspection lots source records, source preparation contracts.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "process-reference"
+  ],
+  "sap_tables": [
+    "JEST",
+    "QALS",
+    "QAVE",
+    "JSTO"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZQMX_B_InspectionLotData",
+      "ZQMX_B_UsageDecisionData",
+      "ZQMX_B_LotStatusData",
+      "ZQMX_B_StatusProfileData"
+    ],
+    "composite": [
+      "ZQMX_I_InspectionLot",
+      "ZQMX_I_UsageDecision",
+      "ZQMX_I_LotStatus",
+      "ZQMX_I_LotUserStatus"
+    ],
+    "consumption": [
+      "ZQMX_C_InspectionLotMig",
+      "ZQMX_C_InspectionLotMigCount",
+      "ZQMX_C_UsageDecisionMig",
+      "ZQMX_C_LotStatusMig",
+      "ZQMX_C_LotUserStatusMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZQMX_B_InspectionLotData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_I_InspectionLot": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_InspectionLotMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_InspectionLotMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_B_UsageDecisionData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_I_UsageDecision": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_UsageDecisionMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_B_LotStatusData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_I_LotStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_LotStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_B_StatusProfileData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_I_LotUserStatus": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZQMX_C_LotUserStatusMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

@@ -1,0 +1,43 @@
+{
+  "name": "production_version",
+  "title": "Production versions",
+  "description": "Production versions. Verify production-version validity, lot-size ranges, lock/check status and the effective BOM/task-list combination. Materials and plants are cross-domain prerequisites. Distinct production versions may intentionally overlap; evaluate availability for a version identity rather than rejecting every material-level overlap. REM planning levels require release-specific interface review.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "effectivity-reference"
+  ],
+  "sap_tables": [
+    "MKAL"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "bill_of_material",
+    "routing"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZPPX_B_ProdVersionData"
+    ],
+    "composite": [
+      "ZPPX_I_ProdVersion"
+    ],
+    "consumption": [
+      "ZPPX_C_ProdVersionMig",
+      "ZPPX_C_ProdVersionMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPPX_B_ProdVersionData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_I_ProdVersion": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_C_ProdVersionMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPPX_C_ProdVersionMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

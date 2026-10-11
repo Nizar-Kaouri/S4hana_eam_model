@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZSDV_I_DELIVERYITEM</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Outbound Delivery Item</DDTEXT>
+    <DDTEXT>Outbound Delivery Item - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

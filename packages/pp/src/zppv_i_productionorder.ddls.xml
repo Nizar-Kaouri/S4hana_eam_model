@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZPPV_I_PRODUCTIONORDER</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Production Order</DDTEXT>
+    <DDTEXT>Production Order - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

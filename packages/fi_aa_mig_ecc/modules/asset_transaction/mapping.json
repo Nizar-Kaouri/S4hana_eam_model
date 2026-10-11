@@ -1,0 +1,115 @@
+{
+  "module": "asset_transaction",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "fixed_asset"
+  ],
+  "key": {
+    "business_key": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset",
+      "FiscalYear",
+      "AssetLineItem",
+      "DepreciationArea"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFAX_C_AssetPostingMig",
+      "source_view": "ZFAX_I_AssetPosting",
+      "scope_filter": "",
+      "keys": [
+        "CompanyCode",
+        "MasterFixedAsset",
+        "FixedAsset",
+        "FiscalYear",
+        "AssetLineItem",
+        "DepreciationArea"
+      ],
+      "fields": [
+        {
+          "element": "CompanyCode",
+          "source": "ANEP-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "MasterFixedAsset",
+          "source": "ANEP-ANLN1",
+          "target": "customer interface field: MasterFixedAsset (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "FixedAsset",
+          "source": "ANEP-ANLN2",
+          "target": "customer interface field: FixedAsset (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "FiscalYear",
+          "source": "ANEP-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "AssetLineItem",
+          "source": "ANEP-LNRAN",
+          "target": "customer interface field: AssetLineItem (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "DepreciationArea",
+          "source": "ANEP-AFABE",
+          "target": "customer interface field: DepreciationArea (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "AssetValueDate",
+          "source": "ANEP-BZDAT",
+          "target": "customer interface field: AssetValueDate (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "AssetTransactionType",
+          "source": "ANEP-BWASL",
+          "target": "customer interface field: AssetTransactionType (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "AssetAmount",
+          "source": "ANEP-ANBTR",
+          "target": "customer interface field: AssetAmount (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "AccountingDocument",
+          "source": "ANEP-BELNR",
+          "target": "customer interface field: AccountingDocument (unconfirmed)",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Depreciation areas, currencies, fiscal years and transfer dates must be agreed. ANLC values are fiscal-year accumulations, not a ready-made posting file. Asset balances must not also enter the general ledger opening balance. Asset transaction history is reconciliation reference data; Universal Parallel Accounting requires a separate supported interface assessment."
+  ],
+  "main_structure": "ZFAX_C_AssetPostingMig",
+  "source_control": {
+    "source_count_view": "ZFAX_C_AssetPostingMigCount",
+    "dimensions": [
+      {
+        "element": "CompanyCode"
+      }
+    ]
+  }
+}

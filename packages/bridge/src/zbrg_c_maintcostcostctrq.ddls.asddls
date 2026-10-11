@@ -1,9 +1,9 @@
 // ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZBRG_R_MaintCostWithCostCtr: maintenance cost per cost center category and cost
+// Purpose: Analytical query on ZBRG_I_MaintCostWithCostCtr: maintenance cost per cost center category and cost
 //   center.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // LINK VIEW (ships only when modules "co:cost_center" AND "eam:rpt_order_cost" are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZBRG_R_MaintCostWithCostCtr applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZBRG_I_MaintCostWithCostCtr applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Maintenance Cost by Cost Center'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -11,7 +11,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZBRG_C_MaintCostCostCtrQ
   provider contract analytical_query
-  as projection on ZBRG_R_MaintCostWithCostCtr
+  as projection on ZBRG_I_MaintCostWithCostCtr
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

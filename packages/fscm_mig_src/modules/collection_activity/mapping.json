@@ -1,0 +1,110 @@
+{
+  "module": "collection_activity",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "ContactUUID"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFCX_C_CollectContactMig",
+      "source_view": "ZFCX_I_CollectContact",
+      "scope_filter": "",
+      "keys": [
+        "ContactUUID"
+      ],
+      "fields": [
+        {
+          "element": "ContactUUID",
+          "source": "UDM_CCT_ATTR-CCT_GUID",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactUUID",
+          "rule": "info"
+        },
+        {
+          "element": "ContactDate",
+          "source": "UDM_CCT_ATTR-CCT_DATE",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactDate",
+          "rule": "info"
+        },
+        {
+          "element": "ContactResult",
+          "source": "UDM_CCT_ATTR-CCT_RESULT",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactResult",
+          "rule": "info"
+        },
+        {
+          "element": "ContactType",
+          "source": "UDM_CCT_ATTR-CCT_TYPE",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactType",
+          "rule": "info"
+        },
+        {
+          "element": "ContactDirection",
+          "source": "UDM_CCT_ATTR-CCT_DIRECTION",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactDirection",
+          "rule": "info"
+        },
+        {
+          "element": "Reached",
+          "source": "UDM_CCT_ATTR-XREACHED",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.Reached",
+          "rule": "info"
+        },
+        {
+          "element": "CollectionSegment",
+          "source": "UDM_CCT_ATTR-COLL_SEGMENT",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.CollectionSegment",
+          "rule": "info"
+        },
+        {
+          "element": "CollectionSpecialist",
+          "source": "UDM_CCT_ATTR-COLL_SPECIALIST",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.CollectionSpecialist",
+          "rule": "info"
+        },
+        {
+          "element": "BusinessPartner",
+          "source": "UDM_CCT_ATTR-CUSTOMER",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.BusinessPartner",
+          "rule": "info"
+        },
+        {
+          "element": "ContactName",
+          "source": "UDM_CCT_ATTR-CCT_NAME",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ContactName",
+          "rule": "info"
+        },
+        {
+          "element": "ChangedAt",
+          "source": "UDM_CCT_ATTR-CHANGED_AT",
+          "target": "Native target evidence: ZFCT_B_CollectContactCompare.ChangedAt",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Contact attributes only; associated items and resubmissions remain pending. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "CollectContact: Contact attributes only; associated items and resubmissions remain pending.",
+    "CollectTask: Public worklist fields do not establish the planned resubmission/follow-up task structure; substituting another business object would change scope."
+  ],
+  "main_structure": "ZFCX_C_CollectContactMig",
+  "pending_dependencies": [
+    "collections_profile"
+  ],
+  "source_control": {
+    "source_count_view": "ZFCX_C_CollectContactMigCount",
+    "dimensions": []
+  }
+}

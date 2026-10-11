@@ -18,32 +18,32 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZFIV_I_GLJournalItem"
+      "ZFIV_B_GLJournalItem"
     ],
     "composite": [
-      "ZFIV_R_GLJournalItem"
+      "ZFIV_I_GLJournalItem"
     ],
     "consumption": [
       "ZFIV_C_GLBalanceQ"
     ],
     "access_controls": [
-      "ZFIV_I_GLJournalItem",
-      "ZFIV_R_GLJournalItem"
+      "ZFIV_B_GLJournalItem",
+      "ZFIV_I_GLJournalItem"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFIV_C_GLBalanceQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_R_GLJournalItem (see GEN-Q01)."
+    "ZFIV_C_GLBalanceQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_I_GLJournalItem (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZFIV_R_GLItemWithAccount",
+      "name": "ZFIV_I_GLItemWithAccount",
       "requires_modules": [
         "gl_account",
         "gl_line_item"
       ],
-      "access_control": "ZFIV_R_GLItemWithAccount"
+      "access_control": "ZFIV_I_GLItemWithAccount"
     },
     {
       "name": "ZFIV_C_GLBalanceAccountQ",
@@ -51,7 +51,7 @@
         "gl_account",
         "gl_line_item"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_R_GLItemWithAccount (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZFIV_I_GLItemWithAccount (see GEN-Q01)."
     }
   ]
 }

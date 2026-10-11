@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZBRG_R_RevenueWithCustomer` |
+| Data source | `ZBRG_I_RevenueWithCustomer` |
 | Source file | `src/zbrg_c_revenuecustomerq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZBRG_R_RevenueWithCustomer: revenue per customer country and sold-to party.
+Analytical query on ZBRG_I_RevenueWithCustomer: revenue per customer country and sold-to party.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZBRG_R_RevenueWithCustomer: revenue per customer country and
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_RevenueWithCustomer (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_RevenueWithCustomer (see GEN-Q01).
 
 ## Example use case
 

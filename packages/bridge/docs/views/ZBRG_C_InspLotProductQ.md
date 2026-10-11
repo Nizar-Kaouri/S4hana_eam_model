@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZBRG_R_InspLotWithProduct` |
+| Data source | `ZBRG_I_InspLotWithProduct` |
 | Source file | `src/zbrg_c_insplotproductq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZBRG_R_InspLotWithProduct: lots and rejections per plant and product group, with rejection rate.
+Analytical query on ZBRG_I_InspLotWithProduct: lots and rejections per plant and product group, with rejection rate.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZBRG_R_InspLotWithProduct: lots and rejections per plant and
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_InspLotWithProduct (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_InspLotWithProduct (see GEN-Q01).
 
 ## Example use case
 

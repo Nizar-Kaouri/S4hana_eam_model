@@ -1,7 +1,6 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_PurchaseRequisitionItemAPI01.
-// TODO-VERIFY[H] MM-D05: I_PurchaseRequisitionItemAPI01 has an access control role and every element it references is projected by ZMMV_I_PurchaseReqnItem
-@EndUserText.label: 'Purchase Requisition Item'
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Purchase Requisition - Cube'
 @MappingRole: true
 define role ZMMV_I_PurchaseReqnItem {
   grant
@@ -9,5 +8,5 @@ define role ZMMV_I_PurchaseReqnItem {
       on
         ZMMV_I_PurchaseReqnItem
           where
-            inheriting conditions from entity I_PurchaseRequisitionItemAPI01;
+            inheriting conditions from entity ZMMV_B_PurchaseReqnItem;
 }

@@ -1,10 +1,10 @@
 {
   "module": "equipment",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XEQ-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -31,316 +31,380 @@
           "element": "Equipment",
           "source": "EQUI-EQUNR",
           "target": "EQUI-EQUNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "EquipmentCategory",
           "source": "EQUI-EQTYP",
           "target": "EQUI-EQTYP",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TechnicalObjectType",
           "source": "EQUI-EQART",
           "target": "EQUI-EQART",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AuthorizationGroup",
           "source": "EQUI-BEGRU",
           "target": "EQUI-BEGRU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "EQUZ-DATAB",
           "target": "EQUZ-DATAB",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanningPlant",
           "source": "EQUZ-IWERK",
           "target": "EQUZ-IWERK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "EQUZ-INGRP",
           "target": "EQUZ-INGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MainWorkCenterPlant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocation",
           "source": "ILOA-TPLNR",
           "target": "ILOA-TPLNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SuperordinateEquipment",
           "source": "EQUZ-HEQUI",
           "target": "EQUZ-HEQUI",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "EquipInstallationPositionNmbr",
           "source": "EQUZ-HEQNR",
           "target": "EQUZ-HEQNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TechnicalIdentificationNumber",
           "source": "EQUZ-TIDNR",
           "target": "EQUZ-TIDNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PlantSection",
           "source": "ILOA-BEBER",
           "target": "ILOA-BEBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssetLocation",
           "source": "ILOA-STORT",
           "target": "ILOA-STORT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssetRoom",
           "source": "ILOA-MSGRP",
           "target": "ILOA-MSGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ABCIndicator",
           "source": "ILOA-ABCKZ",
           "target": "ILOA-ABCKZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SortField",
           "source": "ILOA-EQFNR",
           "target": "ILOA-EQFNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "ILOA-BUKRS",
           "target": "ILOA-BUKRS",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BusinessArea",
           "source": "ILOA-GSBER",
           "target": "ILOA-GSBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "ILOA-KOKRS",
           "target": "ILOA-KOKRS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "ILOA-KOSTL",
           "target": "ILOA-KOSTL",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MasterFixedAsset",
           "source": "ILOA-ANLNR",
           "target": "ILOA-ANLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FixedAsset",
           "source": "ILOA-ANLUN",
           "target": "ILOA-ANLUN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StandingOrder",
           "source": "ILOA-DAUFN",
           "target": "",
-          "rule": "derive:follow-up step after the order load",
-          "compare": false
+          "rule": "derive:follow-up step after the order load"
         },
         {
           "element": "Material",
           "source": "EQUI-MATNR",
           "target": "EQUI-MATNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SerialNumber",
           "source": "EQUI-SERNR",
           "target": "EQUI-SERNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AssetManufacturerName",
           "source": "EQUI-HERST",
           "target": "EQUI-HERST",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ManufacturerCountry",
           "source": "EQUI-HERLD",
           "target": "EQUI-HERLD",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ManufacturerModelNumber",
           "source": "EQUI-TYPBZ",
           "target": "EQUI-TYPBZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ManufacturerPartNmbr",
           "source": "EQUI-MAPAR",
           "target": "EQUI-MAPAR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ManufacturerSerialNumber",
           "source": "EQUI-SERGE",
           "target": "EQUI-SERGE",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ConstructionYear",
           "source": "EQUI-BAUJJ",
           "target": "EQUI-BAUJJ",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ConstructionMonth",
           "source": "EQUI-BAUMM",
           "target": "EQUI-BAUMM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "InventoryNumber",
           "source": "EQUI-INVNR",
           "target": "EQUI-INVNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "OperationStartDate",
           "source": "EQUI-INBDT",
           "target": "EQUI-INBDT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EquipmentSizeDimension",
           "source": "EQUI-GROES",
           "target": "EQUI-GROES",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "GrossWeight",
           "source": "EQUI-BRGEW",
           "target": "EQUI-BRGEW",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "WeightUnit",
           "source": "EQUI-GEWEI",
           "target": "EQUI-GEWEI",
-          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped",
-          "compare": false
+          "rule": "copy:reference unit of a quantity - unit of measure customizing is transported, not mapped"
         },
         {
           "element": "AcquisitionDate",
           "source": "EQUI-ANSDT",
           "target": "EQUI-ANSDT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AcquisitionValue",
           "source": "EQUI-ANSWT",
           "target": "EQUI-ANSWT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Currency",
           "source": "EQUI-WAERS",
           "target": "EQUI-WAERS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LastChangeDate",
           "source": "EQUI-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ILOA-ADRNR",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "HasStandardAddress",
+          "source": "derived: presence of the standard ADRC record",
+          "target": "",
+          "rule": "info"
         }
       ]
     },
     {
       "consumption_view": "ZEMX_C_EquipmentTextMig",
-      "source_view": "ZEMX_I_EquipmentDesc",
-      "scope_filter": "_Equipment.IsMarkedForDeletion = ''",
+      "source_view": "ZEMX_I_EquipText",
+      "scope_filter": "",
       "keys": [
         "Equipment",
         "Language"
@@ -350,24 +414,654 @@
           "element": "Equipment",
           "source": "EQKT-EQUNR",
           "target": "EQKT-EQUNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "EQKT-SPRAS",
           "target": "EQKT-SPRAS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EquipmentName",
           "source": "EQKT-EQKTX",
           "target": "EQKT-EQKTX",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipSerialStockMig",
+      "source_view": "ZEMX_I_EquipSerialStock",
+      "scope_filter": "_Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "Equipment"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQBS-EQUNR",
+          "target": "EQBS-EQUNR",
+          "rule": "copy"
+        },
+        {
+          "element": "StockPlant",
+          "source": "EQBS-B_WERK",
+          "target": "EQBS-B_WERK",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageLocation",
+          "source": "EQBS-B_LAGER",
+          "target": "EQBS-B_LAGER",
+          "rule": "copy"
+        },
+        {
+          "element": "Batch",
+          "source": "EQBS-B_CHARGE",
+          "target": "EQBS-B_CHARGE",
+          "rule": "copy"
+        },
+        {
+          "element": "SpecialStock",
+          "source": "EQBS-SOBKZ",
+          "target": "EQBS-SOBKZ",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference context only; select referenced identities and implement customer-specific target posting and prerequisites."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipPartnerMig",
+      "source_view": "ZEMX_I_EquipPartner",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "IHPA-PARVW",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerCounter",
+          "source": "IHPA-COUNTER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Partner",
+          "source": "IHPA-PARNR",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Resolve partner identities and map language-independent partner functions through the selected SAP posting interface; load after the equipment master."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipStatusMig",
+      "source_view": "ZEMX_I_EquipStatus",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusKind",
+          "source": "derived: first character of JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference data: preserve keys and select the required versions; do not write SAP tables directly. Long text payloads require READ_TEXT; address numbers are regenerated in the target."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipUserStatusMig",
+      "source_view": "ZEMX_I_EquipStatus",
+      "scope_filter": "src.StatusKind = 'E'",
+      "keys": [
+        "Equipment",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusKind",
+          "source": "derived: first character of JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Map the user status/profile through a supported SAP interface after master creation; source system statuses are reference only."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipLongTextMig",
+      "source_view": "ZEMX_I_EquipLongText",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference data: preserve keys and select the required versions; do not write SAP tables directly. Long text payloads require READ_TEXT; address numbers are regenerated in the target."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipAddressMig",
+      "source_view": "ZEMX_I_EquipAddress",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADRC-ADDRNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressValidFrom",
+          "source": "ADRC-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressVersion",
+          "source": "ADRC-NATION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference data: preserve keys and select the required versions; do not write SAP tables directly. Long text payloads require READ_TEXT; address numbers are regenerated in the target."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipClassMig",
+      "source_view": "ZEMX_I_EquipClass",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "ClassType",
+        "Class"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "source: Equipment",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ClassType",
+          "source": "KSSK-KLART",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Class",
+          "source": "KLAH-CLASS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ClassificationStatus",
+          "source": "KSSK-STATU",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipCharcMig",
+      "source_view": "ZEMX_I_EquipCharc",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "source: Equipment",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ClassType",
+          "source": "AUSP-KLART",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Characteristic",
+          "source": "CABN-ATNAM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcValuePositionNumber",
+          "source": "AUSP-ATZHL",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcValue",
+          "source": "AUSP-ATWRT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcFromNumericValue",
+          "source": "AUSP-ATFLV",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcToNumericValue",
+          "source": "AUSP-ATFLB",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcValueDependency",
+          "source": "AUSP-ATCOD",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipEmailMig",
+      "source_view": "ZEMX_I_EquipEmail",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR6-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR6-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR6-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR6-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "EmailAddress",
+          "source": "ADR6-SMTP_ADDR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR6-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipPhoneMig",
+      "source_view": "ZEMX_I_EquipPhone",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR2-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR2-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR2-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR2-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Telephone",
+          "source": "ADR2-TEL_NUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TelephoneExtension",
+          "source": "ADR2-TEL_EXTENS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR2-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_EquipFaxMig",
+      "source_view": "ZEMX_I_EquipFax",
+      "scope_filter": "",
+      "keys": [
+        "Equipment",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Equipment",
+          "source": "EQUI-EQUNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR3-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR3-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR3-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR3-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxNumber",
+          "source": "ADR3-FAX_NUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxExtension",
+          "source": "ADR3-FAX_EXTENS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR3-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
     }
   ],
   "not_migrated": [
@@ -394,18 +1088,15 @@
       "element": "CreatedByUser",
       "source": "EQUI-ERNAM",
       "reason": "info"
-    },
-    {
-      "view": "ZEMX_I_EquipmentDesc",
-      "element": "HasLongText",
-      "source": "EQKT-KZLTX",
-      "reason": "info"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: EQBS serial stock context is delivered as reference data only; stock quantities and material serial profiles belong to the customer MM migration, not EAM master posting.",
+    "Compatibility note: material numbers must exist on S/4HANA (material master migration, MM) before equipment with a material is loaded"
+  ],
+  "main_structure": "ZEMX_C_EquipmentMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_EquipmentMigCount",
-    "target_count_view": "ZEMT_I_EquipmentCount",
     "dimensions": [
       {
         "element": "MaintenancePlanningPlant"
@@ -414,33 +1105,6 @@
         "element": "EquipmentCategory"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_EquipmentMig",
-      "target_view": "ZEMT_I_EquipmentCompare",
-      "key": [
-        "Equipment"
-      ],
-      "fields": [
-        "EquipmentCategory",
-        "TechnicalObjectType",
-        "MaintenancePlanningPlant",
-        "FunctionalLocation",
-        "SuperordinateEquipment",
-        "MaintenancePlant",
-        "CompanyCode",
-        "CostCenter",
-        "Material",
-        "SerialNumber",
-        "ManufacturerSerialNumber",
-        "ConstructionYear",
-        "InventoryNumber"
-      ]
-    }
-  },
-  "gaps": [
-    "TODO-VERIFY[M] XEQ-G01: serial number stock data (EQBS) and material serial profiles are not extracted in the pilot",
-    "TODO-VERIFY[H] XEQ-G02: material numbers must exist on S/4HANA (material master migration, MM) before equipment with a material is loaded"
-  ],
-  "main_structure": "ZEMX_C_EquipmentMig"
+    "measure": "RecordCount"
+  }
 }

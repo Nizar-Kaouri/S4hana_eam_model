@@ -1,0 +1,84 @@
+{
+  "module": "credit_profile",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "BusinessPartner"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFCX_C_CreditProfileMig",
+      "source_view": "ZFCX_I_CreditProfile",
+      "scope_filter": "",
+      "keys": [
+        "BusinessPartner"
+      ],
+      "fields": [
+        {
+          "element": "BusinessPartner",
+          "source": "UKMBP_CMS-PARTNER",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.BusinessPartner",
+          "rule": "copy"
+        },
+        {
+          "element": "OwnRating",
+          "source": "UKMBP_CMS-OWN_RATING",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.OwnRating",
+          "rule": "copy"
+        },
+        {
+          "element": "CheckRule",
+          "source": "UKMBP_CMS-CHECK_RULE",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.CheckRule",
+          "rule": "copy"
+        },
+        {
+          "element": "LimitRule",
+          "source": "UKMBP_CMS-LIMIT_RULE",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.LimitRule",
+          "rule": "copy"
+        },
+        {
+          "element": "RatingValidTo",
+          "source": "UKMBP_CMS-RATING_VAL_DATE",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.RatingValidTo",
+          "rule": "copy"
+        },
+        {
+          "element": "RiskClass",
+          "source": "UKMBP_CMS-RISK_CLASS",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.RiskClass",
+          "rule": "copy"
+        },
+        {
+          "element": "CreditGroup",
+          "source": "UKMBP_CMS-CREDIT_GROUP",
+          "target": "Native target evidence: ZFCT_B_CreditProfileCompare.CreditGroup",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "CLIENT is the implicit current-client field. Credit relationships remain pending. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "CreditProfile: CLIENT is the implicit current-client field. Credit relationships remain pending.",
+    "CreditRelation: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied."
+  ],
+  "main_structure": "ZFCX_C_CreditProfileMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZFCX_C_CreditProfileMigCount",
+    "dimensions": []
+  }
+}

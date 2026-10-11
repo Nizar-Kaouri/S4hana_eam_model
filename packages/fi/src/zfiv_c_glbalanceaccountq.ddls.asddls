@@ -1,8 +1,8 @@
 // ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZFIV_R_GLItemWithAccount: balances per company code and account group.
+// Purpose: Analytical query on ZFIV_I_GLItemWithAccount: balances per company code and account group.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // LINK VIEW (ships only when modules "gl_account" AND "gl_line_item" are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZFIV_R_GLItemWithAccount applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZFIV_I_GLItemWithAccount applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'G/L Balance by Account Group'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -10,7 +10,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZFIV_C_GLBalanceAccountQ
   provider contract analytical_query
-  as projection on ZFIV_R_GLItemWithAccount
+  as projection on ZFIV_I_GLItemWithAccount
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

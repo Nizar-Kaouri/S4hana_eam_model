@@ -23,7 +23,7 @@ ENDCLASS.
 CLASS zeam_cl_measdocument_test IMPLEMENTATION.
 
   METHOD class_setup.
-    cube_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_R_MEASDOCUMENT' ).
+    cube_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_MEASDOCUMENT' ).
   ENDMETHOD.
 
 
@@ -38,7 +38,7 @@ CLASS zeam_cl_measdocument_test IMPLEMENTATION.
 
 
   METHOD cancelled_readings_excluded.
-    DATA documents TYPE STANDARD TABLE OF zeam_i_measdocument WITH EMPTY KEY.
+    DATA documents TYPE STANDARD TABLE OF zeam_b_measdocument WITH EMPTY KEY.
 
     documents = VALUE #( measuringpoint = '000000000001'
       ( measurementdocument = '000000000101' measurementreading = '10' )
@@ -46,7 +46,7 @@ CLASS zeam_cl_measdocument_test IMPLEMENTATION.
       ( measurementdocument = '000000000103' measurementreading = '99' msmtdocumentiscancelled = abap_true ) ).
     cube_environment->insert_test_data( i_data = documents ).
 
-    SELECT FROM zeam_r_measdocument
+    SELECT FROM zeam_i_measdocument
       FIELDS measuringpoint,
              SUM( numberofreadings ) AS readings,
              MAX( maximumreading ) AS maximum

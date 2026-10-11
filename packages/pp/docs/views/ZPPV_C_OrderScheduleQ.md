@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZPPV_R_OrderSchedule` |
+| Data source | `ZPPV_I_OrderSchedule` |
 | Source file | `src/zppv_c_orderscheduleq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZPPV_R_OrderSchedule: open and late orders per plant and delay bucket.
+Analytical query on ZPPV_I_OrderSchedule: open and late orders per plant and delay bucket.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZPPV_R_OrderSchedule: open and late orders per plant and del
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_R_OrderSchedule (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_I_OrderSchedule (see GEN-Q01).
 
 ## Example use case
 

@@ -1,0 +1,13 @@
+// ZFIV FI VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_OperationalAcctgDocItem.
+// TODO-VERIFY[H] FI-D05: I_OperationalAcctgDocItem has an access control role and every element it references is projected by ZFIV_B_OpenItem
+@EndUserText.label: 'Open Supplier / Customer Item'
+@MappingRole: true
+define role ZFIV_B_OpenItem {
+  grant
+    select
+      on
+        ZFIV_B_OpenItem
+          where
+            inheriting conditions from entity I_OperationalAcctgDocItem;
+}

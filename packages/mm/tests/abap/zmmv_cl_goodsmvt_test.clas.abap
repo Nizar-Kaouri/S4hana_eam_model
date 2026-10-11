@@ -23,7 +23,7 @@ ENDCLASS.
 CLASS zmmv_cl_goodsmvt_test IMPLEMENTATION.
 
   METHOD class_setup.
-    environment = cl_cds_test_environment=>create( i_for_entity = 'ZMMV_R_GOODSMOVEMENT' ).
+    environment = cl_cds_test_environment=>create( i_for_entity = 'ZMMV_I_GOODSMOVEMENT' ).
   ENDMETHOD.
 
 
@@ -38,7 +38,7 @@ CLASS zmmv_cl_goodsmvt_test IMPLEMENTATION.
 
 
   METHOD derived_values.
-    DATA rows TYPE STANDARD TABLE OF zmmv_i_goodsmovement WITH EMPTY KEY.
+    DATA rows TYPE STANDARD TABLE OF zmmv_b_goodsmovement WITH EMPTY KEY.
 
     rows = VALUE #(
       ( materialdocumentyear = '2026' materialdocument = '4900000001' materialdocumentitem = '0001'
@@ -47,7 +47,7 @@ CLASS zmmv_cl_goodsmvt_test IMPLEMENTATION.
         debitcreditcode = 'H' quantityinbaseunit = 4 materialbaseunit = 'ST' ) ).
     environment->insert_test_data( i_data = rows ).
 
-    SELECT FROM zmmv_r_goodsmovement
+    SELECT FROM zmmv_i_goodsmovement
       FIELDS SUM( receiptquantity ) AS receipts, SUM( issuequantity ) AS issues
       INTO TABLE @DATA(result).
 

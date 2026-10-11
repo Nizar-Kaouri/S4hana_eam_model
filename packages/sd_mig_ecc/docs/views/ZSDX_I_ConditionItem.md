@@ -1,0 +1,35 @@
+# ZSDX_I_ConditionItem
+
+> Version **1.0.0**
+
+| | |
+|---|---|
+| Description | ConditionItem |
+| Module | `pricing_condition` |
+| Batch | 1 |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
+| Kind | view |
+| Data category | - |
+| Data source | `ZSDX_B_ConditionItemData` |
+| Source file | `src/zsdx_i_conditionitem.ddls.asddls` |
+
+## Purpose
+
+Read ConditionItem as source records; approve the key-date population before posting.
+
+## Keys
+
+- `ConditionRecord`
+- `ConditionItem`
+
+## Associations defined here
+
+- none
+
+## Access control
+
+No DCL by design: Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.
+
+## Example use case
+
+Export a small approved cohort, preserve internal keys, and compare with the mapped target population.

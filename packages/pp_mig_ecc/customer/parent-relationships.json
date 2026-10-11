@@ -1,0 +1,101 @@
+{
+  "ZPPX_C_OrderStatusMig": {
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  },
+  "ZPPX_C_ProductionHeadMig": {
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  },
+  "ZPPX_C_ProductionItemMig": {
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  },
+  "ZPPX_C_ProductionOperMig": {
+    "parent": "ZPPX_C_ProductionHeadMig",
+    "child_keys": [
+      "OperationRoutingNumber"
+    ],
+    "parent_keys": [
+      "OperationRoutingNumber"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  },
+  "ZPPX_C_OperationQuantMig": {
+    "parent": "ZPPX_C_ProductionOperMig",
+    "child_keys": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_keys": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_identity": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ]
+  },
+  "ZPPX_C_OrderComponentMig": {
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  },
+  "ZPPX_C_ConfirmationMig": {
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  },
+  "ZPPX_C_OrderUserStatusMig": {
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  }
+}

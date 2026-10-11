@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZSDV_R_DeliveryItem` |
+| Data source | `ZSDV_I_DeliveryItem` |
 | Source file | `src/zsdv_c_deliveryq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZSDV_R_DeliveryItem: delivery items per shipping point, split by on-time flag.
+Analytical query on ZSDV_I_DeliveryItem: delivery items per shipping point, split by on-time flag.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZSDV_R_DeliveryItem: delivery items per shipping point, spli
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_DeliveryItem (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_I_DeliveryItem (see GEN-Q01).
 
 ## Example use case
 

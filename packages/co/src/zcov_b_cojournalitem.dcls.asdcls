@@ -1,0 +1,13 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_JournalEntryItem.
+// TODO-VERIFY[H] CO-D04: I_JournalEntryItem has an access control role and every element it references is projected by ZCOV_B_COJournalItem
+@EndUserText.label: 'Controlling Journal Item'
+@MappingRole: true
+define role ZCOV_B_COJournalItem {
+  grant
+    select
+      on
+        ZCOV_B_COJournalItem
+          where
+            inheriting conditions from entity I_JournalEntryItem;
+}

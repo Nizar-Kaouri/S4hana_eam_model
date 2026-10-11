@@ -1,0 +1,155 @@
+{
+  "ZFAX_C_AssetMig": {
+    "module": "fixed_asset",
+    "table": "ANLA",
+    "keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "selection": "selection/ZFAX_C_AssetMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFAX_C_AssetAssignmenMig": {
+    "module": "fixed_asset",
+    "table": "ANLZ",
+    "keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset",
+      "ValidityEndDate"
+    ],
+    "selection": "selection/ZFAX_C_AssetAssignmenMig.csv",
+    "requires_business_approval": true,
+    "mode": "master",
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "kind": "child"
+  },
+  "ZFAX_C_DepreciationMig": {
+    "module": "fixed_asset",
+    "table": "ANLB",
+    "keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset",
+      "DepreciationArea"
+    ],
+    "selection": "selection/ZFAX_C_DepreciationMig.csv",
+    "requires_business_approval": true,
+    "mode": "master",
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "kind": "child"
+  },
+  "ZFAX_C_AssetPostingMig": {
+    "module": "asset_transaction",
+    "table": "ANEP",
+    "keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset",
+      "FiscalYear",
+      "AssetLineItem",
+      "DepreciationArea"
+    ],
+    "selection": "selection/ZFAX_C_AssetPostingMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "kind": "child"
+  },
+  "ZFAX_C_AssetBalanceMig": {
+    "module": "asset_balance",
+    "table": "ANLC",
+    "keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset",
+      "FiscalYear",
+      "DepreciationArea"
+    ],
+    "selection": "selection/ZFAX_C_AssetBalanceMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance",
+    "parent": "ZFAX_C_AssetMig",
+    "child_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "parent_identity": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "kind": "child"
+  },
+  "ZFAX_C_AssetLongTextMig": {
+    "kind": "text_child",
+    "module": "fixed_asset",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZFAX_C_AssetMig",
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "links": "ZFAX_C_AssetLongTextMig_Links",
+    "operation": "text_scope"
+  }
+}

@@ -1,0 +1,527 @@
+{
+  "ZPSX_C_ProjectMig": {
+    "module": "project",
+    "table": "PROJ",
+    "keys": [
+      "ProjectInternalID"
+    ],
+    "selection": "selection/ZPSX_C_ProjectMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZPSX_C_WBSMig": {
+    "module": "wbs_element",
+    "table": "PRPS",
+    "keys": [
+      "WBSElementInternalID"
+    ],
+    "selection": "selection/ZPSX_C_WBSMig.csv",
+    "requires_business_approval": true,
+    "mode": "master",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_WBSHierarchyMig": {
+    "module": "wbs_element",
+    "table": "PRHI",
+    "keys": [
+      "WBSElementInternalID"
+    ],
+    "selection": "selection/ZPSX_C_WBSHierarchyMig.csv",
+    "requires_business_approval": true,
+    "mode": "master",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_ProjectCostMig": {
+    "module": "project_cost",
+    "table": "COEP",
+    "keys": [
+      "ControllingArea",
+      "COAccountingDocument",
+      "COAccountingDocumentItem"
+    ],
+    "selection": "selection/ZPSX_C_ProjectCostMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZPSX_C_NetworkHeaderMig": {
+    "module": "network",
+    "table": "AUFK",
+    "keys": [
+      "Network"
+    ],
+    "selection": "selection/ZPSX_C_NetworkHeaderMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZPSX_C_NetworkPlanMig": {
+    "module": "network",
+    "table": "AFKO",
+    "keys": [
+      "Network"
+    ],
+    "selection": "selection/ZPSX_C_NetworkPlanMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_NetworkActivitMig": {
+    "module": "network",
+    "table": "AFVC",
+    "keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "selection": "selection/ZPSX_C_NetworkActivitMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPSX_C_NetworkPlanMig",
+    "child_keys": [
+      "RoutingNumber"
+    ],
+    "parent_keys": [
+      "RoutingNumber"
+    ],
+    "parent_identity": [
+      "Network"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_NetworkQuantitMig": {
+    "module": "network",
+    "table": "AFVV",
+    "keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "selection": "selection/ZPSX_C_NetworkQuantitMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPSX_C_NetworkActivitMig",
+    "child_keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_identity": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_OverallBudgetMig": {
+    "module": "budget",
+    "table": "BPGE",
+    "keys": [
+      "Ledger",
+      "ObjectNumber",
+      "BudgetItem",
+      "TransactionIndicator",
+      "ValueType",
+      "Version"
+    ],
+    "selection": "selection/ZPSX_C_OverallBudgetMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZPSX_C_AnnualBudgetMig": {
+    "module": "budget",
+    "table": "BPJA",
+    "keys": [
+      "Ledger",
+      "ObjectNumber",
+      "BudgetItem",
+      "TransactionIndicator",
+      "ValueType",
+      "Version",
+      "FiscalYear"
+    ],
+    "selection": "selection/ZPSX_C_AnnualBudgetMig.csv",
+    "requires_business_approval": true,
+    "mode": "balance"
+  },
+  "ZPSX_C_CommitmentMig": {
+    "module": "commitment",
+    "table": "COOI",
+    "keys": [
+      "ObjectNumber",
+      "FiscalYear",
+      "ValueType",
+      "Version",
+      "CostElement",
+      "OriginGroup",
+      "BusinessTransaction",
+      "CommitmentDocument",
+      "CommitmentItem"
+    ],
+    "selection": "selection/ZPSX_C_CommitmentMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZPSX_C_InvestProgramMig": {
+    "module": "investment_measure",
+    "table": "IMTP",
+    "keys": [
+      "InvestmentProgram",
+      "ApprovalFiscalYear"
+    ],
+    "selection": "selection/ZPSX_C_InvestProgramMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
+  },
+  "ZPSX_C_InvestPositionMig": {
+    "module": "investment_measure",
+    "table": "IMPR",
+    "keys": [
+      "InvestmentPositionInternalID"
+    ],
+    "selection": "selection/ZPSX_C_InvestPositionMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
+  },
+  "ZPSX_C_InvestAssignMig": {
+    "module": "investment_measure",
+    "table": "IMZO",
+    "keys": [
+      "InvestmentPositionInternalID",
+      "AssignedObject",
+      "ApprovalFiscalYear"
+    ],
+    "selection": "selection/ZPSX_C_InvestAssignMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
+  },
+  "ZPSX_C_NetworkStatusMig": {
+    "module": "network",
+    "table": "JEST",
+    "keys": [
+      "Network",
+      "StatusCode"
+    ],
+    "selection": "selection/ZPSX_C_NetworkStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_ProjectStatusMig": {
+    "module": "project",
+    "table": "JEST",
+    "keys": [
+      "ProjectInternalID",
+      "StatusCode"
+    ],
+    "selection": "selection/ZPSX_C_ProjectStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_WBSStatusMig": {
+    "module": "wbs_element",
+    "table": "JEST",
+    "keys": [
+      "WBSElementInternalID",
+      "StatusCode"
+    ],
+    "selection": "selection/ZPSX_C_WBSStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ],
+    "kind": "child"
+  },
+  "ZPSX_C_NetworkPartnerMig": {
+    "module": "network",
+    "keys": [
+      "Network",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkUserStatusMig": {
+    "module": "network",
+    "keys": [
+      "Network",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkComponentMig": {
+    "module": "network",
+    "keys": [
+      "Reservation",
+      "ReservationItem",
+      "RecordType"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_ProjectPartnerMig": {
+    "module": "project",
+    "keys": [
+      "ProjectInternalID",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_ProjectUserStatusMig": {
+    "module": "project",
+    "keys": [
+      "ProjectInternalID",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSPartnerMig": {
+    "module": "wbs_element",
+    "keys": [
+      "WBSElementInternalID",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_WBSUserStatusMig": {
+    "module": "wbs_element",
+    "keys": [
+      "WBSElementInternalID",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkSettleMig": {
+    "module": "network",
+    "keys": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_ProjectSettleMig": {
+    "module": "project",
+    "keys": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSSettleMig": {
+    "module": "wbs_element",
+    "keys": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "kind": "child",
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_ProjectLongTextMig": {
+    "kind": "text_child",
+    "module": "project",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPSX_C_ProjectMig",
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "links": "ZPSX_C_ProjectLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZPSX_C_WBSLongTextMig": {
+    "kind": "text_child",
+    "module": "wbs_element",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPSX_C_WBSMig",
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "links": "ZPSX_C_WBSLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZPSX_C_NetworkLongTextMig": {
+    "kind": "text_child",
+    "module": "network",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "parent_keys": [
+      "Network"
+    ],
+    "links": "ZPSX_C_NetworkLongTextMig_Links",
+    "operation": "text_scope"
+  }
+}

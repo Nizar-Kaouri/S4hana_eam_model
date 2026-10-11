@@ -1,0 +1,49 @@
+{
+  "name": "goods_movement",
+  "title": "Goods movement history",
+  "description": "Goods movement history source records, source preparation contracts.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "reference"
+  ],
+  "sap_tables": [
+    "MKPF",
+    "MSEG"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "product"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZMMX_B_MatDocHeaderData",
+      "ZMMX_B_MatDocItemData"
+    ],
+    "composite": [
+      "ZMMX_I_MatDocHeader",
+      "ZMMX_I_MatDocItem"
+    ],
+    "consumption": [
+      "ZMMX_C_MatDocHeaderMig",
+      "ZMMX_C_MatDocHeaderMigCount",
+      "ZMMX_C_MatDocItemMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMX_B_MatDocHeaderData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MatDocHeader": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MatDocHeaderMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MatDocHeaderMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_B_MatDocItemData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_MatDocItem": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_MatDocItemMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

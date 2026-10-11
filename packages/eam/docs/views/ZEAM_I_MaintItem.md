@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Maintenance Item |
+| Description | Maintenance Item - Cube |
 | Module | `maintenance_plan` |
 | Batch | 3 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_MaintenanceItem` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_MaintItem` |
 | Source file | `src/zeam_i_maintitem.ddls.asddls` |
 
 ## Purpose
 
-One row per maintenance item with its plan, reference object (plain fields), planning data, order type / priority / activity type to be generated and the assigned task list.
+Maintenance item cube with plan characteristics (category, strategy, inactive flag) via path expressions and counters for items and items with a task list.
 
 ## Keys
 
@@ -23,17 +23,16 @@ One row per maintenance item with its plan, reference object (plain fields), pla
 
 ## Associations defined here
 
-- `_MaintenancePlan` → `ZEAM_I_MaintPlan` [0..1]
-- `_MaintenancePlanningPlant` → `I_Plant` [0..1]
+- `_MaintenanceItem` → `ZEAM_B_MaintItem` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_MaintenanceItem`.
+Role inherits the conditions of `ZEAM_B_MaintItem`.
 
 ## Example use case
 
-Which equipment is covered by preventive maintenance, and with which task list.
+Preventive maintenance coverage per planning plant; items without task list.
 
 ## Open verification items
 
-`PL-010`, `PL-011`, `PL-012`, `PL-013`, `PL-014`, `PL-D02` - see `BATCH_REPORT.md`.
+none

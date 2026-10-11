@@ -1,26 +1,23 @@
 // ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per inspection characteristic of an inspection lot (per inspection operation) with
-//   characteristic text, status, valuation (accepted / rejected), mean value and number of defects.
-// Example: Characteristics rejected most often per material; defect counts per inspection specification.
-// TODO-VERIFY[H] QM-010: SAP released view for characteristic results is I_InspectionCharacteristic (name not confirmed; results may sit in a separate result view)
-// TODO-VERIFY[H] QM-011: keys InspectionLot, InspPlanOperationInternalID, InspectionCharacteristic
-// TODO-VERIFY[H] QM-012: result elements InspectionValuationResult, InspectionResultMeanValue, InspectionResultNrOfDefects, InspectionCharacteristicStatus
+// Purpose: Result cube: number of inspected and rejected characteristics and defects per characteristic, with
+//   material, plant, supplier and lot origin from the lot.
+// Example: Which characteristics fail most often for a supplier's materials.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Inspection Characteristic Result'
+@EndUserText.label: 'Inspection Result - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'InspectionCharacteristic'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #XL,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZQMV_I_InspectionCharc
-  as select from I_InspectionCharacteristic
-  association [1..1] to ZQMV_I_InspectionLot as _InspectionLot on $projection.InspectionLot = _InspectionLot.InspectionLot
+  as select from ZQMV_B_InspectionCharc
 {
       @ObjectModel.foreignKey.association: '_InspectionLot'
   key InspectionLot,
@@ -30,8 +27,24 @@ define view entity ZQMV_I_InspectionCharc
       InspectionSpecification,
       InspectionCharacteristicStatus,
       InspectionValuationResult,
-      InspectionResultMeanValue,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Characteristics'
+      cast( 1 as abap.int4 ) as NumberOfCharacteristics,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Rejected Characteristics'
+      cast( case when InspectionValuationResult = 'R' then 1 else 0 end as abap.int4 ) as NumberOfRejectedCharcs,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Defects'
       InspectionResultNrOfDefects,
+
+      /* Inspection lot characteristics */
+      _InspectionLot.Material,
+      _InspectionLot.Plant,
+      _InspectionLot.Supplier,
+      _InspectionLot.InspectionLotOrigin,
+      _InspectionLot.InspLotCreatedOnLocalDate,
 
       /* Associations */
       _InspectionLot

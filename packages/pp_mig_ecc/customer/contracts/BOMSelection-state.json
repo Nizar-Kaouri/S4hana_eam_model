@@ -1,0 +1,17 @@
+{
+  "mode": "state",
+  "identity": [
+    "BOMCategory",
+    "BillOfMaterial",
+    "BillOfMaterialVariant",
+    "BOMNode"
+  ],
+  "valid_from": "ValidFromDate",
+  "counter": "InternalCounter",
+  "change_number": "ChangeNumber",
+  "eligibility": "NativeEligible",
+  "deletion": "DeletionFlag",
+  "deleted_values": [
+    "X"
+  ]
+}

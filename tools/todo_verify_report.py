@@ -82,6 +82,17 @@ def render(items):
 
 def main():
     text = REPORT.read_text(encoding="utf-8")
+    if bp.load_library().get("phase") == "released":
+        modules = bp.load_modules()
+        new = "# Module inventory\n\nVersion " + bp.load_library()["version"] + "\n\n"
+        new += "| Module | Objects |\n|---|---:|\n"
+        new += "".join(f"| {m['name']} | {sum(len(v) for v in m['objects'].values())} |\n" for m in modules.values())
+        if "--check" in sys.argv:
+            if new != text:
+                raise SystemExit("Module inventory is out of date")
+        else:
+            REPORT.write_text(new, encoding="utf-8")
+        return
     if BEGIN not in text or END not in text:
         raise SystemExit(f"{REPORT.name}: markers {BEGIN} / {END} not found")
     new = text[: text.index(BEGIN)] + render(collect()) + text[text.index(END) + len(END):]

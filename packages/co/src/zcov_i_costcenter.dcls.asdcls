@@ -1,7 +1,6 @@
 // ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_CostCenter.
-// TODO-VERIFY[H] CO-D01: I_CostCenter has an access control role and every element it references is projected by ZCOV_I_CostCenter
-@EndUserText.label: 'Cost Center'
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Cost Center - Cube'
 @MappingRole: true
 define role ZCOV_I_CostCenter {
   grant
@@ -9,5 +8,5 @@ define role ZCOV_I_CostCenter {
       on
         ZCOV_I_CostCenter
           where
-            inheriting conditions from entity I_CostCenter;
+            inheriting conditions from entity ZCOV_B_CostCenter;
 }

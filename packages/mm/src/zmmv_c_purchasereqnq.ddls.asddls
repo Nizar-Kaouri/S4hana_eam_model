@@ -1,7 +1,7 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZMMV_R_PurchaseReqnItem: requisition items per plant and purchasing group.
+// Purpose: Analytical query on ZMMV_I_PurchaseReqnItem: requisition items per plant and purchasing group.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZMMV_R_PurchaseReqnItem applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZMMV_I_PurchaseReqnItem applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Purchase Requisition Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZMMV_C_PurchaseReqnQ
   provider contract analytical_query
-  as projection on ZMMV_R_PurchaseReqnItem
+  as projection on ZMMV_I_PurchaseReqnItem
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

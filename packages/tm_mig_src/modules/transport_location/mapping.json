@@ -1,0 +1,71 @@
+{
+  "module": "transport_location",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "LocationUUID"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZTMX_C_TransportLocMig",
+      "source_view": "ZTMX_I_TransportLoc",
+      "scope_filter": "",
+      "keys": [
+        "LocationUUID"
+      ],
+      "fields": [
+        {
+          "element": "LocationUUID",
+          "source": "/SAPAPO/LOC-LOCID",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.LocationUUID",
+          "rule": "copy"
+        },
+        {
+          "element": "LocationID",
+          "source": "/SAPAPO/LOC-LOCNO",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.LocationID",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "/SAPAPO/LOC-LVORM",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.DeletionFlag",
+          "rule": "copy"
+        },
+        {
+          "element": "Longitude",
+          "source": "/SAPAPO/LOC-XPOS",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.Longitude",
+          "rule": "copy"
+        },
+        {
+          "element": "Latitude",
+          "source": "/SAPAPO/LOC-YPOS",
+          "target": "Native target evidence: ZTMT_B_TransportLocCompare.Latitude",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Internal location UUID is preserved. Address, location type and time zone payload remain pending. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "TransportLoc: Internal location UUID is preserved. Address, location type and time zone payload remain pending."
+  ],
+  "main_structure": "ZTMX_C_TransportLocMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZTMX_C_TransportLocMigCount",
+    "dimensions": []
+  }
+}

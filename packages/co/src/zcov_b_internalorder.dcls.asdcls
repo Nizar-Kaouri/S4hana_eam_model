@@ -1,0 +1,13 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_InternalOrder.
+// TODO-VERIFY[H] CO-D02: I_InternalOrder has an access control role and every element it references is projected by ZCOV_B_InternalOrder
+@EndUserText.label: 'Internal Order'
+@MappingRole: true
+define role ZCOV_B_InternalOrder {
+  grant
+    select
+      on
+        ZCOV_B_InternalOrder
+          where
+            inheriting conditions from entity I_InternalOrder;
+}

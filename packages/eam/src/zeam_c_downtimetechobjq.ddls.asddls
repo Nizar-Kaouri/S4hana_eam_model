@@ -1,8 +1,8 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZEAM_R_DowntimeWithTechObj. Downtime and breakdowns per planning plant and equipment category.
+// Purpose: Analytical query on ZEAM_I_DowntimeWithTechObj. Downtime and breakdowns per planning plant and equipment category.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // LINK VIEW (ships only when the modules of its provider cube are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_R_DowntimeWithTechObj applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_I_DowntimeWithTechObj applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Downtime Analysis by Technical Object'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -10,7 +10,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZEAM_C_DowntimeTechObjQ
   provider contract analytical_query
-  as projection on ZEAM_R_DowntimeWithTechObj
+  as projection on ZEAM_I_DowntimeWithTechObj
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

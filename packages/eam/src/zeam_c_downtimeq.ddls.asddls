@@ -1,8 +1,8 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZEAM_R_NotifDowntime: malfunctions, breakdowns and downtime hours per
+// Purpose: Analytical query on ZEAM_I_NotifDowntime: malfunctions, breakdowns and downtime hours per
 //   planning plant and malfunction month, with average downtime per breakdown as a formula.
 // Example: Monthly downtime dashboard per plant; drill down to equipment and notification.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_R_NotifDowntime applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_I_NotifDowntime applies (see GEN-Q01).
 // TODO-VERIFY[H] RPT-Q01: formula elements ($projection.A / $projection.B with @Aggregation.default: #FORMULA) in a transient analytical query
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Downtime and Breakdown Analysis'
@@ -11,7 +11,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZEAM_C_DowntimeQ
   provider contract analytical_query
-  as projection on ZEAM_R_NotifDowntime
+  as projection on ZEAM_I_NotifDowntime
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

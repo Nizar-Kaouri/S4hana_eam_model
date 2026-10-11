@@ -1,0 +1,43 @@
+{
+  "name": "warehouse_order",
+  "title": "Warehouse orders",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
+  "batch": 1,
+  "version": "0.3.0",
+  "status": "draft-unverified",
+  "tested_release": "none (native DDIC and SAP activation pending)",
+  "tags": [
+    "migration",
+    "native-table",
+    "process-reference"
+  ],
+  "sap_tables": [
+    "/SCWM/WHO"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZWMX_B_WarehouseOrderData"
+    ],
+    "composite": [
+      "ZWMX_I_WarehouseOrder"
+    ],
+    "consumption": [
+      "ZWMX_C_WarehouseOrderMig",
+      "ZWMX_C_WarehouseOrderMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZWMX_B_WarehouseOrderData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_I_WarehouseOrder": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_C_WarehouseOrderMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_C_WarehouseOrderMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
+  },
+  "link_views": [],
+  "pending_structures": []
+}

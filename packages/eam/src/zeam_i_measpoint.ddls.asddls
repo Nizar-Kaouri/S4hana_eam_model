@@ -1,42 +1,43 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per measuring point with description, category, reference object (equipment or
-//   functional location as plain fields), characteristic unit, counter indicator and status.
-// Example: List all counters (operating hours) of a plant; dimension for measurement reading analysis.
-// TODO-VERIFY[M] MP-001: I_MeasuringPoint exists, is released (C1) and its key element is MeasuringPoint
-// TODO-VERIFY[M] MP-002: elements MeasuringPointDescription, MeasuringPointCategory, MeasuringPointPositionNumber
-// TODO-VERIFY[M] MP-003: reference elements TechObjIsEquipOrFuncnlLoc, Equipment, FunctionalLocation
-// TODO-VERIFY[M] MP-004: elements MeasurementRangeUnit, MeasuringPointIsCounter, MeasuringPointDecimalPlaces
-// TODO-VERIFY[H] MP-005: inactive indicator assumed MeasuringPointIsInactive; AuthorizationGroup element on measuring point
+// Purpose: Measuring point cube with counters for all, counter-type and inactive measuring points.
+// Example: Coverage of condition monitoring: measuring points per category and reference object type.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
-@Analytics.dataCategory: #DIMENSION
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Measuring Point'
+@EndUserText.label: 'Measuring Point - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'MeasuringPoint'
-@ObjectModel.modelingPattern: #ANALYTICAL_DIMENSION
-@ObjectModel.supportedCapabilities: [ #ANALYTICAL_DIMENSION, #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #MASTER
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZEAM_I_MeasPoint
-  as select from I_MeasuringPoint
+  as select from ZEAM_B_MeasPoint
+  association [1..1] to ZEAM_B_MeasPoint as _MeasuringPoint on $projection.MeasuringPoint = _MeasuringPoint.MeasuringPoint
 {
-      @ObjectModel.text.element: [ 'MeasuringPointDescription' ]
+      @ObjectModel.foreignKey.association: '_MeasuringPoint'
   key MeasuringPoint,
-      @Semantics.text: true
-      MeasuringPointDescription,
       MeasuringPointCategory,
-      MeasuringPointPositionNumber,
       TechObjIsEquipOrFuncnlLoc,
       Equipment,
       FunctionalLocation,
       MeasurementRangeUnit,
       MeasuringPointIsCounter,
-      MeasuringPointDecimalPlaces,
       MeasuringPointIsInactive,
-      AuthorizationGroup
+      AuthorizationGroup,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Measuring Points'
+      cast( 1 as abap.int4 ) as NumberOfMeasuringPoints,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Counters'
+      cast( case when MeasuringPointIsCounter = 'X' then 1 else 0 end as abap.int4 ) as NumberOfCounters,
+
+      /* Associations */
+      _MeasuringPoint
 }

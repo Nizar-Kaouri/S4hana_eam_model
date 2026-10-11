@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZPPV_I_BOMITEM</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Bill of Material Item</DDTEXT>
+    <DDTEXT>Bill of Material Item - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

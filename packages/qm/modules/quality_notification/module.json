@@ -20,44 +20,44 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZQMV_I_QualityNotif",
-      "ZQMV_I_QualityNotifVH"
+      "ZQMV_B_QualityNotif",
+      "ZQMV_B_QualityNotifVH"
     ],
     "composite": [
-      "ZQMV_R_QualityNotif"
+      "ZQMV_I_QualityNotif"
     ],
     "consumption": [
       "ZQMV_C_QualityNotifQ"
     ],
     "access_controls": [
-      "ZQMV_I_QualityNotif",
-      "ZQMV_I_QualityNotifVH",
-      "ZQMV_R_QualityNotif"
+      "ZQMV_B_QualityNotif",
+      "ZQMV_B_QualityNotifVH",
+      "ZQMV_I_QualityNotif"
     ],
     "metadata_extensions": [
-      "ZQMV_R_QualityNotif"
+      "ZQMV_I_QualityNotif"
     ],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZQMV_C_QualityNotifQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_R_QualityNotif (see GEN-Q01)."
+    "ZQMV_C_QualityNotifQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_I_QualityNotif (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZQMV_I_InspLotWithQualNotif",
+      "name": "ZQMV_B_InspLotWithQualNotif",
       "requires_modules": [
         "inspection_lot",
         "quality_notification"
       ],
-      "access_control": "ZQMV_I_InspLotWithQualNotif"
+      "access_control": "ZQMV_B_InspLotWithQualNotif"
     },
     {
-      "name": "ZQMV_I_QualNotifWithLot",
+      "name": "ZQMV_B_QualNotifWithLot",
       "requires_modules": [
         "inspection_lot",
         "quality_notification"
       ],
-      "access_control": "ZQMV_I_QualNotifWithLot"
+      "access_control": "ZQMV_B_QualNotifWithLot"
     }
   ]
 }

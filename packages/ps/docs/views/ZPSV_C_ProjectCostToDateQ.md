@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZPSV_R_ProjectCostToDate` |
+| Data source | `ZPSV_I_ProjectCostToDate` |
 | Source file | `src/zpsv_c_projectcosttodateq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZPSV_R_ProjectCostToDate: cost to date per project and WBS element at a key date.
+Analytical query on ZPSV_I_ProjectCostToDate: cost to date per project and WBS element at a key date.
 
 ## Parameters
 
@@ -31,7 +31,7 @@ Analytical query on ZPSV_R_ProjectCostToDate: cost to date per project and WBS e
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_ProjectCostToDate (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_I_ProjectCostToDate (see GEN-Q01).
 
 ## Example use case
 

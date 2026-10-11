@@ -1,0 +1,94 @@
+{
+  "ZEMX_C_FuncLocLongTextMig": {
+    "module": "functional_location",
+    "parent": "ZEMX_C_FuncLocMig",
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZEMX_C_FuncLocLongTextMig_Links",
+    "payload_helper": "zemx_eam_text_export.prog.abap"
+  },
+  "ZEMX_C_NotifLongTextMig": {
+    "module": "maintenance_notification",
+    "parent": "ZEMX_C_MaintNotificationMig",
+    "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZEMX_C_NotifLongTextMig_Links",
+    "payload_helper": "zemx_eam_text_export.prog.abap"
+  },
+  "ZEMX_C_OrderLongTextMig": {
+    "module": "maintenance_order",
+    "parent": "ZEMX_C_MaintOrderMig",
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZEMX_C_OrderLongTextMig_Links",
+    "payload_helper": "zemx_eam_text_export.prog.abap"
+  },
+  "ZEMX_C_PlanLongTextMig": {
+    "module": "maintenance_plan",
+    "parent": "ZEMX_C_MaintenancePlanMig",
+    "parent_keys": [
+      "MaintenancePlan"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZEMX_C_PlanLongTextMig_Links",
+    "payload_helper": "zemx_eam_text_export.prog.abap"
+  },
+  "ZEMX_C_TaskListLongTextMig": {
+    "module": "task_list",
+    "parent": "ZEMX_C_TaskListMig",
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZEMX_C_TaskListLongTextMig_Links",
+    "payload_helper": "zemx_eam_text_export.prog.abap"
+  },
+  "ZEMX_C_MeasPointLongTextMig": {
+    "module": "measuring_point",
+    "parent": "ZEMX_C_MeasuringPointMig",
+    "parent_keys": [
+      "MeasuringPoint"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZEMX_C_MeasPointLongTextMig_Links",
+    "payload_helper": "zemx_eam_text_export.prog.abap"
+  }
+}

@@ -1,0 +1,12 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Profit Center - Value Help'
+@MappingRole: true
+define role ZCOV_B_ProfitCenterVH {
+  grant
+    select
+      on
+        ZCOV_B_ProfitCenterVH
+          where
+            inheriting conditions from entity ZCOV_B_ProfitCenter;
+}

@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_MaintBacklog` |
+| Data source | `ZEAM_I_MaintBacklog` |
 | Source file | `src/zeam_c_maintbacklogq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_MaintBacklog. Open orders, open operations and remaining work per work center and age bucket.
+Analytical query on ZEAM_I_MaintBacklog. Open orders, open operations and remaining work per work center and age bucket.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZEAM_R_MaintBacklog. Open orders, open operations and remain
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintBacklog (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MaintBacklog (see GEN-Q01).
 
 ## Example use case
 

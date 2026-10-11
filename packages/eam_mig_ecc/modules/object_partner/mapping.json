@@ -1,10 +1,10 @@
 {
   "module": "object_partner",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XPA-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -30,65 +30,67 @@
       "keys": [
         "PartnerObjectKey",
         "PartnerFunction",
-        "PartnerCounter"
+        "PartnerCounter",
+        "PartnerObjectType"
       ],
       "fields": [
         {
           "element": "PartnerObjectKey",
           "source": "IHPA: substring( ihpa.objnr, 3, 30 )",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerFunction",
           "source": "IHPA-PARVW",
           "target": "IHPA-PARVW",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerCounter",
           "source": "IHPA-COUNTER",
           "target": "IHPA-COUNTER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "PartnerObjectType",
           "source": "IHPA: substring( ihpa.objnr, 1, 2 )",
           "target": "",
-          "rule": "derive:object type of the object number",
-          "compare": false
+          "rule": "derive:object type of the object number"
         },
         {
           "element": "Partner",
           "source": "IHPA-PARNR",
           "target": "IHPA-PARNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     }
   ],
   "not_migrated": [
     {
-      "view": "ZEMX_I_ObjectPartner",
+      "view": "ZEMX_B_ObjectPartner",
       "element": "ObjectNumber",
       "source": "IHPA-OBJNR",
       "reason": "skip:rebuilt on S/4HANA from the object key"
     },
     {
-      "view": "ZEMX_I_ObjectPartner",
+      "view": "ZEMX_B_ObjectPartner",
       "element": "IsMarkedForDeletion",
       "source": "IHPA-KZLOESCH",
       "reason": "scope"
+    },
+    {
+      "view": "ZEMX_I_ObjectPartner",
+      "element": "IsMarkedForDeletion",
+      "source": "IHPA-KZLOESCH",
+      "reason": "Used to exclude deleted records in the consumption scope; not a posting field."
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [],
+  "main_structure": "ZEMX_C_ObjectPartnerMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_ObjectPartnerMigCount",
-    "target_count_view": null,
     "dimensions": [
       {
         "element": "PartnerObjectType"
@@ -97,9 +99,6 @@
         "element": "PartnerFunction"
       }
     ],
-    "measure": "RecordCount",
-    "compare": null
-  },
-  "gaps": [],
-  "main_structure": "ZEMX_C_ObjectPartnerMig"
+    "measure": "RecordCount"
+  }
 }

@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZMMV_R_Product` |
+| Data source | `ZMMV_I_Product` |
 | Source file | `src/zmmv_c_productq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZMMV_R_Product: products per type and group.
+Analytical query on ZMMV_I_Product: products per type and group.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZMMV_R_Product: products per type and group.
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_Product (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_Product (see GEN-Q01).
 
 ## Example use case
 

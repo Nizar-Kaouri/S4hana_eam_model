@@ -1,0 +1,995 @@
+[
+  {
+    "domain": "ewm",
+    "module": "storage_bin",
+    "structure": "StorageBin",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/LAGP",
+    "reason": "EWM storage bins; LE-WM LAGP is a different model. Capacity fields await validated unit semantics.",
+    "evidence": "https://help.sap.com/saphelp_ewm700_ehp02/helpdata/en/47/d1d47a2297467886e0962fa13c6312/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "Capacity",
+      "CapacityUnit",
+      "Blocked"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "storage_bin",
+    "structure": "BinSorting",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/LAGPS",
+    "reason": "SortSequence is payload, not an invented key. Confirm exact DDIC key flags before activation.",
+    "evidence": "https://help.sap.com/saphelp_ewm700_ehp02/helpdata/en/47/d1d47a2297467886e0962fa13c6312/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "SortDirection"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_product",
+    "structure": "WarehouseProd",
+    "status": "PENDING",
+    "table": "/SAPAPO/MATLWH; /SAPAPO/MATKEY",
+    "reason": "MATLWH keys MANDT/MATID/SCUGUID/ENTITLED_ID documented; MATKEY supplies MATNR/MEINS. Warehouse control payload, full joined DDIC validation and target-release semantics still unresolved; no identity-only view substituted for a warehouse product.",
+    "evidence": "https://help.sap.com/docs/SUPPORT_CONTENT/sapo/3354623184.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_product",
+    "structure": "FixedBin",
+    "status": "PENDING",
+    "table": "/SCWM/BINMAT",
+    "reason": "Fixed-bin functionality documented; exact physical keys, minimum/maximum quantities and unit references not established.",
+    "evidence": "https://help.sap.com/saphelp_ewm900/helpdata/en/d1/58a5ef3b6a427eab5e7cc9bad16b96/content.htm",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_stock",
+    "structure": "WarehouseStock",
+    "status": "PENDING",
+    "table": "/SCWM/QUAN; /SCWM/AQUA",
+    "reason": "Stock extractor joins indexed stock representations. Physical-stock versus available-stock grain, HU/product references and quantity/unit roles need explicit native definitions; no flattened stock-table assumption.",
+    "evidence": "https://help.sap.com/saphelp_ewm900/helpdata/en/0a/782e35aa9b499ab5e9dd30b1448280/content.htm",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_stock",
+    "structure": "StockSerial",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "handling_unit",
+    "structure": "HandlingUnit",
+    "status": "PENDING",
+    "table": "/SCWM/HUHDR",
+    "reason": "GUID_HU and object references documented; complete header payload and content key/reference definitions unresolved.",
+    "evidence": "https://help.sap.com/docs/SUPPORT_CONTENT/sewm/4248188925.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "handling_unit",
+    "structure": "HUContent",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_task",
+    "structure": "WarehouseTask",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/ORDIM_O",
+    "reason": "Open-task snapshot only. Do not add confirmed-task TAPOS to this grain. Quantities, product references and serials remain pending. Key flags require actual DDIC validation.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "Product",
+      "SourceBin",
+      "DestinationBin",
+      "HandlingUnit",
+      "PlannedQuantity",
+      "QuantityUnit",
+      "ProcessType"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "additional_evidence": "https://community.sap.com/t5/supply-chain-management-q-a/how-to-confirm-the-status-of-picking-and-packing-in-sap-ewm/qaq-p/595791"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_task",
+    "structure": "TaskConfirm",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/ORDIM_C",
+    "reason": "Confirmed tasks only, retaining TAPOS. Open tasks are delivered separately at LGNUM/TANUM grain. Quantity and serial payload remain pending.",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/9832125c23154a179bfa1784cdc9577a/4fa06705fc52617be10000000a42189c.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "ConfirmationID",
+      "ConfirmedQuantity",
+      "DifferenceQuantity",
+      "QuantityUnit",
+      "ConfirmedAtUTC",
+      "ReversalStatus"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_order",
+    "structure": "WarehouseOrder",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCWM/WHO",
+    "reason": "All native warehouse-order records; customer must approve process state and cutover scope.",
+    "evidence": "https://help.sap.com/docs/SAP_EXTENDED_WAREHOUSE_MANAGEMENT/3d97bec9bf1649099384bb8167df3cf2/4fa066b2fc52617be10000000a42189c.html?locale=de-DE",
+    "SAP_verified": false,
+    "pending_payload": [
+      "Resource",
+      "CreatedAtUTC"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_delivery",
+    "structure": "WhDelivery",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCDL/DB_PROCH_I",
+    "reason": "Inbound delivery header only. Outbound branch, partner-role selection, status and cutover eligibility remain pending; do not interpret the broad snapshot as open deliveries.",
+    "evidence": "https://help.sap.com/doc/saphelp_aii710/7.1/en-US/47/df5e7f01394b20af3234922578d1e4/content.htm?no_cache=true",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "Warehouse",
+      "DeliveryID",
+      "ExternalDelivery",
+      "Partner",
+      "DeliveryStatus",
+      "PlannedAtUTC"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
+  },
+  {
+    "domain": "ewm",
+    "module": "warehouse_delivery",
+    "structure": "WhDeliveryItem",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCDL/DB_PROCI_I",
+    "reason": "Inbound items only; DOCID/ITEMID candidate grain must be confirmed in DDIC. Quantities belong to role-qualified /SCDL/DB_ADDMEAS records, not invented item QTY columns. Outbound branch, quantity/date roles, status and parent cohort closure remain pending.",
+    "evidence": "https://help.sap.com/doc/saphelp_aii710/7.1/en-US/47/df5e7f01394b20af3234922578d1e4/content.htm?no_cache=true",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "DeliveryID",
+      "Quantity",
+      "QuantityUnit",
+      "HandlingUnit",
+      "ReferenceDocument",
+      "ReferenceItem"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
+  },
+  {
+    "domain": "ewm",
+    "module": "pack_specification",
+    "structure": "PackSpec",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "pack_specification",
+    "structure": "PackLevel",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ewm",
+    "module": "pack_specification",
+    "structure": "PackElement",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_location",
+    "structure": "TransportLoc",
+    "status": "NATIVE_DRAFT",
+    "table": "/SAPAPO/LOC",
+    "reason": "Internal location UUID is preserved. Address, location type and time zone payload remain pending.",
+    "evidence": "https://help.sap.com/docs/SUPPORT_CONTENT/sapo/3354623172.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "LocationType",
+      "Description",
+      "BusinessPartner",
+      "Country",
+      "PostalCode",
+      "City",
+      "TimeZone"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_resource",
+    "structure": "TransportRes",
+    "status": "PENDING",
+    "table": "/SAPAPO/RES_HEAD",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_resource",
+    "structure": "ResCapacity",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_lane",
+    "structure": "TransportLane",
+    "status": "PENDING",
+    "table": "/SAPAPO/TR",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_lane",
+    "structure": "LaneCarrier",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_schedule",
+    "structure": "Schedule",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_SCHROT",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_schedule",
+    "structure": "ScheduleStop",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightAgree",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_FAGROT",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightRate",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightScale",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnit",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORROT",
+    "reason": "TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "FreightUnitID",
+      "NativeGUID",
+      "UnitType",
+      "DocumentStatus",
+      "SourceLocation",
+      "DestinationLocation"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnitItem",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORITE",
+    "reason": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "FreightUnitID",
+      "Product",
+      "Quantity",
+      "QuantityUnit",
+      "GrossWeight",
+      "WeightUnit",
+      "ReferenceDocument",
+      "ReferenceItem"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnitStop",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORSTP",
+    "reason": "Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
+    "evidence": "https://community.sap.com/t5/supply-chain-management-q-a/where-to-to-find-fo-stops-order-sequence-in-database-data/qaa-p/12558182",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "FreightUnitID",
+      "LocationID",
+      "Sequence",
+      "StopRole",
+      "PlannedAtUTC",
+      "TimeZone"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrder",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORROT",
+    "reason": "TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "FreightOrderID",
+      "NativeGUID",
+      "OrderType",
+      "Carrier",
+      "ResourceID",
+      "ExecutionStatus",
+      "SettlementStatus"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrdItem",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORITE",
+    "reason": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT TO. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "FreightOrderID",
+      "FreightUnitID",
+      "Product",
+      "Quantity",
+      "QuantityUnit"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrdStop",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORSTP",
+    "reason": "Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
+    "evidence": "https://community.sap.com/t5/supply-chain-management-q-a/where-to-to-find-fo-stops-order-sequence-in-database-data/qaa-p/12558182",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "FreightOrderID",
+      "LocationID",
+      "Sequence",
+      "StopRole",
+      "PlannedAtUTC",
+      "ActualAtUTC",
+      "TimeZone"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightStage",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_TORSTS",
+    "reason": "STOP_SUCCESSOR existence documented. Exact predecessor/successor native fields, keys and stage interpretation unresolved; STOP_ID order is not a substitute.",
+    "evidence": "https://community.sap.com/t5/enterprise-resource-planning-q-a/tm-link-between-scmtms-d-torrot-and-scmtms-d-trqstg/qaq-p/13793149",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_settlement",
+    "structure": "FreightSettle",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_SF_ROT",
+    "reason": "Native settlement-root table and several attributes documented; full key schema, amount/currency relations and settlement item joins still unresolved.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_settlement",
+    "structure": "SettleItem",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_SF_ITM",
+    "reason": "Settlement item schema and root relationship require native field/key evidence. No guessed SFIR table names used.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "credit_profile",
+    "structure": "CreditProfile",
+    "status": "NATIVE_DRAFT",
+    "table": "UKMBP_CMS",
+    "reason": "CLIENT is the implicit current-client field. Credit relationships remain pending.",
+    "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "Score",
+      "ScoreDate"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "credit_profile",
+    "structure": "CreditRelation",
+    "status": "PENDING",
+    "table": "BUT050 (credit-specific relationship selection unresolved)",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "credit_segment",
+    "structure": "CreditSegment",
+    "status": "NATIVE_DRAFT",
+    "table": "UKMBP_CMS_SGM",
+    "reason": "CreditLimit currency context remains pending: extractor documentation names segment CURRENCY while other releases use UKMCRED_SGM0C currency customizing. Resolve this release-specific contradiction before projecting amounts.",
+    "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "CreditLimit",
+      "Currency",
+      "CreditControlArea"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "credit_exposure",
+    "structure": "CreditExposure",
+    "status": "NATIVE_DRAFT",
+    "table": "UKM_TOTALS",
+    "reason": "Native liability snapshot in stored currency; not a delta feed or posting payload. Declared grain including currency is a DDIC candidate. Derived currency-type and message-party fields are excluded; cross-segment/report-currency aggregation remains pending.",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/cc/5c77197e5c49ba85e66aafaa1ea09a/content.htm?no_cache=true",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "SourceDocument",
+      "SourceItem",
+      "AsOfUTC"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
+  },
+  {
+    "domain": "fscm",
+    "module": "collections_profile",
+    "structure": "CollectProfile",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "collections_profile",
+    "structure": "CollectSegment",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "collection_activity",
+    "structure": "CollectContact",
+    "status": "NATIVE_DRAFT",
+    "table": "UDM_CCT_ATTR",
+    "reason": "Contact attributes only; associated items and resubmissions remain pending.",
+    "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "ContactID",
+      "ContactAtUTC",
+      "Specialist"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "collection_activity",
+    "structure": "CollectTask",
+    "status": "PENDING",
+    "table": "UDM_WL_ITEM is worklist, not a proven resubmission/task table",
+    "reason": "Public worklist fields do not establish the planned resubmission/follow-up task structure; substituting another business object would change scope.",
+    "evidence": "https://help.sap.com/saphelp_aii710/helpdata/en/6b/9696578ecb4f3bbc47ad11a29a7278/content.htm",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "promise_to_pay",
+    "structure": "PaymentPromise",
+    "status": "NATIVE_DRAFT",
+    "table": "UDM_P2P_ATTR",
+    "reason": "Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/e7/57b6b490ba4f0e894c410d51f271aa/content.htm?no_cache=true",
+    "SAP_verified": false,
+    "pending_payload": [
+      "BusinessPartner",
+      "PromiseID",
+      "PromiseStatus"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "promise_to_pay",
+    "structure": "PromiseItem",
+    "status": "PENDING",
+    "table": "Native case-to-invoice relations unresolved",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "dispute_case",
+    "structure": "DisputeCase",
+    "status": "NATIVE_DRAFT",
+    "table": "UDMCASEATTR00",
+    "reason": "Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.",
+    "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/ad/14c2862c4e44528d31c35d0d37cd24/content.htm?no_cache=true",
+    "SAP_verified": false,
+    "pending_payload": [
+      "CaseID",
+      "NativeGUID",
+      "BusinessPartner",
+      "CaseType",
+      "Reason",
+      "CaseStatus",
+      "Priority",
+      "Currency",
+      "CreatedAtUTC"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "dispute_case",
+    "structure": "DisputeItem",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "dispute_case",
+    "structure": "CaseAttribute",
+    "status": "NATIVE_DRAFT",
+    "table": "SCMG_T_CASE_ATTR",
+    "reason": "One wide native record per case UUID; not synthetic attribute-name/value rows. Includes general cases, not only disputes; approve case-type scope.",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/6d/69cc1bee13af4fbc7ebbdf0eb00e3b/content.htm",
+    "SAP_verified": false,
+    "pending_payload": [
+      "CaseID",
+      "AttributeID",
+      "AttributeValue"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "fscm",
+    "module": "dispute_case",
+    "structure": "CaseAttachment",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "ehs_location",
+    "structure": "EHSLocation",
+    "status": "PENDING",
+    "table": "EHFNDD_LOC_ROOT; EHFNDD_LOC_REV",
+    "reason": "Location/revision tables documented through CDS sources, but plant/type/validity native field mapping and revision selection remain unresolved. A root identity projection would not complete location coverage.",
+    "evidence": "https://help.sap.com/docs/sustainability-data-integration/b15a1be1941c44d4be60ba206536283d/d9e248b0ad88425fbea9284fd34d51d7.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "ehs_location",
+    "structure": "EHSLocHierarchy",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "chemical_property",
+    "structure": "ChemicalProp",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "chemical_property",
+    "structure": "PropertyUnit",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "specification",
+    "structure": "Specification",
+    "status": "NATIVE_DRAFT",
+    "table": "ESTRH",
+    "reason": "Classic specification model. Preserve all change states; no unverified latest-record rule.",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/60a5ce5314894208e10000000a174cb4.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "Version",
+      "SpecificationType",
+      "Description",
+      "ValidityStartDate",
+      "ValidityEndDate"
+    ],
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "specification",
+    "structure": "SpecIdentifier",
+    "status": "NATIVE_DRAFT",
+    "table": "ESTRI",
+    "reason": "Native short identifier only; long-text interfaces and effective parent change-state relations remain pending.",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/63a5ce5314894208e10000000a174cb4.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "SpecificationID",
+      "Version",
+      "IdentifierID",
+      "IdentifierValue"
+    ],
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "specification",
+    "structure": "SpecProperty",
+    "status": "PENDING",
+    "table": "ESTVH; ESTVA; classification value relations unresolved",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "phrase",
+    "structure": "Phrase",
+    "status": "NATIVE_DRAFT",
+    "table": "ESTPH",
+    "reason": "Phrase header only. ESTPP multilingual text and graphics are pending; no invented Language key on the header.",
+    "evidence": "https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "PhraseCatalog",
+      "Language",
+      "PhraseText",
+      "PhraseCode"
+    ],
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "phrase",
+    "structure": "PhraseSet",
+    "status": "NATIVE_DRAFT",
+    "table": "ESTPJ",
+    "reason": "Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys.",
+    "evidence": "https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "PhraseSetID",
+      "PhraseCatalog",
+      "SortSequence"
+    ],
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "incident",
+    "structure": "Incident",
+    "status": "NATIVE_DRAFT",
+    "table": "EHHSSD_INC_ROOT",
+    "reason": "Modern EHSM incident root only. Basic-info child cardinality, title, location and time-zone calculations remain pending. Preserve root UUID; no guessed join to multiply root rows.",
+    "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/d9eb3c50906ea902e10000000a44176f.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "IncidentType",
+      "LocationID",
+      "OccurredAtUTC",
+      "TimeZone",
+      "Description"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "key_evidence": "https://community.sap.com/t5/enterprise-resource-planning-q-a/cds-view-fields-reuse/qaq-p/12485627"
+  },
+  {
+    "domain": "ehs",
+    "module": "incident",
+    "structure": "IncidentPerson",
+    "status": "PENDING",
+    "table": "EHHSSD_INC_PINV; EHHSSD_INC_PROLE",
+    "reason": "Person identity/name fields are resolved from HCM/business partners/users; roles come from a separate node. Native reference keys, role cardinality and person resolution remain pending.",
+    "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/8eec3c50906ea902e10000000a44176f.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "incident",
+    "structure": "IncidentAction",
+    "status": "NATIVE_DRAFT",
+    "table": "EHHSSD_IAC_ROOT",
+    "reason": "Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded.",
+    "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/55ea3c50906ea902e10000000a44176f.html?locale=en-US",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "IncidentID",
+      "ResponsiblePartner",
+      "DueDate"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
+  },
+  {
+    "domain": "ehs",
+    "module": "risk_assessment",
+    "structure": "RiskAssessment",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "risk_assessment",
+    "structure": "RiskHazard",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "risk_assessment",
+    "structure": "RiskControl",
+    "status": "PENDING",
+    "table": "Transient EHSM risk-control extractor",
+    "reason": "Extractor origin fields are derived/transient rather than a documented physical one-table schema. Native business-object node mapping remains unresolved.",
+    "evidence": "https://help.sap.com/docs/EHSM/cfce61ea9ac64c53a591bfcd66d98f56/021df34fd9c2d247e10000000a44176f.html?version=4.0",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "environmental_data",
+    "structure": "DataClassifier",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "environmental_data",
+    "structure": "DataCollection",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "environmental_data",
+    "structure": "Measurement",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "compliance",
+    "structure": "ComplianceReq",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "compliance",
+    "structure": "ComplianceScen",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "compliance",
+    "structure": "ComplianceLink",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "dangerous_goods",
+    "structure": "DangerousGoods",
+    "status": "PENDING",
+    "table": "EST0D",
+    "reason": "Classic classification records and administration fields documented; material dangerous-goods master mapping, regulation references and complete classification payload remain unresolved.",
+    "evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "ehs",
+    "module": "dangerous_goods",
+    "structure": "DGTransport",
+    "status": "PENDING",
+    "table": "EST0F",
+    "reason": "Classic import-format documentation supports regulation/classification payload, but SUBIDREF is an import shorthand rather than established physical column. Complete reference keys and transport-mode mapping remain pending.",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/6ea2ce5314894208e10000000a174cb4.html?version=2023.latest",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  }
+]

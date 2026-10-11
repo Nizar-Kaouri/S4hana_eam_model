@@ -1,0 +1,10 @@
+{
+  "identity": [
+    "OBJTY",
+    "OBJID",
+    "CANUM"
+  ],
+  "valid_from": "BEGDA",
+  "valid_to": "ENDDA",
+  "mode": "interval"
+}

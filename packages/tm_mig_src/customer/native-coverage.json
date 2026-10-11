@@ -1,0 +1,279 @@
+[
+  {
+    "domain": "tm",
+    "module": "transport_location",
+    "structure": "TransportLoc",
+    "status": "NATIVE_DRAFT",
+    "table": "/SAPAPO/LOC",
+    "reason": "Internal location UUID is preserved. Address, location type and time zone payload remain pending.",
+    "evidence": "https://help.sap.com/docs/SUPPORT_CONTENT/sapo/3354623172.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "LocationType",
+      "Description",
+      "BusinessPartner",
+      "Country",
+      "PostalCode",
+      "City",
+      "TimeZone"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_resource",
+    "structure": "TransportRes",
+    "status": "PENDING",
+    "table": "/SAPAPO/RES_HEAD",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_resource",
+    "structure": "ResCapacity",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_lane",
+    "structure": "TransportLane",
+    "status": "PENDING",
+    "table": "/SAPAPO/TR",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_lane",
+    "structure": "LaneCarrier",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_schedule",
+    "structure": "Schedule",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_SCHROT",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "transport_schedule",
+    "structure": "ScheduleStop",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightAgree",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_FAGROT",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightRate",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_agreement",
+    "structure": "FreightScale",
+    "status": "PENDING",
+    "table": "Not yet established",
+    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "evidence": "",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnit",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORROT",
+    "reason": "TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "FreightUnitID",
+      "NativeGUID",
+      "UnitType",
+      "DocumentStatus",
+      "SourceLocation",
+      "DestinationLocation"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnitItem",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORITE",
+    "reason": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "FreightUnitID",
+      "Product",
+      "Quantity",
+      "QuantityUnit",
+      "GrossWeight",
+      "WeightUnit",
+      "ReferenceDocument",
+      "ReferenceItem"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_unit",
+    "structure": "FreightUnitStop",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORSTP",
+    "reason": "Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
+    "evidence": "https://community.sap.com/t5/supply-chain-management-q-a/where-to-to-find-fo-stops-order-sequence-in-database-data/qaa-p/12558182",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "FreightUnitID",
+      "LocationID",
+      "Sequence",
+      "StopRole",
+      "PlannedAtUTC",
+      "TimeZone"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrder",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORROT",
+    "reason": "TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "pending_payload": [
+      "FreightOrderID",
+      "NativeGUID",
+      "OrderType",
+      "Carrier",
+      "ResourceID",
+      "ExecutionStatus",
+      "SettlementStatus"
+    ],
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrdItem",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORITE",
+    "reason": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT TO. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "FreightOrderID",
+      "FreightUnitID",
+      "Product",
+      "Quantity",
+      "QuantityUnit"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightOrdStop",
+    "status": "NATIVE_DRAFT",
+    "table": "/SCMTMS/D_TORSTP",
+    "reason": "Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
+    "evidence": "https://community.sap.com/t5/supply-chain-management-q-a/where-to-to-find-fo-stops-order-sequence-in-database-data/qaa-p/12558182",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "FreightOrderID",
+      "LocationID",
+      "Sequence",
+      "StopRole",
+      "PlannedAtUTC",
+      "ActualAtUTC",
+      "TimeZone"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_order",
+    "structure": "FreightStage",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_TORSTS",
+    "reason": "STOP_SUCCESSOR existence documented. Exact predecessor/successor native fields, keys and stage interpretation unresolved; STOP_ID order is not a substitute.",
+    "evidence": "https://community.sap.com/t5/enterprise-resource-planning-q-a/tm-link-between-scmtms-d-torrot-and-scmtms-d-trqstg/qaq-p/13793149",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_settlement",
+    "structure": "FreightSettle",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_SF_ROT",
+    "reason": "Native settlement-root table and several attributes documented; full key schema, amount/currency relations and settlement item joins still unresolved.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  },
+  {
+    "domain": "tm",
+    "module": "freight_settlement",
+    "structure": "SettleItem",
+    "status": "PENDING",
+    "table": "/SCMTMS/D_SF_ITM",
+    "reason": "Settlement item schema and root relationship require native field/key evidence. No guessed SFIR table names used.",
+    "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
+  }
+]

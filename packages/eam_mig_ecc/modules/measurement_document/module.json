@@ -3,9 +3,8 @@
   "title": "Measurement document",
   "description": "Last reading per measuring point (initial readings on S/4HANA).",
   "batch": 2,
-  "version": "0.2.0",
-  "status": "draft-unverified",
-  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "version": "1.0.0",
+  "status": "released",
   "tags": [
     "transactional",
     "measurement-document",
@@ -16,14 +15,17 @@
   ],
   "sap_released_views": [],
   "hard_dependencies": [
-    "core"
+    "core",
+    "measuring_point"
   ],
   "objects": {
     "tables": [],
     "basic": [
-      "ZEMX_I_MeasurementDocument"
+      "ZEMX_B_MeasurementDocument"
     ],
     "composite": [
+      "ZEMX_I_MeasPointLastDate",
+      "ZEMX_I_MeasPointLastTime",
       "ZEMX_I_MeasPointLastDoc",
       "ZEMX_I_MeasPointLastReading"
     ],
@@ -36,11 +38,13 @@
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEMX_I_MeasurementDocument": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
-    "ZEMX_I_MeasPointLastDoc": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
-    "ZEMX_I_MeasPointLastReading": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
-    "ZEMX_C_MeasReadingMig": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).",
-    "ZEMX_C_MeasReadingMigCount": "Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline)."
+    "ZEMX_B_MeasurementDocument": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MeasPointLastDoc": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MeasPointLastReading": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_MeasReadingMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_MeasReadingMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MeasPointLastDate": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_MeasPointLastTime": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

@@ -20,34 +20,34 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZCOV_I_InternalOrder",
-      "ZCOV_I_InternalOrderVH"
+      "ZCOV_B_InternalOrder",
+      "ZCOV_B_InternalOrderVH"
     ],
     "composite": [
-      "ZCOV_R_InternalOrder"
+      "ZCOV_I_InternalOrder"
     ],
     "consumption": [
       "ZCOV_C_InternalOrderQ"
     ],
     "access_controls": [
-      "ZCOV_I_InternalOrder",
-      "ZCOV_I_InternalOrderVH",
-      "ZCOV_R_InternalOrder"
+      "ZCOV_B_InternalOrder",
+      "ZCOV_B_InternalOrderVH",
+      "ZCOV_I_InternalOrder"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZCOV_C_InternalOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_R_InternalOrder (see GEN-Q01)."
+    "ZCOV_C_InternalOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_I_InternalOrder (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZCOV_I_CostCenterWithOrders",
+      "name": "ZCOV_B_CostCenterWithOrders",
       "requires_modules": [
         "cost_center",
         "internal_order"
       ],
-      "access_control": "ZCOV_I_CostCenterWithOrders"
+      "access_control": "ZCOV_B_CostCenterWithOrders"
     }
   ]
 }

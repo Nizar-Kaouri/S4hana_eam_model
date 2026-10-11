@@ -1,0 +1,1092 @@
+{
+  "ZEMX_C_ClassAssignmentMig": {
+    "kind": "explicit_cohort",
+    "parent": "cohort_ZEMX_C_ClassAssignmentMig",
+    "child_keys": [
+      "ClassifiedObject",
+      "ClassType"
+    ],
+    "parent_keys": [
+      "ClassifiedObject",
+      "ClassType"
+    ]
+  },
+  "ZEMX_C_CharcValueMig": {
+    "kind": "explicit_cohort",
+    "parent": "cohort_ZEMX_C_CharcValueMig",
+    "child_keys": [
+      "ClassifiedObject",
+      "ClassType"
+    ],
+    "parent_keys": [
+      "ClassifiedObject",
+      "ClassType"
+    ]
+  },
+  "ZEMX_C_EquipmentMig": {
+    "kind": "root",
+    "keys": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipmentTextMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipSerialStockMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipBOMAssignMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_BOMHeaderMig": {
+    "kind": "child",
+    "parent": "selected_bom_alternatives",
+    "child_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BOMAlternative"
+    ],
+    "parent_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BOMAlternative"
+    ]
+  },
+  "ZEMX_C_BOMSelectionMig": {
+    "kind": "child",
+    "parent": "selected_bom_alternatives",
+    "child_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BOMAlternative"
+    ],
+    "parent_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BOMAlternative"
+    ]
+  },
+  "ZEMX_C_BOMItemMig": {
+    "kind": "child",
+    "parent": "selected_bom_nodes",
+    "child_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BOMItemNode"
+    ],
+    "parent_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BOMItemNode"
+    ]
+  },
+  "ZEMX_C_FuncLocMig": {
+    "kind": "root",
+    "keys": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocTextMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocLabelMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_LongTextIndexMig": {
+    "kind": "explicit_cohort",
+    "parent": "cohort_ZEMX_C_LongTextIndexMig",
+    "child_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ]
+  },
+  "ZEMX_C_MaintNotificationMig": {
+    "kind": "root",
+    "keys": [
+      "MaintenanceNotification"
+    ]
+  },
+  "ZEMX_C_MaintNotifItemMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintNotificationMig",
+    "child_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification"
+    ]
+  },
+  "ZEMX_C_NotifCauseMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintNotifItemMig",
+    "child_keys": [
+      "MaintenanceNotification",
+      "MaintNotificationItem"
+    ],
+    "parent_keys": [
+      "MaintenanceNotification",
+      "MaintNotificationItem"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification",
+      "MaintNotificationItem"
+    ]
+  },
+  "ZEMX_C_NotifTaskMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintNotificationMig",
+    "child_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification"
+    ]
+  },
+  "ZEMX_C_NotifActivityMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintNotificationMig",
+    "child_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification"
+    ]
+  },
+  "ZEMX_C_MaintOrderMig": {
+    "kind": "root",
+    "keys": [
+      "MaintenanceOrder"
+    ]
+  },
+  "ZEMX_C_MaintOrderOperationMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintOrderMig",
+    "child_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
+    ]
+  },
+  "ZEMX_C_MaintOrderComponentMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintOrderMig",
+    "child_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
+    ]
+  },
+  "ZEMX_C_OrderSettlementMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintOrderMig",
+    "child_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
+    ]
+  },
+  "ZEMX_C_OrderPermitMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintOrderMig",
+    "child_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
+    ]
+  },
+  "ZEMX_C_MaintenancePlanMig": {
+    "kind": "root",
+    "keys": [
+      "MaintenancePlan"
+    ]
+  },
+  "ZEMX_C_MaintenanceItemMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintenancePlanMig",
+    "child_keys": [
+      "MaintenancePlan"
+    ],
+    "parent_keys": [
+      "MaintenancePlan"
+    ],
+    "parent_identity": [
+      "MaintenancePlan"
+    ]
+  },
+  "ZEMX_C_MaintPlanCycleMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MaintenancePlanMig",
+    "child_keys": [
+      "MaintenancePlan"
+    ],
+    "parent_keys": [
+      "MaintenancePlan"
+    ],
+    "parent_identity": [
+      "MaintenancePlan"
+    ]
+  },
+  "ZEMX_C_MeasReadingMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_MeasuringPointMig",
+    "child_keys": [
+      "MeasuringPoint"
+    ],
+    "parent_keys": [
+      "MeasuringPoint"
+    ],
+    "parent_identity": [
+      "MeasuringPoint"
+    ]
+  },
+  "ZEMX_C_MeasuringPointMig": {
+    "kind": "root",
+    "keys": [
+      "MeasuringPoint"
+    ]
+  },
+  "ZEMX_C_ObjectPartnerMig": {
+    "kind": "explicit_cohort",
+    "parent": "cohort_ZEMX_C_ObjectPartnerMig",
+    "child_keys": [
+      "PartnerObjectKey",
+      "PartnerObjectType"
+    ],
+    "parent_keys": [
+      "PartnerObjectKey",
+      "PartnerObjectType"
+    ]
+  },
+  "ZEMX_C_UserStatusMig": {
+    "kind": "explicit_cohort",
+    "parent": "cohort_ZEMX_C_UserStatusMig",
+    "child_keys": [
+      "StatusObjectKey",
+      "StatusObjectType"
+    ],
+    "parent_keys": [
+      "StatusObjectKey",
+      "StatusObjectType"
+    ]
+  },
+  "ZEMX_C_TaskListMig": {
+    "kind": "root",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ]
+  },
+  "ZEMX_C_TaskListOperationMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_TaskListMig",
+    "child_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_identity": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ]
+  },
+  "ZEMX_C_TaskListAllocationMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_TaskListMig",
+    "child_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_identity": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ]
+  },
+  "ZEMX_C_TaskListCompMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_TaskListMig",
+    "child_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_identity": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ]
+  },
+  "ZEMX_C_TaskListPRTMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_TaskListMig",
+    "child_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_identity": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ]
+  },
+  "ZEMX_C_TaskListPackageMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_TaskListMig",
+    "child_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "parent_identity": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ]
+  },
+  "ZEMX_C_WorkCenterMig": {
+    "kind": "root",
+    "keys": [
+      "WorkCenter",
+      "Plant"
+    ]
+  },
+  "ZEMX_C_WorkCenterTextMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_WorkCenterMig",
+    "child_keys": [
+      "WorkCenter",
+      "Plant"
+    ],
+    "parent_keys": [
+      "WorkCenter",
+      "Plant"
+    ],
+    "parent_identity": [
+      "WorkCenter",
+      "Plant"
+    ]
+  },
+  "ZEMX_C_WorkCenterCostCtrMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_WorkCenterMig",
+    "child_keys": [
+      "WorkCenter",
+      "Plant"
+    ],
+    "parent_keys": [
+      "WorkCenter",
+      "Plant"
+    ],
+    "parent_identity": [
+      "WorkCenter",
+      "Plant"
+    ]
+  },
+  "ZEMX_C_WorkCenterCapacityMig": {
+    "kind": "child",
+    "parent": "selected_work_center_ids",
+    "child_keys": [
+      "ObjectType",
+      "WorkCenterInternalID"
+    ],
+    "parent_keys": [
+      "ObjectType",
+      "WorkCenterInternalID"
+    ]
+  },
+  "ZEMX_C_CapacityHeaderMig": {
+    "kind": "child",
+    "parent": "selected_capacity_ids",
+    "child_keys": [
+      "CapacityInternalID"
+    ],
+    "parent_keys": [
+      "CapacityInternalID"
+    ]
+  },
+  "ZEMX_C_EquipPartnerMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipStatusMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipUserStatusMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipLongTextMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipAddressMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_FuncLocAddressMig": {
+    "module": "functional_location",
+    "table": "ADRC",
+    "keys": [
+      "FunctionalLocation",
+      "AddressValidFrom",
+      "AddressVersion"
+    ],
+    "selection": "selection/ZEMX_C_FuncLocAddressMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ],
+    "kind": "child"
+  },
+  "ZEMX_C_EquipClassMig": {
+    "module": "equipment",
+    "keys": [
+      "Equipment",
+      "ClassType",
+      "Class"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipCharcMig": {
+    "module": "equipment",
+    "keys": [
+      "Equipment",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_FuncLocPartnerMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocStatusMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocUserStatusMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocClassMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "ClassType",
+      "Class"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocCharcMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_MaintNotifPartnerMig": {
+    "module": "maintenance_notification",
+    "keys": [
+      "MaintenanceNotification",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_MaintNotificationMig",
+    "child_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification"
+    ]
+  },
+  "ZEMX_C_MaintNotifStatusMig": {
+    "module": "maintenance_notification",
+    "keys": [
+      "MaintenanceNotification",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_MaintNotificationMig",
+    "child_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification"
+    ]
+  },
+  "ZEMX_C_NotifUserStatusMig": {
+    "module": "maintenance_notification",
+    "keys": [
+      "MaintenanceNotification",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_MaintNotificationMig",
+    "child_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "parent_identity": [
+      "MaintenanceNotification"
+    ]
+  },
+  "ZEMX_C_MaintOrderPartnerMig": {
+    "module": "maintenance_order",
+    "keys": [
+      "MaintenanceOrder",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_MaintOrderMig",
+    "child_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
+    ]
+  },
+  "ZEMX_C_MaintOrderStatusMig": {
+    "module": "maintenance_order",
+    "keys": [
+      "MaintenanceOrder",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_MaintOrderMig",
+    "child_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
+    ]
+  },
+  "ZEMX_C_OrderUserStatusMig": {
+    "module": "maintenance_order",
+    "keys": [
+      "MaintenanceOrder",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_MaintOrderMig",
+    "child_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "parent_identity": [
+      "MaintenanceOrder"
+    ]
+  },
+  "ZEMX_C_EquipEmailMig": {
+    "module": "equipment",
+    "keys": [
+      "Equipment",
+      "AddressNumber",
+      "PersonNumber",
+      "CommunicationValidFrom",
+      "CommunicationCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipPhoneMig": {
+    "module": "equipment",
+    "keys": [
+      "Equipment",
+      "AddressNumber",
+      "PersonNumber",
+      "CommunicationValidFrom",
+      "CommunicationCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipFaxMig": {
+    "module": "equipment",
+    "keys": [
+      "Equipment",
+      "AddressNumber",
+      "PersonNumber",
+      "CommunicationValidFrom",
+      "CommunicationCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ],
+    "parent_identity": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_FuncLocEmailMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "AddressNumber",
+      "PersonNumber",
+      "CommunicationValidFrom",
+      "CommunicationCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocPhoneMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "AddressNumber",
+      "PersonNumber",
+      "CommunicationValidFrom",
+      "CommunicationCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocFaxMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "AddressNumber",
+      "PersonNumber",
+      "CommunicationValidFrom",
+      "CommunicationCounter"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  },
+  "ZEMX_C_FuncLocLongTextMig": {
+    "kind": "text_child",
+    "module": "functional_location",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZEMX_C_FuncLocMig",
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "links": "ZEMX_C_FuncLocLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZEMX_C_NotifLongTextMig": {
+    "kind": "text_child",
+    "module": "maintenance_notification",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZEMX_C_MaintNotificationMig",
+    "parent_keys": [
+      "MaintenanceNotification"
+    ],
+    "links": "ZEMX_C_NotifLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZEMX_C_OrderLongTextMig": {
+    "kind": "text_child",
+    "module": "maintenance_order",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZEMX_C_MaintOrderMig",
+    "parent_keys": [
+      "MaintenanceOrder"
+    ],
+    "links": "ZEMX_C_OrderLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZEMX_C_PlanLongTextMig": {
+    "kind": "text_child",
+    "module": "maintenance_plan",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZEMX_C_MaintenancePlanMig",
+    "parent_keys": [
+      "MaintenancePlan"
+    ],
+    "links": "ZEMX_C_PlanLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZEMX_C_TaskListLongTextMig": {
+    "kind": "text_child",
+    "module": "task_list",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZEMX_C_TaskListMig",
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter"
+    ],
+    "links": "ZEMX_C_TaskListLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZEMX_C_MeasPointLongTextMig": {
+    "kind": "text_child",
+    "module": "measuring_point",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZEMX_C_MeasuringPointMig",
+    "parent_keys": [
+      "MeasuringPoint"
+    ],
+    "links": "ZEMX_C_MeasPointLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZEMX_C_FuncLocBOMMig": {
+    "module": "functional_location",
+    "keys": [
+      "FunctionalLocation",
+      "Plant",
+      "BOMUsage",
+      "BillOfMaterial",
+      "BOMAlternative"
+    ],
+    "kind": "child",
+    "parent": "ZEMX_C_FuncLocMig",
+    "child_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_keys": [
+      "FunctionalLocation"
+    ],
+    "parent_identity": [
+      "FunctionalLocation"
+    ]
+  }
+}

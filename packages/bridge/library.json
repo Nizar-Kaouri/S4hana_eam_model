@@ -18,6 +18,11 @@
   "kind": "bridge",
   "map_title": "ZBRG Cross-Product Bridge Map",
   "map_area": "Links between products",
-  "map_initial": "ZBRG_I_EquipmentWithAsset",
-  "map_external_title": "Views of other products"
+  "map_initial": "ZBRG_B_EquipmentWithAsset",
+  "map_external_title": "Views of other products",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

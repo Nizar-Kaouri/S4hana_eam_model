@@ -1,0 +1,12 @@
+// ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Quality Notification - Value Help'
+@MappingRole: true
+define role ZQMV_B_QualityNotifVH {
+  grant
+    select
+      on
+        ZQMV_B_QualityNotifVH
+          where
+            inheriting conditions from entity ZQMV_B_QualityNotif;
+}

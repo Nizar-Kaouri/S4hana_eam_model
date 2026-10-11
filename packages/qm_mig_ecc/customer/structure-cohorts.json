@@ -1,0 +1,494 @@
+{
+  "ZQMX_C_InspectionLotMig": {
+    "module": "inspection_lot",
+    "table": "QALS",
+    "keys": [
+      "InspectionLot"
+    ],
+    "selection": "selection/ZQMX_C_InspectionLotMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_UsageDecisionMig": {
+    "module": "inspection_lot",
+    "table": "QAVE",
+    "keys": [
+      "InspectionLot",
+      "UsageDecisionType",
+      "UsageDecisionCounter"
+    ],
+    "selection": "selection/ZQMX_C_UsageDecisionMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_InspectCharactMig": {
+    "module": "inspection_result",
+    "table": "QAMV",
+    "keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "selection": "selection/ZQMX_C_InspectCharactMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_CharacteristicMig": {
+    "module": "inspection_result",
+    "table": "QAMR",
+    "keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "selection": "selection/ZQMX_C_CharacteristicMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZQMX_C_InspectCharactMig",
+    "child_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_identity": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_SingleResultMig": {
+    "module": "inspection_result",
+    "table": "QASE",
+    "keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber",
+      "SampleNumber",
+      "ResultNumber"
+    ],
+    "selection": "selection/ZQMX_C_SingleResultMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZQMX_C_InspectCharactMig",
+    "child_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_keys": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "parent_identity": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_QualityNotificMig": {
+    "module": "quality_notification",
+    "table": "QMEL",
+    "keys": [
+      "QualityNotification"
+    ],
+    "selection": "selection/ZQMX_C_QualityNotificMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZQMX_C_QualityItemMig": {
+    "module": "quality_notification",
+    "table": "QMFE",
+    "keys": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "selection": "selection/ZQMX_C_QualityItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_QualityCauseMig": {
+    "module": "quality_notification",
+    "table": "QMUR",
+    "keys": [
+      "QualityNotification",
+      "NotificationItem",
+      "CauseNumber"
+    ],
+    "selection": "selection/ZQMX_C_QualityCauseMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZQMX_C_QualityItemMig",
+    "child_keys": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "parent_keys": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "parent_identity": [
+      "QualityNotification",
+      "NotificationItem"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_QualityTaskMig": {
+    "module": "quality_notification",
+    "table": "QMSM",
+    "keys": [
+      "QualityNotification",
+      "TaskNumber"
+    ],
+    "selection": "selection/ZQMX_C_QualityTaskMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_QualityActivitMig": {
+    "module": "quality_notification",
+    "table": "QMMA",
+    "keys": [
+      "QualityNotification",
+      "ActivityNumber"
+    ],
+    "selection": "selection/ZQMX_C_QualityActivitMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_InspectPlanHeaMig": {
+    "module": "inspection_plan",
+    "table": "PLKO",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_InspectPlanHeaMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_InspectPlanMatMig": {
+    "module": "inspection_plan",
+    "table": "MAPL",
+    "keys": [
+      "Material",
+      "Plant",
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_InspectPlanMatMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_InspectPlanSelMig": {
+    "module": "inspection_plan",
+    "table": "PLAS",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "Sequence",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_InspectPlanSelMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_InspectPlanOpeMig": {
+    "module": "inspection_plan",
+    "table": "PLPO",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_InspectPlanOpeMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_PlanCharacteriMig": {
+    "module": "inspection_plan",
+    "table": "PLMK",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListNode",
+      "CharacteristicNumber",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZQMX_C_PlanCharacteriMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZQMX_C_MasterCharMig": {
+    "module": "master_inspection_characteristic",
+    "table": "QPMK",
+    "keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "selection": "selection/ZQMX_C_MasterCharMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZQMX_C_MasterCharTextMig": {
+    "module": "master_inspection_characteristic",
+    "table": "QPMT",
+    "keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion",
+      "Language"
+    ],
+    "selection": "selection/ZQMX_C_MasterCharTextMig.csv",
+    "requires_business_approval": true,
+    "mode": "master",
+    "parent": "ZQMX_C_MasterCharMig",
+    "child_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "parent_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "parent_identity": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_SamplingProcMig": {
+    "module": "sampling_procedure",
+    "table": "QDSV",
+    "keys": [
+      "SamplingProcedure"
+    ],
+    "selection": "selection/ZQMX_C_SamplingProcMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
+  },
+  "ZQMX_C_LotStatusMig": {
+    "module": "inspection_lot",
+    "table": "JEST",
+    "keys": [
+      "InspectionLot",
+      "StatusCode"
+    ],
+    "selection": "selection/ZQMX_C_LotStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_NotifStatusMig": {
+    "module": "quality_notification",
+    "table": "JEST",
+    "keys": [
+      "QualityNotification",
+      "StatusCode"
+    ],
+    "selection": "selection/ZQMX_C_NotifStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ],
+    "kind": "child"
+  },
+  "ZQMX_C_LotUserStatusMig": {
+    "module": "inspection_lot",
+    "keys": [
+      "InspectionLot",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZQMX_C_InspectionLotMig",
+    "child_keys": [
+      "InspectionLot"
+    ],
+    "parent_keys": [
+      "InspectionLot"
+    ],
+    "parent_identity": [
+      "InspectionLot"
+    ]
+  },
+  "ZQMX_C_NotifPartnerMig": {
+    "module": "quality_notification",
+    "keys": [
+      "QualityNotification",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  },
+  "ZQMX_C_NotifUserStatusMig": {
+    "module": "quality_notification",
+    "keys": [
+      "QualityNotification",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZQMX_C_QualityNotificMig",
+    "child_keys": [
+      "QualityNotification"
+    ],
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "parent_identity": [
+      "QualityNotification"
+    ]
+  },
+  "ZQMX_C_NotifLongTextMig": {
+    "kind": "text_child",
+    "module": "quality_notification",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZQMX_C_QualityNotificMig",
+    "parent_keys": [
+      "QualityNotification"
+    ],
+    "links": "ZQMX_C_NotifLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZQMX_C_PlanLongTextMig": {
+    "kind": "text_child",
+    "module": "inspection_plan",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZQMX_C_InspectPlanHeaMig",
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "links": "ZQMX_C_PlanLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZQMX_C_MasterCharLongTextMig": {
+    "kind": "text_child",
+    "module": "master_inspection_characteristic",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZQMX_C_MasterCharMig",
+    "parent_keys": [
+      "Plant",
+      "MasterInspectionCharacteristic",
+      "CharacteristicVersion"
+    ],
+    "links": "ZQMX_C_MasterCharLongTextMig_Links",
+    "operation": "text_scope"
+  }
+}

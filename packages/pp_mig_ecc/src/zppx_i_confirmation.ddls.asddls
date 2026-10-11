@@ -1,0 +1,27 @@
+// ModuPorter PP migration | Release 1.0.0
+// Purpose: Read Confirmation as source records; approve the key-date population before posting.
+// Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
+@AbapCatalog.sqlViewName: 'ZPPX_V017R'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'Confirmation'
+@ObjectModel.usageType.dataClass: #MIXED
+@ObjectModel.usageType.serviceQuality: #D
+@ObjectModel.usageType.sizeCategory: #L
+@VDM.viewType: #COMPOSITE
+define view ZPPX_I_Confirmation
+  as select from ZPPX_B_ConfirmationData as src
+{
+  key src.ConfirmationNumber as ConfirmationNumber,
+  key src.ConfirmationCounter as ConfirmationCounter,
+      src.ManufacturingOrder as ManufacturingOrder,
+      src.Operation as Operation,
+      src.PostingDate as PostingDate,
+      src.FinalConfirmation as FinalConfirmation,
+      src.ReversalFlag as ReversalFlag,
+      src.ReversalCounter as ReversalCounter,
+      src.YieldQuantity as YieldQuantity,
+      src.ScrapQuantity as ScrapQuantity,
+      src.ConfirmationUnit as ConfirmationUnit
+}

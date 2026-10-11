@@ -1,0 +1,12 @@
+// ZFAA FI-AA VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - journal conditions (see GEN-D02).
+@EndUserText.label: 'Asset Transaction with Asset Master'
+@MappingRole: true
+define role ZFAA_I_AssetTransWithAsset {
+  grant
+    select
+      on
+        ZFAA_I_AssetTransWithAsset
+          where
+            inheriting conditions from entity ZFAA_I_AssetTransaction;
+}

@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZCOV_I_INTERNALORDER</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Internal Order</DDTEXT>
+    <DDTEXT>Internal Order - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

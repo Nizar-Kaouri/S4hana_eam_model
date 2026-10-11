@@ -1,52 +1,37 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per maintenance order header with type, activity type, priority, process phase,
-//   planning and cost-assignment data, basic dates and a derived open/closed flag; analytical
-//   dimension for operation, component, cost and backlog cubes.
-// Example: List open preventive orders per planning plant; join cost line items to order attributes.
-// Equipment, functional location, notification and maintenance plan are plain fields here; their
-// associations live in link views (ZEAM_I_*WithOrder, ZEAM_I_NotifWithOrder, ZEAM_I_MaintPlanWithOrder).
-// TODO-VERIFY[M] MO-001: I_MaintenanceOrder exists, is released (C1) and its key element is MaintenanceOrder
-// TODO-VERIFY[M] MO-002: element names MaintenanceOrderType, MaintenanceOrderDesc, MaintPriority, MaintenanceActivityType
-// TODO-VERIFY[M] MO-003: MaintOrdProcessPhaseCode element name and value list
-// TODO-VERIFY[H] MO-004: technical completion date element (AUFK-IDAT2 equivalent) assumed TechnicalCompletionDate; drives MaintOrderIsOpen
-// TODO-VERIFY[M] MO-005: planning elements MaintenancePlanningPlant, MaintenancePlannerGroup, MaintenancePlant, MainWorkCenter, MainWorkCenterPlant
-// TODO-VERIFY[M] MO-006: account assignment elements CompanyCode, BusinessArea, ControllingArea, CostCenter
-// TODO-VERIFY[M] MO-007: reference elements MaintenanceNotification, Equipment, FunctionalLocation, MaintenancePlan, MaintenanceItem
-// TODO-VERIFY[M] MO-008: date elements MaintOrdBasicStartDate, MaintOrdBasicEndDate, CreationDate
+// Purpose: Order header cube with counters for all and open orders and the planned order duration.
+// Example: Open orders per planning plant and order type; share of breakdown (activity type) orders.
+// TODO-VERIFY[L] MO-R01: dats_days_between on basic start/end dates as a summable measure
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
-@Analytics.dataCategory: #DIMENSION
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Maintenance Order'
+@EndUserText.label: 'Maintenance Order - Cube'
+@Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'MaintenanceOrder'
-@ObjectModel.modelingPattern: #ANALYTICAL_DIMENSION
-@ObjectModel.supportedCapabilities: [ #ANALYTICAL_DIMENSION, #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZEAM_I_MaintOrder
-  as select from I_MaintenanceOrder
-  association [0..1] to I_Plant       as _MaintenancePlant         on $projection.MaintenancePlant = _MaintenancePlant.Plant
-  association [0..1] to I_Plant       as _MaintenancePlanningPlant on $projection.MaintenancePlanningPlant = _MaintenancePlanningPlant.Plant
-  association [0..1] to I_CompanyCode as _CompanyCode              on $projection.CompanyCode = _CompanyCode.CompanyCode
+  as select from ZEAM_B_MaintOrder
+  association [1..1] to ZEAM_B_MaintOrder as _MaintenanceOrder on $projection.MaintenanceOrder = _MaintenanceOrder.MaintenanceOrder
 {
-      @ObjectModel.text.element: [ 'MaintenanceOrderDesc' ]
+      @ObjectModel.foreignKey.association: '_MaintenanceOrder'
   key MaintenanceOrder,
-      @Semantics.text: true
-      MaintenanceOrderDesc,
       MaintenanceOrderType,
       MaintenanceActivityType,
       MaintPriority,
       MaintOrdProcessPhaseCode,
-      TechnicalCompletionDate,
-      cast( case when TechnicalCompletionDate = '00000000' then 'X' else ' ' end as abap_boolean ) as MaintOrderIsOpen,
+      MaintOrderIsOpen,
       MaintOrdBasicStartDate,
       MaintOrdBasicEndDate,
       CreationDate,
+      TechnicalCompletionDate,
       @ObjectModel.foreignKey.association: '_MaintenancePlanningPlant'
       MaintenancePlanningPlant,
       MaintenancePlannerGroup,
@@ -63,10 +48,22 @@ define view entity ZEAM_I_MaintOrder
       Equipment,
       FunctionalLocation,
       MaintenancePlan,
-      MaintenanceItem,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Orders'
+      cast( 1 as abap.int4 ) as NumberOfOrders,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Open Orders'
+      cast( case when MaintOrderIsOpen = 'X' then 1 else 0 end as abap.int4 ) as NumberOfOpenOrders,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Planned Duration (Days)'
+      cast( case when MaintOrdBasicStartDate <> '00000000' and MaintOrdBasicEndDate <> '00000000'
+                 then dats_days_between( MaintOrdBasicStartDate, MaintOrdBasicEndDate ) else 0 end as abap.int4 ) as PlannedDurationInDays,
 
       /* Associations */
       _MaintenancePlant,
       _MaintenancePlanningPlant,
-      _CompanyCode
+      _CompanyCode,
+      _MaintenanceOrder
 }

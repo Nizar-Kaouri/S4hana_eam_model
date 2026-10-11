@@ -3,7 +3,7 @@
 
 Writes
   docs/mapping/<module>.md    description of the consumption views (the template the load program reads):
-                              structures, keys, scope, fields with ECC source and S/4HANA target, reconciliation, gaps
+                              structures, keys, scope, fields with ECC source and S/4HANA target, source controls, gaps
   docs/MIGRATION_SEQUENCE.md  load order (levels) derived from sequence_after
 Usage: python3 tools/gen_mapping.py --product <product> [--check]
 Products whose library.json kind is not 'migration-source' are skipped.
@@ -33,13 +33,13 @@ def rule_text(rule):
 
 
 def module_doc(m, lib, status):
-    rec = m["reconciliation"]
+    rec = m["source_control"]
     lines = [f"# Migration interface: {m['module']}", "", status, "",
              f"- **Read by:** {m['target']['tool']}",
              f"- **Load after:** {', '.join(f'`{d}`' for d in m['sequence_after']) or '- (first level)'}",
              f"- **Business key:** {', '.join(f'`{k}`' for k in m['key']['business_key'])} · numbering **{m['key']['numbering']}**",
              f"- **Key rule:** {m['key']['note']}", ""]
-    for t in m["target"].get("todo_verify", []):
+    for t in m["target"].get("compatibility_notes", m["target"].get("todo_verify", [])):
         lines += [f"> {t}", ""]
     lines += ["The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, "
               "new numbers, ...) is up to the load program.", ""]
@@ -47,31 +47,21 @@ def module_doc(m, lib, status):
         lines += [f"## `{st['consumption_view']}`", "",
                   f"- Source: `{st['source_view']}`",
                   f"- Keys: {', '.join(f'`{k}`' for k in st['keys'])}",
-                  f"- Scope: `{st['scope_filter'] or 'all rows'}`", "",
-                  "| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |", "|---|---|---|---|---|"]
+                  f"- Scope: `{st['scope_filter'] or 'all rows'}`",
+                  *([f"- Delivery mode: **{st['delivery_mode']}**", f"- Before posting: {st.get('preprocessing', '')}"] if st.get('delivery_mode') else []), "",
+                  "| Element | Source (ECC) | Target (S/4HANA) | Rule |", "|---|---|---|---|"]
         for f in st["fields"]:
-            lines.append(f"| `{f['element']}` | {cell(f['source'])} | {cell(f['target']) or '-'} | {cell(rule_text(f['rule']))} | "
-                         f"{'yes' if f['compare'] else ''} |")
+            lines.append(f"| `{f['element']}` | {cell(f['source'])} | {cell(f['target']) or '-'} | {cell(rule_text(f['rule']))} |")
         lines.append("")
     if m.get("not_migrated"):
         lines += ["## Not delivered", "", "| View | Element | Source | Reason |", "|---|---|---|---|"]
         lines += [f"| `{x['view']}` | `{x['element']}` | {cell(x['source'])} | {cell(rule_text(x['reason']))} |"
                   for x in m["not_migrated"]]
         lines.append("")
-    lines += ["## Reconciliation", "",
-              f"- Counts: `{rec['source_count_view']}` (ECC) vs `{rec['target_count_view'] or '-'}` "
-              "(S/4HANA) per " + ", ".join(f"`{d['element']}`" for d in rec["dimensions"])]
-    if rec.get("compare"):
-        c = rec["compare"]
-        lines.append(f"- Records and fields: `{c['source_view']}` vs `{c['target_view']}` on "
-                     f"{', '.join(f'`{k}`' for k in c['key'])}; compared: {', '.join(f'`{x}`' for x in c['fields']) or '-'}")
-    lines += ["", "```bash",
-              f"python3 tools/mig_reconcile.py counts --module {m['module']} --source ecc_counts.csv --target s4_counts.csv"]
-    if rec.get("compare"):
-        lines.append(f"python3 tools/mig_reconcile.py records --module {m['module']} --source ecc_extract.csv --target s4_compare.csv")
-    lines += ["```", "", "## Open gaps", ""]
+    lines += ["## Source controls", "", f"- Source count view: `{rec.get('source_count_view', '-')}`", "", "## Open gaps", ""]
     lines += [f"- {g}" for g in m["gaps"]] or ["None known."]
-    return "\n".join(lines) + "\n"
+    result = "\n".join(lines) + "\n"
+    return result.replace("ECC", "SAP source") if lib.get("native_table_sources") else result
 
 
 def expected():
@@ -80,6 +70,8 @@ def expected():
         return {}
     status = ("> Status: **draft-unverified** · tested release: "
               + lib.get("draft_tested_release", "none") + ". Nothing below has been run on a system.")
+    if lib.get("phase") == "released":
+        status = "> Version **" + lib["version"] + "**"
     mappings = {}
     for p in sorted((ROOT / "modules").glob("*/mapping.json")):
         m = json.loads(p.read_text(encoding="utf-8"))
@@ -93,6 +85,9 @@ def expected():
     for i, level in enumerate(levels, 1):
         views = [st["consumption_view"] for n in level for st in mappings[n]["structures"]]
         seq.append(f"| {i} | {', '.join(f'[`{n}`](mapping/{n}.md)' for n in level)} | {', '.join(f'`{v}`' for v in views)} |")
+    if lib.get("native_table_sources"):
+        seq[4] = "This groups the supplied native extraction drafts only. Pending dependencies remain listed in module metadata and mappings; this is not a complete business load plan. No load program is supplied."
+        seq[6] = "| Level | Modules | Supplied native consumption views |"
     out[DOCS / "MIGRATION_SEQUENCE.md"] = "\n".join(seq) + "\n"
     return out
 

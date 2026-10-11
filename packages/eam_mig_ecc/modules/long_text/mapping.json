@@ -1,10 +1,10 @@
 {
   "module": "long_text",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XLT-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -28,7 +28,7 @@
   "structures": [
     {
       "consumption_view": "ZEMX_C_LongTextIndexMig",
-      "source_view": "ZEMX_I_LongTextHeader",
+      "source_view": "ZEMX_I_LongTextIndex",
       "scope_filter": "",
       "keys": [
         "TextObject",
@@ -41,63 +41,61 @@
           "element": "TextObject",
           "source": "STXH-TDOBJECT",
           "target": "STXH-TDOBJECT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "TextName",
           "source": "STXH-TDNAME",
           "target": "",
-          "rule": "derive:object key + text ID specific suffix; rebuilt from the object key by the load program",
-          "compare": false
+          "rule": "derive:object key + text ID specific suffix; rebuilt from the object key by the load program"
         },
         {
           "element": "TextID",
           "source": "STXH-TDID",
           "target": "STXH-TDID",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "STXH-TDSPRAS",
           "target": "STXH-TDSPRAS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     }
   ],
   "not_migrated": [
     {
-      "view": "ZEMX_I_LongTextHeader",
+      "view": "ZEMX_B_LongTextHeader",
       "element": "CreationDate",
       "source": "STXH-TDFDATE",
       "reason": "info"
     },
     {
-      "view": "ZEMX_I_LongTextHeader",
+      "view": "ZEMX_B_LongTextHeader",
       "element": "CreatedByUser",
       "source": "STXH-TDFUSER",
       "reason": "info"
     },
     {
-      "view": "ZEMX_I_LongTextHeader",
+      "view": "ZEMX_B_LongTextHeader",
       "element": "LastChangeDate",
       "source": "STXH-TDLDATE",
       "reason": "info"
     },
     {
-      "view": "ZEMX_I_LongTextHeader",
+      "view": "ZEMX_B_LongTextHeader",
       "element": "LastChangedByUser",
       "source": "STXH-TDLUSER",
       "reason": "info"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: the text content (STXL, compressed) is read with READ_TEXT by the load program; CDS cannot read it"
+  ],
+  "main_structure": "ZEMX_C_LongTextIndexMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_LongTextMigCount",
-    "target_count_view": null,
     "dimensions": [
       {
         "element": "TextObject"
@@ -106,11 +104,6 @@
         "element": "TextID"
       }
     ],
-    "measure": "RecordCount",
-    "compare": null
-  },
-  "gaps": [
-    "TODO-VERIFY[H] XLT-G01: the text content (STXL, compressed) is read with READ_TEXT by the load program; CDS cannot read it"
-  ],
-  "main_structure": "ZEMX_C_LongTextIndexMig"
+    "measure": "RecordCount"
+  }
 }

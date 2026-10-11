@@ -1,0 +1,26 @@
+// ModuPorter EAM migration | Release 1.0.0
+// Purpose: Preserve the business key and selected parent population without flattening repeating records.
+// Example: Prepare a consistent cutover snapshot with customer/customer-cohort-project.json.
+@AbapCatalog.sqlViewName: 'ZEMX_196N'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'FuncLocCharc'
+@ObjectModel.usageType.dataClass: #MIXED
+@ObjectModel.usageType.serviceQuality: #D
+@ObjectModel.usageType.sizeCategory: #L
+@VDM.viewType: #COMPOSITE
+define view ZEMX_I_FuncLocCharc
+  as select from ZEMX_I_CharcValue as cl
+    inner join ZEMX_I_FuncLoc as obj on obj.FunctionalLocation = cl.ClassifiedObject
+{
+  key obj.FunctionalLocation as FunctionalLocation,
+  key cl.ClassType as ClassType,
+  key cl.Characteristic as Characteristic,
+  key cl.CharcValuePositionNumber as CharcValuePositionNumber,
+      cl.CharcValue as CharcValue,
+      cl.CharcFromNumericValue as CharcFromNumericValue,
+      cl.CharcToNumericValue as CharcToNumericValue,
+      cl.CharcValueDependency as CharcValueDependency
+}
+where cl.ClassType = '003' and obj.IsMarkedForDeletion = ''

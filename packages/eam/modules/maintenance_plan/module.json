@@ -22,54 +22,54 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZEAM_I_MaintPlan",
-      "ZEAM_I_MaintItem",
-      "ZEAM_I_MaintPlanVH"
+      "ZEAM_B_MaintPlan",
+      "ZEAM_B_MaintItem",
+      "ZEAM_B_MaintPlanVH"
     ],
     "composite": [
-      "ZEAM_R_MaintItem"
+      "ZEAM_I_MaintItem"
     ],
     "consumption": [
       "ZEAM_C_MaintItemQ"
     ],
     "access_controls": [
-      "ZEAM_I_MaintPlan",
-      "ZEAM_I_MaintItem",
-      "ZEAM_I_MaintPlanVH",
-      "ZEAM_R_MaintItem"
+      "ZEAM_B_MaintPlan",
+      "ZEAM_B_MaintItem",
+      "ZEAM_B_MaintPlanVH",
+      "ZEAM_I_MaintItem"
     ],
     "metadata_extensions": [
-      "ZEAM_R_MaintItem"
+      "ZEAM_I_MaintItem"
     ],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEAM_C_MaintItemQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintItem (see GEN-Q01)."
+    "ZEAM_C_MaintItemQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MaintItem (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZEAM_I_EquipmentWithMaintItem",
+      "name": "ZEAM_B_EquipmentWithMaintItem",
       "requires_modules": [
         "equipment",
         "maintenance_plan"
       ],
-      "access_control": "ZEAM_I_EquipmentWithMaintItem"
+      "access_control": "ZEAM_B_EquipmentWithMaintItem"
     },
     {
-      "name": "ZEAM_I_MaintItemWithTaskList",
+      "name": "ZEAM_B_MaintItemWithTaskList",
       "requires_modules": [
         "maintenance_plan",
         "task_list"
       ],
-      "access_control": "ZEAM_I_MaintItemWithTaskList"
+      "access_control": "ZEAM_B_MaintItemWithTaskList"
     },
     {
-      "name": "ZEAM_I_MaintPlanWithOrder",
+      "name": "ZEAM_B_MaintPlanWithOrder",
       "requires_modules": [
         "maintenance_order",
         "maintenance_plan"
       ],
-      "access_control": "ZEAM_I_MaintPlanWithOrder"
+      "access_control": "ZEAM_B_MaintPlanWithOrder"
     }
   ]
 }

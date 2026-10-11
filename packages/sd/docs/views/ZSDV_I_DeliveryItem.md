@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Outbound Delivery Item |
+| Description | Outbound Delivery Item - Cube |
 | Module | `outbound_delivery` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_DeliveryDocumentItem` |
+| Data category | #CUBE |
+| Data source | `ZSDV_B_DeliveryItem` |
 | Source file | `src/zsdv_i_deliveryitem.ddls.asddls` |
 
 ## Purpose
 
-One row per delivery item: material, plant, storage location, delivered quantity and the reference sales order item.
+Delivery item cube: delivered quantity and number of items per shipping point, plant, material and ship-to party, with goods-issue and on-time flags from the header.
 
 ## Keys
 
@@ -24,17 +24,16 @@ One row per delivery item: material, plant, storage location, delivered quantity
 
 ## Associations defined here
 
-- `_Delivery` → `ZSDV_I_OutboundDelivery` [1..1]
-- `_Plant` → `I_Plant` [0..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_DeliveryDocumentItem`.
+Role inherits the conditions of `ZSDV_B_DeliveryItem`.
 
 ## Example use case
 
-Delivered quantity per material and plant; deliveries per sales order.
+Share of items delivered on time per shipping point.
 
 ## Open verification items
 
-`SD-012`, `SD-D04` - see `BATCH_REPORT.md`.
+none

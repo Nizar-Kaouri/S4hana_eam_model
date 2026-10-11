@@ -1,0 +1,12 @@
+{
+  "identity": [
+    "STLTY",
+    "STLNR",
+    "STLKN"
+  ],
+  "valid_from": "DATUV",
+  "counter": "STPOZ",
+  "deletion": "LKENZ",
+  "change_number": "AENNR",
+  "eligibility": "Eligible"
+}

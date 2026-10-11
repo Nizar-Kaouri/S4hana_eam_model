@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Inspection Characteristic Result |
+| Description | Inspection Result - Cube |
 | Module | `inspection_result` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_InspectionCharacteristic` |
+| Data category | #CUBE |
+| Data source | `ZQMV_B_InspectionCharc` |
 | Source file | `src/zqmv_i_inspectioncharc.ddls.asddls` |
 
 ## Purpose
 
-One row per inspection characteristic of an inspection lot (per inspection operation) with characteristic text, status, valuation (accepted / rejected), mean value and number of defects.
+Result cube: number of inspected and rejected characteristics and defects per characteristic, with material, plant, supplier and lot origin from the lot.
 
 ## Keys
 
@@ -25,16 +25,16 @@ One row per inspection characteristic of an inspection lot (per inspection opera
 
 ## Associations defined here
 
-- `_InspectionLot` → `ZQMV_I_InspectionLot` [1..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_InspectionCharacteristic`.
+Role inherits the conditions of `ZQMV_B_InspectionCharc`.
 
 ## Example use case
 
-Characteristics rejected most often per material; defect counts per inspection specification.
+Which characteristics fail most often for a supplier's materials.
 
 ## Open verification items
 
-`QM-010`, `QM-011`, `QM-012`, `QM-D02` - see `BATCH_REPORT.md`.
+none

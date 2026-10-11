@@ -1,0 +1,12 @@
+// ZFAA FI-AA VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the basic view (see GEN-D02).
+@EndUserText.label: 'Fixed Asset - Value Help'
+@MappingRole: true
+define role ZFAA_B_FixedAssetVH {
+  grant
+    select
+      on
+        ZFAA_B_FixedAssetVH
+          where
+            inheriting conditions from entity ZFAA_B_FixedAsset;
+}

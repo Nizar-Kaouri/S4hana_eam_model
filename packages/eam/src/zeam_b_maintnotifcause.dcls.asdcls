@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for the notification cause view.
+// TODO-VERIFY[H] NI-D02: the SAP notification cause view has a role and every element / path it references exists in ZEAM_B_MaintNotifCause
+@EndUserText.label: 'Maintenance Notification Cause'
+@MappingRole: true
+define role ZEAM_B_MaintNotifCause {
+  grant
+    select
+      on
+        ZEAM_B_MaintNotifCause
+          where
+            inheriting conditions from entity I_MaintenanceNotificationCause;
+}

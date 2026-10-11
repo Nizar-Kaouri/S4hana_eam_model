@@ -1,0 +1,2 @@
+BillingDocument,BillingDocumentType,BillingDocumentDate,CompanyCode,TransactionCurrency,Payer
+01,sample,20261001,sample,sample,sample

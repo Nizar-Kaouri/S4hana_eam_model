@@ -1,0 +1,99 @@
+{
+  "module": "credit_segment",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "credit_profile"
+  ],
+  "key": {
+    "business_key": [
+      "BusinessPartner",
+      "CreditSegment"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFCX_C_CreditSegmentMig",
+      "source_view": "ZFCX_I_CreditSegment",
+      "scope_filter": "",
+      "keys": [
+        "BusinessPartner",
+        "CreditSegment"
+      ],
+      "fields": [
+        {
+          "element": "BusinessPartner",
+          "source": "UKMBP_CMS_SGM-PARTNER",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.BusinessPartner",
+          "rule": "copy"
+        },
+        {
+          "element": "CreditSegment",
+          "source": "UKMBP_CMS_SGM-CREDIT_SGMNT",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.CreditSegment",
+          "rule": "copy"
+        },
+        {
+          "element": "Blocked",
+          "source": "UKMBP_CMS_SGM-XBLOCKED",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.Blocked",
+          "rule": "copy"
+        },
+        {
+          "element": "LimitValidTo",
+          "source": "UKMBP_CMS_SGM-LIMIT_VALID_DATE",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.LimitValidTo",
+          "rule": "copy"
+        },
+        {
+          "element": "LimitChangedOn",
+          "source": "UKMBP_CMS_SGM-LIMIT_CHG_DATE",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.LimitChangedOn",
+          "rule": "copy"
+        },
+        {
+          "element": "Coordinator",
+          "source": "UKMBP_CMS_SGM-COORDINATOR",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.Coordinator",
+          "rule": "copy"
+        },
+        {
+          "element": "BlockReason",
+          "source": "UKMBP_CMS_SGM-BLOCK_REASON",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.BlockReason",
+          "rule": "copy"
+        },
+        {
+          "element": "Critical",
+          "source": "UKMBP_CMS_SGM-XCRITICAL",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.Critical",
+          "rule": "copy"
+        },
+        {
+          "element": "ZeroLimit",
+          "source": "UKMBP_CMS_SGM-X_LIMIT_ZERO",
+          "target": "Native target evidence: ZFCT_B_CreditSegmentCompare.ZeroLimit",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "CreditLimit and its currency context require UKMCRED_SGM0C verification; no fictitious segment currency column is supplied. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "CreditSegment: CreditLimit currency context remains pending: extractor documentation names segment CURRENCY while other releases use UKMCRED_SGM0C currency customizing. Resolve this release-specific contradiction before projecting amounts."
+  ],
+  "main_structure": "ZFCX_C_CreditSegmentMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZFCX_C_CreditSegmentMigCount",
+    "dimensions": []
+  }
+}

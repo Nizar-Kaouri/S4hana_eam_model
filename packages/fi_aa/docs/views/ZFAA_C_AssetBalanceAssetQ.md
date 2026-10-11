@@ -10,7 +10,7 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZFAA_R_AssetBalanceWithAsset` |
+| Data source | `ZFAA_I_AssetBalanceWithAsset` |
 | Source file | `src/zfaa_c_assetbalanceassetq.ddls.asddls` |
 
 ## Purpose

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Class assignments with the class name instead of the internal class number.
 // Example: Read the equipment classes: filter ClassType = '002'.
 @AbapCatalog.sqlViewName: 'ZEMX_CLA'
@@ -13,13 +13,20 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_ClassAssignment
-  as select from ZEMX_I_ObjectClassAssgmt as asg
+  as select from ZEMX_B_ObjectClassAssgmt as asg
 {
+      @EndUserText.label: 'Classified Object'
   key asg.ClassifiedObject     as ClassifiedObject,
+      @EndUserText.label: 'Class Type'
   key asg.ClassType            as ClassType,
+      @EndUserText.label: 'Class Internal ID'
   key asg.ClassInternalID      as ClassInternalID,
+      @EndUserText.label: 'Change Counter'
   key asg.ChangeCounter        as ChangeCounter,
+      @EndUserText.label: 'Class'
       asg._Class.Class         as Class,
+      @EndUserText.label: 'Classification Status'
       asg.ClassificationStatus as ClassificationStatus,
+      @EndUserText.label: 'Is Marked For Deletion'
       asg.IsMarkedForDeletion  as IsMarkedForDeletion
 }

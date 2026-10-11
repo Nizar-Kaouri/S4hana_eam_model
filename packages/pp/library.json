@@ -17,5 +17,10 @@
   "reserve_prefix_chars": 1,
   "map_title": "ZPPV Production Planning Model Map",
   "map_area": "Production Planning (PP)",
-  "map_initial": "ZPPV_I_ProductionOrder"
+  "map_initial": "ZPPV_B_ProductionOrder",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

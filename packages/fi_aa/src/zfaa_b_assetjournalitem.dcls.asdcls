@@ -1,0 +1,13 @@
+// ZFAA FI-AA VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the Universal Journal authorization logic SAP ships for I_JournalEntryItem.
+// TODO-VERIFY[H] AT-D01: every element referenced by the I_JournalEntryItem role is projected by ZFAA_B_AssetJournalItem
+@EndUserText.label: 'Fixed Asset Journal Item'
+@MappingRole: true
+define role ZFAA_B_AssetJournalItem {
+  grant
+    select
+      on
+        ZFAA_B_AssetJournalItem
+          where
+            inheriting conditions from entity I_JournalEntryItem;
+}

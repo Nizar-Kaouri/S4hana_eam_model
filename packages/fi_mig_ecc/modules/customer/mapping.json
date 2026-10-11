@@ -1,0 +1,1330 @@
+{
+  "module": "customer",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "Customer"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFIX_C_CustomerMig",
+      "source_view": "ZFIX_I_Customer",
+      "scope_filter": "",
+      "keys": [
+        "Customer"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNA1-KUNNR",
+          "target": "customer interface field: Customer (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CustomerName",
+          "source": "KNA1-NAME1",
+          "target": "customer interface field: CustomerName (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Country",
+          "source": "KNA1-LAND1",
+          "target": "customer interface field: Country (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Region",
+          "source": "KNA1-REGIO",
+          "target": "customer interface field: Region (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "AccountGroup",
+          "source": "KNA1-KTOKD",
+          "target": "customer interface field: AccountGroup (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "KNA1-LOEVM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "KNA1-ADRNR",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "HasStandardAddress",
+          "source": "derived: presence of the standard ADRC record",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "TaxNumber1",
+          "source": "KNA1-STCD1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TaxNumber2",
+          "source": "KNA1-STCD2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TaxNumber3",
+          "source": "KNA1-STCD3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TaxNumber4",
+          "source": "KNA1-STCD4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "VATRegistration",
+          "source": "KNA1-STCEG",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CorrespondenceLanguage",
+          "source": "KNA1-SPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerCompanMig",
+      "source_view": "ZFIX_I_CustomerCompan",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "CompanyCode"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNB1-KUNNR",
+          "target": "customer interface field: Customer (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CompanyCode",
+          "source": "KNB1-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ReconciliationAccount",
+          "source": "KNB1-AKONT",
+          "target": "customer interface field: ReconciliationAccount (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PaymentTerms",
+          "source": "KNB1-ZTERM",
+          "target": "customer interface field: PaymentTerms (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PaymentMethods",
+          "source": "KNB1-ZWELS",
+          "target": "customer interface field: PaymentMethods (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "KNB1-LOEVM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PaymentBlock",
+          "source": "KNB1-ZAHLS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "SortKey",
+          "source": "KNB1-ZUAWA",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PlanningGroup",
+          "source": "KNB1-FDGRV",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerSalesMig",
+      "source_view": "ZFIX_I_CustomerSales",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNVV-KUNNR",
+          "target": "customer interface field: Customer (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesOrganization",
+          "source": "KNVV-VKORG",
+          "target": "customer interface field: SalesOrganization (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DistributionChannel",
+          "source": "KNVV-VTWEG",
+          "target": "customer interface field: DistributionChannel (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Division",
+          "source": "KNVV-SPART",
+          "target": "customer interface field: Division (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Currency",
+          "source": "KNVV-WAERS",
+          "target": "customer interface field: Currency (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PaymentTerms",
+          "source": "KNVV-ZTERM",
+          "target": "customer interface field: PaymentTerms (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "KNVV-LOEVM",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerAddressMig",
+      "source_view": "ZFIX_I_CustomerAddress",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNA1-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADRC-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidFrom",
+          "source": "ADRC-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressVersion",
+          "source": "ADRC-NATION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerBankMig",
+      "source_view": "ZFIX_I_CustomerBank",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNBK-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BankCountry",
+          "source": "KNBK-BANKS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Bank",
+          "source": "KNBK-BANKL",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BankAccount",
+          "source": "KNBK-BANKN",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BankControlKey",
+          "source": "KNBK-BKONT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerBankType",
+          "source": "KNBK-BVTYP",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AccountHolder",
+          "source": "KNBK-KOINH",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerWHTMig",
+      "source_view": "ZFIX_I_CustomerWHT",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "CompanyCode",
+        "WithholdingTaxType"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNBW-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CompanyCode",
+          "source": "KNBW-BUKRS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "WithholdingTaxType",
+          "source": "KNBW-WITHT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "WithholdingTaxCode",
+          "source": "KNBW-WT_WITHCD",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "WithholdingTaxID",
+          "source": "KNBW-WT_WTSTCD",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ExemptionNumber",
+          "source": "KNBW-WT_EXNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ExemptionRate",
+          "source": "KNBW-WT_EXRT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ExemptionValidFrom",
+          "source": "KNBW-WT_EXDF",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ExemptionValidTo",
+          "source": "KNBW-WT_EXDT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerDunningMig",
+      "source_view": "ZFIX_I_CustomerDunning",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "CompanyCode",
+        "DunningArea"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNB5-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CompanyCode",
+          "source": "KNB5-BUKRS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "DunningArea",
+          "source": "KNB5-MABER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "DunningProcedure",
+          "source": "KNB5-MAHNA",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "DunningBlock",
+          "source": "KNB5-MANSP",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "DunningLevel",
+          "source": "KNB5-MAHNS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "LastDunnedOn",
+          "source": "KNB5-MADAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "DunningMemo",
+          "source": "KNB5-KVERM",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerPartnerMig",
+      "source_view": "ZFIX_I_CustomerPartner",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "SalesOrganization",
+        "DistributionChannel",
+        "Division",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNVP-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesOrganization",
+          "source": "KNVP-VKORG",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "DistributionChannel",
+          "source": "KNVP-VTWEG",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Division",
+          "source": "KNVP-SPART",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "KNVP-PARVW",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerCounter",
+          "source": "KNVP-PARZA",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerCustomer",
+          "source": "KNVP-KUNN2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerSupplier",
+          "source": "KNVP-LIFNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerContact",
+          "source": "KNVP-PARNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerPersonnel",
+          "source": "KNVP-PERNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "DefaultPartner",
+          "source": "KNVP-DEFPA",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerTaxMig",
+      "source_view": "ZFIX_I_CustomerTax",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "DepartureCountry",
+        "TaxCategory"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNVI-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "DepartureCountry",
+          "source": "KNVI-ALAND",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TaxCategory",
+          "source": "KNVI-TATYP",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TaxClassification",
+          "source": "KNVI-TAXKD",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerContactMig",
+      "source_view": "ZFIX_I_CustomerContact",
+      "scope_filter": "",
+      "keys": [
+        "ContactPerson"
+      ],
+      "fields": [
+        {
+          "element": "ContactPerson",
+          "source": "KNVK-PARNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Customer",
+          "source": "KNVK-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FirstName",
+          "source": "KNVK-NAMEV",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "LastName",
+          "source": "KNVK-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Department",
+          "source": "KNVK-ABTNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Function",
+          "source": "KNVK-PAFKT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Telephone",
+          "source": "KNVK-TELF1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "KNVK-PRSNR",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerEmailMig",
+      "source_view": "ZFIX_I_CustomerEmail",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNA1-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR6-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR6-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR6-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR6-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "EmailAddress",
+          "source": "ADR6-SMTP_ADDR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR6-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerPhoneMig",
+      "source_view": "ZFIX_I_CustomerPhone",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNA1-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR2-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR2-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR2-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR2-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Telephone",
+          "source": "ADR2-TEL_NUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TelephoneExtension",
+          "source": "ADR2-TEL_EXTENS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR2-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerFaxMig",
+      "source_view": "ZFIX_I_CustomerFax",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "KNA1-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR3-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR3-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR3-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR3-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxNumber",
+          "source": "ADR3-FAX_NUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxExtension",
+          "source": "ADR3-FAX_EXTENS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR3-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZFIX_C_ContactEmailMig",
+      "source_view": "ZFIX_I_ContactEmail",
+      "scope_filter": "",
+      "keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "ContactPerson",
+          "source": "KNVK-PARNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "source: AddressNumber",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "KNVK-PRSNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "source: CommunicationValidFrom",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "source: CommunicationCounter",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Customer",
+          "source": "KNVK-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "EmailAddress",
+          "source": "source: EmailAddress",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "source: IsDefaultCommunication",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_ContactPhoneMig",
+      "source_view": "ZFIX_I_ContactPhone",
+      "scope_filter": "",
+      "keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "ContactPerson",
+          "source": "KNVK-PARNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "source: AddressNumber",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "KNVK-PRSNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "source: CommunicationValidFrom",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "source: CommunicationCounter",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Customer",
+          "source": "KNVK-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Telephone",
+          "source": "KNVK-TELF1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TelephoneExtension",
+          "source": "source: TelephoneExtension",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "source: IsDefaultCommunication",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_ContactFaxMig",
+      "source_view": "ZFIX_I_ContactFax",
+      "scope_filter": "",
+      "keys": [
+        "ContactPerson",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "ContactPerson",
+          "source": "KNVK-PARNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "source: AddressNumber",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "KNVK-PRSNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "source: CommunicationValidFrom",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "source: CommunicationCounter",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Customer",
+          "source": "KNVK-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxNumber",
+          "source": "source: FaxNumber",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxExtension",
+          "source": "source: FaxExtension",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "source: IsDefaultCommunication",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerLongTextMig",
+      "source_view": "ZFIX_I_CustomerLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    },
+    {
+      "consumption_view": "ZFIX_C_CustomerIBANMig",
+      "source_view": "ZFIX_I_CustomerIBAN",
+      "scope_filter": "",
+      "keys": [
+        "Customer",
+        "BankCountry",
+        "Bank",
+        "BankAccount",
+        "BankControlKey"
+      ],
+      "fields": [
+        {
+          "element": "Customer",
+          "source": "source: Customer",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BankCountry",
+          "source": "TIBAN-BANKS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Bank",
+          "source": "TIBAN-BANKL",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BankAccount",
+          "source": "TIBAN-BANKN",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BankControlKey",
+          "source": "TIBAN-BKONT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IBAN",
+          "source": "TIBAN-IBAN",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Optional IBAN child joined through the full bank/control-key identity. A missing IBAN leaves the bank master/detail exports intact. Load only the selected customer/supplier bank population through a supported interface; preserve leading zeros in account and bank identifiers."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+  ],
+  "main_structure": "ZFIX_C_CustomerMig",
+  "source_control": {
+    "source_count_view": "ZFIX_C_CustomerMigCount",
+    "dimensions": [
+      {
+        "element": "Customer"
+      }
+    ]
+  }
+}

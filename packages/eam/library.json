@@ -15,5 +15,10 @@
   "reserve_prefix_chars": 1,
   "map_title": "ZEAM EAM Model Map",
   "map_area": "EAM / Plant Maintenance",
-  "map_initial": "ZEAM_I_MaintOrder"
+  "map_initial": "ZEAM_B_MaintOrder",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

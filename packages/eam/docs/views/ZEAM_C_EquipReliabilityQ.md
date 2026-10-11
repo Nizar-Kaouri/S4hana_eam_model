@@ -10,7 +10,7 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_EquipmentReliability` |
+| Data source | `ZEAM_I_EquipmentReliability` |
 | Source file | `src/zeam_c_equipreliabilityq.ddls.asddls` |
 
 ## Purpose

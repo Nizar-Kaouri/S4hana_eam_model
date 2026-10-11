@@ -1,0 +1,10 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// Descriptions are not treated as authorization-relevant (see GEN-D01).
+@EndUserText.label: 'Profit Center - Text'
+@MappingRole: true
+define role ZCOV_B_ProfitCenterText {
+  grant
+    select
+      on
+        ZCOV_B_ProfitCenterText;
+}

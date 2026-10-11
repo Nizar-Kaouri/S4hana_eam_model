@@ -1,0 +1,12 @@
+// ZCOV CO VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'CO Actual Cost - Cube'
+@MappingRole: true
+define role ZCOV_I_COActualCost {
+  grant
+    select
+      on
+        ZCOV_I_COActualCost
+          where
+            inheriting conditions from entity ZCOV_B_COJournalItem;
+}

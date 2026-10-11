@@ -1,9 +1,9 @@
 // ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZBRG_R_EquipmentAssetValue: asset values per planning plant and equipment
+// Purpose: Analytical query on ZBRG_I_EquipmentAssetValue: asset values per planning plant and equipment
 //   category at a key date.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // LINK VIEW (ships only when modules "eam:equipment" AND "fi_aa:rpt_asset_balance" are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZBRG_R_EquipmentAssetValue applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZBRG_I_EquipmentAssetValue applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Equipment Asset Value'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -13,7 +13,7 @@ define transient view entity ZBRG_C_EquipAssetValueQ
   provider contract analytical_query
   with parameters
     P_KeyDate : abap.dats
-  as projection on ZBRG_R_EquipmentAssetValue( P_KeyDate: $parameters.P_KeyDate )
+  as projection on ZBRG_I_EquipmentAssetValue( P_KeyDate: $parameters.P_KeyDate )
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

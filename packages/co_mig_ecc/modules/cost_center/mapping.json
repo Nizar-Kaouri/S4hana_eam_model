@@ -1,0 +1,259 @@
+{
+  "module": "cost_center",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "profit_center"
+  ],
+  "key": {
+    "business_key": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZCOX_C_CostCenterMig",
+      "source_view": "ZCOX_I_CostCenter",
+      "scope_filter": "",
+      "keys": [
+        "ControllingArea",
+        "CostCenter",
+        "ValidityEndDate"
+      ],
+      "fields": [
+        {
+          "element": "ControllingArea",
+          "source": "CSKS-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CostCenter",
+          "source": "CSKS-KOSTL",
+          "target": "customer interface field: CostCenter (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CSKS-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "CSKS-DATAB",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CompanyCode",
+          "source": "CSKS-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ProfitCenter",
+          "source": "CSKS-PRCTR",
+          "target": "customer interface field: ProfitCenter (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CostCenterCategory",
+          "source": "CSKS-KOSAR",
+          "target": "customer interface field: CostCenterCategory (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ResponsiblePerson",
+          "source": "CSKS-VERAK",
+          "target": "customer interface field: ResponsiblePerson (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "CSKS-STRAS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "CSKS-ORT01",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "CSKS-ORT02",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "CSKS-PSTLZ",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "CSKS-LAND1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "CSKS-REGIO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "CSKS-PFACH",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "CSKS-PSTL2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "CSKS-SPRAS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PhoneNumber1",
+          "source": "CSKS-TELF1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PhoneNumber2",
+          "source": "CSKS-TELF2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxNumber",
+          "source": "CSKS-TELFX",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_CostCenterTextMig",
+      "source_view": "ZCOX_I_CostCenterText",
+      "scope_filter": "",
+      "keys": [
+        "Language",
+        "ControllingArea",
+        "CostCenter",
+        "ValidityEndDate"
+      ],
+      "fields": [
+        {
+          "element": "Language",
+          "source": "CSKT-SPRAS",
+          "target": "customer interface field: Language (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ControllingArea",
+          "source": "CSKT-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CostCenter",
+          "source": "CSKT-KOSTL",
+          "target": "customer interface field: CostCenter (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CSKT-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CostCenterName",
+          "source": "CSKT-KTEXT",
+          "target": "customer interface field: CostCenterName (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CostCenterDescription",
+          "source": "CSKT-LTEXT",
+          "target": "customer interface field: CostCenterDescription (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_CostCenterLongTextMig",
+      "source_view": "ZCOX_I_CostCenterLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+  ],
+  "main_structure": "ZCOX_C_CostCenterMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_CostCenterMigCount",
+    "dimensions": [
+      {
+        "element": "ControllingArea"
+      }
+    ]
+  }
+}

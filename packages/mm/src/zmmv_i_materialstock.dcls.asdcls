@@ -1,7 +1,6 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_MaterialStock_2.
-// TODO-VERIFY[H] MM-D03: I_MaterialStock_2 has an access control role and every element it references is projected by ZMMV_I_MaterialStock
-@EndUserText.label: 'Material Stock'
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Material Stock - Cube'
 @MappingRole: true
 define role ZMMV_I_MaterialStock {
   grant
@@ -9,5 +8,5 @@ define role ZMMV_I_MaterialStock {
       on
         ZMMV_I_MaterialStock
           where
-            inheriting conditions from entity I_MaterialStock_2;
+            inheriting conditions from entity ZMMV_B_MaterialStock;
 }

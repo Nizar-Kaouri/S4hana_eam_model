@@ -20,38 +20,38 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZPPV_I_ProductionOrder",
-      "ZPPV_I_ProductionOrderVH"
+      "ZPPV_B_ProductionOrder",
+      "ZPPV_B_ProductionOrderVH"
     ],
     "composite": [
-      "ZPPV_R_ProductionOrder"
+      "ZPPV_I_ProductionOrder"
     ],
     "consumption": [
       "ZPPV_C_ProductionOrderQ"
     ],
     "access_controls": [
-      "ZPPV_I_ProductionOrder",
-      "ZPPV_I_ProductionOrderVH",
-      "ZPPV_R_ProductionOrder"
+      "ZPPV_B_ProductionOrder",
+      "ZPPV_B_ProductionOrderVH",
+      "ZPPV_I_ProductionOrder"
     ],
     "metadata_extensions": [
-      "ZPPV_R_ProductionOrder"
+      "ZPPV_I_ProductionOrder"
     ],
     "tests": [
       "ZPPV_CL_PRODORDER_TEST"
     ]
   },
   "no_dcl_by_design": {
-    "ZPPV_C_ProductionOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_R_ProductionOrder (see GEN-Q01)."
+    "ZPPV_C_ProductionOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_I_ProductionOrder (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZPPV_I_ProdOrderWithBOM",
+      "name": "ZPPV_B_ProdOrderWithBOM",
       "requires_modules": [
         "bill_of_material",
         "production_order"
       ],
-      "access_control": "ZPPV_I_ProdOrderWithBOM"
+      "access_control": "ZPPV_B_ProdOrderWithBOM"
     }
   ]
 }

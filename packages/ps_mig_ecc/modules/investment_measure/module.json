@@ -1,0 +1,56 @@
+{
+  "name": "investment_measure",
+  "title": "Investment programs and measures",
+  "description": "Investment programs and measures. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "configuration-reference"
+  ],
+  "sap_tables": [
+    "IMPR",
+    "IMTP",
+    "IMZO"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "wbs_element"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZPSX_B_InvestProgramData",
+      "ZPSX_B_InvestPositionData",
+      "ZPSX_B_InvestAssignData"
+    ],
+    "composite": [
+      "ZPSX_I_InvestProgram",
+      "ZPSX_I_InvestPosition",
+      "ZPSX_I_InvestAssign"
+    ],
+    "consumption": [
+      "ZPSX_C_InvestProgramMig",
+      "ZPSX_C_InvestProgramMigCount",
+      "ZPSX_C_InvestPositionMig",
+      "ZPSX_C_InvestAssignMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPSX_B_InvestProgramData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_InvestProgram": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_InvestProgramMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_InvestProgramMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_InvestPositionData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_InvestPosition": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_InvestPositionMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_InvestAssignData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_InvestAssign": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_InvestAssignMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

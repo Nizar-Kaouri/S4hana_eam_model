@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_MeasDocument` |
+| Data source | `ZEAM_I_MeasDocument` |
 | Source file | `src/zeam_c_measdocumentq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_MeasDocument. Reading statistics per measuring point and day (unit = MeasurementRangeUnit).
+Analytical query on ZEAM_I_MeasDocument. Reading statistics per measuring point and day (unit = MeasurementRangeUnit).
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZEAM_R_MeasDocument. Reading statistics per measuring point 
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MeasDocument (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MeasDocument (see GEN-Q01).
 
 ## Example use case
 

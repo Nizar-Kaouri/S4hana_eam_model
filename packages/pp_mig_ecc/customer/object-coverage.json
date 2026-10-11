@@ -1,0 +1,509 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "bill_of_material": {
+      "native_tables": [
+        "MAST",
+        "STAS",
+        "STKO",
+        "STPO",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZPPX_C_MaterialBOMMig",
+          "interface": "ZPPX_I_MaterialBOM",
+          "keys": [
+            "Material",
+            "Plant",
+            "BillOfMaterialUsage",
+            "BillOfMaterial",
+            "BillOfMaterialVariant"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "Material",
+            "Plant",
+            "BillOfMaterialUsage",
+            "BillOfMaterial",
+            "BillOfMaterialVariant",
+            "LotSizeFrom",
+            "LotSizeTo"
+          ]
+        },
+        {
+          "view": "ZPPX_C_BOMHeaderMig",
+          "interface": "ZPPX_I_BOMHeader",
+          "keys": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BillOfMaterialVariant",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BillOfMaterialVariant",
+            "InternalCounter",
+            "ValidFromDate",
+            "ChangeNumber",
+            "DeletionFlag",
+            "BaseQuantity",
+            "BaseUnit"
+          ]
+        },
+        {
+          "view": "ZPPX_C_BOMSelectionMig",
+          "interface": "ZPPX_I_BOMSelection",
+          "keys": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BillOfMaterialVariant",
+            "BOMNode",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BillOfMaterialVariant",
+            "BOMNode",
+            "InternalCounter",
+            "ValidFromDate",
+            "ChangeNumber",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZPPX_C_BOMItemMig",
+          "interface": "ZPPX_I_BOMItem",
+          "keys": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMNode",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "BOMCategory",
+            "BillOfMaterial",
+            "BOMNode",
+            "InternalCounter",
+            "ValidFromDate",
+            "ChangeNumber",
+            "DeletionFlag",
+            "Component",
+            "ItemNumber",
+            "ComponentQuantity",
+            "Unit"
+          ]
+        },
+        {
+          "view": "ZPPX_C_BOMLongTextMig",
+          "interface": "ZPPX_I_BOMLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Material bills of material source records, source preparation contracts."
+    },
+    "production_confirmation": {
+      "native_tables": [
+        "AFRU"
+      ],
+      "structures": [
+        {
+          "view": "ZPPX_C_ConfirmationMig",
+          "interface": "ZPPX_I_Confirmation",
+          "keys": [
+            "ConfirmationNumber",
+            "ConfirmationCounter"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "ConfirmationNumber",
+            "ConfirmationCounter",
+            "ManufacturingOrder",
+            "Operation",
+            "PostingDate",
+            "FinalConfirmation",
+            "ReversalFlag",
+            "ReversalCounter",
+            "YieldQuantity",
+            "ScrapQuantity",
+            "ConfirmationUnit"
+          ]
+        }
+      ],
+      "boundary": "Production confirmations. Preserve confirmation/counter identity and reversal relationships; do not delete reversals and assume the remaining history is net yield. Target order/operation mapping and posting periods must be approved. Reposting confirmations can trigger backflush, goods movements, activity allocations and accounting; confirmation history is reference-only unless a supported process migration explicitly authorizes those effects."
+    },
+    "production_order": {
+      "native_tables": [
+        "AFKO",
+        "AFPO",
+        "AUFK",
+        "JEST",
+        "JSTO",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZPPX_C_ProductionOrdeMig",
+          "interface": "ZPPX_I_ProductionOrde",
+          "keys": [
+            "ManufacturingOrder"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "ManufacturingOrder",
+            "ManufacturingOrderType",
+            "OrderCategory",
+            "ManufacturingOrderText",
+            "CompanyCode",
+            "ProductionPlant",
+            "ObjectNumber"
+          ]
+        },
+        {
+          "view": "ZPPX_C_ProductionHeadMig",
+          "interface": "ZPPX_I_ProductionHead",
+          "keys": [
+            "ManufacturingOrder"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "ManufacturingOrder",
+            "OperationRoutingNumber",
+            "TotalQuantity",
+            "Unit",
+            "BasicStartDate",
+            "BasicEndDate"
+          ]
+        },
+        {
+          "view": "ZPPX_C_ProductionItemMig",
+          "interface": "ZPPX_I_ProductionItem",
+          "keys": [
+            "ManufacturingOrder",
+            "ManufacturingOrderItem"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "ManufacturingOrder",
+            "ManufacturingOrderItem",
+            "Material",
+            "ProductionPlant",
+            "PlannedQuantity",
+            "Unit"
+          ]
+        },
+        {
+          "view": "ZPPX_C_OrderStatusMig",
+          "interface": "ZPPX_I_OrderStatus",
+          "keys": [
+            "ManufacturingOrder",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ManufacturingOrder",
+            "ObjectNumber",
+            "StatusCode",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZPPX_C_OrderUserStatusMig",
+          "interface": "ZPPX_I_OrderUserStatus",
+          "keys": [
+            "ManufacturingOrder",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ManufacturingOrder",
+            "StatusCode",
+            "ObjectNumber",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZPPX_C_OrderLongTextMig",
+          "interface": "ZPPX_I_OrderLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Production orders source records, source preparation contracts."
+    },
+    "production_order_operation": {
+      "native_tables": [
+        "AFVC",
+        "AFVV",
+        "RESB"
+      ],
+      "structures": [
+        {
+          "view": "ZPPX_C_ProductionOperMig",
+          "interface": "ZPPX_I_ProductionOper",
+          "keys": [
+            "OperationRoutingNumber",
+            "OperationInternalID"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "OperationRoutingNumber",
+            "OperationInternalID",
+            "Operation",
+            "OperationText",
+            "WorkCenterInternalID",
+            "Plant",
+            "ControlKey",
+            "SubOperation"
+          ]
+        },
+        {
+          "view": "ZPPX_C_OperationQuantMig",
+          "interface": "ZPPX_I_OperationQuant",
+          "keys": [
+            "OperationRoutingNumber",
+            "OperationInternalID"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "OperationRoutingNumber",
+            "OperationInternalID",
+            "OperationQuantity",
+            "Unit",
+            "StandardValue1",
+            "StandardValueUnit1"
+          ]
+        },
+        {
+          "view": "ZPPX_C_OrderComponentMig",
+          "interface": "ZPPX_I_OrderComponent",
+          "keys": [
+            "Reservation",
+            "ReservationItem",
+            "RecordType"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "Reservation",
+            "ReservationItem",
+            "RecordType",
+            "ManufacturingOrder",
+            "Material",
+            "Plant",
+            "StorageLocation",
+            "RequiredQuantity",
+            "Unit",
+            "DeletionFlag"
+          ]
+        }
+      ],
+      "boundary": "Production order operations source records, source preparation contracts."
+    },
+    "production_version": {
+      "native_tables": [
+        "MKAL"
+      ],
+      "structures": [
+        {
+          "view": "ZPPX_C_ProdVersionMig",
+          "interface": "ZPPX_I_ProdVersion",
+          "keys": [
+            "Product",
+            "Plant",
+            "ProductionVersion"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "Product",
+            "Plant",
+            "ProductionVersion",
+            "ProductionVersionText",
+            "ValidityStartDate",
+            "ValidityEndDate",
+            "MinimumLotSize",
+            "MaximumLotSize",
+            "BOMAlternative",
+            "BOMUsage",
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "ProductionVersionLock"
+          ]
+        }
+      ],
+      "boundary": "Production versions. Verify production-version validity, lot-size ranges, lock/check status and the effective BOM/task-list combination. Materials and plants are cross-domain prerequisites. Distinct production versions may intentionally overlap; evaluate availability for a version identity rather than rejecting every material-level overlap. REM planning levels require release-specific interface review."
+    },
+    "routing": {
+      "native_tables": [
+        "MAPL",
+        "PLAS",
+        "PLFL",
+        "PLKO",
+        "PLPO",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZPPX_C_RoutingHeaderMig",
+          "interface": "ZPPX_I_RoutingHeader",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "InternalCounter",
+            "ValidFromDate",
+            "ChangeNumber",
+            "DeletionFlag",
+            "TaskListDescription"
+          ]
+        },
+        {
+          "view": "ZPPX_C_RoutingMateriaMig",
+          "interface": "ZPPX_I_RoutingMateria",
+          "keys": [
+            "Material",
+            "Plant",
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "Material",
+            "Plant",
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "InternalCounter",
+            "ValidFromDate",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZPPX_C_RoutingSelectiMig",
+          "interface": "ZPPX_I_RoutingSelecti",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Sequence",
+            "TaskListNode",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Sequence",
+            "TaskListNode",
+            "InternalCounter",
+            "ValidFromDate",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZPPX_C_RoutingOperatiMig",
+          "interface": "ZPPX_I_RoutingOperati",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListNode",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListNode",
+            "InternalCounter",
+            "ValidFromDate",
+            "ChangeNumber",
+            "DeletionFlag",
+            "Operation",
+            "OperationText"
+          ]
+        },
+        {
+          "view": "ZPPX_C_RoutingSequencMig",
+          "interface": "ZPPX_I_RoutingSequenc",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Sequence",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Sequence",
+            "InternalCounter",
+            "ValidFromDate",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZPPX_C_RoutingLongTextMig",
+          "interface": "ZPPX_I_RoutingLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Routing reference source records, source preparation contracts."
+    }
+  }
+}

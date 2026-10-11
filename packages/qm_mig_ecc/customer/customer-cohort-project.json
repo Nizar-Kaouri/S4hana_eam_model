@@ -1,0 +1,721 @@
+{
+  "cutover": "20261010",
+  "inputs": {
+    "ZQMX_C_InspectionLotMig": "exports/ZQMX_C_InspectionLotMig.csv",
+    "ZQMX_C_InspectionLotMig_Scope": "selection/ZQMX_C_InspectionLotMig.csv",
+    "ZQMX_C_UsageDecisionMig": "exports/ZQMX_C_UsageDecisionMig.csv",
+    "ZQMX_C_UsageDecisionMig_Scope": "selection/ZQMX_C_UsageDecisionMig.csv",
+    "ZQMX_C_InspectCharactMig": "exports/ZQMX_C_InspectCharactMig.csv",
+    "ZQMX_C_InspectCharactMig_Scope": "selection/ZQMX_C_InspectCharactMig.csv",
+    "ZQMX_C_CharacteristicMig": "exports/ZQMX_C_CharacteristicMig.csv",
+    "ZQMX_C_CharacteristicMig_Scope": "selection/ZQMX_C_CharacteristicMig.csv",
+    "ZQMX_C_SingleResultMig": "exports/ZQMX_C_SingleResultMig.csv",
+    "ZQMX_C_SingleResultMig_Scope": "selection/ZQMX_C_SingleResultMig.csv",
+    "ZQMX_C_QualityNotificMig": "exports/ZQMX_C_QualityNotificMig.csv",
+    "ZQMX_C_QualityNotificMig_Scope": "selection/ZQMX_C_QualityNotificMig.csv",
+    "ZQMX_C_QualityItemMig": "exports/ZQMX_C_QualityItemMig.csv",
+    "ZQMX_C_QualityItemMig_Scope": "selection/ZQMX_C_QualityItemMig.csv",
+    "ZQMX_C_QualityCauseMig": "exports/ZQMX_C_QualityCauseMig.csv",
+    "ZQMX_C_QualityCauseMig_Scope": "selection/ZQMX_C_QualityCauseMig.csv",
+    "ZQMX_C_QualityTaskMig": "exports/ZQMX_C_QualityTaskMig.csv",
+    "ZQMX_C_QualityTaskMig_Scope": "selection/ZQMX_C_QualityTaskMig.csv",
+    "ZQMX_C_QualityActivitMig": "exports/ZQMX_C_QualityActivitMig.csv",
+    "ZQMX_C_QualityActivitMig_Scope": "selection/ZQMX_C_QualityActivitMig.csv",
+    "ZQMX_C_InspectPlanHeaMig": "exports/ZQMX_C_InspectPlanHeaMig.csv",
+    "ZQMX_C_InspectPlanHeaMig_Scope": "selection/ZQMX_C_InspectPlanHeaMig.csv",
+    "ZQMX_C_InspectPlanMatMig": "exports/ZQMX_C_InspectPlanMatMig.csv",
+    "ZQMX_C_InspectPlanMatMig_Scope": "selection/ZQMX_C_InspectPlanMatMig.csv",
+    "ZQMX_C_InspectPlanSelMig": "exports/ZQMX_C_InspectPlanSelMig.csv",
+    "ZQMX_C_InspectPlanSelMig_Scope": "selection/ZQMX_C_InspectPlanSelMig.csv",
+    "ZQMX_C_InspectPlanOpeMig": "exports/ZQMX_C_InspectPlanOpeMig.csv",
+    "ZQMX_C_InspectPlanOpeMig_Scope": "selection/ZQMX_C_InspectPlanOpeMig.csv",
+    "ZQMX_C_PlanCharacteriMig": "exports/ZQMX_C_PlanCharacteriMig.csv",
+    "ZQMX_C_PlanCharacteriMig_Scope": "selection/ZQMX_C_PlanCharacteriMig.csv",
+    "ZQMX_C_MasterCharMig": "exports/ZQMX_C_MasterCharMig.csv",
+    "ZQMX_C_MasterCharMig_Scope": "selection/ZQMX_C_MasterCharMig.csv",
+    "ZQMX_C_MasterCharTextMig": "exports/ZQMX_C_MasterCharTextMig.csv",
+    "ZQMX_C_MasterCharTextMig_Scope": "selection/ZQMX_C_MasterCharTextMig.csv",
+    "ZQMX_C_SamplingProcMig": "exports/ZQMX_C_SamplingProcMig.csv",
+    "ZQMX_C_SamplingProcMig_Scope": "selection/ZQMX_C_SamplingProcMig.csv",
+    "ZQMX_C_LotStatusMig": "exports/ZQMX_C_LotStatusMig.csv",
+    "ZQMX_C_LotStatusMig_Scope": "selection/ZQMX_C_LotStatusMig.csv",
+    "ZQMX_C_NotifStatusMig": "exports/ZQMX_C_NotifStatusMig.csv",
+    "ZQMX_C_NotifStatusMig_Scope": "selection/ZQMX_C_NotifStatusMig.csv",
+    "ZQMX_C_LotUserStatusMig": "exports/ZQMX_C_LotUserStatusMig.csv",
+    "ZQMX_C_LotUserStatusMig_Scope": "selection/ZQMX_C_LotUserStatusMig.csv",
+    "ZQMX_C_NotifPartnerMig": "exports/ZQMX_C_NotifPartnerMig.csv",
+    "ZQMX_C_NotifPartnerMig_Scope": "selection/ZQMX_C_NotifPartnerMig.csv",
+    "ZQMX_C_NotifUserStatusMig": "exports/ZQMX_C_NotifUserStatusMig.csv",
+    "ZQMX_C_NotifUserStatusMig_Scope": "selection/ZQMX_C_NotifUserStatusMig.csv",
+    "ZQMX_C_NotifLongTextMig": "exports/ZQMX_C_NotifLongTextMig.csv",
+    "ZQMX_C_NotifLongTextMig_Links": "text-links/ZQMX_C_NotifLongTextMig.csv",
+    "ZQMX_C_PlanLongTextMig": "exports/ZQMX_C_PlanLongTextMig.csv",
+    "ZQMX_C_PlanLongTextMig_Links": "text-links/ZQMX_C_PlanLongTextMig.csv",
+    "ZQMX_C_MasterCharLongTextMig": "exports/ZQMX_C_MasterCharLongTextMig.csv",
+    "ZQMX_C_MasterCharLongTextMig_Links": "text-links/ZQMX_C_MasterCharLongTextMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZQMX_C_InspectionLotMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_InspectionLotMig",
+      "parent": "ZQMX_C_InspectionLotMig_Scope",
+      "child_keys": [
+        "InspectionLot"
+      ],
+      "parent_keys": [
+        "InspectionLot"
+      ]
+    },
+    {
+      "name": "ZQMX_C_UsageDecisionMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_UsageDecisionMig",
+      "parent": "ZQMX_C_UsageDecisionMig_Scope",
+      "child_keys": [
+        "InspectionLot",
+        "UsageDecisionType",
+        "UsageDecisionCounter"
+      ],
+      "parent_keys": [
+        "InspectionLot",
+        "UsageDecisionType",
+        "UsageDecisionCounter"
+      ]
+    },
+    {
+      "name": "ZQMX_C_UsageDecisionMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_UsageDecisionMig_Selected",
+      "parent": "ZQMX_C_InspectionLotMig_Prepared",
+      "child_keys": [
+        "InspectionLot"
+      ],
+      "parent_keys": [
+        "InspectionLot"
+      ],
+      "parent_identity": [
+        "InspectionLot"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZQMX_C_LotStatusMig",
+      "parent": "ZQMX_C_LotStatusMig_Scope",
+      "child_keys": [
+        "InspectionLot",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "InspectionLot",
+        "StatusCode"
+      ],
+      "name": "ZQMX_C_LotStatusMig_Selected"
+    },
+    {
+      "name": "ZQMX_C_LotStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_LotStatusMig_Selected",
+      "parent": "ZQMX_C_InspectionLotMig_Prepared",
+      "child_keys": [
+        "InspectionLot"
+      ],
+      "parent_keys": [
+        "InspectionLot"
+      ],
+      "parent_identity": [
+        "InspectionLot"
+      ]
+    },
+    {
+      "name": "ZQMX_C_InspectPlanHeaMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_InspectPlanHeaMig",
+      "parent": "ZQMX_C_InspectPlanHeaMig_Scope",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "InternalCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "InternalCounter"
+      ]
+    },
+    {
+      "name": "ZQMX_C_InspectPlanMatMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_InspectPlanMatMig",
+      "parent": "ZQMX_C_InspectPlanMatMig_Scope",
+      "child_keys": [
+        "Material",
+        "Plant",
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "InternalCounter"
+      ],
+      "parent_keys": [
+        "Material",
+        "Plant",
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "InternalCounter"
+      ]
+    },
+    {
+      "name": "ZQMX_C_InspectPlanSelMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_InspectPlanSelMig",
+      "parent": "ZQMX_C_InspectPlanSelMig_Scope",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "Sequence",
+        "TaskListNode",
+        "InternalCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "Sequence",
+        "TaskListNode",
+        "InternalCounter"
+      ]
+    },
+    {
+      "name": "ZQMX_C_InspectPlanOpeMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_InspectPlanOpeMig",
+      "parent": "ZQMX_C_InspectPlanOpeMig_Scope",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListNode",
+        "InternalCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListNode",
+        "InternalCounter"
+      ]
+    },
+    {
+      "name": "ZQMX_C_PlanCharacteriMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_PlanCharacteriMig",
+      "parent": "ZQMX_C_PlanCharacteriMig_Scope",
+      "child_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListNode",
+        "CharacteristicNumber",
+        "InternalCounter"
+      ],
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListNode",
+        "CharacteristicNumber",
+        "InternalCounter"
+      ]
+    },
+    {
+      "name": "ZQMX_C_InspectCharactMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_InspectCharactMig",
+      "parent": "ZQMX_C_InspectCharactMig_Scope",
+      "child_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ],
+      "parent_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ]
+    },
+    {
+      "name": "ZQMX_C_InspectCharactMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_InspectCharactMig_Selected",
+      "parent": "ZQMX_C_InspectionLotMig_Prepared",
+      "child_keys": [
+        "InspectionLot"
+      ],
+      "parent_keys": [
+        "InspectionLot"
+      ],
+      "parent_identity": [
+        "InspectionLot"
+      ]
+    },
+    {
+      "name": "ZQMX_C_CharacteristicMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_CharacteristicMig",
+      "parent": "ZQMX_C_CharacteristicMig_Scope",
+      "child_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ],
+      "parent_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ]
+    },
+    {
+      "name": "ZQMX_C_CharacteristicMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_CharacteristicMig_Selected",
+      "parent": "ZQMX_C_InspectCharactMig_Prepared",
+      "child_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ],
+      "parent_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ],
+      "parent_identity": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ]
+    },
+    {
+      "name": "ZQMX_C_SingleResultMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_SingleResultMig",
+      "parent": "ZQMX_C_SingleResultMig_Scope",
+      "child_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber",
+        "SampleNumber",
+        "ResultNumber"
+      ],
+      "parent_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber",
+        "SampleNumber",
+        "ResultNumber"
+      ]
+    },
+    {
+      "name": "ZQMX_C_SingleResultMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_SingleResultMig_Selected",
+      "parent": "ZQMX_C_InspectCharactMig_Prepared",
+      "child_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ],
+      "parent_keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ],
+      "parent_identity": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ]
+    },
+    {
+      "name": "ZQMX_C_MasterCharMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_MasterCharMig",
+      "parent": "ZQMX_C_MasterCharMig_Scope",
+      "child_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "parent_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ]
+    },
+    {
+      "name": "ZQMX_C_MasterCharTextMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_MasterCharTextMig",
+      "parent": "ZQMX_C_MasterCharTextMig_Scope",
+      "child_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ],
+      "parent_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion",
+        "Language"
+      ]
+    },
+    {
+      "name": "ZQMX_C_MasterCharTextMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_MasterCharTextMig_Selected",
+      "parent": "ZQMX_C_MasterCharMig_Prepared",
+      "child_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "parent_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ],
+      "parent_identity": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityNotificMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_QualityNotificMig",
+      "parent": "ZQMX_C_QualityNotificMig_Scope",
+      "child_keys": [
+        "QualityNotification"
+      ],
+      "parent_keys": [
+        "QualityNotification"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityItemMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_QualityItemMig",
+      "parent": "ZQMX_C_QualityItemMig_Scope",
+      "child_keys": [
+        "QualityNotification",
+        "NotificationItem"
+      ],
+      "parent_keys": [
+        "QualityNotification",
+        "NotificationItem"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityItemMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_QualityItemMig_Selected",
+      "parent": "ZQMX_C_QualityNotificMig_Prepared",
+      "child_keys": [
+        "QualityNotification"
+      ],
+      "parent_keys": [
+        "QualityNotification"
+      ],
+      "parent_identity": [
+        "QualityNotification"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityCauseMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_QualityCauseMig",
+      "parent": "ZQMX_C_QualityCauseMig_Scope",
+      "child_keys": [
+        "QualityNotification",
+        "NotificationItem",
+        "CauseNumber"
+      ],
+      "parent_keys": [
+        "QualityNotification",
+        "NotificationItem",
+        "CauseNumber"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityCauseMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_QualityCauseMig_Selected",
+      "parent": "ZQMX_C_QualityItemMig_Prepared",
+      "child_keys": [
+        "QualityNotification",
+        "NotificationItem"
+      ],
+      "parent_keys": [
+        "QualityNotification",
+        "NotificationItem"
+      ],
+      "parent_identity": [
+        "QualityNotification",
+        "NotificationItem"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityTaskMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_QualityTaskMig",
+      "parent": "ZQMX_C_QualityTaskMig_Scope",
+      "child_keys": [
+        "QualityNotification",
+        "TaskNumber"
+      ],
+      "parent_keys": [
+        "QualityNotification",
+        "TaskNumber"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityTaskMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_QualityTaskMig_Selected",
+      "parent": "ZQMX_C_QualityNotificMig_Prepared",
+      "child_keys": [
+        "QualityNotification"
+      ],
+      "parent_keys": [
+        "QualityNotification"
+      ],
+      "parent_identity": [
+        "QualityNotification"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityActivitMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_QualityActivitMig",
+      "parent": "ZQMX_C_QualityActivitMig_Scope",
+      "child_keys": [
+        "QualityNotification",
+        "ActivityNumber"
+      ],
+      "parent_keys": [
+        "QualityNotification",
+        "ActivityNumber"
+      ]
+    },
+    {
+      "name": "ZQMX_C_QualityActivitMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_QualityActivitMig_Selected",
+      "parent": "ZQMX_C_QualityNotificMig_Prepared",
+      "child_keys": [
+        "QualityNotification"
+      ],
+      "parent_keys": [
+        "QualityNotification"
+      ],
+      "parent_identity": [
+        "QualityNotification"
+      ]
+    },
+    {
+      "operation": "selection",
+      "input": "ZQMX_C_NotifStatusMig",
+      "parent": "ZQMX_C_NotifStatusMig_Scope",
+      "child_keys": [
+        "QualityNotification",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "QualityNotification",
+        "StatusCode"
+      ],
+      "name": "ZQMX_C_NotifStatusMig_Selected"
+    },
+    {
+      "name": "ZQMX_C_NotifStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_NotifStatusMig_Selected",
+      "parent": "ZQMX_C_QualityNotificMig_Prepared",
+      "child_keys": [
+        "QualityNotification"
+      ],
+      "parent_keys": [
+        "QualityNotification"
+      ],
+      "parent_identity": [
+        "QualityNotification"
+      ]
+    },
+    {
+      "name": "ZQMX_C_SamplingProcMig_Prepared",
+      "operation": "selection",
+      "input": "ZQMX_C_SamplingProcMig",
+      "parent": "ZQMX_C_SamplingProcMig_Scope",
+      "child_keys": [
+        "SamplingProcedure"
+      ],
+      "parent_keys": [
+        "SamplingProcedure"
+      ]
+    },
+    {
+      "name": "ZQMX_C_LotUserStatusMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_LotUserStatusMig",
+      "parent": "ZQMX_C_LotUserStatusMig_Scope",
+      "child_keys": [
+        "InspectionLot",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "InspectionLot",
+        "StatusCode"
+      ]
+    },
+    {
+      "name": "ZQMX_C_LotUserStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_LotUserStatusMig_Selected",
+      "parent": "ZQMX_C_InspectionLotMig_Prepared",
+      "child_keys": [
+        "InspectionLot"
+      ],
+      "parent_keys": [
+        "InspectionLot"
+      ],
+      "parent_identity": [
+        "InspectionLot"
+      ]
+    },
+    {
+      "name": "ZQMX_C_NotifPartnerMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_NotifPartnerMig",
+      "parent": "ZQMX_C_NotifPartnerMig_Scope",
+      "child_keys": [
+        "QualityNotification",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "parent_keys": [
+        "QualityNotification",
+        "PartnerFunction",
+        "PartnerCounter"
+      ]
+    },
+    {
+      "name": "ZQMX_C_NotifPartnerMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_NotifPartnerMig_Selected",
+      "parent": "ZQMX_C_QualityNotificMig_Prepared",
+      "child_keys": [
+        "QualityNotification"
+      ],
+      "parent_keys": [
+        "QualityNotification"
+      ],
+      "parent_identity": [
+        "QualityNotification"
+      ]
+    },
+    {
+      "name": "ZQMX_C_NotifUserStatusMig_Selected",
+      "operation": "selection",
+      "input": "ZQMX_C_NotifUserStatusMig",
+      "parent": "ZQMX_C_NotifUserStatusMig_Scope",
+      "child_keys": [
+        "QualityNotification",
+        "StatusCode"
+      ],
+      "parent_keys": [
+        "QualityNotification",
+        "StatusCode"
+      ]
+    },
+    {
+      "name": "ZQMX_C_NotifUserStatusMig_Prepared",
+      "operation": "parent_scope",
+      "input": "ZQMX_C_NotifUserStatusMig_Selected",
+      "parent": "ZQMX_C_QualityNotificMig_Prepared",
+      "child_keys": [
+        "QualityNotification"
+      ],
+      "parent_keys": [
+        "QualityNotification"
+      ],
+      "parent_identity": [
+        "QualityNotification"
+      ]
+    },
+    {
+      "name": "ZQMX_C_NotifLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZQMX_C_NotifLongTextMig",
+      "parent": "ZQMX_C_QualityNotificMig_Prepared",
+      "links": "ZQMX_C_NotifLongTextMig_Links",
+      "parent_keys": [
+        "QualityNotification"
+      ]
+    },
+    {
+      "name": "ZQMX_C_PlanLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZQMX_C_PlanLongTextMig",
+      "parent": "ZQMX_C_InspectPlanHeaMig_Prepared",
+      "links": "ZQMX_C_PlanLongTextMig_Links",
+      "parent_keys": [
+        "TaskListType",
+        "TaskListGroup",
+        "TaskListGroupCounter",
+        "InternalCounter"
+      ]
+    },
+    {
+      "name": "ZQMX_C_MasterCharLongTextMig_Prepared",
+      "operation": "text_scope",
+      "input": "ZQMX_C_MasterCharLongTextMig",
+      "parent": "ZQMX_C_MasterCharMig_Prepared",
+      "links": "ZQMX_C_MasterCharLongTextMig_Links",
+      "parent_keys": [
+        "Plant",
+        "MasterInspectionCharacteristic",
+        "CharacteristicVersion"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZQMX_C_InspectionLotMig_Prepared",
+    "ZQMX_C_UsageDecisionMig_Prepared",
+    "ZQMX_C_LotStatusMig_Prepared",
+    "ZQMX_C_InspectPlanHeaMig_Prepared",
+    "ZQMX_C_InspectPlanMatMig_Prepared",
+    "ZQMX_C_InspectPlanSelMig_Prepared",
+    "ZQMX_C_InspectPlanOpeMig_Prepared",
+    "ZQMX_C_PlanCharacteriMig_Prepared",
+    "ZQMX_C_InspectCharactMig_Prepared",
+    "ZQMX_C_CharacteristicMig_Prepared",
+    "ZQMX_C_SingleResultMig_Prepared",
+    "ZQMX_C_MasterCharMig_Prepared",
+    "ZQMX_C_MasterCharTextMig_Prepared",
+    "ZQMX_C_QualityNotificMig_Prepared",
+    "ZQMX_C_QualityItemMig_Prepared",
+    "ZQMX_C_QualityCauseMig_Prepared",
+    "ZQMX_C_QualityTaskMig_Prepared",
+    "ZQMX_C_QualityActivitMig_Prepared",
+    "ZQMX_C_NotifStatusMig_Prepared",
+    "ZQMX_C_SamplingProcMig_Prepared",
+    "ZQMX_C_LotUserStatusMig_Prepared",
+    "ZQMX_C_NotifPartnerMig_Prepared",
+    "ZQMX_C_NotifUserStatusMig_Prepared",
+    "ZQMX_C_NotifLongTextMig_Prepared",
+    "ZQMX_C_PlanLongTextMig_Prepared",
+    "ZQMX_C_MasterCharLongTextMig_Prepared"
+  ]
+}

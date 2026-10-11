@@ -1,0 +1,410 @@
+{
+  "module": "internal_order",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "cost_center",
+    "profit_center"
+  ],
+  "key": {
+    "business_key": [
+      "InternalOrder"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZCOX_C_InternalOrderMig",
+      "source_view": "ZCOX_I_InternalOrder",
+      "scope_filter": "",
+      "keys": [
+        "InternalOrder"
+      ],
+      "fields": [
+        {
+          "element": "InternalOrder",
+          "source": "AUFK-AUFNR",
+          "target": "customer interface field: InternalOrder (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "InternalOrderType",
+          "source": "AUFK-AUART",
+          "target": "customer interface field: InternalOrderType (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OrderCategory",
+          "source": "AUFK-AUTYP",
+          "target": "customer interface field: OrderCategory (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "InternalOrderDescription",
+          "source": "AUFK-KTEXT",
+          "target": "customer interface field: InternalOrderDescription (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CompanyCode",
+          "source": "AUFK-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ControllingArea",
+          "source": "AUFK-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ResponsibleCostCenter",
+          "source": "AUFK-KOSTV",
+          "target": "customer interface field: ResponsibleCostCenter (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ProfitCenter",
+          "source": "AUFK-PRCTR",
+          "target": "customer interface field: ProfitCenter (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "AUFK-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_OrderSettlemenMig",
+      "source_view": "ZCOX_I_OrderSettlemen",
+      "scope_filter": "",
+      "keys": [
+        "ObjectNumber",
+        "DistributionRuleGroup",
+        "DistributionRule"
+      ],
+      "fields": [
+        {
+          "element": "ObjectNumber",
+          "source": "COBRB-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DistributionRuleGroup",
+          "source": "COBRB-BUREG",
+          "target": "customer interface field: DistributionRuleGroup (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DistributionRule",
+          "source": "COBRB-LFDNR",
+          "target": "customer interface field: DistributionRule (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SettlementType",
+          "source": "COBRB-PERBZ",
+          "target": "customer interface field: SettlementType (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SettlementPercentage",
+          "source": "COBRB-PROZS",
+          "target": "customer interface field: SettlementPercentage (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ReceiverCostCenter",
+          "source": "COBRB-KOSTL",
+          "target": "customer interface field: ReceiverCostCenter (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ReceiverOrder",
+          "source": "COBRB-AUFNR",
+          "target": "customer interface field: ReceiverOrder (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ReceiverCategory",
+          "source": "COBRB-KONTY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "SettlementAmount",
+          "source": "COBRB-BETRR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "SettlementCurrency",
+          "source": "COBRB-BWAER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ControllingArea",
+          "source": "COBRB-KOKRS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ReceiverCompanyCode",
+          "source": "COBRB-BUKRS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ReceiverMasterAsset",
+          "source": "COBRB-ANLN1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ReceiverAsset",
+          "source": "COBRB-ANLN2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ReceiverWBSInternalID",
+          "source": "COBRB-PSPNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidFromFiscalYear",
+          "source": "COBRB-GABJA",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidFromPeriod",
+          "source": "COBRB-GABPE",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidToFiscalYear",
+          "source": "COBRB-GBISJ",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidToPeriod",
+          "source": "COBRB-GBISP",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_OrderStatusMig",
+      "source_view": "ZCOX_I_OrderStatus",
+      "scope_filter": "",
+      "keys": [
+        "InternalOrder",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "InternalOrder",
+          "source": "AUFK-AUFNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "JEST-OBJNR",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusKind",
+          "source": "derived: first character of JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZCOX_C_OrderPartnerMig",
+      "source_view": "ZCOX_I_OrderPartner",
+      "scope_filter": "",
+      "keys": [
+        "InternalOrder",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "fields": [
+        {
+          "element": "InternalOrder",
+          "source": "AUFK-AUFNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "IHPA-PARVW",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerCounter",
+          "source": "IHPA-COUNTER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Partner",
+          "source": "IHPA-PARNR",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded."
+    },
+    {
+      "consumption_view": "ZCOX_C_OrderUserStatusMig",
+      "source_view": "ZCOX_I_OrderUserStatus",
+      "scope_filter": "",
+      "keys": [
+        "InternalOrder",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "InternalOrder",
+          "source": "AUFK-AUFNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "JEST-OBJNR",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "StatusKind",
+          "source": "derived: first character of JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO."
+    },
+    {
+      "consumption_view": "ZCOX_C_OrderLongTextMig",
+      "source_view": "ZCOX_I_OrderLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    }
+  ],
+  "not_migrated": [
+    {
+      "view": "ZCOX_B_OrderStatusData",
+      "element": "StatusIsInactive",
+      "reason": "Selection predicate retains only active source statuses.",
+      "source": "JEST-INACT"
+    }
+  ],
+  "gaps": [
+    "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+  ],
+  "main_structure": "ZCOX_C_InternalOrderMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_InternalOrderMigCount",
+    "dimensions": [
+      {
+        "element": "InternalOrder"
+      }
+    ]
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "ZCOX_C_OrderStatusMig": {
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_CostCenterTextMig": {
+    "parent": "ZCOX_C_CostCenterMig",
+    "child_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "parent_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "parent_identity": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ]
+  },
+  "ZCOX_C_ProfitCenterTeMig": {
+    "parent": "ZCOX_C_ProfitCenterMig",
+    "child_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "parent_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "parent_identity": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ]
+  },
+  "ZCOX_C_OrderSettlemenMig": {
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_AllocSegmentMig": {
+    "parent": "ZCOX_C_AllocCycleMig",
+    "child_keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "parent_keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "parent_identity": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ]
+  },
+  "ZCOX_C_OrderPartnerMig": {
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_OrderUserStatusMig": {
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_CostElementTextMig": {
+    "parent": "ZCOX_C_CostElementMig",
+    "child_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "parent_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "parent_identity": [
+      "ChartOfAccounts",
+      "CostElement"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "identity": [
+    "POINT"
+  ],
+  "valid_from": "IDATE",
+  "order_fields": [
+    "ITIME"
+  ],
+  "counter": "MDOCM",
+  "exclude": {
+    "CANCL": [
+      "X"
+    ]
+  }
+}

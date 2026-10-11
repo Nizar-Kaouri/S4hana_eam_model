@@ -1,0 +1,24 @@
+{
+  "master_inspection_characteristic": {
+    "status": "released",
+    "delivery_mode": "master",
+    "boundary": "Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.",
+    "boundary_de": "Werk, Stammprüfmerkmal, Version und Sprache erhalten. Freigabestatus, quantitative/qualitative Steuerung, Grenzen, Einheiten, Prüfmethoden und Katalogabhängigkeiten im vollständigen Export prüfen. Kurztexte sind enthalten; Langtexte über die native Textschnittstelle ergänzen. Aktive Version nicht allein aus höchster Versionsnummer ableiten.",
+    "posting_interface": null,
+    "SAP_release": null,
+    "complete_DDIC_keys_verified": false,
+    "business_scope_approved": false,
+    "dependencies_verified": false
+  },
+  "sampling_procedure": {
+    "status": "released",
+    "delivery_mode": "configuration-reference",
+    "boundary": "DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.",
+    "boundary_de": "QDSV-Schlüssel und Stichproben-/Bewertungsfelder im DDIC bestätigen. Stichprobenumfang, Stichprobenpläne, Dynamisierung und Bewertung über die native QM-Konfiguration ergänzen. Ein Verfahrenskopf ist kein vollständiger statistischer Stichprobenplan.",
+    "posting_interface": null,
+    "SAP_release": null,
+    "complete_DDIC_keys_verified": false,
+    "business_scope_approved": false,
+    "dependencies_verified": false
+  }
+}

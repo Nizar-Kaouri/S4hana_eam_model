@@ -1,0 +1,181 @@
+{
+  "ZFCX_C_CreditProfileMig": {
+    "module": "credit_profile",
+    "native_table": "UKMBP_CMS",
+    "basic_view": "ZFCX_B_CreditProfileData",
+    "composite_view": "ZFCX_I_CreditProfile",
+    "consumption_view": "ZFCX_C_CreditProfileMig",
+    "required_keys": [
+      "BusinessPartner"
+    ],
+    "columns": [
+      "BusinessPartner",
+      "OwnRating",
+      "CheckRule",
+      "LimitRule",
+      "RatingValidTo",
+      "RiskClass",
+      "CreditGroup"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
+    "notes": "CLIENT is the implicit current-client field. Credit relationships remain pending."
+  },
+  "ZFCX_C_CreditSegmentMig": {
+    "module": "credit_segment",
+    "native_table": "UKMBP_CMS_SGM",
+    "basic_view": "ZFCX_B_CreditSegmentData",
+    "composite_view": "ZFCX_I_CreditSegment",
+    "consumption_view": "ZFCX_C_CreditSegmentMig",
+    "required_keys": [
+      "BusinessPartner",
+      "CreditSegment"
+    ],
+    "columns": [
+      "BusinessPartner",
+      "CreditSegment",
+      "Blocked",
+      "LimitValidTo",
+      "LimitChangedOn",
+      "Coordinator",
+      "BlockReason",
+      "Critical",
+      "ZeroLimit"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
+    "notes": "CreditLimit currency context remains pending: extractor documentation names segment CURRENCY while other releases use UKMCRED_SGM0C currency customizing. Resolve this release-specific contradiction before projecting amounts."
+  },
+  "ZFCX_C_CollectContactMig": {
+    "module": "collection_activity",
+    "native_table": "UDM_CCT_ATTR",
+    "basic_view": "ZFCX_B_CollectContactData",
+    "composite_view": "ZFCX_I_CollectContact",
+    "consumption_view": "ZFCX_C_CollectContactMig",
+    "required_keys": [
+      "ContactUUID"
+    ],
+    "columns": [
+      "ContactUUID",
+      "ContactDate",
+      "ContactResult",
+      "ContactType",
+      "ContactDirection",
+      "Reached",
+      "CollectionSegment",
+      "CollectionSpecialist",
+      "BusinessPartner",
+      "ContactName",
+      "ChangedAt"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm",
+    "notes": "Contact attributes only; associated items and resubmissions remain pending."
+  },
+  "ZFCX_C_PaymentPromiseMig": {
+    "module": "promise_to_pay",
+    "native_table": "UDM_P2P_ATTR",
+    "basic_view": "ZFCX_B_PaymentPromiseData",
+    "composite_view": "ZFCX_I_PaymentPromise",
+    "consumption_view": "ZFCX_C_PaymentPromiseMig",
+    "required_keys": [
+      "CaseUUID"
+    ],
+    "columns": [
+      "CaseUUID",
+      "CompanyCode",
+      "Customer",
+      "Currency",
+      "DueDate",
+      "PromiseDate",
+      "PromiseState",
+      "PromiseLevel",
+      "PromisedBy",
+      "PromisedAmount",
+      "PaidAmount"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/e7/57b6b490ba4f0e894c410d51f271aa/content.htm?no_cache=true",
+    "notes": "Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded."
+  },
+  "ZFCX_C_DisputeCaseMig": {
+    "module": "dispute_case",
+    "native_table": "UDMCASEATTR00",
+    "basic_view": "ZFCX_B_DisputeCaseData",
+    "composite_view": "ZFCX_I_DisputeCase",
+    "consumption_view": "ZFCX_C_DisputeCaseMig",
+    "required_keys": [
+      "CaseUUID"
+    ],
+    "columns": [
+      "CaseUUID",
+      "CompanyCode",
+      "Customer",
+      "Coordinator",
+      "DisputeCurrency",
+      "DueDate",
+      "LogicalSystem",
+      "OriginalAmount",
+      "DisputedAmount",
+      "PaidAmount",
+      "CreditedAmount",
+      "WrittenOffAmount"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/ad/14c2862c4e44528d31c35d0d37cd24/content.htm?no_cache=true",
+    "notes": "Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded."
+  },
+  "ZFCX_C_CaseAttributeMig": {
+    "module": "dispute_case",
+    "native_table": "SCMG_T_CASE_ATTR",
+    "basic_view": "ZFCX_B_CaseAttributeData",
+    "composite_view": "ZFCX_I_CaseAttribute",
+    "consumption_view": "ZFCX_C_CaseAttributeMig",
+    "required_keys": [
+      "CaseUUID"
+    ],
+    "columns": [
+      "CaseUUID",
+      "CaseType",
+      "ExternalKey",
+      "ExternalReference",
+      "CreatedBy",
+      "CreatedAt",
+      "ChangedBy",
+      "ChangedAt",
+      "Processor",
+      "Responsible",
+      "Category",
+      "Priority",
+      "Status",
+      "ReasonCode"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/6d/69cc1bee13af4fbc7ebbdf0eb00e3b/content.htm",
+    "notes": "One wide native record per case UUID; not synthetic attribute-name/value rows. Includes general cases, not only disputes; approve case-type scope."
+  },
+  "ZFCX_C_CreditExposureMig": {
+    "module": "credit_exposure",
+    "native_table": "UKM_TOTALS",
+    "basic_view": "ZFCX_B_CreditExposureData",
+    "composite_view": "ZFCX_I_CreditExposure",
+    "consumption_view": "ZFCX_C_CreditExposureMig",
+    "required_keys": [
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "Currency"
+    ],
+    "columns": [
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "Currency",
+      "ExposureAmount",
+      "SecuredAmount"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/cc/5c77197e5c49ba85e66aafaa1ea09a/content.htm?no_cache=true",
+    "notes": "Native liability snapshot in stored currency; not a delta feed or posting payload. Declared grain including currency is a DDIC candidate. Derived currency-type and message-party fields are excluded; cross-segment/report-currency aggregation remains pending."
+  }
+}

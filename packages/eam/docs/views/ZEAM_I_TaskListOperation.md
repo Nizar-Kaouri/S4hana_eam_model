@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Maintenance Task List Operation |
+| Description | Task List Operation - Cube |
 | Module | `task_list` |
 | Batch | 3 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_MaintenanceTaskListOperation` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_TaskListOperation` |
 | Source file | `src/zeam_i_tasklistoperation.ddls.asddls` |
 
 ## Purpose
 
-One row per task list operation version with work center, control key and planned work.
+Task list operation cube with planned work and number of operations per work center, plant and task list.
 
 ## Keys
 
@@ -27,16 +27,16 @@ One row per task list operation version with work center, control key and planne
 
 ## Associations defined here
 
-- `_TaskList` → `ZEAM_I_TaskList` [0..*]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_MaintenanceTaskListOperation`.
+Role inherits the conditions of `ZEAM_B_TaskListOperation`.
 
 ## Example use case
 
-Planned work content of task lists per work center (capacity planning for preventive maintenance).
+Planned work content per work center across all equipment task lists.
 
 ## Open verification items
 
-`TL-010`, `TL-011`, `TL-012`, `TL-D02` - see `BATCH_REPORT.md`.
+none

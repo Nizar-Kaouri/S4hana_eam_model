@@ -1,0 +1,499 @@
+{
+  "module": "billing_document",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "sales_order"
+  ],
+  "key": {
+    "business_key": [
+      "BillingDocument"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZSDX_C_BillingMig",
+      "source_view": "ZSDX_I_Billing",
+      "scope_filter": "",
+      "keys": [
+        "BillingDocument"
+      ],
+      "fields": [
+        {
+          "element": "BillingDocument",
+          "source": "VBRK-VBELN",
+          "target": "customer interface field: BillingDocument (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "BillingDocumentType",
+          "source": "VBRK-FKART",
+          "target": "customer interface field: BillingDocumentType (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "BillingDocumentDate",
+          "source": "VBRK-FKDAT",
+          "target": "customer interface field: BillingDocumentDate (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CompanyCode",
+          "source": "VBRK-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "TransactionCurrency",
+          "source": "VBRK-WAERK",
+          "target": "customer interface field: TransactionCurrency (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "Payer",
+          "source": "VBRK-KUNRG",
+          "target": "customer interface field: Payer (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "AccountingTransferStatus",
+          "source": "VBRK-RFBSK",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_BillingItemMig",
+      "source_view": "ZSDX_I_BillingItem",
+      "scope_filter": "",
+      "keys": [
+        "BillingDocument",
+        "BillingDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "BillingDocument",
+          "source": "VBRP-VBELN",
+          "target": "customer interface field: BillingDocument (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "BillingDocumentItem",
+          "source": "VBRP-POSNR",
+          "target": "customer interface field: BillingDocumentItem (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "Material",
+          "source": "VBRP-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "BillingQuantity",
+          "source": "VBRP-FKIMG",
+          "target": "customer interface field: BillingQuantity (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "SalesUnit",
+          "source": "VBRP-VRKME",
+          "target": "customer interface field: SalesUnit (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "NetAmount",
+          "source": "VBRP-NETWR",
+          "target": "customer interface field: NetAmount (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "ReferenceDocument",
+          "source": "VBRP-VGBEL",
+          "target": "customer interface field: ReferenceDocument (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "ReferenceDocumentItem",
+          "source": "VBRP-VGPOS",
+          "target": "customer interface field: ReferenceDocumentItem (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "ItemShortText",
+          "source": "VBRP-ARKTX",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_BillingPartnerMig",
+      "source_view": "ZSDX_I_BillingPartner",
+      "scope_filter": "",
+      "keys": [
+        "BillingDocument",
+        "BillingDocumentItem",
+        "PartnerFunction"
+      ],
+      "fields": [
+        {
+          "element": "BillingDocument",
+          "source": "VBPA-VBELN",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BillingDocumentItem",
+          "source": "VBPA-POSNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "VBPA-PARVW",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Customer",
+          "source": "VBPA-KUNNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Supplier",
+          "source": "VBPA-LIFNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PersonnelNumber",
+          "source": "VBPA-PERNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "VBPA-ADRNR",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "HasStandardAddress",
+          "source": "derived: presence of the standard ADRC record",
+          "target": "",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZSDX_C_BillingPartnerAddrMig",
+      "source_view": "ZSDX_I_BillingPartnerAddr",
+      "scope_filter": "",
+      "keys": [
+        "BillingDocument",
+        "BillingDocumentItem",
+        "PartnerFunction",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "fields": [
+        {
+          "element": "BillingDocument",
+          "source": "VBPA-VBELN",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BillingDocumentItem",
+          "source": "VBPA-POSNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "VBPA-PARVW",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADRC-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidFrom",
+          "source": "ADRC-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressVersion",
+          "source": "ADRC-NATION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZSDX_C_BillingLongTextMig",
+      "source_view": "ZSDX_I_BillingLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+  ],
+  "main_structure": "ZSDX_C_BillingMig",
+  "source_control": {
+    "source_count_view": "ZSDX_C_BillingMigCount",
+    "dimensions": [
+      {
+        "element": "BillingDocument"
+      }
+    ]
+  }
+}

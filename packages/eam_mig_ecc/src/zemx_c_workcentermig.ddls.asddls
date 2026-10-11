@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Work centers to migrate (not flagged for deletion) with plant, category and responsible person.
 // Example: The load program reads all rows and creates one work center per row; WorkCenter / Plant identify the record.
 @AbapCatalog.sqlViewName: 'ZEMX_CWC'
@@ -11,14 +11,21 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_WorkCenterMig
-  as select from ZEMX_I_WorkCenterHeader as src
+  as select from ZEMX_I_WorkCenter as src
 {
+      @EndUserText.label: 'Work Center'
   key src.WorkCenter             as WorkCenter,
+      @EndUserText.label: 'Plant'
   key src.Plant                  as Plant,
+      @EndUserText.label: 'Work Center Category Code'
       src.WorkCenterCategoryCode as WorkCenterCategoryCode,
+      @EndUserText.label: 'Work Center Responsible'
       src.WorkCenterResponsible  as WorkCenterResponsible,
+      @EndUserText.label: 'Task List Usage'
       src.TaskListUsage          as TaskListUsage,
+      @EndUserText.label: 'Validity Start Date'
       src.ValidityStartDate      as ValidityStartDate,
+      @EndUserText.label: 'Validity End Date'
       src.ValidityEndDate        as ValidityEndDate
 }
 where src.IsMarkedForDeletion = ''

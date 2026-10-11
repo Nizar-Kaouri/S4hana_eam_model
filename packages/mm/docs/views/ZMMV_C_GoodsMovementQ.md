@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZMMV_R_GoodsMovement` |
+| Data source | `ZMMV_I_GoodsMovement` |
 | Source file | `src/zmmv_c_goodsmovementq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZMMV_R_GoodsMovement: receipts and issues per plant and month.
+Analytical query on ZMMV_I_GoodsMovement: receipts and issues per plant and month.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZMMV_R_GoodsMovement: receipts and issues per plant and mont
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_GoodsMovement (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_GoodsMovement (see GEN-Q01).
 
 ## Example use case
 

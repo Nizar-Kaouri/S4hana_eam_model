@@ -1,0 +1,177 @@
+{
+  "module": "freight_unit",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "transport_location"
+  ],
+  "key": {
+    "business_key": [
+      "DocumentUUID"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZTMX_C_FreightUnitMig",
+      "source_view": "ZTMX_I_FreightUnit",
+      "scope_filter": "src.DocumentCategory = 'FU'",
+      "keys": [
+        "DocumentUUID"
+      ],
+      "fields": [
+        {
+          "element": "DocumentUUID",
+          "source": "/SCMTMS/D_TORROT-DB_KEY",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.DocumentUUID",
+          "rule": "info"
+        },
+        {
+          "element": "DocumentID",
+          "source": "/SCMTMS/D_TORROT-TOR_ID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.DocumentID",
+          "rule": "info"
+        },
+        {
+          "element": "DocumentCategory",
+          "source": "/SCMTMS/D_TORROT-TOR_CAT",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.DocumentCategory",
+          "rule": "info"
+        },
+        {
+          "element": "DocumentType",
+          "source": "/SCMTMS/D_TORROT-TOR_TYPE",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.DocumentType",
+          "rule": "info"
+        },
+        {
+          "element": "LifecycleStatus",
+          "source": "/SCMTMS/D_TORROT-LIFECYCLE",
+          "target": "Native target evidence: ZTMT_B_FreightUnitCompare.LifecycleStatus",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402 Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    },
+    {
+      "consumption_view": "ZTMX_C_FreightUnitItemMig",
+      "source_view": "ZTMX_I_FreightUnitItem",
+      "scope_filter": "",
+      "keys": [
+        "ItemUUID"
+      ],
+      "fields": [
+        {
+          "element": "ItemUUID",
+          "source": "/SCMTMS/D_TORITE-DB_KEY",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.ItemUUID",
+          "rule": "info"
+        },
+        {
+          "element": "DocumentUUID",
+          "source": "/SCMTMS/D_TORITE-PARENT_KEY",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.DocumentUUID",
+          "rule": "info"
+        },
+        {
+          "element": "ItemID",
+          "source": "/SCMTMS/D_TORITE-ITEM_ID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.ItemID",
+          "rule": "info"
+        },
+        {
+          "element": "ItemCategory",
+          "source": "/SCMTMS/D_TORITE-ITEM_CAT",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.ItemCategory",
+          "rule": "info"
+        },
+        {
+          "element": "ItemType",
+          "source": "/SCMTMS/D_TORITE-ITEM_TYPE",
+          "target": "Native target evidence: ZTMT_B_FreightUnitItemCompare.ItemType",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
+      "parent_scope": {
+        "source_parent_view": "ZTMX_B_FreightUnitData",
+        "target_parent_view": "ZTMT_B_FreightUnitCompare",
+        "child_parent_field": "DocumentUUID",
+        "parent_key": "DocumentUUID",
+        "category": "FU",
+        "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+        "lookup_DDIC_required": true
+      }
+    },
+    {
+      "consumption_view": "ZTMX_C_FreightUnitStopMig",
+      "source_view": "ZTMX_I_FreightUnitStop",
+      "scope_filter": "",
+      "keys": [
+        "StopUUID"
+      ],
+      "fields": [
+        {
+          "element": "StopUUID",
+          "source": "/SCMTMS/D_TORSTP-DB_KEY",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.StopUUID",
+          "rule": "info"
+        },
+        {
+          "element": "DocumentUUID",
+          "source": "/SCMTMS/D_TORSTP-PARENT_KEY",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.DocumentUUID",
+          "rule": "info"
+        },
+        {
+          "element": "StopID",
+          "source": "/SCMTMS/D_TORSTP-STOP_ID",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.StopID",
+          "rule": "info"
+        },
+        {
+          "element": "StopCategory",
+          "source": "/SCMTMS/D_TORSTP-STOP_CAT",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.StopCategory",
+          "rule": "info"
+        },
+        {
+          "element": "SequencePosition",
+          "source": "/SCMTMS/D_TORSTP-STOP_SEQ_POS",
+          "target": "Native target evidence: ZTMT_B_FreightUnitStopCompare.SequencePosition",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
+      "parent_scope": {
+        "source_parent_view": "ZTMX_B_FreightUnitData",
+        "target_parent_view": "ZTMT_B_FreightUnitCompare",
+        "child_parent_field": "DocumentUUID",
+        "parent_key": "DocumentUUID",
+        "category": "FU",
+        "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+        "lookup_DDIC_required": true
+      }
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "FreightUnit: TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.",
+    "FreightUnitItem: Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
+    "FreightUnitStop: Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending."
+  ],
+  "main_structure": "ZTMX_C_FreightUnitMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZTMX_C_FreightUnitMigCount",
+    "dimensions": []
+  }
+}

@@ -1,0 +1,377 @@
+{
+  "ZPPX_C_ProductionOrdeMig": {
+    "module": "production_order",
+    "table": "AUFK",
+    "keys": [
+      "ManufacturingOrder"
+    ],
+    "selection": "selection/ZPPX_C_ProductionOrdeMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZPPX_C_ProductionHeadMig": {
+    "module": "production_order",
+    "table": "AFKO",
+    "keys": [
+      "ManufacturingOrder"
+    ],
+    "selection": "selection/ZPPX_C_ProductionHeadMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
+  },
+  "ZPPX_C_ProductionItemMig": {
+    "module": "production_order",
+    "table": "AFPO",
+    "keys": [
+      "ManufacturingOrder",
+      "ManufacturingOrderItem"
+    ],
+    "selection": "selection/ZPPX_C_ProductionItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
+  },
+  "ZPPX_C_ProductionOperMig": {
+    "module": "production_order_operation",
+    "table": "AFVC",
+    "keys": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "selection": "selection/ZPPX_C_ProductionOperMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionHeadMig",
+    "child_keys": [
+      "OperationRoutingNumber"
+    ],
+    "parent_keys": [
+      "OperationRoutingNumber"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
+  },
+  "ZPPX_C_OperationQuantMig": {
+    "module": "production_order_operation",
+    "table": "AFVV",
+    "keys": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "selection": "selection/ZPPX_C_OperationQuantMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOperMig",
+    "child_keys": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_keys": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_identity": [
+      "OperationRoutingNumber",
+      "OperationInternalID"
+    ],
+    "kind": "child"
+  },
+  "ZPPX_C_OrderComponentMig": {
+    "module": "production_order_operation",
+    "table": "RESB",
+    "keys": [
+      "Reservation",
+      "ReservationItem",
+      "RecordType"
+    ],
+    "selection": "selection/ZPPX_C_OrderComponentMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
+  },
+  "ZPPX_C_MaterialBOMMig": {
+    "module": "bill_of_material",
+    "table": "MAST",
+    "keys": [
+      "Material",
+      "Plant",
+      "BillOfMaterialUsage",
+      "BillOfMaterial",
+      "BillOfMaterialVariant"
+    ],
+    "selection": "selection/ZPPX_C_MaterialBOMMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_BOMHeaderMig": {
+    "module": "bill_of_material",
+    "table": "STKO",
+    "keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BillOfMaterialVariant",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZPPX_C_BOMHeaderMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_BOMSelectionMig": {
+    "module": "bill_of_material",
+    "table": "STAS",
+    "keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BillOfMaterialVariant",
+      "BOMNode",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZPPX_C_BOMSelectionMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_BOMItemMig": {
+    "module": "bill_of_material",
+    "table": "STPO",
+    "keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BOMNode",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZPPX_C_BOMItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_RoutingHeaderMig": {
+    "module": "routing",
+    "table": "PLKO",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZPPX_C_RoutingHeaderMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_RoutingMateriaMig": {
+    "module": "routing",
+    "table": "MAPL",
+    "keys": [
+      "Material",
+      "Plant",
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZPPX_C_RoutingMateriaMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_RoutingSelectiMig": {
+    "module": "routing",
+    "table": "PLAS",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "Sequence",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZPPX_C_RoutingSelectiMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_RoutingOperatiMig": {
+    "module": "routing",
+    "table": "PLPO",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListNode",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZPPX_C_RoutingOperatiMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_RoutingSequencMig": {
+    "module": "routing",
+    "table": "PLFL",
+    "keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "Sequence",
+      "InternalCounter"
+    ],
+    "selection": "selection/ZPPX_C_RoutingSequencMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_ProdVersionMig": {
+    "module": "production_version",
+    "table": "MKAL",
+    "keys": [
+      "Product",
+      "Plant",
+      "ProductionVersion"
+    ],
+    "selection": "selection/ZPPX_C_ProdVersionMig.csv",
+    "requires_business_approval": true,
+    "mode": "effectivity-reference"
+  },
+  "ZPPX_C_ConfirmationMig": {
+    "module": "production_confirmation",
+    "table": "AFRU",
+    "keys": [
+      "ConfirmationNumber",
+      "ConfirmationCounter"
+    ],
+    "selection": "selection/ZPPX_C_ConfirmationMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
+  },
+  "ZPPX_C_OrderStatusMig": {
+    "module": "production_order",
+    "table": "JEST",
+    "keys": [
+      "ManufacturingOrder",
+      "StatusCode"
+    ],
+    "selection": "selection/ZPPX_C_OrderStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ],
+    "kind": "child"
+  },
+  "ZPPX_C_OrderUserStatusMig": {
+    "module": "production_order",
+    "keys": [
+      "ManufacturingOrder",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "child_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "parent_identity": [
+      "ManufacturingOrder"
+    ]
+  },
+  "ZPPX_C_OrderLongTextMig": {
+    "kind": "text_child",
+    "module": "production_order",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPPX_C_ProductionOrdeMig",
+    "parent_keys": [
+      "ManufacturingOrder"
+    ],
+    "links": "ZPPX_C_OrderLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZPPX_C_RoutingLongTextMig": {
+    "kind": "text_child",
+    "module": "routing",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPPX_C_RoutingHeaderMig",
+    "parent_keys": [
+      "TaskListType",
+      "TaskListGroup",
+      "TaskListGroupCounter",
+      "InternalCounter"
+    ],
+    "links": "ZPPX_C_RoutingLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZPPX_C_BOMLongTextMig": {
+    "kind": "text_child",
+    "module": "bill_of_material",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZPPX_C_BOMHeaderMig",
+    "parent_keys": [
+      "BOMCategory",
+      "BillOfMaterial",
+      "BillOfMaterialVariant",
+      "InternalCounter"
+    ],
+    "links": "ZPPX_C_BOMLongTextMig_Links",
+    "operation": "text_scope"
+  }
+}

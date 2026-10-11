@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZSDV_R_Revenue` |
+| Data source | `ZSDV_I_Revenue` |
 | Source file | `src/zsdv_c_revenueq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZSDV_R_Revenue: revenue per sales organization and sold-to party.
+Analytical query on ZSDV_I_Revenue: revenue per sales organization and sold-to party.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZSDV_R_Revenue: revenue per sales organization and sold-to p
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_R_Revenue (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZSDV_I_Revenue (see GEN-Q01).
 
 ## Example use case
 

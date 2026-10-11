@@ -1,0 +1,5 @@
+SalesDocument,SalesDocumentItem,Payload
+000000000001,000000,keep 1
+000000000001,000010,keep 2
+000000000002,000000,outside parent scope
+000000000001,000020,outside item scope

@@ -1,8 +1,8 @@
 // ZPPV PP VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZPPV_R_ProductionOrderOp: quantities per plant and work center.
+// Purpose: Analytical query on ZPPV_I_ProductionOrderOp: quantities per plant and work center.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // TODO-VERIFY[M] PP-Q01: formula over quantity measures with the same unit in a transient analytical query
-// DESIGN NOTE: no DCL (transient query); the DCL of ZPPV_R_ProductionOrderOp applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZPPV_I_ProductionOrderOp applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Production Operation Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -10,7 +10,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZPPV_C_ProductionOrderOpQ
   provider contract analytical_query
-  as projection on ZPPV_R_ProductionOrderOp
+  as projection on ZPPV_I_ProductionOrderOp
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

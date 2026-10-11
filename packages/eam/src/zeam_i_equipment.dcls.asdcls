@@ -1,9 +1,7 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_Equipment instead of re-implementing
-// PFCG mappings. All elements referenced by the SAP role must exist in ZEAM_I_Equipment
-// with identical names.
-// TODO-VERIFY[H] EQ-D01: I_Equipment has an access control role and all elements it references are projected by ZEAM_I_Equipment
-@EndUserText.label: 'Equipment'
+// Inherits the conditions of the basic view; the authorization-relevant elements are
+// projected with unchanged names (see GEN-D02).
+@EndUserText.label: 'Equipment - Cube'
 @MappingRole: true
 define role ZEAM_I_Equipment {
   grant
@@ -11,5 +9,5 @@ define role ZEAM_I_Equipment {
       on
         ZEAM_I_Equipment
           where
-            inheriting conditions from entity I_Equipment;
+            inheriting conditions from entity ZEAM_B_Equipment;
 }

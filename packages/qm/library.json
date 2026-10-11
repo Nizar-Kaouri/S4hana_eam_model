@@ -17,5 +17,10 @@
   "reserve_prefix_chars": 1,
   "map_title": "ZQMV Quality Management Model Map",
   "map_area": "Quality Management (QM)",
-  "map_initial": "ZQMV_I_InspectionLot"
+  "map_initial": "ZQMV_B_InspectionLot",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

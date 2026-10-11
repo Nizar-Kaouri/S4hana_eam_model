@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Production Order Operation |
+| Description | Production Order Operation - Cube |
 | Module | `production_order_operation` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_ManufacturingOrderOperation` |
+| Data category | #CUBE |
+| Data source | `ZPPV_B_ProductionOrderOp` |
 | Source file | `src/zppv_i_productionorderop.ddls.asddls` |
 
 ## Purpose
 
-One row per production order operation: text, work center, control profile, planned and confirmed yield / scrap quantity and scheduled dates.
+Operation cube: planned, confirmed yield and scrap quantity per work center, with order type, material and plant from the order header.
 
 ## Keys
 
@@ -25,16 +25,16 @@ One row per production order operation: text, work center, control profile, plan
 
 ## Associations defined here
 
-- `_ProductionOrder` → `ZPPV_I_ProductionOrder` [1..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_ManufacturingOrderOperation`.
+Role inherits the conditions of `ZPPV_B_ProductionOrderOp`.
 
 ## Example use case
 
-Confirmed scrap per work center; operations behind schedule.
+Scrap rate per work center and material.
 
 ## Open verification items
 
-`PP-010`, `PP-011`, `PP-012`, `PP-D02` - see `BATCH_REPORT.md`.
+none

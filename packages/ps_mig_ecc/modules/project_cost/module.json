@@ -1,0 +1,42 @@
+{
+  "name": "project_cost",
+  "title": "Project cost history",
+  "description": "Project cost history source records, source preparation contracts.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "reference"
+  ],
+  "sap_tables": [
+    "COEP"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "wbs_element"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZPSX_B_ProjectCostData"
+    ],
+    "composite": [
+      "ZPSX_I_ProjectCost"
+    ],
+    "consumption": [
+      "ZPSX_C_ProjectCostMig",
+      "ZPSX_C_ProjectCostMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPSX_B_ProjectCostData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_ProjectCost": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_ProjectCostMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_ProjectCostMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

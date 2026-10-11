@@ -1,0 +1,539 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "inspection_lot": {
+      "native_tables": [
+        "JEST",
+        "QALS",
+        "QAVE",
+        "JSTO"
+      ],
+      "structures": [
+        {
+          "view": "ZQMX_C_InspectionLotMig",
+          "interface": "ZQMX_I_InspectionLot",
+          "keys": [
+            "InspectionLot"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "InspectionLot",
+            "Plant",
+            "Material",
+            "Batch",
+            "InspectionType",
+            "InspectionLotOrigin",
+            "InspectionLotQuantity",
+            "Unit",
+            "ObjectNumber"
+          ]
+        },
+        {
+          "view": "ZQMX_C_UsageDecisionMig",
+          "interface": "ZQMX_I_UsageDecision",
+          "keys": [
+            "InspectionLot",
+            "UsageDecisionType",
+            "UsageDecisionCounter"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "InspectionLot",
+            "UsageDecisionType",
+            "UsageDecisionCounter",
+            "UsageDecisionCode",
+            "UsageDecisionCodeGroup",
+            "UsageDecisionDate"
+          ]
+        },
+        {
+          "view": "ZQMX_C_LotStatusMig",
+          "interface": "ZQMX_I_LotStatus",
+          "keys": [
+            "InspectionLot",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "InspectionLot",
+            "ObjectNumber",
+            "StatusCode",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZQMX_C_LotUserStatusMig",
+          "interface": "ZQMX_I_LotUserStatus",
+          "keys": [
+            "InspectionLot",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "InspectionLot",
+            "StatusCode",
+            "ObjectNumber",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        }
+      ],
+      "boundary": "Inspection lots source records, source preparation contracts."
+    },
+    "inspection_plan": {
+      "native_tables": [
+        "MAPL",
+        "PLAS",
+        "PLKO",
+        "PLMK",
+        "PLPO",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZQMX_C_InspectPlanHeaMig",
+          "interface": "ZQMX_I_InspectPlanHea",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "InternalCounter",
+            "ValidFromDate",
+            "ChangeNumber",
+            "DeletionFlag",
+            "TaskListDescription"
+          ]
+        },
+        {
+          "view": "ZQMX_C_InspectPlanMatMig",
+          "interface": "ZQMX_I_InspectPlanMat",
+          "keys": [
+            "Material",
+            "Plant",
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "Material",
+            "Plant",
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "InternalCounter",
+            "ValidFromDate",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZQMX_C_InspectPlanSelMig",
+          "interface": "ZQMX_I_InspectPlanSel",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Sequence",
+            "TaskListNode",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListGroupCounter",
+            "Sequence",
+            "TaskListNode",
+            "InternalCounter",
+            "ValidFromDate",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZQMX_C_InspectPlanOpeMig",
+          "interface": "ZQMX_I_InspectPlanOpe",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListNode",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListNode",
+            "InternalCounter",
+            "ValidFromDate",
+            "DeletionFlag",
+            "Operation",
+            "OperationText"
+          ]
+        },
+        {
+          "view": "ZQMX_C_PlanCharacteriMig",
+          "interface": "ZQMX_I_PlanCharacteri",
+          "keys": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListNode",
+            "CharacteristicNumber",
+            "InternalCounter"
+          ],
+          "mode": "effectivity-reference",
+          "fields": [
+            "TaskListType",
+            "TaskListGroup",
+            "TaskListNode",
+            "CharacteristicNumber",
+            "InternalCounter",
+            "ValidFromDate",
+            "DeletionFlag",
+            "CharacteristicDescription"
+          ]
+        },
+        {
+          "view": "ZQMX_C_PlanLongTextMig",
+          "interface": "ZQMX_I_PlanLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Inspection plan reference source records, source preparation contracts."
+    },
+    "inspection_result": {
+      "native_tables": [
+        "QAMR",
+        "QAMV",
+        "QASE"
+      ],
+      "structures": [
+        {
+          "view": "ZQMX_C_InspectCharactMig",
+          "interface": "ZQMX_I_InspectCharact",
+          "keys": [
+            "InspectionLot",
+            "OperationInternalID",
+            "CharacteristicNumber"
+          ],
+          "mode": "reference",
+          "fields": [
+            "InspectionLot",
+            "OperationInternalID",
+            "CharacteristicNumber",
+            "CharacteristicDescription"
+          ]
+        },
+        {
+          "view": "ZQMX_C_CharacteristicMig",
+          "interface": "ZQMX_I_Characteristic",
+          "keys": [
+            "InspectionLot",
+            "OperationInternalID",
+            "CharacteristicNumber"
+          ],
+          "mode": "reference",
+          "fields": [
+            "InspectionLot",
+            "OperationInternalID",
+            "CharacteristicNumber",
+            "MeanValue",
+            "MinimumValue",
+            "MaximumValue"
+          ]
+        },
+        {
+          "view": "ZQMX_C_SingleResultMig",
+          "interface": "ZQMX_I_SingleResult",
+          "keys": [
+            "InspectionLot",
+            "OperationInternalID",
+            "CharacteristicNumber",
+            "SampleNumber",
+            "ResultNumber"
+          ],
+          "mode": "reference",
+          "fields": [
+            "InspectionLot",
+            "OperationInternalID",
+            "CharacteristicNumber",
+            "SampleNumber",
+            "ResultNumber",
+            "MeasuredValue"
+          ]
+        }
+      ],
+      "boundary": "Inspection results source records, source preparation contracts."
+    },
+    "master_inspection_characteristic": {
+      "native_tables": [
+        "QPMK",
+        "QPMT",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZQMX_C_MasterCharMig",
+          "interface": "ZQMX_I_MasterChar",
+          "keys": [
+            "Plant",
+            "MasterInspectionCharacteristic",
+            "CharacteristicVersion"
+          ],
+          "mode": "master",
+          "fields": [
+            "Plant",
+            "MasterInspectionCharacteristic",
+            "CharacteristicVersion",
+            "ValidityStartDate",
+            "DeletionFlag",
+            "ControlIndicators"
+          ]
+        },
+        {
+          "view": "ZQMX_C_MasterCharTextMig",
+          "interface": "ZQMX_I_MasterCharText",
+          "keys": [
+            "Plant",
+            "MasterInspectionCharacteristic",
+            "CharacteristicVersion",
+            "Language"
+          ],
+          "mode": "master",
+          "fields": [
+            "Plant",
+            "MasterInspectionCharacteristic",
+            "CharacteristicVersion",
+            "Language",
+            "CharacteristicDescription"
+          ]
+        },
+        {
+          "view": "ZQMX_C_MasterCharLongTextMig",
+          "interface": "ZQMX_I_MasterCharLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Master inspection characteristics. Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number."
+    },
+    "quality_notification": {
+      "native_tables": [
+        "IHPA",
+        "JEST",
+        "QMEL",
+        "QMFE",
+        "QMMA",
+        "QMSM",
+        "QMUR",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZQMX_C_QualityNotificMig",
+          "interface": "ZQMX_I_QualityNotific",
+          "keys": [
+            "QualityNotification"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "QualityNotification",
+            "NotificationType",
+            "NotificationText",
+            "Material",
+            "Plant",
+            "ObjectNumber"
+          ]
+        },
+        {
+          "view": "ZQMX_C_QualityItemMig",
+          "interface": "ZQMX_I_QualityItem",
+          "keys": [
+            "QualityNotification",
+            "NotificationItem"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "QualityNotification",
+            "NotificationItem",
+            "DefectCodeGroup",
+            "DefectCode",
+            "DefectText"
+          ]
+        },
+        {
+          "view": "ZQMX_C_QualityCauseMig",
+          "interface": "ZQMX_I_QualityCause",
+          "keys": [
+            "QualityNotification",
+            "NotificationItem",
+            "CauseNumber"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "QualityNotification",
+            "NotificationItem",
+            "CauseNumber",
+            "CauseCodeGroup",
+            "CauseCode",
+            "CauseText"
+          ]
+        },
+        {
+          "view": "ZQMX_C_QualityTaskMig",
+          "interface": "ZQMX_I_QualityTask",
+          "keys": [
+            "QualityNotification",
+            "TaskNumber"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "QualityNotification",
+            "TaskNumber",
+            "TaskCodeGroup",
+            "TaskCode",
+            "TaskText"
+          ]
+        },
+        {
+          "view": "ZQMX_C_QualityActivitMig",
+          "interface": "ZQMX_I_QualityActivit",
+          "keys": [
+            "QualityNotification",
+            "ActivityNumber"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "QualityNotification",
+            "ActivityNumber",
+            "ActivityCodeGroup",
+            "ActivityCode",
+            "ActivityText"
+          ]
+        },
+        {
+          "view": "ZQMX_C_NotifStatusMig",
+          "interface": "ZQMX_I_NotifStatus",
+          "keys": [
+            "QualityNotification",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "QualityNotification",
+            "ObjectNumber",
+            "StatusCode",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZQMX_C_NotifPartnerMig",
+          "interface": "ZQMX_I_NotifPartner",
+          "keys": [
+            "QualityNotification",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "QualityNotification",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZQMX_C_NotifUserStatusMig",
+          "interface": "ZQMX_I_NotifUserStatus",
+          "keys": [
+            "QualityNotification",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "QualityNotification",
+            "StatusCode",
+            "ObjectNumber",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZQMX_C_NotifLongTextMig",
+          "interface": "ZQMX_I_NotifLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Quality notifications source records, source preparation contracts."
+    },
+    "sampling_procedure": {
+      "native_tables": [
+        "QDSV"
+      ],
+      "structures": [
+        {
+          "view": "ZQMX_C_SamplingProcMig",
+          "interface": "ZQMX_I_SamplingProc",
+          "keys": [
+            "SamplingProcedure"
+          ],
+          "mode": "configuration-reference",
+          "fields": [
+            "SamplingProcedure",
+            "SamplingType",
+            "ValuationMode"
+          ]
+        }
+      ],
+      "boundary": "Sampling procedures. DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme."
+    }
+  }
+}

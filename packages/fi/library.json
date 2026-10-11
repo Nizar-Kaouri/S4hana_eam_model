@@ -17,5 +17,10 @@
   "reserve_prefix_chars": 1,
   "map_title": "ZFIV Financial Accounting Model Map",
   "map_area": "Financial Accounting (FI)",
-  "map_initial": "ZFIV_I_GLJournalItem"
+  "map_initial": "ZFIV_B_GLJournalItem",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

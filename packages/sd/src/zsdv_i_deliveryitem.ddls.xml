@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZSDV_I_DELIVERYITEM</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Outbound Delivery Item</DDTEXT>
+    <DDTEXT>Outbound Delivery Item - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

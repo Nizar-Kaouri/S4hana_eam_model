@@ -1,0 +1,196 @@
+{
+  "module": "purchasing_info_record",
+  "status": "released",
+  "target": {
+    "tool": "Customer-verified business interface; master restrictions apply",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "product"
+  ],
+  "key": {
+    "business_key": [
+      "PurchasingInfoRecord"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZMMX_C_InfoRecordMig",
+      "source_view": "ZMMX_I_InfoRecord",
+      "scope_filter": "",
+      "keys": [
+        "PurchasingInfoRecord"
+      ],
+      "fields": [
+        {
+          "element": "PurchasingInfoRecord",
+          "source": "EINA-INFNR",
+          "target": "customer interface field: PurchasingInfoRecord (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Product",
+          "source": "EINA-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Supplier",
+          "source": "EINA-LIFNR",
+          "target": "customer interface field: Supplier (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ProductGroup",
+          "source": "EINA-MATKL",
+          "target": "customer interface field: ProductGroup (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OrderUnit",
+          "source": "EINA-MEINS",
+          "target": "customer interface field: OrderUnit (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "EINA-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone. Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_InfoPurchOrgMig",
+      "source_view": "ZMMX_I_InfoPurchOrg",
+      "scope_filter": "",
+      "keys": [
+        "PurchasingInfoRecord",
+        "PurchasingOrganization",
+        "InfoRecordCategory",
+        "Plant"
+      ],
+      "fields": [
+        {
+          "element": "PurchasingInfoRecord",
+          "source": "EINE-INFNR",
+          "target": "customer interface field: PurchasingInfoRecord (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PurchasingOrganization",
+          "source": "EINE-EKORG",
+          "target": "customer interface field: PurchasingOrganization (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "InfoRecordCategory",
+          "source": "EINE-ESOKZ",
+          "target": "customer interface field: InfoRecordCategory (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Plant",
+          "source": "EINE-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PurchasingGroup",
+          "source": "EINE-EKGRP",
+          "target": "customer interface field: PurchasingGroup (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Currency",
+          "source": "EINE-WAERS",
+          "target": "customer interface field: Currency (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "NetPrice",
+          "source": "EINE-NETPR",
+          "target": "customer interface field: NetPrice (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PriceUnit",
+          "source": "EINE-PEINH",
+          "target": "customer interface field: PriceUnit (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PriceUnitOfMeasure",
+          "source": "EINE-BPRME",
+          "target": "customer interface field: PriceUnitOfMeasure (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "EINE-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone. Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_InfoRecordLongTextMig",
+      "source_view": "ZMMX_I_InfoRecordLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data. Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.",
+    "Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone."
+  ],
+  "main_structure": "ZMMX_C_InfoRecordMig",
+  "source_control": {
+    "source_count_view": "ZMMX_C_InfoRecordMigCount",
+    "dimensions": [
+      {
+        "element": "PurchasingInfoRecord"
+      }
+    ]
+  }
+}

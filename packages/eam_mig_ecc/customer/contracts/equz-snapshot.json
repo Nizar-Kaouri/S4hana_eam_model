@@ -1,0 +1,8 @@
+{
+  "identity": [
+    "EQUNR"
+  ],
+  "valid_from": "DATAB",
+  "valid_to": "DATBI",
+  "mode": "interval"
+}

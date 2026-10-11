@@ -1,0 +1,34 @@
+{
+  "name": "warehouse_product",
+  "title": "Warehouse products and fixed bins",
+  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
+  "batch": 1,
+  "version": "0.3.0",
+  "status": "draft-unverified",
+  "tested_release": "none (native DDIC and SAP activation pending)",
+  "tags": [
+    "migration",
+    "native-table",
+    "master"
+  ],
+  "sap_tables": [],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "storage_bin"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [],
+    "composite": [],
+    "consumption": [],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {},
+  "link_views": [],
+  "pending_structures": [
+    "WarehouseProd",
+    "FixedBin"
+  ]
+}

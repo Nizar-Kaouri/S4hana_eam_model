@@ -17,7 +17,7 @@ Branch: `claude/sap-eam-pm-cds-vdm-a2vxuv`
 | Start | Commercial CDS view library (VDM) for SAP S/4HANA 2025 **EAM / Plant Maintenance**, sold as modular packages | `packages/eam` |
 | Expansion | Same pattern for more S/4HANA areas | 8 more analytics products + cross-product bridge |
 | **Pivot** | The packages are **migration models**, not reporting: moving data from an old **SAP ERP (ECC 6.0)** to **S/4HANA** | `packages/eam_mig_ecc` + `packages/eam_mig_s4` (EAM pilot) |
-| Current | Sell a **template of views only**: basic → composite → consumption on ECC; the customer's own load program reads the consumption views and posts on S/4HANA | EAM migration pilot, restructured accordingly |
+| Current | Sell a **template of views only**: basic â†’ composite â†’ consumption on ECC; the customer's own load program reads the consumption views and posts on S/4HANA | EAM migration pilot, restructured accordingly |
 
 The analytics products stay in the repository as an optional add-on for after the migration.
 
@@ -81,7 +81,7 @@ Tooling built in this phase (shared by all products later):
 | Sales and Distribution | `packages/sd` | `ZSDV_` | 4 modules, 15 views + 2 link objects |
 
 - **Link views**: 28 intra-product link objects, then a **cross-product bridge** (`packages/bridge`, `ZBRG_`,
-  18 link objects, e.g. equipment ↔ fixed asset, order component ↔ product, maintenance cost ↔ cost center).
+  18 link objects, e.g. equipment â†” fixed asset, order component â†” product, maintenance cost â†” cost center).
 - `build_bundle.py` - builds several products into one ZIP with one prefix / package and adds bridge links only
   when all their modules are selected; `tools/catalog.py`, `tools/validate_bridge.py` (rules B1-B7).
 - Full bundle of all products: 463 objects, abaplint 0 issues.
@@ -96,7 +96,7 @@ authorizations, buyer documentation, legal / commercial basics.
 
 ---
 
-## 6. Phase 4 - pivot to migration (ECC → S/4HANA)
+## 6. Phase 4 - pivot to migration (ECC â†’ S/4HANA)
 
 Agreed assumptions: source **ECC 6.0 on NetWeaver 7.40 SP08+** (classic CDS views), EAM first, then other areas.
 
@@ -112,7 +112,7 @@ Agreed assumptions: source **ECC 6.0 on NetWeaver 7.40 SP08+** (classic CDS view
 - `packages/eam_mig_s4` (`ZEMT_`, system S/4HANA): compare and count views on SAP released views.
 - Tools: `tools/validate_mapping.py`, `tools/gen_mapping.py` (mapping pages, `MIGRATION_SEQUENCE.md`),
   `tools/mig_reconcile.py` (counts and record / field comparison of CSV exports), validator rule **M12**
-  (classic views, SQL view names ≤ 16 characters, no DCL on ECC), SQL view name rewrite in the build,
+  (classic views, SQL view names â‰¤ 16 characters, no DCL on ECC), SQL view name rewrite in the build,
   "one target system per bundle" rule in `build_bundle.py`.
 
 ### 6.2 SAP standard discussion
@@ -123,11 +123,11 @@ Agreed assumptions: source **ECC 6.0 on NetWeaver 7.40 SP08+** (classic CDS view
 - Decision: not every project uses the Cockpit. The package follows the pattern used in real projects:
   **3 layers of views on ECC, and the project's own load program reads the consumption views.**
 
-### 6.3 Pilot v2 - basic → composite → consumption
+### 6.3 Pilot v2 - basic â†’ composite â†’ consumption
 
 - **Basic** `ZEMX_I_*`: exactly one table per view.
 - **Composite** `ZEMX_I_*`: the business object (e.g. equipment = EQUI + current EQUZ segment + ILOA + work
-  center + deletion flag), internal IDs → business keys, current versions, scope flags.
+  center + deletion flag), internal IDs â†’ business keys, current versions, scope flags.
 - **Consumption** `ZEMX_C_*Mig`: one view per migration structure, scope applied, migrated fields only; the only
   layer with extraction annotations. `ZEMX_C_*MigCount` for reconciliation.
 - Naming changed to the SAP convention (`I_` / `I_` / `C_`) in both migration products; S/4HANA count views
@@ -148,7 +148,7 @@ Following SAP VDM practice:
 - Composite views read related data through **path expressions**
   (`seg._MainWorkCenter.WorkCenter`, `eq._DeletionFlag.StatusCode`).
 - **Inner joins** remain only where they decide which rows exist: current time segment, latest task list
-  version, operation assignment ↔ operation, last reading, PM data of notifications / orders.
+  version, operation assignment â†” operation, last reading, PM data of notifications / orders.
 - Consumption views of child structures filter on their parent through an association
   (e.g. operations: `where _MaintOrder.IsClosed = ''`).
 - Unit tests check: basic views read one table and never join; no left outer joins in composite views; upper
@@ -199,13 +199,13 @@ Answer: close, not yet. To reach version 1:
 
 ```
 README.md, PRODUCT_CHECKLIST.md, ADT_SETUP.md, PROJECT_HISTORY.md
-build_package.py            one product → abapGit ZIP (prefix / package rewrite, dependencies, link views)
-build_bundle.py             several S/4HANA products → one ZIP (bridge links)
+build_package.py            one product â†’ abapGit ZIP (prefix / package rewrite, dependencies, link views)
+build_bundle.py             several S/4HANA products â†’ one ZIP (bridge links)
 tools/                      validators (M1-M12, B1-B7, X1-X6), generators, reconcile tool, unit tests
 packages/eam                EAM analytics (S/4HANA)
 packages/fi_aa, mm, qm, ps, pp, co, fi, sd   analytics add-on products (S/4HANA)
 packages/bridge             cross-product link views
-packages/eam_mig_ecc        EAM migration template - ECC views (basic → composite → consumption)
+packages/eam_mig_ecc        EAM migration template - ECC views (basic â†’ composite â†’ consumption)
 packages/eam_mig_s4         EAM migration - S/4HANA reconciliation views
 ```
 
@@ -220,11 +220,22 @@ packages/eam_mig_s4         EAM migration - S/4HANA reconciliation views
 | `867a09c` | Batch 5: remaining objects, link views |
 | `a6f43d4` | Model map |
 | `c236df8` | Multi-product repository, product checklist |
-| `e2af068` … `ae5b655` | FI-AA, MM, QM, PS, PP, CO, FI, SD products |
+| `e2af068` â€¦ `ae5b655` | FI-AA, MM, QM, PS, PP, CO, FI, SD products |
 | `3fb5a2a` | Checklist / README: nine products drafted |
 | `e5d5a68` | Intra-product link views |
 | `5c222ce` | Cross-product bridge, bundle build |
 | `08c8893` | EAM migration pilot v1 |
-| `f30826e` | Restructure into basic → composite → consumption |
+| `f30826e` | Restructure into basic â†’ composite â†’ consumption |
 | `fd81623` | Consumption delivers ECC data unchanged (template only) |
 | `46a90b0` | Associations instead of joins |
+
+
+## 11. EAM migration scope expansion (Codex, 2026-10-10)
+
+Added a dependency-complete equipment_bom module and supporting notification, task-list, settlement, permit, alternative-label, serial-stock and capacity-reference structures. The ECC pilot now has 14 migration objects plus core, 154 views (57 basic, 42 composite, 55 consumption), 14 mappings and 41 extraction structures.
+
+BOM outputs preserve engineering-change states as ledgers. Task-list child references and capacity outputs explicitly identify preprocessing requirements rather than claiming ready-to-post target data. Long-text content stays with the customer's READ_TEXT integration.
+
+Fixed duplicate-key false success in record reconciliation, task-list historical counter cross-products and Windows report path portability. Added buyer installation/compatibility/release documents and selected-module CSV field catalogue in builds.
+
+All content remains draft-unverified. No SAP activation, DDIC validation or cutover rehearsal was possible. See packages/eam_mig_ecc/docs/COMPATIBILITY.md for exact remaining boundaries.

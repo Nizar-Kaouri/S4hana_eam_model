@@ -1,0 +1,12 @@
+// ZPPV PP VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Production Order - Value Help'
+@MappingRole: true
+define role ZPPV_B_ProductionOrderVH {
+  grant
+    select
+      on
+        ZPPV_B_ProductionOrderVH
+          where
+            inheriting conditions from entity ZPPV_B_ProductionOrder;
+}

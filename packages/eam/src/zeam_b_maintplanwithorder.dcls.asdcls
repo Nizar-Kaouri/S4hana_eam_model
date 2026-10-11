@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - maintenance plan conditions (see GEN-D02).
+@EndUserText.label: 'Maintenance Plan with Orders'
+@MappingRole: true
+define role ZEAM_B_MaintPlanWithOrder {
+  grant
+    select
+      on
+        ZEAM_B_MaintPlanWithOrder
+          where
+            inheriting conditions from entity ZEAM_B_MaintPlan;
+}

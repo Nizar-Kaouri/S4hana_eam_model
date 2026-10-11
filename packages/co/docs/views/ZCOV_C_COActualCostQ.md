@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZCOV_R_COActualCost` |
+| Data source | `ZCOV_I_COActualCost` |
 | Source file | `src/zcov_c_coactualcostq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZCOV_R_COActualCost: primary and secondary costs per controlling area and period.
+Analytical query on ZCOV_I_COActualCost: primary and secondary costs per controlling area and period.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZCOV_R_COActualCost: primary and secondary costs per control
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_R_COActualCost (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZCOV_I_COActualCost (see GEN-Q01).
 
 ## Example use case
 

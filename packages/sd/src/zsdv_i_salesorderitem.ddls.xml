@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZSDV_I_SALESORDERITEM</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Sales Order Item</DDTEXT>
+    <DDTEXT>Sales Order Item - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

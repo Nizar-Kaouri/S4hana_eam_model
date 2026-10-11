@@ -1,0 +1,12 @@
+// ZFAA FI-AA VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - journal conditions (see GEN-D02, AB-D01).
+@EndUserText.label: 'Asset Net Book Value with Asset Master'
+@MappingRole: true
+define role ZFAA_I_AssetBalanceWithAsset {
+  grant
+    select
+      on
+        ZFAA_I_AssetBalanceWithAsset
+          where
+            inheriting conditions from entity ZFAA_I_AssetBalance;
+}

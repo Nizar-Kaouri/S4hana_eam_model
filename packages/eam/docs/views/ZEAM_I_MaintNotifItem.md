@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Maintenance Notification Item |
+| Description | Notification Item (Damage) - Cube |
 | Module | `notification_item` |
 | Batch | 5 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_MaintenanceNotificationItem` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_MaintNotifItem` |
 | Source file | `src/zeam_i_maintnotifitem.ddls.asddls` |
 
 ## Purpose
 
-One row per notification item with object part and damage codes (catalog code group + code) and item text.
+Damage analysis: number of notification items per object part and damage code, with notification header characteristics.
 
 ## Keys
 
@@ -24,16 +24,16 @@ One row per notification item with object part and damage codes (catalog code gr
 
 ## Associations defined here
 
-- `_MaintenanceNotification` → `ZEAM_I_MaintNotif` [1..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_MaintenanceNotificationItem`.
+Role inherits the conditions of `ZEAM_B_MaintNotifItem`.
 
 ## Example use case
 
-Pareto of damage codes per equipment category (with the link cube) or per planning plant.
+Damage-code Pareto per planning plant and notification type.
 
 ## Open verification items
 
-`NI-001`, `NI-002`, `NI-D01` - see `BATCH_REPORT.md`.
+none

@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - maintenance item conditions (see GEN-D02).
+@EndUserText.label: 'Maintenance Item with Task List'
+@MappingRole: true
+define role ZEAM_B_MaintItemWithTaskList {
+  grant
+    select
+      on
+        ZEAM_B_MaintItemWithTaskList
+          where
+            inheriting conditions from entity ZEAM_B_MaintItem;
+}

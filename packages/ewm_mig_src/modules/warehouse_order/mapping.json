@@ -1,0 +1,107 @@
+{
+  "module": "warehouse_order",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "Warehouse",
+      "WarehouseOrder"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZWMX_C_WarehouseOrderMig",
+      "source_view": "ZWMX_I_WarehouseOrder",
+      "scope_filter": "",
+      "keys": [
+        "Warehouse",
+        "WarehouseOrder"
+      ],
+      "fields": [
+        {
+          "element": "Warehouse",
+          "source": "/SCWM/WHO-LGNUM",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.Warehouse",
+          "rule": "info"
+        },
+        {
+          "element": "WarehouseOrder",
+          "source": "/SCWM/WHO-WHO",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.WarehouseOrder",
+          "rule": "info"
+        },
+        {
+          "element": "CreationRule",
+          "source": "/SCWM/WHO-WCR",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreationRule",
+          "rule": "info"
+        },
+        {
+          "element": "OrderStatus",
+          "source": "/SCWM/WHO-STATUS",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.OrderStatus",
+          "rule": "info"
+        },
+        {
+          "element": "Queue",
+          "source": "/SCWM/WHO-QUEUE",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.Queue",
+          "rule": "info"
+        },
+        {
+          "element": "ActivityArea",
+          "source": "/SCWM/WHO-AREAWHO",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.ActivityArea",
+          "rule": "info"
+        },
+        {
+          "element": "CreatedAt",
+          "source": "/SCWM/WHO-CREATED_AT",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreatedAt",
+          "rule": "info"
+        },
+        {
+          "element": "CreatedBy",
+          "source": "/SCWM/WHO-CREATED_BY",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.CreatedBy",
+          "rule": "info"
+        },
+        {
+          "element": "StartedAt",
+          "source": "/SCWM/WHO-STARTED_AT",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.StartedAt",
+          "rule": "info"
+        },
+        {
+          "element": "ConfirmedAt",
+          "source": "/SCWM/WHO-CONFIRMED_AT",
+          "target": "Native target evidence: ZWMT_B_WarehouseOrderCompare.ConfirmedAt",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "All native warehouse-order records; customer must approve process state and cutover scope. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "WarehouseOrder: All native warehouse-order records; customer must approve process state and cutover scope."
+  ],
+  "main_structure": "ZWMX_C_WarehouseOrderMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZWMX_C_WarehouseOrderMigCount",
+    "dimensions": [
+      {
+        "element": "Warehouse"
+      }
+    ]
+  }
+}

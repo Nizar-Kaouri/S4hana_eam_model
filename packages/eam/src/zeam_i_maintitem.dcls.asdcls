@@ -1,7 +1,6 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Reuses the authorization logic SAP ships for I_MaintenanceItem.
-// TODO-VERIFY[H] PL-D02: I_MaintenanceItem has an access control role and every element it references is projected by ZEAM_I_MaintItem
-@EndUserText.label: 'Maintenance Item'
+// Inherits the conditions of the basic view (see GEN-D02).
+@EndUserText.label: 'Maintenance Item - Cube'
 @MappingRole: true
 define role ZEAM_I_MaintItem {
   grant
@@ -9,5 +8,5 @@ define role ZEAM_I_MaintItem {
       on
         ZEAM_I_MaintItem
           where
-            inheriting conditions from entity I_MaintenanceItem;
+            inheriting conditions from entity ZEAM_B_MaintItem;
 }

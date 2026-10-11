@@ -1,6 +1,6 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Descriptions of the equipment in scope per language.
-// Example: Read the texts of equipment 10000001: filter Equipment = '000000000010000001'.
+// ModuPorter EAM migration | Release 1.0.0
+// Purpose: Equipment descriptions by language in the equipment master scope.
+// Example: Export the selected equipment population and retain Equipment as the parent key.
 @AbapCatalog.sqlViewName: 'ZEMX_CEQT'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
@@ -11,13 +11,14 @@
 @ObjectModel.usageType.sizeCategory: #L
 @VDM.viewType: #CONSUMPTION
 define view ZEMX_C_EquipmentTextMig
-  as select from ZEMX_I_EquipmentDesc as src
-  association [0..1] to ZEMX_I_Equipment as _Equipment on _Equipment.Equipment = $projection.Equipment
+  as select from ZEMX_I_EquipText as src
 {
-  key src.Equipment     as Equipment,
+      @EndUserText.label: 'Equipment'
+  key src.Equipment as Equipment,
       @Semantics.language: true
-  key src.Language      as Language,
+      @EndUserText.label: 'Language'
+  key src.Language as Language,
       @Semantics.text: true
+      @EndUserText.label: 'Equipment Name'
       src.EquipmentName as EquipmentName
 }
-where _Equipment.IsMarkedForDeletion = ''

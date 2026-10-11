@@ -1,0 +1,19 @@
+{
+  "ZFAX_C_AssetLongTextMig": {
+    "module": "fixed_asset",
+    "parent": "ZFAX_C_AssetMig",
+    "parent_keys": [
+      "CompanyCode",
+      "MasterFixedAsset",
+      "FixedAsset"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZFAX_C_AssetLongTextMig_Links",
+    "payload_helper": "zfax_fi_aa_text_export.prog.abap"
+  }
+}

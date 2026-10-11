@@ -23,7 +23,7 @@ ENDCLASS.
 CLASS zsdv_cl_salesorder_test IMPLEMENTATION.
 
   METHOD class_setup.
-    environment = cl_cds_test_environment=>create( i_for_entity = 'ZSDV_I_SALESORDER' ).
+    environment = cl_cds_test_environment=>create( i_for_entity = 'ZSDV_B_SALESORDER' ).
   ENDMETHOD.
 
 
@@ -46,7 +46,7 @@ CLASS zsdv_cl_salesorder_test IMPLEMENTATION.
       ( salesdocument = '0000000003' sddocumentcategory = 'B' ) ).
     environment->insert_test_data( i_data = rows ).
 
-    SELECT FROM zsdv_i_salesorder
+    SELECT FROM zsdv_b_salesorder
       FIELDS salesdocument, salesorderisopen
       INTO TABLE @DATA(result).
 

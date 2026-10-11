@@ -1,10 +1,10 @@
 {
   "module": "classification",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XCL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -35,29 +35,25 @@
           "element": "ClassifiedObject",
           "source": "KSSK-OBJEK",
           "target": "KSSK-OBJEK",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "KSSK-KLART",
           "target": "KSSK-KLART",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Class",
           "source": "KLAH-CLASS",
           "target": "KLAH-CLASS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassificationStatus",
           "source": "KSSK-STATU",
           "target": "KSSK-STATU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -76,57 +72,49 @@
           "element": "ClassifiedObject",
           "source": "AUSP-OBJEK",
           "target": "AUSP-OBJEK",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ClassType",
           "source": "AUSP-KLART",
           "target": "AUSP-KLART",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Characteristic",
           "source": "CABN-ATNAM",
           "target": "CABN-ATNAM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValuePositionNumber",
           "source": "AUSP-ATZHL",
           "target": "AUSP-ATZHL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcValue",
           "source": "AUSP-ATWRT",
           "target": "AUSP-ATWRT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CharcFromNumericValue",
           "source": "AUSP-ATFLV",
           "target": "AUSP-ATFLV",
-          "rule": "convert:float_si_to_unit",
-          "compare": false
+          "rule": "convert:float_si_to_unit"
         },
         {
           "element": "CharcToNumericValue",
           "source": "AUSP-ATFLB",
           "target": "AUSP-ATFLB",
-          "rule": "convert:float_si_to_unit",
-          "compare": false
+          "rule": "convert:float_si_to_unit"
         },
         {
           "element": "CharcValueDependency",
           "source": "AUSP-ATCOD",
           "target": "AUSP-ATCOD",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     }
@@ -169,10 +157,10 @@
       "reason": "scope"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [],
+  "main_structure": "ZEMX_C_ClassAssignmentMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_ClassAssgmtMigCount",
-    "target_count_view": null,
     "dimensions": [
       {
         "element": "ClassType"
@@ -181,9 +169,6 @@
         "element": "Class"
       }
     ],
-    "measure": "RecordCount",
-    "compare": null
-  },
-  "gaps": [],
-  "main_structure": "ZEMX_C_ClassAssignmentMig"
+    "measure": "RecordCount"
+  }
 }

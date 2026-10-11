@@ -1,0 +1,42 @@
+{
+  "name": "asset_balance",
+  "title": "Asset fiscal year balances",
+  "description": "Asset fiscal year balances source records, source preparation contracts.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "balance"
+  ],
+  "sap_tables": [
+    "ANLC"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "fixed_asset"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFAX_B_AssetBalanceData"
+    ],
+    "composite": [
+      "ZFAX_I_AssetBalance"
+    ],
+    "consumption": [
+      "ZFAX_C_AssetBalanceMig",
+      "ZFAX_C_AssetBalanceMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFAX_B_AssetBalanceData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_I_AssetBalance": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_C_AssetBalanceMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFAX_C_AssetBalanceMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

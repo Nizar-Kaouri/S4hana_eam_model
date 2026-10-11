@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Maintenance Notification |
+| Description | Maintenance Notification - Cube |
 | Module | `maintenance_notification` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_MaintenanceNotification` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_MaintNotif` |
 | Source file | `src/zeam_i_maintnotif.ddls.asddls` |
 
 ## Purpose
 
-One row per maintenance notification with type, priority, processing phase, malfunction period, breakdown indicator, reference objects (as plain fields) and planning data; analytical dimension for every cube that references a notification.
+Notification cube with counters for all, open and breakdown notifications.
 
 ## Keys
 
@@ -23,17 +23,16 @@ One row per maintenance notification with type, priority, processing phase, malf
 
 ## Associations defined here
 
-- `_MaintenancePlant` → `I_Plant` [0..1]
-- `_MaintenancePlanningPlant` → `I_Plant` [0..1]
+- `_MaintenanceNotification` → `ZEAM_B_MaintNotif` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_MaintenanceNotification`.
+Role inherits the conditions of `ZEAM_B_MaintNotif`.
 
 ## Example use case
 
-Feed the downtime / MTBF reports (Batch 4) or list open breakdown notifications per plant.
+Open breakdown notifications per planning plant and priority; notification intake per month.
 
 ## Open verification items
 
-`GEN-C01`, `NT-001`, `NT-002`, `NT-003`, `NT-004`, `NT-005`, `NT-006`, `NT-007`, `NT-008`, `NT-D01` - see `BATCH_REPORT.md`.
+`NT-R01` - see `BATCH_REPORT.md`.

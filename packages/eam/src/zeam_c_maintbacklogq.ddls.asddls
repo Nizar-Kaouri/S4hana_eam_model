@@ -1,7 +1,7 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZEAM_R_MaintBacklog. Open orders, open operations and remaining work per work center and age bucket.
+// Purpose: Analytical query on ZEAM_I_MaintBacklog. Open orders, open operations and remaining work per work center and age bucket.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_R_MaintBacklog applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_I_MaintBacklog applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Maintenance Backlog Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZEAM_C_MaintBacklogQ
   provider contract analytical_query
-  as projection on ZEAM_R_MaintBacklog
+  as projection on ZEAM_I_MaintBacklog
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

@@ -1,0 +1,110 @@
+{
+  "module": "cost_actuals",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "cost_center",
+    "internal_order"
+  ],
+  "key": {
+    "business_key": [
+      "ControllingArea",
+      "COAccountingDocument",
+      "COAccountingDocumentItem"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZCOX_C_CostActualMig",
+      "source_view": "ZCOX_I_CostActual",
+      "scope_filter": "",
+      "keys": [
+        "ControllingArea",
+        "COAccountingDocument",
+        "COAccountingDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "ControllingArea",
+          "source": "COEP-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "COAccountingDocument",
+          "source": "COEP-BELNR",
+          "target": "customer interface field: COAccountingDocument (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "COAccountingDocumentItem",
+          "source": "COEP-BUZEI",
+          "target": "customer interface field: COAccountingDocumentItem (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "FiscalYear",
+          "source": "COEP-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "COEP-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CostElement",
+          "source": "COEP-KSTAR",
+          "target": "customer interface field: CostElement (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "ValueType",
+          "source": "COEP-WRTTP",
+          "target": "customer interface field: ValueType (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "BusinessTransaction",
+          "source": "COEP-VRGNG",
+          "target": "customer interface field: BusinessTransaction (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "TransactionAmount",
+          "source": "COEP-WTGBTR",
+          "target": "customer interface field: TransactionAmount (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "TransactionCurrency",
+          "source": "COEP-TWAER",
+          "target": "customer interface field: TransactionCurrency (unconfirmed)",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+  ],
+  "main_structure": "ZCOX_C_CostActualMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_CostActualMigCount",
+    "dimensions": [
+      {
+        "element": "ControllingArea"
+      }
+    ]
+  }
+}

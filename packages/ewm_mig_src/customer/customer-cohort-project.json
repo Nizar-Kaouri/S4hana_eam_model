@@ -1,0 +1,132 @@
+{
+  "cutover": "20261011",
+  "inputs": {
+    "ZWMX_C_StorageBinMig": "exports/ZWMX_C_StorageBinMig.csv",
+    "ZWMX_C_StorageBinMig_Scope": "selection/ZWMX_C_StorageBinMig.csv",
+    "ZWMX_C_BinSortingMig": "exports/ZWMX_C_BinSortingMig.csv",
+    "ZWMX_C_BinSortingMig_Scope": "selection/ZWMX_C_BinSortingMig.csv",
+    "ZWMX_C_TaskConfirmMig": "exports/ZWMX_C_TaskConfirmMig.csv",
+    "ZWMX_C_TaskConfirmMig_Scope": "selection/ZWMX_C_TaskConfirmMig.csv",
+    "ZWMX_C_WarehouseOrderMig": "exports/ZWMX_C_WarehouseOrderMig.csv",
+    "ZWMX_C_WarehouseOrderMig_Scope": "selection/ZWMX_C_WarehouseOrderMig.csv",
+    "ZWMX_C_WarehouseTaskMig": "exports/ZWMX_C_WarehouseTaskMig.csv",
+    "ZWMX_C_WarehouseTaskMig_Scope": "selection/ZWMX_C_WarehouseTaskMig.csv",
+    "ZWMX_C_WhDeliveryMig": "exports/ZWMX_C_WhDeliveryMig.csv",
+    "ZWMX_C_WhDeliveryMig_Scope": "selection/ZWMX_C_WhDeliveryMig.csv",
+    "ZWMX_C_WhDeliveryItemMig": "exports/ZWMX_C_WhDeliveryItemMig.csv",
+    "ZWMX_C_WhDeliveryItemMig_Scope": "selection/ZWMX_C_WhDeliveryItemMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZWMX_C_StorageBinMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_StorageBinMig",
+      "parent": "ZWMX_C_StorageBinMig_Scope",
+      "child_keys": [
+        "Warehouse",
+        "StorageBin"
+      ],
+      "parent_keys": [
+        "Warehouse",
+        "StorageBin"
+      ]
+    },
+    {
+      "name": "ZWMX_C_BinSortingMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_BinSortingMig",
+      "parent": "ZWMX_C_BinSortingMig_Scope",
+      "child_keys": [
+        "Warehouse",
+        "StorageBin",
+        "ActivityArea",
+        "Activity"
+      ],
+      "parent_keys": [
+        "Warehouse",
+        "StorageBin",
+        "ActivityArea",
+        "Activity"
+      ]
+    },
+    {
+      "name": "ZWMX_C_TaskConfirmMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_TaskConfirmMig",
+      "parent": "ZWMX_C_TaskConfirmMig_Scope",
+      "child_keys": [
+        "Warehouse",
+        "WarehouseTask",
+        "WarehouseTaskItem"
+      ],
+      "parent_keys": [
+        "Warehouse",
+        "WarehouseTask",
+        "WarehouseTaskItem"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WarehouseOrderMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WarehouseOrderMig",
+      "parent": "ZWMX_C_WarehouseOrderMig_Scope",
+      "child_keys": [
+        "Warehouse",
+        "WarehouseOrder"
+      ],
+      "parent_keys": [
+        "Warehouse",
+        "WarehouseOrder"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WarehouseTaskMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WarehouseTaskMig",
+      "parent": "ZWMX_C_WarehouseTaskMig_Scope",
+      "child_keys": [
+        "Warehouse",
+        "WarehouseTask"
+      ],
+      "parent_keys": [
+        "Warehouse",
+        "WarehouseTask"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WhDeliveryMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WhDeliveryMig",
+      "parent": "ZWMX_C_WhDeliveryMig_Scope",
+      "child_keys": [
+        "DeliveryUUID"
+      ],
+      "parent_keys": [
+        "DeliveryUUID"
+      ]
+    },
+    {
+      "name": "ZWMX_C_WhDeliveryItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZWMX_C_WhDeliveryItemMig",
+      "parent": "ZWMX_C_WhDeliveryItemMig_Scope",
+      "child_keys": [
+        "DeliveryUUID",
+        "DeliveryItemUUID"
+      ],
+      "parent_keys": [
+        "DeliveryUUID",
+        "DeliveryItemUUID"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZWMX_C_StorageBinMig_Prepared",
+    "ZWMX_C_BinSortingMig_Prepared",
+    "ZWMX_C_TaskConfirmMig_Prepared",
+    "ZWMX_C_WarehouseOrderMig_Prepared",
+    "ZWMX_C_WarehouseTaskMig_Prepared",
+    "ZWMX_C_WhDeliveryMig_Prepared",
+    "ZWMX_C_WhDeliveryItemMig_Prepared"
+  ]
+}

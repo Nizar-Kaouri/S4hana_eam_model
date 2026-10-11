@@ -1,0 +1,81 @@
+{
+  "ZWMX_C_StorageBinMig": {
+    "module": "storage_bin",
+    "table": "/SCWM/LAGP",
+    "keys": [
+      "Warehouse",
+      "StorageBin"
+    ],
+    "selection": "selection/ZWMX_C_StorageBinMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZWMX_C_BinSortingMig": {
+    "module": "storage_bin",
+    "table": "/SCWM/LAGPS",
+    "keys": [
+      "Warehouse",
+      "StorageBin",
+      "ActivityArea",
+      "Activity"
+    ],
+    "selection": "selection/ZWMX_C_BinSortingMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZWMX_C_TaskConfirmMig": {
+    "module": "warehouse_task",
+    "table": "/SCWM/ORDIM_C",
+    "keys": [
+      "Warehouse",
+      "WarehouseTask",
+      "WarehouseTaskItem"
+    ],
+    "selection": "selection/ZWMX_C_TaskConfirmMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WarehouseOrderMig": {
+    "module": "warehouse_order",
+    "table": "/SCWM/WHO",
+    "keys": [
+      "Warehouse",
+      "WarehouseOrder"
+    ],
+    "selection": "selection/ZWMX_C_WarehouseOrderMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WarehouseTaskMig": {
+    "module": "warehouse_task",
+    "table": "/SCWM/ORDIM_O",
+    "keys": [
+      "Warehouse",
+      "WarehouseTask"
+    ],
+    "selection": "selection/ZWMX_C_WarehouseTaskMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WhDeliveryMig": {
+    "module": "warehouse_delivery",
+    "table": "/SCDL/DB_PROCH_I",
+    "keys": [
+      "DeliveryUUID"
+    ],
+    "selection": "selection/ZWMX_C_WhDeliveryMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZWMX_C_WhDeliveryItemMig": {
+    "module": "warehouse_delivery",
+    "table": "/SCDL/DB_PROCI_I",
+    "keys": [
+      "DeliveryUUID",
+      "DeliveryItemUUID"
+    ],
+    "selection": "selection/ZWMX_C_WhDeliveryItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  }
+}

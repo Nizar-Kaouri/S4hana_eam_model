@@ -1,0 +1,76 @@
+{
+  "ZFCX_C_CreditProfileMig": {
+    "module": "credit_profile",
+    "table": "UKMBP_CMS",
+    "keys": [
+      "BusinessPartner"
+    ],
+    "selection": "selection/ZFCX_C_CreditProfileMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFCX_C_CreditSegmentMig": {
+    "module": "credit_segment",
+    "table": "UKMBP_CMS_SGM",
+    "keys": [
+      "BusinessPartner",
+      "CreditSegment"
+    ],
+    "selection": "selection/ZFCX_C_CreditSegmentMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZFCX_C_CollectContactMig": {
+    "module": "collection_activity",
+    "table": "UDM_CCT_ATTR",
+    "keys": [
+      "ContactUUID"
+    ],
+    "selection": "selection/ZFCX_C_CollectContactMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZFCX_C_PaymentPromiseMig": {
+    "module": "promise_to_pay",
+    "table": "UDM_P2P_ATTR",
+    "keys": [
+      "CaseUUID"
+    ],
+    "selection": "selection/ZFCX_C_PaymentPromiseMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZFCX_C_DisputeCaseMig": {
+    "module": "dispute_case",
+    "table": "UDMCASEATTR00",
+    "keys": [
+      "CaseUUID"
+    ],
+    "selection": "selection/ZFCX_C_DisputeCaseMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZFCX_C_CaseAttributeMig": {
+    "module": "dispute_case",
+    "table": "SCMG_T_CASE_ATTR",
+    "keys": [
+      "CaseUUID"
+    ],
+    "selection": "selection/ZFCX_C_CaseAttributeMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZFCX_C_CreditExposureMig": {
+    "module": "credit_exposure",
+    "table": "UKM_TOTALS",
+    "keys": [
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "Currency"
+    ],
+    "selection": "selection/ZFCX_C_CreditExposureMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  }
+}

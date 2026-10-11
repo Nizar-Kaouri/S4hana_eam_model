@@ -1,0 +1,67 @@
+{
+  "name": "bank",
+  "title": "Bank master",
+  "description": "Bank master. Bank country and key identify the bank; preserve country-specific key formats and deletion status. House banks, house-bank accounts, bank account management and customer/supplier bank details are distinct objects and require their own approved interface/configuration. Do not treat bank master as a bank account balance.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "master"
+  ],
+  "sap_tables": [
+    "BNKA",
+    "ADR6",
+    "ADR2",
+    "ADR3"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "address"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFIX_B_BankData",
+      "ZFIX_B_BankEmailData",
+      "ZFIX_B_BankPhoneData",
+      "ZFIX_B_BankFaxData"
+    ],
+    "composite": [
+      "ZFIX_I_Bank",
+      "ZFIX_I_BankAddress",
+      "ZFIX_I_BankEmail",
+      "ZFIX_I_BankPhone",
+      "ZFIX_I_BankFax"
+    ],
+    "consumption": [
+      "ZFIX_C_BankMig",
+      "ZFIX_C_BankMigCount",
+      "ZFIX_C_BankAddressMig",
+      "ZFIX_C_BankEmailMig",
+      "ZFIX_C_BankPhoneMig",
+      "ZFIX_C_BankFaxMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFIX_B_BankData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_Bank": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_BankMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_BankMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_BankAddress": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_BankAddressMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_BankEmailData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_BankEmail": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_BankEmailMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_BankPhoneData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_BankPhone": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_BankPhoneMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_BankFaxData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_BankFax": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_BankFaxMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

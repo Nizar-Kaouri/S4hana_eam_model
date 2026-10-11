@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for the task list view.
+// TODO-VERIFY[H] TL-D01: the SAP task list view has an access control role and every element it references is projected by ZEAM_B_TaskList
+@EndUserText.label: 'Maintenance Task List'
+@MappingRole: true
+define role ZEAM_B_TaskList {
+  grant
+    select
+      on
+        ZEAM_B_TaskList
+          where
+            inheriting conditions from entity I_MaintenanceTaskList;
+}

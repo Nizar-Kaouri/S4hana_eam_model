@@ -1,0 +1,20 @@
+{
+  "keys": [
+    "TextObject",
+    "TextName",
+    "TextID",
+    "Language",
+    "LineNumber"
+  ],
+  "columns": [
+    "TextObject",
+    "TextName",
+    "TextID",
+    "Language",
+    "LineNumber",
+    "Format",
+    "Text"
+  ],
+  "zero_lines": "LineNumber=0 represents an existing empty text; no fabricated text line.",
+  "posting": "Map owner business keys and target OBJECT/ID/NAME; use supported interfaces."
+}

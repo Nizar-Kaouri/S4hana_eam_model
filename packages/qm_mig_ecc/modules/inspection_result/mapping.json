@@ -1,0 +1,175 @@
+{
+  "module": "inspection_result",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "inspection_lot"
+  ],
+  "key": {
+    "business_key": [
+      "InspectionLot",
+      "OperationInternalID",
+      "CharacteristicNumber"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZQMX_C_InspectCharactMig",
+      "source_view": "ZQMX_I_InspectCharact",
+      "scope_filter": "",
+      "keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ],
+      "fields": [
+        {
+          "element": "InspectionLot",
+          "source": "QAMV-PRUEFLOS",
+          "target": "customer interface field: InspectionLot (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "OperationInternalID",
+          "source": "QAMV-VORGLFNR",
+          "target": "customer interface field: OperationInternalID (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CharacteristicNumber",
+          "source": "QAMV-MERKNR",
+          "target": "customer interface field: CharacteristicNumber (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CharacteristicDescription",
+          "source": "QAMV-KURZTEXT",
+          "target": "customer interface field: CharacteristicDescription (unconfirmed)",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_CharacteristicMig",
+      "source_view": "ZQMX_I_Characteristic",
+      "scope_filter": "",
+      "keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber"
+      ],
+      "fields": [
+        {
+          "element": "InspectionLot",
+          "source": "QAMR-PRUEFLOS",
+          "target": "customer interface field: InspectionLot (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "OperationInternalID",
+          "source": "QAMR-VORGLFNR",
+          "target": "customer interface field: OperationInternalID (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CharacteristicNumber",
+          "source": "QAMR-MERKNR",
+          "target": "customer interface field: CharacteristicNumber (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "MeanValue",
+          "source": "QAMR-MITTELWERT",
+          "target": "customer interface field: MeanValue (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "MinimumValue",
+          "source": "QAMR-MIN",
+          "target": "customer interface field: MinimumValue (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "MaximumValue",
+          "source": "QAMR-MAX",
+          "target": "customer interface field: MaximumValue (unconfirmed)",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    },
+    {
+      "consumption_view": "ZQMX_C_SingleResultMig",
+      "source_view": "ZQMX_I_SingleResult",
+      "scope_filter": "",
+      "keys": [
+        "InspectionLot",
+        "OperationInternalID",
+        "CharacteristicNumber",
+        "SampleNumber",
+        "ResultNumber"
+      ],
+      "fields": [
+        {
+          "element": "InspectionLot",
+          "source": "QASE-PRUEFLOS",
+          "target": "customer interface field: InspectionLot (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "OperationInternalID",
+          "source": "QASE-VORGLFNR",
+          "target": "customer interface field: OperationInternalID (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CharacteristicNumber",
+          "source": "QASE-MERKNR",
+          "target": "customer interface field: CharacteristicNumber (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "SampleNumber",
+          "source": "QASE-PROBENR",
+          "target": "customer interface field: SampleNumber (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "ResultNumber",
+          "source": "QASE-DETAILERG",
+          "target": "customer interface field: ResultNumber (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "MeasuredValue",
+          "source": "QASE-MESSWERT",
+          "target": "customer interface field: MeasuredValue (unconfirmed)",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions."
+  ],
+  "main_structure": "ZQMX_C_InspectCharactMig",
+  "source_control": {
+    "source_count_view": "ZQMX_C_InspectCharactMigCount",
+    "dimensions": [
+      {
+        "element": "InspectionLot"
+      }
+    ]
+  }
+}

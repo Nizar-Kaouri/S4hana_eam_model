@@ -1,0 +1,63 @@
+{
+  "name": "material_stock",
+  "title": "Inventory balances",
+  "description": "Inventory balances source records, source preparation contracts.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "balance"
+  ],
+  "sap_tables": [
+    "MARD",
+    "MCHB",
+    "MSKA",
+    "MSLB"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "product"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZMMX_B_LocationStockData",
+      "ZMMX_B_BatchStockData",
+      "ZMMX_B_SalesOrderStocData",
+      "ZMMX_B_SupplierStockData"
+    ],
+    "composite": [
+      "ZMMX_I_LocationStock",
+      "ZMMX_I_BatchStock",
+      "ZMMX_I_SalesOrderStoc",
+      "ZMMX_I_SupplierStock"
+    ],
+    "consumption": [
+      "ZMMX_C_LocationStockMig",
+      "ZMMX_C_LocationStockMigCount",
+      "ZMMX_C_BatchStockMig",
+      "ZMMX_C_SalesOrderStocMig",
+      "ZMMX_C_SupplierStockMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZMMX_B_LocationStockData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_LocationStock": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_LocationStockMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_LocationStockMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_B_BatchStockData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_BatchStock": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_BatchStockMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_B_SalesOrderStocData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_SalesOrderStoc": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_SalesOrderStocMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_B_SupplierStockData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_I_SupplierStock": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZMMX_C_SupplierStockMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

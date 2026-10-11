@@ -1,5 +1,7 @@
 # Cross-Product Bridge - CDS link views between products
 
+Naming: **B_ = Basic, I_ = Interface (Composite), C_ = Consumption**. See [naming guidance](../../docs/NAMING.md).
+
 > **Status: draft-unverified.** 18 link objects, never activated on an SAP system.
 > Tested release: none (draft, 2025 assumed).
 
@@ -19,27 +21,27 @@ modules (after hard dependencies) are in the selection. `build_package.py --prod
 
 | Object | Requires modules | Access control |
 |---|---|---|
-| `ZBRG_I_EquipmentWithAsset` | `eam:equipment`, `fi_aa:fixed_asset` | `ZBRG_I_EquipmentWithAsset` |
-| `ZBRG_R_EquipmentAssetValue` | `eam:equipment`, `fi_aa:rpt_asset_balance` | `ZBRG_R_EquipmentAssetValue` |
+| `ZBRG_B_EquipmentWithAsset` | `eam:equipment`, `fi_aa:fixed_asset` | `ZBRG_B_EquipmentWithAsset` |
+| `ZBRG_I_EquipmentAssetValue` | `eam:equipment`, `fi_aa:rpt_asset_balance` | `ZBRG_I_EquipmentAssetValue` |
 | `ZBRG_C_EquipAssetValueQ` | `eam:equipment`, `fi_aa:rpt_asset_balance` | none (transient query, GEN-Q01) |
+| `ZBRG_B_OrderCompWithProduct` | `eam:maintenance_order`, `mm:product` | `ZBRG_B_OrderCompWithProduct` |
 | `ZBRG_I_OrderCompWithProduct` | `eam:maintenance_order`, `mm:product` | `ZBRG_I_OrderCompWithProduct` |
-| `ZBRG_R_OrderCompWithProduct` | `eam:maintenance_order`, `mm:product` | `ZBRG_R_OrderCompWithProduct` |
 | `ZBRG_C_OrderCompProductQ` | `eam:maintenance_order`, `mm:product` | none (transient query, GEN-Q01) |
-| `ZBRG_I_MaintOrderWithGoodsMvt` | `eam:maintenance_order`, `mm:goods_movement` | `ZBRG_I_MaintOrderWithGoodsMvt` |
-| `ZBRG_R_MaintCostWithCostCtr` | `co:cost_center`, `eam:rpt_order_cost` | `ZBRG_R_MaintCostWithCostCtr` |
+| `ZBRG_B_MaintOrderWithGoodsMvt` | `eam:maintenance_order`, `mm:goods_movement` | `ZBRG_B_MaintOrderWithGoodsMvt` |
+| `ZBRG_I_MaintCostWithCostCtr` | `co:cost_center`, `eam:rpt_order_cost` | `ZBRG_I_MaintCostWithCostCtr` |
 | `ZBRG_C_MaintCostCostCtrQ` | `co:cost_center`, `eam:rpt_order_cost` | none (transient query, GEN-Q01) |
-| `ZBRG_I_ProdOpWithWorkCenter` | `eam:work_center`, `pp:production_order_operation` | `ZBRG_I_ProdOpWithWorkCenter` |
-| `ZBRG_R_POItemWithSupplier` | `fi:supplier`, `mm:purchase_order` | `ZBRG_R_POItemWithSupplier` |
+| `ZBRG_B_ProdOpWithWorkCenter` | `eam:work_center`, `pp:production_order_operation` | `ZBRG_B_ProdOpWithWorkCenter` |
+| `ZBRG_I_POItemWithSupplier` | `fi:supplier`, `mm:purchase_order` | `ZBRG_I_POItemWithSupplier` |
 | `ZBRG_C_POItemSupplierQ` | `fi:supplier`, `mm:purchase_order` | none (transient query, GEN-Q01) |
-| `ZBRG_R_RevenueWithCustomer` | `fi:customer`, `sd:billing_document` | `ZBRG_R_RevenueWithCustomer` |
+| `ZBRG_I_RevenueWithCustomer` | `fi:customer`, `sd:billing_document` | `ZBRG_I_RevenueWithCustomer` |
 | `ZBRG_C_RevenueCustomerQ` | `fi:customer`, `sd:billing_document` | none (transient query, GEN-Q01) |
-| `ZBRG_R_InspLotWithProduct` | `mm:product`, `qm:inspection_lot` | `ZBRG_R_InspLotWithProduct` |
+| `ZBRG_I_InspLotWithProduct` | `mm:product`, `qm:inspection_lot` | `ZBRG_I_InspLotWithProduct` |
 | `ZBRG_C_InspLotProductQ` | `mm:product`, `qm:inspection_lot` | none (transient query, GEN-Q01) |
-| `ZBRG_R_ProdOrderWithProduct` | `mm:product`, `pp:production_order` | `ZBRG_R_ProdOrderWithProduct` |
+| `ZBRG_I_ProdOrderWithProduct` | `mm:product`, `pp:production_order` | `ZBRG_I_ProdOrderWithProduct` |
 | `ZBRG_C_ProdOrderProductQ` | `mm:product`, `pp:production_order` | none (transient query, GEN-Q01) |
 
-Layer rules are the same as for intra-product links: `ZBRG_I_*` basic views with associations,
-`ZBRG_R_*` composite cubes, and `ZBRG_C_*Q` transient analytical queries. A bridge may only reference
+Layer rules are the same as for intra-product links: `ZBRG_B_*` basic views with associations,
+`ZBRG_I_*` composite cubes, and `ZBRG_C_*Q` transient analytical queries. A bridge may only reference
 **module** objects of its required modules (incl. their hard dependencies), never another product's
 link views (`tools/validate_bridge.py`, rule B4).
 

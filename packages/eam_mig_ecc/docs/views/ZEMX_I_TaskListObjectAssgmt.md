@@ -1,27 +1,31 @@
 # ZEMX_I_TaskListObjectAssgmt
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
 | Description | Task list object assignment |
 | Module | `task_list` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
 | Data category | #DIMENSION |
-| Data source | `eapl` |
+| Data source | `ZEMX_B_EquipTaskListAsgmt` |
 | Source file | `src/zemx_i_tasklistobjectassgmt.ddls.asddls` |
 
 ## Purpose
 
-Assignment of equipment task lists (type E) to equipment and of functional location task lists (type T) to functional locations (EAPL).
+Task-list object allocation change states; customer resolves validity at cutover.
 
 ## Keys
 
-- `plnty`
-- `plnnr`
-- `plnal`
+- `TaskListType`
+- `TaskListGroup`
+- `TaskListGroupCounter`
+- `Equipment`
+- `FunctionalLocation`
+- `AdditionalCriteriaCounter`
+- `AssignmentCounter`
 
 ## Associations defined here
 
@@ -29,12 +33,8 @@ Assignment of equipment task lists (type E) to equipment and of functional locat
 
 ## Access control
 
-No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
+No DCL by design: Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.
 
 ## Example use case
 
 Find the task lists of equipment 10000001.
-
-## Open verification items
-
-`XTL-005` - see `BATCH_REPORT.md`.

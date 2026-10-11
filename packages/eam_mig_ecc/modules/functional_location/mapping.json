@@ -1,10 +1,10 @@
 {
   "module": "functional_location",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XFL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -30,210 +30,289 @@
           "element": "FunctionalLocation",
           "source": "IFLOT-TPLNR",
           "target": "IFLOT-TPLNR",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocationCategory",
           "source": "IFLOT-FLTYP",
           "target": "IFLOT-FLTYP",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "FuncLocationStructure",
           "source": "IFLOT-TPLKZ",
           "target": "IFLOT-TPLKZ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "SuperiorFunctionalLocation",
           "source": "IFLOT-TPLMA",
           "target": "IFLOT-TPLMA",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TechnicalObjectType",
           "source": "IFLOT-EQART",
           "target": "IFLOT-EQART",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "AuthorizationGroup",
           "source": "IFLOT-BEGRU",
           "target": "IFLOT-BEGRU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlanningPlant",
           "source": "IFLOT-IWERK",
           "target": "IFLOT-IWERK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlannerGroup",
           "source": "IFLOT-INGRP",
           "target": "IFLOT-INGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EquipInstallationIsAllowed",
           "source": "IFLOT-IEQUI",
           "target": "IFLOT-IEQUI",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "EquipIsSingleInstallation",
           "source": "IFLOT-EINZL",
           "target": "IFLOT-EINZL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ConstructionType",
           "source": "IFLOT-SUBMT",
           "target": "IFLOT-SUBMT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssetManufacturerName",
           "source": "IFLOT-HERST",
           "target": "IFLOT-HERST",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ConstructionYear",
           "source": "IFLOT-BAUJJ",
           "target": "IFLOT-BAUJJ",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "InventoryNumber",
           "source": "IFLOT-INVNR",
           "target": "IFLOT-INVNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "OperationStartDate",
           "source": "IFLOT-INBDT",
           "target": "IFLOT-INBDT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MaintenancePlant",
           "source": "ILOA-SWERK",
           "target": "ILOA-SWERK",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "PlantSection",
           "source": "ILOA-BEBER",
           "target": "ILOA-BEBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssetLocation",
           "source": "ILOA-STORT",
           "target": "ILOA-STORT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AssetRoom",
           "source": "ILOA-MSGRP",
           "target": "ILOA-MSGRP",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ABCIndicator",
           "source": "ILOA-ABCKZ",
           "target": "ILOA-ABCKZ",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "SortField",
           "source": "ILOA-EQFNR",
           "target": "ILOA-EQFNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CompanyCode",
           "source": "ILOA-BUKRS",
           "target": "ILOA-BUKRS",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "BusinessArea",
           "source": "ILOA-GSBER",
           "target": "ILOA-GSBER",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "ILOA-KOKRS",
           "target": "ILOA-KOKRS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "ILOA-KOSTL",
           "target": "ILOA-KOSTL",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MasterFixedAsset",
           "source": "ILOA-ANLNR",
           "target": "ILOA-ANLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FixedAsset",
           "source": "ILOA-ANLUN",
           "target": "ILOA-ANLUN",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "StandingOrder",
           "source": "ILOA-DAUFN",
           "target": "",
-          "rule": "derive:follow-up step after the order load",
-          "compare": false
+          "rule": "derive:follow-up step after the order load"
         },
         {
           "element": "LastChangeDate",
           "source": "IFLOT-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ILOA-ADRNR",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "HasStandardAddress",
+          "source": "derived: presence of the standard ADRC record",
+          "target": "",
+          "rule": "info"
         }
       ]
     },
     {
       "consumption_view": "ZEMX_C_FuncLocTextMig",
-      "source_view": "ZEMX_I_FuncLocDesc",
+      "source_view": "ZEMX_I_FuncLocText",
       "scope_filter": "_FuncLoc.IsMarkedForDeletion = ''",
       "keys": [
         "FunctionalLocation",
@@ -244,24 +323,686 @@
           "element": "FunctionalLocation",
           "source": "IFLOTX-TPLNR",
           "target": "IFLOTX-TPLNR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "IFLOTX-SPRAS",
           "target": "IFLOTX-SPRAS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "FunctionalLocationName",
           "source": "IFLOTX-PLTXT",
           "target": "IFLOTX-PLTXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocLabelMig",
+      "source_view": "ZEMX_I_FuncLocLabel",
+      "scope_filter": "_Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "FunctionalLocation",
+        "LabelingSystem"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOS-TPLNR",
+          "target": "IFLOS-TPLNR",
+          "rule": "copy"
+        },
+        {
+          "element": "LabelingSystem",
+          "source": "IFLOS-ALTNR",
+          "target": "IFLOS-ALTNR",
+          "rule": "copy"
+        },
+        {
+          "element": "AlternativeLabel",
+          "source": "IFLOS-STRNO",
+          "target": "IFLOS-STRNO",
+          "rule": "copy"
+        },
+        {
+          "element": "IsActiveLabel",
+          "source": "IFLOS-ACTVS",
+          "target": "IFLOS-ACTVS",
+          "rule": "copy"
+        }
+      ]
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocAddressMig",
+      "source_view": "ZEMX_I_FuncLocAddress",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADRC-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidFrom",
+          "source": "ADRC-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressVersion",
+          "source": "ADRC-NATION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocPartnerMig",
+      "source_view": "ZEMX_I_FuncLocPartner",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "PartnerFunction",
+        "PartnerCounter"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "IHPA-PARVW",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerCounter",
+          "source": "IHPA-COUNTER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Partner",
+          "source": "IHPA-PARNR",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Resolve partner identities and language-independent partner functions through a supported business interface after the selected master. Preserve partner counters; deleted partner assignments are excluded."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocStatusMig",
+      "source_view": "ZEMX_I_FuncLocStatus",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "source: FunctionalLocation",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusKind",
+          "source": "source: StatusKind",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocUserStatusMig",
+      "source_view": "ZEMX_I_FuncLocUserStatus",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "StatusCode"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "source: FunctionalLocation",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusCode",
+          "source": "JEST-STAT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusKind",
+          "source": "source: StatusKind",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusProfile",
+          "source": "JSTO-STSMA",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "StatusChangeNumber",
+          "source": "JEST-CHGNR",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Map source profile and E* user status codes to configured target profiles/statuses. Apply through a supported post-load business operation; do not replay system statuses or write JEST/JSTO."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocClassMig",
+      "source_view": "ZEMX_I_FuncLocClass",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "ClassType",
+        "Class"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "source: FunctionalLocation",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ClassType",
+          "source": "KSSK-KLART",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Class",
+          "source": "KLAH-CLASS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ClassificationStatus",
+          "source": "KSSK-STATU",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocCharcMig",
+      "source_view": "ZEMX_I_FuncLocCharc",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "ClassType",
+        "Characteristic",
+        "CharcValuePositionNumber"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "source: FunctionalLocation",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ClassType",
+          "source": "AUSP-KLART",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Characteristic",
+          "source": "CABN-ATNAM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcValuePositionNumber",
+          "source": "AUSP-ATZHL",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcValue",
+          "source": "AUSP-ATWRT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcFromNumericValue",
+          "source": "AUSP-ATFLV",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcToNumericValue",
+          "source": "AUSP-ATFLB",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CharcValueDependency",
+          "source": "AUSP-ATCOD",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve ECM counters and evaluate classification effectivity at the approved cutover date before posting."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocEmailMig",
+      "source_view": "ZEMX_I_FuncLocEmail",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR6-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR6-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR6-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR6-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "EmailAddress",
+          "source": "ADR6-SMTP_ADDR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR6-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocPhoneMig",
+      "source_view": "ZEMX_I_FuncLocPhone",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR2-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR2-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR2-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR2-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Telephone",
+          "source": "ADR2-TEL_NUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TelephoneExtension",
+          "source": "ADR2-TEL_EXTENS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR2-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocFaxMig",
+      "source_view": "ZEMX_I_FuncLocFax",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "AddressNumber",
+        "PersonNumber",
+        "CommunicationValidFrom",
+        "CommunicationCounter"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "IFLOT-TPLNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADR3-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "PersonNumber",
+          "source": "ADR3-PERSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationValidFrom",
+          "source": "ADR3-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CommunicationCounter",
+          "source": "ADR3-CONSNUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxNumber",
+          "source": "ADR3-FAX_NUMBER",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "FaxExtension",
+          "source": "ADR3-FAX_EXTENS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "IsDefaultCommunication",
+          "source": "ADR3-FLGDEFAULT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve every communication counter and date. Organization communication only (PERSNUMBER blank); personal contact data belongs to the contact-person business object. Map SAP-generated target address identities through a supported interface."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocLongTextMig",
+      "source_view": "ZEMX_I_FuncLocLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    },
+    {
+      "consumption_view": "ZEMX_C_FuncLocBOMMig",
+      "source_view": "ZEMX_I_FuncLocBOM",
+      "scope_filter": "",
+      "keys": [
+        "FunctionalLocation",
+        "Plant",
+        "BOMUsage",
+        "BillOfMaterial",
+        "BOMAlternative"
+      ],
+      "fields": [
+        {
+          "element": "FunctionalLocation",
+          "source": "TPST-TPLNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Plant",
+          "source": "TPST-WERKS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BOMUsage",
+          "source": "TPST-STLAN",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BillOfMaterial",
+          "source": "TPST-STLNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "BOMAlternative",
+          "source": "TPST-STLAL",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Select the functional-location BOM assignments with the same prepared functional locations. Derive the approved BOM category T / number / alternative and node populations for the existing equipment_bom header, selection and item exports. Apply their documented ECM/key-date workflow; source BOM numbers are mapped to target identities."
     }
   ],
   "not_migrated": [
@@ -288,18 +1029,14 @@
       "element": "CreatedByUser",
       "source": "IFLOT-ERNAM",
       "reason": "info"
-    },
-    {
-      "view": "ZEMX_I_FuncLocDesc",
-      "element": "HasLongText",
-      "source": "IFLOTX-KZLTX",
-      "reason": "info"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks."
+  ],
+  "main_structure": "ZEMX_C_FuncLocMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_FuncLocMigCount",
-    "target_count_view": "ZEMT_I_FuncLocCount",
     "dimensions": [
       {
         "element": "MaintenancePlanningPlant"
@@ -308,27 +1045,6 @@
         "element": "FunctionalLocationCategory"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_FuncLocMig",
-      "target_view": "ZEMT_I_FuncLocCompare",
-      "key": [
-        "FunctionalLocation"
-      ],
-      "fields": [
-        "FunctionalLocationCategory",
-        "SuperiorFunctionalLocation",
-        "TechnicalObjectType",
-        "MaintenancePlanningPlant",
-        "MaintenancePlant",
-        "ABCIndicator",
-        "CompanyCode",
-        "CostCenter"
-      ]
-    }
-  },
-  "gaps": [
-    "TODO-VERIFY[H] XFL-G01: alternative labeling (IFLOS) and structure indicator edit masks must match on S/4HANA before the load"
-  ],
-  "main_structure": "ZEMX_C_FuncLocMig"
+    "measure": "RecordCount"
+  }
 }

@@ -1,0 +1,25 @@
+{
+  "key": [
+    "CompanyCode",
+    "FiscalYear",
+    "AccountingDocument",
+    "AccountingDocumentItem"
+  ],
+  "group_by": [
+    "CompanyCode",
+    "DocumentCurrency"
+  ],
+  "metrics": [
+    {
+      "field": "DocumentAmount",
+      "dimension": "DocumentCurrency",
+      "basis": "unsigned",
+      "sign_field": "DebitCreditCode",
+      "signs": {
+        "S": "1",
+        "H": "-1"
+      }
+    }
+  ],
+  "tolerance": "0"
+}

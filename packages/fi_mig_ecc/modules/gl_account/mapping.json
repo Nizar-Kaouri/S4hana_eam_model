@@ -1,0 +1,201 @@
+{
+  "module": "gl_account",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFIX_C_GLAccountMig",
+      "source_view": "ZFIX_I_GLAccount",
+      "scope_filter": "",
+      "keys": [
+        "ChartOfAccounts",
+        "GLAccount"
+      ],
+      "fields": [
+        {
+          "element": "ChartOfAccounts",
+          "source": "SKA1-KTOPL",
+          "target": "customer interface field: ChartOfAccounts (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "GLAccount",
+          "source": "SKA1-SAKNR",
+          "target": "customer interface field: GLAccount (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "AccountGroup",
+          "source": "SKA1-KTOKS",
+          "target": "customer interface field: AccountGroup (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "BalanceSheetAccount",
+          "source": "SKA1-XBILK",
+          "target": "customer interface field: BalanceSheetAccount (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "SKA1-XLOEV",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_GLAccountTextMig",
+      "source_view": "ZFIX_I_GLAccountText",
+      "scope_filter": "",
+      "keys": [
+        "Language",
+        "ChartOfAccounts",
+        "GLAccount"
+      ],
+      "fields": [
+        {
+          "element": "Language",
+          "source": "SKAT-SPRAS",
+          "target": "customer interface field: Language (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ChartOfAccounts",
+          "source": "SKAT-KTOPL",
+          "target": "customer interface field: ChartOfAccounts (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "GLAccount",
+          "source": "SKAT-SAKNR",
+          "target": "customer interface field: GLAccount (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "GLAccountName",
+          "source": "SKAT-TXT20",
+          "target": "customer interface field: GLAccountName (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "GLAccountDescription",
+          "source": "SKAT-TXT50",
+          "target": "customer interface field: GLAccountDescription (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_GLCompanyMig",
+      "source_view": "ZFIX_I_GLCompany",
+      "scope_filter": "",
+      "keys": [
+        "CompanyCode",
+        "GLAccount"
+      ],
+      "fields": [
+        {
+          "element": "CompanyCode",
+          "source": "SKB1-BUKRS",
+          "target": "customer interface field: CompanyCode (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "GLAccount",
+          "source": "SKB1-SAKNR",
+          "target": "customer interface field: GLAccount (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "AccountCurrency",
+          "source": "SKB1-WAERS",
+          "target": "customer interface field: AccountCurrency (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OpenItemManagement",
+          "source": "SKB1-XOPVW",
+          "target": "customer interface field: OpenItemManagement (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "SKB1-XLOEB",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+    },
+    {
+      "consumption_view": "ZFIX_C_GLAccountLongTextMig",
+      "source_view": "ZFIX_I_GLAccountLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances."
+  ],
+  "main_structure": "ZFIX_C_GLAccountMig",
+  "source_control": {
+    "source_count_view": "ZFIX_C_GLAccountMigCount",
+    "dimensions": [
+      {
+        "element": "ChartOfAccounts"
+      }
+    ]
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "asset_balance": {
+      "native_tables": [
+        "ANLC"
+      ],
+      "structures": [
+        {
+          "view": "ZFAX_C_AssetBalanceMig",
+          "interface": "ZFAX_I_AssetBalance",
+          "keys": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "FiscalYear",
+            "DepreciationArea"
+          ],
+          "mode": "balance",
+          "fields": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "FiscalYear",
+            "DepreciationArea",
+            "CumulativeAcquisition",
+            "CumulativeDepreciation",
+            "CurrentYearAcquisition",
+            "PostedDepreciation"
+          ]
+        }
+      ],
+      "boundary": "Asset fiscal year balances source records, source preparation contracts."
+    },
+    "asset_transaction": {
+      "native_tables": [
+        "ANEP"
+      ],
+      "structures": [
+        {
+          "view": "ZFAX_C_AssetPostingMig",
+          "interface": "ZFAX_I_AssetPosting",
+          "keys": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "FiscalYear",
+            "AssetLineItem",
+            "DepreciationArea"
+          ],
+          "mode": "reference",
+          "fields": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "FiscalYear",
+            "AssetLineItem",
+            "DepreciationArea",
+            "AssetValueDate",
+            "AssetTransactionType",
+            "AssetAmount",
+            "AccountingDocument"
+          ]
+        }
+      ],
+      "boundary": "Asset transaction history source records, source preparation contracts."
+    },
+    "fixed_asset": {
+      "native_tables": [
+        "ANLA",
+        "ANLB",
+        "ANLZ",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZFAX_C_AssetMig",
+          "interface": "ZFAX_I_Asset",
+          "keys": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset"
+          ],
+          "mode": "master",
+          "fields": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "AssetClass",
+            "FixedAssetDescription",
+            "InventoryNumber",
+            "AssetCapitalizationDate",
+            "AssetDeactivationDate",
+            "AssetDescription2",
+            "SerialNumber",
+            "Manufacturer",
+            "Quantity",
+            "QuantityUnit"
+          ]
+        },
+        {
+          "view": "ZFAX_C_AssetAssignmenMig",
+          "interface": "ZFAX_I_AssetAssignmen",
+          "keys": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "ValidityEndDate"
+          ],
+          "mode": "master",
+          "fields": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "ValidityEndDate",
+            "ValidityStartDate",
+            "CostCenter",
+            "Plant",
+            "AssetLocation",
+            "BusinessArea"
+          ]
+        },
+        {
+          "view": "ZFAX_C_DepreciationMig",
+          "interface": "ZFAX_I_Depreciation",
+          "keys": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "DepreciationArea"
+          ],
+          "mode": "master",
+          "fields": [
+            "CompanyCode",
+            "MasterFixedAsset",
+            "FixedAsset",
+            "DepreciationArea",
+            "DepreciationKey",
+            "UsefulLifeYears",
+            "UsefulLifePeriods",
+            "DepreciationStartDate"
+          ]
+        },
+        {
+          "view": "ZFAX_C_AssetLongTextMig",
+          "interface": "ZFAX_I_AssetLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Fixed assets source records, source preparation contracts."
+    }
+  }
+}

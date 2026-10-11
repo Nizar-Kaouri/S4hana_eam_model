@@ -19,17 +19,17 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZMMV_I_GoodsMovement"
+      "ZMMV_B_GoodsMovement"
     ],
     "composite": [
-      "ZMMV_R_GoodsMovement"
+      "ZMMV_I_GoodsMovement"
     ],
     "consumption": [
       "ZMMV_C_GoodsMovementQ"
     ],
     "access_controls": [
-      "ZMMV_I_GoodsMovement",
-      "ZMMV_R_GoodsMovement"
+      "ZMMV_B_GoodsMovement",
+      "ZMMV_I_GoodsMovement"
     ],
     "metadata_extensions": [],
     "tests": [
@@ -37,16 +37,16 @@
     ]
   },
   "no_dcl_by_design": {
-    "ZMMV_C_GoodsMovementQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_GoodsMovement (see GEN-Q01)."
+    "ZMMV_C_GoodsMovementQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_GoodsMovement (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZMMV_R_GoodsMvtWithProduct",
+      "name": "ZMMV_I_GoodsMvtWithProduct",
       "requires_modules": [
         "goods_movement",
         "product"
       ],
-      "access_control": "ZMMV_R_GoodsMvtWithProduct"
+      "access_control": "ZMMV_I_GoodsMvtWithProduct"
     },
     {
       "name": "ZMMV_C_GoodsMvtProductQ",
@@ -54,7 +54,7 @@
         "goods_movement",
         "product"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_GoodsMvtWithProduct (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_I_GoodsMvtWithProduct (see GEN-Q01)."
     }
   ]
 }

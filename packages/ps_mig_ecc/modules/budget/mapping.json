@@ -1,0 +1,164 @@
+{
+  "module": "budget",
+  "status": "released",
+  "target": {
+    "tool": "Customer-verified business interface; balance restrictions apply",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "wbs_element"
+  ],
+  "key": {
+    "business_key": [
+      "Ledger",
+      "ObjectNumber",
+      "BudgetItem",
+      "TransactionIndicator",
+      "ValueType",
+      "Version"
+    ],
+    "numbering": "derived",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZPSX_C_OverallBudgetMig",
+      "source_view": "ZPSX_I_OverallBudget",
+      "scope_filter": "",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version"
+      ],
+      "fields": [
+        {
+          "element": "Ledger",
+          "source": "BPGE-LEDNR",
+          "target": "customer interface field: Ledger (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "BPGE-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "BudgetItem",
+          "source": "BPGE-POSIT",
+          "target": "customer interface field: BudgetItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "TransactionIndicator",
+          "source": "BPGE-TRGKZ",
+          "target": "customer interface field: TransactionIndicator (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ValueType",
+          "source": "BPGE-WRTTP",
+          "target": "customer interface field: ValueType (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Version",
+          "source": "BPGE-VERSN",
+          "target": "customer interface field: Version (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OverallBudgetAmount",
+          "source": "BPGE-WLGES",
+          "target": "customer interface field: OverallBudgetAmount (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "balance",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface."
+    },
+    {
+      "consumption_view": "ZPSX_C_AnnualBudgetMig",
+      "source_view": "ZPSX_I_AnnualBudget",
+      "scope_filter": "",
+      "keys": [
+        "Ledger",
+        "ObjectNumber",
+        "BudgetItem",
+        "TransactionIndicator",
+        "ValueType",
+        "Version",
+        "FiscalYear"
+      ],
+      "fields": [
+        {
+          "element": "Ledger",
+          "source": "BPJA-LEDNR",
+          "target": "customer interface field: Ledger (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ObjectNumber",
+          "source": "BPJA-OBJNR",
+          "target": "customer interface field: ObjectNumber (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "BudgetItem",
+          "source": "BPJA-POSIT",
+          "target": "customer interface field: BudgetItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "TransactionIndicator",
+          "source": "BPJA-TRGKZ",
+          "target": "customer interface field: TransactionIndicator (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ValueType",
+          "source": "BPJA-WRTTP",
+          "target": "customer interface field: ValueType (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Version",
+          "source": "BPJA-VERSN",
+          "target": "customer interface field: Version (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "FiscalYear",
+          "source": "BPJA-GJAHR",
+          "target": "customer interface field: FiscalYear (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "AnnualBudgetAmount",
+          "source": "BPJA-WTJHR",
+          "target": "customer interface field: AnnualBudgetAmount (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "balance",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement. Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement.",
+    "Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface."
+  ],
+  "main_structure": "ZPSX_C_OverallBudgetMig",
+  "source_control": {
+    "source_count_view": "ZPSX_C_OverallBudgetMigCount",
+    "dimensions": [
+      {
+        "element": "Ledger"
+      }
+    ]
+  }
+}

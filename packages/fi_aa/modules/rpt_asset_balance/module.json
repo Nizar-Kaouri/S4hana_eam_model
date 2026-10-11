@@ -19,28 +19,28 @@
   "objects": {
     "basic": [],
     "composite": [
-      "ZFAA_R_AssetBalance"
+      "ZFAA_I_AssetBalance"
     ],
     "consumption": [
       "ZFAA_C_AssetBalanceQ"
     ],
     "access_controls": [
-      "ZFAA_R_AssetBalance"
+      "ZFAA_I_AssetBalance"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZFAA_C_AssetBalanceQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_R_AssetBalance (see GEN-Q01)."
+    "ZFAA_C_AssetBalanceQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_I_AssetBalance (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZFAA_R_AssetBalanceWithAsset",
+      "name": "ZFAA_I_AssetBalanceWithAsset",
       "requires_modules": [
         "fixed_asset",
         "rpt_asset_balance"
       ],
-      "access_control": "ZFAA_R_AssetBalanceWithAsset"
+      "access_control": "ZFAA_I_AssetBalanceWithAsset"
     },
     {
       "name": "ZFAA_C_AssetBalanceAssetQ",

@@ -24,7 +24,7 @@ GENERATORS = ["sync_xml", "gen_docs", "gen_checklist", "gen_model_map", "todo_ve
 def abaplint_cmd():
     for cand in (os.environ.get("ABAPLINT"), str(REPO / "node_modules" / ".bin" / "abaplint"), shutil.which("abaplint")):
         if cand and Path(cand).exists():
-            return [cand]
+            return ['node', str(REPO / 'node_modules' / '@abaplint' / 'cli' / 'abaplint')] if str(cand) == str(REPO / 'node_modules' / '.bin' / 'abaplint') else [cand]
     return None
 
 
@@ -66,9 +66,13 @@ def main():
             ok &= run([sys.executable, str(REPO / "tools" / "validate_mapping.py")], REPO, env, "validate_mapping")
         if lint:
             ok &= run(lint, root, env, "abaplint")
+            if (root / "abaplint-helpers.json").exists():
+                ok &= run(lint + ["abaplint-helpers.json"], root, env, "ABAP helper parser (DDIC/runtime unverified)")
         else:
             print("  [skip] abaplint: run `npm install` or set ABAPLINT=<path to abaplint>")
             ok = False
+    if not only:
+        ok &= run([sys.executable, "tools/check_pack_coverage.py"], REPO, dict(os.environ), "nine-pack business object coverage")
     if not only or only == "eam":
         print("shared:")
         ok &= run([sys.executable, "-m", "unittest", "discover", "-s", "tools/tests"], REPO, dict(os.environ), "unit tests (tools/tests)")

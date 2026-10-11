@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZFAA_R_AssetBalance` |
+| Data source | `ZFAA_I_AssetBalance` |
 | Source file | `src/zfaa_c_assetbalanceq.ddls.asddls` |
 
 ## Purpose
@@ -31,7 +31,7 @@ Net book value query at a key date (parameter) per company code, ledger and depr
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_R_AssetBalance (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFAA_I_AssetBalance (see GEN-Q01).
 
 ## Example use case
 

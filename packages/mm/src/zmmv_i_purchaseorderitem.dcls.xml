@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZMMV_I_PURCHASEORDERITEM</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Purchase Order Item</DDTEXT>
+    <DDTEXT>Purchase Order Item - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

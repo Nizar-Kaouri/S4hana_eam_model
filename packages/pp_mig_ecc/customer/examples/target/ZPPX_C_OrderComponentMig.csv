@@ -1,0 +1,2 @@
+Reservation,ReservationItem,RecordType,ManufacturingOrder,Material,Plant,StorageLocation,RequiredQuantity,Unit,DeletionFlag
+01,01,01,sample,sample,sample,sample,sample,sample,

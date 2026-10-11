@@ -1,0 +1,12 @@
+// ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of its data source (see GEN-D02).
+@EndUserText.label: 'Inspection Lot - Value Help'
+@MappingRole: true
+define role ZQMV_B_InspectionLotVH {
+  grant
+    select
+      on
+        ZQMV_B_InspectionLotVH
+          where
+            inheriting conditions from entity ZQMV_B_InspectionLot;
+}

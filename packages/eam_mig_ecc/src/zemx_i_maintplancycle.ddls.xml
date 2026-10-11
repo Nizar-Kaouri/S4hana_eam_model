@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEMX_I_MAINTPLANCYCLE</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Maintenance plan cycle</DDTEXT>
+    <DDTEXT>MaintPlanCycle</DDTEXT>
     <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>

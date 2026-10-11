@@ -19,19 +19,19 @@
   "objects": {
     "basic": [],
     "composite": [
-      "ZMMV_R_OpenPurchaseOrder"
+      "ZMMV_I_OpenPurchaseOrder"
     ],
     "consumption": [
       "ZMMV_C_OpenPurchaseOrderQ"
     ],
     "access_controls": [
-      "ZMMV_R_OpenPurchaseOrder"
+      "ZMMV_I_OpenPurchaseOrder"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZMMV_C_OpenPurchaseOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_OpenPurchaseOrder (see GEN-Q01)."
+    "ZMMV_C_OpenPurchaseOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_OpenPurchaseOrder (see GEN-Q01)."
   },
   "link_views": []
 }

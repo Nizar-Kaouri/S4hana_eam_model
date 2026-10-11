@@ -1,0 +1,122 @@
+{
+  "cutover": "20261011",
+  "inputs": {
+    "ZFCX_C_CreditProfileMig": "exports/ZFCX_C_CreditProfileMig.csv",
+    "ZFCX_C_CreditProfileMig_Scope": "selection/ZFCX_C_CreditProfileMig.csv",
+    "ZFCX_C_CreditSegmentMig": "exports/ZFCX_C_CreditSegmentMig.csv",
+    "ZFCX_C_CreditSegmentMig_Scope": "selection/ZFCX_C_CreditSegmentMig.csv",
+    "ZFCX_C_CollectContactMig": "exports/ZFCX_C_CollectContactMig.csv",
+    "ZFCX_C_CollectContactMig_Scope": "selection/ZFCX_C_CollectContactMig.csv",
+    "ZFCX_C_PaymentPromiseMig": "exports/ZFCX_C_PaymentPromiseMig.csv",
+    "ZFCX_C_PaymentPromiseMig_Scope": "selection/ZFCX_C_PaymentPromiseMig.csv",
+    "ZFCX_C_DisputeCaseMig": "exports/ZFCX_C_DisputeCaseMig.csv",
+    "ZFCX_C_DisputeCaseMig_Scope": "selection/ZFCX_C_DisputeCaseMig.csv",
+    "ZFCX_C_CaseAttributeMig": "exports/ZFCX_C_CaseAttributeMig.csv",
+    "ZFCX_C_CaseAttributeMig_Scope": "selection/ZFCX_C_CaseAttributeMig.csv",
+    "ZFCX_C_CreditExposureMig": "exports/ZFCX_C_CreditExposureMig.csv",
+    "ZFCX_C_CreditExposureMig_Scope": "selection/ZFCX_C_CreditExposureMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZFCX_C_CreditProfileMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CreditProfileMig",
+      "parent": "ZFCX_C_CreditProfileMig_Scope",
+      "child_keys": [
+        "BusinessPartner"
+      ],
+      "parent_keys": [
+        "BusinessPartner"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CreditSegmentMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CreditSegmentMig",
+      "parent": "ZFCX_C_CreditSegmentMig_Scope",
+      "child_keys": [
+        "BusinessPartner",
+        "CreditSegment"
+      ],
+      "parent_keys": [
+        "BusinessPartner",
+        "CreditSegment"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CollectContactMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CollectContactMig",
+      "parent": "ZFCX_C_CollectContactMig_Scope",
+      "child_keys": [
+        "ContactUUID"
+      ],
+      "parent_keys": [
+        "ContactUUID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_PaymentPromiseMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_PaymentPromiseMig",
+      "parent": "ZFCX_C_PaymentPromiseMig_Scope",
+      "child_keys": [
+        "CaseUUID"
+      ],
+      "parent_keys": [
+        "CaseUUID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_DisputeCaseMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_DisputeCaseMig",
+      "parent": "ZFCX_C_DisputeCaseMig_Scope",
+      "child_keys": [
+        "CaseUUID"
+      ],
+      "parent_keys": [
+        "CaseUUID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CaseAttributeMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CaseAttributeMig",
+      "parent": "ZFCX_C_CaseAttributeMig_Scope",
+      "child_keys": [
+        "CaseUUID"
+      ],
+      "parent_keys": [
+        "CaseUUID"
+      ]
+    },
+    {
+      "name": "ZFCX_C_CreditExposureMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CreditExposureMig",
+      "parent": "ZFCX_C_CreditExposureMig_Scope",
+      "child_keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ],
+      "parent_keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZFCX_C_CreditProfileMig_Prepared",
+    "ZFCX_C_CreditSegmentMig_Prepared",
+    "ZFCX_C_CollectContactMig_Prepared",
+    "ZFCX_C_PaymentPromiseMig_Prepared",
+    "ZFCX_C_DisputeCaseMig_Prepared",
+    "ZFCX_C_CaseAttributeMig_Prepared",
+    "ZFCX_C_CreditExposureMig_Prepared"
+  ]
+}

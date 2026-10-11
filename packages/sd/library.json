@@ -17,5 +17,10 @@
   "reserve_prefix_chars": 1,
   "map_title": "ZSDV Sales and Distribution Model Map",
   "map_area": "Sales and Distribution (SD)",
-  "map_initial": "ZSDV_I_SalesOrderItem"
+  "map_initial": "ZSDV_B_SalesOrderItem",
+  "layer_prefixes": {
+    "basic": "B_",
+    "composite": "I_",
+    "consumption": "C_"
+  }
 }

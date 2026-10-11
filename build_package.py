@@ -325,6 +325,21 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
     order = activation_order(objects, old_prefix, root)
     rewrite = make_rewriter(old_prefix, new_prefix, old_package, new_package)
 
+    def rewrite_asset(text):
+        # Object references use /ACME/; filenames use #ACME# so namespaces do
+        # not accidentally become directories. JSON paths and ZIP names agree.
+        flat_prefix = new_prefix.replace("/", "#")
+        text = re.sub(r"(?<=[/\\])" + re.escape(old_prefix), flat_prefix, text, flags=re.IGNORECASE)
+        return rewrite(text)
+
+    def asset_path(path):
+        parts = []
+        for part in path.parts:
+            if part.upper().startswith(old_prefix.upper()):
+                part = new_prefix.replace("/", "#") + part[len(old_prefix):]
+            parts.append(part)
+        return "/".join(parts)
+
     out = Path(out) if out else vdm_paths.REPO / "dist" / root.name / f"{file_base(new_package)}_{'_'.join(resolved)[:80]}.zip"
     out.parent.mkdir(parents=True, exist_ok=True)
 
@@ -339,12 +354,31 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
         "link_views_skipped": links_out,
         "with_tests": with_tests,
         "module_status": {m: modules[m]["status"] for m in resolved},
-        "tested_release": {m: modules[m]["tested_release"] for m in resolved},
+        "module_versions": {m: modules[m].get("version") for m in resolved},
+        "tested_release": {m: modules[m].get("tested_release", "") for m in resolved},
         "objects": [{"type": t, "name": target_name(n, old_prefix, new_prefix), "module": o} for t, n, o in order],
         "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "warning": "Draft content - never activated on an SAP system unless module_status says otherwise.",
     }
+    released = library.get("phase") == "released"
+    if released:
+        manifest.pop("tested_release")
+        manifest.pop("warning")
+        manifest.pop("with_tests")
+        manifest["version"] = library["version"]
+        manifest["delivery_scope"] = "Read-only source extraction templates and field mappings; loading is customer-managed."
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as zf:
+        if released:
+            zf.writestr("README.md", rewrite((root / "README.md").read_text(encoding="utf-8")))
+        elif (root / "docs" / "CUSTOMER_TEST.md").exists():
+            zf.writestr("README.md", ("# ModuPorter migration customer package\n\n"
+                + f"Product: {root.name}. Package: {new_package}. Prefix: {new_prefix}.\n\n"
+                + "Start with docs/CUSTOMER_TEST.md and docs/SUPPORTED_SCOPE.md. Import the src/ library through abapGit on the appropriate system. "
+                + "Optional SAP reports live in helpers/ and are created separately in SE38. "
+                + "Python tools require Python 3.10+ and no extra dependencies; run commands from this extracted directory.\n\n"
+                + "Read OPEN_CHECKS.md, DDIC_REQUIREMENTS.csv (source), BUILD_MANIFEST.json and ACTIVATION_ORDER.txt before activation. "
+                + "For historical cutover use docs/CUSTOMER_WORKFLOW.md in the source package; current CDS previews do not recover past states. "
+                + "This candidate is system-unverified pending the customer's activation/extraction trial.\n"))
         zf.writestr(".abapgit.xml", (root / ".abapgit.xml").read_text(encoding="utf-8"))
         devc = (root / "src" / "package.devc.xml").read_text(encoding="utf-8")
         zf.writestr("src/package.devc.xml", rewrite(devc))
@@ -360,7 +394,129 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                                 rewrite(extra.read_text(encoding="utf-8")))
         seq = root / "docs" / "MIGRATION_SEQUENCE.md"
         if seq.exists():
-            zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite(seq.read_text(encoding="utf-8")))
+            text = seq.read_text(encoding="utf-8")
+            lines = []
+            for line in text.splitlines():
+                if line.startswith("| ") and re.match(r"\| \d+ \|", line):
+                    names = re.findall(r"\[`([^`]+)`\]", line)
+                    included = [m for m in names if m in resolved]
+                    if not included:
+                        continue
+                    # Rebuild mixed levels so no unselected module or consumption view is advertised.
+                    cells = line.split("|")
+                    links = ", ".join(f"[`{m}`](docs/{m}.md)" for m in included)
+                    views = []
+                    for m in included:
+                        mp = root / "modules" / m / "mapping.json"
+                        if mp.exists():
+                            views.extend(x["consumption_view"] for x in json.loads(mp.read_text(encoding="utf-8"))["structures"])
+                    line = f"| {cells[1].strip()} | {links} | " + ", ".join(f"`{v}`" for v in views) + " |"
+                lines.append(line)
+            zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite("\n".join(lines) + "\n"))
+        for doc in ("INSTALLATION.md", "NAMING.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "GETTING_STARTED.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md", "CUSTOMER_MANUAL_EN.md", "CUSTOMER_MANUAL_DE.md", "EQUIPMENT_ARCHITECTURE.md", "MASTER_CHILD_ARCHITECTURE.md", "OBJECT_COVERAGE.md", "LONG_TEXT_WORKFLOW.md", "CLASSIFICATION_WORKFLOW.md"):
+            if released and doc == "CUSTOMER_TEST.md":
+                continue  # Historical validation records remain in the repository.
+            extra = root / "docs" / doc
+            if extra.exists():
+                zf.writestr("docs/" + doc, rewrite(extra.read_text(encoding="utf-8")))
+        if library.get("kind") == "migration-source" and (root / "customer").exists():
+            for helper in sorted((root / "helpers").glob("*")):
+                if helper.is_file():
+                    zf.writestr("helpers/" + rewrite(helper.name), rewrite(helper.read_text(encoding="utf-8")))
+            shipped_views = {n for _, n, _ in objects}
+            for asset in sorted((root / "customer").rglob("*")):
+                if not asset.is_file():
+                    continue
+                if released and asset.name == "TEST_RESULTS.csv":
+                    continue  # Keep original evidence; omit it from customer releases.
+                if asset.suffix == ".csv" and asset.stem.startswith(old_prefix) and asset.stem not in shipped_views:
+                    continue
+                text = asset.read_text(encoding="utf-8")
+                if asset.name in ("structure-cohorts.json", "parent-relationships.json", "text-relationships.json", "classification-relationships.json"):
+                    content = json.loads(text)
+                    text = json.dumps({n: v for n, v in content.items() if n in shipped_views}, indent=2) + "\n"
+                elif asset.name in ("customer-cohort-project.json", "project.json"):
+                    content = json.loads(text)
+                    # Keep the complete preparation chain, including intermediate datasets.
+                    # Module dependencies ensure selected parent structures are shipped too.
+                    available = set(shipped_views) | {n for n in content["inputs"]
+                                                     if not n.startswith(old_prefix + 'C_')
+                                                     or any(n in (v + '_Scope', v + '_Links') for v in shipped_views)}
+                    selected_steps = []
+                    for step in content["steps"]:
+                        if step['input'] in available and (not step.get('parent') or step['parent'] in available) and (not step.get('links') or step['links'] in available):
+                            selected_steps.append(step)
+                            available.add(step['name'])
+                    content["steps"] = selected_steps
+                    needed = {s[k] for s in selected_steps for k in ("input", "parent", "links") if k in s}
+                    roots = [n for n in content["outputs"] if n in available]
+                    needed.update(roots)
+                    content["inputs"] = {n: p for n, p in content["inputs"].items() if n in needed}
+                    content["outputs"] = roots
+                    text = json.dumps(content, indent=2) + "\n"
+                elif asset.name == "coverage-requirements.json":
+                    text = json.dumps({n: c for n, c in json.loads(text).items() if n in resolved}, indent=2) + "\n"
+                elif asset.name in ("staging-contracts.json", "source-adapters.json"):
+                    text = json.dumps({n: c for n, c in json.loads(text).items() if c["module"] in resolved}, indent=2) + "\n"
+                elif asset.name == "native-coverage.json":
+                    text = json.dumps([c for c in json.loads(text) if c["module"] in resolved], indent=2) + "\n"
+                relative = asset.relative_to(root)
+                zf.writestr(asset_path(relative), rewrite_asset(text))
+            for tool in ("migration_csv.py", "eam_prepare.py", "eam_run.py", "migration_prepare.py", "migration_run.py", "migration_business.py", "migration_ddic.py", "migration_stage.py"):
+                if tool == "migration_stage.py" and library.get("native_table_sources"):
+                    continue
+                zf.writestr("tools/" + tool, (vdm_paths.REPO / "tools" / tool).read_text(encoding="utf-8"))
+        if library.get("kind") == "migration-source":
+            import csv
+            import io
+            buf = io.StringIO(newline="")
+            writer = csv.writer(buf)
+            writer.writerow(["module", "view", "element", "key", "ecc_source", "provisional_target", "rule", "scope", "delivery_mode", "status"])
+            for mod in resolved:
+                mp = root / "modules" / mod / "mapping.json"
+                if not mp.exists():
+                    continue
+                mapping = json.loads(mp.read_text(encoding="utf-8"))
+                for structure in mapping.get("structures", []):
+                    for field in structure["fields"]:
+                        writer.writerow([mod, rewrite(structure["consumption_view"]), field["element"],
+                            field["element"] in structure["keys"], field["source"], field["target"],
+                            field["rule"], rewrite(structure.get("scope_filter", "")), structure.get("delivery_mode", "scoped_extract"), modules[mod]["status"]])
+            zf.writestr("FIELD_CATALOG.csv", buf.getvalue())
+        # System preflight accompanies the actual selected objects, rather than the whole repository.
+        checks = ["# Compatibility notes", "", "Follow docs/COMPATIBILITY.md and the documented business scope when adapting the templates.", ""] if released else ["# Open system verification checks", "", "These checks remain unverified until SAP activation and extraction evidence exists.", ""]
+        ddic = set()
+        for typ, name, mod in objects:
+            if typ != "DDLS":
+                continue
+            path = root / "src" / (file_base(name) + ".ddls.asddls")
+            text = path.read_text(encoding="utf-8")
+            for number, line in enumerate(text.splitlines(), 1):
+                if "TODO-VERIFY" in line:
+                    checks.append(f"- {rewrite(name)}:{number}: {rewrite(line.strip().lstrip('/').strip())}")
+            clean = strip_comments(text, "DDLS")
+            match = re.search(r"as select from (\w+)(?: as (\w+))?", clean, re.IGNORECASE)
+            if match and not match.group(1).upper().startswith(old_prefix.upper()):
+                table = match.group(1).upper()
+                alias = match.group(2) or match.group(1)
+                if table in modules[mod].get("sap_tables", []):
+                    for field in re.findall(r"\b" + re.escape(alias) + r"\.(\w+)", clean):
+                        ddic.add((mod, table, field.upper(), rewrite(name)))
+        for mod in resolved:
+            mp = root / "modules" / mod / "mapping.json"
+            if mp.exists():
+                for line in mp.read_text(encoding="utf-8").splitlines():
+                    if "TODO-VERIFY" in line:
+                        checks.append(f"- {mod} mapping: {rewrite(line.strip())}")
+        zf.writestr("COMPATIBILITY_NOTES.md" if released else "OPEN_CHECKS.md", "\n".join(checks) + "\n")
+        if ddic:
+            import csv
+            import io
+            buf = io.StringIO(newline="")
+            writer = csv.writer(buf)
+            writer.writerow(["module", "table", "field", "view"])
+            writer.writerows(sorted(ddic))
+            zf.writestr("DDIC_REQUIREMENTS.csv", buf.getvalue())
         zf.writestr("BUILD_MANIFEST.json", json.dumps(manifest, indent=2) + "\n")
         zf.writestr("ACTIVATION_ORDER.txt", "\n".join(
             f"{i:3d}  {o['type']}  {o['name']}  ({o['module']})" for i, o in enumerate(manifest["objects"], 1)) + "\n")

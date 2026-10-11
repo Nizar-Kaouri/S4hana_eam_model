@@ -1,26 +1,23 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per purchase requisition item: material, plant, purchasing group, requested quantity,
-//   delivery date, release status and deletion / closed flags.
-// Example: Open requisitions per purchasing group; requisitions for spare parts not yet converted to orders.
-// TODO-VERIFY[H] MM-030: SAP released view is I_PurchaseRequisitionItemAPI01 with keys PurchaseRequisition, PurchaseRequisitionItem
-// TODO-VERIFY[H] MM-031: status elements PurReqnReleaseStatus, IsDeleted, IsClosed
-// TODO-VERIFY[M] MM-032: elements RequestedQuantity, BaseUnit, DeliveryDate, CreationDate, AccountAssignmentCategory
+// Purpose: Requisition cube: number of items, open items and requested quantity per plant, purchasing group and
+//   release status.
+// Example: Open requisition items per purchasing group and plant.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Purchase Requisition Item'
+@EndUserText.label: 'Purchase Requisition - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'PurchaseRequisitionItem'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZMMV_I_PurchaseReqnItem
-  as select from I_PurchaseRequisitionItemAPI01
-  association [0..1] to I_Plant as _Plant on $projection.Plant = _Plant.Plant
+  as select from ZMMV_B_PurchaseReqnItem
 {
   key PurchaseRequisition,
   key PurchaseRequisitionItem,
@@ -32,13 +29,22 @@ define view entity ZMMV_I_PurchaseReqnItem
       PurchasingOrganization,
       AccountAssignmentCategory,
       BaseUnit,
-      @Semantics.quantity.unitOfMeasure: 'BaseUnit'
-      RequestedQuantity,
       DeliveryDate,
       CreationDate,
       PurReqnReleaseStatus,
       IsDeleted,
       IsClosed,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @Semantics.quantity.unitOfMeasure: 'BaseUnit'
+      RequestedQuantity,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Requisition Items'
+      cast( 1 as abap.int4 ) as NumberOfReqnItems,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Open Requisition Items'
+      cast( case when IsDeleted = '' and IsClosed = '' then 1 else 0 end as abap.int4 ) as NumberOfOpenReqnItems,
 
       /* Associations */
       _Plant

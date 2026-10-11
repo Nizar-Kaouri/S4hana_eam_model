@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Fixed Asset |
+| Description | Fixed Asset - Cube |
 | Module | `fixed_asset` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_FixedAsset` |
+| Data category | #CUBE |
+| Data source | `ZFAA_B_FixedAsset` |
 | Source file | `src/zfaa_i_fixedasset.ddls.asddls` |
 
 ## Purpose
 
-One row per fixed asset (asset main number + subnumber) with asset class, description, capitalization / deactivation date and organizational assignment (cost center, plant, profit center); analytical dimension for every cube that references an asset.
+Asset register cube: number of assets, active and deactivated assets, by company code, asset class, capitalization year, cost center and plant.
 
 ## Keys
 
@@ -25,18 +25,16 @@ One row per fixed asset (asset main number + subnumber) with asset class, descri
 
 ## Associations defined here
 
-- `_CompanyCode` → `I_CompanyCode` [0..1]
-- `_AssetClass` → `I_AssetClass` [0..1]
-- `_Plant` → `I_Plant` [0..1]
+- `_FixedAsset` → `ZFAA_B_FixedAsset` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_FixedAsset`.
+Role inherits the conditions of `ZFAA_B_FixedAsset`.
 
 ## Example use case
 
-Asset register per company code and asset class; asset attributes next to journal values.
+Number of active assets per asset class and plant; assets capitalized per year.
 
 ## Open verification items
 
-`FA-001`, `FA-002`, `FA-003`, `FA-004`, `FA-005`, `FA-D01` - see `BATCH_REPORT.md`.
+none

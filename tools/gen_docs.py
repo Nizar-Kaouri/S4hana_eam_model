@@ -25,6 +25,8 @@ STATUS = ("> Status: **draft-unverified** · tested release: "
           + bp.load_library().get("draft_tested_release", "none (draft, 2025 assumed)") + ". "
           "Nothing below has been activated on a system.")
 MARKER_RE = re.compile(r"TODO-VERIFY\[[HML]\]\s+([A-Z]+-[A-Z0-9]+):")
+if bp.load_library().get("phase") == "released":
+    STATUS = "> Version **" + bp.load_library()["version"] + "**"
 REF_RE = re.compile(r"\b([A-Z]{2,4}-[A-Z]?[0-9]{2,3})\b")
 
 
@@ -63,7 +65,13 @@ def parse_view(text):
     info["source"] = src.group(1) if src else "-"
     info["joins"] = re.findall(r"\bjoin\s+([\w/]+)", code, re.I)
     info["params"] = re.findall(r"(P_\w+)\s*:\s*([\w.()]+)", code.split("as projection on")[0].split("as select")[0])
-    info["keys"] = re.findall(r"^\s*key\s+(?:[\w]+\.)?(\w+)", code, re.M)
+    projected_keys = []
+    for expression in re.findall(r"^\s*key\s+([^,\n]+)", code, re.M):
+        alias = re.search(r"\bas\s+(\w+)\s*$", expression, re.I)
+        direct = re.fullmatch(r"(?:\w+\.)?(\w+)", expression.strip())
+        if alias or direct:
+            projected_keys.append((alias or direct).group(1))
+    info["keys"] = list(dict.fromkeys(projected_keys))
     info["assocs"] = re.findall(r"association\s+(?:of\s+[\w\s]+\s+)?(\[[^\]]*\]|to\s+(?:one|many)\b)?\s*(?:to\s+)?([\w/]+)\s+as\s+(\w+)", code, re.I)
     return info
 
@@ -129,6 +137,8 @@ def render(name, text, modules):
               "## Example use case", "", header_field(text, "Example") or "_missing_", "",
               "## Open verification items", "",
               (", ".join(f"`{t}`" for t in todo) + " - see `BATCH_REPORT.md`.") if todo else "none", ""]
+    if bp.load_library().get("phase") == "released":
+        lines = lines[:lines.index("## Open verification items")]
     return "\n".join(lines)
 
 

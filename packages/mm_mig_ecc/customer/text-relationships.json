@@ -1,0 +1,78 @@
+{
+  "ZMMX_C_MaterialLongTextMig": {
+    "module": "product",
+    "parent": "ZMMX_C_MaterialMig",
+    "parent_keys": [
+      "Product"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZMMX_C_MaterialLongTextMig_Links",
+    "payload_helper": "zmmx_mm_text_export.prog.abap"
+  },
+  "ZMMX_C_PurchaseLongTextMig": {
+    "module": "purchase_order",
+    "parent": "ZMMX_C_PurchaseOrderMig",
+    "parent_keys": [
+      "PurchaseOrder"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZMMX_C_PurchaseLongTextMig_Links",
+    "payload_helper": "zmmx_mm_text_export.prog.abap"
+  },
+  "ZMMX_C_RequisitionLongTextMig": {
+    "module": "purchase_requisition",
+    "parent": "ZMMX_C_RequisitionMig",
+    "parent_keys": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZMMX_C_RequisitionLongTextMig_Links",
+    "payload_helper": "zmmx_mm_text_export.prog.abap"
+  },
+  "ZMMX_C_ContractLongTextMig": {
+    "module": "purchasing_contract",
+    "parent": "ZMMX_C_ContractHeaderMig",
+    "parent_keys": [
+      "PurchasingContract"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZMMX_C_ContractLongTextMig_Links",
+    "payload_helper": "zmmx_mm_text_export.prog.abap"
+  },
+  "ZMMX_C_InfoRecordLongTextMig": {
+    "module": "purchasing_info_record",
+    "parent": "ZMMX_C_InfoRecordMig",
+    "parent_keys": [
+      "PurchasingInfoRecord"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZMMX_C_InfoRecordLongTextMig_Links",
+    "payload_helper": "zmmx_mm_text_export.prog.abap"
+  }
+}

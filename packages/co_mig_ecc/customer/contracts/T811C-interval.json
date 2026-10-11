@@ -1,0 +1,10 @@
+{
+  "mode": "interval",
+  "identity": [
+    "AllocationTable",
+    "AllocationCycle",
+    "ValidityStartDate"
+  ],
+  "valid_from": "ValidityStartDate",
+  "valid_to": "ValidityEndDate"
+}

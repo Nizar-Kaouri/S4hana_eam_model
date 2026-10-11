@@ -19,19 +19,19 @@
   "objects": {
     "basic": [],
     "composite": [
-      "ZPSV_R_ProjectCostToDate"
+      "ZPSV_I_ProjectCostToDate"
     ],
     "consumption": [
       "ZPSV_C_ProjectCostToDateQ"
     ],
     "access_controls": [
-      "ZPSV_R_ProjectCostToDate"
+      "ZPSV_I_ProjectCostToDate"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZPSV_C_ProjectCostToDateQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_ProjectCostToDate (see GEN-Q01)."
+    "ZPSV_C_ProjectCostToDateQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_I_ProjectCostToDate (see GEN-Q01)."
   },
   "link_views": []
 }

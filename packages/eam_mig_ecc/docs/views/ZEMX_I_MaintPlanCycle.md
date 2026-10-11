@@ -1,26 +1,26 @@
 # ZEMX_I_MaintPlanCycle
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
-| Description | Maintenance plan cycle |
+| Description | MaintPlanCycle |
 | Module | `maintenance_plan` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view |
-| Data category | #DIMENSION |
-| Data source | `mmpt` |
+| Data category | - |
+| Data source | `ZEMX_B_MaintPlanCycle` |
 | Source file | `src/zemx_i_maintplancycle.ddls.asddls` |
 
 ## Purpose
 
-Cycles of single-cycle and multiple-counter plans and packages of strategy plans (MMPT).
+Preserve the business key and selected parent population without flattening repeating records.
 
 ## Keys
 
-- `warpl`
-- `nummer`
+- `MaintenancePlan`
+- `MaintenancePlanCycle`
 
 ## Associations defined here
 
@@ -28,12 +28,8 @@ Cycles of single-cycle and multiple-counter plans and packages of strategy plans
 
 ## Access control
 
-No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
+No DCL by design: Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.
 
 ## Example use case
 
-Read the performance-based cycles: filter MeasuringPoint <> ''.
-
-## Open verification items
-
-`XPL-005` - see `BATCH_REPORT.md`.
+Prepare a consistent cutover snapshot with customer/customer-cohort-project.json.

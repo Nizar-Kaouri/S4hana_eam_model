@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZQMV_R_SupplierQuality` |
+| Data source | `ZQMV_I_SupplierQuality` |
 | Source file | `src/zqmv_c_supplierqualityq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZQMV_R_SupplierQuality: decided, accepted and rejected lots per supplier with rejection rate.
+Analytical query on ZQMV_I_SupplierQuality: decided, accepted and rejected lots per supplier with rejection rate.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZQMV_R_SupplierQuality: decided, accepted and rejected lots 
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_R_SupplierQuality (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_I_SupplierQuality (see GEN-Q01).
 
 ## Example use case
 

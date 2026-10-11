@@ -1,45 +1,58 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per maintenance order operation / sub-operation with work center, control key,
-//   planned and actual work.
-// Example: Planned vs. actual work per work center; remaining work of open orders (backlog report).
-// TODO-VERIFY[H] MO-O01: SAP released view for order operations is I_MaintenanceOrderOperation (name not confirmed)
-// TODO-VERIFY[H] MO-O02: key elements MaintenanceOrder, MaintenanceOrderOperation, MaintenanceOrderSubOperation
-// TODO-VERIFY[H] MO-O03: work elements PlannedWorkQuantity / PlannedWorkQuantityUnit / ActualWorkQuantity / ActualWorkQuantityUnit
-// TODO-VERIFY[M] MO-O04: elements OperationDescription, WorkCenter, WorkCenterInternalID, Plant, OperationControlKey, MaintenanceActivityType
+// Purpose: Operation cube with planned and actual work and order header characteristics
+//   (order type, activity type, planning plant, open flag) taken over via path expressions.
+// Example: Planned vs. actual work hours per work center and month; work-plan adherence per planner group.
+// TODO-VERIFY[M] MO-R02: path expressions over _MaintenanceOrder in the select list of a #CUBE view entity
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Maintenance Order Operation'
+@EndUserText.label: 'Maintenance Order Operation - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'MaintenanceOrderSubOperation'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #L,
-  dataClass: #TRANSACTIONAL
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZEAM_I_MaintOrderOperation
-  as select from I_MaintenanceOrderOperation
-  association [1..1] to ZEAM_I_MaintOrder as _MaintenanceOrder on $projection.MaintenanceOrder = _MaintenanceOrder.MaintenanceOrder
+  as select from ZEAM_B_MaintOrderOperation
 {
       @ObjectModel.foreignKey.association: '_MaintenanceOrder'
   key MaintenanceOrder,
   key MaintenanceOrderOperation,
   key MaintenanceOrderSubOperation,
-      @Semantics.text: true
-      OperationDescription,
       OperationControlKey,
       MaintenanceActivityType,
       WorkCenter,
       WorkCenterInternalID,
       Plant,
+      PlannedWorkQuantityUnit,
+      ActualWorkQuantityUnit,
+
+      /* Measures */
+      @Aggregation.default: #SUM
       @Semantics.quantity.unitOfMeasure: 'PlannedWorkQuantityUnit'
       PlannedWorkQuantity,
-      PlannedWorkQuantityUnit,
+      @Aggregation.default: #SUM
       @Semantics.quantity.unitOfMeasure: 'ActualWorkQuantityUnit'
       ActualWorkQuantity,
-      ActualWorkQuantityUnit,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of Operations'
+      cast( 1 as abap.int4 ) as NumberOfOperations,
+
+      /* Order header characteristics */
+      _MaintenanceOrder.MaintenanceOrderType,
+      _MaintenanceOrder.MaintenancePlanningPlant,
+      _MaintenanceOrder.MaintenancePlannerGroup,
+      _MaintenanceOrder.MaintenancePlant,
+      _MaintenanceOrder.MaintOrderIsOpen,
+      _MaintenanceOrder.MaintOrdBasicStartDate,
+      _MaintenanceOrder.CompanyCode,
+      _MaintenanceOrder.BusinessArea,
+      _MaintenanceOrder.CostCenter,
 
       /* Associations */
       _MaintenanceOrder

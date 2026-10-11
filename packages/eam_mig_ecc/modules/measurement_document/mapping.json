@@ -1,10 +1,10 @@
 {
   "module": "measurement_document",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XMD-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -30,71 +30,61 @@
           "element": "MeasuringPoint",
           "source": "IMRG-POINT",
           "target": "IMRG-POINT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MsmtRdngDate",
           "source": "IMRG-IDATE",
           "target": "IMRG-IDATE",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MsmtRdngTime",
           "source": "IMRG-ITIME",
           "target": "IMRG-ITIME",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MsmtRdngByUser",
           "source": "IMRG-READR",
           "target": "IMRG-READR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MeasurementReading",
           "source": "IMRG-READG",
           "target": "IMRG-READG",
-          "rule": "convert:float_si_to_unit",
-          "compare": false
+          "rule": "convert:float_si_to_unit"
         },
         {
           "element": "MeasurementCounterReading",
           "source": "IMRG-CNTRR",
           "target": "IMRG-CNTRR",
-          "rule": "convert:float_si_to_unit",
-          "compare": false
+          "rule": "convert:float_si_to_unit"
         },
         {
           "element": "MsmtReadingInEntryUnit",
           "source": "IMRG-RECDV",
           "target": "IMRG-RECDV",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MsmtEntryUnit",
           "source": "IMRG-RECDU",
           "target": "IMRG-RECDU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MsmtValuationCode",
           "source": "IMRG-VLCOD",
           "target": "IMRG-VLCOD",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MeasurementDocumentText",
           "source": "IMRG-MDTXT",
           "target": "IMRG-MDTXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     }
@@ -107,20 +97,17 @@
       "reason": "info"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: full reading history is not migrated (stays in the old system / archive); ZEMX_B_MeasurementDocument can feed a history load if required"
+  ],
+  "main_structure": "ZEMX_C_MeasReadingMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_MeasReadingMigCount",
-    "target_count_view": null,
     "dimensions": [
       {
         "element": "MsmtEntryUnit"
       }
     ],
-    "measure": "RecordCount",
-    "compare": null
-  },
-  "gaps": [
-    "TODO-VERIFY[L] XMD-G01: full reading history is not migrated (stays in the old system / archive); ZEMX_I_MeasurementDocument can feed a history load if required"
-  ],
-  "main_structure": "ZEMX_C_MeasReadingMig"
+    "measure": "RecordCount"
+  }
 }

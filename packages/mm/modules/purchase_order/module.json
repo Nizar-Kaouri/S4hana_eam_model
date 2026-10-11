@@ -23,38 +23,38 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZMMV_I_PurchaseOrder",
-      "ZMMV_I_PurchaseOrderItem",
-      "ZMMV_I_PurchaseOrderVH"
+      "ZMMV_B_PurchaseOrder",
+      "ZMMV_B_PurchaseOrderItem",
+      "ZMMV_B_PurchaseOrderVH"
     ],
     "composite": [
-      "ZMMV_R_PurchaseOrderItem"
+      "ZMMV_I_PurchaseOrderItem"
     ],
     "consumption": [
       "ZMMV_C_PurchaseOrderQ"
     ],
     "access_controls": [
-      "ZMMV_I_PurchaseOrder",
-      "ZMMV_I_PurchaseOrderItem",
-      "ZMMV_I_PurchaseOrderVH",
-      "ZMMV_R_PurchaseOrderItem"
+      "ZMMV_B_PurchaseOrder",
+      "ZMMV_B_PurchaseOrderItem",
+      "ZMMV_B_PurchaseOrderVH",
+      "ZMMV_I_PurchaseOrderItem"
     ],
     "metadata_extensions": [
-      "ZMMV_R_PurchaseOrderItem"
+      "ZMMV_I_PurchaseOrderItem"
     ],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZMMV_C_PurchaseOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_PurchaseOrderItem (see GEN-Q01)."
+    "ZMMV_C_PurchaseOrderQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_PurchaseOrderItem (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZMMV_R_POItemWithProduct",
+      "name": "ZMMV_I_POItemWithProduct",
       "requires_modules": [
         "product",
         "purchase_order"
       ],
-      "access_control": "ZMMV_R_POItemWithProduct"
+      "access_control": "ZMMV_I_POItemWithProduct"
     },
     {
       "name": "ZMMV_C_POItemProductQ",
@@ -62,7 +62,7 @@
         "product",
         "purchase_order"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_R_POItemWithProduct (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZMMV_I_POItemWithProduct (see GEN-Q01)."
     }
   ]
 }

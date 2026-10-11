@@ -1,0 +1,69 @@
+{
+  "ZMMX_C_ClassObjectMig": {
+    "module": "product",
+    "parent": "ZMMX_C_MaterialMig",
+    "row_keys": [
+      "ClassificationInternalID"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "link_input": "ZMMX_C_ClassObjectMig_Links"
+  },
+  "ZMMX_C_MaterialClassMig": {
+    "module": "product",
+    "parent": "ZMMX_C_MaterialMig",
+    "row_keys": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "link_input": "ZMMX_C_MaterialClassMig_Links"
+  },
+  "ZMMX_C_BatchClassMig": {
+    "module": "product",
+    "parent": "ZMMX_C_BatchGeneralMig",
+    "row_keys": [
+      "ClassifiedObject",
+      "ClassType",
+      "Class"
+    ],
+    "parent_keys": [
+      "Product",
+      "Batch"
+    ],
+    "link_input": "ZMMX_C_BatchClassMig_Links"
+  },
+  "ZMMX_C_MaterialCharcMig": {
+    "module": "product",
+    "parent": "ZMMX_C_MaterialMig",
+    "row_keys": [
+      "ClassifiedObject",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber"
+    ],
+    "parent_keys": [
+      "Product"
+    ],
+    "link_input": "ZMMX_C_MaterialCharcMig_Links"
+  },
+  "ZMMX_C_BatchCharcMig": {
+    "module": "product",
+    "parent": "ZMMX_C_BatchGeneralMig",
+    "row_keys": [
+      "ClassifiedObject",
+      "ClassType",
+      "Characteristic",
+      "CharcValuePositionNumber"
+    ],
+    "parent_keys": [
+      "Product",
+      "Batch"
+    ],
+    "link_input": "ZMMX_C_BatchCharcMig_Links"
+  }
+}

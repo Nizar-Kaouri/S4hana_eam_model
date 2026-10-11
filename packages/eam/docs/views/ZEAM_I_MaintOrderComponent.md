@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Maintenance Order Component |
+| Description | Maintenance Order Component - Cube |
 | Module | `maintenance_order` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_MaintenanceOrderComponent` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_MaintOrderComponent` |
 | Source file | `src/zeam_i_maintordercomponent.ddls.asddls` |
 
 ## Purpose
 
-One row per material component (reservation item) of a maintenance order with requirement and withdrawn quantity.
+Component cube with requirement, withdrawn and open quantity per material, plus order header characteristics via path expressions.
 
 ## Keys
 
@@ -24,17 +24,16 @@ One row per material component (reservation item) of a maintenance order with re
 
 ## Associations defined here
 
-- `_MaintenanceOrder` → `ZEAM_I_MaintOrder` [1..1]
-- `_Plant` → `I_Plant` [0..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_MaintenanceOrderComponent`.
+Role inherits the conditions of `ZEAM_B_MaintOrderComponent`.
 
 ## Example use case
 
-Spare-part demand per plant and material; components still to be withdrawn for open orders.
+Spare-part demand per plant/material for open orders; open withdrawals per storage location.
 
 ## Open verification items
 
-`MO-C01`, `MO-C02`, `MO-C03`, `MO-C04`, `MO-D03` - see `BATCH_REPORT.md`.
+`MO-R03` - see `BATCH_REPORT.md`.

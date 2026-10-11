@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Cost Center |
+| Description | Cost Center - Cube |
 | Module | `cost_center` |
 | Batch | 1 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | #DIMENSION |
-| Data source | `I_CostCenter` |
+| Data category | #CUBE |
+| Data source | `ZCOV_B_CostCenter` |
 | Source file | `src/zcov_i_costcenter.ddls.asddls` |
 
 ## Purpose
 
-One row per cost center valid today: company code, category, profit center, business area, functional area and person responsible; dimension for cost cubes.
+Cost center cube: number of cost centers per company code, category and profit center.
 
 ## Keys
 
@@ -24,17 +24,16 @@ One row per cost center valid today: company code, category, profit center, busi
 
 ## Associations defined here
 
-- `_Text` → `ZCOV_I_CostCenterText` [0..*]
-- `_CompanyCode` → `I_CompanyCode` [0..1]
+- `_CostCenter` → `ZCOV_B_CostCenter` [1..1]
 
 ## Access control
 
-Role inherits the conditions of `I_CostCenter`.
+Role inherits the conditions of `ZCOV_B_CostCenter`.
 
 ## Example use case
 
-Costs per cost center category; cost centers per profit center.
+Organizational overview of cost centers per company code.
 
 ## Open verification items
 
-`CO-001`, `CO-002`, `CO-D01` - see `BATCH_REPORT.md`.
+none

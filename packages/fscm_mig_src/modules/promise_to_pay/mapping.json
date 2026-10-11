@@ -1,0 +1,110 @@
+{
+  "module": "promise_to_pay",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "CaseUUID"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFCX_C_PaymentPromiseMig",
+      "source_view": "ZFCX_I_PaymentPromise",
+      "scope_filter": "",
+      "keys": [
+        "CaseUUID"
+      ],
+      "fields": [
+        {
+          "element": "CaseUUID",
+          "source": "UDM_P2P_ATTR-CASE_GUID",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.CaseUUID",
+          "rule": "info"
+        },
+        {
+          "element": "CompanyCode",
+          "source": "UDM_P2P_ATTR-FIN_COMP_CODE",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.CompanyCode",
+          "rule": "info"
+        },
+        {
+          "element": "Customer",
+          "source": "UDM_P2P_ATTR-FIN_CUSTOMER",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.Customer",
+          "rule": "info"
+        },
+        {
+          "element": "Currency",
+          "source": "UDM_P2P_ATTR-FIN_P2P_CURR",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.Currency",
+          "rule": "info"
+        },
+        {
+          "element": "DueDate",
+          "source": "UDM_P2P_ATTR-FIN_P2P_DUE_DATE",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.DueDate",
+          "rule": "info"
+        },
+        {
+          "element": "PromiseDate",
+          "source": "UDM_P2P_ATTR-FIN_P2P_DATE",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseDate",
+          "rule": "info"
+        },
+        {
+          "element": "PromiseState",
+          "source": "UDM_P2P_ATTR-FIN_P2P_STATE",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseState",
+          "rule": "info"
+        },
+        {
+          "element": "PromiseLevel",
+          "source": "UDM_P2P_ATTR-FIN_P2P_LEVEL",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromiseLevel",
+          "rule": "info"
+        },
+        {
+          "element": "PromisedBy",
+          "source": "UDM_P2P_ATTR-FIN_PROMISED_BY",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedBy",
+          "rule": "info"
+        },
+        {
+          "element": "PromisedAmount",
+          "source": "UDM_P2P_ATTR-FIN_PROMISED_AMT",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PromisedAmount",
+          "rule": "info"
+        },
+        {
+          "element": "PaidAmount",
+          "source": "UDM_P2P_ATTR-FIN_PAID_AMOUNT",
+          "target": "Native target evidence: ZFCT_B_PaymentPromiseCompare.PaidAmount",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "PaymentPromise: Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.",
+    "PromiseItem: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied."
+  ],
+  "main_structure": "ZFCX_C_PaymentPromiseMig",
+  "pending_dependencies": [
+    "collections_profile"
+  ],
+  "source_control": {
+    "source_count_view": "ZFCX_C_PaymentPromiseMigCount",
+    "dimensions": []
+  }
+}

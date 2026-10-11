@@ -1,10 +1,10 @@
 {
   "module": "measuring_point",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XMP-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -31,122 +31,144 @@
           "element": "MeasuringPoint",
           "source": "IMPTT-POINT",
           "target": "IMPTT-POINT",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MeasuringPointDescription",
           "source": "IMPTT-PTTXT",
           "target": "IMPTT-PTTXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MeasuringPointCategory",
           "source": "IMPTT-MPTYP",
           "target": "IMPTT-MPTYP",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MeasuringPointPositionNumber",
           "source": "IMPTT-PSORT",
           "target": "IMPTT-PSORT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MeasuringPointObjectType",
           "source": "IMPTT: substring( imptt.mpobj, 1, 2 )",
           "target": "",
-          "rule": "derive:IE = equipment, IF = functional location",
-          "compare": false
+          "rule": "derive:IE = equipment, IF = functional location"
         },
         {
           "element": "TechnicalObjectKey",
           "source": "IMPTT: substring( imptt.mpobj, 3, 30 )",
           "target": "",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Characteristic",
           "source": "CABN-ATNAM",
           "target": "CABN-ATNAM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MeasuringPointIsCounter",
           "source": "IMPTT-INDCT",
           "target": "IMPTT-INDCT",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "MeasuringPointDecimalPlaces",
           "source": "IMPTT-DECIM",
           "target": "IMPTT-DECIM",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MeasurementRangeUnit",
           "source": "IMPTT-MRNGU",
           "target": "IMPTT-MRNGU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LowerRangeLimit",
           "source": "IMPTT-MRMIN",
           "target": "IMPTT-MRMIN",
-          "rule": "convert:float_si_to_unit",
-          "compare": false
+          "rule": "convert:float_si_to_unit"
         },
         {
           "element": "UpperRangeLimit",
           "source": "IMPTT-MRMAX",
           "target": "IMPTT-MRMAX",
-          "rule": "convert:float_si_to_unit",
-          "compare": false
+          "rule": "convert:float_si_to_unit"
         },
         {
           "element": "TargetValue",
           "source": "IMPTT-DESIR",
           "target": "IMPTT-DESIR",
-          "rule": "convert:float_si_to_unit",
-          "compare": false
+          "rule": "convert:float_si_to_unit"
         },
         {
           "element": "CodeGroup",
           "source": "IMPTT-CODGR",
           "target": "IMPTT-CODGR",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "MeasuringPointIsInactive",
           "source": "IMPTT-INACT",
           "target": "IMPTT-INACT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "AuthorizationGroup",
           "source": "IMPTT-BEGRU",
           "target": "IMPTT-BEGRU",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "LastChangeDate",
           "source": "IMPTT-AEDAT",
           "target": "",
-          "rule": "info",
-          "compare": false
+          "rule": "info"
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_MeasPointLongTextMig",
+      "source_view": "ZEMX_I_MeasPointLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
     }
   ],
   "not_migrated": [
@@ -181,10 +203,12 @@
       "reason": "info"
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: characteristics (CABN) must exist on S/4HANA with the same name and unit before the load"
+  ],
+  "main_structure": "ZEMX_C_MeasuringPointMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_MeasPointMigCount",
-    "target_count_view": "ZEMT_I_MeasPointCount",
     "dimensions": [
       {
         "element": "MeasuringPointCategory"
@@ -193,21 +217,6 @@
         "element": "MeasuringPointIsCounter"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_MeasuringPointMig",
-      "target_view": "ZEMT_I_MeasPointCompare",
-      "key": [
-        "MeasuringPoint"
-      ],
-      "fields": [
-        "MeasuringPointCategory",
-        "MeasuringPointIsCounter"
-      ]
-    }
-  },
-  "gaps": [
-    "TODO-VERIFY[M] XMP-G01: characteristics (CABN) must exist on S/4HANA with the same name and unit before the load"
-  ],
-  "main_structure": "ZEMX_C_MeasuringPointMig"
+    "measure": "RecordCount"
+  }
 }

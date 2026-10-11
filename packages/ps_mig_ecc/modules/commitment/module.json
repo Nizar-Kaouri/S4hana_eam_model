@@ -1,0 +1,42 @@
+{
+  "name": "commitment",
+  "title": "Project commitments",
+  "description": "Project commitments. COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "reference"
+  ],
+  "sap_tables": [
+    "COOI"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "wbs_element"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZPSX_B_CommitmentData"
+    ],
+    "composite": [
+      "ZPSX_I_Commitment"
+    ],
+    "consumption": [
+      "ZPSX_C_CommitmentMig",
+      "ZPSX_C_CommitmentMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPSX_B_CommitmentData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_Commitment": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_CommitmentMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_CommitmentMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

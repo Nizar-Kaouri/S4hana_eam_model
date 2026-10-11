@@ -1,9 +1,9 @@
 // ZBRG Bridge VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZBRG_R_ProdOrderWithProduct: production orders and quantities per plant and
+// Purpose: Analytical query on ZBRG_I_ProdOrderWithProduct: production orders and quantities per plant and
 //   product group.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // LINK VIEW (ships only when modules "mm:product" AND "pp:production_order" are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZBRG_R_ProdOrderWithProduct applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZBRG_I_ProdOrderWithProduct applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Production by Product Group'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -11,7 +11,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZBRG_C_ProdOrderProductQ
   provider contract analytical_query
-  as projection on ZBRG_R_ProdOrderWithProduct
+  as projection on ZBRG_I_ProdOrderWithProduct
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

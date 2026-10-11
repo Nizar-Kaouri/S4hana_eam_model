@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZPSV_I_WBSELEMENT</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>WBS Element</DDTEXT>
+    <DDTEXT>WBS Element - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

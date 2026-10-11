@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Measurement Document |
+| Description | Measurement Document - Cube |
 | Module | `measurement_document` |
 | Batch | 3 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_MeasurementDocument` |
+| Data category | #CUBE |
+| Data source | `ZEAM_B_MeasDocument` |
 | Source file | `src/zeam_i_measdocument.ddls.asddls` |
 
 ## Purpose
 
-One row per measurement document (reading) with date/time, reading in the measuring point unit, counter reading, valuation code, text and cancellation flag.
+Reading cube (cancelled documents excluded): number of readings, minimum / maximum / summed reading as decimals, with measuring point characteristics via path expressions.
 
 ## Keys
 
@@ -23,16 +23,16 @@ One row per measurement document (reading) with date/time, reading in the measur
 
 ## Associations defined here
 
-- `_MeasuringPoint` → `ZEAM_I_MeasPoint` [1..1]
+- none
 
 ## Access control
 
-Role inherits the conditions of `I_MeasurementDocument`.
+Role inherits the conditions of `ZEAM_B_MeasDocument`.
 
 ## Example use case
 
-Trend of a temperature or vibration reading; latest counter reading per measuring point.
+Maximum vibration per equipment and month; number of readings per measuring point category.
 
 ## Open verification items
 
-`MD-001`, `MD-002`, `MD-003`, `MD-004`, `MD-D01` - see `BATCH_REPORT.md`.
+`MD-R01`, `MD-R02` - see `BATCH_REPORT.md`.

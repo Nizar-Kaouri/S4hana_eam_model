@@ -1,0 +1,45 @@
+{
+  "name": "credit_segment",
+  "title": "Credit segment limits",
+  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
+  "batch": 1,
+  "version": "0.3.0",
+  "status": "draft-unverified",
+  "tested_release": "none (native DDIC and SAP activation pending)",
+  "tags": [
+    "migration",
+    "native-table",
+    "master"
+  ],
+  "sap_tables": [
+    "UKMBP_CMS_SGM"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "credit_profile"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFCX_B_CreditSegmentData"
+    ],
+    "composite": [
+      "ZFCX_I_CreditSegment"
+    ],
+    "consumption": [
+      "ZFCX_C_CreditSegmentMig",
+      "ZFCX_C_CreditSegmentMigCount"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFCX_B_CreditSegmentData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCX_I_CreditSegment": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCX_C_CreditSegmentMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZFCX_C_CreditSegmentMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
+  },
+  "link_views": [],
+  "pending_structures": []
+}

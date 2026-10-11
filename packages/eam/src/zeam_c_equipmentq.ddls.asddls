@@ -3,7 +3,7 @@
 // Example: Expose in a service definition, bind as OData V4 and open in an analytical list page or SAP Analytics Cloud.
 // Analytical query on the Equipment cube.
 // DESIGN NOTE: transient view entities are not SQL-readable; no DCL role is defined for
-// this entity. Authorizations are enforced by the DCL of ZEAM_R_Equipment (the provider).
+// this entity. Authorizations are enforced by the DCL of ZEAM_I_Equipment (the provider).
 // TODO-VERIFY[H] GEN-Q01: @AccessControl.authorizationCheck: #NOT_ALLOWED is the correct value for a transient analytical query
 // TODO-VERIFY[M] GEN-Q02: @VDM.viewType: #CONSUMPTION accepted on a transient view entity
 // TODO-VERIFY[L] GEN-Q03: @AnalyticsDetails.query.axis and @Consumption.filter syntax in analytical_query projections
@@ -14,7 +14,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZEAM_C_EquipmentQ
   provider contract analytical_query
-  as projection on ZEAM_R_Equipment
+  as projection on ZEAM_I_Equipment
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

@@ -1,0 +1,66 @@
+{
+  "ZEHX_C_SpecificationMig": {
+    "module": "specification",
+    "table": "ESTRH",
+    "keys": [
+      "RecordNumber",
+      "ChangeState"
+    ],
+    "selection": "selection/ZEHX_C_SpecificationMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZEHX_C_SpecIdentifierMig": {
+    "module": "specification",
+    "table": "ESTRI",
+    "keys": [
+      "RecordNumber",
+      "ChangeState"
+    ],
+    "selection": "selection/ZEHX_C_SpecIdentifierMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZEHX_C_PhraseMig": {
+    "module": "phrase",
+    "table": "ESTPH",
+    "keys": [
+      "RecordNumber",
+      "ChangeState"
+    ],
+    "selection": "selection/ZEHX_C_PhraseMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZEHX_C_PhraseSetMig": {
+    "module": "phrase",
+    "table": "ESTPJ",
+    "keys": [
+      "RecordNumber",
+      "ChangeState"
+    ],
+    "selection": "selection/ZEHX_C_PhraseSetMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZEHX_C_IncidentMig": {
+    "module": "incident",
+    "table": "EHHSSD_INC_ROOT",
+    "keys": [
+      "IncidentUUID"
+    ],
+    "selection": "selection/ZEHX_C_IncidentMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZEHX_C_IncidentActionMig": {
+    "module": "incident",
+    "table": "EHHSSD_IAC_ROOT",
+    "keys": [
+      "ActionUUID"
+    ],
+    "selection": "selection/ZEHX_C_IncidentActionMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  }
+}

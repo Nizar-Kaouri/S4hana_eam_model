@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZPSV_R_Project` |
+| Data source | `ZPSV_I_Project` |
 | Source file | `src/zpsv_c_projectq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZPSV_R_Project: projects per company code and profile.
+Analytical query on ZPSV_I_Project: projects per company code and profile.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZPSV_R_Project: projects per company code and profile.
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_R_Project (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPSV_I_Project (see GEN-Q01).
 
 ## Example use case
 

@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_WorkCenter.
+// TODO-VERIFY[H] WC-D01: I_WorkCenter has an access control role and every element it references is projected by ZEAM_B_WorkCenter
+@EndUserText.label: 'Work Center'
+@MappingRole: true
+define role ZEAM_B_WorkCenter {
+  grant
+    select
+      on
+        ZEAM_B_WorkCenter
+          where
+            inheriting conditions from entity I_WorkCenter;
+}

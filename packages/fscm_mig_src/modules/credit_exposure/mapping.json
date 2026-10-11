@@ -1,0 +1,85 @@
+{
+  "module": "credit_exposure",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [
+    "credit_segment"
+  ],
+  "key": {
+    "business_key": [
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "Currency"
+    ],
+    "numbering": "keep",
+    "note": "Map regenerated target UUIDs during loading; current client is implicit."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZFCX_C_CreditExposureMig",
+      "source_view": "ZFCX_I_CreditExposure",
+      "scope_filter": "",
+      "keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ],
+      "fields": [
+        {
+          "element": "BusinessPartner",
+          "source": "UKM_TOTALS-PARTNER",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.BusinessPartner",
+          "rule": "info"
+        },
+        {
+          "element": "CreditSegment",
+          "source": "UKM_TOTALS-CREDIT_SGMNT",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.CreditSegment",
+          "rule": "info"
+        },
+        {
+          "element": "ExposureCategory",
+          "source": "UKM_TOTALS-COMM_TYP",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.ExposureCategory",
+          "rule": "info"
+        },
+        {
+          "element": "Currency",
+          "source": "UKM_TOTALS-CURRENCY",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.Currency",
+          "rule": "info"
+        },
+        {
+          "element": "ExposureAmount",
+          "source": "UKM_TOTALS-AMOUNT",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.ExposureAmount",
+          "rule": "info"
+        },
+        {
+          "element": "SecuredAmount",
+          "source": "UKM_TOTALS-AMOUNT_SEC",
+          "target": "Native target evidence: ZFCT_B_CreditExposureCompare.SecuredAmount",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Native liability snapshot in stored currency; not a delta feed or posting payload. Declared grain including currency is a DDIC candidate. Derived currency-type and message-party fields are excluded; cross-segment/report-currency aggregation remains pending."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "CreditExposure: Native liability snapshot in stored currency; not a delta feed or posting payload. Declared grain including currency is a DDIC candidate. Derived currency-type and message-party fields are excluded; cross-segment/report-currency aggregation remains pending."
+  ],
+  "main_structure": "ZFCX_C_CreditExposureMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZFCX_C_CreditExposureMigCount",
+    "dimensions": []
+  }
+}

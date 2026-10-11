@@ -5,7 +5,7 @@
    <DDLS>
     <DDLNAME>ZEAM_I_MAINTORDER</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Maintenance Order</DDTEXT>
+    <DDTEXT>Maintenance Order - Cube</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

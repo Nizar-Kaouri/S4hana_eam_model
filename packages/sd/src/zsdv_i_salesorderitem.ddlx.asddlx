@@ -1,0 +1,28 @@
+// ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
+// UI annotations for ZSDV_I_SalesOrderItem. Partner layer: customers can override in #CUSTOMER.
+@Metadata.layer: #PARTNER
+@UI.headerInfo: {
+  typeName: 'Sales Order Item',
+  typeNamePlural: 'Sales Order Items',
+  title: { type: #STANDARD, value: 'SalesDocument' }
+}
+annotate entity ZSDV_I_SalesOrderItem with
+{
+  @UI.lineItem: [ { position: 10, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 10 } ]
+  SalesDocument;
+  @UI.lineItem: [ { position: 20, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 20 } ]
+  SalesDocumentItem;
+  @UI.lineItem: [ { position: 30, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 30 } ]
+  Material;
+  @UI.lineItem: [ { position: 40, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 40 } ]
+  Plant;
+  @UI.lineItem: [ { position: 50, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 50 } ]
+  SalesOrderItemIsOpen;
+  @UI.lineItem: [ { position: 60, importance: #MEDIUM } ]
+  SDProcessStatus;
+}

@@ -1,6 +1,6 @@
 "! <p class="shorttext synchronized">ZEAM VDM - Functional Location CDS unit tests (draft)</p>
 "! CDS test double tests for module "functional_location". Never executed: no SAP system available.
-"! TODO-VERIFY[M] TST-002: test data names (see FL-0xx); test double resolves path _Text in ZEAM_I_FuncLocVH
+"! TODO-VERIFY[M] TST-002: test data names (see FL-0xx); test double resolves path _Text in ZEAM_B_FuncLocVH
 CLASS zeam_cl_funcloc_test DEFINITION
   PUBLIC
   FINAL
@@ -25,8 +25,8 @@ ENDCLASS.
 CLASS zeam_cl_funcloc_test IMPLEMENTATION.
 
   METHOD class_setup.
-    vh_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_FUNCLOCVH' ).
-    cube_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_R_FUNCLOC' ).
+    vh_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_B_FUNCLOCVH' ).
+    cube_environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_FUNCLOC' ).
   ENDMETHOD.
 
 
@@ -43,8 +43,8 @@ CLASS zeam_cl_funcloc_test IMPLEMENTATION.
 
 
   METHOD vh_name_in_logon_language.
-    DATA locations TYPE STANDARD TABLE OF zeam_i_funcloc WITH EMPTY KEY.
-    DATA texts TYPE STANDARD TABLE OF zeam_i_funcloctext WITH EMPTY KEY.
+    DATA locations TYPE STANDARD TABLE OF zeam_b_funcloc WITH EMPTY KEY.
+    DATA texts TYPE STANDARD TABLE OF zeam_b_funcloctext WITH EMPTY KEY.
     DATA other_language TYPE sy-langu.
 
     other_language = COND #( WHEN sy-langu = 'D' THEN 'E' ELSE 'D' ).
@@ -56,7 +56,7 @@ CLASS zeam_cl_funcloc_test IMPLEMENTATION.
     vh_environment->insert_test_data( i_data = locations ).
     vh_environment->insert_test_data( i_data = texts ).
 
-    SELECT FROM zeam_i_funclocvh
+    SELECT FROM zeam_b_funclocvh
       FIELDS functionallocation, functionallocationname
       INTO TABLE @DATA(result).
 
@@ -68,7 +68,7 @@ CLASS zeam_cl_funcloc_test IMPLEMENTATION.
 
 
   METHOD cube_counts_one_per_row.
-    DATA locations TYPE STANDARD TABLE OF zeam_i_funcloc WITH EMPTY KEY.
+    DATA locations TYPE STANDARD TABLE OF zeam_b_funcloc WITH EMPTY KEY.
 
     locations = VALUE #(
       ( functionallocation = 'FL-1000' maintenanceplant = '1010' )
@@ -76,7 +76,7 @@ CLASS zeam_cl_funcloc_test IMPLEMENTATION.
       ( functionallocation = 'FL-2000' maintenanceplant = '1020' ) ).
     cube_environment->insert_test_data( i_data = locations ).
 
-    SELECT FROM zeam_r_funcloc
+    SELECT FROM zeam_i_funcloc
       FIELDS maintenanceplant, SUM( numberoffunctionallocations ) AS total
       GROUP BY maintenanceplant
       ORDER BY maintenanceplant

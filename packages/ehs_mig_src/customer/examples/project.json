@@ -1,0 +1,107 @@
+{
+  "cutover": "20261011",
+  "inputs": {
+    "ZEHX_C_SpecificationMig": "exports/ZEHX_C_SpecificationMig.csv",
+    "ZEHX_C_SpecificationMig_Scope": "selection/ZEHX_C_SpecificationMig.csv",
+    "ZEHX_C_SpecIdentifierMig": "exports/ZEHX_C_SpecIdentifierMig.csv",
+    "ZEHX_C_SpecIdentifierMig_Scope": "selection/ZEHX_C_SpecIdentifierMig.csv",
+    "ZEHX_C_PhraseMig": "exports/ZEHX_C_PhraseMig.csv",
+    "ZEHX_C_PhraseMig_Scope": "selection/ZEHX_C_PhraseMig.csv",
+    "ZEHX_C_PhraseSetMig": "exports/ZEHX_C_PhraseSetMig.csv",
+    "ZEHX_C_PhraseSetMig_Scope": "selection/ZEHX_C_PhraseSetMig.csv",
+    "ZEHX_C_IncidentMig": "exports/ZEHX_C_IncidentMig.csv",
+    "ZEHX_C_IncidentMig_Scope": "selection/ZEHX_C_IncidentMig.csv",
+    "ZEHX_C_IncidentActionMig": "exports/ZEHX_C_IncidentActionMig.csv",
+    "ZEHX_C_IncidentActionMig_Scope": "selection/ZEHX_C_IncidentActionMig.csv"
+  },
+  "steps": [
+    {
+      "name": "ZEHX_C_SpecificationMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_SpecificationMig",
+      "parent": "ZEHX_C_SpecificationMig_Scope",
+      "child_keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "parent_keys": [
+        "RecordNumber",
+        "ChangeState"
+      ]
+    },
+    {
+      "name": "ZEHX_C_SpecIdentifierMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_SpecIdentifierMig",
+      "parent": "ZEHX_C_SpecIdentifierMig_Scope",
+      "child_keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "parent_keys": [
+        "RecordNumber",
+        "ChangeState"
+      ]
+    },
+    {
+      "name": "ZEHX_C_PhraseMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_PhraseMig",
+      "parent": "ZEHX_C_PhraseMig_Scope",
+      "child_keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "parent_keys": [
+        "RecordNumber",
+        "ChangeState"
+      ]
+    },
+    {
+      "name": "ZEHX_C_PhraseSetMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_PhraseSetMig",
+      "parent": "ZEHX_C_PhraseSetMig_Scope",
+      "child_keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "parent_keys": [
+        "RecordNumber",
+        "ChangeState"
+      ]
+    },
+    {
+      "name": "ZEHX_C_IncidentMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_IncidentMig",
+      "parent": "ZEHX_C_IncidentMig_Scope",
+      "child_keys": [
+        "IncidentUUID"
+      ],
+      "parent_keys": [
+        "IncidentUUID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_IncidentActionMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_IncidentActionMig",
+      "parent": "ZEHX_C_IncidentActionMig_Scope",
+      "child_keys": [
+        "ActionUUID"
+      ],
+      "parent_keys": [
+        "ActionUUID"
+      ]
+    }
+  ],
+  "outputs": [
+    "ZEHX_C_SpecificationMig_Prepared",
+    "ZEHX_C_SpecIdentifierMig_Prepared",
+    "ZEHX_C_PhraseMig_Prepared",
+    "ZEHX_C_PhraseSetMig_Prepared",
+    "ZEHX_C_IncidentMig_Prepared",
+    "ZEHX_C_IncidentActionMig_Prepared"
+  ]
+}

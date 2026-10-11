@@ -1,0 +1,388 @@
+{
+  "ZCOX_C_CostCenterMig": {
+    "module": "cost_center",
+    "table": "CSKS",
+    "keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "selection": "selection/ZCOX_C_CostCenterMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_CostCenterTextMig": {
+    "module": "cost_center",
+    "table": "CSKT",
+    "keys": [
+      "Language",
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "selection": "selection/ZCOX_C_CostCenterTextMig.csv",
+    "requires_business_approval": true,
+    "mode": "master",
+    "parent": "ZCOX_C_CostCenterMig",
+    "child_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "parent_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "parent_identity": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "kind": "child"
+  },
+  "ZCOX_C_ProfitCenterMig": {
+    "module": "profit_center",
+    "table": "CEPC",
+    "keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "selection": "selection/ZCOX_C_ProfitCenterMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_ProfitCenterTeMig": {
+    "module": "profit_center",
+    "table": "CEPCT",
+    "keys": [
+      "Language",
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "selection": "selection/ZCOX_C_ProfitCenterTeMig.csv",
+    "requires_business_approval": true,
+    "mode": "master",
+    "parent": "ZCOX_C_ProfitCenterMig",
+    "child_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "parent_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "parent_identity": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "kind": "child"
+  },
+  "ZCOX_C_InternalOrderMig": {
+    "module": "internal_order",
+    "table": "AUFK",
+    "keys": [
+      "InternalOrder"
+    ],
+    "selection": "selection/ZCOX_C_InternalOrderMig.csv",
+    "requires_business_approval": true,
+    "mode": "master"
+  },
+  "ZCOX_C_OrderSettlemenMig": {
+    "module": "internal_order",
+    "table": "COBRB",
+    "keys": [
+      "ObjectNumber",
+      "DistributionRuleGroup",
+      "DistributionRule"
+    ],
+    "selection": "selection/ZCOX_C_OrderSettlemenMig.csv",
+    "requires_business_approval": true,
+    "mode": "master",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ],
+    "kind": "child"
+  },
+  "ZCOX_C_CostActualMig": {
+    "module": "cost_actuals",
+    "table": "COEP",
+    "keys": [
+      "ControllingArea",
+      "COAccountingDocument",
+      "COAccountingDocumentItem"
+    ],
+    "selection": "selection/ZCOX_C_CostActualMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZCOX_C_CostElementMig": {
+    "module": "cost_element",
+    "table": "CSKA",
+    "keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "selection": "selection/ZCOX_C_CostElementMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZCOX_C_CostElementAreMig": {
+    "module": "cost_element",
+    "table": "CSKB",
+    "keys": [
+      "ControllingArea",
+      "CostElement",
+      "ValidityEndDate"
+    ],
+    "selection": "selection/ZCOX_C_CostElementAreMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
+  },
+  "ZCOX_C_PrimaryPlanMig": {
+    "module": "planning",
+    "table": "COSP",
+    "keys": [
+      "Ledger",
+      "ObjectNumber",
+      "FiscalYear",
+      "ValueType",
+      "PlanVersion",
+      "CostElement",
+      "OriginGroup",
+      "BusinessTransaction",
+      "TradingPartner",
+      "PartnerBusinessArea",
+      "DebitCreditCode",
+      "PeriodBlock"
+    ],
+    "selection": "selection/ZCOX_C_PrimaryPlanMig.csv",
+    "requires_business_approval": true,
+    "mode": "planning-reference"
+  },
+  "ZCOX_C_SecondaryPlanMig": {
+    "module": "planning",
+    "table": "COSS",
+    "keys": [
+      "Ledger",
+      "ObjectNumber",
+      "FiscalYear",
+      "ValueType",
+      "PlanVersion",
+      "CostElement",
+      "OriginGroup",
+      "BusinessTransaction",
+      "TradingPartner",
+      "PartnerBusinessArea",
+      "DebitCreditCode",
+      "PeriodBlock"
+    ],
+    "selection": "selection/ZCOX_C_SecondaryPlanMig.csv",
+    "requires_business_approval": true,
+    "mode": "planning-reference"
+  },
+  "ZCOX_C_AllocCycleMig": {
+    "module": "allocation_cycle",
+    "table": "T811C",
+    "keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "selection": "selection/ZCOX_C_AllocCycleMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference"
+  },
+  "ZCOX_C_AllocSegmentMig": {
+    "module": "allocation_cycle",
+    "table": "T811S",
+    "keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate",
+      "SegmentSequence"
+    ],
+    "selection": "selection/ZCOX_C_AllocSegmentMig.csv",
+    "requires_business_approval": true,
+    "mode": "configuration-reference",
+    "parent": "ZCOX_C_AllocCycleMig",
+    "child_keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "parent_keys": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "parent_identity": [
+      "AllocationTable",
+      "AllocationCycle",
+      "ValidityStartDate"
+    ],
+    "kind": "child"
+  },
+  "ZCOX_C_OrderStatusMig": {
+    "module": "internal_order",
+    "table": "JEST",
+    "keys": [
+      "InternalOrder",
+      "StatusCode"
+    ],
+    "selection": "selection/ZCOX_C_OrderStatusMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ],
+    "kind": "child"
+  },
+  "ZCOX_C_CostElementTextMig": {
+    "module": "cost_element",
+    "keys": [
+      "Language",
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "kind": "child",
+    "parent": "ZCOX_C_CostElementMig",
+    "child_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "parent_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "parent_identity": [
+      "ChartOfAccounts",
+      "CostElement"
+    ]
+  },
+  "ZCOX_C_OrderPartnerMig": {
+    "module": "internal_order",
+    "keys": [
+      "InternalOrder",
+      "PartnerFunction",
+      "PartnerCounter"
+    ],
+    "kind": "child",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_OrderUserStatusMig": {
+    "module": "internal_order",
+    "keys": [
+      "InternalOrder",
+      "StatusCode"
+    ],
+    "kind": "child",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "child_keys": [
+      "InternalOrder"
+    ],
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "parent_identity": [
+      "InternalOrder"
+    ]
+  },
+  "ZCOX_C_CostCenterLongTextMig": {
+    "kind": "text_child",
+    "module": "cost_center",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZCOX_C_CostCenterMig",
+    "parent_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "links": "ZCOX_C_CostCenterLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZCOX_C_ProfitCtrLongTextMig": {
+    "kind": "text_child",
+    "module": "profit_center",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZCOX_C_ProfitCenterMig",
+    "parent_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "links": "ZCOX_C_ProfitCtrLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZCOX_C_CostElementLongTextMig": {
+    "kind": "text_child",
+    "module": "cost_element",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZCOX_C_CostElementMig",
+    "parent_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "links": "ZCOX_C_CostElementLongTextMig_Links",
+    "operation": "text_scope"
+  },
+  "ZCOX_C_OrderLongTextMig": {
+    "kind": "text_child",
+    "module": "internal_order",
+    "keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "parent": "ZCOX_C_InternalOrderMig",
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "links": "ZCOX_C_OrderLongTextMig_Links",
+    "operation": "text_scope"
+  }
+}

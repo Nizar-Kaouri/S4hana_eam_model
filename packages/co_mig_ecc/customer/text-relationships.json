@@ -1,0 +1,67 @@
+{
+  "ZCOX_C_CostCenterLongTextMig": {
+    "module": "cost_center",
+    "parent": "ZCOX_C_CostCenterMig",
+    "parent_keys": [
+      "ControllingArea",
+      "CostCenter",
+      "ValidityEndDate"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZCOX_C_CostCenterLongTextMig_Links",
+    "payload_helper": "zcox_co_text_export.prog.abap"
+  },
+  "ZCOX_C_ProfitCtrLongTextMig": {
+    "module": "profit_center",
+    "parent": "ZCOX_C_ProfitCenterMig",
+    "parent_keys": [
+      "ProfitCenter",
+      "ValidityEndDate",
+      "ControllingArea"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZCOX_C_ProfitCtrLongTextMig_Links",
+    "payload_helper": "zcox_co_text_export.prog.abap"
+  },
+  "ZCOX_C_CostElementLongTextMig": {
+    "module": "cost_element",
+    "parent": "ZCOX_C_CostElementMig",
+    "parent_keys": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZCOX_C_CostElementLongTextMig_Links",
+    "payload_helper": "zcox_co_text_export.prog.abap"
+  },
+  "ZCOX_C_OrderLongTextMig": {
+    "module": "internal_order",
+    "parent": "ZCOX_C_InternalOrderMig",
+    "parent_keys": [
+      "InternalOrder"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZCOX_C_OrderLongTextMig_Links",
+    "payload_helper": "zcox_co_text_export.prog.abap"
+  }
+}

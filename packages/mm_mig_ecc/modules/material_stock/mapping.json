@@ -1,0 +1,278 @@
+{
+  "module": "material_stock",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "product"
+  ],
+  "key": {
+    "business_key": [
+      "Product",
+      "Plant",
+      "StorageLocation"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZMMX_C_LocationStockMig",
+      "source_view": "ZMMX_I_LocationStock",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Plant",
+        "StorageLocation"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MARD-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Plant",
+          "source": "MARD-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageLocation",
+          "source": "MARD-LGORT",
+          "target": "customer interface field: StorageLocation (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "UnrestrictedStock",
+          "source": "MARD-LABST",
+          "target": "customer interface field: UnrestrictedStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "QualityInspectionStock",
+          "source": "MARD-INSME",
+          "target": "customer interface field: QualityInspectionStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "BlockedStock",
+          "source": "MARD-SPEME",
+          "target": "customer interface field: BlockedStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "TransferStock",
+          "source": "MARD-UMLME",
+          "target": "customer interface field: TransferStock (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "balance",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_BatchStockMig",
+      "source_view": "ZMMX_I_BatchStock",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Plant",
+        "StorageLocation",
+        "Batch"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MCHB-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Plant",
+          "source": "MCHB-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageLocation",
+          "source": "MCHB-LGORT",
+          "target": "customer interface field: StorageLocation (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Batch",
+          "source": "MCHB-CHARG",
+          "target": "customer interface field: Batch (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "UnrestrictedStock",
+          "source": "MCHB-CLABS",
+          "target": "customer interface field: UnrestrictedStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "QualityInspectionStock",
+          "source": "MCHB-CINSM",
+          "target": "customer interface field: QualityInspectionStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "BlockedStock",
+          "source": "MCHB-CSPEM",
+          "target": "customer interface field: BlockedStock (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "balance",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_SalesOrderStocMig",
+      "source_view": "ZMMX_I_SalesOrderStoc",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Plant",
+        "StorageLocation",
+        "Batch",
+        "SpecialStock",
+        "SalesOrder",
+        "SalesOrderItem"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MSKA-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Plant",
+          "source": "MSKA-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "StorageLocation",
+          "source": "MSKA-LGORT",
+          "target": "customer interface field: StorageLocation (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Batch",
+          "source": "MSKA-CHARG",
+          "target": "customer interface field: Batch (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SpecialStock",
+          "source": "MSKA-SOBKZ",
+          "target": "customer interface field: SpecialStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesOrder",
+          "source": "MSKA-VBELN",
+          "target": "customer interface field: SalesOrder (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesOrderItem",
+          "source": "MSKA-POSNR",
+          "target": "customer interface field: SalesOrderItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "UnrestrictedStock",
+          "source": "MSKA-KALAB",
+          "target": "customer interface field: UnrestrictedStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "QualityInspectionStock",
+          "source": "MSKA-KAINS",
+          "target": "customer interface field: QualityInspectionStock (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "balance",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_SupplierStockMig",
+      "source_view": "ZMMX_I_SupplierStock",
+      "scope_filter": "",
+      "keys": [
+        "Product",
+        "Plant",
+        "Batch",
+        "SpecialStock",
+        "Supplier"
+      ],
+      "fields": [
+        {
+          "element": "Product",
+          "source": "MSLB-MATNR",
+          "target": "customer interface field: Product (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Plant",
+          "source": "MSLB-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Batch",
+          "source": "MSLB-CHARG",
+          "target": "customer interface field: Batch (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SpecialStock",
+          "source": "MSLB-SOBKZ",
+          "target": "customer interface field: SpecialStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Supplier",
+          "source": "MSLB-LIFNR",
+          "target": "customer interface field: Supplier (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "UnrestrictedStock",
+          "source": "MSLB-LBLAB",
+          "target": "customer interface field: UnrestrictedStock (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "QualityInspectionStock",
+          "source": "MSLB-LBINS",
+          "target": "customer interface field: QualityInspectionStock (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "balance",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+  ],
+  "main_structure": "ZMMX_C_LocationStockMig",
+  "source_control": {
+    "source_count_view": "ZMMX_C_LocationStockMigCount",
+    "dimensions": [
+      {
+        "element": "Product"
+      }
+    ]
+  }
+}

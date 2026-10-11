@@ -1,0 +1,657 @@
+{
+  "scope": "Defined native source migration objects; additional target posting interfaces and customer customizing are chosen separately.",
+  "modules": {
+    "budget": {
+      "native_tables": [
+        "BPGE",
+        "BPJA"
+      ],
+      "structures": [
+        {
+          "view": "ZPSX_C_OverallBudgetMig",
+          "interface": "ZPSX_I_OverallBudget",
+          "keys": [
+            "Ledger",
+            "ObjectNumber",
+            "BudgetItem",
+            "TransactionIndicator",
+            "ValueType",
+            "Version"
+          ],
+          "mode": "balance",
+          "fields": [
+            "Ledger",
+            "ObjectNumber",
+            "BudgetItem",
+            "TransactionIndicator",
+            "ValueType",
+            "Version",
+            "OverallBudgetAmount"
+          ]
+        },
+        {
+          "view": "ZPSX_C_AnnualBudgetMig",
+          "interface": "ZPSX_I_AnnualBudget",
+          "keys": [
+            "Ledger",
+            "ObjectNumber",
+            "BudgetItem",
+            "TransactionIndicator",
+            "ValueType",
+            "Version",
+            "FiscalYear"
+          ],
+          "mode": "balance",
+          "fields": [
+            "Ledger",
+            "ObjectNumber",
+            "BudgetItem",
+            "TransactionIndicator",
+            "ValueType",
+            "Version",
+            "FiscalYear",
+            "AnnualBudgetAmount"
+          ]
+        }
+      ],
+      "boundary": "Project overall and annual budgets. Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface."
+    },
+    "commitment": {
+      "native_tables": [
+        "COOI"
+      ],
+      "structures": [
+        {
+          "view": "ZPSX_C_CommitmentMig",
+          "interface": "ZPSX_I_Commitment",
+          "keys": [
+            "ObjectNumber",
+            "FiscalYear",
+            "ValueType",
+            "Version",
+            "CostElement",
+            "OriginGroup",
+            "BusinessTransaction",
+            "CommitmentDocument",
+            "CommitmentItem"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ObjectNumber",
+            "FiscalYear",
+            "ValueType",
+            "Version",
+            "CostElement",
+            "OriginGroup",
+            "BusinessTransaction",
+            "CommitmentDocument",
+            "CommitmentItem",
+            "TransactionCurrency",
+            "TransactionAmount",
+            "ObjectCurrencyAmount",
+            "ControllingAreaAmount"
+          ]
+        }
+      ],
+      "boundary": "Project commitments. COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks."
+    },
+    "investment_measure": {
+      "native_tables": [
+        "IMPR",
+        "IMTP",
+        "IMZO"
+      ],
+      "structures": [
+        {
+          "view": "ZPSX_C_InvestProgramMig",
+          "interface": "ZPSX_I_InvestProgram",
+          "keys": [
+            "InvestmentProgram",
+            "ApprovalFiscalYear"
+          ],
+          "mode": "configuration-reference",
+          "fields": [
+            "InvestmentProgram",
+            "ApprovalFiscalYear",
+            "InvestmentProgramDescription"
+          ]
+        },
+        {
+          "view": "ZPSX_C_InvestPositionMig",
+          "interface": "ZPSX_I_InvestPosition",
+          "keys": [
+            "InvestmentPositionInternalID"
+          ],
+          "mode": "configuration-reference",
+          "fields": [
+            "InvestmentPositionInternalID",
+            "InvestmentProgram",
+            "ApprovalFiscalYear",
+            "InvestmentPosition",
+            "ObjectNumber"
+          ]
+        },
+        {
+          "view": "ZPSX_C_InvestAssignMig",
+          "interface": "ZPSX_I_InvestAssign",
+          "keys": [
+            "InvestmentPositionInternalID",
+            "AssignedObject",
+            "ApprovalFiscalYear"
+          ],
+          "mode": "configuration-reference",
+          "fields": [
+            "InvestmentPositionInternalID",
+            "AssignedObject",
+            "ApprovalFiscalYear",
+            "AssignmentPercentage"
+          ]
+        }
+      ],
+      "boundary": "Investment programs and measures. Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers."
+    },
+    "network": {
+      "native_tables": [
+        "AFKO",
+        "AFVC",
+        "AFVV",
+        "AUFK",
+        "COBRB",
+        "JEST",
+        "JSTO",
+        "RESB",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZPSX_C_NetworkHeaderMig",
+          "interface": "ZPSX_I_NetworkHeader",
+          "keys": [
+            "Network"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "Network",
+            "NetworkType",
+            "ControllingArea",
+            "CompanyCode",
+            "Plant",
+            "NetworkDescription",
+            "ObjectNumber"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkPlanMig",
+          "interface": "ZPSX_I_NetworkPlan",
+          "keys": [
+            "Network"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "Network",
+            "RoutingNumber",
+            "BasicStartDate",
+            "BasicFinishDate"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkActivitMig",
+          "interface": "ZPSX_I_NetworkActivit",
+          "keys": [
+            "RoutingNumber",
+            "OperationInternalID"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "RoutingNumber",
+            "OperationInternalID",
+            "Activity",
+            "Sequence",
+            "WorkCenterInternalID",
+            "ControlKey",
+            "ActivityDescription",
+            "WBSElementInternalID",
+            "Plant"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkQuantitMig",
+          "interface": "ZPSX_I_NetworkQuantit",
+          "keys": [
+            "RoutingNumber",
+            "OperationInternalID"
+          ],
+          "mode": "process-reference",
+          "fields": [
+            "RoutingNumber",
+            "OperationInternalID",
+            "WorkQuantity",
+            "WorkUnit",
+            "Duration",
+            "DurationUnit"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkStatusMig",
+          "interface": "ZPSX_I_NetworkStatus",
+          "keys": [
+            "Network",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "Network",
+            "ObjectNumber",
+            "StatusCode",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkPartnerMig",
+          "interface": "ZPSX_I_NetworkPartner",
+          "keys": [
+            "Network",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Network",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkUserStatusMig",
+          "interface": "ZPSX_I_NetworkUserStatus",
+          "keys": [
+            "Network",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Network",
+            "StatusCode",
+            "ObjectNumber",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkComponentMig",
+          "interface": "ZPSX_I_NetworkComponent",
+          "keys": [
+            "Reservation",
+            "ReservationItem",
+            "RecordType"
+          ],
+          "mode": "posting",
+          "fields": [
+            "Reservation",
+            "ReservationItem",
+            "RecordType",
+            "Network",
+            "Material",
+            "Plant",
+            "StorageLocation",
+            "RequiredQuantity",
+            "Unit",
+            "DeletionFlag"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkSettleMig",
+          "interface": "ZPSX_I_NetworkSettle",
+          "keys": [
+            "ObjectNumber",
+            "DistributionRuleGroup",
+            "DistributionRule"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ObjectNumber",
+            "DistributionRuleGroup",
+            "DistributionRule",
+            "SettlementType",
+            "SettlementPercentage",
+            "ReceiverCostCenter",
+            "ReceiverOrder",
+            "ReceiverCategory",
+            "SettlementAmount",
+            "SettlementCurrency",
+            "ControllingArea",
+            "ReceiverCompanyCode",
+            "ReceiverMasterAsset",
+            "ReceiverAsset",
+            "ReceiverWBSInternalID",
+            "ValidFromFiscalYear",
+            "ValidFromPeriod",
+            "ValidToFiscalYear",
+            "ValidToPeriod"
+          ]
+        },
+        {
+          "view": "ZPSX_C_NetworkLongTextMig",
+          "interface": "ZPSX_I_NetworkLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Project networks and activities. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay."
+    },
+    "project": {
+      "native_tables": [
+        "COBRB",
+        "IHPA",
+        "JEST",
+        "JSTO",
+        "PROJ",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZPSX_C_ProjectMig",
+          "interface": "ZPSX_I_Project",
+          "keys": [
+            "ProjectInternalID"
+          ],
+          "mode": "master",
+          "fields": [
+            "ProjectInternalID",
+            "ProjectExternalID",
+            "ProjectDescription",
+            "CompanyCode",
+            "ControllingArea",
+            "ObjectNumber"
+          ]
+        },
+        {
+          "view": "ZPSX_C_ProjectStatusMig",
+          "interface": "ZPSX_I_ProjectStatus",
+          "keys": [
+            "ProjectInternalID",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ProjectInternalID",
+            "ObjectNumber",
+            "StatusCode",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZPSX_C_ProjectPartnerMig",
+          "interface": "ZPSX_I_ProjectPartner",
+          "keys": [
+            "ProjectInternalID",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ProjectInternalID",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZPSX_C_ProjectUserStatusMig",
+          "interface": "ZPSX_I_ProjectUserStatus",
+          "keys": [
+            "ProjectInternalID",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ProjectInternalID",
+            "StatusCode",
+            "ObjectNumber",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZPSX_C_ProjectSettleMig",
+          "interface": "ZPSX_I_ProjectSettle",
+          "keys": [
+            "ObjectNumber",
+            "DistributionRuleGroup",
+            "DistributionRule"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ObjectNumber",
+            "DistributionRuleGroup",
+            "DistributionRule",
+            "SettlementType",
+            "SettlementPercentage",
+            "ReceiverCostCenter",
+            "ReceiverOrder",
+            "ReceiverCategory",
+            "SettlementAmount",
+            "SettlementCurrency",
+            "ControllingArea",
+            "ReceiverCompanyCode",
+            "ReceiverMasterAsset",
+            "ReceiverAsset",
+            "ReceiverWBSInternalID",
+            "ValidFromFiscalYear",
+            "ValidFromPeriod",
+            "ValidToFiscalYear",
+            "ValidToPeriod"
+          ]
+        },
+        {
+          "view": "ZPSX_C_ProjectLongTextMig",
+          "interface": "ZPSX_I_ProjectLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "Projects source records, source preparation contracts."
+    },
+    "project_cost": {
+      "native_tables": [
+        "COEP"
+      ],
+      "structures": [
+        {
+          "view": "ZPSX_C_ProjectCostMig",
+          "interface": "ZPSX_I_ProjectCost",
+          "keys": [
+            "ControllingArea",
+            "COAccountingDocument",
+            "COAccountingDocumentItem"
+          ],
+          "mode": "reference",
+          "fields": [
+            "ControllingArea",
+            "COAccountingDocument",
+            "COAccountingDocumentItem",
+            "FiscalYear",
+            "ObjectNumber",
+            "CostElement",
+            "ValueType",
+            "BusinessTransaction",
+            "TransactionAmount",
+            "TransactionCurrency"
+          ]
+        }
+      ],
+      "boundary": "Project cost history source records, source preparation contracts."
+    },
+    "wbs_element": {
+      "native_tables": [
+        "COBRB",
+        "JEST",
+        "PRHI",
+        "PRPS",
+        "STXH"
+      ],
+      "structures": [
+        {
+          "view": "ZPSX_C_WBSMig",
+          "interface": "ZPSX_I_WBS",
+          "keys": [
+            "WBSElementInternalID"
+          ],
+          "mode": "master",
+          "fields": [
+            "WBSElementInternalID",
+            "WBSElementExternalID",
+            "WBSElementDescription",
+            "ProjectInternalID",
+            "CompanyCode",
+            "ControllingArea",
+            "ObjectNumber"
+          ]
+        },
+        {
+          "view": "ZPSX_C_WBSHierarchyMig",
+          "interface": "ZPSX_I_WBSHierarchy",
+          "keys": [
+            "WBSElementInternalID"
+          ],
+          "mode": "master",
+          "fields": [
+            "WBSElementInternalID",
+            "ParentWBSElementInternalID",
+            "FirstChildInternalID",
+            "PreviousSiblingInternalID",
+            "NextSiblingInternalID"
+          ]
+        },
+        {
+          "view": "ZPSX_C_WBSStatusMig",
+          "interface": "ZPSX_I_WBSStatus",
+          "keys": [
+            "WBSElementInternalID",
+            "StatusCode"
+          ],
+          "mode": "reference",
+          "fields": [
+            "WBSElementInternalID",
+            "ObjectNumber",
+            "StatusCode",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZPSX_C_WBSPartnerMig",
+          "interface": "ZPSX_I_WBSPartner",
+          "keys": [
+            "WBSElementInternalID",
+            "PartnerFunction",
+            "PartnerCounter"
+          ],
+          "mode": "posting",
+          "fields": [
+            "WBSElementInternalID",
+            "PartnerFunction",
+            "PartnerCounter",
+            "Partner"
+          ]
+        },
+        {
+          "view": "ZPSX_C_WBSUserStatusMig",
+          "interface": "ZPSX_I_WBSUserStatus",
+          "keys": [
+            "WBSElementInternalID",
+            "StatusCode"
+          ],
+          "mode": "posting",
+          "fields": [
+            "WBSElementInternalID",
+            "StatusCode",
+            "ObjectNumber",
+            "StatusKind",
+            "StatusChangeNumber",
+            "StatusProfile"
+          ]
+        },
+        {
+          "view": "ZPSX_C_WBSSettleMig",
+          "interface": "ZPSX_I_WBSSettle",
+          "keys": [
+            "ObjectNumber",
+            "DistributionRuleGroup",
+            "DistributionRule"
+          ],
+          "mode": "posting",
+          "fields": [
+            "ObjectNumber",
+            "DistributionRuleGroup",
+            "DistributionRule",
+            "SettlementType",
+            "SettlementPercentage",
+            "ReceiverCostCenter",
+            "ReceiverOrder",
+            "ReceiverCategory",
+            "SettlementAmount",
+            "SettlementCurrency",
+            "ControllingArea",
+            "ReceiverCompanyCode",
+            "ReceiverMasterAsset",
+            "ReceiverAsset",
+            "ReceiverWBSInternalID",
+            "ValidFromFiscalYear",
+            "ValidFromPeriod",
+            "ValidToFiscalYear",
+            "ValidToPeriod"
+          ]
+        },
+        {
+          "view": "ZPSX_C_WBSLongTextMig",
+          "interface": "ZPSX_I_WBSLongText",
+          "keys": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ],
+          "mode": "reference",
+          "fields": [
+            "TextObject",
+            "TextName",
+            "TextID",
+            "Language"
+          ]
+        }
+      ],
+      "boundary": "WBS elements source records, source preparation contracts."
+    }
+  }
+}

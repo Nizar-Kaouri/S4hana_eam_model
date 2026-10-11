@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZBRG_R_MaintCostWithCostCtr` |
+| Data source | `ZBRG_I_MaintCostWithCostCtr` |
 | Source file | `src/zbrg_c_maintcostcostctrq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZBRG_R_MaintCostWithCostCtr: maintenance cost per cost center category and cost center.
+Analytical query on ZBRG_I_MaintCostWithCostCtr: maintenance cost per cost center category and cost center.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZBRG_R_MaintCostWithCostCtr: maintenance cost per cost cente
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_MaintCostWithCostCtr (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_MaintCostWithCostCtr (see GEN-Q01).
 
 ## Example use case
 

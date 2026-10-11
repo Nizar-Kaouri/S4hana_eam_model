@@ -1,0 +1,190 @@
+{
+  "module": "cost_element",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "ChartOfAccounts",
+      "CostElement"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZCOX_C_CostElementMig",
+      "source_view": "ZCOX_I_CostElement",
+      "scope_filter": "",
+      "keys": [
+        "ChartOfAccounts",
+        "CostElement"
+      ],
+      "fields": [
+        {
+          "element": "ChartOfAccounts",
+          "source": "CSKA-KTOPL",
+          "target": "customer interface field: ChartOfAccounts (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CostElement",
+          "source": "CSKA-KSTAR",
+          "target": "customer interface field: CostElement (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CreationDate",
+          "source": "CSKA-ERSDA",
+          "target": "customer interface field: CreationDate (unconfirmed)",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_CostElementAreMig",
+      "source_view": "ZCOX_I_CostElementAre",
+      "scope_filter": "",
+      "keys": [
+        "ControllingArea",
+        "CostElement",
+        "ValidityEndDate"
+      ],
+      "fields": [
+        {
+          "element": "ControllingArea",
+          "source": "CSKB-KOKRS",
+          "target": "customer interface field: ControllingArea (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CostElement",
+          "source": "CSKB-KSTAR",
+          "target": "customer interface field: CostElement (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CSKB-DATBI",
+          "target": "customer interface field: ValidityEndDate (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "CSKB-DATAB",
+          "target": "customer interface field: ValidityStartDate (unconfirmed)",
+          "rule": "info"
+        },
+        {
+          "element": "CostElementCategory",
+          "source": "CSKB-KATYP",
+          "target": "customer interface field: CostElementCategory (unconfirmed)",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+    },
+    {
+      "consumption_view": "ZCOX_C_CostElementTextMig",
+      "source_view": "ZCOX_I_CostElementText",
+      "scope_filter": "",
+      "keys": [
+        "Language",
+        "ChartOfAccounts",
+        "CostElement"
+      ],
+      "fields": [
+        {
+          "element": "Language",
+          "source": "CSKU-SPRAS",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ChartOfAccounts",
+          "source": "CSKU-KTOPL",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CostElement",
+          "source": "CSKU-KSTAR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CostElementName",
+          "source": "CSKU-KTEXT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "CostElementDescription",
+          "source": "CSKU-LTEXT",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "posting",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZCOX_C_CostElementLongTextMig",
+      "source_view": "ZCOX_I_CostElementLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope."
+  ],
+  "main_structure": "ZCOX_C_CostElementMig",
+  "source_control": {
+    "source_count_view": "ZCOX_C_CostElementMigCount",
+    "dimensions": [
+      {
+        "element": "ChartOfAccounts"
+      }
+    ]
+  }
+}

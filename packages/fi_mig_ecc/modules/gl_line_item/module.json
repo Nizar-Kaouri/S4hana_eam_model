@@ -1,0 +1,49 @@
+{
+  "name": "gl_line_item",
+  "title": "Accounting document history",
+  "description": "Accounting document history source records, source preparation contracts.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "reference"
+  ],
+  "sap_tables": [
+    "BKPF",
+    "BSEG"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "gl_account"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZFIX_B_AccountingHeadData",
+      "ZFIX_B_AccountingItemData"
+    ],
+    "composite": [
+      "ZFIX_I_AccountingHead",
+      "ZFIX_I_AccountingItem"
+    ],
+    "consumption": [
+      "ZFIX_C_AccountingHeadMig",
+      "ZFIX_C_AccountingHeadMigCount",
+      "ZFIX_C_AccountingItemMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZFIX_B_AccountingHeadData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_AccountingHead": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_AccountingHeadMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_AccountingHeadMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_B_AccountingItemData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_I_AccountingItem": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZFIX_C_AccountingItemMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

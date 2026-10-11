@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Last call number and last completion date per maintenance plan: the restart point of the schedule on S/4HANA.
 // Example: Read the last completion date of plan 100.
 @AbapCatalog.sqlViewName: 'ZEMX_PLL'
@@ -11,10 +11,13 @@
 @ObjectModel.usageType.sizeCategory: #M
 @VDM.viewType: #COMPOSITE
 define view ZEMX_I_MaintPlanLastCall
-  as select from ZEMX_I_MaintPlanCallHistory as cal
+  as select from ZEMX_B_MaintPlanCallHistory as cal
 {
+      @EndUserText.label: 'Maintenance Plan'
   key cal.MaintenancePlan            as MaintenancePlan,
+      @EndUserText.label: 'Last Call Number'
       max( cal.MaintPlanCallNumber ) as LastCallNumber,
+      @EndUserText.label: 'Last Completion Date'
       max( cal.CompletionDate )      as LastCompletionDate
 }
 group by cal.MaintenancePlan

@@ -1,0 +1,13 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - equipment conditions.
+// TODO-VERIFY[M] LNK-012: notification authorizations are not applied to the aggregated breakdown figures (only equipment authorizations); confirm this is acceptable
+@EndUserText.label: 'Equipment Fleet Reliability'
+@MappingRole: true
+define role ZEAM_I_EquipmentReliability {
+  grant
+    select
+      on
+        ZEAM_I_EquipmentReliability
+          where
+            inheriting conditions from entity ZEAM_B_Equipment;
+}

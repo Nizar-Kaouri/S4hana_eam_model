@@ -1,0 +1,1358 @@
+{
+  "ewm": {
+    "prefix": "WM",
+    "title": "Extended Warehouse Management",
+    "title_de": "Erweiterte Lagerverwaltung",
+    "landscape": "ECC LE-WM or Business Suite/decentralized/embedded EWM; record which native export produced each cohort.",
+    "risk": "LE-WM and EWM are distinct source models. Warehouse numbers, entitled-to-dispose party, owner, stock type, batch, HU and serial identities require mapping. Freeze inventory and reconcile MM/IM and EWM without loading stock twice. Open warehouse tasks, orders and deliveries require a verified process migration; recreate or complete them through supported business operations, not table inserts. Packaging specifications and storage-type customizing must be validated independently.",
+    "risk_de": "LE-WM und EWM besitzen unterschiedliche Quellmodelle. Lagernummer, Verf\u00fcgungsberechtigter, Eigent\u00fcmer, Bestandsart, Charge, HU und Seriennummern zuordnen. Best\u00e4nde einfrieren und MM/IM mit EWM ohne Doppelbeladung abstimmen. Offene Lageraufgaben, Lagerauftr\u00e4ge und Lieferungen ben\u00f6tigen freigegebene Gesch\u00e4ftsprozesse. Packvorschriften und Lagertyp-Customizing separat pr\u00fcfen.",
+    "modules": [
+      {
+        "name": "storage_bin",
+        "title": "Storage bins and sorting",
+        "structures": [
+          {
+            "stem": "StorageBin",
+            "keys": [
+              "Warehouse",
+              "StorageBin"
+            ],
+            "fields": [
+              "StorageType",
+              "StorageSection",
+              "BinType",
+              "Capacity",
+              "CapacityUnit",
+              "Blocked"
+            ]
+          },
+          {
+            "stem": "BinSorting",
+            "keys": [
+              "Warehouse",
+              "StorageBin",
+              "SortSequence"
+            ],
+            "fields": [
+              "ActivityArea",
+              "Activity",
+              "SortDirection"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "warehouse_product",
+        "title": "Warehouse products and fixed bins",
+        "structures": [
+          {
+            "stem": "WarehouseProd",
+            "keys": [
+              "Warehouse",
+              "Product",
+              "EntitledParty"
+            ],
+            "fields": [
+              "WarehouseUoM",
+              "PutawayControl",
+              "RemovalControl",
+              "CycleCountIndicator"
+            ]
+          },
+          {
+            "stem": "FixedBin",
+            "keys": [
+              "Warehouse",
+              "Product",
+              "EntitledParty",
+              "StorageType",
+              "StorageBin"
+            ],
+            "fields": [
+              "MinimumQuantity",
+              "MaximumQuantity",
+              "QuantityUnit"
+            ]
+          }
+        ],
+        "deps": [
+          "storage_bin"
+        ],
+        "mode": "master"
+      },
+      {
+        "name": "warehouse_stock",
+        "title": "Warehouse stock and serials",
+        "structures": [
+          {
+            "stem": "WarehouseStock",
+            "keys": [
+              "Warehouse",
+              "StockIdentity"
+            ],
+            "fields": [
+              "Product",
+              "StorageBin",
+              "Batch",
+              "Owner",
+              "EntitledParty",
+              "StockType",
+              "SpecialStock",
+              "ReferenceDocument",
+              "ReferenceItem",
+              "HandlingUnit",
+              "Quantity",
+              "QuantityUnit",
+              "InventoryDate"
+            ]
+          },
+          {
+            "stem": "StockSerial",
+            "keys": [
+              "Warehouse",
+              "StockIdentity",
+              "SerialNumber"
+            ],
+            "fields": [
+              "Product",
+              "HandlingUnit"
+            ]
+          }
+        ],
+        "deps": [
+          "storage_bin",
+          "warehouse_product"
+        ],
+        "mode": "balance"
+      },
+      {
+        "name": "handling_unit",
+        "title": "Handling units and contents",
+        "structures": [
+          {
+            "stem": "HandlingUnit",
+            "keys": [
+              "Warehouse",
+              "HandlingUnit"
+            ],
+            "fields": [
+              "ExternalHU",
+              "ParentHU",
+              "PackagingProduct",
+              "GrossWeight",
+              "NetWeight",
+              "WeightUnit",
+              "StorageBin",
+              "HUStatus"
+            ]
+          },
+          {
+            "stem": "HUContent",
+            "keys": [
+              "Warehouse",
+              "HandlingUnit",
+              "ContentItem"
+            ],
+            "fields": [
+              "Product",
+              "Batch",
+              "StockIdentity",
+              "Quantity",
+              "QuantityUnit",
+              "Owner",
+              "EntitledParty"
+            ]
+          }
+        ],
+        "deps": [
+          "storage_bin",
+          "warehouse_product"
+        ],
+        "mode": "process-reference"
+      },
+      {
+        "name": "warehouse_task",
+        "title": "Warehouse tasks and confirmations",
+        "structures": [
+          {
+            "stem": "WarehouseTask",
+            "keys": [
+              "Warehouse",
+              "WarehouseTask"
+            ],
+            "fields": [
+              "WarehouseOrder",
+              "Product",
+              "SourceBin",
+              "DestinationBin",
+              "HandlingUnit",
+              "PlannedQuantity",
+              "QuantityUnit",
+              "ProcessType",
+              "TaskStatus"
+            ]
+          },
+          {
+            "stem": "TaskConfirm",
+            "keys": [
+              "Warehouse",
+              "WarehouseTask",
+              "ConfirmationID"
+            ],
+            "fields": [
+              "ConfirmedQuantity",
+              "DifferenceQuantity",
+              "QuantityUnit",
+              "ConfirmedAtUTC",
+              "ReversalStatus"
+            ]
+          }
+        ],
+        "deps": [
+          "storage_bin",
+          "warehouse_product"
+        ],
+        "mode": "process-reference"
+      },
+      {
+        "name": "warehouse_order",
+        "title": "Warehouse orders",
+        "structures": [
+          {
+            "stem": "WarehouseOrder",
+            "keys": [
+              "Warehouse",
+              "WarehouseOrder"
+            ],
+            "fields": [
+              "ActivityArea",
+              "Queue",
+              "Resource",
+              "OrderStatus",
+              "CreatedAtUTC"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "process-reference"
+      },
+      {
+        "name": "warehouse_delivery",
+        "title": "Inbound and outbound warehouse deliveries",
+        "structures": [
+          {
+            "stem": "WhDelivery",
+            "keys": [
+              "Warehouse",
+              "DeliveryID"
+            ],
+            "fields": [
+              "DeliveryCategory",
+              "ExternalDelivery",
+              "Partner",
+              "DeliveryStatus",
+              "PlannedAtUTC"
+            ]
+          },
+          {
+            "stem": "WhDeliveryItem",
+            "keys": [
+              "Warehouse",
+              "DeliveryID",
+              "DeliveryItem"
+            ],
+            "fields": [
+              "Product",
+              "Batch",
+              "Quantity",
+              "QuantityUnit",
+              "HandlingUnit",
+              "ReferenceDocument",
+              "ReferenceItem"
+            ]
+          }
+        ],
+        "deps": [
+          "warehouse_product"
+        ],
+        "mode": "process-reference"
+      },
+      {
+        "name": "pack_specification",
+        "title": "Packaging specifications",
+        "structures": [
+          {
+            "stem": "PackSpec",
+            "keys": [
+              "PackSpecification",
+              "Version"
+            ],
+            "fields": [
+              "Description",
+              "ValidityStartDate",
+              "ValidityEndDate",
+              "ReleaseStatus"
+            ]
+          },
+          {
+            "stem": "PackLevel",
+            "keys": [
+              "PackSpecification",
+              "Version",
+              "LevelID"
+            ],
+            "fields": [
+              "ParentLevel",
+              "PackagingProduct",
+              "TargetQuantity",
+              "QuantityUnit"
+            ]
+          },
+          {
+            "stem": "PackElement",
+            "keys": [
+              "PackSpecification",
+              "Version",
+              "LevelID",
+              "ElementID"
+            ],
+            "fields": [
+              "Product",
+              "Quantity",
+              "QuantityUnit",
+              "ElementType"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      }
+    ]
+  },
+  "tm": {
+    "prefix": "TM",
+    "title": "Transportation Management",
+    "title_de": "Transportmanagement",
+    "landscape": "SAP TM 9.x standalone or S/4HANA embedded/decentralized TM; ECC shipments are a separate predecessor model.",
+    "risk": "Use released business services or a verified native business-object export. Internal node GUIDs, parent relationships, UTC timestamps and local time zones must survive normalization. Freight units/orders/bookings have execution and settlement effects; treat existing documents as process references until the target interface supports the exact state. Agreements, scales, currencies and charges require separate configuration and rating validation. TM upgrade XPRA reports are not generic cross-system migration interfaces.",
+    "risk_de": "Freigegebene Gesch\u00e4ftsdienste oder gepr\u00fcfte native Gesch\u00e4ftsobjektexporte verwenden. Interne GUIDs, Elternbeziehungen, UTC-Zeitpunkte und Zeitzonen erhalten. Frachtbelege besitzen Ausf\u00fchrungs- und Abrechnungswirkungen und bleiben bis zur Schnittstellenfreigabe Prozessreferenzen. Vereinbarungen, Staffeln, W\u00e4hrungen und Rating separat pr\u00fcfen. Upgrade-XPRA-Berichte sind keine allgemeinen system\u00fcbergreifenden Migrationsschnittstellen.",
+    "modules": [
+      {
+        "name": "transport_location",
+        "title": "Transportation locations",
+        "structures": [
+          {
+            "stem": "TransportLoc",
+            "keys": [
+              "LocationID"
+            ],
+            "fields": [
+              "LocationType",
+              "Description",
+              "BusinessPartner",
+              "Country",
+              "PostalCode",
+              "City",
+              "TimeZone",
+              "Latitude",
+              "Longitude"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "transport_resource",
+        "title": "Vehicles trailers and capacities",
+        "structures": [
+          {
+            "stem": "TransportRes",
+            "keys": [
+              "ResourceID"
+            ],
+            "fields": [
+              "ResourceType",
+              "Description",
+              "Carrier",
+              "VehicleType",
+              "TimeZone"
+            ]
+          },
+          {
+            "stem": "ResCapacity",
+            "keys": [
+              "ResourceID",
+              "CapacityID"
+            ],
+            "fields": [
+              "CapacityType",
+              "CapacityValue",
+              "CapacityUnit"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "transport_lane",
+        "title": "Transportation lanes",
+        "structures": [
+          {
+            "stem": "TransportLane",
+            "keys": [
+              "LaneID"
+            ],
+            "fields": [
+              "SourceLocation",
+              "DestinationLocation",
+              "TransportMode",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          },
+          {
+            "stem": "LaneCarrier",
+            "keys": [
+              "LaneID",
+              "CarrierID"
+            ],
+            "fields": [
+              "Priority",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          }
+        ],
+        "deps": [
+          "transport_location"
+        ],
+        "mode": "master"
+      },
+      {
+        "name": "transport_schedule",
+        "title": "Transportation schedules and stops",
+        "structures": [
+          {
+            "stem": "Schedule",
+            "keys": [
+              "ScheduleID",
+              "Version"
+            ],
+            "fields": [
+              "Description",
+              "TransportMode",
+              "Carrier",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          },
+          {
+            "stem": "ScheduleStop",
+            "keys": [
+              "ScheduleID",
+              "Version",
+              "StopID"
+            ],
+            "fields": [
+              "LocationID",
+              "Sequence",
+              "ArrivalLocal",
+              "DepartureLocal",
+              "TimeZone"
+            ]
+          }
+        ],
+        "deps": [
+          "transport_location"
+        ],
+        "mode": "master"
+      },
+      {
+        "name": "freight_agreement",
+        "title": "Freight agreements rates and scales",
+        "structures": [
+          {
+            "stem": "FreightAgree",
+            "keys": [
+              "AgreementID",
+              "Version"
+            ],
+            "fields": [
+              "AgreementType",
+              "Carrier",
+              "Currency",
+              "ValidityStartDate",
+              "ValidityEndDate",
+              "ReleaseStatus"
+            ]
+          },
+          {
+            "stem": "FreightRate",
+            "keys": [
+              "AgreementID",
+              "Version",
+              "RateID"
+            ],
+            "fields": [
+              "ChargeType",
+              "CalculationBasis",
+              "Rate",
+              "Currency",
+              "PricingUnit",
+              "QuantityUnit"
+            ]
+          },
+          {
+            "stem": "FreightScale",
+            "keys": [
+              "AgreementID",
+              "Version",
+              "RateID",
+              "ScaleLine"
+            ],
+            "fields": [
+              "FromValue",
+              "ToValue",
+              "ScaleUnit",
+              "ScaleRate",
+              "Currency"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "freight_unit",
+        "title": "Freight units items and stops",
+        "structures": [
+          {
+            "stem": "FreightUnit",
+            "keys": [
+              "FreightUnitID"
+            ],
+            "fields": [
+              "NativeGUID",
+              "UnitType",
+              "DocumentStatus",
+              "SourceLocation",
+              "DestinationLocation"
+            ]
+          },
+          {
+            "stem": "FreightUnitItem",
+            "keys": [
+              "FreightUnitID",
+              "ItemID"
+            ],
+            "fields": [
+              "Product",
+              "Quantity",
+              "QuantityUnit",
+              "GrossWeight",
+              "WeightUnit",
+              "ReferenceDocument",
+              "ReferenceItem"
+            ]
+          },
+          {
+            "stem": "FreightUnitStop",
+            "keys": [
+              "FreightUnitID",
+              "StopID"
+            ],
+            "fields": [
+              "LocationID",
+              "Sequence",
+              "StopRole",
+              "PlannedAtUTC",
+              "TimeZone"
+            ]
+          }
+        ],
+        "deps": [
+          "transport_location"
+        ],
+        "mode": "process-reference"
+      },
+      {
+        "name": "freight_order",
+        "title": "Freight orders and bookings",
+        "structures": [
+          {
+            "stem": "FreightOrder",
+            "keys": [
+              "FreightOrderID"
+            ],
+            "fields": [
+              "NativeGUID",
+              "DocumentCategory",
+              "OrderType",
+              "Carrier",
+              "ResourceID",
+              "ExecutionStatus",
+              "SettlementStatus"
+            ]
+          },
+          {
+            "stem": "FreightOrdItem",
+            "keys": [
+              "FreightOrderID",
+              "ItemID"
+            ],
+            "fields": [
+              "FreightUnitID",
+              "Product",
+              "Quantity",
+              "QuantityUnit"
+            ]
+          },
+          {
+            "stem": "FreightOrdStop",
+            "keys": [
+              "FreightOrderID",
+              "StopID"
+            ],
+            "fields": [
+              "LocationID",
+              "Sequence",
+              "StopRole",
+              "PlannedAtUTC",
+              "ActualAtUTC",
+              "TimeZone"
+            ]
+          },
+          {
+            "stem": "FreightStage",
+            "keys": [
+              "FreightOrderID",
+              "StageID"
+            ],
+            "fields": [
+              "FromStop",
+              "ToStop",
+              "Distance",
+              "DistanceUnit",
+              "TransportMode"
+            ]
+          }
+        ],
+        "deps": [
+          "transport_location",
+          "transport_resource",
+          "freight_unit"
+        ],
+        "mode": "process-reference"
+      },
+      {
+        "name": "freight_settlement",
+        "title": "Freight settlement references",
+        "structures": [
+          {
+            "stem": "FreightSettle",
+            "keys": [
+              "SettlementID"
+            ],
+            "fields": [
+              "FreightOrderID",
+              "Carrier",
+              "CompanyCode",
+              "Currency",
+              "TotalAmount",
+              "SettlementStatus",
+              "AccountingDocument"
+            ]
+          },
+          {
+            "stem": "SettleItem",
+            "keys": [
+              "SettlementID",
+              "SettlementItem"
+            ],
+            "fields": [
+              "ChargeType",
+              "Amount",
+              "Currency",
+              "TaxCode",
+              "ReferenceItem"
+            ]
+          }
+        ],
+        "deps": [
+          "freight_order"
+        ],
+        "mode": "reference"
+      }
+    ]
+  },
+  "fscm": {
+    "prefix": "FC",
+    "title": "Financial Supply Chain Management",
+    "title_de": "Finanzielles Supply Chain Management",
+    "landscape": "Classic ECC credit management, FSCM Credit/Collections/Dispute Management, or S/4HANA successors; choose the exact path.",
+    "risk": "Classic credit-control areas must be mapped to FSCM credit segments and business partners; the identifiers are not equivalent. Credit exposure is regenerated from integrated operational sources and must not also be posted as opening debt. Collections worklists and dispute amounts depend on the same FI receivable cohort. Status, promises, contacts, notes and attachments require approved business interfaces and access controls. Public Cloud collections and dispute automation is a distinct successor with its own ordered migration jobs, not an assumed on-premise adapter.",
+    "risk_de": "Klassische Kreditkontrollbereiche auf FSCM-Kreditsegmente und Gesch\u00e4ftspartner abbilden. Kreditobligo wird aus operativen Quellen neu erzeugt und darf nicht zus\u00e4tzlich als Anfangsschuld gebucht werden. Collections und Streitf\u00e4lle auf dieselbe FI-Forderungspopulation beziehen. Status, Zusagen, Kontakte, Notizen und Anlagen ben\u00f6tigen freigegebene Schnittstellen und Berechtigungen. Collections and Dispute Automation in Public Cloud ist ein eigener Nachfolger mit geordneten Migrationsjobs.",
+    "modules": [
+      {
+        "name": "credit_profile",
+        "title": "Credit profiles and relationships",
+        "structures": [
+          {
+            "stem": "CreditProfile",
+            "keys": [
+              "BusinessPartner"
+            ],
+            "fields": [
+              "RiskClass",
+              "CheckRule",
+              "Score",
+              "ScoreDate",
+              "CreditGroup"
+            ]
+          },
+          {
+            "stem": "CreditRelation",
+            "keys": [
+              "BusinessPartner",
+              "RelatedPartner",
+              "RelationType",
+              "ValidityStartDate"
+            ],
+            "fields": [
+              "ValidityEndDate"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "credit_segment",
+        "title": "Credit segment limits",
+        "structures": [
+          {
+            "stem": "CreditSegment",
+            "keys": [
+              "BusinessPartner",
+              "CreditSegment"
+            ],
+            "fields": [
+              "CreditLimit",
+              "Currency",
+              "LimitValidTo",
+              "Blocked",
+              "CreditControlArea"
+            ]
+          }
+        ],
+        "deps": [
+          "credit_profile"
+        ],
+        "mode": "master"
+      },
+      {
+        "name": "credit_exposure",
+        "title": "Credit exposure references",
+        "structures": [
+          {
+            "stem": "CreditExposure",
+            "keys": [
+              "BusinessPartner",
+              "CreditSegment",
+              "ExposureCategory",
+              "SourceDocument",
+              "SourceItem"
+            ],
+            "fields": [
+              "ExposureAmount",
+              "Currency",
+              "AsOfUTC"
+            ]
+          }
+        ],
+        "deps": [
+          "credit_segment"
+        ],
+        "mode": "reference"
+      },
+      {
+        "name": "collections_profile",
+        "title": "Collections profiles and segment assignments",
+        "structures": [
+          {
+            "stem": "CollectProfile",
+            "keys": [
+              "BusinessPartner"
+            ],
+            "fields": [
+              "ProfileID",
+              "CompanyCode",
+              "CollectionStrategy"
+            ]
+          },
+          {
+            "stem": "CollectSegment",
+            "keys": [
+              "BusinessPartner",
+              "CollectionSegment"
+            ],
+            "fields": [
+              "CollectionGroup",
+              "Specialist",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "collection_activity",
+        "title": "Collections contacts and tasks",
+        "structures": [
+          {
+            "stem": "CollectContact",
+            "keys": [
+              "BusinessPartner",
+              "CollectionSegment",
+              "ContactID"
+            ],
+            "fields": [
+              "ContactAtUTC",
+              "ContactType",
+              "ContactResult",
+              "Specialist"
+            ]
+          },
+          {
+            "stem": "CollectTask",
+            "keys": [
+              "BusinessPartner",
+              "CollectionSegment",
+              "TaskID"
+            ],
+            "fields": [
+              "Reason",
+              "DueAtUTC",
+              "TaskStatus",
+              "RelatedContact"
+            ]
+          }
+        ],
+        "deps": [
+          "collections_profile"
+        ],
+        "mode": "process-reference"
+      },
+      {
+        "name": "promise_to_pay",
+        "title": "Promises to pay and related receivables",
+        "structures": [
+          {
+            "stem": "PaymentPromise",
+            "keys": [
+              "BusinessPartner",
+              "PromiseID"
+            ],
+            "fields": [
+              "PromiseDate",
+              "DueDate",
+              "PromisedAmount",
+              "Currency",
+              "PromiseStatus"
+            ]
+          },
+          {
+            "stem": "PromiseItem",
+            "keys": [
+              "BusinessPartner",
+              "PromiseID",
+              "CompanyCode",
+              "FiscalYear",
+              "AccountingDocument",
+              "AccountingItem"
+            ],
+            "fields": [
+              "AssignedAmount",
+              "Currency"
+            ]
+          }
+        ],
+        "deps": [
+          "collections_profile"
+        ],
+        "mode": "process-reference"
+      },
+      {
+        "name": "dispute_case",
+        "title": "Dispute cases attributes receivables and attachments",
+        "structures": [
+          {
+            "stem": "DisputeCase",
+            "keys": [
+              "CaseID"
+            ],
+            "fields": [
+              "NativeGUID",
+              "BusinessPartner",
+              "CaseType",
+              "Reason",
+              "CaseStatus",
+              "Priority",
+              "DisputedAmount",
+              "Currency",
+              "CreatedAtUTC"
+            ]
+          },
+          {
+            "stem": "DisputeItem",
+            "keys": [
+              "CaseID",
+              "CompanyCode",
+              "FiscalYear",
+              "AccountingDocument",
+              "AccountingItem"
+            ],
+            "fields": [
+              "DisputedAmount",
+              "Currency"
+            ]
+          },
+          {
+            "stem": "CaseAttribute",
+            "keys": [
+              "CaseID",
+              "AttributeID"
+            ],
+            "fields": [
+              "AttributeValue"
+            ]
+          },
+          {
+            "stem": "CaseAttachment",
+            "keys": [
+              "CaseID",
+              "AttachmentID"
+            ],
+            "fields": [
+              "DocumentType",
+              "FileName",
+              "ContentHash",
+              "RepositoryReference"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "process-reference"
+      }
+    ]
+  },
+  "ehs": {
+    "prefix": "EH",
+    "title": "Environment Health and Safety",
+    "title_de": "Umwelt Gesundheit und Sicherheit",
+    "landscape": "Classic EHS Specification/Phrase Management and modern EHSM/EHS applications are distinct; enable only the applicable path.",
+    "risk": "Specification records and modern EHSM objects are not interchangeable. Preserve versions, validity, regulatory jurisdiction, units, multilingual phrases and native evaluation semantics. Incident people/medical content needs restricted access; attachments and long texts use approved repository/text interfaces. Historic assessments, measurements and incidents are reference data until a supported target object is selected. Product Compliance and Dangerous Goods have separate object/release scopes; a canonical contract does not certify legal or regulatory content.",
+    "risk_de": "Klassische Spezifikationen und moderne EHSM-Objekte sind nicht austauschbar. Version, G\u00fcltigkeit, Rechtsraum, Einheiten, mehrsprachige Phrasen und Bewertungssemantik erhalten. Personen-/Gesundheitsdaten in Ereignissen restriktiv sch\u00fctzen; Anlagen und Langtexte \u00fcber freigegebene Schnittstellen \u00fcbertragen. Historische Bewertungen, Messungen und Ereignisse bleiben bis zur Zielobjektfreigabe Referenzdaten. Product Compliance und Dangerous Goods besitzen eigene Release- und Objektgrenzen; das Format best\u00e4tigt keine Rechtskonformit\u00e4t.",
+    "modules": [
+      {
+        "name": "ehs_location",
+        "title": "EHS locations and hierarchy",
+        "structures": [
+          {
+            "stem": "EHSLocation",
+            "keys": [
+              "LocationID"
+            ],
+            "fields": [
+              "LocationType",
+              "Description",
+              "Plant",
+              "Country",
+              "TimeZone",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          },
+          {
+            "stem": "EHSLocHierarchy",
+            "keys": [
+              "HierarchyID",
+              "ParentLocation",
+              "ChildLocation",
+              "ValidityStartDate"
+            ],
+            "fields": [
+              "ValidityEndDate"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "chemical_property",
+        "title": "Chemical and physical property definitions",
+        "structures": [
+          {
+            "stem": "ChemicalProp",
+            "keys": [
+              "PropertyID"
+            ],
+            "fields": [
+              "Description",
+              "PropertyType",
+              "DefaultUnit",
+              "Dimension"
+            ]
+          },
+          {
+            "stem": "PropertyUnit",
+            "keys": [
+              "PropertyID",
+              "UnitID"
+            ],
+            "fields": [
+              "ConversionNumerator",
+              "ConversionDenominator"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "specification",
+        "title": "Specifications identifiers and property values",
+        "structures": [
+          {
+            "stem": "Specification",
+            "keys": [
+              "SpecificationID",
+              "Version"
+            ],
+            "fields": [
+              "SpecificationType",
+              "Description",
+              "AuthorizationGroup",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          },
+          {
+            "stem": "SpecIdentifier",
+            "keys": [
+              "SpecificationID",
+              "Version",
+              "IdentifierID"
+            ],
+            "fields": [
+              "IdentifierType",
+              "IdentifierCategory",
+              "IdentifierValue",
+              "Language"
+            ]
+          },
+          {
+            "stem": "SpecProperty",
+            "keys": [
+              "SpecificationID",
+              "Version",
+              "PropertyID",
+              "ValueID"
+            ],
+            "fields": [
+              "ValueText",
+              "ValueLow",
+              "ValueHigh",
+              "QuantityUnit",
+              "UsageRating",
+              "RegulatoryArea",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          }
+        ],
+        "deps": [
+          "chemical_property"
+        ],
+        "mode": "master"
+      },
+      {
+        "name": "phrase",
+        "title": "Phrases translations and set assignments",
+        "structures": [
+          {
+            "stem": "Phrase",
+            "keys": [
+              "PhraseCatalog",
+              "PhraseID",
+              "Language"
+            ],
+            "fields": [
+              "PhraseText",
+              "PhraseCode"
+            ]
+          },
+          {
+            "stem": "PhraseSet",
+            "keys": [
+              "PhraseSetID",
+              "PhraseCatalog",
+              "PhraseID"
+            ],
+            "fields": [
+              "SortSequence"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "master"
+      },
+      {
+        "name": "incident",
+        "title": "Incidents people and actions",
+        "structures": [
+          {
+            "stem": "Incident",
+            "keys": [
+              "IncidentID"
+            ],
+            "fields": [
+              "IncidentType",
+              "LocationID",
+              "OccurredAtUTC",
+              "TimeZone",
+              "IncidentStatus",
+              "Description"
+            ]
+          },
+          {
+            "stem": "IncidentPerson",
+            "keys": [
+              "IncidentID",
+              "PersonRole",
+              "PersonID"
+            ],
+            "fields": [
+              "BusinessPartner",
+              "RestrictedRecordReference"
+            ]
+          },
+          {
+            "stem": "IncidentAction",
+            "keys": [
+              "IncidentID",
+              "ActionID"
+            ],
+            "fields": [
+              "ActionType",
+              "ResponsiblePartner",
+              "DueDate",
+              "ActionStatus"
+            ]
+          }
+        ],
+        "deps": [
+          "ehs_location"
+        ],
+        "mode": "process-reference"
+      },
+      {
+        "name": "risk_assessment",
+        "title": "Risk assessments hazards and controls",
+        "structures": [
+          {
+            "stem": "RiskAssessment",
+            "keys": [
+              "AssessmentID",
+              "Version"
+            ],
+            "fields": [
+              "LocationID",
+              "ValidityStartDate",
+              "ValidityEndDate",
+              "AssessmentStatus"
+            ]
+          },
+          {
+            "stem": "RiskHazard",
+            "keys": [
+              "AssessmentID",
+              "Version",
+              "HazardID"
+            ],
+            "fields": [
+              "HazardType",
+              "Likelihood",
+              "Severity",
+              "RiskRating",
+              "RatingScheme"
+            ]
+          },
+          {
+            "stem": "RiskControl",
+            "keys": [
+              "AssessmentID",
+              "Version",
+              "HazardID",
+              "ControlID"
+            ],
+            "fields": [
+              "ControlType",
+              "Description",
+              "ResponsiblePartner",
+              "ControlStatus"
+            ]
+          }
+        ],
+        "deps": [
+          "ehs_location"
+        ],
+        "mode": "reference"
+      },
+      {
+        "name": "environmental_data",
+        "title": "Classifiers data collection and measurements",
+        "structures": [
+          {
+            "stem": "DataClassifier",
+            "keys": [
+              "ClassifierID"
+            ],
+            "fields": [
+              "Description",
+              "ClassifierType",
+              "PropertyID"
+            ]
+          },
+          {
+            "stem": "DataCollection",
+            "keys": [
+              "CollectionID"
+            ],
+            "fields": [
+              "LocationID",
+              "ClassifierID",
+              "Description",
+              "ScheduleType",
+              "TimeZone"
+            ]
+          },
+          {
+            "stem": "Measurement",
+            "keys": [
+              "CollectionID",
+              "MeasurementID"
+            ],
+            "fields": [
+              "MeasuredAtUTC",
+              "Value",
+              "QuantityUnit",
+              "MethodID",
+              "QualityStatus"
+            ]
+          }
+        ],
+        "deps": [
+          "ehs_location",
+          "chemical_property"
+        ],
+        "mode": "reference"
+      },
+      {
+        "name": "compliance",
+        "title": "Compliance requirements scenarios and assignments",
+        "structures": [
+          {
+            "stem": "ComplianceReq",
+            "keys": [
+              "RequirementID",
+              "Version"
+            ],
+            "fields": [
+              "RegulatoryArea",
+              "Description",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          },
+          {
+            "stem": "ComplianceScen",
+            "keys": [
+              "ScenarioID",
+              "Version"
+            ],
+            "fields": [
+              "LocationID",
+              "Description",
+              "ScenarioStatus"
+            ]
+          },
+          {
+            "stem": "ComplianceLink",
+            "keys": [
+              "ScenarioID",
+              "Version",
+              "RequirementID",
+              "RequirementVersion"
+            ],
+            "fields": [
+              "ClassifierID",
+              "PropertyID"
+            ]
+          }
+        ],
+        "deps": [
+          "ehs_location",
+          "chemical_property",
+          "environmental_data"
+        ],
+        "mode": "master"
+      },
+      {
+        "name": "dangerous_goods",
+        "title": "Dangerous goods classifications and regulations",
+        "structures": [
+          {
+            "stem": "DangerousGoods",
+            "keys": [
+              "Product",
+              "RegulationID",
+              "Version"
+            ],
+            "fields": [
+              "UNNumber",
+              "ProperShippingName",
+              "HazardClass",
+              "PackingGroup",
+              "ValidityStartDate",
+              "ValidityEndDate"
+            ]
+          },
+          {
+            "stem": "DGTransport",
+            "keys": [
+              "Product",
+              "RegulationID",
+              "Version",
+              "TransportMode"
+            ],
+            "fields": [
+              "LimitedQuantity",
+              "QuantityUnit",
+              "ExemptionCode"
+            ]
+          }
+        ],
+        "deps": [],
+        "mode": "regulatory-reference"
+      }
+    ]
+  }
+}

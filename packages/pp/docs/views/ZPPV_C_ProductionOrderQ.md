@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZPPV_R_ProductionOrder` |
+| Data source | `ZPPV_I_ProductionOrder` |
 | Source file | `src/zppv_c_productionorderq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZPPV_R_ProductionOrder: orders and quantities per plant and month.
+Analytical query on ZPPV_I_ProductionOrder: orders and quantities per plant and month.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZPPV_R_ProductionOrder: orders and quantities per plant and 
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_R_ProductionOrder (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZPPV_I_ProductionOrder (see GEN-Q01).
 
 ## Example use case
 

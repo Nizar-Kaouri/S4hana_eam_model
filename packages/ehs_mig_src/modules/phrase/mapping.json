@@ -1,0 +1,159 @@
+{
+  "module": "phrase",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "RecordNumber",
+      "ChangeState"
+    ],
+    "numbering": "keep",
+    "note": "Native internal keys are retained. Client is implicit. Record system/client/export time outside the CDS. Map regenerated target UUIDs using an approved key ledger during loading."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZEHX_C_PhraseMig",
+      "source_view": "ZEHX_I_Phrase",
+      "scope_filter": "",
+      "keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "fields": [
+        {
+          "element": "RecordNumber",
+          "source": "ESTPH-RECN",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.RecordNumber",
+          "rule": "copy"
+        },
+        {
+          "element": "ChangeState",
+          "source": "ESTPH-ACTN",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.ChangeState",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidFrom",
+          "source": "ESTPH-VALFR",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.ValidFrom",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidTo",
+          "source": "ESTPH-VALTO",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.ValidTo",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "ESTPH-DELFLG",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.DeletionFlag",
+          "rule": "copy"
+        },
+        {
+          "element": "PhraseID",
+          "source": "ESTPH-PHRID",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.PhraseID",
+          "rule": "copy"
+        },
+        {
+          "element": "Remark",
+          "source": "ESTPH-REM",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.Remark",
+          "rule": "copy"
+        },
+        {
+          "element": "SourceLanguage",
+          "source": "ESTPH-SRLANGU",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.SourceLanguage",
+          "rule": "copy"
+        },
+        {
+          "element": "UserDefinedName",
+          "source": "ESTPH-USEXNAM",
+          "target": "Native target evidence: ZEHT_B_PhraseCompare.UserDefinedName",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Phrase header only. ESTPP multilingual text and graphics are pending; no invented Language key on the header. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    },
+    {
+      "consumption_view": "ZEHX_C_PhraseSetMig",
+      "source_view": "ZEHX_I_PhraseSet",
+      "scope_filter": "",
+      "keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "fields": [
+        {
+          "element": "RecordNumber",
+          "source": "ESTPJ-RECN",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.RecordNumber",
+          "rule": "copy"
+        },
+        {
+          "element": "ChangeState",
+          "source": "ESTPJ-ACTN",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ChangeState",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidFrom",
+          "source": "ESTPJ-VALFR",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ValidFrom",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidTo",
+          "source": "ESTPJ-VALTO",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.ValidTo",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "ESTPJ-DELFLG",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.DeletionFlag",
+          "rule": "copy"
+        },
+        {
+          "element": "PhraseSet",
+          "source": "ESTPJ-PHRSEL",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.PhraseSet",
+          "rule": "copy"
+        },
+        {
+          "element": "PhraseID",
+          "source": "ESTPJ-PHRID",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.PhraseID",
+          "rule": "copy"
+        },
+        {
+          "element": "SortOrder",
+          "source": "ESTPJ-ORD",
+          "target": "Native target evidence: ZEHT_B_PhraseSetCompare.SortOrder",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "master",
+      "preprocessing": "Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "Phrase: Phrase header only. ESTPP multilingual text and graphics are pending; no invented Language key on the header.",
+    "PhraseSet: Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys."
+  ],
+  "main_structure": "ZEHX_C_PhraseMig",
+  "pending_dependencies": [],
+  "source_control": {
+    "source_count_view": "ZEHX_C_PhraseMigCount",
+    "dimensions": []
+  }
+}

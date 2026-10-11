@@ -1,0 +1,733 @@
+{
+  "module": "sales_order",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "SalesDocument"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZSDX_C_SalesOrderMig",
+      "source_view": "ZSDX_I_SalesOrder",
+      "scope_filter": "",
+      "keys": [
+        "SalesDocument"
+      ],
+      "fields": [
+        {
+          "element": "SalesDocument",
+          "source": "VBAK-VBELN",
+          "target": "customer interface field: SalesDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesDocumentType",
+          "source": "VBAK-AUART",
+          "target": "customer interface field: SalesDocumentType (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesOrganization",
+          "source": "VBAK-VKORG",
+          "target": "customer interface field: SalesOrganization (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DistributionChannel",
+          "source": "VBAK-VTWEG",
+          "target": "customer interface field: DistributionChannel (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Division",
+          "source": "VBAK-SPART",
+          "target": "customer interface field: Division (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SoldToParty",
+          "source": "VBAK-KUNNR",
+          "target": "customer interface field: SoldToParty (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "TransactionCurrency",
+          "source": "VBAK-WAERK",
+          "target": "customer interface field: TransactionCurrency (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesItemMig",
+      "source_view": "ZSDX_I_SalesItem",
+      "scope_filter": "",
+      "keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "SalesDocument",
+          "source": "VBAP-VBELN",
+          "target": "customer interface field: SalesDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesDocumentItem",
+          "source": "VBAP-POSNR",
+          "target": "customer interface field: SalesDocumentItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Material",
+          "source": "VBAP-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Plant",
+          "source": "VBAP-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OrderQuantity",
+          "source": "VBAP-KWMENG",
+          "target": "customer interface field: OrderQuantity (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesUnit",
+          "source": "VBAP-VRKME",
+          "target": "customer interface field: SalesUnit (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "RejectionReason",
+          "source": "VBAP-ABGRU",
+          "target": "customer interface field: RejectionReason (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ItemShortText",
+          "source": "VBAP-ARKTX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "ItemCategory",
+          "source": "VBAP-PSTYV",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesScheduleMig",
+      "source_view": "ZSDX_I_SalesSchedule",
+      "scope_filter": "",
+      "keys": [
+        "SalesDocument",
+        "SalesDocumentItem",
+        "ScheduleLine"
+      ],
+      "fields": [
+        {
+          "element": "SalesDocument",
+          "source": "VBEP-VBELN",
+          "target": "customer interface field: SalesDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesDocumentItem",
+          "source": "VBEP-POSNR",
+          "target": "customer interface field: SalesDocumentItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ScheduleLine",
+          "source": "VBEP-ETENR",
+          "target": "customer interface field: ScheduleLine (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeliveryDate",
+          "source": "VBEP-EDATU",
+          "target": "customer interface field: DeliveryDate (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OrderQuantity",
+          "source": "VBEP-WMENG",
+          "target": "customer interface field: OrderQuantity (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ConfirmedQuantity",
+          "source": "VBEP-BMENG",
+          "target": "customer interface field: ConfirmedQuantity (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesBusinessMig",
+      "source_view": "ZSDX_I_SalesBusiness",
+      "scope_filter": "",
+      "keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "SalesDocument",
+          "source": "VBKD-VBELN",
+          "target": "customer interface field: SalesDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesDocumentItem",
+          "source": "VBKD-POSNR",
+          "target": "customer interface field: SalesDocumentItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CustomerPurchaseOrder",
+          "source": "VBKD-BSTKD",
+          "target": "customer interface field: CustomerPurchaseOrder (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PaymentTerms",
+          "source": "VBKD-ZTERM",
+          "target": "customer interface field: PaymentTerms (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "IncotermsClassification",
+          "source": "VBKD-INCO1",
+          "target": "customer interface field: IncotermsClassification (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "IncotermsLocation",
+          "source": "VBKD-INCO2",
+          "target": "customer interface field: IncotermsLocation (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesPartnerMig",
+      "source_view": "ZSDX_I_SalesPartner",
+      "scope_filter": "",
+      "keys": [
+        "SalesDocument",
+        "SalesDocumentItem",
+        "PartnerFunction"
+      ],
+      "fields": [
+        {
+          "element": "SalesDocument",
+          "source": "VBPA-VBELN",
+          "target": "customer interface field: SalesDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesDocumentItem",
+          "source": "VBPA-POSNR",
+          "target": "customer interface field: SalesDocumentItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "VBPA-PARVW",
+          "target": "customer interface field: PartnerFunction (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Customer",
+          "source": "VBPA-KUNNR",
+          "target": "customer interface field: Customer (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Supplier",
+          "source": "VBPA-LIFNR",
+          "target": "customer interface field: Supplier (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PersonnelNumber",
+          "source": "VBPA-PERNR",
+          "target": "customer interface field: PersonnelNumber (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "VBPA-ADRNR",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "HasStandardAddress",
+          "source": "derived: presence of the standard ADRC record",
+          "target": "",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesHeaderStaMig",
+      "source_view": "ZSDX_I_SalesHeaderSta",
+      "scope_filter": "",
+      "keys": [
+        "SalesDocument"
+      ],
+      "fields": [
+        {
+          "element": "SalesDocument",
+          "source": "VBUK-VBELN",
+          "target": "customer interface field: SalesDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OverallProcessingStatus",
+          "source": "VBUK-GBSTK",
+          "target": "customer interface field: OverallProcessingStatus (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeliveryStatus",
+          "source": "VBUK-LFSTK",
+          "target": "customer interface field: DeliveryStatus (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "BillingStatus",
+          "source": "VBUK-FKSTK",
+          "target": "customer interface field: BillingStatus (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesItemStatuMig",
+      "source_view": "ZSDX_I_SalesItemStatu",
+      "scope_filter": "",
+      "keys": [
+        "SalesDocument",
+        "SalesDocumentItem"
+      ],
+      "fields": [
+        {
+          "element": "SalesDocument",
+          "source": "VBUP-VBELN",
+          "target": "customer interface field: SalesDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesDocumentItem",
+          "source": "VBUP-POSNR",
+          "target": "customer interface field: SalesDocumentItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OverallProcessingStatus",
+          "source": "VBUP-GBSTA",
+          "target": "customer interface field: OverallProcessingStatus (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeliveryStatus",
+          "source": "VBUP-LFSTA",
+          "target": "customer interface field: DeliveryStatus (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "BillingStatus",
+          "source": "VBUP-FKSTA",
+          "target": "customer interface field: BillingStatus (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesFlowMig",
+      "source_view": "ZSDX_I_SalesFlow",
+      "scope_filter": "",
+      "keys": [
+        "PrecedingDocument",
+        "PrecedingDocumentItem",
+        "SubsequentDocument",
+        "SubsequentDocumentItem",
+        "SubsequentDocumentCategory"
+      ],
+      "fields": [
+        {
+          "element": "PrecedingDocument",
+          "source": "VBFA-VBELV",
+          "target": "customer interface field: PrecedingDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PrecedingDocumentItem",
+          "source": "VBFA-POSNV",
+          "target": "customer interface field: PrecedingDocumentItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SubsequentDocument",
+          "source": "VBFA-VBELN",
+          "target": "customer interface field: SubsequentDocument (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SubsequentDocumentItem",
+          "source": "VBFA-POSNN",
+          "target": "customer interface field: SubsequentDocumentItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "SubsequentDocumentCategory",
+          "source": "VBFA-VBTYP_N",
+          "target": "customer interface field: SubsequentDocumentCategory (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PrecedingDocumentCategory",
+          "source": "VBFA-VBTYP_V",
+          "target": "customer interface field: PrecedingDocumentCategory (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ReferencedQuantity",
+          "source": "VBFA-RFMNG",
+          "target": "customer interface field: ReferencedQuantity (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesPartnerAddressMig",
+      "source_view": "ZSDX_I_SalesPartnerAddress",
+      "scope_filter": "",
+      "keys": [
+        "SalesDocument",
+        "SalesDocumentItem",
+        "PartnerFunction",
+        "AddressValidFrom",
+        "AddressVersion"
+      ],
+      "fields": [
+        {
+          "element": "SalesDocument",
+          "source": "VBPA-VBELN",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "SalesDocumentItem",
+          "source": "VBPA-POSNR",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "PartnerFunction",
+          "source": "VBPA-PARVW",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressNumber",
+          "source": "ADRC-ADDRNUMBER",
+          "target": "",
+          "rule": "info"
+        },
+        {
+          "element": "AddressValidFrom",
+          "source": "ADRC-DATE_FROM",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressVersion",
+          "source": "ADRC-NATION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressValidTo",
+          "source": "ADRC-DATE_TO",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName1",
+          "source": "ADRC-NAME1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName2",
+          "source": "ADRC-NAME2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName3",
+          "source": "ADRC-NAME3",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressName4",
+          "source": "ADRC-NAME4",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressStreet",
+          "source": "ADRC-STREET",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumber",
+          "source": "ADRC-HOUSE_NUM1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressHouseNumberSupplement",
+          "source": "ADRC-HOUSE_NUM2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCity",
+          "source": "ADRC-CITY1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressDistrict",
+          "source": "ADRC-CITY2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPostalCode",
+          "source": "ADRC-POST_CODE1",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBox",
+          "source": "ADRC-PO_BOX",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressPOBoxPostalCode",
+          "source": "ADRC-POST_CODE2",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressCountry",
+          "source": "ADRC-COUNTRY",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressRegion",
+          "source": "ADRC-REGION",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "AddressLanguage",
+          "source": "ADRC-LANGU",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Preserve full keys and the selected parent population. Technical source IDs are references; SAP generates target IDs. Use supported SAP business interfaces; system statuses and address versions are reference data, not direct table posting payloads."
+    },
+    {
+      "consumption_view": "ZSDX_C_SalesLongTextMig",
+      "source_view": "ZSDX_I_SalesLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone."
+  ],
+  "main_structure": "ZSDX_C_SalesOrderMig",
+  "source_control": {
+    "source_count_view": "ZSDX_C_SalesOrderMigCount",
+    "dimensions": [
+      {
+        "element": "SalesDocument"
+      }
+    ]
+  }
+}

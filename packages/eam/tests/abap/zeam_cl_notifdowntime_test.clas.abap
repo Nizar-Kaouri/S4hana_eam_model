@@ -24,7 +24,7 @@ ENDCLASS.
 CLASS zeam_cl_notifdowntime_test IMPLEMENTATION.
 
   METHOD class_setup.
-    environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_I_NOTIFDOWNTIME' ).
+    environment = cl_cds_test_environment=>create( i_for_entity = 'ZEAM_B_NOTIFDOWNTIME' ).
   ENDMETHOD.
 
 
@@ -39,14 +39,14 @@ CLASS zeam_cl_notifdowntime_test IMPLEMENTATION.
 
 
   METHOD downtime_across_midnight.
-    DATA notifications TYPE STANDARD TABLE OF zeam_i_maintnotif WITH EMPTY KEY.
+    DATA notifications TYPE STANDARD TABLE OF zeam_b_maintnotif WITH EMPTY KEY.
 
     notifications = VALUE #( ( maintenancenotification = '000010000001' maintenanceobjectisdown = abap_true
                                malfunctionstartdate = '20260301' malfunctionstarttime = '220000'
                                malfunctionenddate = '20260302' malfunctionendtime = '013000' ) ).
     environment->insert_test_data( i_data = notifications ).
 
-    SELECT SINGLE FROM zeam_i_notifdowntime
+    SELECT SINGLE FROM zeam_b_notifdowntime
       FIELDS downtimeinhours, malfunctionisclosed
       INTO @DATA(result).
 
@@ -58,13 +58,13 @@ CLASS zeam_cl_notifdowntime_test IMPLEMENTATION.
 
 
   METHOD open_malfunction_no_downtime.
-    DATA notifications TYPE STANDARD TABLE OF zeam_i_maintnotif WITH EMPTY KEY.
+    DATA notifications TYPE STANDARD TABLE OF zeam_b_maintnotif WITH EMPTY KEY.
 
     notifications = VALUE #( ( maintenancenotification = '000010000002' maintenanceobjectisdown = abap_true
                                malfunctionstartdate = '20260301' malfunctionstarttime = '080000' ) ).
     environment->insert_test_data( i_data = notifications ).
 
-    SELECT SINGLE FROM zeam_i_notifdowntime
+    SELECT SINGLE FROM zeam_b_notifdowntime
       FIELDS downtimeinhours, malfunctionisclosed
       INTO @DATA(result).
 

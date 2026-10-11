@@ -18,23 +18,23 @@
   "hard_dependencies": [],
   "objects": {
     "basic": [
-      "ZMMV_I_PurchaseReqnItem"
+      "ZMMV_B_PurchaseReqnItem"
     ],
     "composite": [
-      "ZMMV_R_PurchaseReqnItem"
+      "ZMMV_I_PurchaseReqnItem"
     ],
     "consumption": [
       "ZMMV_C_PurchaseReqnQ"
     ],
     "access_controls": [
-      "ZMMV_I_PurchaseReqnItem",
-      "ZMMV_R_PurchaseReqnItem"
+      "ZMMV_B_PurchaseReqnItem",
+      "ZMMV_I_PurchaseReqnItem"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZMMV_C_PurchaseReqnQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_PurchaseReqnItem (see GEN-Q01)."
+    "ZMMV_C_PurchaseReqnQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_PurchaseReqnItem (see GEN-Q01)."
   },
   "link_views": []
 }

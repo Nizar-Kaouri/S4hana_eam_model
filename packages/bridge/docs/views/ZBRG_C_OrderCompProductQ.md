@@ -10,12 +10,12 @@
 | Layer | link (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZBRG_R_OrderCompWithProduct` |
+| Data source | `ZBRG_I_OrderCompWithProduct` |
 | Source file | `src/zbrg_c_ordercompproductq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZBRG_R_OrderCompWithProduct: spare-part demand per planning plant and product group.
+Analytical query on ZBRG_I_OrderCompWithProduct: spare-part demand per planning plant and product group.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZBRG_R_OrderCompWithProduct: spare-part demand per planning 
 
 ## Access control
 
-No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_OrderCompWithProduct (see GEN-Q01).
+No DCL by design: Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_OrderCompWithProduct (see GEN-Q01).
 
 ## Example use case
 

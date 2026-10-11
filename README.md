@@ -1,35 +1,34 @@
-# SAP ERP → S/4HANA migration models (CDS)
+# ModuPorter SAP migration templates
 
-Packages that help move data from an old SAP ERP (ECC 6.0) system to SAP S/4HANA (new implementation or
-selective data transition). Per business area there is:
+Naming: **B_ = Basic, I_ = Interface (Composite), C_ = Consumption**. See [naming guidance](docs/NAMING.md).
 
-- a **source** product that runs on ECC: classic CDS views in three layers - basic (one table each) → composite
-  (business object) → consumption (`C_*Mig`: migration template, scope applied, values exactly as in ECC).
-  The customer's load program reads the consumption views with any technology and adapts the values,
-- a **mapping model** (every source element → S/4HANA target field with a rule, business keys and numbering,
-  scope filters, load order),
-- a **reconciliation** product on S/4HANA plus `tools/mig_reconcile.py` (counts and record-by-record field
-  comparison after the load).
+Commercial migration templates for EAM/PM, FI-AA, MM, QM, PS, PP, CO, FI and SD. **Release 1.0.0** contains 296 source extraction structures and 945 source CDS objects.
 
-The buyer picks the migration objects and gets only those, plus what they depend on, under their own prefix
-and ABAP package. **EAM / Plant Maintenance is the pilot** (`packages/eam_mig_ecc` + `packages/eam_mig_s4`).
+Each released domain has `<domain>_mig_ecc` for SAP ECC source extraction and field mappings. Source architecture: SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption. Posting uses the customer-selected SAP interface.
 
-The S/4HANA analytics packages built first (`eam`, `fi_aa`, `mm`, ...; analytical cubes and queries on SAP
-released `I_` views) stay in the repository as an optional **analytics add-on** for after the migration.
+See [customer downloads and bilingual manuals](docs/customer/commercial/README.md) and [product scope](PRODUCT_CHECKLIST.md). Individual module selection automatically includes required dependencies. Functional SAP annotations remain part of the templates.
 
-> **Status: draft-unverified.** No SAP system has been available. Nothing has been activated or tested.
-> Every uncertain element is marked `TODO-VERIFY` and ranked in the product's `BATCH_REPORT.md`.
+## Commercial packs
 
-## Products
+| Pack | Source structures | Source CDS | Download |
+|---|---:|---:|---|
+| EAM | 73 | 241 | [Download](docs/customer/commercial/ModuPorter-EAM-Customer-Pack-1.0.0.zip) |
+| FI-AA | 6 | 21 | [Download](docs/customer/commercial/ModuPorter-FI-AA-Customer-Pack-1.0.0.zip) |
+| MM | 42 | 135 | [Download](docs/customer/commercial/ModuPorter-MM-Customer-Pack-1.0.0.zip) |
+| QM | 26 | 83 | [Download](docs/customer/commercial/ModuPorter-QM-Customer-Pack-1.0.0.zip) |
+| PS | 30 | 93 | [Download](docs/customer/commercial/ModuPorter-PS-Customer-Pack-1.0.0.zip) |
+| PP | 22 | 72 | [Download](docs/customer/commercial/ModuPorter-PP-Customer-Pack-1.0.0.zip) |
+| CO | 21 | 70 | [Download](docs/customer/commercial/ModuPorter-CO-Customer-Pack-1.0.0.zip) |
+| FI | 50 | 152 | [Download](docs/customer/commercial/ModuPorter-FI-Customer-Pack-1.0.0.zip) |
+| SD | 26 | 78 | [Download](docs/customer/commercial/ModuPorter-SD-Customer-Pack-1.0.0.zip) |
 
-Each product is a self-contained folder under `packages/`. Which areas qualify and where each one
-stands is tracked in **[`PRODUCT_CHECKLIST.md`](PRODUCT_CHECKLIST.md)**. The first two rows are the
-migration pilot; all other rows are the S/4HANA analytics add-on.
+
+## Separate analytics add-ons
+
+The analytics products remain separately tracked drafts.
 
 | Product | Folder | Prefix | State |
 |---|---|---|---|
-| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | drafted: 13 migration objects, 100 classic views (basic → composite → consumption), 13 mapping files |
-| **EAM migration - S/4HANA reconciliation (pilot)** | [`packages/eam_mig_s4`](packages/eam_mig_s4/README.md) | `ZEMT_` | drafted: 8 objects, 16 views |
 | Analytics add-on: Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
 | Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 14 views |
 | Materials Management (MM) | [`packages/mm`](packages/mm/README.md) | `ZMMV_` | drafted: 7 modules, 24 views + 9 link objects |
@@ -46,17 +45,17 @@ migration pilot; all other rows are the S/4HANA analytics add-on.
 ```
 PRODUCT_CHECKLIST.md         which areas get a package, fit, status per product
 ADT_SETUP.md                 push / activate / fix loop against a real system (abap-adt-api)
-build_package.py             customer build: --product <name> <modules> → abapGit ZIP in dist/<product>/
+build_package.py             customer build: --product <name> <modules> â†’ abapGit ZIP in dist/<product>/
                              (migration-source products also ship mapping/ with mapping files and docs)
-build_bundle.py              multi-product build: product:module ... → ONE prefix/package ZIP incl. bridge links
+build_bundle.py              multi-product build: product:module ... â†’ ONE prefix/package ZIP incl. bridge links
 tools/                       shared tooling (every tool takes --product <name>)
   check_all.py               all quality gates for all products (or --only <name>; --fix regenerates)
   new_product.py             scaffold a new product folder
   sync_xml.py, gen_docs.py, gen_checklist.py, gen_model_map.py, todo_verify_report.py, validate_repo.py
   catalog.py, validate_bridge.py   cross-product name index and bridge rules (B1-B7)
   validate_mapping.py, gen_mapping.py   migration mapping rules (X1-X6) and mapping docs / map templates
-  mig_reconcile.py           reconcile ECC and S/4HANA exports (counts, records, fields)
-  tests/                     unit tests of the builds and the reconcile tool
+  migration_csv.py           CSV reading and source export validation
+  tests/                     unit tests of builds and source preparation
 packages/<product>/          one product
   src/                       abapGit objects (DDLS, DCLS, DDLX + XML), flat, one ABAP package
   modules/<module>/module.json
@@ -67,17 +66,17 @@ packages/<product>/          one product
   README.md, BATCH_REPORT.md, ACTIVATION_CHECKLIST.md
 ```
 
-**Migration products** (`kind` `migration-source` / `migration-target` in `library.json`) follow the SAP VDM
-naming: `I_` basic and composite, `C_` consumption (`layer_prefixes` in `library.json`). On ECC (`system: ecc`) the views are
+**Migration products** (`kind` `migration-source` in `library.json`) follow the SAP VDM
+naming: `B_` Basic and `I_` Interface (Composite), `C_` consumption (`layer_prefixes` in `library.json`). On ECC (`system: ecc`) the views are
 classic CDS views on tables without DCL (validator rule M12); hard rule 1 reads *released `I_` views on
 S/4HANA, direct table reads on the ECC side*. Details: [`packages/eam_mig_ecc/README.md`](packages/eam_mig_ecc/README.md).
 
 Inside an analytics product, the architecture is the same everywhere (see `packages/eam/README.md`): basic
-`<P>I_*`, composite `<P>R_*` (cubes) and consumption `<P>C_*Q` (analytical queries). Every business
+`<P>B_*`, Interface (Composite) `<P>I_*` (cubes) and consumption `<P>C_*Q` (analytical queries). Every business
 object is a self-contained module. Cross-object associations live in link views that ship only when
 all their modules are selected. Hard dependencies are added automatically by the build.
 
-Links between products (e.g. EAM equipment ↔ FI-AA fixed asset) live in `packages/bridge`. Each bridge
+Links between products (e.g. EAM equipment â†” FI-AA fixed asset) live in `packages/bridge`. Each bridge
 link declares qualified modules (`eam:equipment` + `fi_aa:fixed_asset`) and ships only through
 `build_bundle.py`, only when all of them are selected. A bundle rewrites every product prefix and package
 to one target prefix and one target package.
@@ -93,8 +92,6 @@ python3 build_package.py --product eam equipment maintenance_order --prefix ZACM
 python3 build_bundle.py eam:equipment fi_aa:rpt_asset_balance --prefix ZACME_ --package ZACME_VDM
 python3 build_bundle.py --all --with-tests --prefix ZACME_ --package ZACME_VDM   # all S/4HANA products
 python3 build_package.py --product eam_mig_ecc equipment --prefix ZACME_ --package ZACME_MIG   # ECC extraction
-python3 build_package.py --product eam_mig_s4  equipment --prefix ZACME_ --package ZACME_MIG   # S/4 reconciliation
-python3 tools/mig_reconcile.py counts --module equipment --source ecc.csv --target s4.csv --maps maps/
 python3 tools/new_product.py ehs --prefix ZEHS_ --package ZEHS_VDM --title "Environment, Health and Safety" --area EHS
 ```
 
@@ -104,3 +101,12 @@ Every product has its own `.abapgit.xml` (starting folder `/src/` *inside the pr
 delivered as ZIPs from `build_package.py` (abapGit *offline* import), which puts that `.abapgit.xml` at
 the ZIP root. Linking this repository directly as an abapGit *online* repo is not supported, because
 abapGit expects one `.abapgit.xml` at the repository root.
+
+
+## EWM TM FSCM EHS native drafts
+
+Version 0.3.0 extends the native drafts and replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption for 27 documented structure drafts, as source extraction templates. The 32-module coverage plan contains 72 structures: 45 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these four source products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
+
+See [bilingual customer guides and VDM maps](docs/customer/new-domains/README.md). Industry solutions remain out of scope.
+
+Project development follows [SAP design principles](docs/SAP_DESIGN_PRINCIPLES.md).

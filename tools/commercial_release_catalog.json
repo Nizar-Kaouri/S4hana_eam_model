@@ -1,0 +1,74 @@
+[
+  {
+    "domain": "eam",
+    "product": "eam_mig_ecc",
+    "version": "1.0.0",
+    "modules": 15,
+    "structures": 73,
+    "CDS_objects": 241
+  },
+  {
+    "domain": "fi_aa",
+    "product": "fi_aa_mig_ecc",
+    "version": "1.0.0",
+    "modules": 3,
+    "structures": 6,
+    "CDS_objects": 21
+  },
+  {
+    "domain": "mm",
+    "product": "mm_mig_ecc",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 42,
+    "CDS_objects": 135
+  },
+  {
+    "domain": "qm",
+    "product": "qm_mig_ecc",
+    "version": "1.0.0",
+    "modules": 6,
+    "structures": 26,
+    "CDS_objects": 83
+  },
+  {
+    "domain": "ps",
+    "product": "ps_mig_ecc",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 30,
+    "CDS_objects": 93
+  },
+  {
+    "domain": "pp",
+    "product": "pp_mig_ecc",
+    "version": "1.0.0",
+    "modules": 6,
+    "structures": 22,
+    "CDS_objects": 72
+  },
+  {
+    "domain": "co",
+    "product": "co_mig_ecc",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 21,
+    "CDS_objects": 70
+  },
+  {
+    "domain": "fi",
+    "product": "fi_mig_ecc",
+    "version": "1.0.0",
+    "modules": 8,
+    "structures": 50,
+    "CDS_objects": 152
+  },
+  {
+    "domain": "sd",
+    "product": "sd_mig_ecc",
+    "version": "1.0.0",
+    "modules": 5,
+    "structures": 26,
+    "CDS_objects": 78
+  }
+]

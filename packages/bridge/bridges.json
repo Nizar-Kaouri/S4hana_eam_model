@@ -1,20 +1,20 @@
 {
   "bridge_links": [
     {
-      "name": "ZBRG_I_EquipmentWithAsset",
+      "name": "ZBRG_B_EquipmentWithAsset",
       "requires_modules": [
         "eam:equipment",
         "fi_aa:fixed_asset"
       ],
-      "access_control": "ZBRG_I_EquipmentWithAsset"
+      "access_control": "ZBRG_B_EquipmentWithAsset"
     },
     {
-      "name": "ZBRG_R_EquipmentAssetValue",
+      "name": "ZBRG_I_EquipmentAssetValue",
       "requires_modules": [
         "eam:equipment",
         "fi_aa:rpt_asset_balance"
       ],
-      "access_control": "ZBRG_R_EquipmentAssetValue"
+      "access_control": "ZBRG_I_EquipmentAssetValue"
     },
     {
       "name": "ZBRG_C_EquipAssetValueQ",
@@ -22,7 +22,15 @@
         "eam:equipment",
         "fi_aa:rpt_asset_balance"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_EquipmentAssetValue (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_EquipmentAssetValue (see GEN-Q01)."
+    },
+    {
+      "name": "ZBRG_B_OrderCompWithProduct",
+      "requires_modules": [
+        "eam:maintenance_order",
+        "mm:product"
+      ],
+      "access_control": "ZBRG_B_OrderCompWithProduct"
     },
     {
       "name": "ZBRG_I_OrderCompWithProduct",
@@ -33,36 +41,28 @@
       "access_control": "ZBRG_I_OrderCompWithProduct"
     },
     {
-      "name": "ZBRG_R_OrderCompWithProduct",
-      "requires_modules": [
-        "eam:maintenance_order",
-        "mm:product"
-      ],
-      "access_control": "ZBRG_R_OrderCompWithProduct"
-    },
-    {
       "name": "ZBRG_C_OrderCompProductQ",
       "requires_modules": [
         "eam:maintenance_order",
         "mm:product"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_OrderCompWithProduct (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_OrderCompWithProduct (see GEN-Q01)."
     },
     {
-      "name": "ZBRG_I_MaintOrderWithGoodsMvt",
+      "name": "ZBRG_B_MaintOrderWithGoodsMvt",
       "requires_modules": [
         "eam:maintenance_order",
         "mm:goods_movement"
       ],
-      "access_control": "ZBRG_I_MaintOrderWithGoodsMvt"
+      "access_control": "ZBRG_B_MaintOrderWithGoodsMvt"
     },
     {
-      "name": "ZBRG_R_MaintCostWithCostCtr",
+      "name": "ZBRG_I_MaintCostWithCostCtr",
       "requires_modules": [
         "co:cost_center",
         "eam:rpt_order_cost"
       ],
-      "access_control": "ZBRG_R_MaintCostWithCostCtr"
+      "access_control": "ZBRG_I_MaintCostWithCostCtr"
     },
     {
       "name": "ZBRG_C_MaintCostCostCtrQ",
@@ -70,23 +70,23 @@
         "co:cost_center",
         "eam:rpt_order_cost"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_MaintCostWithCostCtr (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_MaintCostWithCostCtr (see GEN-Q01)."
     },
     {
-      "name": "ZBRG_I_ProdOpWithWorkCenter",
+      "name": "ZBRG_B_ProdOpWithWorkCenter",
       "requires_modules": [
         "eam:work_center",
         "pp:production_order_operation"
       ],
-      "access_control": "ZBRG_I_ProdOpWithWorkCenter"
+      "access_control": "ZBRG_B_ProdOpWithWorkCenter"
     },
     {
-      "name": "ZBRG_R_POItemWithSupplier",
+      "name": "ZBRG_I_POItemWithSupplier",
       "requires_modules": [
         "fi:supplier",
         "mm:purchase_order"
       ],
-      "access_control": "ZBRG_R_POItemWithSupplier"
+      "access_control": "ZBRG_I_POItemWithSupplier"
     },
     {
       "name": "ZBRG_C_POItemSupplierQ",
@@ -94,15 +94,15 @@
         "fi:supplier",
         "mm:purchase_order"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_POItemWithSupplier (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_POItemWithSupplier (see GEN-Q01)."
     },
     {
-      "name": "ZBRG_R_RevenueWithCustomer",
+      "name": "ZBRG_I_RevenueWithCustomer",
       "requires_modules": [
         "fi:customer",
         "sd:billing_document"
       ],
-      "access_control": "ZBRG_R_RevenueWithCustomer"
+      "access_control": "ZBRG_I_RevenueWithCustomer"
     },
     {
       "name": "ZBRG_C_RevenueCustomerQ",
@@ -110,15 +110,15 @@
         "fi:customer",
         "sd:billing_document"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_RevenueWithCustomer (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_RevenueWithCustomer (see GEN-Q01)."
     },
     {
-      "name": "ZBRG_R_InspLotWithProduct",
+      "name": "ZBRG_I_InspLotWithProduct",
       "requires_modules": [
         "mm:product",
         "qm:inspection_lot"
       ],
-      "access_control": "ZBRG_R_InspLotWithProduct"
+      "access_control": "ZBRG_I_InspLotWithProduct"
     },
     {
       "name": "ZBRG_C_InspLotProductQ",
@@ -126,15 +126,15 @@
         "mm:product",
         "qm:inspection_lot"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_InspLotWithProduct (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_InspLotWithProduct (see GEN-Q01)."
     },
     {
-      "name": "ZBRG_R_ProdOrderWithProduct",
+      "name": "ZBRG_I_ProdOrderWithProduct",
       "requires_modules": [
         "mm:product",
         "pp:production_order"
       ],
-      "access_control": "ZBRG_R_ProdOrderWithProduct"
+      "access_control": "ZBRG_I_ProdOrderWithProduct"
     },
     {
       "name": "ZBRG_C_ProdOrderProductQ",
@@ -142,7 +142,7 @@
         "mm:product",
         "pp:production_order"
       ],
-      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_R_ProdOrderWithProduct (see GEN-Q01)."
+      "no_dcl_reason": "Transient analytical query (link); authorization is enforced by the DCL of its provider ZBRG_I_ProdOrderWithProduct (see GEN-Q01)."
     }
   ]
 }

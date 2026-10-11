@@ -23,7 +23,7 @@ ENDCLASS.
 CLASS zppv_cl_prodorder_test IMPLEMENTATION.
 
   METHOD class_setup.
-    environment = cl_cds_test_environment=>create( i_for_entity = 'ZPPV_I_PRODUCTIONORDER' ).
+    environment = cl_cds_test_environment=>create( i_for_entity = 'ZPPV_B_PRODUCTIONORDER' ).
   ENDMETHOD.
 
 
@@ -45,7 +45,7 @@ CLASS zppv_cl_prodorder_test IMPLEMENTATION.
       ( manufacturingorder = '000001000002' orderistechnicallycompleted = abap_true ) ).
     environment->insert_test_data( i_data = rows ).
 
-    SELECT FROM zppv_i_productionorder
+    SELECT FROM zppv_b_productionorder
       FIELDS manufacturingorder, productionorderisopen
       INTO TABLE @DATA(result).
 

@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZFIV_R_GLJournalItem` |
+| Data source | `ZFIV_I_GLJournalItem` |
 | Source file | `src/zfiv_c_glbalanceq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZFIV_R_GLJournalItem: debit, credit and balance per company code and G/L account (trial balance).
+Analytical query on ZFIV_I_GLJournalItem: debit, credit and balance per company code and G/L account (trial balance).
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZFIV_R_GLJournalItem: debit, credit and balance per company 
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_R_GLJournalItem (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZFIV_I_GLJournalItem (see GEN-Q01).
 
 ## Example use case
 

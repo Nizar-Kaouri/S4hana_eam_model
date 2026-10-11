@@ -4,18 +4,18 @@
 
 | | |
 |---|---|
-| Description | Bill of Material Item |
+| Description | Bill of Material Item - Cube |
 | Module | `bill_of_material` |
 | Batch | 2 |
-| Layer | basic (`@VDM.viewType: #BASIC`) |
+| Layer | composite (`@VDM.viewType: #COMPOSITE`) |
 | Kind | view entity |
-| Data category | - |
-| Data source | `I_BillOfMaterialItemBasic` |
+| Data category | #CUBE |
+| Data source | `ZPPV_B_BOMItem` |
 | Source file | `src/zppv_i_bomitem.ddls.asddls` |
 
 ## Purpose
 
-One row per BOM item version: component material, item category, item number, component quantity and unit, validity and deletion flag.
+BOM item cube (deleted items excluded): number of items and component quantity per BOM, component and item category.
 
 ## Keys
 
@@ -31,12 +31,12 @@ One row per BOM item version: component material, item category, item number, co
 
 ## Access control
 
-Role inherits the conditions of `I_BillOfMaterialItemBasic`.
+Role inherits the conditions of `ZPPV_B_BOMItem`.
 
 ## Example use case
 
-Where-used list of a component; number of components per BOM.
+Components used in the most BOMs; BOM size per BOM category.
 
 ## Open verification items
 
-`PP-021`, `PP-022`, `PP-D04` - see `BATCH_REPORT.md`.
+none

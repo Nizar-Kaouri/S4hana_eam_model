@@ -5,7 +5,7 @@
    <DCLS>
     <DCLNAME>ZPPV_I_PRODUCTIONORDEROP</DCLNAME>
     <DCLLANGUAGE>E</DCLLANGUAGE>
-    <DDTEXT>Production Order Operation</DDTEXT>
+    <DDTEXT>Production Order Operation - Cube</DDTEXT>
    </DCLS>
   </asx:values>
  </asx:abap>

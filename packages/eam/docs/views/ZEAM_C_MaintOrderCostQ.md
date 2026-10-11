@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_MaintOrderCost` |
+| Data source | `ZEAM_I_MaintOrderCost` |
 | Source file | `src/zeam_c_maintordercostq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_MaintOrderCost. Actual maintenance cost per planning plant and activity type, in global and company code currency.
+Analytical query on ZEAM_I_MaintOrderCost. Actual maintenance cost per planning plant and activity type, in global and company code currency.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZEAM_R_MaintOrderCost. Actual maintenance cost per planning 
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintOrderCost (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MaintOrderCost (see GEN-Q01).
 
 ## Example use case
 

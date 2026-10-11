@@ -1,7 +1,7 @@
 // ZSDV SD VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZSDV_R_DeliveryItem: delivery items per shipping point, split by on-time flag.
+// Purpose: Analytical query on ZSDV_I_DeliveryItem: delivery items per shipping point, split by on-time flag.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZSDV_R_DeliveryItem applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZSDV_I_DeliveryItem applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Outbound Delivery Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZSDV_C_DeliveryQ
   provider contract analytical_query
-  as projection on ZSDV_R_DeliveryItem
+  as projection on ZSDV_I_DeliveryItem
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

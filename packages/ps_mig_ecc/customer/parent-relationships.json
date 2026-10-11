@@ -1,0 +1,221 @@
+{
+  "ZPSX_C_ProjectStatusMig": {
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSStatusMig": {
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkStatusMig": {
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_WBSMig": {
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSHierarchyMig": {
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkPlanMig": {
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkActivitMig": {
+    "parent": "ZPSX_C_NetworkPlanMig",
+    "child_keys": [
+      "RoutingNumber"
+    ],
+    "parent_keys": [
+      "RoutingNumber"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkQuantitMig": {
+    "parent": "ZPSX_C_NetworkActivitMig",
+    "child_keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_keys": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ],
+    "parent_identity": [
+      "RoutingNumber",
+      "OperationInternalID"
+    ]
+  },
+  "ZPSX_C_ProjectPartnerMig": {
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSPartnerMig": {
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkPartnerMig": {
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_NetworkUserStatusMig": {
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_ProjectUserStatusMig": {
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_keys": [
+      "ProjectInternalID"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSUserStatusMig": {
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_keys": [
+      "WBSElementInternalID"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkComponentMig": {
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "Network"
+    ],
+    "parent_keys": [
+      "Network"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  },
+  "ZPSX_C_ProjectSettleMig": {
+    "parent": "ZPSX_C_ProjectMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "ProjectInternalID"
+    ]
+  },
+  "ZPSX_C_WBSSettleMig": {
+    "parent": "ZPSX_C_WBSMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "WBSElementInternalID"
+    ]
+  },
+  "ZPSX_C_NetworkSettleMig": {
+    "parent": "ZPSX_C_NetworkHeaderMig",
+    "child_keys": [
+      "ObjectNumber"
+    ],
+    "parent_keys": [
+      "ObjectNumber"
+    ],
+    "parent_identity": [
+      "Network"
+    ]
+  }
+}

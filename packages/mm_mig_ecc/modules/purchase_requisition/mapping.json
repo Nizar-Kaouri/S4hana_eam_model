@@ -1,0 +1,190 @@
+{
+  "module": "purchase_requisition",
+  "status": "released",
+  "target": {
+    "tool": "customer-selected supported posting interface; reference data is not posted",
+    "compatibility_notes": []
+  },
+  "sequence_after": [
+    "product"
+  ],
+  "key": {
+    "business_key": [
+      "PurchaseRequisition",
+      "PurchaseRequisitionItem"
+    ],
+    "numbering": "keep",
+    "note": "Preserve source identifiers in an audit ledger; map regenerated internal IDs and target numbering. Never assume internal IDs survive migration."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZMMX_C_RequisitionMig",
+      "source_view": "ZMMX_I_Requisition",
+      "scope_filter": "",
+      "keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem"
+      ],
+      "fields": [
+        {
+          "element": "PurchaseRequisition",
+          "source": "EBAN-BANFN",
+          "target": "customer interface field: PurchaseRequisition (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PurchaseRequisitionItem",
+          "source": "EBAN-BNFPO",
+          "target": "customer interface field: PurchaseRequisitionItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Material",
+          "source": "EBAN-MATNR",
+          "target": "customer interface field: Material (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Plant",
+          "source": "EBAN-WERKS",
+          "target": "customer interface field: Plant (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "RequestedQuantity",
+          "source": "EBAN-MENGE",
+          "target": "customer interface field: RequestedQuantity (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "Unit",
+          "source": "EBAN-MEINS",
+          "target": "customer interface field: Unit (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "DeletionFlag",
+          "source": "EBAN-LOEKZ",
+          "target": "customer interface field: DeletionFlag (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "ClosedFlag",
+          "source": "EBAN-EBAKZ",
+          "target": "customer interface field: ClosedFlag (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_ReqAssignmentMig",
+      "source_view": "ZMMX_I_ReqAssignment",
+      "scope_filter": "",
+      "keys": [
+        "PurchaseRequisition",
+        "PurchaseRequisitionItem",
+        "AccountAssignmentNumber"
+      ],
+      "fields": [
+        {
+          "element": "PurchaseRequisition",
+          "source": "EBKN-BANFN",
+          "target": "customer interface field: PurchaseRequisition (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "PurchaseRequisitionItem",
+          "source": "EBKN-BNFPO",
+          "target": "customer interface field: PurchaseRequisitionItem (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "AccountAssignmentNumber",
+          "source": "EBKN-ZEBKN",
+          "target": "customer interface field: AccountAssignmentNumber (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "CostCenter",
+          "source": "EBKN-KOSTL",
+          "target": "customer interface field: CostCenter (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "OrderID",
+          "source": "EBKN-AUFNR",
+          "target": "customer interface field: OrderID (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "GLAccount",
+          "source": "EBKN-SAKTO",
+          "target": "customer interface field: GLAccount (unconfirmed)",
+          "rule": "copy"
+        },
+        {
+          "element": "WBSElementInternalID",
+          "source": "EBKN-PS_PSP_PNR",
+          "target": "customer interface field: WBSElementInternalID (unconfirmed)",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "open-document",
+      "preprocessing": "Unscoped candidate rows. Approve the full-key population at cutover; use customer-cohort-project.json. Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+    },
+    {
+      "consumption_view": "ZMMX_C_RequisitionLongTextMig",
+      "source_view": "ZMMX_I_RequisitionLongText",
+      "scope_filter": "",
+      "keys": [
+        "TextObject",
+        "TextName",
+        "TextID",
+        "Language"
+      ],
+      "fields": [
+        {
+          "element": "TextObject",
+          "source": "STXH-TDOBJECT",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextName",
+          "source": "STXH-TDNAME",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "TextID",
+          "source": "STXH-TDID",
+          "target": "",
+          "rule": "copy"
+        },
+        {
+          "element": "Language",
+          "source": "STXH-TDSPRAS",
+          "target": "",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "SAPscript index only. Populate the explicit full text-key to business-owner link file from the source text editor/application metadata, run the text_scope preparation step against selected masters, then READ_TEXT to retrieve ordered formatted lines. Never infer the business owner from a TDNAME substring or post compressed STXL data."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone."
+  ],
+  "main_structure": "ZMMX_C_RequisitionMig",
+  "source_control": {
+    "source_count_view": "ZMMX_C_RequisitionMigCount",
+    "dimensions": [
+      {
+        "element": "PurchaseRequisition"
+      }
+    ]
+  }
+}

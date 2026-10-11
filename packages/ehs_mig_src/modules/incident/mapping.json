@@ -1,0 +1,195 @@
+{
+  "module": "incident",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "IncidentUUID"
+    ],
+    "numbering": "keep",
+    "note": "Map regenerated target UUIDs during loading; current client is implicit."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZEHX_C_IncidentMig",
+      "source_view": "ZEHX_I_Incident",
+      "scope_filter": "",
+      "keys": [
+        "IncidentUUID"
+      ],
+      "fields": [
+        {
+          "element": "IncidentUUID",
+          "source": "EHHSSD_INC_ROOT-DB_KEY",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentUUID",
+          "rule": "info"
+        },
+        {
+          "element": "IncidentID",
+          "source": "EHHSSD_INC_ROOT-ID",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentID",
+          "rule": "info"
+        },
+        {
+          "element": "IncidentCategory",
+          "source": "EHHSSD_INC_ROOT-CATEGORY",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentCategory",
+          "rule": "info"
+        },
+        {
+          "element": "IncidentStatus",
+          "source": "EHHSSD_INC_ROOT-STATUS",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.IncidentStatus",
+          "rule": "info"
+        },
+        {
+          "element": "ReportingRequired",
+          "source": "EHHSSD_INC_ROOT-REPORT_REQ_TS",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.ReportingRequired",
+          "rule": "info"
+        },
+        {
+          "element": "Fatality",
+          "source": "EHHSSD_INC_ROOT-FATALITY_TS",
+          "target": "Native target evidence: ZEHT_B_IncidentCompare.Fatality",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Modern EHSM incident root only. Basic-info child cardinality, title, location and time-zone calculations remain pending. Preserve root UUID; no guessed join to multiply root rows."
+    },
+    {
+      "consumption_view": "ZEHX_C_IncidentActionMig",
+      "source_view": "ZEHX_I_IncidentAction",
+      "scope_filter": "",
+      "keys": [
+        "ActionUUID"
+      ],
+      "fields": [
+        {
+          "element": "ActionUUID",
+          "source": "EHHSSD_IAC_ROOT-DB_KEY",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionUUID",
+          "rule": "info"
+        },
+        {
+          "element": "ActionID",
+          "source": "EHHSSD_IAC_ROOT-ID",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionID",
+          "rule": "info"
+        },
+        {
+          "element": "ActionCategory",
+          "source": "EHHSSD_IAC_ROOT-CATEGORY",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionCategory",
+          "rule": "info"
+        },
+        {
+          "element": "ActionStatus",
+          "source": "EHHSSD_IAC_ROOT-STATUS",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionStatus",
+          "rule": "info"
+        },
+        {
+          "element": "ActionType",
+          "source": "EHHSSD_IAC_ROOT-TYPE",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ActionType",
+          "rule": "info"
+        },
+        {
+          "element": "Priority",
+          "source": "EHHSSD_IAC_ROOT-PRIORITY",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Priority",
+          "rule": "info"
+        },
+        {
+          "element": "ProtectionGoal",
+          "source": "EHHSSD_IAC_ROOT-PROT_GOAL",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ProtectionGoal",
+          "rule": "info"
+        },
+        {
+          "element": "Effectiveness",
+          "source": "EHHSSD_IAC_ROOT-EFFECTIV",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Effectiveness",
+          "rule": "info"
+        },
+        {
+          "element": "DueTimestamp",
+          "source": "EHHSSD_IAC_ROOT-DUE_TIMESTAMP",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.DueTimestamp",
+          "rule": "info"
+        },
+        {
+          "element": "DueTimeZone",
+          "source": "EHHSSD_IAC_ROOT-DUE_TI_ZO",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.DueTimeZone",
+          "rule": "info"
+        },
+        {
+          "element": "ResponsiblePerson",
+          "source": "EHHSSD_IAC_ROOT-RESP_ID",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ResponsiblePerson",
+          "rule": "info"
+        },
+        {
+          "element": "Implementer",
+          "source": "EHHSSD_IAC_ROOT-IMPLEM_ID",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Implementer",
+          "rule": "info"
+        },
+        {
+          "element": "Approver",
+          "source": "EHHSSD_IAC_ROOT-APPR_ID",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.Approver",
+          "rule": "info"
+        },
+        {
+          "element": "ImplementedAt",
+          "source": "EHHSSD_IAC_ROOT-IMPL_TIMESTAMP",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ImplementedAt",
+          "rule": "info"
+        },
+        {
+          "element": "ImplementationTimeZone",
+          "source": "EHHSSD_IAC_ROOT-IMPL_TI_ZO",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ImplementationTimeZone",
+          "rule": "info"
+        },
+        {
+          "element": "ApprovedAt",
+          "source": "EHHSSD_IAC_ROOT-APPR_TIMESTAMP",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ApprovedAt",
+          "rule": "info"
+        },
+        {
+          "element": "ApprovalTimeZone",
+          "source": "EHHSSD_IAC_ROOT-APPR_TI_ZO",
+          "target": "Native target evidence: ZEHT_B_IncidentActionCompare.ApprovalTimeZone",
+          "rule": "info"
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "Incident: Modern EHSM incident root only. Basic-info child cardinality, title, location and time-zone calculations remain pending. Preserve root UUID; no guessed join to multiply root rows.",
+    "IncidentPerson: Person identity/name fields are resolved from HCM/business partners/users; roles come from a separate node. Native reference keys, role cardinality and person resolution remain pending.",
+    "IncidentAction: Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded."
+  ],
+  "main_structure": "ZEHX_C_IncidentMig",
+  "pending_dependencies": [
+    "ehs_location"
+  ],
+  "source_control": {
+    "source_count_view": "ZEHX_C_IncidentMigCount",
+    "dimensions": []
+  }
+}

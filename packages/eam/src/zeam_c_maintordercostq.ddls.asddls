@@ -1,7 +1,7 @@
 // ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZEAM_R_MaintOrderCost. Actual maintenance cost per planning plant and activity type, in global and company code currency.
+// Purpose: Analytical query on ZEAM_I_MaintOrderCost. Actual maintenance cost per planning plant and activity type, in global and company code currency.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_R_MaintOrderCost applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZEAM_I_MaintOrderCost applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Maintenance Cost Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -9,7 +9,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZEAM_C_MaintOrderCostQ
   provider contract analytical_query
-  as projection on ZEAM_R_MaintOrderCost
+  as projection on ZEAM_I_MaintOrderCost
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

@@ -1,0 +1,49 @@
+{
+  "name": "budget",
+  "title": "Project overall and annual budgets",
+  "description": "Project overall and annual budgets. Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface.",
+  "batch": 1,
+  "version": "1.0.0",
+  "status": "released",
+  "tags": [
+    "migration",
+    "balance"
+  ],
+  "sap_tables": [
+    "BPGE",
+    "BPJA"
+  ],
+  "sap_released_views": [],
+  "hard_dependencies": [
+    "wbs_element"
+  ],
+  "objects": {
+    "tables": [],
+    "basic": [
+      "ZPSX_B_OverallBudgetData",
+      "ZPSX_B_AnnualBudgetData"
+    ],
+    "composite": [
+      "ZPSX_I_OverallBudget",
+      "ZPSX_I_AnnualBudget"
+    ],
+    "consumption": [
+      "ZPSX_C_OverallBudgetMig",
+      "ZPSX_C_OverallBudgetMigCount",
+      "ZPSX_C_AnnualBudgetMig"
+    ],
+    "access_controls": [],
+    "metadata_extensions": [],
+    "tests": []
+  },
+  "no_dcl_by_design": {
+    "ZPSX_B_OverallBudgetData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_OverallBudget": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_OverallBudgetMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_OverallBudgetMigCount": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_B_AnnualBudgetData": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_I_AnnualBudget": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer.",
+    "ZPSX_C_AnnualBudgetMig": "Read-only migration extraction without DCL. Verify the extraction channel with permitted and restricted users. Table authorization does not protect every CDS consumer."
+  },
+  "link_views": []
+}

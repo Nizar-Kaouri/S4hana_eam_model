@@ -1,24 +1,23 @@
 // ZPPV PP VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: One row per BOM item version: component material, item category, item number, component quantity and
-//   unit, validity and deletion flag.
-// Example: Where-used list of a component; number of components per BOM.
-// TODO-VERIFY[H] PP-021: SAP released view is I_BillOfMaterialItemBasic with keys BillOfMaterialCategory, BillOfMaterial, BillOfMaterialVariant, BillOfMaterialItemNodeNumber, BOMItemInternalChangeCount
-// TODO-VERIFY[M] PP-022: elements BillOfMaterialComponent, BillOfMaterialItemCategory, BillOfMaterialItemQuantity, BillOfMaterialItemUnit, ValidityStartDate, ValidityEndDate, IsDeleted
+// Purpose: BOM item cube (deleted items excluded): number of items and component quantity per BOM, component and
+//   item category.
+// Example: Components used in the most BOMs; BOM size per BOM category.
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #CHECK
+@Analytics.dataCategory: #CUBE
 @Analytics.internalName: #LOCAL
-@EndUserText.label: 'Bill of Material Item'
+@EndUserText.label: 'Bill of Material Item - Cube'
 @Metadata.ignorePropagatedAnnotations: true
-@ObjectModel.representativeKey: 'BOMItemInternalChangeCount'
-@ObjectModel.supportedCapabilities: [ #CDS_MODELING_ASSOCIATION_TARGET, #SQL_DATA_SOURCE ]
+@ObjectModel.modelingPattern: #ANALYTICAL_CUBE
+@ObjectModel.supportedCapabilities: [ #ANALYTICAL_PROVIDER, #SQL_DATA_SOURCE ]
 @ObjectModel.usageType: {
-  serviceQuality: #A,
+  serviceQuality: #B,
   sizeCategory: #XL,
-  dataClass: #MASTER
+  dataClass: #MIXED
 }
-@VDM.viewType: #BASIC
+@VDM.viewType: #COMPOSITE
 define view entity ZPPV_I_BOMItem
-  as select from I_BillOfMaterialItemBasic
+  as select from ZPPV_B_BOMItem
 {
   key BillOfMaterialCategory,
   key BillOfMaterial,
@@ -27,11 +26,19 @@ define view entity ZPPV_I_BOMItem
   key BOMItemInternalChangeCount,
       BillOfMaterialComponent,
       BillOfMaterialItemCategory,
-      BillOfMaterialItemNumber,
       BillOfMaterialItemUnit,
-      @Semantics.quantity.unitOfMeasure: 'BillOfMaterialItemUnit'
-      BillOfMaterialItemQuantity,
       ValidityStartDate,
       ValidityEndDate,
-      IsDeleted
+      IsDeleted,
+
+      /* Measures */
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Number of BOM Items'
+      cast( 1 as abap.int4 ) as NumberOfBOMItems,
+      @Aggregation.default: #SUM
+      @EndUserText.label: 'Component Quantity'
+      @Semantics.quantity.unitOfMeasure: 'BillOfMaterialItemUnit'
+      BillOfMaterialItemQuantity
 }
+where
+  IsDeleted = ''

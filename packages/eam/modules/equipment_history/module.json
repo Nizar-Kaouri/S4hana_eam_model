@@ -21,23 +21,23 @@
   ],
   "objects": {
     "basic": [
-      "ZEAM_I_EquipmentTimeSegment"
+      "ZEAM_B_EquipmentTimeSegment"
     ],
     "composite": [
-      "ZEAM_R_EquipTimeSegment"
+      "ZEAM_I_EquipTimeSegment"
     ],
     "consumption": [
       "ZEAM_C_EquipTimeSegmentQ"
     ],
     "access_controls": [
-      "ZEAM_I_EquipmentTimeSegment",
-      "ZEAM_R_EquipTimeSegment"
+      "ZEAM_B_EquipmentTimeSegment",
+      "ZEAM_I_EquipTimeSegment"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEAM_C_EquipTimeSegmentQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_EquipTimeSegment (see GEN-Q01)."
+    "ZEAM_C_EquipTimeSegmentQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_EquipTimeSegment (see GEN-Q01)."
   },
   "link_views": []
 }

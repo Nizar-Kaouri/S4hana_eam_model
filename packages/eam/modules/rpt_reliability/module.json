@@ -20,28 +20,28 @@
   "objects": {
     "basic": [],
     "composite": [
-      "ZEAM_R_ReliabilityKPI"
+      "ZEAM_I_ReliabilityKPI"
     ],
     "consumption": [
       "ZEAM_C_ReliabilityQ"
     ],
     "access_controls": [
-      "ZEAM_R_ReliabilityKPI"
+      "ZEAM_I_ReliabilityKPI"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZEAM_C_ReliabilityQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_ReliabilityKPI (see GEN-Q01)."
+    "ZEAM_C_ReliabilityQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_ReliabilityKPI (see GEN-Q01)."
   },
   "link_views": [
     {
-      "name": "ZEAM_R_EquipmentReliability",
+      "name": "ZEAM_I_EquipmentReliability",
       "requires_modules": [
         "equipment",
         "rpt_reliability"
       ],
-      "access_control": "ZEAM_R_EquipmentReliability"
+      "access_control": "ZEAM_I_EquipmentReliability"
     },
     {
       "name": "ZEAM_C_EquipReliabilityQ",

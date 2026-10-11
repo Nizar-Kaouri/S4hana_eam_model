@@ -10,7 +10,7 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_Equipment` |
+| Data source | `ZEAM_I_Equipment` |
 | Source file | `src/zeam_c_equipmentq.ddls.asddls` |
 
 ## Purpose
@@ -27,7 +27,7 @@ Analytical query on the equipment cube (rows plant x category, columns count and
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_Equipment (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_Equipment (see GEN-Q01).
 
 ## Example use case
 

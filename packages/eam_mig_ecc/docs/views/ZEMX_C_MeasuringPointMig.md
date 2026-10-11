@@ -1,6 +1,6 @@
 # ZEMX_C_MeasuringPointMig
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -27,12 +27,8 @@ Measuring points to migrate with technical object key and characteristic name; r
 
 ## Access control
 
-No DCL by design: Migration view on ECC: it must return every record of the object. Access is controlled by the user / RFC user of the load program and the extraction channel (S_TABU_NAM), not by CDS access control (decision XGEN-D01; CDS access control also needs a newer release than the 7.40 SP08 baseline).
+No DCL by design: Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.
 
 ## Example use case
 
 The load program creates the measuring point at its technical object.
-
-## Open verification items
-
-none

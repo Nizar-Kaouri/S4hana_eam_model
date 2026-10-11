@@ -1,0 +1,13 @@
+// ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
+// Reuses the authorization logic SAP ships for I_InspectionLot.
+// TODO-VERIFY[H] QM-D01: I_InspectionLot has an access control role and every element it references is projected by ZQMV_B_InspectionLot
+@EndUserText.label: 'Inspection Lot'
+@MappingRole: true
+define role ZQMV_B_InspectionLot {
+  grant
+    select
+      on
+        ZQMV_B_InspectionLot
+          where
+            inheriting conditions from entity I_InspectionLot;
+}

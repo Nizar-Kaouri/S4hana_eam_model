@@ -1,0 +1,36 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// UI annotations for ZEAM_I_MaintNotif. Partner layer: customers can override in #CUSTOMER.
+@Metadata.layer: #PARTNER
+@UI.headerInfo: {
+  typeName: 'Maintenance Notification',
+  typeNamePlural: 'Maintenance Notifications',
+  title: { type: #STANDARD, value: 'MaintenanceNotification' }
+}
+annotate entity ZEAM_I_MaintNotif with
+{
+  @UI.lineItem: [ { position: 10, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 10 } ]
+  MaintenanceNotification;
+  @UI.lineItem: [ { position: 20, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 20 } ]
+  NotificationType;
+  @UI.lineItem: [ { position: 30, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 30 } ]
+  MaintPriority;
+  @UI.lineItem: [ { position: 40, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 40 } ]
+  NotifProcessingPhase;
+  @UI.lineItem: [ { position: 50, importance: #HIGH } ]
+  MaintenanceObjectIsDown;
+  @UI.lineItem: [ { position: 60, importance: #MEDIUM } ]
+  @UI.selectionField: [ { position: 50 } ]
+  MaintenancePlanningPlant;
+  @UI.lineItem: [ { position: 70, importance: #MEDIUM } ]
+  Equipment;
+  @UI.lineItem: [ { position: 80, importance: #MEDIUM } ]
+  FunctionalLocation;
+  @UI.lineItem: [ { position: 90, importance: #LOW } ]
+  MaintenanceOrder;
+  @UI.lineItem: [ { position: 100, importance: #LOW } ]
+  CreationDate;
+}

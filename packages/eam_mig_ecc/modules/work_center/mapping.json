@@ -1,10 +1,10 @@
 {
   "module": "work_center",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XWC-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [],
@@ -19,7 +19,7 @@
   "structures": [
     {
       "consumption_view": "ZEMX_C_WorkCenterMig",
-      "source_view": "ZEMX_I_WorkCenterHeader",
+      "source_view": "ZEMX_I_WorkCenter",
       "scope_filter": "src.IsMarkedForDeletion = ''",
       "keys": [
         "WorkCenter",
@@ -30,50 +30,43 @@
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "WorkCenterCategoryCode",
           "source": "CRHD-VERWE",
           "target": "CRHD-VERWE",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "WorkCenterResponsible",
           "source": "CRHD-VERAN",
           "target": "CRHD-VERAN",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "TaskListUsage",
           "source": "CRHD-PLANV",
           "target": "CRHD-PLANV",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "CRHD-BEGDA",
           "target": "CRHD-BEGDA",
-          "rule": "copy",
-          "compare": true
+          "rule": "copy"
         },
         {
           "element": "ValidityEndDate",
           "source": "CRHD-ENDDA",
           "target": "CRHD-ENDDA",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -91,29 +84,25 @@
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Language",
           "source": "CRTX-SPRAS",
           "target": "CRTX-SPRAS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "WorkCenterText",
           "source": "CRTX-KTEXT",
           "target": "CRTX-KTEXT",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         }
       ]
     },
@@ -124,69 +113,169 @@
       "keys": [
         "WorkCenter",
         "Plant",
-        "ValidityEndDate"
+        "ValidityEndDate",
+        "ActivityTypeSet",
+        "CostCenterAssgmtCounter"
       ],
       "fields": [
         {
           "element": "WorkCenter",
           "source": "CRHD-ARBPL",
           "target": "CRHD-ARBPL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "Plant",
           "source": "CRHD-WERKS",
           "target": "CRHD-WERKS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidityEndDate",
           "source": "CRCO-ENDDA",
           "target": "CRCO-ENDDA",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ValidityStartDate",
           "source": "CRCO-BEGDA",
           "target": "CRCO-BEGDA",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "ControllingArea",
           "source": "CRCO-KOKRS",
           "target": "CRCO-KOKRS",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
         },
         {
           "element": "CostCenter",
           "source": "CRCO-KOSTL",
           "target": "CRCO-KOSTL",
-          "rule": "copy",
-          "compare": false
+          "rule": "copy"
+        },
+        {
+          "element": "ActivityTypeSet",
+          "source": "CRCO-LASET",
+          "target": "CRCO-LASET",
+          "rule": "copy"
+        },
+        {
+          "element": "CostCenterAssgmtCounter",
+          "source": "CRCO-LANUM",
+          "target": "CRCO-LANUM",
+          "rule": "copy"
         }
       ]
+    },
+    {
+      "consumption_view": "ZEMX_C_WorkCenterCapacityMig",
+      "source_view": "ZEMX_I_WorkCenterCapacity",
+      "scope_filter": "src.ObjectType = 'A' and _Parent.IsMarkedForDeletion = ''",
+      "keys": [
+        "ObjectType",
+        "WorkCenterInternalID",
+        "CapacityAssignment"
+      ],
+      "fields": [
+        {
+          "element": "ObjectType",
+          "source": "CRCA-OBJTY",
+          "target": "CRCA-OBJTY",
+          "rule": "copy"
+        },
+        {
+          "element": "WorkCenterInternalID",
+          "source": "CRCA-OBJID",
+          "target": "CRCA-OBJID",
+          "rule": "copy"
+        },
+        {
+          "element": "CapacityAssignment",
+          "source": "CRCA-CANUM",
+          "target": "CRCA-CANUM",
+          "rule": "copy"
+        },
+        {
+          "element": "CapacityInternalID",
+          "source": "CRCA-KAPID",
+          "target": "CRCA-KAPID",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidityStartDate",
+          "source": "CRCA-BEGDA",
+          "target": "CRCA-BEGDA",
+          "rule": "copy"
+        },
+        {
+          "element": "ValidityEndDate",
+          "source": "CRCA-ENDDA",
+          "target": "CRCA-ENDDA",
+          "rule": "copy"
+        },
+        {
+          "element": "CapacityFormula",
+          "source": "CRCA-FORK2",
+          "target": "CRCA-FORK2",
+          "rule": "copy"
+        },
+        {
+          "element": "WorkCenter",
+          "source": "CRHD-ARBPL",
+          "target": "CRHD-ARBPL",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference context only; select referenced identities and implement customer-specific target posting and prerequisites."
+    },
+    {
+      "consumption_view": "ZEMX_C_CapacityHeaderMig",
+      "source_view": "ZEMX_I_CapacityHeader",
+      "scope_filter": "",
+      "keys": [
+        "CapacityInternalID"
+      ],
+      "fields": [
+        {
+          "element": "CapacityInternalID",
+          "source": "KAKO-KAPID",
+          "target": "KAKO-KAPID",
+          "rule": "copy"
+        },
+        {
+          "element": "CapacityCategory",
+          "source": "KAKO-KAPAR",
+          "target": "KAKO-KAPAR",
+          "rule": "copy"
+        },
+        {
+          "element": "CapacityName",
+          "source": "KAKO-NAME",
+          "target": "KAKO-NAME",
+          "rule": "copy"
+        }
+      ],
+      "delivery_mode": "reference",
+      "preprocessing": "Reference context only; select referenced identities and implement customer-specific target posting and prerequisites."
     }
   ],
   "not_migrated": [
     {
-      "view": "ZEMX_I_WorkCenterHeader",
+      "view": "ZEMX_B_WorkCenterHeader",
       "element": "WorkCenterInternalID",
       "source": "CRHD-OBJID",
       "reason": "skip:internal object ID - regenerated on S/4HANA; the business key is WorkCenter + Plant"
     },
     {
-      "view": "ZEMX_I_WorkCenterHeader",
+      "view": "ZEMX_B_WorkCenterHeader",
       "element": "IsMarkedForDeletion",
       "source": "CRHD-LVORM",
       "reason": "scope"
     },
     {
-      "view": "ZEMX_I_WorkCenterHeader",
+      "view": "ZEMX_B_WorkCenterHeader",
       "element": "LastChangeDate",
       "source": "CRHD-AEDAT_GRND",
       "reason": "info"
@@ -211,27 +300,23 @@
     },
     {
       "view": "ZEMX_I_WorkCenterCostCenter",
-      "element": "ActivityTypeSet",
-      "source": "CRCO-LASET",
-      "reason": "info"
-    },
-    {
-      "view": "ZEMX_I_WorkCenterCostCenter",
-      "element": "CostCenterAssgmtCounter",
-      "source": "CRCO-LANUM",
-      "reason": "info"
-    },
-    {
-      "view": "ZEMX_I_WorkCenterCostCenter",
       "element": "IsMarkedForDeletion",
       "source": "CRHD-LVORM",
       "reason": "scope"
+    },
+    {
+      "view": "ZEMX_I_WorkCenter",
+      "element": "IsMarkedForDeletion",
+      "source": "CRHD-LVORM",
+      "reason": "Used to exclude deleted records in the consumption scope; not a posting field."
     }
   ],
-  "reconciliation": {
-    "source_values": "source",
+  "gaps": [
+    "Compatibility note: CRCA allocation, FORK2 formula and KAKO header are delivered as reference data; available-capacity intervals, shift calendars, additional formulas and defaults require release-specific extension."
+  ],
+  "main_structure": "ZEMX_C_WorkCenterMig",
+  "source_control": {
     "source_count_view": "ZEMX_C_WorkCenterMigCount",
-    "target_count_view": "ZEMT_I_WorkCenterCount",
     "dimensions": [
       {
         "element": "Plant"
@@ -240,23 +325,6 @@
         "element": "WorkCenterCategoryCode"
       }
     ],
-    "measure": "RecordCount",
-    "compare": {
-      "source_view": "ZEMX_C_WorkCenterMig",
-      "target_view": "ZEMT_I_WorkCenterCompare",
-      "key": [
-        "WorkCenter",
-        "Plant"
-      ],
-      "fields": [
-        "WorkCenterCategoryCode",
-        "WorkCenterResponsible",
-        "ValidityStartDate"
-      ]
-    }
-  },
-  "gaps": [
-    "TODO-VERIFY[M] XWC-G01: capacities (KAKO/CRCA), scheduling formulas and default values are not extracted in the pilot"
-  ],
-  "main_structure": "ZEMX_C_WorkCenterMig"
+    "measure": "RecordCount"
+  }
 }

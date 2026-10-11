@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZEAM_R_MaintNotifItem` |
+| Data source | `ZEAM_I_MaintNotifItem` |
 | Source file | `src/zeam_c_maintnotifitemq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZEAM_R_MaintNotifItem. Damage codes per planning plant (Pareto).
+Analytical query on ZEAM_I_MaintNotifItem. Damage codes per planning plant (Pareto).
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZEAM_R_MaintNotifItem. Damage codes per planning plant (Pare
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_R_MaintNotifItem (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZEAM_I_MaintNotifItem (see GEN-Q01).
 
 ## Example use case
 

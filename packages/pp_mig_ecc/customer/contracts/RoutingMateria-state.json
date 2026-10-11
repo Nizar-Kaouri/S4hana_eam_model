@@ -1,0 +1,16 @@
+{
+  "mode": "state",
+  "identity": [
+    "Material",
+    "Plant",
+    "TaskListType",
+    "TaskListGroup",
+    "TaskListGroupCounter"
+  ],
+  "valid_from": "ValidFromDate",
+  "counter": "InternalCounter",
+  "deletion": "DeletionFlag",
+  "deleted_values": [
+    "X"
+  ]
+}

@@ -1,0 +1,14 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// Inherits the conditions of the basic view; the authorization-relevant elements are
+// projected with unchanged names.
+// TODO-VERIFY[M] GEN-D02: inheriting from a Z entity whose own role inherits from an SAP entity (chained inheritance)
+@EndUserText.label: 'Equipment - Value Help'
+@MappingRole: true
+define role ZEAM_B_EquipmentVH {
+  grant
+    select
+      on
+        ZEAM_B_EquipmentVH
+          where
+            inheriting conditions from entity ZEAM_B_Equipment;
+}

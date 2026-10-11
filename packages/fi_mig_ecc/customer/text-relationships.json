@@ -1,0 +1,48 @@
+{
+  "ZFIX_C_CustomerLongTextMig": {
+    "module": "customer",
+    "parent": "ZFIX_C_CustomerMig",
+    "parent_keys": [
+      "Customer"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZFIX_C_CustomerLongTextMig_Links",
+    "payload_helper": "zfix_fi_text_export.prog.abap"
+  },
+  "ZFIX_C_SupplierLongTextMig": {
+    "module": "supplier",
+    "parent": "ZFIX_C_SupplierMig",
+    "parent_keys": [
+      "Supplier"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZFIX_C_SupplierLongTextMig_Links",
+    "payload_helper": "zfix_fi_text_export.prog.abap"
+  },
+  "ZFIX_C_GLAccountLongTextMig": {
+    "module": "gl_account",
+    "parent": "ZFIX_C_GLAccountMig",
+    "parent_keys": [
+      "ChartOfAccounts",
+      "GLAccount"
+    ],
+    "text_keys": [
+      "TextObject",
+      "TextName",
+      "TextID",
+      "Language"
+    ],
+    "link_input": "ZFIX_C_GLAccountLongTextMig_Links",
+    "payload_helper": "zfix_fi_text_export.prog.abap"
+  }
+}

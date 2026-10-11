@@ -1,0 +1,31 @@
+// ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Documented amounts retain their stored currency. Invoice/item relations and customer DDIC verification remain pending.
+// Purpose: Read PaymentPromise as source candidates; approve the key-date population before posting.
+// Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
+@AbapCatalog.sqlViewName: 'ZFCX_V009R'
+@AbapCatalog.compiler.compareFilter: true
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'PaymentPromise'
+@ObjectModel.usageType.dataClass: #MIXED
+@ObjectModel.usageType.serviceQuality: #D
+@ObjectModel.usageType.sizeCategory: #L
+@VDM.viewType: #COMPOSITE
+define view ZFCX_I_PaymentPromise
+  as select from ZFCX_B_PaymentPromiseData as src
+{
+  key src.CaseUUID as CaseUUID,
+      src.CompanyCode as CompanyCode,
+      src.Customer as Customer,
+      @Semantics.currencyCode: true
+      src.Currency as Currency,
+      src.DueDate as DueDate,
+      src.PromiseDate as PromiseDate,
+      src.PromiseState as PromiseState,
+      src.PromiseLevel as PromiseLevel,
+      src.PromisedBy as PromisedBy,
+      @Semantics.amount.currencyCode: 'Currency'
+      src.PromisedAmount as PromisedAmount,
+      @Semantics.amount.currencyCode: 'Currency'
+      src.PaidAmount as PaidAmount
+}

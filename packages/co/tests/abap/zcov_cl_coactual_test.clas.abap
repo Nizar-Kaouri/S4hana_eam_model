@@ -23,7 +23,7 @@ ENDCLASS.
 CLASS zcov_cl_coactual_test IMPLEMENTATION.
 
   METHOD class_setup.
-    environment = cl_cds_test_environment=>create( i_for_entity = 'ZCOV_I_COJOURNALITEM' ).
+    environment = cl_cds_test_environment=>create( i_for_entity = 'ZCOV_B_COJOURNALITEM' ).
   ENDMETHOD.
 
 
@@ -46,7 +46,7 @@ CLASS zcov_cl_coactual_test IMPLEMENTATION.
       ( accountingdocument = '0100000002' ) ).
     environment->insert_test_data( i_data = rows ).
 
-    SELECT FROM zcov_i_cojournalitem
+    SELECT FROM zcov_b_cojournalitem
       FIELDS accountingdocument, costcenter
       INTO TABLE @DATA(result).
 

@@ -1,0 +1,12 @@
+// ZEAM EAM/PM VDM - status: draft-unverified (no SAP system available, never activated)
+// LINK VIEW role - equipment conditions (see GEN-D02).
+@EndUserText.label: 'Equipment with Functional Location'
+@MappingRole: true
+define role ZEAM_B_EquipmentWithFuncLoc {
+  grant
+    select
+      on
+        ZEAM_B_EquipmentWithFuncLoc
+          where
+            inheriting conditions from entity ZEAM_B_Equipment;
+}

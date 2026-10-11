@@ -1,0 +1,34 @@
+{
+  "version": "0.3.0",
+  "delivery": "source-only",
+  "packages": [
+    {
+      "domain": "ewm",
+      "source_product": "ewm_mig_src",
+      "archive": "ModuPorter-EWM-Customer-Pack-0.3.0.zip",
+      "sha256": "cd7f918450a43f57afc3476692ce3523ca45f9e12c3b421e0e447814ab5534cc",
+      "scope": "partial native source draft"
+    },
+    {
+      "domain": "tm",
+      "source_product": "tm_mig_src",
+      "archive": "ModuPorter-TM-Customer-Pack-0.3.0.zip",
+      "sha256": "e8e52ce0af0589e872aa947b1ade1ab3147afcbdc4474ea96ba97da9647ecd5b",
+      "scope": "partial native source draft"
+    },
+    {
+      "domain": "fscm",
+      "source_product": "fscm_mig_src",
+      "archive": "ModuPorter-FSCM-Customer-Pack-0.3.0.zip",
+      "sha256": "ac0a5cc4571bdaf05699fce827cda256d5f843eb403794837274c34bba02a3c7",
+      "scope": "partial native source draft"
+    },
+    {
+      "domain": "ehs",
+      "source_product": "ehs_mig_src",
+      "archive": "ModuPorter-EHS-Customer-Pack-0.3.0.zip",
+      "sha256": "98605c7a5b4ee8ea4d831bdd8eb3eb9be4c737f1a3b8803e7cb730dd816d557b",
+      "scope": "partial native source draft"
+    }
+  ]
+}

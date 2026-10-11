@@ -20,23 +20,23 @@
   ],
   "objects": {
     "basic": [
-      "ZQMV_I_InspectionCharc"
+      "ZQMV_B_InspectionCharc"
     ],
     "composite": [
-      "ZQMV_R_InspectionCharc"
+      "ZQMV_I_InspectionCharc"
     ],
     "consumption": [
       "ZQMV_C_InspectionCharcQ"
     ],
     "access_controls": [
-      "ZQMV_I_InspectionCharc",
-      "ZQMV_R_InspectionCharc"
+      "ZQMV_B_InspectionCharc",
+      "ZQMV_I_InspectionCharc"
     ],
     "metadata_extensions": [],
     "tests": []
   },
   "no_dcl_by_design": {
-    "ZQMV_C_InspectionCharcQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_R_InspectionCharc (see GEN-Q01)."
+    "ZQMV_C_InspectionCharcQ": "Transient analytical query; authorization is enforced by the DCL of the provider ZQMV_I_InspectionCharc (see GEN-Q01)."
   },
   "link_views": []
 }

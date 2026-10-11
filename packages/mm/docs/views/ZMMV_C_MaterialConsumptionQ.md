@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | transient view entity |
 | Data category | analytical query |
-| Data source | `ZMMV_R_MaterialConsumption` |
+| Data source | `ZMMV_I_MaterialConsumption` |
 | Source file | `src/zmmv_c_materialconsumptionq.ddls.asddls` |
 
 ## Purpose
 
-Analytical query on ZMMV_R_MaterialConsumption: consumption per plant and month.
+Analytical query on ZMMV_I_MaterialConsumption: consumption per plant and month.
 
 ## Keys
 
@@ -27,7 +27,7 @@ Analytical query on ZMMV_R_MaterialConsumption: consumption per plant and month.
 
 ## Access control
 
-No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_R_MaterialConsumption (see GEN-Q01).
+No DCL by design: Transient analytical query; authorization is enforced by the DCL of the provider ZMMV_I_MaterialConsumption (see GEN-Q01).
 
 ## Example use case
 

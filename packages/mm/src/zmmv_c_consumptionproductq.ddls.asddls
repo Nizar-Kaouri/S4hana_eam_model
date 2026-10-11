@@ -1,8 +1,8 @@
 // ZMMV MM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZMMV_R_ConsumptionWithProduct: consumption per plant and product group.
+// Purpose: Analytical query on ZMMV_I_ConsumptionWithProduct: consumption per plant and product group.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
 // LINK VIEW (ships only when modules "product" AND "rpt_material_consumption" are selected).
-// DESIGN NOTE: no DCL (transient query); the DCL of ZMMV_R_ConsumptionWithProduct applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZMMV_I_ConsumptionWithProduct applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Consumption by Product Group'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -10,7 +10,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZMMV_C_ConsumptionProductQ
   provider contract analytical_query
-  as projection on ZMMV_R_ConsumptionWithProduct
+  as projection on ZMMV_I_ConsumptionWithProduct
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

@@ -1,8 +1,8 @@
 // ZQMV QM VDM - status: draft-unverified (no SAP system available, never activated)
-// Purpose: Analytical query on ZQMV_R_SupplierQuality: decided, accepted and rejected lots per supplier with
+// Purpose: Analytical query on ZQMV_I_SupplierQuality: decided, accepted and rejected lots per supplier with
 //   rejection rate.
 // Example: Expose in an analytical OData V4 service and open in an analytical list page or SAP Analytics Cloud.
-// DESIGN NOTE: no DCL (transient query); the DCL of ZQMV_R_SupplierQuality applies (see GEN-Q01).
+// DESIGN NOTE: no DCL (transient query); the DCL of ZQMV_I_SupplierQuality applies (see GEN-Q01).
 @AccessControl.authorizationCheck: #NOT_ALLOWED
 @EndUserText.label: 'Supplier Quality Analysis'
 @ObjectModel.modelingPattern: #ANALYTICAL_QUERY
@@ -10,7 +10,7 @@
 @VDM.viewType: #CONSUMPTION
 define transient view entity ZQMV_C_SupplierQualityQ
   provider contract analytical_query
-  as projection on ZQMV_R_SupplierQuality
+  as projection on ZQMV_I_SupplierQuality
 {
   @AnalyticsDetails.query.axis: #ROWS
   @Consumption.filter: { selectionType: #SINGLE, multipleSelections: true, mandatory: false }

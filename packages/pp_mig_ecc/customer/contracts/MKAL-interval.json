@@ -1,0 +1,10 @@
+{
+  "mode": "interval",
+  "identity": [
+    "Product",
+    "Plant",
+    "ProductionVersion"
+  ],
+  "valid_from": "ValidityStartDate",
+  "valid_to": "ValidityEndDate"
+}
