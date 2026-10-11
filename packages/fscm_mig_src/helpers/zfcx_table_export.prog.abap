@@ -37,7 +37,8 @@ START-OF-SELECTION.
       OR 'UDM_CCT_ATTR'
       OR 'UDM_P2P_ATTR'
       OR 'UKMBP_CMS'
-      OR 'UKMBP_CMS_SGM'.
+      OR 'UKMBP_CMS_SGM'
+      OR 'UKM_TOTALS'.
       lv_allowed = abap_true.
   ENDCASE.
   IF lv_allowed <> abap_true OR p_max < 1 OR p_max > 1000000.

@@ -1,10 +1,12 @@
-# ModuPorter Transportation Management — native draft 0.2.0
+# ModuPorter Transportation Management — native draft 0.3.0
 
 This replaces the 0.1.0 staging architecture. Native SAP table → Basic → Composite → Consumption is supplied for documented structures. Target comparison views read native tables. No customer staging tables or write loaders are included.
 
-**Not a complete pack:** 3 native structure drafts; 16 pending structures. Native drafts also have pending payload listed in customer/native-coverage.json. Do not interpret a root/header projection as a complete business object.
+## Research update
 
-| Structure | Status | Native table / candidate | Scope and pending work |
+7 native drafts; 12 pending structures. Public documents establish field usage, not customer DDIC flags or SAP activation.
+
+| Structure | Status | Native table | Scope and remaining work |
 |---|---|---|---|
 | TransportLoc | NATIVE_DRAFT | /SAPAPO/LOC | Internal location UUID is preserved. Address, location type and time zone payload remain pending. |
 | TransportRes | PENDING | /SAPAPO/RES_HEAD | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
@@ -16,15 +18,15 @@ This replaces the 0.1.0 staging architecture. Native SAP table → Basic → Com
 | FreightAgree | PENDING | /SCMTMS/D_FAGROT | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
 | FreightRate | PENDING | Not yet established | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
 | FreightScale | PENDING | Not yet established | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
-| FreightUnit | NATIVE_DRAFT | /SCMTMS/D_TORROT | Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402 |
-| FreightUnitItem | PENDING | /SCMTMS/D_TORITE | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
-| FreightUnitStop | PENDING | /SCMTMS/D_TORSTP | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
-| FreightOrder | NATIVE_DRAFT | /SCMTMS/D_TORROT | Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402 |
-| FreightOrdItem | PENDING | /SCMTMS/D_TORITE | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
-| FreightOrdStop | PENDING | /SCMTMS/D_TORSTP | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
-| FreightStage | PENDING | /SCMTMS/D_TORSTS | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
-| FreightSettle | PENDING | Not yet established | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
-| SettleItem | PENDING | Not yet established | Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied. |
+| FreightUnit | NATIVE_DRAFT | /SCMTMS/D_TORROT | TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope. |
+| FreightUnitItem | NATIVE_DRAFT | /SCMTMS/D_TORITE | Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger. |
+| FreightUnitStop | NATIVE_DRAFT | /SCMTMS/D_TORSTP | Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending. |
+| FreightOrder | NATIVE_DRAFT | /SCMTMS/D_TORROT | TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope. |
+| FreightOrdItem | NATIVE_DRAFT | /SCMTMS/D_TORITE | Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT TO. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger. |
+| FreightOrdStop | NATIVE_DRAFT | /SCMTMS/D_TORSTP | Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending. |
+| FreightStage | PENDING | /SCMTMS/D_TORSTS | STOP_SUCCESSOR existence documented. Exact predecessor/successor native fields, keys and stage interpretation unresolved; STOP_ID order is not a substitute. |
+| FreightSettle | PENDING | /SCMTMS/D_SF_ROT | Native settlement-root table and several attributes documented; full key schema, amount/currency relations and settlement item joins still unresolved. |
+| SettleItem | PENDING | /SCMTMS/D_SF_ITM | Settlement item schema and root relationship require native field/key evidence. No guessed SFIR table names used. |
 
 ## Installation and verification
 
@@ -39,3 +41,6 @@ This replaces the 0.1.0 staging architecture. Native SAP table → Basic → Com
 9. Record activation, key uniqueness, authorization, extraction completeness, selection and source/target comparison in customer/TEST_RESULTS.csv. Real SAP evidence is required before acceptance.
 
 Extraction views are read-only. No posting adapter or target business-object creation is supplied.
+
+
+See customer/native-coverage.json for remaining payload and PROVENANCE.md for evidence. No posting adapters.

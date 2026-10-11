@@ -32,7 +32,9 @@ START-OF-SELECTION.
   TRANSLATE p_field TO UPPER CASE.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
-    WHEN 'ESTPH'
+    WHEN 'EHHSSD_IAC_ROOT'
+      OR 'EHHSSD_INC_ROOT'
+      OR 'ESTPH'
       OR 'ESTPJ'
       OR 'ESTRH'
       OR 'ESTRI'.

@@ -1,4 +1,4 @@
-# ModuPorter Environment Health and Safety — native draft 0.2.0
+# ModuPorter Environment Health and Safety — native draft 0.3.0
 
 This replaces the 0.1.0 staging architecture. Native SAP table → Basic → Composite → Consumption is supplied for documented structures. Target comparison views read native tables. No customer staging tables or write loaders are included.
 

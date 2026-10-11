@@ -99,5 +99,58 @@
     "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
     "evidence": "https://help.sap.com/docs/SAP_ERP/c4e98fcb44e74814b58b61aefc1b1fcb/57a5ce5314894208e10000000a174cb4.html",
     "notes": "Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys."
+  },
+  "ZEHX_C_IncidentMig": {
+    "module": "incident",
+    "native_table": "EHHSSD_INC_ROOT",
+    "basic_view": "ZEHX_I_IncidentData",
+    "composite_view": "ZEHX_I_Incident",
+    "consumption_view": "ZEHX_C_IncidentMig",
+    "required_keys": [
+      "IncidentUUID"
+    ],
+    "columns": [
+      "IncidentUUID",
+      "IncidentID",
+      "IncidentCategory",
+      "IncidentStatus",
+      "ReportingRequired",
+      "Fatality"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/d9eb3c50906ea902e10000000a44176f.html",
+    "notes": "Modern EHSM incident root only. Basic-info child cardinality, title, location and time-zone calculations remain pending. Preserve root UUID; no guessed join to multiply root rows."
+  },
+  "ZEHX_C_IncidentActionMig": {
+    "module": "incident",
+    "native_table": "EHHSSD_IAC_ROOT",
+    "basic_view": "ZEHX_I_IncidentActionData",
+    "composite_view": "ZEHX_I_IncidentAction",
+    "consumption_view": "ZEHX_C_IncidentActionMig",
+    "required_keys": [
+      "ActionUUID"
+    ],
+    "columns": [
+      "ActionUUID",
+      "ActionID",
+      "ActionCategory",
+      "ActionStatus",
+      "ActionType",
+      "Priority",
+      "ProtectionGoal",
+      "Effectiveness",
+      "DueTimestamp",
+      "DueTimeZone",
+      "ResponsiblePerson",
+      "Implementer",
+      "Approver",
+      "ImplementedAt",
+      "ImplementationTimeZone",
+      "ApprovedAt",
+      "ApprovalTimeZone"
+    ],
+    "status": "DOCUMENTED_NATIVE_DRAFT_DDIC_PENDING",
+    "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/55ea3c50906ea902e10000000a44176f.html?locale=en-US",
+    "notes": "Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded."
   }
 }

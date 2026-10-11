@@ -1,3 +1,3 @@
 # Document verification
 
-English and German guides render to six pages each using Microsoft Word PDF export and the Documents skill renderer. All twelve pages were visually inspected; tables and body text fit without clipping. Rendered images are internal QA assets. Native SAP activation and runtime remain unverified.
+Both 0.3.0 manuals were rendered through native Microsoft Word and the Documents skill rasterizer. Six pages in each language were visually inspected. No clipping, table overflow, overlap or missing glyphs was observed. This verifies document layout only, not SAP runtime behavior.

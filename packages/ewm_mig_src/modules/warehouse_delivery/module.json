@@ -1,9 +1,9 @@
 {
   "name": "warehouse_delivery",
   "title": "Inbound and outbound warehouse deliveries",
-  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
+  "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
   "batch": 1,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft-unverified",
   "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
@@ -11,24 +11,42 @@
     "native-table",
     "process-reference"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "/SCDL/DB_PROCH_I",
+    "/SCDL/DB_PROCI_I"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [
     "warehouse_product"
   ],
   "objects": {
     "tables": [],
-    "basic": [],
-    "composite": [],
-    "consumption": [],
+    "basic": [
+      "ZWMX_I_WhDeliveryData",
+      "ZWMX_I_WhDeliveryItemData"
+    ],
+    "composite": [
+      "ZWMX_I_WhDelivery",
+      "ZWMX_I_WhDeliveryItem"
+    ],
+    "consumption": [
+      "ZWMX_C_WhDeliveryMig",
+      "ZWMX_C_WhDeliveryMigCount",
+      "ZWMX_C_WhDeliveryItemMig"
+    ],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {},
+  "no_dcl_by_design": {
+    "ZWMX_I_WhDeliveryData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMX_I_WhDelivery": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMX_C_WhDeliveryMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMX_C_WhDeliveryMigCount": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMX_I_WhDeliveryItemData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMX_I_WhDeliveryItem": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMX_C_WhDeliveryItemMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
+  },
   "link_views": [],
-  "pending_structures": [
-    "WhDelivery",
-    "WhDeliveryItem"
-  ]
+  "pending_structures": []
 }

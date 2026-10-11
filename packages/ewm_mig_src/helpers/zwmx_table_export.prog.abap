@@ -32,9 +32,12 @@ START-OF-SELECTION.
   TRANSLATE p_field TO UPPER CASE.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
-    WHEN '/SCWM/LAGP'
+    WHEN '/SCDL/DB_PROCH_I'
+      OR '/SCDL/DB_PROCI_I'
+      OR '/SCWM/LAGP'
       OR '/SCWM/LAGPS'
       OR '/SCWM/ORDIM_C'
+      OR '/SCWM/ORDIM_O'
       OR '/SCWM/WHO'.
       lv_allowed = abap_true.
   ENDCASE.

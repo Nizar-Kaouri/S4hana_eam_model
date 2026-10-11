@@ -1,9 +1,9 @@
 {
   "name": "incident",
   "title": "Incidents people and actions target staged comparison",
-  "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
+  "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
   "batch": 1,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft-unverified",
   "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
@@ -11,23 +11,33 @@
     "native-table",
     "process-reference"
   ],
-  "sap_tables": [],
+  "sap_tables": [
+    "EHHSSD_IAC_ROOT",
+    "EHHSSD_INC_ROOT"
+  ],
   "sap_released_views": [],
   "hard_dependencies": [],
   "objects": {
     "tables": [],
-    "basic": [],
-    "composite": [],
+    "basic": [
+      "ZEHT_I_IncidentCompare",
+      "ZEHT_I_IncidentActionCompare"
+    ],
+    "composite": [
+      "ZEHT_I_IncidentCount"
+    ],
     "consumption": [],
     "access_controls": [],
     "metadata_extensions": [],
     "tests": []
   },
-  "no_dcl_by_design": {},
+  "no_dcl_by_design": {
+    "ZEHT_I_IncidentCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZEHT_I_IncidentCount": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZEHT_I_IncidentActionCompare": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
+  },
   "link_views": [],
   "pending_structures": [
-    "Incident",
-    "IncidentPerson",
-    "IncidentAction"
+    "IncidentPerson"
   ]
 }

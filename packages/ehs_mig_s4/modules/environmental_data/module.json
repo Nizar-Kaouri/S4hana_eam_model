@@ -3,7 +3,7 @@
   "title": "Classifiers data collection and measurements target staged comparison",
   "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
   "batch": 1,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft-unverified",
   "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [

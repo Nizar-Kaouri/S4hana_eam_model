@@ -8,7 +8,11 @@
     "ZEHX_C_PhraseMig": "exports/ZEHX_C_PhraseMig.csv",
     "ZEHX_C_PhraseMig_Scope": "selection/ZEHX_C_PhraseMig.csv",
     "ZEHX_C_PhraseSetMig": "exports/ZEHX_C_PhraseSetMig.csv",
-    "ZEHX_C_PhraseSetMig_Scope": "selection/ZEHX_C_PhraseSetMig.csv"
+    "ZEHX_C_PhraseSetMig_Scope": "selection/ZEHX_C_PhraseSetMig.csv",
+    "ZEHX_C_IncidentMig": "exports/ZEHX_C_IncidentMig.csv",
+    "ZEHX_C_IncidentMig_Scope": "selection/ZEHX_C_IncidentMig.csv",
+    "ZEHX_C_IncidentActionMig": "exports/ZEHX_C_IncidentActionMig.csv",
+    "ZEHX_C_IncidentActionMig_Scope": "selection/ZEHX_C_IncidentActionMig.csv"
   },
   "steps": [
     {
@@ -66,12 +70,38 @@
         "RecordNumber",
         "ChangeState"
       ]
+    },
+    {
+      "name": "ZEHX_C_IncidentMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_IncidentMig",
+      "parent": "ZEHX_C_IncidentMig_Scope",
+      "child_keys": [
+        "IncidentUUID"
+      ],
+      "parent_keys": [
+        "IncidentUUID"
+      ]
+    },
+    {
+      "name": "ZEHX_C_IncidentActionMig_Prepared",
+      "operation": "selection",
+      "input": "ZEHX_C_IncidentActionMig",
+      "parent": "ZEHX_C_IncidentActionMig_Scope",
+      "child_keys": [
+        "ActionUUID"
+      ],
+      "parent_keys": [
+        "ActionUUID"
+      ]
     }
   ],
   "outputs": [
     "ZEHX_C_SpecificationMig_Prepared",
     "ZEHX_C_SpecIdentifierMig_Prepared",
     "ZEHX_C_PhraseMig_Prepared",
-    "ZEHX_C_PhraseSetMig_Prepared"
+    "ZEHX_C_PhraseSetMig_Prepared",
+    "ZEHX_C_IncidentMig_Prepared",
+    "ZEHX_C_IncidentActionMig_Prepared"
   ]
 }

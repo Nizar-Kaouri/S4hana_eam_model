@@ -1,6 +1,6 @@
 {
   "revision": "Twelve non-EAM domain drafts 2026-10-11",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "nodes": [
     {
       "name": "ZFAX_C_AssetAssignmenMig",
@@ -9574,6 +9574,70 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZWMX_C_WarehouseTaskMig",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_task",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZWMX_I_WarehouseTask"
+      ],
+      "keys": [
+        "Warehouse",
+        "WarehouseTask"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_c_warehousetaskmig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMX_C_WhDeliveryItemMig",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZWMX_I_WhDeliveryItem"
+      ],
+      "keys": [
+        "DeliveryUUID",
+        "DeliveryItemUUID"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_c_whdeliveryitemmig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMX_C_WhDeliveryMig",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZWMX_I_WhDelivery"
+      ],
+      "keys": [
+        "DeliveryUUID"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_c_whdeliverymig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMX_C_WhDeliveryMigCount",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZWMX_C_WhDeliveryMig"
+      ],
+      "keys": [],
+      "file": "packages/ewm_mig_src/src/zwmx_c_whdeliverymigcount.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZWMX_I_BinSorting",
       "product": "ewm_mig_src",
       "domain": "ewm",
@@ -9716,6 +9780,106 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZWMX_I_WarehouseTask",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_task",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZWMX_I_WarehouseTaskData"
+      ],
+      "keys": [
+        "Warehouse",
+        "WarehouseTask"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_i_warehousetask.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMX_I_WarehouseTaskData",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_task",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scwm/ordim_o"
+      ],
+      "keys": [
+        "Warehouse",
+        "WarehouseTask"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_i_warehousetaskdata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMX_I_WhDelivery",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZWMX_I_WhDeliveryData"
+      ],
+      "keys": [
+        "DeliveryUUID"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_i_whdelivery.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMX_I_WhDeliveryData",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scdl/db_proch_i"
+      ],
+      "keys": [
+        "DeliveryUUID"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_i_whdeliverydata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMX_I_WhDeliveryItem",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZWMX_I_WhDeliveryItemData"
+      ],
+      "keys": [
+        "DeliveryUUID",
+        "DeliveryItemUUID"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_i_whdeliveryitem.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMX_I_WhDeliveryItemData",
+      "product": "ewm_mig_src",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scdl/db_proci_i"
+      ],
+      "keys": [
+        "DeliveryUUID",
+        "DeliveryItemUUID"
+      ],
+      "file": "packages/ewm_mig_src/src/zwmx_i_whdeliveryitemdata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZWMT_I_BinSortingCompare",
       "product": "ewm_mig_s4",
       "domain": "ewm",
@@ -9835,6 +9999,70 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZWMT_I_WarehouseTaskCompare",
+      "product": "ewm_mig_s4",
+      "domain": "ewm",
+      "module": "warehouse_task",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scwm/ordim_o"
+      ],
+      "keys": [
+        "Warehouse",
+        "WarehouseTask"
+      ],
+      "file": "packages/ewm_mig_s4/src/zwmt_i_warehousetaskcompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMT_I_WhDeliveryCompare",
+      "product": "ewm_mig_s4",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scdl/db_proch_i"
+      ],
+      "keys": [
+        "DeliveryUUID"
+      ],
+      "file": "packages/ewm_mig_s4/src/zwmt_i_whdeliverycompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMT_I_WhDeliveryCount",
+      "product": "ewm_mig_s4",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZWMT_I_WhDeliveryCompare"
+      ],
+      "keys": [],
+      "file": "packages/ewm_mig_s4/src/zwmt_i_whdeliverycount.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZWMT_I_WhDeliveryItemCompare",
+      "product": "ewm_mig_s4",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scdl/db_proci_i"
+      ],
+      "keys": [
+        "DeliveryUUID",
+        "DeliveryItemUUID"
+      ],
+      "file": "packages/ewm_mig_s4/src/zwmt_i_whdeliveryitemcompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZTMX_C_FreightOrderMig",
       "product": "tm_mig_src",
       "domain": "tm",
@@ -9865,6 +10093,54 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZTMX_C_FreightOrdItemMig",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_order",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZTMX_I_FreightOrdItem"
+      ],
+      "keys": [
+        "ItemUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_c_freightorditemmig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_C_FreightOrdStopMig",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_order",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZTMX_I_FreightOrdStop"
+      ],
+      "keys": [
+        "StopUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_c_freightordstopmig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_C_FreightUnitItemMig",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_unit",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZTMX_I_FreightUnitItem"
+      ],
+      "keys": [
+        "ItemUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_c_freightunititemmig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZTMX_C_FreightUnitMig",
       "product": "tm_mig_src",
       "domain": "tm",
@@ -9892,6 +10168,22 @@
       ],
       "keys": [],
       "file": "packages/tm_mig_src/src/ztmx_c_freightunitmigcount.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_C_FreightUnitStopMig",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_unit",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZTMX_I_FreightUnitStop"
+      ],
+      "keys": [
+        "StopUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_c_freightunitstopmig.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
@@ -9957,6 +10249,72 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZTMX_I_FreightOrdItem",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_order",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZTMX_I_FreightOrdItemData",
+        "ZTMX_I_FreightOrderData"
+      ],
+      "keys": [
+        "ItemUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_i_freightorditem.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_I_FreightOrdItemData",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_order",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scmtms/d_torite"
+      ],
+      "keys": [
+        "ItemUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_i_freightorditemdata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_I_FreightOrdStop",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_order",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZTMX_I_FreightOrdStopData",
+        "ZTMX_I_FreightOrderData"
+      ],
+      "keys": [
+        "StopUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_i_freightordstop.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_I_FreightOrdStopData",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_order",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scmtms/d_torstp"
+      ],
+      "keys": [
+        "StopUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_i_freightordstopdata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZTMX_I_FreightUnit",
       "product": "tm_mig_src",
       "domain": "tm",
@@ -9986,6 +10344,72 @@
         "DocumentUUID"
       ],
       "file": "packages/tm_mig_src/src/ztmx_i_freightunitdata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_I_FreightUnitIteData",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_unit",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scmtms/d_torite"
+      ],
+      "keys": [
+        "ItemUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_i_freightunititedata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_I_FreightUnitItem",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_unit",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZTMX_I_FreightUnitIteData",
+        "ZTMX_I_FreightUnitData"
+      ],
+      "keys": [
+        "ItemUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_i_freightunititem.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_I_FreightUnitStoData",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_unit",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scmtms/d_torstp"
+      ],
+      "keys": [
+        "StopUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_i_freightunitstodata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMX_I_FreightUnitStop",
+      "product": "tm_mig_src",
+      "domain": "tm",
+      "module": "freight_unit",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZTMX_I_FreightUnitStoData",
+        "ZTMX_I_FreightUnitData"
+      ],
+      "keys": [
+        "StopUUID"
+      ],
+      "file": "packages/tm_mig_src/src/ztmx_i_freightunitstop.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
@@ -10051,6 +10475,40 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZTMT_I_FreightOrdItemCompare",
+      "product": "tm_mig_s4",
+      "domain": "tm",
+      "module": "freight_order",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scmtms/d_torite",
+        "ZTMT_I_FreightOrderCompare"
+      ],
+      "keys": [
+        "ItemUUID"
+      ],
+      "file": "packages/tm_mig_s4/src/ztmt_i_freightorditemcompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMT_I_FreightOrdStopCompare",
+      "product": "tm_mig_s4",
+      "domain": "tm",
+      "module": "freight_order",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scmtms/d_torstp",
+        "ZTMT_I_FreightOrderCompare"
+      ],
+      "keys": [
+        "StopUUID"
+      ],
+      "file": "packages/tm_mig_s4/src/ztmt_i_freightordstopcompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZTMT_I_FreightUnitCompare",
       "product": "tm_mig_s4",
       "domain": "tm",
@@ -10078,6 +10536,40 @@
       ],
       "keys": [],
       "file": "packages/tm_mig_s4/src/ztmt_i_freightunitcount.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMT_I_FreightUnitItemCompare",
+      "product": "tm_mig_s4",
+      "domain": "tm",
+      "module": "freight_unit",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scmtms/d_torite",
+        "ZTMT_I_FreightUnitCompare"
+      ],
+      "keys": [
+        "ItemUUID"
+      ],
+      "file": "packages/tm_mig_s4/src/ztmt_i_freightunititemcompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZTMT_I_FreightUnitStopCompare",
+      "product": "tm_mig_s4",
+      "domain": "tm",
+      "module": "freight_unit",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "/scmtms/d_torstp",
+        "ZTMT_I_FreightUnitCompare"
+      ],
+      "keys": [
+        "StopUUID"
+      ],
+      "file": "packages/tm_mig_s4/src/ztmt_i_freightunitstopcompare.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
@@ -10154,6 +10646,39 @@
       ],
       "keys": [],
       "file": "packages/fscm_mig_src/src/zfcx_c_collectcontactmigcount.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZFCX_C_CreditExposureMig",
+      "product": "fscm_mig_src",
+      "domain": "fscm",
+      "module": "credit_exposure",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZFCX_I_CreditExposure"
+      ],
+      "keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ],
+      "file": "packages/fscm_mig_src/src/zfcx_c_creditexposuremig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZFCX_C_CreditExposureMigCount",
+      "product": "fscm_mig_src",
+      "domain": "fscm",
+      "module": "credit_exposure",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZFCX_C_CreditExposureMig"
+      ],
+      "keys": [],
+      "file": "packages/fscm_mig_src/src/zfcx_c_creditexposuremigcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
@@ -10342,6 +10867,44 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZFCX_I_CreditExposure",
+      "product": "fscm_mig_src",
+      "domain": "fscm",
+      "module": "credit_exposure",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZFCX_I_CreditExposureData"
+      ],
+      "keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ],
+      "file": "packages/fscm_mig_src/src/zfcx_i_creditexposure.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZFCX_I_CreditExposureData",
+      "product": "fscm_mig_src",
+      "domain": "fscm",
+      "module": "credit_exposure",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "ukm_totals"
+      ],
+      "keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ],
+      "file": "packages/fscm_mig_src/src/zfcx_i_creditexposuredata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZFCX_I_CreditProfile",
       "product": "fscm_mig_src",
       "domain": "fscm",
@@ -10518,6 +11081,39 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZFCT_I_CreditExposureCompare",
+      "product": "fscm_mig_s4",
+      "domain": "fscm",
+      "module": "credit_exposure",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "ukm_totals"
+      ],
+      "keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ],
+      "file": "packages/fscm_mig_s4/src/zfct_i_creditexposurecompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZFCT_I_CreditExposureCount",
+      "product": "fscm_mig_s4",
+      "domain": "fscm",
+      "module": "credit_exposure",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZFCT_I_CreditExposureCompare"
+      ],
+      "keys": [],
+      "file": "packages/fscm_mig_s4/src/zfct_i_creditexposurecount.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZFCT_I_CreditProfileCompare",
       "product": "fscm_mig_s4",
       "domain": "fscm",
@@ -10639,6 +11235,52 @@
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
+      "name": "ZEHX_C_IncidentActionMig",
+      "product": "ehs_mig_src",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZEHX_I_IncidentAction"
+      ],
+      "keys": [
+        "ActionUUID"
+      ],
+      "file": "packages/ehs_mig_src/src/zehx_c_incidentactionmig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHX_C_IncidentMig",
+      "product": "ehs_mig_src",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZEHX_I_Incident"
+      ],
+      "keys": [
+        "IncidentUUID"
+      ],
+      "file": "packages/ehs_mig_src/src/zehx_c_incidentmig.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHX_C_IncidentMigCount",
+      "product": "ehs_mig_src",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "consumption",
+      "type": "DDLS",
+      "sources": [
+        "ZEHX_C_IncidentMig"
+      ],
+      "keys": [],
+      "file": "packages/ehs_mig_src/src/zehx_c_incidentmigcount.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
       "name": "ZEHX_C_PhraseMig",
       "product": "ehs_mig_src",
       "domain": "ehs",
@@ -10732,6 +11374,70 @@
       ],
       "keys": [],
       "file": "packages/ehs_mig_src/src/zehx_c_specificationmigcount.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHX_I_Incident",
+      "product": "ehs_mig_src",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZEHX_I_IncidentData"
+      ],
+      "keys": [
+        "IncidentUUID"
+      ],
+      "file": "packages/ehs_mig_src/src/zehx_i_incident.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHX_I_IncidentAction",
+      "product": "ehs_mig_src",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZEHX_I_IncidentActionData"
+      ],
+      "keys": [
+        "ActionUUID"
+      ],
+      "file": "packages/ehs_mig_src/src/zehx_i_incidentaction.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHX_I_IncidentActionData",
+      "product": "ehs_mig_src",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "ehhssd_iac_root"
+      ],
+      "keys": [
+        "ActionUUID"
+      ],
+      "file": "packages/ehs_mig_src/src/zehx_i_incidentactiondata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHX_I_IncidentData",
+      "product": "ehs_mig_src",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "ehhssd_inc_root"
+      ],
+      "keys": [
+        "IncidentUUID"
+      ],
+      "file": "packages/ehs_mig_src/src/zehx_i_incidentdata.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
@@ -10868,6 +11574,52 @@
         "ChangeState"
       ],
       "file": "packages/ehs_mig_src/src/zehx_i_specificationdata.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHT_I_IncidentActionCompare",
+      "product": "ehs_mig_s4",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "ehhssd_iac_root"
+      ],
+      "keys": [
+        "ActionUUID"
+      ],
+      "file": "packages/ehs_mig_s4/src/zeht_i_incidentactioncompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHT_I_IncidentCompare",
+      "product": "ehs_mig_s4",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "basic",
+      "type": "DDLS",
+      "sources": [
+        "ehhssd_inc_root"
+      ],
+      "keys": [
+        "IncidentUUID"
+      ],
+      "file": "packages/ehs_mig_s4/src/zeht_i_incidentcompare.ddls.asddls",
+      "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
+    },
+    {
+      "name": "ZEHT_I_IncidentCount",
+      "product": "ehs_mig_s4",
+      "domain": "ehs",
+      "module": "incident",
+      "layer": "composite",
+      "type": "DDLS",
+      "sources": [
+        "ZEHT_I_IncidentCompare"
+      ],
+      "keys": [],
+      "file": "packages/ehs_mig_s4/src/zeht_i_incidentcount.ddls.asddls",
       "purpose": "Native extraction draft; exact DDIC/release and SAP runtime pending."
     },
     {
@@ -11787,561 +12539,825 @@
     },
     {
       "product": "ewm_mig_src",
+      "domain": "ewm",
       "name": "handling_unit",
       "title": "Handling units and contents",
-      "description": "Canonical Handling units and contents exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "storage_bin",
         "warehouse_product"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "HandlingUnit",
+        "HUContent"
+      ]
     },
     {
       "product": "ewm_mig_src",
+      "domain": "ewm",
       "name": "pack_specification",
       "title": "Packaging specifications",
-      "description": "Canonical Packaging specifications exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "PackSpec",
+        "PackLevel",
+        "PackElement"
+      ]
     },
     {
       "product": "ewm_mig_src",
+      "domain": "ewm",
       "name": "storage_bin",
       "title": "Storage bins and sorting",
-      "description": "Canonical Storage bins and sorting exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ewm_mig_src",
+      "domain": "ewm",
       "name": "warehouse_delivery",
       "title": "Inbound and outbound warehouse deliveries",
-      "description": "Canonical Inbound and outbound warehouse deliveries exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [
         "warehouse_product"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ewm_mig_src",
+      "domain": "ewm",
       "name": "warehouse_order",
       "title": "Warehouse orders",
-      "description": "Canonical Warehouse orders exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ewm_mig_src",
+      "domain": "ewm",
       "name": "warehouse_product",
       "title": "Warehouse products and fixed bins",
-      "description": "Canonical Warehouse products and fixed bins exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "storage_bin"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "WarehouseProd",
+        "FixedBin"
+      ]
     },
     {
       "product": "ewm_mig_src",
+      "domain": "ewm",
       "name": "warehouse_stock",
       "title": "Warehouse stock and serials",
-      "description": "Canonical Warehouse stock and serials exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "storage_bin",
         "warehouse_product"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "WarehouseStock",
+        "StockSerial"
+      ]
     },
     {
       "product": "ewm_mig_src",
+      "domain": "ewm",
       "name": "warehouse_task",
       "title": "Warehouse tasks and confirmations",
-      "description": "Canonical Warehouse tasks and confirmations exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [
         "storage_bin",
         "warehouse_product"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ewm_mig_s4",
+      "domain": "ewm",
       "name": "handling_unit",
       "title": "Handling units and contents target staged comparison",
-      "description": "Canonical Handling units and contents exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "HandlingUnit",
+        "HUContent"
+      ]
     },
     {
       "product": "ewm_mig_s4",
+      "domain": "ewm",
       "name": "pack_specification",
       "title": "Packaging specifications target staged comparison",
-      "description": "Canonical Packaging specifications exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "PackSpec",
+        "PackLevel",
+        "PackElement"
+      ]
     },
     {
       "product": "ewm_mig_s4",
+      "domain": "ewm",
       "name": "storage_bin",
       "title": "Storage bins and sorting target staged comparison",
-      "description": "Canonical Storage bins and sorting exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ewm_mig_s4",
+      "domain": "ewm",
       "name": "warehouse_delivery",
       "title": "Inbound and outbound warehouse deliveries target staged comparison",
-      "description": "Canonical Inbound and outbound warehouse deliveries exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ewm_mig_s4",
+      "domain": "ewm",
       "name": "warehouse_order",
       "title": "Warehouse orders target staged comparison",
-      "description": "Canonical Warehouse orders exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ewm_mig_s4",
+      "domain": "ewm",
       "name": "warehouse_product",
       "title": "Warehouse products and fixed bins target staged comparison",
-      "description": "Canonical Warehouse products and fixed bins exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "WarehouseProd",
+        "FixedBin"
+      ]
     },
     {
       "product": "ewm_mig_s4",
+      "domain": "ewm",
       "name": "warehouse_stock",
       "title": "Warehouse stock and serials target staged comparison",
-      "description": "Canonical Warehouse stock and serials exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "WarehouseStock",
+        "StockSerial"
+      ]
     },
     {
       "product": "ewm_mig_s4",
+      "domain": "ewm",
       "name": "warehouse_task",
       "title": "Warehouse tasks and confirmations target staged comparison",
-      "description": "Canonical Warehouse tasks and confirmations exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "tm_mig_src",
+      "domain": "tm",
       "name": "freight_agreement",
       "title": "Freight agreements rates and scales",
-      "description": "Canonical Freight agreements rates and scales exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "FreightAgree",
+        "FreightRate",
+        "FreightScale"
+      ]
     },
     {
       "product": "tm_mig_src",
+      "domain": "tm",
       "name": "freight_order",
       "title": "Freight orders and bookings",
-      "description": "Canonical Freight orders and bookings exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [
         "transport_location",
         "transport_resource",
         "freight_unit"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "FreightStage"
+      ]
     },
     {
       "product": "tm_mig_src",
+      "domain": "tm",
       "name": "freight_settlement",
       "title": "Freight settlement references",
-      "description": "Canonical Freight settlement references exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "freight_order"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "FreightSettle",
+        "SettleItem"
+      ]
     },
     {
       "product": "tm_mig_src",
+      "domain": "tm",
       "name": "freight_unit",
       "title": "Freight units items and stops",
-      "description": "Canonical Freight units items and stops exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [
         "transport_location"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "tm_mig_src",
+      "domain": "tm",
       "name": "transport_lane",
       "title": "Transportation lanes",
-      "description": "Canonical Transportation lanes exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "transport_location"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "TransportLane",
+        "LaneCarrier"
+      ]
     },
     {
       "product": "tm_mig_src",
+      "domain": "tm",
       "name": "transport_location",
       "title": "Transportation locations",
-      "description": "Canonical Transportation locations exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "tm_mig_src",
+      "domain": "tm",
       "name": "transport_resource",
       "title": "Vehicles trailers and capacities",
-      "description": "Canonical Vehicles trailers and capacities exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "TransportRes",
+        "ResCapacity"
+      ]
     },
     {
       "product": "tm_mig_src",
+      "domain": "tm",
       "name": "transport_schedule",
       "title": "Transportation schedules and stops",
-      "description": "Canonical Transportation schedules and stops exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "transport_location"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "Schedule",
+        "ScheduleStop"
+      ]
     },
     {
       "product": "tm_mig_s4",
+      "domain": "tm",
       "name": "freight_agreement",
       "title": "Freight agreements rates and scales target staged comparison",
-      "description": "Canonical Freight agreements rates and scales exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "FreightAgree",
+        "FreightRate",
+        "FreightScale"
+      ]
     },
     {
       "product": "tm_mig_s4",
+      "domain": "tm",
       "name": "freight_order",
       "title": "Freight orders and bookings target staged comparison",
-      "description": "Canonical Freight orders and bookings exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "FreightStage"
+      ]
     },
     {
       "product": "tm_mig_s4",
+      "domain": "tm",
       "name": "freight_settlement",
       "title": "Freight settlement references target staged comparison",
-      "description": "Canonical Freight settlement references exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "FreightSettle",
+        "SettleItem"
+      ]
     },
     {
       "product": "tm_mig_s4",
+      "domain": "tm",
       "name": "freight_unit",
       "title": "Freight units items and stops target staged comparison",
-      "description": "Canonical Freight units items and stops exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "tm_mig_s4",
+      "domain": "tm",
       "name": "transport_lane",
       "title": "Transportation lanes target staged comparison",
-      "description": "Canonical Transportation lanes exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "TransportLane",
+        "LaneCarrier"
+      ]
     },
     {
       "product": "tm_mig_s4",
+      "domain": "tm",
       "name": "transport_location",
       "title": "Transportation locations target staged comparison",
-      "description": "Canonical Transportation locations exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "tm_mig_s4",
+      "domain": "tm",
       "name": "transport_resource",
       "title": "Vehicles trailers and capacities target staged comparison",
-      "description": "Canonical Vehicles trailers and capacities exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "TransportRes",
+        "ResCapacity"
+      ]
     },
     {
       "product": "tm_mig_s4",
+      "domain": "tm",
       "name": "transport_schedule",
       "title": "Transportation schedules and stops target staged comparison",
-      "description": "Canonical Transportation schedules and stops exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "Schedule",
+        "ScheduleStop"
+      ]
     },
     {
       "product": "fscm_mig_src",
-      "name": "collections_profile",
-      "title": "Collections profiles and segment assignments",
-      "description": "Canonical Collections profiles and segment assignments exports over customer stages; native business adapters required.",
-      "dependencies": [],
-      "batch": 1
-    },
-    {
-      "product": "fscm_mig_src",
+      "domain": "fscm",
       "name": "collection_activity",
       "title": "Collections contacts and tasks",
-      "description": "Canonical Collections contacts and tasks exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [
         "collections_profile"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "CollectTask"
+      ]
     },
     {
       "product": "fscm_mig_src",
+      "domain": "fscm",
+      "name": "collections_profile",
+      "title": "Collections profiles and segment assignments",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
+      "dependencies": [],
+      "batch": 1,
+      "pending_structures": [
+        "CollectProfile",
+        "CollectSegment"
+      ]
+    },
+    {
+      "product": "fscm_mig_src",
+      "domain": "fscm",
       "name": "credit_exposure",
       "title": "Credit exposure references",
-      "description": "Canonical Credit exposure references exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [
         "credit_segment"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "fscm_mig_src",
+      "domain": "fscm",
       "name": "credit_profile",
       "title": "Credit profiles and relationships",
-      "description": "Canonical Credit profiles and relationships exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "CreditRelation"
+      ]
     },
     {
       "product": "fscm_mig_src",
+      "domain": "fscm",
       "name": "credit_segment",
       "title": "Credit segment limits",
-      "description": "Canonical Credit segment limits exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [
         "credit_profile"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "fscm_mig_src",
+      "domain": "fscm",
       "name": "dispute_case",
       "title": "Dispute cases attributes receivables and attachments",
-      "description": "Canonical Dispute cases attributes receivables and attachments exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "DisputeItem",
+        "CaseAttachment"
+      ]
     },
     {
       "product": "fscm_mig_src",
+      "domain": "fscm",
       "name": "promise_to_pay",
       "title": "Promises to pay and related receivables",
-      "description": "Canonical Promises to pay and related receivables exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [
         "collections_profile"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "PromiseItem"
+      ]
     },
     {
       "product": "fscm_mig_s4",
-      "name": "collections_profile",
-      "title": "Collections profiles and segment assignments target staged comparison",
-      "description": "Canonical Collections profiles and segment assignments exports over customer stages; native business adapters required.",
-      "dependencies": [],
-      "batch": 1
-    },
-    {
-      "product": "fscm_mig_s4",
+      "domain": "fscm",
       "name": "collection_activity",
       "title": "Collections contacts and tasks target staged comparison",
-      "description": "Canonical Collections contacts and tasks exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "CollectTask"
+      ]
     },
     {
       "product": "fscm_mig_s4",
+      "domain": "fscm",
+      "name": "collections_profile",
+      "title": "Collections profiles and segment assignments target staged comparison",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
+      "dependencies": [],
+      "batch": 1,
+      "pending_structures": [
+        "CollectProfile",
+        "CollectSegment"
+      ]
+    },
+    {
+      "product": "fscm_mig_s4",
+      "domain": "fscm",
       "name": "credit_exposure",
       "title": "Credit exposure references target staged comparison",
-      "description": "Canonical Credit exposure references exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "fscm_mig_s4",
+      "domain": "fscm",
       "name": "credit_profile",
       "title": "Credit profiles and relationships target staged comparison",
-      "description": "Canonical Credit profiles and relationships exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "CreditRelation"
+      ]
     },
     {
       "product": "fscm_mig_s4",
+      "domain": "fscm",
       "name": "credit_segment",
       "title": "Credit segment limits target staged comparison",
-      "description": "Canonical Credit segment limits exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "fscm_mig_s4",
+      "domain": "fscm",
       "name": "dispute_case",
       "title": "Dispute cases attributes receivables and attachments target staged comparison",
-      "description": "Canonical Dispute cases attributes receivables and attachments exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "DisputeItem",
+        "CaseAttachment"
+      ]
     },
     {
       "product": "fscm_mig_s4",
+      "domain": "fscm",
       "name": "promise_to_pay",
       "title": "Promises to pay and related receivables target staged comparison",
-      "description": "Canonical Promises to pay and related receivables exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "PromiseItem"
+      ]
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "chemical_property",
       "title": "Chemical and physical property definitions",
-      "description": "Canonical Chemical and physical property definitions exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "ChemicalProp",
+        "PropertyUnit"
+      ]
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "compliance",
       "title": "Compliance requirements scenarios and assignments",
-      "description": "Canonical Compliance requirements scenarios and assignments exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "ehs_location",
         "chemical_property",
         "environmental_data"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "ComplianceReq",
+        "ComplianceScen",
+        "ComplianceLink"
+      ]
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "dangerous_goods",
       "title": "Dangerous goods classifications and regulations",
-      "description": "Canonical Dangerous goods classifications and regulations exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "DangerousGoods",
+        "DGTransport"
+      ]
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "ehs_location",
       "title": "EHS locations and hierarchy",
-      "description": "Canonical EHS locations and hierarchy exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "EHSLocation",
+        "EHSLocHierarchy"
+      ]
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "environmental_data",
       "title": "Classifiers data collection and measurements",
-      "description": "Canonical Classifiers data collection and measurements exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "ehs_location",
         "chemical_property"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "DataClassifier",
+        "DataCollection",
+        "Measurement"
+      ]
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "incident",
       "title": "Incidents people and actions",
-      "description": "Canonical Incidents people and actions exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [
         "ehs_location"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "IncidentPerson"
+      ]
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "phrase",
       "title": "Phrases translations and set assignments",
-      "description": "Canonical Phrases translations and set assignments exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "risk_assessment",
       "title": "Risk assessments hazards and controls",
-      "description": "Canonical Risk assessments hazards and controls exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [
         "ehs_location"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "RiskAssessment",
+        "RiskHazard",
+        "RiskControl"
+      ]
     },
     {
       "product": "ehs_mig_src",
+      "domain": "ehs",
       "name": "specification",
       "title": "Specifications identifiers and property values",
-      "description": "Canonical Specifications identifiers and property values exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [
         "chemical_property"
       ],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "SpecProperty"
+      ]
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "chemical_property",
       "title": "Chemical and physical property definitions target staged comparison",
-      "description": "Canonical Chemical and physical property definitions exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "ChemicalProp",
+        "PropertyUnit"
+      ]
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "compliance",
       "title": "Compliance requirements scenarios and assignments target staged comparison",
-      "description": "Canonical Compliance requirements scenarios and assignments exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "ComplianceReq",
+        "ComplianceScen",
+        "ComplianceLink"
+      ]
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "dangerous_goods",
       "title": "Dangerous goods classifications and regulations target staged comparison",
-      "description": "Canonical Dangerous goods classifications and regulations exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "DangerousGoods",
+        "DGTransport"
+      ]
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "ehs_location",
       "title": "EHS locations and hierarchy target staged comparison",
-      "description": "Canonical EHS locations and hierarchy exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "EHSLocation",
+        "EHSLocHierarchy"
+      ]
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "environmental_data",
       "title": "Classifiers data collection and measurements target staged comparison",
-      "description": "Canonical Classifiers data collection and measurements exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "DataClassifier",
+        "DataCollection",
+        "Measurement"
+      ]
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "incident",
       "title": "Incidents people and actions target staged comparison",
-      "description": "Canonical Incidents people and actions exports over customer stages; native business adapters required.",
+      "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "IncidentPerson"
+      ]
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "phrase",
       "title": "Phrases translations and set assignments target staged comparison",
-      "description": "Canonical Phrases translations and set assignments exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": []
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "risk_assessment",
       "title": "Risk assessments hazards and controls target staged comparison",
-      "description": "Canonical Risk assessments hazards and controls exports over customer stages; native business adapters required.",
+      "description": "PENDING: no executable views supplied until native DDIC metadata is confirmed.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "RiskAssessment",
+        "RiskHazard",
+        "RiskControl"
+      ]
     },
     {
       "product": "ehs_mig_s4",
+      "domain": "ehs",
       "name": "specification",
       "title": "Specifications identifiers and property values target staged comparison",
-      "description": "Canonical Specifications identifiers and property values exports over customer stages; native business adapters required.",
+      "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
       "dependencies": [],
-      "batch": 1
+      "batch": 1,
+      "pending_structures": [
+        "SpecProperty"
+      ]
     }
   ],
   "structures": [
@@ -13965,1043 +14981,403 @@
     },
     {
       "name": "ZWMX_C_StorageBinMig",
+      "domain": "ewm",
       "module": "storage_bin",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
         "StorageBin"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZWMX_C_BinSortingMig",
-      "module": "storage_bin",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "StorageBin",
-        "SortSequence"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZWMX_C_WarehouseProdMig",
-      "module": "warehouse_product",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "Product",
-        "EntitledParty"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZWMX_C_FixedBinMig",
-      "module": "warehouse_product",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "Product",
-        "EntitledParty",
-        "StorageType",
-        "StorageBin"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZWMX_C_WarehouseStockMig",
-      "module": "warehouse_stock",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "StockIdentity"
-      ],
-      "fields": 18,
-      "filter": "",
-      "mode": "balance"
-    },
-    {
-      "name": "ZWMX_C_StockSerialMig",
-      "module": "warehouse_stock",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "StockIdentity",
-        "SerialNumber"
       ],
       "fields": 8,
       "filter": "",
-      "mode": "balance"
+      "mode": "master",
+      "native_table": "/SCWM/LAGP",
+      "parent_scope": null
     },
     {
-      "name": "ZWMX_C_HandlingUnitMig",
-      "module": "handling_unit",
+      "name": "ZWMX_C_BinSortingMig",
+      "domain": "ewm",
+      "module": "storage_bin",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
-        "HandlingUnit"
+        "StorageBin",
+        "ActivityArea",
+        "Activity"
       ],
-      "fields": 13,
+      "fields": 6,
       "filter": "",
-      "mode": "process-reference"
+      "mode": "master",
+      "native_table": "/SCWM/LAGPS",
+      "parent_scope": null
     },
     {
-      "name": "ZWMX_C_HUContentMig",
-      "module": "handling_unit",
+      "name": "ZWMX_C_WhDeliveryMig",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "HandlingUnit",
-        "ContentItem"
+        "DeliveryUUID"
       ],
-      "fields": 13,
+      "fields": 8,
       "filter": "",
-      "mode": "process-reference"
+      "mode": "process-reference",
+      "native_table": "/SCDL/DB_PROCH_I",
+      "parent_scope": null
     },
     {
-      "name": "ZWMX_C_WarehouseTaskMig",
-      "module": "warehouse_task",
+      "name": "ZWMX_C_WhDeliveryItemMig",
+      "domain": "ewm",
+      "module": "warehouse_delivery",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "WarehouseTask"
+        "DeliveryUUID",
+        "DeliveryItemUUID"
       ],
-      "fields": 14,
+      "fields": 17,
       "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZWMX_C_TaskConfirmMig",
-      "module": "warehouse_task",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Warehouse",
-        "WarehouseTask",
-        "ConfirmationID"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "process-reference"
+      "mode": "process-reference",
+      "native_table": "/SCDL/DB_PROCI_I",
+      "parent_scope": null
     },
     {
       "name": "ZWMX_C_WarehouseOrderMig",
+      "domain": "ewm",
       "module": "warehouse_order",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
         "WarehouseOrder"
       ],
       "fields": 10,
       "filter": "",
-      "mode": "process-reference"
+      "mode": "process-reference",
+      "native_table": "/SCWM/WHO",
+      "parent_scope": null
     },
     {
-      "name": "ZWMX_C_WhDeliveryMig",
-      "module": "warehouse_delivery",
+      "name": "ZWMX_C_TaskConfirmMig",
+      "domain": "ewm",
+      "module": "warehouse_task",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
-        "DeliveryID"
+        "WarehouseTask",
+        "WarehouseTaskItem"
       ],
-      "fields": 10,
+      "fields": 12,
       "filter": "",
-      "mode": "process-reference"
+      "mode": "process-reference",
+      "native_table": "/SCWM/ORDIM_C",
+      "parent_scope": null
     },
     {
-      "name": "ZWMX_C_WhDeliveryItemMig",
-      "module": "warehouse_delivery",
+      "name": "ZWMX_C_WarehouseTaskMig",
+      "domain": "ewm",
+      "module": "warehouse_task",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
         "Warehouse",
-        "DeliveryID",
-        "DeliveryItem"
-      ],
-      "fields": 13,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZWMX_C_PackSpecMig",
-      "module": "pack_specification",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "PackSpecification",
-        "Version"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZWMX_C_PackLevelMig",
-      "module": "pack_specification",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "PackSpecification",
-        "Version",
-        "LevelID"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZWMX_C_PackElementMig",
-      "module": "pack_specification",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "PackSpecification",
-        "Version",
-        "LevelID",
-        "ElementID"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_TransportLocMig",
-      "module": "transport_location",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "LocationID"
-      ],
-      "fields": 13,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_TransportResMig",
-      "module": "transport_resource",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "ResourceID"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_ResCapacityMig",
-      "module": "transport_resource",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "ResourceID",
-        "CapacityID"
-      ],
-      "fields": 8,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_TransportLaneMig",
-      "module": "transport_lane",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "LaneID"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_LaneCarrierMig",
-      "module": "transport_lane",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "LaneID",
-        "CarrierID"
-      ],
-      "fields": 8,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_ScheduleMig",
-      "module": "transport_schedule",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "ScheduleID",
-        "Version"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_ScheduleStopMig",
-      "module": "transport_schedule",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "ScheduleID",
-        "Version",
-        "StopID"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_FreightAgreeMig",
-      "module": "freight_agreement",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "AgreementID",
-        "Version"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_FreightRateMig",
-      "module": "freight_agreement",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "AgreementID",
-        "Version",
-        "RateID"
+        "WarehouseTask"
       ],
       "fields": 12,
       "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_FreightScaleMig",
-      "module": "freight_agreement",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "AgreementID",
-        "Version",
-        "RateID",
-        "ScaleLine"
-      ],
-      "fields": 12,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZTMX_C_FreightUnitMig",
-      "module": "freight_unit",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "FreightUnitID"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZTMX_C_FreightUnitIteMig",
-      "module": "freight_unit",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "FreightUnitID",
-        "ItemID"
-      ],
-      "fields": 12,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZTMX_C_FreightUnitStoMig",
-      "module": "freight_unit",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "FreightUnitID",
-        "StopID"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "process-reference"
+      "mode": "process-reference",
+      "native_table": "/SCWM/ORDIM_O",
+      "parent_scope": null
     },
     {
       "name": "ZTMX_C_FreightOrderMig",
+      "domain": "tm",
       "module": "freight_order",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "FreightOrderID"
+        "DocumentUUID"
       ],
-      "fields": 11,
-      "filter": "",
-      "mode": "process-reference"
+      "fields": 5,
+      "filter": "src.DocumentCategory = 'TO'",
+      "mode": "process-reference",
+      "native_table": "/SCMTMS/D_TORROT",
+      "parent_scope": null
     },
     {
       "name": "ZTMX_C_FreightOrdItemMig",
+      "domain": "tm",
       "module": "freight_order",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "FreightOrderID",
-        "ItemID"
+        "ItemUUID"
       ],
-      "fields": 9,
+      "fields": 5,
       "filter": "",
-      "mode": "process-reference"
+      "mode": "process-reference",
+      "native_table": "/SCMTMS/D_TORITE",
+      "parent_scope": {
+        "source_parent_view": "ZTMX_I_FreightOrderData",
+        "target_parent_view": "ZTMT_I_FreightOrderCompare",
+        "child_parent_field": "DocumentUUID",
+        "parent_key": "DocumentUUID",
+        "category": "TO",
+        "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+        "lookup_DDIC_required": true
+      }
     },
     {
       "name": "ZTMX_C_FreightOrdStopMig",
+      "domain": "tm",
       "module": "freight_order",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "FreightOrderID",
-        "StopID"
+        "StopUUID"
       ],
-      "fields": 11,
+      "fields": 5,
       "filter": "",
-      "mode": "process-reference"
+      "mode": "process-reference",
+      "native_table": "/SCMTMS/D_TORSTP",
+      "parent_scope": {
+        "source_parent_view": "ZTMX_I_FreightOrderData",
+        "target_parent_view": "ZTMT_I_FreightOrderCompare",
+        "child_parent_field": "DocumentUUID",
+        "parent_key": "DocumentUUID",
+        "category": "TO",
+        "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+        "lookup_DDIC_required": true
+      }
     },
     {
-      "name": "ZTMX_C_FreightStageMig",
-      "module": "freight_order",
+      "name": "ZTMX_C_FreightUnitMig",
+      "domain": "tm",
+      "module": "freight_unit",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "FreightOrderID",
-        "StageID"
+        "DocumentUUID"
       ],
-      "fields": 10,
-      "filter": "",
-      "mode": "process-reference"
+      "fields": 5,
+      "filter": "src.DocumentCategory = 'FU'",
+      "mode": "process-reference",
+      "native_table": "/SCMTMS/D_TORROT",
+      "parent_scope": null
     },
     {
-      "name": "ZTMX_C_FreightSettleMig",
-      "module": "freight_settlement",
+      "name": "ZTMX_C_FreightUnitItemMig",
+      "domain": "tm",
+      "module": "freight_unit",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "SettlementID"
+        "ItemUUID"
       ],
-      "fields": 11,
+      "fields": 5,
       "filter": "",
-      "mode": "reference"
+      "mode": "process-reference",
+      "native_table": "/SCMTMS/D_TORITE",
+      "parent_scope": {
+        "source_parent_view": "ZTMX_I_FreightUnitData",
+        "target_parent_view": "ZTMT_I_FreightUnitCompare",
+        "child_parent_field": "DocumentUUID",
+        "parent_key": "DocumentUUID",
+        "category": "FU",
+        "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+        "lookup_DDIC_required": true
+      }
     },
     {
-      "name": "ZTMX_C_SettleItemMig",
-      "module": "freight_settlement",
+      "name": "ZTMX_C_FreightUnitStopMig",
+      "domain": "tm",
+      "module": "freight_unit",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "SettlementID",
-        "SettlementItem"
+        "StopUUID"
       ],
-      "fields": 10,
+      "fields": 5,
       "filter": "",
-      "mode": "reference"
+      "mode": "process-reference",
+      "native_table": "/SCMTMS/D_TORSTP",
+      "parent_scope": {
+        "source_parent_view": "ZTMX_I_FreightUnitData",
+        "target_parent_view": "ZTMT_I_FreightUnitCompare",
+        "child_parent_field": "DocumentUUID",
+        "parent_key": "DocumentUUID",
+        "category": "FU",
+        "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+        "lookup_DDIC_required": true
+      }
     },
     {
-      "name": "ZFCX_C_CreditProfileMig",
-      "module": "credit_profile",
+      "name": "ZTMX_C_TransportLocMig",
+      "domain": "tm",
+      "module": "transport_location",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner"
+        "LocationUUID"
       ],
-      "fields": 9,
+      "fields": 5,
       "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZFCX_C_CreditRelationMig",
-      "module": "credit_profile",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "RelatedPartner",
-        "RelationType",
-        "ValidityStartDate"
-      ],
-      "fields": 8,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZFCX_C_CreditSegmentMig",
-      "module": "credit_segment",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "CreditSegment"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZFCX_C_CreditExposureMig",
-      "module": "credit_exposure",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "CreditSegment",
-        "ExposureCategory",
-        "SourceDocument",
-        "SourceItem"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "reference"
-    },
-    {
-      "name": "ZFCX_C_CollectProfileMig",
-      "module": "collections_profile",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner"
-      ],
-      "fields": 7,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZFCX_C_CollectSegmentMig",
-      "module": "collections_profile",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "CollectionSegment"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "master"
+      "mode": "master",
+      "native_table": "/SAPAPO/LOC",
+      "parent_scope": null
     },
     {
       "name": "ZFCX_C_CollectContactMig",
+      "domain": "fscm",
       "module": "collection_activity",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "CollectionSegment",
-        "ContactID"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZFCX_C_CollectTaskMig",
-      "module": "collection_activity",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "CollectionSegment",
-        "TaskID"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZFCX_C_PaymentPromiseMig",
-      "module": "promise_to_pay",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "PromiseID"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZFCX_C_PromiseItemMig",
-      "module": "promise_to_pay",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "BusinessPartner",
-        "PromiseID",
-        "CompanyCode",
-        "FiscalYear",
-        "AccountingDocument",
-        "AccountingItem"
+        "ContactUUID"
       ],
       "fields": 11,
       "filter": "",
-      "mode": "process-reference"
+      "mode": "process-reference",
+      "native_table": "UDM_CCT_ATTR",
+      "parent_scope": null
     },
     {
-      "name": "ZFCX_C_DisputeCaseMig",
-      "module": "dispute_case",
+      "name": "ZFCX_C_CreditExposureMig",
+      "domain": "fscm",
+      "module": "credit_exposure",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "CaseID"
-      ],
-      "fields": 13,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZFCX_C_DisputeItemMig",
-      "module": "dispute_case",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "CaseID",
-        "CompanyCode",
-        "FiscalYear",
-        "AccountingDocument",
-        "AccountingItem"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZFCX_C_CaseAttributeMig",
-      "module": "dispute_case",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "CaseID",
-        "AttributeID"
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
       ],
       "fields": 6,
       "filter": "",
-      "mode": "process-reference"
+      "mode": "reference",
+      "native_table": "UKM_TOTALS",
+      "parent_scope": null
     },
     {
-      "name": "ZFCX_C_CaseAttachmentMig",
+      "name": "ZFCX_C_CreditProfileMig",
+      "domain": "fscm",
+      "module": "credit_profile",
+      "keys": [
+        "BusinessPartner"
+      ],
+      "fields": 7,
+      "filter": "",
+      "mode": "master",
+      "native_table": "UKMBP_CMS",
+      "parent_scope": null
+    },
+    {
+      "name": "ZFCX_C_CreditSegmentMig",
+      "domain": "fscm",
+      "module": "credit_segment",
+      "keys": [
+        "BusinessPartner",
+        "CreditSegment"
+      ],
+      "fields": 9,
+      "filter": "",
+      "mode": "master",
+      "native_table": "UKMBP_CMS_SGM",
+      "parent_scope": null
+    },
+    {
+      "name": "ZFCX_C_DisputeCaseMig",
+      "domain": "fscm",
       "module": "dispute_case",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "CaseID",
-        "AttachmentID"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZEHX_C_EHSLocationMig",
-      "module": "ehs_location",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "LocationID"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_EHSLocHierarchMig",
-      "module": "ehs_location",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "HierarchyID",
-        "ParentLocation",
-        "ChildLocation",
-        "ValidityStartDate"
-      ],
-      "fields": 8,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_ChemicalPropMig",
-      "module": "chemical_property",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "PropertyID"
-      ],
-      "fields": 8,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_PropertyUnitMig",
-      "module": "chemical_property",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "PropertyID",
-        "UnitID"
-      ],
-      "fields": 7,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_SpecificationMig",
-      "module": "specification",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "SpecificationID",
-        "Version"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_SpecIdentifierMig",
-      "module": "specification",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "SpecificationID",
-        "Version",
-        "IdentifierID"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_SpecPropertyMig",
-      "module": "specification",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "SpecificationID",
-        "Version",
-        "PropertyID",
-        "ValueID"
-      ],
-      "fields": 15,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_PhraseMig",
-      "module": "phrase",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "PhraseCatalog",
-        "PhraseID",
-        "Language"
-      ],
-      "fields": 8,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_PhraseSetMig",
-      "module": "phrase",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "PhraseSetID",
-        "PhraseCatalog",
-        "PhraseID"
-      ],
-      "fields": 7,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_IncidentMig",
-      "module": "incident",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "IncidentID"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZEHX_C_IncidentPersonMig",
-      "module": "incident",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "IncidentID",
-        "PersonRole",
-        "PersonID"
-      ],
-      "fields": 8,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZEHX_C_IncidentActionMig",
-      "module": "incident",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "IncidentID",
-        "ActionID"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "process-reference"
-    },
-    {
-      "name": "ZEHX_C_RiskAssessmentMig",
-      "module": "risk_assessment",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "AssessmentID",
-        "Version"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "reference"
-    },
-    {
-      "name": "ZEHX_C_RiskHazardMig",
-      "module": "risk_assessment",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "AssessmentID",
-        "Version",
-        "HazardID"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "reference"
-    },
-    {
-      "name": "ZEHX_C_RiskControlMig",
-      "module": "risk_assessment",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "AssessmentID",
-        "Version",
-        "HazardID",
-        "ControlID"
-      ],
-      "fields": 11,
-      "filter": "",
-      "mode": "reference"
-    },
-    {
-      "name": "ZEHX_C_DataClassifierMig",
-      "module": "environmental_data",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "ClassifierID"
-      ],
-      "fields": 7,
-      "filter": "",
-      "mode": "reference"
-    },
-    {
-      "name": "ZEHX_C_DataCollectionMig",
-      "module": "environmental_data",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "CollectionID"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "reference"
-    },
-    {
-      "name": "ZEHX_C_MeasurementMig",
-      "module": "environmental_data",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "CollectionID",
-        "MeasurementID"
-      ],
-      "fields": 10,
-      "filter": "",
-      "mode": "reference"
-    },
-    {
-      "name": "ZEHX_C_ComplianceReqMig",
-      "module": "compliance",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "RequirementID",
-        "Version"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_ComplianceScenMig",
-      "module": "compliance",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "ScenarioID",
-        "Version"
-      ],
-      "fields": 8,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_ComplianceLinkMig",
-      "module": "compliance",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "ScenarioID",
-        "Version",
-        "RequirementID",
-        "RequirementVersion"
-      ],
-      "fields": 9,
-      "filter": "",
-      "mode": "master"
-    },
-    {
-      "name": "ZEHX_C_DangerousGoodsMig",
-      "module": "dangerous_goods",
-      "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Product",
-        "RegulationID",
-        "Version"
+        "CaseUUID"
       ],
       "fields": 12,
       "filter": "",
-      "mode": "regulatory-reference"
+      "mode": "process-reference",
+      "native_table": "UDMCASEATTR00",
+      "parent_scope": null
     },
     {
-      "name": "ZEHX_C_DGTransportMig",
-      "module": "dangerous_goods",
+      "name": "ZFCX_C_CaseAttributeMig",
+      "domain": "fscm",
+      "module": "dispute_case",
       "keys": [
-        "SourceSystem",
-        "SourceClient",
-        "ExportBatch",
-        "Product",
-        "RegulationID",
-        "Version",
-        "TransportMode"
+        "CaseUUID"
       ],
-      "fields": 10,
+      "fields": 14,
       "filter": "",
-      "mode": "regulatory-reference"
+      "mode": "process-reference",
+      "native_table": "SCMG_T_CASE_ATTR",
+      "parent_scope": null
+    },
+    {
+      "name": "ZFCX_C_PaymentPromiseMig",
+      "domain": "fscm",
+      "module": "promise_to_pay",
+      "keys": [
+        "CaseUUID"
+      ],
+      "fields": 11,
+      "filter": "",
+      "mode": "process-reference",
+      "native_table": "UDM_P2P_ATTR",
+      "parent_scope": null
+    },
+    {
+      "name": "ZEHX_C_IncidentMig",
+      "domain": "ehs",
+      "module": "incident",
+      "keys": [
+        "IncidentUUID"
+      ],
+      "fields": 6,
+      "filter": "",
+      "mode": "process-reference",
+      "native_table": "EHHSSD_INC_ROOT",
+      "parent_scope": null
+    },
+    {
+      "name": "ZEHX_C_IncidentActionMig",
+      "domain": "ehs",
+      "module": "incident",
+      "keys": [
+        "ActionUUID"
+      ],
+      "fields": 17,
+      "filter": "",
+      "mode": "process-reference",
+      "native_table": "EHHSSD_IAC_ROOT",
+      "parent_scope": null
+    },
+    {
+      "name": "ZEHX_C_PhraseMig",
+      "domain": "ehs",
+      "module": "phrase",
+      "keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "fields": 9,
+      "filter": "",
+      "mode": "master",
+      "native_table": "ESTPH",
+      "parent_scope": null
+    },
+    {
+      "name": "ZEHX_C_PhraseSetMig",
+      "domain": "ehs",
+      "module": "phrase",
+      "keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "fields": 8,
+      "filter": "",
+      "mode": "master",
+      "native_table": "ESTPJ",
+      "parent_scope": null
+    },
+    {
+      "name": "ZEHX_C_SpecificationMig",
+      "domain": "ehs",
+      "module": "specification",
+      "keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "fields": 9,
+      "filter": "",
+      "mode": "master",
+      "native_table": "ESTRH",
+      "parent_scope": null
+    },
+    {
+      "name": "ZEHX_C_SpecIdentifierMig",
+      "domain": "ehs",
+      "module": "specification",
+      "keys": [
+        "RecordNumber",
+        "ChangeState"
+      ],
+      "fields": 11,
+      "filter": "",
+      "mode": "master",
+      "native_table": "ESTRI",
+      "parent_scope": null
     }
   ],
   "products": [
@@ -15176,6 +15552,17 @@
   ],
   "extensions": [],
   "allowlist": [
+    "/SAPAPO/LOC",
+    "/SCDL/DB_PROCH_I",
+    "/SCDL/DB_PROCI_I",
+    "/SCMTMS/D_TORITE",
+    "/SCMTMS/D_TORROT",
+    "/SCMTMS/D_TORSTP",
+    "/SCWM/LAGP",
+    "/SCWM/LAGPS",
+    "/SCWM/ORDIM_C",
+    "/SCWM/ORDIM_O",
+    "/SCWM/WHO",
     "AFKO",
     "AFPO",
     "AFRU",
@@ -15211,6 +15598,8 @@
     "CSKT",
     "EBAN",
     "EBKN",
+    "EHHSSD_IAC_ROOT",
+    "EHHSSD_INC_ROOT",
     "EINA",
     "EINE",
     "EKBE",
@@ -15218,6 +15607,10 @@
     "EKKN",
     "EKKO",
     "EKPO",
+    "ESTPH",
+    "ESTPJ",
+    "ESTRH",
+    "ESTRI",
     "FAGLFLEXT",
     "GLT0",
     "IMPR",
@@ -15273,6 +15666,7 @@
     "QPMK",
     "QPMT",
     "RESB",
+    "SCMG_T_CASE_ATTR",
     "SKA1",
     "SKAT",
     "SKB1",
@@ -15281,6 +15675,12 @@
     "STPO",
     "T811C",
     "T811S",
+    "UDMCASEATTR00",
+    "UDM_CCT_ATTR",
+    "UDM_P2P_ATTR",
+    "UKMBP_CMS",
+    "UKMBP_CMS_SGM",
+    "UKM_TOTALS",
     "VBAK",
     "VBAP",
     "VBEP",
@@ -15290,151 +15690,7 @@
     "VBRK",
     "VBRP",
     "VBUK",
-    "VBUP",
-    "ZWMX_WMS001",
-    "ZWMX_WMS002",
-    "ZWMX_WMS003",
-    "ZWMX_WMS004",
-    "ZWMX_WMS005",
-    "ZWMX_WMS006",
-    "ZWMX_WMS007",
-    "ZWMX_WMS008",
-    "ZWMX_WMS009",
-    "ZWMX_WMS010",
-    "ZWMX_WMS011",
-    "ZWMX_WMS012",
-    "ZWMX_WMS013",
-    "ZWMX_WMS014",
-    "ZWMX_WMS015",
-    "ZWMX_WMS016",
-    "ZWMT_WMT001",
-    "ZWMT_WMT002",
-    "ZWMT_WMT003",
-    "ZWMT_WMT004",
-    "ZWMT_WMT005",
-    "ZWMT_WMT006",
-    "ZWMT_WMT007",
-    "ZWMT_WMT008",
-    "ZWMT_WMT009",
-    "ZWMT_WMT010",
-    "ZWMT_WMT011",
-    "ZWMT_WMT012",
-    "ZWMT_WMT013",
-    "ZWMT_WMT014",
-    "ZWMT_WMT015",
-    "ZWMT_WMT016",
-    "ZTMX_TMS001",
-    "ZTMX_TMS002",
-    "ZTMX_TMS003",
-    "ZTMX_TMS004",
-    "ZTMX_TMS005",
-    "ZTMX_TMS006",
-    "ZTMX_TMS007",
-    "ZTMX_TMS008",
-    "ZTMX_TMS009",
-    "ZTMX_TMS010",
-    "ZTMX_TMS011",
-    "ZTMX_TMS012",
-    "ZTMX_TMS013",
-    "ZTMX_TMS014",
-    "ZTMX_TMS015",
-    "ZTMX_TMS016",
-    "ZTMX_TMS017",
-    "ZTMX_TMS018",
-    "ZTMX_TMS019",
-    "ZTMT_TMT001",
-    "ZTMT_TMT002",
-    "ZTMT_TMT003",
-    "ZTMT_TMT004",
-    "ZTMT_TMT005",
-    "ZTMT_TMT006",
-    "ZTMT_TMT007",
-    "ZTMT_TMT008",
-    "ZTMT_TMT009",
-    "ZTMT_TMT010",
-    "ZTMT_TMT011",
-    "ZTMT_TMT012",
-    "ZTMT_TMT013",
-    "ZTMT_TMT014",
-    "ZTMT_TMT015",
-    "ZTMT_TMT016",
-    "ZTMT_TMT017",
-    "ZTMT_TMT018",
-    "ZTMT_TMT019",
-    "ZFCX_FCS001",
-    "ZFCX_FCS002",
-    "ZFCX_FCS003",
-    "ZFCX_FCS004",
-    "ZFCX_FCS005",
-    "ZFCX_FCS006",
-    "ZFCX_FCS007",
-    "ZFCX_FCS008",
-    "ZFCX_FCS009",
-    "ZFCX_FCS010",
-    "ZFCX_FCS011",
-    "ZFCX_FCS012",
-    "ZFCX_FCS013",
-    "ZFCX_FCS014",
-    "ZFCT_FCT001",
-    "ZFCT_FCT002",
-    "ZFCT_FCT003",
-    "ZFCT_FCT004",
-    "ZFCT_FCT005",
-    "ZFCT_FCT006",
-    "ZFCT_FCT007",
-    "ZFCT_FCT008",
-    "ZFCT_FCT009",
-    "ZFCT_FCT010",
-    "ZFCT_FCT011",
-    "ZFCT_FCT012",
-    "ZFCT_FCT013",
-    "ZFCT_FCT014",
-    "ZEHX_EHS001",
-    "ZEHX_EHS002",
-    "ZEHX_EHS003",
-    "ZEHX_EHS004",
-    "ZEHX_EHS005",
-    "ZEHX_EHS006",
-    "ZEHX_EHS007",
-    "ZEHX_EHS008",
-    "ZEHX_EHS009",
-    "ZEHX_EHS010",
-    "ZEHX_EHS011",
-    "ZEHX_EHS012",
-    "ZEHX_EHS013",
-    "ZEHX_EHS014",
-    "ZEHX_EHS015",
-    "ZEHX_EHS016",
-    "ZEHX_EHS017",
-    "ZEHX_EHS018",
-    "ZEHX_EHS019",
-    "ZEHX_EHS020",
-    "ZEHX_EHS021",
-    "ZEHX_EHS022",
-    "ZEHX_EHS023",
-    "ZEHT_EHT001",
-    "ZEHT_EHT002",
-    "ZEHT_EHT003",
-    "ZEHT_EHT004",
-    "ZEHT_EHT005",
-    "ZEHT_EHT006",
-    "ZEHT_EHT007",
-    "ZEHT_EHT008",
-    "ZEHT_EHT009",
-    "ZEHT_EHT010",
-    "ZEHT_EHT011",
-    "ZEHT_EHT012",
-    "ZEHT_EHT013",
-    "ZEHT_EHT014",
-    "ZEHT_EHT015",
-    "ZEHT_EHT016",
-    "ZEHT_EHT017",
-    "ZEHT_EHT018",
-    "ZEHT_EHT019",
-    "ZEHT_EHT020",
-    "ZEHT_EHT021",
-    "ZEHT_EHT022",
-    "ZEHT_EHT023"
+    "VBUP"
   ],
   "helpers": [
     "ZFAX_FI_AA_TABLE_EXPORT",
@@ -15445,22 +15701,10 @@
     "ZCOX_CO_TABLE_EXPORT",
     "ZFIX_FI_TABLE_EXPORT",
     "ZSDX_SD_TABLE_EXPORT",
-    "ZWMX_EWM_SRC_STAGE_EXPORT",
-    "ZWMX_EWM_SRC_STAGE_LOAD",
-    "ZWMT_EWM_S4_STAGE_EXPORT",
-    "ZWMT_EWM_S4_STAGE_LOAD",
-    "ZTMX_TM_SRC_STAGE_EXPORT",
-    "ZTMX_TM_SRC_STAGE_LOAD",
-    "ZTMT_TM_S4_STAGE_EXPORT",
-    "ZTMT_TM_S4_STAGE_LOAD",
-    "ZFCX_FSCM_SRC_STAGE_EXPORT",
-    "ZFCX_FSCM_SRC_STAGE_LOAD",
-    "ZFCT_FSCM_S4_STAGE_EXPORT",
-    "ZFCT_FSCM_S4_STAGE_LOAD",
-    "ZEHX_EHS_SRC_STAGE_EXPORT",
-    "ZEHX_EHS_SRC_STAGE_LOAD",
-    "ZEHT_EHS_S4_STAGE_EXPORT",
-    "ZEHT_EHS_S4_STAGE_LOAD"
+    "ZWMX_TABLE_EXPORT",
+    "ZTMX_TABLE_EXPORT",
+    "ZFCX_TABLE_EXPORT",
+    "ZEHX_TABLE_EXPORT"
   ],
   "tools": [
     "mig_reconcile.py",
@@ -15484,7 +15728,8 @@
         "Capacity",
         "CapacityUnit",
         "Blocked"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15497,17 +15742,19 @@
       "SAP_verified": false,
       "pending_payload": [
         "SortDirection"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
       "module": "warehouse_product",
       "structure": "WarehouseProd",
       "status": "PENDING",
-      "table": "/SAPAPO/MATLWH",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "table": "/SAPAPO/MATLWH; /SAPAPO/MATKEY",
+      "reason": "MATLWH keys MANDT/MATID/SCUGUID/ENTITLED_ID documented; MATKEY supplies MATNR/MEINS. Warehouse control payload, full joined DDIC validation and target-release semantics still unresolved; no identity-only view substituted for a warehouse product.",
+      "evidence": "https://help.sap.com/docs/SUPPORT_CONTENT/sapo/3354623184.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15515,9 +15762,10 @@
       "structure": "FixedBin",
       "status": "PENDING",
       "table": "/SCWM/BINMAT",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Fixed-bin functionality documented; exact physical keys, minimum/maximum quantities and unit references not established.",
+      "evidence": "https://help.sap.com/saphelp_ewm900/helpdata/en/d1/58a5ef3b6a427eab5e7cc9bad16b96/content.htm",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15525,9 +15773,10 @@
       "structure": "WarehouseStock",
       "status": "PENDING",
       "table": "/SCWM/QUAN; /SCWM/AQUA",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Stock extractor joins indexed stock representations. Physical-stock versus available-stock grain, HU/product references and quantity/unit roles need explicit native definitions; no flattened stock-table assumption.",
+      "evidence": "https://help.sap.com/saphelp_ewm900/helpdata/en/0a/782e35aa9b499ab5e9dd30b1448280/content.htm",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15537,7 +15786,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15545,9 +15795,10 @@
       "structure": "HandlingUnit",
       "status": "PENDING",
       "table": "/SCWM/HUHDR",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "GUID_HU and object references documented; complete header payload and content key/reference definitions unresolved.",
+      "evidence": "https://help.sap.com/docs/SUPPORT_CONTENT/sewm/4248188925.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15557,17 +15808,30 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
       "module": "warehouse_task",
       "structure": "WarehouseTask",
-      "status": "PENDING",
+      "status": "NATIVE_DRAFT",
       "table": "/SCWM/ORDIM_O",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Open-task snapshot only. Do not add confirmed-task TAPOS to this grain. Quantities, product references and serials remain pending. Key flags require actual DDIC validation.",
+      "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "Product",
+        "SourceBin",
+        "DestinationBin",
+        "HandlingUnit",
+        "PlannedQuantity",
+        "QuantityUnit",
+        "ProcessType"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+      "additional_evidence": "https://community.sap.com/t5/supply-chain-management-q-a/how-to-confirm-the-status-of-picking-and-packing-in-sap-ewm/qaq-p/595791"
     },
     {
       "domain": "ewm",
@@ -15575,7 +15839,7 @@
       "structure": "TaskConfirm",
       "status": "NATIVE_DRAFT",
       "table": "/SCWM/ORDIM_C",
-      "reason": "Confirmed task records only; open tasks, serials and quantity semantics remain pending. Reference extraction, not task recreation.",
+      "reason": "Confirmed tasks only, retaining TAPOS. Open tasks are delivered separately at LGNUM/TANUM grain. Quantity and serial payload remain pending.",
       "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/9832125c23154a179bfa1784cdc9577a/4fa06705fc52617be10000000a42189c.html",
       "SAP_verified": false,
       "pending_payload": [
@@ -15585,7 +15849,8 @@
         "QuantityUnit",
         "ConfirmedAtUTC",
         "ReversalStatus"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15599,27 +15864,48 @@
       "pending_payload": [
         "Resource",
         "CreatedAtUTC"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
       "module": "warehouse_delivery",
       "structure": "WhDelivery",
-      "status": "PENDING",
-      "table": "/SCDL/DB_PROCH_I; /SCDL/DB_PROCH_O",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "status": "NATIVE_DRAFT",
+      "table": "/SCDL/DB_PROCH_I",
+      "reason": "Inbound delivery header only. Outbound branch, partner-role selection, status and cutover eligibility remain pending; do not interpret the broad snapshot as open deliveries.",
+      "evidence": "https://help.sap.com/doc/saphelp_aii710/7.1/en-US/47/df5e7f01394b20af3234922578d1e4/content.htm?no_cache=true",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "Warehouse",
+        "DeliveryID",
+        "ExternalDelivery",
+        "Partner",
+        "DeliveryStatus",
+        "PlannedAtUTC"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
     },
     {
       "domain": "ewm",
       "module": "warehouse_delivery",
       "structure": "WhDeliveryItem",
-      "status": "PENDING",
-      "table": "/SCDL/DB_PROCI_I; /SCDL/DB_PROCI_O",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "status": "NATIVE_DRAFT",
+      "table": "/SCDL/DB_PROCI_I",
+      "reason": "Inbound items only; DOCID/ITEMID candidate grain must be confirmed in DDIC. Quantities belong to role-qualified /SCDL/DB_ADDMEAS records, not invented item QTY columns. Outbound branch, quantity/date roles, status and parent cohort closure remain pending.",
+      "evidence": "https://help.sap.com/doc/saphelp_aii710/7.1/en-US/47/df5e7f01394b20af3234922578d1e4/content.htm?no_cache=true",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "DeliveryID",
+        "Quantity",
+        "QuantityUnit",
+        "HandlingUnit",
+        "ReferenceDocument",
+        "ReferenceItem"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
     },
     {
       "domain": "ewm",
@@ -15629,7 +15915,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15639,7 +15926,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ewm",
@@ -15649,7 +15937,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15668,7 +15957,8 @@
         "PostalCode",
         "City",
         "TimeZone"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15678,7 +15968,8 @@
       "table": "/SAPAPO/RES_HEAD",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15688,7 +15979,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15698,7 +15990,8 @@
       "table": "/SAPAPO/TR",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15708,7 +16001,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15718,7 +16012,8 @@
       "table": "/SCMTMS/D_SCHROT",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15728,7 +16023,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15738,7 +16034,8 @@
       "table": "/SCMTMS/D_FAGROT",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15748,7 +16045,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15758,7 +16056,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
@@ -15766,7 +16065,7 @@
       "structure": "FreightUnit",
       "status": "NATIVE_DRAFT",
       "table": "/SCMTMS/D_TORROT",
-      "reason": "Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+      "reason": "TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.",
       "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
       "SAP_verified": false,
       "pending_payload": [
@@ -15776,27 +16075,52 @@
         "DocumentStatus",
         "SourceLocation",
         "DestinationLocation"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
       "module": "freight_unit",
       "structure": "FreightUnitItem",
-      "status": "PENDING",
+      "status": "NATIVE_DRAFT",
       "table": "/SCMTMS/D_TORITE",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
+      "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "FreightUnitID",
+        "Product",
+        "Quantity",
+        "QuantityUnit",
+        "GrossWeight",
+        "WeightUnit",
+        "ReferenceDocument",
+        "ReferenceItem"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+      "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
     },
     {
       "domain": "tm",
       "module": "freight_unit",
       "structure": "FreightUnitStop",
-      "status": "PENDING",
+      "status": "NATIVE_DRAFT",
       "table": "/SCMTMS/D_TORSTP",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
+      "evidence": "https://community.sap.com/t5/supply-chain-management-q-a/where-to-to-find-fo-stops-order-sequence-in-database-data/qaa-p/12558182",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "FreightUnitID",
+        "LocationID",
+        "Sequence",
+        "StopRole",
+        "PlannedAtUTC",
+        "TimeZone"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+      "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
     },
     {
       "domain": "tm",
@@ -15804,7 +16128,7 @@
       "structure": "FreightOrder",
       "status": "NATIVE_DRAFT",
       "table": "/SCMTMS/D_TORROT",
-      "reason": "Native TOR root; category constants and lifecycle semantics require customer-release verification. Items, stops, stages and freight bookings remain pending. Root DB_KEY evidence: https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+      "reason": "TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.",
       "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
       "SAP_verified": false,
       "pending_payload": [
@@ -15815,27 +16139,50 @@
         "ResourceID",
         "ExecutionStatus",
         "SettlementStatus"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
       "module": "freight_order",
       "structure": "FreightOrdItem",
-      "status": "PENDING",
+      "status": "NATIVE_DRAFT",
       "table": "/SCMTMS/D_TORITE",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT TO. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.",
+      "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "FreightOrderID",
+        "FreightUnitID",
+        "Product",
+        "Quantity",
+        "QuantityUnit"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+      "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
     },
     {
       "domain": "tm",
       "module": "freight_order",
       "structure": "FreightOrdStop",
-      "status": "PENDING",
+      "status": "NATIVE_DRAFT",
       "table": "/SCMTMS/D_TORSTP",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.",
+      "evidence": "https://community.sap.com/t5/supply-chain-management-q-a/where-to-to-find-fo-stops-order-sequence-in-database-data/qaa-p/12558182",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "FreightOrderID",
+        "LocationID",
+        "Sequence",
+        "StopRole",
+        "PlannedAtUTC",
+        "ActualAtUTC",
+        "TimeZone"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+      "relationship_evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402"
     },
     {
       "domain": "tm",
@@ -15843,29 +16190,32 @@
       "structure": "FreightStage",
       "status": "PENDING",
       "table": "/SCMTMS/D_TORSTS",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "STOP_SUCCESSOR existence documented. Exact predecessor/successor native fields, keys and stage interpretation unresolved; STOP_ID order is not a substitute.",
+      "evidence": "https://community.sap.com/t5/enterprise-resource-planning-q-a/tm-link-between-scmtms-d-torrot-and-scmtms-d-trqstg/qaq-p/13793149",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
       "module": "freight_settlement",
       "structure": "FreightSettle",
       "status": "PENDING",
-      "table": "Not yet established",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "table": "/SCMTMS/D_SF_ROT",
+      "reason": "Native settlement-root table and several attributes documented; full key schema, amount/currency relations and settlement item joins still unresolved.",
+      "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "tm",
       "module": "freight_settlement",
       "structure": "SettleItem",
       "status": "PENDING",
-      "table": "Not yet established",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "table": "/SCMTMS/D_SF_ITM",
+      "reason": "Settlement item schema and root relationship require native field/key evidence. No guessed SFIR table names used.",
+      "evidence": "https://help.sap.com/docs/signavio-process-insights/administration-guide/be4b0a35f6d048eb979899f569509c78.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -15879,7 +16229,8 @@
       "pending_payload": [
         "Score",
         "ScoreDate"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -15889,7 +16240,8 @@
       "table": "BUT050 (credit-specific relationship selection unresolved)",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -15897,24 +16249,32 @@
       "structure": "CreditSegment",
       "status": "NATIVE_DRAFT",
       "table": "UKMBP_CMS_SGM",
-      "reason": "CreditLimit and its currency context require UKMCRED_SGM0C verification; no fictitious segment currency column is supplied.",
+      "reason": "CreditLimit currency context remains pending: extractor documentation names segment CURRENCY while other releases use UKMCRED_SGM0C currency customizing. Resolve this release-specific contradiction before projecting amounts.",
       "evidence": "https://help.sap.com/saphelp_em700_ehp01/helpdata/en/87/bb8cc9f0274ca0899a8255cd301d89/content.htm",
       "SAP_verified": false,
       "pending_payload": [
         "CreditLimit",
         "Currency",
         "CreditControlArea"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
       "module": "credit_exposure",
       "structure": "CreditExposure",
-      "status": "PENDING",
+      "status": "NATIVE_DRAFT",
       "table": "UKM_TOTALS",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Native liability snapshot in stored currency; not a delta feed or posting payload. Declared grain including currency is a DDIC candidate. Derived currency-type and message-party fields are excluded; cross-segment/report-currency aggregation remains pending.",
+      "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/cc/5c77197e5c49ba85e66aafaa1ea09a/content.htm?no_cache=true",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "SourceDocument",
+        "SourceItem",
+        "AsOfUTC"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
     },
     {
       "domain": "fscm",
@@ -15924,7 +16284,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -15934,7 +16295,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -15949,17 +16311,19 @@
         "ContactID",
         "ContactAtUTC",
         "Specialist"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
       "module": "collection_activity",
       "structure": "CollectTask",
       "status": "PENDING",
-      "table": "Not yet established",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "table": "UDM_WL_ITEM is worklist, not a proven resubmission/task table",
+      "reason": "Public worklist fields do not establish the planned resubmission/follow-up task structure; substituting another business object would change scope.",
+      "evidence": "https://help.sap.com/saphelp_aii710/helpdata/en/6b/9696578ecb4f3bbc47ad11a29a7278/content.htm",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -15967,15 +16331,15 @@
       "structure": "PaymentPromise",
       "status": "NATIVE_DRAFT",
       "table": "UDM_P2P_ATTR",
-      "reason": "Financial amount annotations, logical-system naming and invoice relations require DDIC verification. Invoice number is not assumed to be a native attribute field.",
-      "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/e7/57b6b490ba4f0e894c410d51f271aa/content.htm",
+      "reason": "Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.",
+      "evidence": "https://help.sap.com/saphelp_SCM700_ehp01/helpdata/ru/e7/57b6b490ba4f0e894c410d51f271aa/content.htm?no_cache=true",
       "SAP_verified": false,
       "pending_payload": [
         "BusinessPartner",
         "PromiseID",
-        "PromisedAmount",
         "PromiseStatus"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -15985,7 +16349,8 @@
       "table": "Native case-to-invoice relations unresolved",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -15993,8 +16358,8 @@
       "structure": "DisputeCase",
       "status": "NATIVE_DRAFT",
       "table": "UDMCASEATTR00",
-      "reason": "Financial dispute attributes; amount payload, item relations and attachments remain pending.",
-      "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/e1/00e59125b0420fb6b69ad7783e414c/content.htm",
+      "reason": "Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.",
+      "evidence": "https://help.sap.com/saphelp_snc70/helpdata/EN/ad/14c2862c4e44528d31c35d0d37cd24/content.htm?no_cache=true",
       "SAP_verified": false,
       "pending_payload": [
         "CaseID",
@@ -16004,10 +16369,10 @@
         "Reason",
         "CaseStatus",
         "Priority",
-        "DisputedAmount",
         "Currency",
         "CreatedAtUTC"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -16017,7 +16382,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -16032,7 +16398,8 @@
         "CaseID",
         "AttributeID",
         "AttributeValue"
-      ]
+      ],
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "fscm",
@@ -16042,7 +16409,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16050,9 +16418,10 @@
       "structure": "EHSLocation",
       "status": "PENDING",
       "table": "EHFNDD_LOC_ROOT; EHFNDD_LOC_REV",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Location/revision tables documented through CDS sources, but plant/type/validity native field mapping and revision selection remain unresolved. A root identity projection would not complete location coverage.",
+      "evidence": "https://help.sap.com/docs/sustainability-data-integration/b15a1be1941c44d4be60ba206536283d/d9e248b0ad88425fbea9284fd34d51d7.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16062,7 +16431,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16072,7 +16442,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16082,7 +16453,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16100,7 +16472,8 @@
         "ValidityStartDate",
         "ValidityEndDate"
       ],
-      "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+      "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16117,7 +16490,8 @@
         "IdentifierID",
         "IdentifierValue"
       ],
-      "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+      "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16127,7 +16501,8 @@
       "table": "ESTVH; ESTVA; classification value relations unresolved",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16144,7 +16519,8 @@
         "PhraseText",
         "PhraseCode"
       ],
-      "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+      "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16160,37 +16536,56 @@
         "PhraseCatalog",
         "SortSequence"
       ],
-      "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+      "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
       "module": "incident",
       "structure": "Incident",
-      "status": "PENDING",
-      "table": "EHHSSD_INC_ROOT; EHHSSD_INC_BINFA",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "status": "NATIVE_DRAFT",
+      "table": "EHHSSD_INC_ROOT",
+      "reason": "Modern EHSM incident root only. Basic-info child cardinality, title, location and time-zone calculations remain pending. Preserve root UUID; no guessed join to multiply root rows.",
+      "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/d9eb3c50906ea902e10000000a44176f.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "IncidentType",
+        "LocationID",
+        "OccurredAtUTC",
+        "TimeZone",
+        "Description"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+      "key_evidence": "https://community.sap.com/t5/enterprise-resource-planning-q-a/cds-view-fields-reuse/qaq-p/12485627"
     },
     {
       "domain": "ehs",
       "module": "incident",
       "structure": "IncidentPerson",
       "status": "PENDING",
-      "table": "EHHSSD_INC_PINV",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "table": "EHHSSD_INC_PINV; EHHSSD_INC_PROLE",
+      "reason": "Person identity/name fields are resolved from HCM/business partners/users; roles come from a separate node. Native reference keys, role cardinality and person resolution remain pending.",
+      "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/8eec3c50906ea902e10000000a44176f.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
       "module": "incident",
       "structure": "IncidentAction",
-      "status": "PENDING",
-      "table": "Not yet established",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "status": "NATIVE_DRAFT",
+      "table": "EHHSSD_IAC_ROOT",
+      "reason": "Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded.",
+      "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/55ea3c50906ea902e10000000a44176f.html?locale=en-US",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11",
+      "pending_payload": [
+        "IncidentID",
+        "ResponsiblePartner",
+        "DueDate"
+      ],
+      "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
     },
     {
       "domain": "ehs",
@@ -16200,7 +16595,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16210,17 +16606,19 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
       "module": "risk_assessment",
       "structure": "RiskControl",
       "status": "PENDING",
-      "table": "Not yet established",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "table": "Transient EHSM risk-control extractor",
+      "reason": "Extractor origin fields are derived/transient rather than a documented physical one-table schema. Native business-object node mapping remains unresolved.",
+      "evidence": "https://help.sap.com/docs/EHSM/cfce61ea9ac64c53a591bfcd66d98f56/021df34fd9c2d247e10000000a44176f.html?version=4.0",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16230,7 +16628,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16240,7 +16639,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16250,7 +16650,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16260,7 +16661,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16270,7 +16672,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16280,7 +16683,8 @@
       "table": "Not yet established",
       "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
       "evidence": "",
-      "SAP_verified": false
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16288,9 +16692,10 @@
       "structure": "DangerousGoods",
       "status": "PENDING",
       "table": "EST0D",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Classic classification records and administration fields documented; material dangerous-goods master mapping, regulation references and complete classification payload remain unresolved.",
+      "evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     },
     {
       "domain": "ehs",
@@ -16298,9 +16703,10 @@
       "structure": "DGTransport",
       "status": "PENDING",
       "table": "EST0F",
-      "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-      "evidence": "",
-      "SAP_verified": false
+      "reason": "Classic import-format documentation supports regulation/classification payload, but SUBIDREF is an import shorthand rather than established physical column. Complete reference keys and transport-mode mapping remain pending.",
+      "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/6ea2ce5314894208e10000000a174cb4.html?version=2023.latest",
+      "SAP_verified": false,
+      "researched_on": "2026-10-11"
     }
   ]
 }

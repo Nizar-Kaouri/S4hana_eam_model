@@ -12,7 +12,9 @@
     "ZFCX_C_DisputeCaseMig": "exports/ZFCX_C_DisputeCaseMig.csv",
     "ZFCX_C_DisputeCaseMig_Scope": "selection/ZFCX_C_DisputeCaseMig.csv",
     "ZFCX_C_CaseAttributeMig": "exports/ZFCX_C_CaseAttributeMig.csv",
-    "ZFCX_C_CaseAttributeMig_Scope": "selection/ZFCX_C_CaseAttributeMig.csv"
+    "ZFCX_C_CaseAttributeMig_Scope": "selection/ZFCX_C_CaseAttributeMig.csv",
+    "ZFCX_C_CreditExposureMig": "exports/ZFCX_C_CreditExposureMig.csv",
+    "ZFCX_C_CreditExposureMig_Scope": "selection/ZFCX_C_CreditExposureMig.csv"
   },
   "steps": [
     {
@@ -88,6 +90,24 @@
       "parent_keys": [
         "CaseUUID"
       ]
+    },
+    {
+      "name": "ZFCX_C_CreditExposureMig_Prepared",
+      "operation": "selection",
+      "input": "ZFCX_C_CreditExposureMig",
+      "parent": "ZFCX_C_CreditExposureMig_Scope",
+      "child_keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ],
+      "parent_keys": [
+        "BusinessPartner",
+        "CreditSegment",
+        "ExposureCategory",
+        "Currency"
+      ]
     }
   ],
   "outputs": [
@@ -96,6 +116,7 @@
     "ZFCX_C_CollectContactMig_Prepared",
     "ZFCX_C_PaymentPromiseMig_Prepared",
     "ZFCX_C_DisputeCaseMig_Prepared",
-    "ZFCX_C_CaseAttributeMig_Prepared"
+    "ZFCX_C_CaseAttributeMig_Prepared",
+    "ZFCX_C_CreditExposureMig_Prepared"
   ]
 }

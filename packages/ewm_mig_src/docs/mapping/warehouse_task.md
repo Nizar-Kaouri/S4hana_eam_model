@@ -32,6 +32,29 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 | `TargetStorageType` | /SCWM/ORDIM_C-NLTYP | Native target evidence: ZWMT_I_TaskConfirmCompare.TargetStorageType | information only | yes |
 | `TargetBin` | /SCWM/ORDIM_C-NLPLA | Native target evidence: ZWMT_I_TaskConfirmCompare.TargetBin | information only | yes |
 
+## `ZWMX_C_WarehouseTaskMig`
+
+- Source: `ZWMX_I_WarehouseTask`
+- Keys: `Warehouse`, `WarehouseTask`
+- Scope: `all rows`
+- Delivery mode: **process-reference**
+- Before posting: Open-task snapshot only. Do not add confirmed-task TAPOS to this grain. Quantities, product references and serials remain pending. Key flags require actual DDIC validation.
+
+| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Warehouse` | /SCWM/ORDIM_O-LGNUM | Native target evidence: ZWMT_I_WarehouseTaskCompare.Warehouse | information only | yes |
+| `WarehouseTask` | /SCWM/ORDIM_O-TANUM | Native target evidence: ZWMT_I_WarehouseTaskCompare.WarehouseTask | information only | yes |
+| `WarehouseOrder` | /SCWM/ORDIM_O-WHO | Native target evidence: ZWMT_I_WarehouseTaskCompare.WarehouseOrder | information only | yes |
+| `TaskStatus` | /SCWM/ORDIM_O-TOSTAT | Native target evidence: ZWMT_I_WarehouseTaskCompare.TaskStatus | information only | yes |
+| `CreatedBy` | /SCWM/ORDIM_O-CREATED_BY | Native target evidence: ZWMT_I_WarehouseTaskCompare.CreatedBy | information only | yes |
+| `ActivityArea` | /SCWM/ORDIM_O-AAREA | Native target evidence: ZWMT_I_WarehouseTaskCompare.ActivityArea | information only | yes |
+| `SourceStorageType` | /SCWM/ORDIM_O-VLTYP | Native target evidence: ZWMT_I_WarehouseTaskCompare.SourceStorageType | information only | yes |
+| `TargetStorageType` | /SCWM/ORDIM_O-NLTYP | Native target evidence: ZWMT_I_WarehouseTaskCompare.TargetStorageType | information only | yes |
+| `TargetStorageSection` | /SCWM/ORDIM_O-NLBER | Native target evidence: ZWMT_I_WarehouseTaskCompare.TargetStorageSection | information only | yes |
+| `Owner` | /SCWM/ORDIM_O-OWNER | Native target evidence: ZWMT_I_WarehouseTaskCompare.Owner | information only | yes |
+| `OwnerRole` | /SCWM/ORDIM_O-OWNER_ROLE | Native target evidence: ZWMT_I_WarehouseTaskCompare.OwnerRole | information only | yes |
+| `Unit` | /SCWM/ORDIM_O-MEINS | Native target evidence: ZWMT_I_WarehouseTaskCompare.Unit | information only | yes |
+
 ## Reconciliation
 
 - Counts: `ZWMX_C_TaskConfirmMigCount` (SAP source) vs `ZWMT_I_TaskConfirmCount` (S/4HANA) per `Warehouse`
@@ -44,6 +67,6 @@ python3 tools/mig_reconcile.py records --product ewm_mig_src --module warehouse_
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
-- WarehouseTask: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-- Pending native dependency: warehouse_product
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- WarehouseTask: Open-task snapshot only. Do not add confirmed-task TAPOS to this grain. Quantities, product references and serials remain pending. Key flags require actual DDIC validation.
+- TaskConfirm: Confirmed tasks only, retaining TAPOS. Open tasks are delivered separately at LGNUM/TANUM grain. Quantity and serial payload remain pending.

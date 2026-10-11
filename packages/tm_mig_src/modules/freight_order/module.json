@@ -1,9 +1,9 @@
 {
   "name": "freight_order",
   "title": "Freight orders and bookings",
-  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
+  "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
   "batch": 1,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft-unverified",
   "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
@@ -12,7 +12,9 @@
     "process-reference"
   ],
   "sap_tables": [
-    "/SCMTMS/D_TORROT"
+    "/SCMTMS/D_TORITE",
+    "/SCMTMS/D_TORROT",
+    "/SCMTMS/D_TORSTP"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
@@ -23,14 +25,20 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZTMX_I_FreightOrderData"
+      "ZTMX_I_FreightOrderData",
+      "ZTMX_I_FreightOrdItemData",
+      "ZTMX_I_FreightOrdStopData"
     ],
     "composite": [
-      "ZTMX_I_FreightOrder"
+      "ZTMX_I_FreightOrder",
+      "ZTMX_I_FreightOrdItem",
+      "ZTMX_I_FreightOrdStop"
     ],
     "consumption": [
       "ZTMX_C_FreightOrderMig",
-      "ZTMX_C_FreightOrderMigCount"
+      "ZTMX_C_FreightOrderMigCount",
+      "ZTMX_C_FreightOrdItemMig",
+      "ZTMX_C_FreightOrdStopMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -40,12 +48,16 @@
     "ZTMX_I_FreightOrderData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZTMX_I_FreightOrder": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZTMX_C_FreightOrderMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
-    "ZTMX_C_FreightOrderMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
+    "ZTMX_C_FreightOrderMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZTMX_I_FreightOrdItemData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZTMX_I_FreightOrdItem": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZTMX_C_FreightOrdItemMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZTMX_I_FreightOrdStopData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZTMX_I_FreightOrdStop": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZTMX_C_FreightOrdStopMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
   },
   "link_views": [],
   "pending_structures": [
-    "FreightOrdItem",
-    "FreightOrdStop",
     "FreightStage"
   ]
 }

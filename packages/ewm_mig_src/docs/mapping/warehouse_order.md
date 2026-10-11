@@ -42,4 +42,5 @@ python3 tools/mig_reconcile.py records --product ewm_mig_src --module warehouse_
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- WarehouseOrder: All native warehouse-order records; customer must approve process state and cutover scope.

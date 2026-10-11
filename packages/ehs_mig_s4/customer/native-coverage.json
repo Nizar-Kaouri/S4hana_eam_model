@@ -5,9 +5,10 @@
     "structure": "EHSLocation",
     "status": "PENDING",
     "table": "EHFNDD_LOC_ROOT; EHFNDD_LOC_REV",
-    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-    "evidence": "",
-    "SAP_verified": false
+    "reason": "Location/revision tables documented through CDS sources, but plant/type/validity native field mapping and revision selection remain unresolved. A root identity projection would not complete location coverage.",
+    "evidence": "https://help.sap.com/docs/sustainability-data-integration/b15a1be1941c44d4be60ba206536283d/d9e248b0ad88425fbea9284fd34d51d7.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -17,7 +18,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -27,7 +29,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -37,7 +40,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -55,7 +59,8 @@
       "ValidityStartDate",
       "ValidityEndDate"
     ],
-    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -72,7 +77,8 @@
       "IdentifierID",
       "IdentifierValue"
     ],
-    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -82,7 +88,8 @@
     "table": "ESTVH; ESTVA; classification value relations unresolved",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -99,7 +106,8 @@
       "PhraseText",
       "PhraseCode"
     ],
-    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -115,37 +123,56 @@
       "PhraseCatalog",
       "SortSequence"
     ],
-    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html"
+    "administrative_fields_evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
     "module": "incident",
     "structure": "Incident",
-    "status": "PENDING",
-    "table": "EHHSSD_INC_ROOT; EHHSSD_INC_BINFA",
-    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-    "evidence": "",
-    "SAP_verified": false
+    "status": "NATIVE_DRAFT",
+    "table": "EHHSSD_INC_ROOT",
+    "reason": "Modern EHSM incident root only. Basic-info child cardinality, title, location and time-zone calculations remain pending. Preserve root UUID; no guessed join to multiply root rows.",
+    "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/d9eb3c50906ea902e10000000a44176f.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "IncidentType",
+      "LocationID",
+      "OccurredAtUTC",
+      "TimeZone",
+      "Description"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING",
+    "key_evidence": "https://community.sap.com/t5/enterprise-resource-planning-q-a/cds-view-fields-reuse/qaq-p/12485627"
   },
   {
     "domain": "ehs",
     "module": "incident",
     "structure": "IncidentPerson",
     "status": "PENDING",
-    "table": "EHHSSD_INC_PINV",
-    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-    "evidence": "",
-    "SAP_verified": false
+    "table": "EHHSSD_INC_PINV; EHHSSD_INC_PROLE",
+    "reason": "Person identity/name fields are resolved from HCM/business partners/users; roles come from a separate node. Native reference keys, role cardinality and person resolution remain pending.",
+    "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/8eec3c50906ea902e10000000a44176f.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
     "module": "incident",
     "structure": "IncidentAction",
-    "status": "PENDING",
-    "table": "Not yet established",
-    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-    "evidence": "",
-    "SAP_verified": false
+    "status": "NATIVE_DRAFT",
+    "table": "EHHSSD_IAC_ROOT",
+    "reason": "Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded.",
+    "evidence": "https://help.sap.com/docs/EHSM/c2db47abe44e4aa7ab1be93e4c20ae18/55ea3c50906ea902e10000000a44176f.html?locale=en-US",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11",
+    "pending_payload": [
+      "IncidentID",
+      "ResponsiblePartner",
+      "DueDate"
+    ],
+    "key_evidence_status": "CANDIDATE_DDIC_FLAGS_PENDING"
   },
   {
     "domain": "ehs",
@@ -155,7 +182,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -165,17 +193,19 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
     "module": "risk_assessment",
     "structure": "RiskControl",
     "status": "PENDING",
-    "table": "Not yet established",
-    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-    "evidence": "",
-    "SAP_verified": false
+    "table": "Transient EHSM risk-control extractor",
+    "reason": "Extractor origin fields are derived/transient rather than a documented physical one-table schema. Native business-object node mapping remains unresolved.",
+    "evidence": "https://help.sap.com/docs/EHSM/cfce61ea9ac64c53a591bfcd66d98f56/021df34fd9c2d247e10000000a44176f.html?version=4.0",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -185,7 +215,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -195,7 +226,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -205,7 +237,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -215,7 +248,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -225,7 +259,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -235,7 +270,8 @@
     "table": "Not yet established",
     "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
     "evidence": "",
-    "SAP_verified": false
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -243,9 +279,10 @@
     "structure": "DangerousGoods",
     "status": "PENDING",
     "table": "EST0D",
-    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-    "evidence": "",
-    "SAP_verified": false
+    "reason": "Classic classification records and administration fields documented; material dangerous-goods master mapping, regulation references and complete classification payload remain unresolved.",
+    "evidence": "https://help.sap.com/docs/SAP_ERP/c4f650e3b4ad4c68bcee599cd1d10b07/707fb6535fe6b74ce10000000a174cb4.html",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   },
   {
     "domain": "ehs",
@@ -253,8 +290,9 @@
     "structure": "DGTransport",
     "status": "PENDING",
     "table": "EST0F",
-    "reason": "Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
-    "evidence": "",
-    "SAP_verified": false
+    "reason": "Classic import-format documentation supports regulation/classification payload, but SUBIDREF is an import shorthand rather than established physical column. Complete reference keys and transport-mode mapping remain pending.",
+    "evidence": "https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/ff6d35a34fbe4bea99e4ac41b0d5db03/6ea2ce5314894208e10000000a174cb4.html?version=2023.latest",
+    "SAP_verified": false,
+    "researched_on": "2026-10-11"
   }
 ]

@@ -33,7 +33,9 @@ START-OF-SELECTION.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
     WHEN '/SAPAPO/LOC'
-      OR '/SCMTMS/D_TORROT'.
+      OR '/SCMTMS/D_TORITE'
+      OR '/SCMTMS/D_TORROT'
+      OR '/SCMTMS/D_TORSTP'.
       lv_allowed = abap_true.
   ENDCASE.
   IF lv_allowed <> abap_true OR p_max < 1 OR p_max > 1000000.

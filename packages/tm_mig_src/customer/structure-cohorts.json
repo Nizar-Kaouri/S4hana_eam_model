@@ -28,5 +28,45 @@
     "selection": "selection/ZTMX_C_FreightOrderMig.csv",
     "requires_business_approval": true,
     "mode": "process-reference"
+  },
+  "ZTMX_C_FreightUnitItemMig": {
+    "module": "freight_unit",
+    "table": "/SCMTMS/D_TORITE",
+    "keys": [
+      "ItemUUID"
+    ],
+    "selection": "selection/ZTMX_C_FreightUnitItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightUnitStopMig": {
+    "module": "freight_unit",
+    "table": "/SCMTMS/D_TORSTP",
+    "keys": [
+      "StopUUID"
+    ],
+    "selection": "selection/ZTMX_C_FreightUnitStopMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightOrdItemMig": {
+    "module": "freight_order",
+    "table": "/SCMTMS/D_TORITE",
+    "keys": [
+      "ItemUUID"
+    ],
+    "selection": "selection/ZTMX_C_FreightOrdItemMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZTMX_C_FreightOrdStopMig": {
+    "module": "freight_order",
+    "table": "/SCMTMS/D_TORSTP",
+    "keys": [
+      "StopUUID"
+    ],
+    "selection": "selection/ZTMX_C_FreightOrdStopMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
   }
 }

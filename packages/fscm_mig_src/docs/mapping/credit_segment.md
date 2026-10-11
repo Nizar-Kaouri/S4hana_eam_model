@@ -41,4 +41,5 @@ python3 tools/mig_reconcile.py records --product fscm_mig_src --module credit_se
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- CreditSegment: CreditLimit currency context remains pending: extractor documentation names segment CURRENCY while other releases use UKMCRED_SGM0C currency customizing. Resolve this release-specific contradiction before projecting amounts.

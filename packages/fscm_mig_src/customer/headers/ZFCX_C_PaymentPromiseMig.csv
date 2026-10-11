@@ -1,1 +1,1 @@
-﻿CaseUUID,CompanyCode,Customer,Currency,DueDate,PromiseDate,PromiseState,PromiseLevel,PromisedBy
+﻿CaseUUID,CompanyCode,Customer,Currency,DueDate,PromiseDate,PromiseState,PromiseLevel,PromisedBy,PromisedAmount,PaidAmount

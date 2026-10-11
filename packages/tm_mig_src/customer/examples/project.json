@@ -6,7 +6,15 @@
     "ZTMX_C_FreightUnitMig": "exports/ZTMX_C_FreightUnitMig.csv",
     "ZTMX_C_FreightUnitMig_Scope": "selection/ZTMX_C_FreightUnitMig.csv",
     "ZTMX_C_FreightOrderMig": "exports/ZTMX_C_FreightOrderMig.csv",
-    "ZTMX_C_FreightOrderMig_Scope": "selection/ZTMX_C_FreightOrderMig.csv"
+    "ZTMX_C_FreightOrderMig_Scope": "selection/ZTMX_C_FreightOrderMig.csv",
+    "ZTMX_C_FreightUnitItemMig": "exports/ZTMX_C_FreightUnitItemMig.csv",
+    "ZTMX_C_FreightUnitItemMig_Scope": "selection/ZTMX_C_FreightUnitItemMig.csv",
+    "ZTMX_C_FreightUnitStopMig": "exports/ZTMX_C_FreightUnitStopMig.csv",
+    "ZTMX_C_FreightUnitStopMig_Scope": "selection/ZTMX_C_FreightUnitStopMig.csv",
+    "ZTMX_C_FreightOrdItemMig": "exports/ZTMX_C_FreightOrdItemMig.csv",
+    "ZTMX_C_FreightOrdItemMig_Scope": "selection/ZTMX_C_FreightOrdItemMig.csv",
+    "ZTMX_C_FreightOrdStopMig": "exports/ZTMX_C_FreightOrdStopMig.csv",
+    "ZTMX_C_FreightOrdStopMig_Scope": "selection/ZTMX_C_FreightOrdStopMig.csv"
   },
   "steps": [
     {
@@ -44,11 +52,63 @@
       "parent_keys": [
         "DocumentUUID"
       ]
+    },
+    {
+      "name": "ZTMX_C_FreightUnitItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightUnitItemMig",
+      "parent": "ZTMX_C_FreightUnitItemMig_Scope",
+      "child_keys": [
+        "ItemUUID"
+      ],
+      "parent_keys": [
+        "ItemUUID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightUnitStopMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightUnitStopMig",
+      "parent": "ZTMX_C_FreightUnitStopMig_Scope",
+      "child_keys": [
+        "StopUUID"
+      ],
+      "parent_keys": [
+        "StopUUID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightOrdItemMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightOrdItemMig",
+      "parent": "ZTMX_C_FreightOrdItemMig_Scope",
+      "child_keys": [
+        "ItemUUID"
+      ],
+      "parent_keys": [
+        "ItemUUID"
+      ]
+    },
+    {
+      "name": "ZTMX_C_FreightOrdStopMig_Prepared",
+      "operation": "selection",
+      "input": "ZTMX_C_FreightOrdStopMig",
+      "parent": "ZTMX_C_FreightOrdStopMig_Scope",
+      "child_keys": [
+        "StopUUID"
+      ],
+      "parent_keys": [
+        "StopUUID"
+      ]
     }
   ],
   "outputs": [
     "ZTMX_C_TransportLocMig_Prepared",
     "ZTMX_C_FreightUnitMig_Prepared",
-    "ZTMX_C_FreightOrderMig_Prepared"
+    "ZTMX_C_FreightOrderMig_Prepared",
+    "ZTMX_C_FreightUnitItemMig_Prepared",
+    "ZTMX_C_FreightUnitStopMig_Prepared",
+    "ZTMX_C_FreightOrdItemMig_Prepared",
+    "ZTMX_C_FreightOrdStopMig_Prepared"
   ]
 }

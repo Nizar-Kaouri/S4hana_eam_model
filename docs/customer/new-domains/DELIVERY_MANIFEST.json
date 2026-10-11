@@ -1,41 +1,41 @@
 {
-  "version": "0.2.0",
-  "bundle": "ModuPorter-EWM-TM-FSCM-EHS-Native-Packs-0.2.0.zip",
-  "bundle_sha256": "7ed30c985c8c90903811a736b40e78a5addf6cfaa918700b6680001962798a17",
+  "version": "0.3.0",
+  "bundle": "ModuPorter-EWM-TM-FSCM-EHS-Native-Packs-0.3.0.zip",
+  "bundle_sha256": "99c7c0fa770adceb77a663e50190a95cf30c91b66934d20afb0ac24805366d53",
   "packages": [
     {
       "domain": "ewm",
-      "archive": "ModuPorter-EWM-Customer-Pack-0.2.0.zip",
-      "sha256": "98fe929dd5a8f9c4ba0e80bf6d19f8ed6eff9e4a71b6bdf508b9ffc14f31bbf9",
-      "native_structures": 4,
+      "archive": "ModuPorter-EWM-Customer-Pack-0.3.0.zip",
+      "sha256": "ee4b335ba8b022e5c24c253eb4cf15a9394ff439f0f995a375531f4bb0f30109",
+      "native_structures": 7,
       "status": "partial-native-draft; SAP unverified"
     },
     {
       "domain": "tm",
-      "archive": "ModuPorter-TM-Customer-Pack-0.2.0.zip",
-      "sha256": "2075e94e281707a2b4c4304e5914105f7f3fa78e0da8b3c994b2417f528b788a",
-      "native_structures": 3,
+      "archive": "ModuPorter-TM-Customer-Pack-0.3.0.zip",
+      "sha256": "2e6d20c8d79de3554dfd76d9b636627cf8229e55255601dce329a420f22615b7",
+      "native_structures": 7,
       "status": "partial-native-draft; SAP unverified"
     },
     {
       "domain": "fscm",
-      "archive": "ModuPorter-FSCM-Customer-Pack-0.2.0.zip",
-      "sha256": "1ec496d5f24b7e314e4894bb099a9173ae34303f88bb1889b7cdbb963b5cd7ef",
-      "native_structures": 6,
+      "archive": "ModuPorter-FSCM-Customer-Pack-0.3.0.zip",
+      "sha256": "f039ba5a74a42953a69c924f9cc4cfd5b132929e38ecb886bc473179e87939cd",
+      "native_structures": 7,
       "status": "partial-native-draft; SAP unverified"
     },
     {
       "domain": "ehs",
-      "archive": "ModuPorter-EHS-Customer-Pack-0.2.0.zip",
-      "sha256": "f6ddaad140dfad6e74cbe2af3eefa6202089e12d4dc938c737376aae5b375187",
-      "native_structures": 4,
+      "archive": "ModuPorter-EHS-Customer-Pack-0.3.0.zip",
+      "sha256": "a82287e0a29587a7e9150b0ae6e3a8ece665e809f7aeb6baf1550aee7fec4d40",
+      "native_structures": 6,
       "status": "partial-native-draft; SAP unverified"
     }
   ],
-  "CDS_objects": 94,
-  "native_structure_drafts": 17,
-  "pending_structures": 55,
-  "offline_unit_tests": 86,
-  "isolated_zip_structures": 17,
+  "CDS_objects": 140,
+  "native_structure_drafts": 27,
+  "pending_structures": 45,
+  "offline_unit_tests": 88,
+  "isolated_zip_structures": 27,
   "SAP_runtime_verified": false
 }

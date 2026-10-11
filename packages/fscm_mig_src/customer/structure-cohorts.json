@@ -59,5 +59,18 @@
     "selection": "selection/ZFCX_C_CaseAttributeMig.csv",
     "requires_business_approval": true,
     "mode": "process-reference"
+  },
+  "ZFCX_C_CreditExposureMig": {
+    "module": "credit_exposure",
+    "table": "UKM_TOTALS",
+    "keys": [
+      "BusinessPartner",
+      "CreditSegment",
+      "ExposureCategory",
+      "Currency"
+    ],
+    "selection": "selection/ZFCX_C_CreditExposureMig.csv",
+    "requires_business_approval": true,
+    "mode": "reference"
   }
 }

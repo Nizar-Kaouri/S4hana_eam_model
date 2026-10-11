@@ -1,3 +1,3 @@
-# Native target comparison draft
+# ModuPorter Financial Supply Chain Management native draft 0.3.0
 
-Read docs/CUSTOMER_MANUAL_EN.md. Native read-only comparison views replace target staging. Partial native coverage and all SAP verification remain pending.
+Read docs/CUSTOMER_MANUAL_EN.md or CUSTOMER_MANUAL_DE.md. Partial native coverage; all customer DDIC/release/runtime acceptance remains unverified.

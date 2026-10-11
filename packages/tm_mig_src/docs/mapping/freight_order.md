@@ -25,6 +25,38 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 | `DocumentType` | /SCMTMS/D_TORROT-TOR_TYPE | Native target evidence: ZTMT_I_FreightOrderCompare.DocumentType | information only | yes |
 | `LifecycleStatus` | /SCMTMS/D_TORROT-LIFECYCLE | Native target evidence: ZTMT_I_FreightOrderCompare.LifecycleStatus | information only | yes |
 
+## `ZTMX_C_FreightOrdItemMig`
+
+- Source: `ZTMX_I_FreightOrdItem`
+- Keys: `ItemUUID`
+- Scope: `all rows`
+- Delivery mode: **process-reference**
+- Before posting: Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT TO. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.
+
+| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ItemUUID` | /SCMTMS/D_TORITE-DB_KEY | Native target evidence: ZTMT_I_FreightOrdItemCompare.ItemUUID | information only | yes |
+| `DocumentUUID` | /SCMTMS/D_TORITE-PARENT_KEY | Native target evidence: ZTMT_I_FreightOrdItemCompare.DocumentUUID | information only | yes |
+| `ItemID` | /SCMTMS/D_TORITE-ITEM_ID | Native target evidence: ZTMT_I_FreightOrdItemCompare.ItemID | information only | yes |
+| `ItemCategory` | /SCMTMS/D_TORITE-ITEM_CAT | Native target evidence: ZTMT_I_FreightOrdItemCompare.ItemCategory | information only | yes |
+| `ItemType` | /SCMTMS/D_TORITE-ITEM_TYPE | Native target evidence: ZTMT_I_FreightOrdItemCompare.ItemType | information only | yes |
+
+## `ZTMX_C_FreightOrdStopMig`
+
+- Source: `ZTMX_I_FreightOrdStop`
+- Keys: `StopUUID`
+- Scope: `all rows`
+- Delivery mode: **process-reference**
+- Before posting: Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.
+
+| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `StopUUID` | /SCMTMS/D_TORSTP-DB_KEY | Native target evidence: ZTMT_I_FreightOrdStopCompare.StopUUID | information only | yes |
+| `DocumentUUID` | /SCMTMS/D_TORSTP-PARENT_KEY | Native target evidence: ZTMT_I_FreightOrdStopCompare.DocumentUUID | information only | yes |
+| `StopID` | /SCMTMS/D_TORSTP-STOP_ID | Native target evidence: ZTMT_I_FreightOrdStopCompare.StopID | information only | yes |
+| `StopCategory` | /SCMTMS/D_TORSTP-STOP_CAT | Native target evidence: ZTMT_I_FreightOrdStopCompare.StopCategory | information only | yes |
+| `SequencePosition` | /SCMTMS/D_TORSTP-STOP_SEQ_POS | Native target evidence: ZTMT_I_FreightOrdStopCompare.SequencePosition | information only | yes |
+
 ## Reconciliation
 
 - Counts: `ZTMX_C_FreightOrderMigCount` (SAP source) vs `ZTMT_I_FreightOrderCount` (S/4HANA) as global candidate counts
@@ -37,8 +69,8 @@ python3 tools/mig_reconcile.py records --product tm_mig_src --module freight_ord
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
-- FreightOrdItem: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-- FreightOrdStop: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-- FreightStage: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-- Pending native dependency: transport_resource
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- FreightOrder: TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.
+- FreightOrdItem: Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT TO. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.
+- FreightOrdStop: Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.
+- FreightStage: STOP_SUCCESSOR existence documented. Exact predecessor/successor native fields, keys and stage interpretation unresolved; STOP_ID order is not a substitute.

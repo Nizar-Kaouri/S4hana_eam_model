@@ -6,5 +6,5 @@ This groups the supplied native extraction drafts only. Pending dependencies rem
 
 | Level | Modules | Supplied native consumption views |
 |---|---|---|
-| 1 | [`storage_bin`](mapping/storage_bin.md), [`warehouse_order`](mapping/warehouse_order.md) | `ZWMX_C_StorageBinMig`, `ZWMX_C_BinSortingMig`, `ZWMX_C_WarehouseOrderMig` |
-| 2 | [`warehouse_task`](mapping/warehouse_task.md) | `ZWMX_C_TaskConfirmMig` |
+| 1 | [`storage_bin`](mapping/storage_bin.md), [`warehouse_delivery`](mapping/warehouse_delivery.md), [`warehouse_order`](mapping/warehouse_order.md) | `ZWMX_C_StorageBinMig`, `ZWMX_C_BinSortingMig`, `ZWMX_C_WhDeliveryMig`, `ZWMX_C_WhDeliveryItemMig`, `ZWMX_C_WarehouseOrderMig` |
+| 2 | [`warehouse_task`](mapping/warehouse_task.md) | `ZWMX_C_TaskConfirmMig`, `ZWMX_C_WarehouseTaskMig` |

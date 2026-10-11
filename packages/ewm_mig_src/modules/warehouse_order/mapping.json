@@ -101,7 +101,8 @@
   ],
   "not_migrated": [],
   "gaps": [
-    "Native field/key/release verification and SAP activation pending. No posting adapter."
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "WarehouseOrder: All native warehouse-order records; customer must approve process state and cutover scope."
   ],
   "reconciliation": {
     "source_values": "source",

@@ -15,7 +15,7 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 - Keys: `CaseUUID`
 - Scope: `all rows`
 - Delivery mode: **process-reference**
-- Before posting: Financial dispute attributes; amount payload, item relations and attachments remain pending. Confirm full native key flags and approve the business cohort. Native extraction is not posting.
+- Before posting: Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.
 
 | Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -26,6 +26,11 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 | `DisputeCurrency` | UDMCASEATTR00-FIN_DISPUTE_CURR | Native target evidence: ZFCT_I_DisputeCaseCompare.DisputeCurrency | information only | yes |
 | `DueDate` | UDMCASEATTR00-FIN_DUE_DATE | Native target evidence: ZFCT_I_DisputeCaseCompare.DueDate | information only | yes |
 | `LogicalSystem` | UDMCASEATTR00-FIN_LOG_SYSTEM | Native target evidence: ZFCT_I_DisputeCaseCompare.LogicalSystem | information only | yes |
+| `OriginalAmount` | UDMCASEATTR00-FIN_ORIGINAL_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.OriginalAmount | information only | yes |
+| `DisputedAmount` | UDMCASEATTR00-FIN_DISPUTED_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.DisputedAmount | information only | yes |
+| `PaidAmount` | UDMCASEATTR00-FIN_PAID_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.PaidAmount | information only | yes |
+| `CreditedAmount` | UDMCASEATTR00-FIN_CREDITED_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.CreditedAmount | information only | yes |
+| `WrittenOffAmount` | UDMCASEATTR00-FIN_WRT_OFF_AMT | Native target evidence: ZFCT_I_DisputeCaseCompare.WrittenOffAmount | information only | yes |
 
 ## `ZFCX_C_CaseAttributeMig`
 
@@ -55,7 +60,7 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 ## Reconciliation
 
 - Counts: `ZFCX_C_DisputeCaseMigCount` (SAP source) vs `ZFCT_I_DisputeCaseCount` (S/4HANA) as global candidate counts
-- Records and fields: `ZFCX_C_DisputeCaseMig` vs `ZFCT_I_DisputeCaseCompare` on `CaseUUID`; compared: `CompanyCode`, `Customer`, `Coordinator`, `DisputeCurrency`, `DueDate`, `LogicalSystem`
+- Records and fields: `ZFCX_C_DisputeCaseMig` vs `ZFCT_I_DisputeCaseCompare` on `CaseUUID`; compared: `CompanyCode`, `Customer`, `Coordinator`, `DisputeCurrency`, `DueDate`, `LogicalSystem`, `OriginalAmount`, `DisputedAmount`, `PaidAmount`, `CreditedAmount`, `WrittenOffAmount`
 
 ```bash
 python3 tools/mig_reconcile.py counts --product fscm_mig_src --module dispute_case --source ecc_counts.csv --target s4_counts.csv
@@ -64,6 +69,8 @@ python3 tools/mig_reconcile.py records --product fscm_mig_src --module dispute_c
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- DisputeCase: Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.
 - DisputeItem: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
+- CaseAttribute: One wide native record per case UUID; not synthetic attribute-name/value rows. Includes general cases, not only disputes; approve case-type scope.
 - CaseAttachment: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.

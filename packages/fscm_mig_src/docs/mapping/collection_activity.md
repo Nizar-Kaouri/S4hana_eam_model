@@ -43,6 +43,6 @@ python3 tools/mig_reconcile.py records --product fscm_mig_src --module collectio
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
-- CollectTask: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-- Pending native dependency: collections_profile
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- CollectContact: Contact attributes only; associated items and resubmissions remain pending.
+- CollectTask: Public worklist fields do not establish the planned resubmission/follow-up task structure; substituting another business object would change scope.

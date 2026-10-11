@@ -64,7 +64,8 @@
   ],
   "not_migrated": [],
   "gaps": [
-    "Native field/key/release verification and SAP activation pending. No posting adapter."
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "TransportLoc: Internal location UUID is preserved. Address, location type and time zone payload remain pending."
   ],
   "reconciliation": {
     "source_values": "source",

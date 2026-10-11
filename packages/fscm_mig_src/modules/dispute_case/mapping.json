@@ -70,10 +70,45 @@
           "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.LogicalSystem",
           "rule": "info",
           "compare": true
+        },
+        {
+          "element": "OriginalAmount",
+          "source": "UDMCASEATTR00-FIN_ORIGINAL_AMT",
+          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.OriginalAmount",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DisputedAmount",
+          "source": "UDMCASEATTR00-FIN_DISPUTED_AMT",
+          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.DisputedAmount",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "PaidAmount",
+          "source": "UDMCASEATTR00-FIN_PAID_AMT",
+          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.PaidAmount",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CreditedAmount",
+          "source": "UDMCASEATTR00-FIN_CREDITED_AMT",
+          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.CreditedAmount",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "WrittenOffAmount",
+          "source": "UDMCASEATTR00-FIN_WRT_OFF_AMT",
+          "target": "Native target evidence: ZFCT_I_DisputeCaseCompare.WrittenOffAmount",
+          "rule": "info",
+          "compare": true
         }
       ],
       "delivery_mode": "process-reference",
-      "preprocessing": "Financial dispute attributes; amount payload, item relations and attachments remain pending. Confirm full native key flags and approve the business cohort. Native extraction is not posting."
+      "preprocessing": "Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded."
     },
     {
       "consumption_view": "ZFCX_C_CaseAttributeMig",
@@ -188,8 +223,10 @@
   ],
   "not_migrated": [],
   "gaps": [
-    "Native field/key/release verification and SAP activation pending. No posting adapter.",
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "DisputeCase: Documented native financial attributes with amounts and stored currency. Invoice/item relationships remain pending; compare currencies unchanged. Auto-written-off field naming conflicts across sources and is excluded.",
     "DisputeItem: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.",
+    "CaseAttribute: One wide native record per case UUID; not synthetic attribute-name/value rows. Includes general cases, not only disputes; approve case-type scope.",
     "CaseAttachment: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied."
   ],
   "reconciliation": {
@@ -209,7 +246,12 @@
         "Coordinator",
         "DisputeCurrency",
         "DueDate",
-        "LogicalSystem"
+        "LogicalSystem",
+        "OriginalAmount",
+        "DisputedAmount",
+        "PaidAmount",
+        "CreditedAmount",
+        "WrittenOffAmount"
       ]
     }
   },

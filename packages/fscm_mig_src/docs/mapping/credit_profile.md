@@ -39,5 +39,6 @@ python3 tools/mig_reconcile.py records --product fscm_mig_src --module credit_pr
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- CreditProfile: CLIENT is the implicit current-client field. Credit relationships remain pending.
 - CreditRelation: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.

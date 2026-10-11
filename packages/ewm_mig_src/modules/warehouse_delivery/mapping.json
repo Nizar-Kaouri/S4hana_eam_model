@@ -1,0 +1,250 @@
+{
+  "module": "warehouse_delivery",
+  "status": "draft-unverified",
+  "target": {
+    "tool": "Customer-selected supported business interface; native views are read-only",
+    "todo_verify": []
+  },
+  "sequence_after": [],
+  "key": {
+    "business_key": [
+      "DeliveryUUID"
+    ],
+    "numbering": "keep",
+    "note": "Map regenerated target UUIDs before comparing; current client is implicit."
+  },
+  "structures": [
+    {
+      "consumption_view": "ZWMX_C_WhDeliveryMig",
+      "source_view": "ZWMX_I_WhDelivery",
+      "scope_filter": "",
+      "keys": [
+        "DeliveryUUID"
+      ],
+      "fields": [
+        {
+          "element": "DeliveryUUID",
+          "source": "/SCDL/DB_PROCH_I-DOCID",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryCompare.DeliveryUUID",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Delivery",
+          "source": "/SCDL/DB_PROCH_I-DOCNO",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryCompare.Delivery",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeliveryType",
+          "source": "/SCDL/DB_PROCH_I-DOCTYPE",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryCompare.DeliveryType",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeliveryCategory",
+          "source": "/SCDL/DB_PROCH_I-DOCCAT",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryCompare.DeliveryCategory",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Incoterms",
+          "source": "/SCDL/DB_PROCH_I-INCO1",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryCompare.Incoterms",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "IncotermsLocation",
+          "source": "/SCDL/DB_PROCH_I-INCO2",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryCompare.IncotermsLocation",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CreatedBy",
+          "source": "/SCDL/DB_PROCH_I-CREUSER",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryCompare.CreatedBy",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "CreatedAt",
+          "source": "/SCDL/DB_PROCH_I-CRETST",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryCompare.CreatedAt",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Inbound delivery header only. Outbound branch, partner-role selection, status and cutover eligibility remain pending; do not interpret the broad snapshot as open deliveries."
+    },
+    {
+      "consumption_view": "ZWMX_C_WhDeliveryItemMig",
+      "source_view": "ZWMX_I_WhDeliveryItem",
+      "scope_filter": "",
+      "keys": [
+        "DeliveryUUID",
+        "DeliveryItemUUID"
+      ],
+      "fields": [
+        {
+          "element": "DeliveryUUID",
+          "source": "/SCDL/DB_PROCI_I-DOCID",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.DeliveryUUID",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeliveryItemUUID",
+          "source": "/SCDL/DB_PROCI_I-ITEMID",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.DeliveryItemUUID",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "DeliveryItem",
+          "source": "/SCDL/DB_PROCI_I-ITEMNO",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.DeliveryItem",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ItemType",
+          "source": "/SCDL/DB_PROCI_I-ITEMTYPE",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.ItemType",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ItemCategory",
+          "source": "/SCDL/DB_PROCI_I-ITEMCAT",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.ItemCategory",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "ProductUUID",
+          "source": "/SCDL/DB_PROCI_I-PRODUCTID",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.ProductUUID",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Product",
+          "source": "/SCDL/DB_PROCI_I-PRODUCTNO",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.Product",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "EnteredProduct",
+          "source": "/SCDL/DB_PROCI_I-PRODUCTENT",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.EnteredProduct",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Priority",
+          "source": "/SCDL/DB_PROCI_I-PRIORITY",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.Priority",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Batch",
+          "source": "/SCDL/DB_PROCI_I-BATCHNO",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.Batch",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StockUsage",
+          "source": "/SCDL/DB_PROCI_I-STOCK_USAGE",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.StockUsage",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StockCategory",
+          "source": "/SCDL/DB_PROCI_I-STOCK_CATEGORY",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.StockCategory",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StockOwner",
+          "source": "/SCDL/DB_PROCI_I-STOCK_OWNER",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.StockOwner",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "StockOwnerRole",
+          "source": "/SCDL/DB_PROCI_I-STOCK_OWNER_ROLE",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.StockOwnerRole",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "EntitledParty",
+          "source": "/SCDL/DB_PROCI_I-ENTITLED",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.EntitledParty",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "EntitledPartyRole",
+          "source": "/SCDL/DB_PROCI_I-ENTITLED_ROLE",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.EntitledPartyRole",
+          "rule": "info",
+          "compare": true
+        },
+        {
+          "element": "Warehouse",
+          "source": "/SCDL/DB_PROCI_I-LGNUM",
+          "target": "Native target evidence: ZWMT_I_WhDeliveryItemCompare.Warehouse",
+          "rule": "info",
+          "compare": true
+        }
+      ],
+      "delivery_mode": "process-reference",
+      "preprocessing": "Inbound items only; DOCID/ITEMID candidate grain must be confirmed in DDIC. Quantities belong to role-qualified /SCDL/DB_ADDMEAS records, not invented item QTY columns. Outbound branch, quantity/date roles, status and parent cohort closure remain pending."
+    }
+  ],
+  "not_migrated": [],
+  "gaps": [
+    "Actual DDIC, release, SAP activation and acceptance unverified.",
+    "WhDelivery: Inbound delivery header only. Outbound branch, partner-role selection, status and cutover eligibility remain pending; do not interpret the broad snapshot as open deliveries.",
+    "WhDeliveryItem: Inbound items only; DOCID/ITEMID candidate grain must be confirmed in DDIC. Quantities belong to role-qualified /SCDL/DB_ADDMEAS records, not invented item QTY columns. Outbound branch, quantity/date roles, status and parent cohort closure remain pending."
+  ],
+  "reconciliation": {
+    "source_values": "source",
+    "source_count_view": "ZWMX_C_WhDeliveryMigCount",
+    "target_count_view": "ZWMT_I_WhDeliveryCount",
+    "dimensions": [],
+    "compare": {
+      "source_view": "ZWMX_C_WhDeliveryMig",
+      "target_view": "ZWMT_I_WhDeliveryCompare",
+      "key": [
+        "DeliveryUUID"
+      ],
+      "fields": [
+        "Delivery",
+        "DeliveryType",
+        "DeliveryCategory",
+        "Incoterms",
+        "IncotermsLocation",
+        "CreatedBy",
+        "CreatedAt"
+      ]
+    }
+  },
+  "main_structure": "ZWMX_C_WhDeliveryMig",
+  "pending_dependencies": [
+    "warehouse_product"
+  ]
+}

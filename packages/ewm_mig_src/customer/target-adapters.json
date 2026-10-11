@@ -85,5 +85,77 @@
     ],
     "native_table": "/SCWM/WHO",
     "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
+  },
+  "ZWMX_C_WarehouseTaskMig": {
+    "module": "warehouse_task",
+    "compare_view": "ZWMT_I_WarehouseTaskCompare",
+    "required_keys": [
+      "Warehouse",
+      "WarehouseTask"
+    ],
+    "columns": [
+      "Warehouse",
+      "WarehouseTask",
+      "WarehouseOrder",
+      "TaskStatus",
+      "CreatedBy",
+      "ActivityArea",
+      "SourceStorageType",
+      "TargetStorageType",
+      "TargetStorageSection",
+      "Owner",
+      "OwnerRole",
+      "Unit"
+    ],
+    "native_table": "/SCWM/ORDIM_O",
+    "notes": "Open-task snapshot only. Do not add confirmed-task TAPOS to this grain. Quantities, product references and serials remain pending. Key flags require actual DDIC validation. Map regenerated UUIDs before comparison."
+  },
+  "ZWMX_C_WhDeliveryMig": {
+    "module": "warehouse_delivery",
+    "compare_view": "ZWMT_I_WhDeliveryCompare",
+    "required_keys": [
+      "DeliveryUUID"
+    ],
+    "columns": [
+      "DeliveryUUID",
+      "Delivery",
+      "DeliveryType",
+      "DeliveryCategory",
+      "Incoterms",
+      "IncotermsLocation",
+      "CreatedBy",
+      "CreatedAt"
+    ],
+    "native_table": "/SCDL/DB_PROCH_I",
+    "notes": "Inbound delivery header only. Outbound branch, partner-role selection, status and cutover eligibility remain pending; do not interpret the broad snapshot as open deliveries. Map regenerated UUIDs before comparison."
+  },
+  "ZWMX_C_WhDeliveryItemMig": {
+    "module": "warehouse_delivery",
+    "compare_view": "ZWMT_I_WhDeliveryItemCompare",
+    "required_keys": [
+      "DeliveryUUID",
+      "DeliveryItemUUID"
+    ],
+    "columns": [
+      "DeliveryUUID",
+      "DeliveryItemUUID",
+      "DeliveryItem",
+      "ItemType",
+      "ItemCategory",
+      "ProductUUID",
+      "Product",
+      "EnteredProduct",
+      "Priority",
+      "Batch",
+      "StockUsage",
+      "StockCategory",
+      "StockOwner",
+      "StockOwnerRole",
+      "EntitledParty",
+      "EntitledPartyRole",
+      "Warehouse"
+    ],
+    "native_table": "/SCDL/DB_PROCI_I",
+    "notes": "Inbound items only; DOCID/ITEMID candidate grain must be confirmed in DDIC. Quantities belong to role-qualified /SCDL/DB_ADDMEAS records, not invented item QTY columns. Outbound branch, quantity/date roles, status and parent cohort closure remain pending. Map regenerated UUIDs before comparison."
   }
 }

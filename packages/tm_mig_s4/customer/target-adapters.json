@@ -46,5 +46,105 @@
     ],
     "native_table": "/SCMTMS/D_TORROT",
     "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
+  },
+  "ZTMX_C_FreightUnitItemMig": {
+    "module": "freight_unit",
+    "compare_view": "ZTMT_I_FreightUnitItemCompare",
+    "required_keys": [
+      "ItemUUID"
+    ],
+    "columns": [
+      "ItemUUID",
+      "DocumentUUID",
+      "ItemID",
+      "ItemCategory",
+      "ItemType"
+    ],
+    "native_table": "/SCMTMS/D_TORITE",
+    "notes": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger. Map regenerated UUIDs before comparison.",
+    "parent_scope": {
+      "source_parent_view": "ZTMX_I_FreightUnitData",
+      "target_parent_view": "ZTMT_I_FreightUnitCompare",
+      "child_parent_field": "DocumentUUID",
+      "parent_key": "DocumentUUID",
+      "category": "FU",
+      "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+      "lookup_DDIC_required": true
+    }
+  },
+  "ZTMX_C_FreightUnitStopMig": {
+    "module": "freight_unit",
+    "compare_view": "ZTMT_I_FreightUnitStopCompare",
+    "required_keys": [
+      "StopUUID"
+    ],
+    "columns": [
+      "StopUUID",
+      "DocumentUUID",
+      "StopID",
+      "StopCategory",
+      "SequencePosition"
+    ],
+    "native_table": "/SCMTMS/D_TORSTP",
+    "notes": "Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending. Map regenerated UUIDs before comparison.",
+    "parent_scope": {
+      "source_parent_view": "ZTMX_I_FreightUnitData",
+      "target_parent_view": "ZTMT_I_FreightUnitCompare",
+      "child_parent_field": "DocumentUUID",
+      "parent_key": "DocumentUUID",
+      "category": "FU",
+      "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+      "lookup_DDIC_required": true
+    }
+  },
+  "ZTMX_C_FreightOrdItemMig": {
+    "module": "freight_order",
+    "compare_view": "ZTMT_I_FreightOrdItemCompare",
+    "required_keys": [
+      "ItemUUID"
+    ],
+    "columns": [
+      "ItemUUID",
+      "DocumentUUID",
+      "ItemID",
+      "ItemCategory",
+      "ItemType"
+    ],
+    "native_table": "/SCMTMS/D_TORITE",
+    "notes": "Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT TO. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger. Map regenerated UUIDs before comparison.",
+    "parent_scope": {
+      "source_parent_view": "ZTMX_I_FreightOrderData",
+      "target_parent_view": "ZTMT_I_FreightOrderCompare",
+      "child_parent_field": "DocumentUUID",
+      "parent_key": "DocumentUUID",
+      "category": "TO",
+      "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+      "lookup_DDIC_required": true
+    }
+  },
+  "ZTMX_C_FreightOrdStopMig": {
+    "module": "freight_order",
+    "compare_view": "ZTMT_I_FreightOrdStopCompare",
+    "required_keys": [
+      "StopUUID"
+    ],
+    "columns": [
+      "StopUUID",
+      "DocumentUUID",
+      "StopID",
+      "StopCategory",
+      "SequencePosition"
+    ],
+    "native_table": "/SCMTMS/D_TORSTP",
+    "notes": "Native TOR stops filtered through the parent category TO. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending. Map regenerated UUIDs before comparison.",
+    "parent_scope": {
+      "source_parent_view": "ZTMX_I_FreightOrderData",
+      "target_parent_view": "ZTMT_I_FreightOrderCompare",
+      "child_parent_field": "DocumentUUID",
+      "parent_key": "DocumentUUID",
+      "category": "TO",
+      "evidence": "https://community.sap.com/t5/supply-chain-management-blog-posts-by-members/manual-assignment-of-loading-and-truck-resource-to-fo/ba-p/13920402",
+      "lookup_DDIC_required": true
+    }
   }
 }

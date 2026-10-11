@@ -116,6 +116,6 @@ See [customer guides and all-object VDM map](docs/customer/domains/README.md) an
 
 ## EWM TM FSCM EHS native drafts
 
-Version 0.2.0 replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → Basic → Composite → Consumption for 17 documented structure drafts, with native target comparison views. The 32-module coverage plan contains 72 structures: 55 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these eight products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
+Version 0.3.0 extends the native drafts and replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → Basic → Composite → Consumption for 27 documented structure drafts, with native target comparison views. The 32-module coverage plan contains 72 structures: 45 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these eight products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
 
 See [bilingual customer guides and VDM maps](docs/customer/new-domains/README.md). Industry solutions remain out of scope.

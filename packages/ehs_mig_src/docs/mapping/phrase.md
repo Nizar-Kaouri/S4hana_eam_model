@@ -60,4 +60,6 @@ python3 tools/mig_reconcile.py records --product ehs_mig_src --module phrase --s
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- Phrase: Phrase header only. ESTPP multilingual text and graphics are pending; no invented Language key on the header.
+- PhraseSet: Phrase-set assignment records; not the complete phrase-set definition. Preserve native record and change-state keys.

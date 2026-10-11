@@ -83,5 +83,50 @@
     ],
     "native_table": "ESTPJ",
     "notes": "Read the same approved population. Remap regenerated UUIDs before comparison; retain original target keys separately."
+  },
+  "ZEHX_C_IncidentMig": {
+    "module": "incident",
+    "compare_view": "ZEHT_I_IncidentCompare",
+    "required_keys": [
+      "IncidentUUID"
+    ],
+    "columns": [
+      "IncidentUUID",
+      "IncidentID",
+      "IncidentCategory",
+      "IncidentStatus",
+      "ReportingRequired",
+      "Fatality"
+    ],
+    "native_table": "EHHSSD_INC_ROOT",
+    "notes": "Modern EHSM incident root only. Basic-info child cardinality, title, location and time-zone calculations remain pending. Preserve root UUID; no guessed join to multiply root rows. Map regenerated UUIDs before comparison."
+  },
+  "ZEHX_C_IncidentActionMig": {
+    "module": "incident",
+    "compare_view": "ZEHT_I_IncidentActionCompare",
+    "required_keys": [
+      "ActionUUID"
+    ],
+    "columns": [
+      "ActionUUID",
+      "ActionID",
+      "ActionCategory",
+      "ActionStatus",
+      "ActionType",
+      "Priority",
+      "ProtectionGoal",
+      "Effectiveness",
+      "DueTimestamp",
+      "DueTimeZone",
+      "ResponsiblePerson",
+      "Implementer",
+      "Approver",
+      "ImplementedAt",
+      "ImplementationTimeZone",
+      "ApprovedAt",
+      "ApprovalTimeZone"
+    ],
+    "native_table": "EHHSSD_IAC_ROOT",
+    "notes": "Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded. Map regenerated UUIDs before comparison."
   }
 }

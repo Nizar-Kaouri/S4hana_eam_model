@@ -1,0 +1,3 @@
+﻿DeliveryUUID,DeliveryItemUUID,DeliveryItem,ItemType,ItemCategory,ProductUUID,Product,EnteredProduct,Priority,Batch,StockUsage,StockCategory,StockOwner,StockOwnerRole,EntitledParty,EntitledPartyRole,Warehouse
+00000000000000000000000000000001,00000000000000000000000000000001,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample
+00000000000000000000000000000002,00000000000000000000000000000002,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample,sample

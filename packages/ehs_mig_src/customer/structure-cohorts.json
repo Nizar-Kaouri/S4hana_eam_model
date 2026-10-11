@@ -42,5 +42,25 @@
     "selection": "selection/ZEHX_C_PhraseSetMig.csv",
     "requires_business_approval": true,
     "mode": "master"
+  },
+  "ZEHX_C_IncidentMig": {
+    "module": "incident",
+    "table": "EHHSSD_INC_ROOT",
+    "keys": [
+      "IncidentUUID"
+    ],
+    "selection": "selection/ZEHX_C_IncidentMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
+  },
+  "ZEHX_C_IncidentActionMig": {
+    "module": "incident",
+    "table": "EHHSSD_IAC_ROOT",
+    "keys": [
+      "ActionUUID"
+    ],
+    "selection": "selection/ZEHX_C_IncidentActionMig.csv",
+    "requires_business_approval": true,
+    "mode": "process-reference"
   }
 }

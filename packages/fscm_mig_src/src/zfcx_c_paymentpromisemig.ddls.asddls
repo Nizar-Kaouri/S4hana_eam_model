@@ -1,5 +1,5 @@
 // ModuPorter migration - status: draft-unverified (never activated on SAP)
-// Native scope: Financial amount annotations, logical-system naming and invoice relations require DDIC verification. Invoice number is not assumed to be a native attribute field.
+// Native scope: Documented amounts retain their stored currency. Invoice/item relations and customer DDIC verification remain pending.
 // Purpose: Read PaymentPromiseMig as source candidates; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZFCX_V009C'
@@ -17,10 +17,15 @@ define view ZFCX_C_PaymentPromiseMig
   key src.CaseUUID as CaseUUID,
       src.CompanyCode as CompanyCode,
       src.Customer as Customer,
+      @Semantics.currencyCode: true
       src.Currency as Currency,
       src.DueDate as DueDate,
       src.PromiseDate as PromiseDate,
       src.PromiseState as PromiseState,
       src.PromiseLevel as PromiseLevel,
-      src.PromisedBy as PromisedBy
+      src.PromisedBy as PromisedBy,
+      @Semantics.amount.currencyCode: 'Currency'
+      src.PromisedAmount as PromisedAmount,
+      @Semantics.amount.currencyCode: 'Currency'
+      src.PaidAmount as PaidAmount
 }

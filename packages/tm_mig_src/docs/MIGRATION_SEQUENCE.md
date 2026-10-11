@@ -7,5 +7,5 @@ This groups the supplied native extraction drafts only. Pending dependencies rem
 | Level | Modules | Supplied native consumption views |
 |---|---|---|
 | 1 | [`transport_location`](mapping/transport_location.md) | `ZTMX_C_TransportLocMig` |
-| 2 | [`freight_unit`](mapping/freight_unit.md) | `ZTMX_C_FreightUnitMig` |
-| 3 | [`freight_order`](mapping/freight_order.md) | `ZTMX_C_FreightOrderMig` |
+| 2 | [`freight_unit`](mapping/freight_unit.md) | `ZTMX_C_FreightUnitMig`, `ZTMX_C_FreightUnitItemMig`, `ZTMX_C_FreightUnitStopMig` |
+| 3 | [`freight_order`](mapping/freight_order.md) | `ZTMX_C_FreightOrderMig`, `ZTMX_C_FreightOrdItemMig`, `ZTMX_C_FreightOrdStopMig` |

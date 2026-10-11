@@ -63,6 +63,7 @@ python3 tools/mig_reconcile.py records --product ehs_mig_src --module specificat
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- Specification: Classic specification model. Preserve all change states; no unverified latest-record rule.
+- SpecIdentifier: Native short identifier only; long-text interfaces and effective parent change-state relations remain pending.
 - SpecProperty: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-- Pending native dependency: chemical_property

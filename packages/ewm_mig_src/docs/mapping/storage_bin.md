@@ -57,4 +57,6 @@ python3 tools/mig_reconcile.py records --product ewm_mig_src --module storage_bi
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- StorageBin: EWM storage bins; LE-WM LAGP is a different model. Capacity fields await validated unit semantics.
+- BinSorting: SortSequence is payload, not an invented key. Confirm exact DDIC key flags before activation.

@@ -6,4 +6,4 @@ This groups the supplied native extraction drafts only. Pending dependencies rem
 
 | Level | Modules | Supplied native consumption views |
 |---|---|---|
-| 1 | [`phrase`](mapping/phrase.md), [`specification`](mapping/specification.md) | `ZEHX_C_PhraseMig`, `ZEHX_C_PhraseSetMig`, `ZEHX_C_SpecificationMig`, `ZEHX_C_SpecIdentifierMig` |
+| 1 | [`incident`](mapping/incident.md), [`phrase`](mapping/phrase.md), [`specification`](mapping/specification.md) | `ZEHX_C_IncidentMig`, `ZEHX_C_IncidentActionMig`, `ZEHX_C_PhraseMig`, `ZEHX_C_PhraseSetMig`, `ZEHX_C_SpecificationMig`, `ZEHX_C_SpecIdentifierMig` |

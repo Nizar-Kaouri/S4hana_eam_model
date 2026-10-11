@@ -37,4 +37,5 @@ python3 tools/mig_reconcile.py records --product tm_mig_src --module transport_l
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- TransportLoc: Internal location UUID is preserved. Address, location type and time zone payload remain pending.

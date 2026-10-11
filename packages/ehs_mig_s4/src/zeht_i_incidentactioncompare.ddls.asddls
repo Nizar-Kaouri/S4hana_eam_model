@@ -1,0 +1,33 @@
+// ModuPorter migration - status: draft-unverified (never activated on SAP)
+// Native scope: Separate EHSM action business-object root, not an incident child with a guessed PARENT_KEY. Action-to-incident/root-cause reference resolution and incident-only population remain pending. Broad action snapshot includes other reference origins. Title and resolved person names are extractor-derived and excluded.
+// Purpose: Read IncidentActionCompare as target comparison candidates.
+// Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
+// TODO-VERIFY[H] EHT-012: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@Analytics.dataExtraction.enabled: false
+@EndUserText.label: 'IncidentActionCompare'
+@ObjectModel.usageType.dataClass: #MIXED
+@ObjectModel.usageType.serviceQuality: #D
+@ObjectModel.usageType.sizeCategory: #L
+@VDM.viewType: #BASIC
+define view entity ZEHT_I_IncidentActionCompare
+  as select from ehhssd_iac_root as src
+{
+  key src.db_key as ActionUUID,
+      src.id as ActionID,
+      src.category as ActionCategory,
+      src.status as ActionStatus,
+      src.type as ActionType,
+      src.priority as Priority,
+      src.prot_goal as ProtectionGoal,
+      src.effectiv as Effectiveness,
+      src.due_timestamp as DueTimestamp,
+      src.due_ti_zo as DueTimeZone,
+      src.resp_id as ResponsiblePerson,
+      src.implem_id as Implementer,
+      src.appr_id as Approver,
+      src.impl_timestamp as ImplementedAt,
+      src.impl_ti_zo as ImplementationTimeZone,
+      src.appr_timestamp as ApprovedAt,
+      src.appr_ti_zo as ApprovalTimeZone
+}

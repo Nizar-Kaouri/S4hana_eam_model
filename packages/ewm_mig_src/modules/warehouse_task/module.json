@@ -1,9 +1,9 @@
 {
   "name": "warehouse_task",
   "title": "Warehouse tasks and confirmations",
-  "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
+  "description": "Partial documented native extraction; remaining structures and payload explicitly pending.",
   "batch": 1,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft-unverified",
   "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
@@ -12,7 +12,8 @@
     "process-reference"
   ],
   "sap_tables": [
-    "/SCWM/ORDIM_C"
+    "/SCWM/ORDIM_C",
+    "/SCWM/ORDIM_O"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
@@ -22,14 +23,17 @@
   "objects": {
     "tables": [],
     "basic": [
-      "ZWMX_I_TaskConfirmData"
+      "ZWMX_I_TaskConfirmData",
+      "ZWMX_I_WarehouseTaskData"
     ],
     "composite": [
-      "ZWMX_I_TaskConfirm"
+      "ZWMX_I_TaskConfirm",
+      "ZWMX_I_WarehouseTask"
     ],
     "consumption": [
       "ZWMX_C_TaskConfirmMig",
-      "ZWMX_C_TaskConfirmMigCount"
+      "ZWMX_C_TaskConfirmMigCount",
+      "ZWMX_C_WarehouseTaskMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -39,10 +43,11 @@
     "ZWMX_I_TaskConfirmData": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZWMX_I_TaskConfirm": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
     "ZWMX_C_TaskConfirmMig": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
-    "ZWMX_C_TaskConfirmMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP."
+    "ZWMX_C_TaskConfirmMigCount": "Read-only native migration extraction without DCL. Restrict the CDS extraction channel to authorized migration users; native table display authorization alone does not protect every CDS consumer. Verify business authorization and current-client isolation on SAP.",
+    "ZWMX_I_WarehouseTaskData": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMX_I_WarehouseTask": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer.",
+    "ZWMX_C_WarehouseTaskMig": "Read-only native extraction without DCL. Restrict and test authorized CDS extraction channels and current-client isolation. Table display authorization does not protect every CDS consumer."
   },
   "link_views": [],
-  "pending_structures": [
-    "WarehouseTask"
-  ]
+  "pending_structures": []
 }

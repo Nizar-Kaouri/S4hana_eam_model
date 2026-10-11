@@ -25,6 +25,38 @@ The consumption views deliver the values **exactly as stored in SAP source**. Ch
 | `DocumentType` | /SCMTMS/D_TORROT-TOR_TYPE | Native target evidence: ZTMT_I_FreightUnitCompare.DocumentType | information only | yes |
 | `LifecycleStatus` | /SCMTMS/D_TORROT-LIFECYCLE | Native target evidence: ZTMT_I_FreightUnitCompare.LifecycleStatus | information only | yes |
 
+## `ZTMX_C_FreightUnitItemMig`
+
+- Source: `ZTMX_I_FreightUnitItem`
+- Keys: `ItemUUID`
+- Scope: `all rows`
+- Delivery mode: **process-reference**
+- Before posting: Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.
+
+| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `ItemUUID` | /SCMTMS/D_TORITE-DB_KEY | Native target evidence: ZTMT_I_FreightUnitItemCompare.ItemUUID | information only | yes |
+| `DocumentUUID` | /SCMTMS/D_TORITE-PARENT_KEY | Native target evidence: ZTMT_I_FreightUnitItemCompare.DocumentUUID | information only | yes |
+| `ItemID` | /SCMTMS/D_TORITE-ITEM_ID | Native target evidence: ZTMT_I_FreightUnitItemCompare.ItemID | information only | yes |
+| `ItemCategory` | /SCMTMS/D_TORITE-ITEM_CAT | Native target evidence: ZTMT_I_FreightUnitItemCompare.ItemCategory | information only | yes |
+| `ItemType` | /SCMTMS/D_TORITE-ITEM_TYPE | Native target evidence: ZTMT_I_FreightUnitItemCompare.ItemType | information only | yes |
+
+## `ZTMX_C_FreightUnitStopMig`
+
+- Source: `ZTMX_I_FreightUnitStop`
+- Keys: `StopUUID`
+- Scope: `all rows`
+- Delivery mode: **process-reference**
+- Before posting: Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.
+
+| Element | Source (SAP source) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `StopUUID` | /SCMTMS/D_TORSTP-DB_KEY | Native target evidence: ZTMT_I_FreightUnitStopCompare.StopUUID | information only | yes |
+| `DocumentUUID` | /SCMTMS/D_TORSTP-PARENT_KEY | Native target evidence: ZTMT_I_FreightUnitStopCompare.DocumentUUID | information only | yes |
+| `StopID` | /SCMTMS/D_TORSTP-STOP_ID | Native target evidence: ZTMT_I_FreightUnitStopCompare.StopID | information only | yes |
+| `StopCategory` | /SCMTMS/D_TORSTP-STOP_CAT | Native target evidence: ZTMT_I_FreightUnitStopCompare.StopCategory | information only | yes |
+| `SequencePosition` | /SCMTMS/D_TORSTP-STOP_SEQ_POS | Native target evidence: ZTMT_I_FreightUnitStopCompare.SequencePosition | information only | yes |
+
 ## Reconciliation
 
 - Counts: `ZTMX_C_FreightUnitMigCount` (SAP source) vs `ZTMT_I_FreightUnitCount` (S/4HANA) as global candidate counts
@@ -37,6 +69,7 @@ python3 tools/mig_reconcile.py records --product tm_mig_src --module freight_uni
 
 ## Open gaps
 
-- Native field/key/release verification and SAP activation pending. No posting adapter.
-- FreightUnitItem: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
-- FreightUnitStop: Native field definitions, complete DDIC keys and/or application model unresolved; no staging fallback or executable view supplied.
+- Actual DDIC, release, SAP activation and acceptance unverified.
+- FreightUnit: TOR root plus separately delivered native item/stop drafts; quantities, route traversal, stages and freight bookings remain pending. Verify category and lifecycle scope.
+- FreightUnitItem: Native TOR items. Composite joins the delivered parent Basic on PARENT_KEY = DB_KEY and filters TOR_CAT FU. All item categories retained; product, quantity and unit payload remain pending. Parent UUID must be remapped with the target key ledger.
+- FreightUnitStop: Native TOR stops filtered through the parent category FU. STOP_ID is not a reliable route sequence; STOP_SEQ_POS classifies first/intermediate/last. Ordered route traversal needs STOP_SUCCESSOR and remains pending. Stop locations and dates remain pending.

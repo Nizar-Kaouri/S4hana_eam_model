@@ -3,7 +3,7 @@
   "title": "Phrases translations and set assignments",
   "description": "Native SAP extraction drafts where documented; unresolved structures explicitly pending.",
   "batch": 1,
-  "version": "0.2.0",
+  "version": "0.3.0",
   "status": "draft-unverified",
   "tested_release": "none (native DDIC and SAP activation pending)",
   "tags": [
