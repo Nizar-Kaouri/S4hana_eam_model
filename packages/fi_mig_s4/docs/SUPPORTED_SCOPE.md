@@ -1,5 +1,25 @@
 # Supported scope
 
+ModuPorter Financial Accounting version 1.0.0.
+
+| Module | ID | Objects |
+|---|---|---:|
+| Bank master target comparison | bank | 0 |
+| Customer source data target comparison | customer | 2 |
+| G/L accounts target comparison | gl_account | 2 |
+| Accounting document history target comparison | gl_line_item | 0 |
+| Dedicated G/L opening balances target comparison | gl_opening_balance | 0 |
+| Current and cleared item indexes target comparison | open_items | 0 |
+| Supplier source data target comparison | supplier | 2 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# Supported scope
+
 Financial Accounting has 7 modules and 20 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
@@ -12,7 +32,7 @@ Financial Accounting has 7 modules and 20 extraction structures.
 | Accounting document history | gl_line_item | 2 | reference |
 | Current and cleared item indexes | open_items | 6 | open-item |
 
-The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented candidate structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/fi; they are not duplicated as migration payloads.
+The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/fi; they are not duplicated as migration payloads.
 
 Customers and suppliers require Business Partner/CVI mapping, roles and numbering. FI BSEG may be a cluster table in ECC and therefore cannot be assumed readable by CDS; use the full-row ABAP helper or a verified extraction interface when necessary. Open-at-cutover means posted by cutover and not cleared by cutover, including subsequently cleared items. Separate currencies, debit/credit signs, ledgers and fiscal periods; prevent double-counting subledger openings in G/L balances.
 

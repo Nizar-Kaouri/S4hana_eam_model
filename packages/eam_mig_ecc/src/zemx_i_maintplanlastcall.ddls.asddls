@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Last call number and last completion date per maintenance plan: the restart point of the schedule on S/4HANA.
 // Example: Read the last completion date of plan 100.
 @AbapCatalog.sqlViewName: 'ZEMX_PLL'

@@ -1,6 +1,6 @@
 # ZEMX_I_TaskListHeader
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -35,7 +35,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 See every version of task list group 4711: filter TaskListGroup = '00004711'.
-
-## Open verification items
-
-`XTL-001`, `XTL-002`, `XTL-003` - see `BATCH_REPORT.md`.

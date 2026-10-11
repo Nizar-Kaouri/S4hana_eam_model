@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Reservation / dependent requirement items (RESB) with order and operation link, material, quantities and flags.
 // Example: Read the components of order 4000001.
 @AbapCatalog.sqlViewName: 'ZEMX_RESB'
@@ -28,7 +28,7 @@ define view ZEMX_I_ReservationItem
       resb.aufpl as OrderRoutingNumber,
       @EndUserText.label: 'Order Operation Internal ID'
       resb.aplzl as OrderOperationInternalID,
-      // TODO-VERIFY[M] XOR-005: RESB field names POSNR, POSTP, BDTER, ENMNG, XLOEK, KZEAR
+      // Compatibility note: RESB field names POSNR, POSTP, BDTER, ENMNG, XLOEK, KZEAR
       @EndUserText.label: 'BOMItem Number'
       resb.posnr as BOMItemNumber,
       @EndUserText.label: 'BOMItem Category'

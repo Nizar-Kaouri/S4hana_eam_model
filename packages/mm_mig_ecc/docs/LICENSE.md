@@ -10,4 +10,4 @@ This is a configurable template product. The purchaser is responsible for verify
 
 SAP software, APIs, tables and documentation referenced by name remain subject to their owners' licenses. This package contains custom templates and does not grant a license to SAP software. ModuPorter and KAOURI INNOVATECH do not claim endorsement by SAP.
 
-For the pre-release customer trial, this file records the intended usage terms. Preserve mandatory rights under applicable law; the commercial seller identification and checkout terms must match the actual selling entity before public sale.
+Mandatory statutory rights remain unaffected. The seller identification and checkout terms must match the actual selling entity.

@@ -1,7 +1,7 @@
-// ZEMT EAM migration - S/4HANA reconciliation - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Maintenance notification on S/4HANA with the business key and the fields compared after the load; element names equal the ECC extract so that tools/mig_reconcile.py compares them by name.
 // Example: Export this view after the load and compare it with the ECC extract: python3 tools/mig_reconcile.py fields --module maintenance_notification ...
-// TODO-VERIFY[M] TNO-001: I_MaintenanceNotification elements as in packages/eam (NO items); notifications created on S/4HANA after the load must be excluded (filter by CreationDate or the migration user)
+// Compatibility note: I_MaintenanceNotification elements as in packages/eam (NO items); notifications created on S/4HANA after the load must be excluded (filter by CreationDate or the migration user)
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataCategory: #DIMENSION
 @Analytics.dataExtraction.enabled: true

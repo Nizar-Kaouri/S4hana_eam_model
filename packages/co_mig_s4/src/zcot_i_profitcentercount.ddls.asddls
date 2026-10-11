@@ -1,5 +1,5 @@
-// ModuPorter migration - status: draft-unverified (never activated on SAP)
-// Purpose: Read ProfitCenterCount as target comparison candidates.
+// ModuPorter CO migration | Release 1.0.0
+// Purpose: Read ProfitCenterCount as target comparison records.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataExtraction.enabled: false

@@ -1,7 +1,7 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Order master data (AUFK) of maintenance orders (order category 30).
 // Example: Read the maintenance orders of company code 1000.
-// TODO-VERIFY[M] XOR-003: maintenance orders have order category AUFK-AUTYP = '30'
+// Compatibility note: maintenance orders have order category AUFK-AUTYP = '30'
 @AbapCatalog.sqlViewName: 'ZEMX_AUFK'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

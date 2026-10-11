@@ -1,6 +1,6 @@
 # ZEMX_C_MeasReadingMig
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -32,7 +32,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 The load program posts one measurement document per row as the initial reading on S/4HANA.
-
-## Open verification items
-
-none

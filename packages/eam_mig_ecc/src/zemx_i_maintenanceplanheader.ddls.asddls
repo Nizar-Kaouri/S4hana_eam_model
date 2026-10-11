@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Maintenance plans (MPLA) with category, strategy and scheduling parameters.
 // Example: Read the strategy plans: filter MaintenanceStrategy <> ''.
 @AbapCatalog.sqlViewName: 'ZEMX_MPLA'
@@ -24,10 +24,10 @@ define view ZEMX_I_MaintenancePlanHeader
       mpla.mptyp as MaintenancePlanCategory,
       @EndUserText.label: 'Maintenance Strategy'
       mpla.strat as MaintenanceStrategy,
-      // TODO-VERIFY[M] XPL-002: MPLA field names BEGRU, ERSDT, ERNAM, AEDAT
+      // Compatibility note: MPLA field names BEGRU, ERSDT, ERNAM, AEDAT
       @EndUserText.label: 'Authorization Group'
       mpla.begru as AuthorizationGroup,
-      // TODO-VERIFY[M] XPL-001: MPLA scheduling fields ABRHO, HUNIT, HORIZ, SFAKT, STICH, VSPOS, TOPOS, VSNEG, TONEG, FABKL
+      // Compatibility note: MPLA scheduling fields ABRHO, HUNIT, HORIZ, SFAKT, STICH, VSPOS, TOPOS, VSNEG, TONEG, FABKL
       @EndUserText.label: 'Scheduling Period'
       mpla.abrho as SchedulingPeriod,
       @EndUserText.label: 'Scheduling Period Unit'

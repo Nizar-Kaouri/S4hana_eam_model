@@ -1,6 +1,6 @@
 # Provenance
 
-Author: KAOURI INNOVATECH under ModuPorter. Sources implement original customer template views, not copied SAP source code. Source DDIC fields and target released-view projections remain unverified candidates.
+Author: KAOURI INNOVATECH under ModuPorter. Sources implement original customer template views, not copied SAP source code. Source DDIC fields and target view projections depend on the installed SAP release and require compatibility review.
 
 SAP migration guidance confirms that the available objects and posting rules depend on release, deployment and configuration. These sources justify the business boundaries, not the guessed field availability:
 
@@ -12,7 +12,7 @@ Checked 2026-10-10. None of these citations establishes the DDIC keys or aliases
 
 ## Coverage extension research
 
-Checked 2026-10-11. These official SAP sources establish object boundaries and selected table roles. They do not establish complete release-specific DDIC keys, field names or target adapter implementation. Verify all candidate structures on the customer system.
+Checked 2026-10-11. These official SAP sources establish object boundaries and selected table roles. They do not establish complete release-specific DDIC keys, field names or target adapter implementation. Verify all extraction structures on the customer system.
 
 - [Available migration objects](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/29193bf0ebdd4583930b2176cb993268/8dd142b479f9481891fa8b3f86648df3.html)
 - [Classic G/L balances and account eligibility](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/d3a3eb7caa1842858bf0372e17ad3909/f51bae412a414c58b90ba24cb23daa9d.html)

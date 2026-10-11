@@ -1,2 +1,2 @@
-﻿ControllingArea,COAccountingDocument,COAccountingDocumentItem,FiscalYear,ObjectNumber,CostElement,ValueType,BusinessTransaction,TransactionAmount,TransactionCurrency
+ControllingArea,COAccountingDocument,COAccountingDocumentItem,FiscalYear,ObjectNumber,CostElement,ValueType,BusinessTransaction,TransactionAmount,TransactionCurrency
 01,01,01,sample,sample,sample,sample,sample,sample,sample

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Current, not deleted maintenance task list headers.
 // Example: The load program creates one task list per row.
 @AbapCatalog.sqlViewName: 'ZEMX_CTL'

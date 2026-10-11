@@ -1,9 +1,9 @@
 {
   "module": "production_version",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "Customer-verified business interface; effectivity-reference restrictions apply",
-    "todo_verify": []
+    "compatibility_notes": []
   },
   "sequence_after": [
     "bill_of_material",

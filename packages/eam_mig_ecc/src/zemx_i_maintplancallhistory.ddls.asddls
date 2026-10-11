@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Scheduled and completed calls per maintenance plan (MHIS).
 // Example: Read the calls of plan 100.
 @AbapCatalog.sqlViewName: 'ZEMX_MHIS'
@@ -17,7 +17,7 @@ define view ZEMX_I_MaintPlanCallHistory
 {
       @EndUserText.label: 'Maintenance Plan'
   key mhis.warpl as MaintenancePlan,
-      // TODO-VERIFY[H] XPL-006: MHIS field names (ABNUM, NPLDA, HORDA, LRMDT) and their meaning (planned date, call date, completion date)
+      // Compatibility note: MHIS field names (ABNUM, NPLDA, HORDA, LRMDT) and their meaning (planned date, call date, completion date)
       @EndUserText.label: 'Maint Plan Call Number'
   key mhis.abnum as MaintPlanCallNumber,
       @EndUserText.label: 'Planned Date'

@@ -1,6 +1,6 @@
 # Migration interface: profit_center
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** customer-selected supported posting interface; reference data is not posted
 - **Load after:** - (first level)

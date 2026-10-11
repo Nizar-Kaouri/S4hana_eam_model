@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Assignment of operations to task list sequences (PLAS) for maintenance task lists.
 // Example: Read the operation nodes of task list group 4711, group counter 01.
 @AbapCatalog.sqlViewName: 'ZEMX_PLAS'
@@ -25,7 +25,7 @@ define view ZEMX_I_TaskListOpAssignment
   key plas.plnfl as TaskListSequence,
       @EndUserText.label: 'Task List Operation Internal Id'
   key plas.plnkn as TaskListOperationInternalId,
-      // TODO-VERIFY[H] XTL-004: PLAS and PLPO both carry change-number versions (ZAEHL); the highest recorded counter is selected independently per assignment/detail identity before deletion filtering; confirm validity-date and change-number semantics for the cutover snapshot
+      // Compatibility note: PLAS and PLPO both carry change-number versions (ZAEHL); the highest recorded counter is selected independently per assignment/detail identity before deletion filtering; confirm validity-date and change-number semantics for the cutover snapshot
       @EndUserText.label: 'Task List Op Assgmt Version'
   key plas.zaehl as TaskListOpAssgmtVersion,
       @EndUserText.label: 'Is Marked For Deletion'

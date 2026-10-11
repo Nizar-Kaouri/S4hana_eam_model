@@ -39,7 +39,7 @@ def module_doc(m, lib, status):
              f"- **Load after:** {', '.join(f'`{d}`' for d in m['sequence_after']) or '- (first level)'}",
              f"- **Business key:** {', '.join(f'`{k}`' for k in m['key']['business_key'])} · numbering **{m['key']['numbering']}**",
              f"- **Key rule:** {m['key']['note']}", ""]
-    for t in m["target"].get("todo_verify", []):
+    for t in m["target"].get("compatibility_notes", m["target"].get("todo_verify", [])):
         lines += [f"> {t}", ""]
     lines += ["The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, "
               "new numbers, ...) is up to the load program.", ""]
@@ -82,6 +82,8 @@ def expected():
         return {}
     status = ("> Status: **draft-unverified** · tested release: "
               + lib.get("draft_tested_release", "none") + ". Nothing below has been run on a system.")
+    if lib.get("phase") == "released":
+        status = "> Version **" + lib["version"] + "**"
     mappings = {}
     for p in sorted((ROOT / "modules").glob("*/mapping.json")):
         m = json.loads(p.read_text(encoding="utf-8"))

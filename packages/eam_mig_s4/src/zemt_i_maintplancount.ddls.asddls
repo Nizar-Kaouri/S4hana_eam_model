@@ -1,4 +1,4 @@
-// ZEMT EAM migration - S/4HANA reconciliation - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Record count of maintenance plans on S/4HANA per MaintenancePlanCategory, MaintenanceStrategy; same structure as the ECC count view.
 // Example: Export after the load: python3 tools/mig_reconcile.py counts --module maintenance_plan --source <ECC export> --target <this export>.
 @AccessControl.authorizationCheck: #NOT_REQUIRED

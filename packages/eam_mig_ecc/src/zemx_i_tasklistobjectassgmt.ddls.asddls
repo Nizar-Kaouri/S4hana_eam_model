@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Task-list object allocation change states; customer resolves validity at cutover.
 // Example: Find the task lists of equipment 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_EAPL'

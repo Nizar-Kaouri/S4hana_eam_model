@@ -1,7 +1,7 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Maintenance data of PM notifications (QMIH): reference object, planning plant, planner group, breakdown and malfunction data.
 // Example: Read the breakdowns: filter MaintenanceObjectIsDown = 'X'.
-// TODO-VERIFY[M] XNO-003: every PM notification has a QMIH row; quality / service notifications without maintenance data are excluded by the inner join in the composite views
+// Compatibility note: every PM notification has a QMIH row; quality / service notifications without maintenance data are excluded by the inner join in the composite views
 @AbapCatalog.sqlViewName: 'ZEMX_QMIH'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

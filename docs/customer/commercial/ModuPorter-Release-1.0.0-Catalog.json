@@ -1,0 +1,56 @@
+[
+  {
+    "pack": "EAM",
+    "version": "1.0.0",
+    "file": "ModuPorter-EAM-Customer-Pack-1.0.0.zip",
+    "sha256": "1d3ea25c6a5d1259c1e15c5c788a73b88d843f9331e5c3486947cfb480300d4b"
+  },
+  {
+    "pack": "FI-AA",
+    "version": "1.0.0",
+    "file": "ModuPorter-FI-AA-Customer-Pack-1.0.0.zip",
+    "sha256": "a5bf535b3d69b8a5554c4ce5e711808c021e7a73636ecc259b7ab13472595f9a"
+  },
+  {
+    "pack": "MM",
+    "version": "1.0.0",
+    "file": "ModuPorter-MM-Customer-Pack-1.0.0.zip",
+    "sha256": "bd6bcc0ff9340bbff4f015968c9a68c9417dd662bb10750249a6538b18d9955c"
+  },
+  {
+    "pack": "QM",
+    "version": "1.0.0",
+    "file": "ModuPorter-QM-Customer-Pack-1.0.0.zip",
+    "sha256": "7a2ba65ff17a3859852d3cd948a347198e4889dd83cd01dbccbbd733ff9b9f7f"
+  },
+  {
+    "pack": "PS",
+    "version": "1.0.0",
+    "file": "ModuPorter-PS-Customer-Pack-1.0.0.zip",
+    "sha256": "5de076afc99b6d6bcbbf8cbb23abce0b316f590a8409ddbb3bbe1e709721e13b"
+  },
+  {
+    "pack": "PP",
+    "version": "1.0.0",
+    "file": "ModuPorter-PP-Customer-Pack-1.0.0.zip",
+    "sha256": "34802ffade57642788406bee59e08c0006f5ce1f4b2980b670562c5d1c511ade"
+  },
+  {
+    "pack": "CO",
+    "version": "1.0.0",
+    "file": "ModuPorter-CO-Customer-Pack-1.0.0.zip",
+    "sha256": "6f0f4f56132d2a70286d8d79fb2175ab8ebcc73808a18754ebbaab2b9dbf121d"
+  },
+  {
+    "pack": "FI",
+    "version": "1.0.0",
+    "file": "ModuPorter-FI-Customer-Pack-1.0.0.zip",
+    "sha256": "6539ae7af07967b0dac31b2ac80349f7999748cb99b88adcd5f29da1ca471d4e"
+  },
+  {
+    "pack": "SD",
+    "version": "1.0.0",
+    "file": "ModuPorter-SD-Customer-Pack-1.0.0.zip",
+    "sha256": "378b0dba1c7d7dbc88b3452444b7239fb96db6fb142d7c88f1876675d7a89454"
+  }
+]

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Characteristic values with the characteristic name instead of the internal number.
 // Example: Read the values of equipment 10000001: filter ClassType = '002'.
 @AbapCatalog.sqlViewName: 'ZEMX_CLV'

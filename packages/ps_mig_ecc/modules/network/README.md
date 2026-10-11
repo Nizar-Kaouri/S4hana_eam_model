@@ -1,6 +1,5 @@
 # Project networks and activities
 
-Status: draft-unverified. Delivery mode: process-reference.
 
 AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.
 

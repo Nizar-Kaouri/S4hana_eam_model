@@ -1,5 +1,25 @@
 # Supported scope
 
+ModuPorter Project System version 1.0.0.
+
+| Module | ID | Objects |
+|---|---|---:|
+| Project overall and annual budgets target comparison | budget | 0 |
+| Project commitments target comparison | commitment | 0 |
+| Investment programs and measures target comparison | investment_measure | 0 |
+| Project networks and activities target comparison | network | 0 |
+| Projects target comparison | project | 2 |
+| Project cost history target comparison | project_cost | 0 |
+| WBS elements target comparison | wbs_element | 2 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# Supported scope
+
 Project System has 7 modules and 14 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
@@ -12,7 +32,7 @@ Project System has 7 modules and 14 extraction structures.
 | WBS elements | wbs_element | 2 | master |
 | Project cost history | project_cost | 1 | reference |
 
-The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented candidate structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/ps; they are not duplicated as migration payloads.
+The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/ps; they are not duplicated as migration payloads.
 
 Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement.
 

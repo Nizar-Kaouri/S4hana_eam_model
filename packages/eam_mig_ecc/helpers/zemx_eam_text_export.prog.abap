@@ -1,6 +1,6 @@
 REPORT zemx_eam_text_export.
 
-" ModuPorter READ_TEXT payload helper; SAP activation unverified.
+" ModuPorter READ_TEXT payload helper; SAP activation release.
 " Input: UTF-8 TSV, no header, object/name/id/language; selected cohort only.
 PARAMETERS p_keys TYPE rlgrap-filename OBLIGATORY.
 PARAMETERS p_file TYPE rlgrap-filename OBLIGATORY.

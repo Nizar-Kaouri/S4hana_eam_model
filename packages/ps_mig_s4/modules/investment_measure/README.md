@@ -1,6 +1,5 @@
 # Investment programs and measures
 
-Status: draft-unverified. Delivery mode: configuration-reference.
 
 Verify investment-program hierarchy and annual approval, assignments to WBS/internal orders, investment profiles, budget distribution and asset-under-construction settlement. IMTP/IMPR/IMZO are candidate configuration/reference structures, not a finished investment-measure posting schema. Preserve externally meaningful identifiers and map internal object numbers.
 

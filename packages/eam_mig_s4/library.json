@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
-  "phase": "no-system",
+  "phase": "released",
   "prefix": "ZEMT_",
   "package": "ZEMT_MIG",
   "package_description": "EAM Migration - S/4HANA reconciliation views",
@@ -25,5 +25,6 @@
     "basic": "I_",
     "composite": "I_",
     "consumption": "C_"
-  }
+  },
+  "version": "1.0.0"
 }

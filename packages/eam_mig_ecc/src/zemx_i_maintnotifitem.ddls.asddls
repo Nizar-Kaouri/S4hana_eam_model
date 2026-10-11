@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Items of PM notifications (restricted to notifications with maintenance data).
 // Example: Read the items of notification 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_NOI'

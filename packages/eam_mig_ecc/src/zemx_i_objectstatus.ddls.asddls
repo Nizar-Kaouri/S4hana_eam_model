@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Active statuses with object type, object key and status profile.
 // Example: Read the active user statuses of the orders: filter StatusObjectType = 'OR' and StatusKind = 'E'.
 @AbapCatalog.sqlViewName: 'ZEMX_ST'

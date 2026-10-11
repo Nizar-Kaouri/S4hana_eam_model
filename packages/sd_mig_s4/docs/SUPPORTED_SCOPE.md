@@ -1,5 +1,22 @@
 # Supported scope
 
+ModuPorter Sales and Distribution version 1.0.0.
+
+| Module | ID | Objects |
+|---|---|---:|
+| Billing document reference target comparison | billing_document | 2 |
+| Outbound delivery reference target comparison | outbound_delivery | 2 |
+| Pricing condition records and scales target comparison | pricing_condition | 0 |
+| Sales orders target comparison | sales_order | 2 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# Supported scope
+
 Sales and Distribution has 4 modules and 16 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
@@ -9,7 +26,7 @@ Sales and Distribution has 4 modules and 16 extraction structures.
 | Outbound delivery reference | outbound_delivery | 2 | reference |
 | Billing document reference | billing_document | 2 | reference |
 
-The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented candidate structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/sd; they are not duplicated as migration payloads.
+The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/sd; they are not duplicated as migration payloads.
 
 Open sales scope must resolve item rejection, delivery and billing status, document flow and remaining quantities. Historical deliveries and billing documents are reference data; recreating them can trigger accounting or logistics. Partners, pricing, texts and tax need explicit target interfaces and agreed key maps. Do not infer open status from VBAK alone.
 

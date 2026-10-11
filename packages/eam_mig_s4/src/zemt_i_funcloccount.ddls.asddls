@@ -1,4 +1,4 @@
-// ZEMT EAM migration - S/4HANA reconciliation - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Record count of functional locations on S/4HANA per MaintenancePlanningPlant, FunctionalLocationCategory; same structure as the ECC count view.
 // Example: Export after the load: python3 tools/mig_reconcile.py counts --module functional_location --source <ECC export> --target <this export>.
 @AccessControl.authorizationCheck: #NOT_REQUIRED

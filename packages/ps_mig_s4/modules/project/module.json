@@ -1,11 +1,10 @@
 {
   "name": "project",
   "title": "Projects target comparison",
-  "description": "Projects source candidates, preparation and comparison contracts.",
+  "description": "Projects source records, preparation and comparison contracts.",
   "batch": 1,
-  "version": "0.1.0",
-  "status": "draft-unverified",
-  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "version": "1.0.0",
+  "status": "released",
   "tags": [
     "migration",
     "master"

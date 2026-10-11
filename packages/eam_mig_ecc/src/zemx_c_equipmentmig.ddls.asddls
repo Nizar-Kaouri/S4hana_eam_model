@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Equipment to migrate (not flagged for deletion) with all fields as stored in ECC.
 // Example: The load program creates the equipment (superordinate equipment first) and installs it at FunctionalLocation.
 @AbapCatalog.sqlViewName: 'ZEMX_CEQ'

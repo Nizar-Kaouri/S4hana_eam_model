@@ -1,6 +1,6 @@
 # ZPST_I_WBSCount
 
-> Status: **draft-unverified** · tested release: none (draft, S/4HANA 2025 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Read WBSCount as target comparison candidates.
+Read WBSCount as target comparison records.
 
 ## Keys
 
@@ -32,7 +32,3 @@ No DCL by design: Read-only migration extraction without DCL. Verify the extract
 ## Example use case
 
 Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
-
-## Open verification items
-
-none

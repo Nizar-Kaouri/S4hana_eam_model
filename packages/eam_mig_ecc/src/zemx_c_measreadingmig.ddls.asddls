@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Last valid reading per measuring point; values in the SI unit.
 // Example: The load program posts one measurement document per row as the initial reading on S/4HANA.
 @AbapCatalog.sqlViewName: 'ZEMX_CMR'

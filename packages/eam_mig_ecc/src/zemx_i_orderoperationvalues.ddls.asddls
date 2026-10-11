@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Quantities and durations of order operations (AFVV).
 // Example: Read the planned work of routing number 1000001.
 @AbapCatalog.sqlViewName: 'ZEMX_AFVV'

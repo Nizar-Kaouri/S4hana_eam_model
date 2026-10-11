@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Object numbers whose system status I0046 - closed (CLSD) - is active; joined by the composite views to derive the scope flags.
 // Example: Check whether order object number OR000004000001 carries I0046.
 @AbapCatalog.sqlViewName: 'ZEMX_SCLSD'

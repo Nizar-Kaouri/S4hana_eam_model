@@ -9,7 +9,6 @@ Official SAP documentation supports the business structures, not every field use
 - IHSG permit segment context: https://help.sap.com/docs/SUPPORT_CONTENT/abap/3353523711.html?locale=en-US
 - EQBS context: https://help.sap.com/docs/SAP_ERP/83ae2fb47d3f45099dc6d121b0a7706c/1bc1cc5340487214e10000000a174cb4.html
 
-The XADD source markers explicitly require real-release DDIC confirmation of all new keys and fields. These references are not evidence of successful activation or target API compatibility. Target table references in mapping.json are conceptual lineage, not instructions to update SAP tables directly.
 
 Additional helper inventory evidence:
 

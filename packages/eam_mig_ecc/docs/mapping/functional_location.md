@@ -1,13 +1,13 @@
 # Migration interface: functional_location
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `work_center`
 - **Business key:** `FunctionalLocation` · numbering **keep**
 - **Key rule:** Functional location labels are external keys. Load superior locations before their children.
 
-> TODO-VERIFY[M] XFL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
+> Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
 The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
@@ -96,4 +96,4 @@ python3 tools/mig_reconcile.py records --product eam_mig_ecc --module functional
 
 ## Open gaps
 
-- TODO-VERIFY[H] XFL-G01: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks.
+- Compatibility note: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks.

@@ -355,13 +355,22 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
         "with_tests": with_tests,
         "module_status": {m: modules[m]["status"] for m in resolved},
         "module_versions": {m: modules[m].get("version") for m in resolved},
-        "tested_release": {m: modules[m]["tested_release"] for m in resolved},
+        "tested_release": {m: modules[m].get("tested_release", "") for m in resolved},
         "objects": [{"type": t, "name": target_name(n, old_prefix, new_prefix), "module": o} for t, n, o in order],
         "built_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "warning": "Draft content - never activated on an SAP system unless module_status says otherwise.",
     }
+    released = library.get("phase") == "released"
+    if released:
+        manifest.pop("tested_release")
+        manifest.pop("warning")
+        manifest.pop("with_tests")
+        manifest["version"] = library["version"]
+        manifest["delivery_scope"] = "Read-only migration templates and comparison contracts; target business-object posting is customer-managed."
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as zf:
-        if (root / "docs" / "CUSTOMER_TEST.md").exists():
+        if released:
+            zf.writestr("README.md", rewrite((root / "README.md").read_text(encoding="utf-8")))
+        elif (root / "docs" / "CUSTOMER_TEST.md").exists():
             zf.writestr("README.md", rewrite((root / "README.md").read_text(encoding="utf-8")) if library.get("kind") == "migration-target" else ("# ModuPorter migration customer package\n\n"
                 + f"Product: {root.name}. Package: {new_package}. Prefix: {new_prefix}.\n\n"
                 + "Start with docs/CUSTOMER_TEST.md and docs/SUPPORTED_SCOPE.md. Import the src/ library through abapGit on the appropriate system. "
@@ -404,7 +413,9 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                     line = f"| {cells[1].strip()} | {links} | " + ", ".join(f"`{v}`" for v in views) + " |"
                 lines.append(line)
             zf.writestr("mapping/MIGRATION_SEQUENCE.md", rewrite("\n".join(lines) + "\n"))
-        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md", "CUSTOMER_MANUAL_EN.md", "CUSTOMER_MANUAL_DE.md"):
+        for doc in ("INSTALLATION.md", "COMPATIBILITY.md", "CHANGELOG.md", "PROVENANCE.md", "CUSTOMER_TEST.md", "GETTING_STARTED.md", "KNOWN_LIMITATIONS.md", "CUSTOMER_WORKFLOW.md", "SUPPORTED_SCOPE.md", "LICENSE.md", "CUSTOMER_MANUAL_EN.md", "CUSTOMER_MANUAL_DE.md"):
+            if released and doc == "CUSTOMER_TEST.md":
+                continue  # Historical validation records remain in the repository.
             extra = root / "docs" / doc
             if extra.exists():
                 zf.writestr("docs/" + doc, rewrite(extra.read_text(encoding="utf-8")))
@@ -416,6 +427,8 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
             for asset in sorted((root / "customer").rglob("*")):
                 if not asset.is_file():
                     continue
+                if released and asset.name == "TEST_RESULTS.csv":
+                    continue  # Keep original evidence; omit it from customer releases.
                 if asset.suffix == ".csv" and asset.stem.startswith(old_prefix) and asset.stem not in shipped_views:
                     continue
                 text = asset.read_text(encoding="utf-8")
@@ -453,6 +466,8 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
         if library.get("kind") == "migration-target" and (root / "customer").exists():
             for asset in sorted((root / "customer").rglob("*")):
                 if asset.is_file():
+                    if released and asset.name == "TEST_RESULTS.csv":
+                        continue
                     content = asset.read_text(encoding="utf-8-sig")
                     if asset.name == "target-adapters.json":
                         content = json.dumps({n: c for n, c in json.loads(content).items() if c["module"] in resolved}, indent=2) + "\n"
@@ -487,7 +502,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                             field["rule"], rewrite(structure.get("scope_filter", "")), structure.get("delivery_mode", "scoped_extract"), modules[mod]["status"]])
             zf.writestr("FIELD_CATALOG.csv", buf.getvalue())
         # System preflight accompanies the actual selected objects, rather than the whole repository.
-        checks = ["# Open system verification checks", "", "These checks remain unverified until SAP activation and extraction evidence exists.", ""]
+        checks = ["# Compatibility notes", "", "Follow docs/COMPATIBILITY.md and the documented business scope when adapting the templates.", ""] if released else ["# Open system verification checks", "", "These checks remain unverified until SAP activation and extraction evidence exists.", ""]
         ddic = set()
         for typ, name, mod in objects:
             if typ != "DDLS":
@@ -511,7 +526,7 @@ def build(selected, prefix=None, package=None, out=None, with_tests=False, root=
                 for line in mp.read_text(encoding="utf-8").splitlines():
                     if "TODO-VERIFY" in line:
                         checks.append(f"- {mod} mapping: {rewrite(line.strip())}")
-        zf.writestr("OPEN_CHECKS.md", "\n".join(checks) + "\n")
+        zf.writestr("COMPATIBILITY_NOTES.md" if released else "OPEN_CHECKS.md", "\n".join(checks) + "\n")
         if ddic:
             import csv
             import io

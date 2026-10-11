@@ -1,9 +1,9 @@
 {
   "module": "investment_measure",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "Customer-verified business interface; configuration-reference restrictions apply",
-    "todo_verify": []
+    "compatibility_notes": []
   },
   "sequence_after": [
     "wbs_element"

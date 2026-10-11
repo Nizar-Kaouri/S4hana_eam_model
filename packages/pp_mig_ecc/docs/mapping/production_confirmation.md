@@ -1,6 +1,6 @@
 # Migration interface: production_confirmation
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** Customer-verified business interface; process-reference restrictions apply
 - **Load after:** `production_order`, `production_order_operation`

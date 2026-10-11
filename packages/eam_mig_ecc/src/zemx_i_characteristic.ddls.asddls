@@ -1,7 +1,7 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Characteristic names by internal number (current version): the name is the key used on S/4HANA, the internal number differs.
 // Example: Find the name of characteristic 0000000815.
-// TODO-VERIFY[M] XCL-003: CABN rows of characteristics without engineering change management have ADZHL = '0000'
+// Compatibility note: CABN rows of characteristics without engineering change management have ADZHL = '0000'
 @AbapCatalog.sqlViewName: 'ZEMX_CABN'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

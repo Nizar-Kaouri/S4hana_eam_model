@@ -1,6 +1,6 @@
 # ZEMX_C_MaintOrderMigCount
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -33,7 +33,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Export this view before the load and the S/4HANA count view after it; the reconcile tool lists every MaintenanceOrderType / MaintenancePlanningPlant combination whose counts differ.
-
-## Open verification items
-
-none

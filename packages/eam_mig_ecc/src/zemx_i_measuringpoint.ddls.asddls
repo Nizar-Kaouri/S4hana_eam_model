@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Measuring point with the technical object it belongs to (decoded from the object number) and the characteristic name instead of the internal number.
 // Example: Read the counters of equipment: filter MeasuringPointObjectType = 'IE' and MeasuringPointIsCounter = 'X'.
 @AbapCatalog.sqlViewName: 'ZEMX_MP'

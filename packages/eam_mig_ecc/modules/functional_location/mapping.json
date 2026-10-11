@@ -1,10 +1,10 @@
 {
   "module": "functional_location",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XFL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -367,7 +367,7 @@
     }
   },
   "gaps": [
-    "TODO-VERIFY[H] XFL-G01: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks."
+    "Compatibility note: IFLOS labels are delivered; verify labeling-system keys and active-state interpretation and align target structure edit masks."
   ],
   "main_structure": "ZEMX_C_FuncLocMig"
 }

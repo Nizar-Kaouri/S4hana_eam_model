@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Items of the open notifications with code groups and codes.
 // Example: The load program adds the items to the notification created from ZEMX_C_MaintNotificationMig.
 @AbapCatalog.sqlViewName: 'ZEMX_CNOI'

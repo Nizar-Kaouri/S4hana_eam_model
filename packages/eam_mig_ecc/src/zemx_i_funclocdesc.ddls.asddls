@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Functional location descriptions (IFLOTX) per language with the long-text indicator.
 // Example: Read the German description of FL 1000-PUMP-01.
 @AbapCatalog.sqlViewName: 'ZEMX_IFLOTX'

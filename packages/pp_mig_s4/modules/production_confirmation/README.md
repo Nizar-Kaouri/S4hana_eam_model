@@ -1,6 +1,5 @@
 # Production confirmations
 
-Status: draft-unverified. Delivery mode: process-reference.
 
 Preserve confirmation/counter identity and reversal relationships; do not delete reversals and assume the remaining history is net yield. Target order/operation mapping and posting periods must be approved. Reposting confirmations can trigger backflush, goods movements, activity allocations and accounting; confirmation history is reference-only unless a supported process migration explicitly authorizes those effects.
 

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Class assignments with the class name instead of the internal class number.
 // Example: Read the equipment classes: filter ClassType = '002'.
 @AbapCatalog.sqlViewName: 'ZEMX_CLA'

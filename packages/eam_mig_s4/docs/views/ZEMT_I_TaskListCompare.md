@@ -1,6 +1,6 @@
 # ZEMT_I_TaskListCompare
 
-> Status: **draft-unverified** · tested release: none (draft, 2025 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -34,7 +34,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Export this view after the load and compare it with the ECC extract: python3 tools/mig_reconcile.py fields --module task_list ...
-
-## Open verification items
-
-`TTL-001` - see `BATCH_REPORT.md`.

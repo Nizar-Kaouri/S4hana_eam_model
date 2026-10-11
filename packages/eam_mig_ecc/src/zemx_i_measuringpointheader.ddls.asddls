@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Measuring points and counters (IMPTT) with object number, characteristic, ranges and indicators.
 // Example: Read the counters: filter MeasuringPointIsCounter = 'X'.
 @AbapCatalog.sqlViewName: 'ZEMX_IMPTT'
@@ -24,7 +24,7 @@ define view ZEMX_I_MeasuringPointHeader
       imptt.mptyp                    as MeasuringPointCategory,
       @EndUserText.label: 'Measuring Point Position Number'
       imptt.psort                    as MeasuringPointPositionNumber,
-      // TODO-VERIFY[H] XMP-001: IMPTT-MPOBJ is the object number 'IE' + EQUNR (equipment) or 'IF' + TPLNR (functional location)
+      // Compatibility note: IMPTT-MPOBJ is the object number 'IE' + EQUNR (equipment) or 'IF' + TPLNR (functional location)
       @EndUserText.label: 'Measuring Point Object Number'
       imptt.mpobj                    as MeasuringPointObjectNumber,
       @EndUserText.label: 'Measuring Point Object Type'
@@ -37,10 +37,10 @@ define view ZEMX_I_MeasuringPointHeader
       imptt.indct                    as MeasuringPointIsCounter,
       @EndUserText.label: 'Measuring Point Decimal Places'
       imptt.decim                    as MeasuringPointDecimalPlaces,
-      // TODO-VERIFY[M] XMP-003: IMPTT field names MRNGU, MRMIN, MRMAX, DESIR, CODGR, INACT, LVORM, BEGRU
+      // Compatibility note: IMPTT field names MRNGU, MRMIN, MRMAX, DESIR, CODGR, INACT, LVORM, BEGRU
       @EndUserText.label: 'Measurement Range Unit'
       imptt.mrngu                    as MeasurementRangeUnit,
-      // TODO-VERIFY[H] XMP-004: limits and target values are stored as floating point numbers in the SI unit of the characteristic
+      // Compatibility note: limits and target values are stored as floating point numbers in the SI unit of the characteristic
       @EndUserText.label: 'Lower Range Limit'
       imptt.mrmin                    as LowerRangeLimit,
       @EndUserText.label: 'Upper Range Limit'

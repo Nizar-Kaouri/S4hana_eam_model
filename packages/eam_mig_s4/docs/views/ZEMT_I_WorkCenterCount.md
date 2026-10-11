@@ -1,6 +1,6 @@
 # ZEMT_I_WorkCenterCount
 
-> Status: **draft-unverified** · tested release: none (draft, 2025 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -33,7 +33,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Export after the load: python3 tools/mig_reconcile.py counts --module work_center --source <ECC export> --target <this export>.
-
-## Open verification items
-
-none

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Characteristic values of equipment and functional locations; numeric values in the base unit.
 // Example: The load program sets the values after the class assignment.
 @AbapCatalog.sqlViewName: 'ZEMX_CCLV'

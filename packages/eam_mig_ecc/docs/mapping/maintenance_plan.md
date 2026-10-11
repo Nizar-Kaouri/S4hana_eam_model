@@ -1,13 +1,13 @@
 # Migration interface: maintenance_plan
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `equipment`, `functional_location`, `task_list`, `measuring_point`, `measurement_document`
 - **Business key:** `MaintenancePlan` · numbering **new**
 - **Key rule:** Plans and items are usually renumbered: the load program keeps the old -> new numbers.
 
-> TODO-VERIFY[M] XPL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
+> Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
 The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
@@ -104,4 +104,4 @@ python3 tools/mig_reconcile.py records --product eam_mig_ecc --module maintenanc
 
 ## Open gaps
 
-- TODO-VERIFY[H] XPL-G01: open calls (orders / notifications created by scheduling) must be completed or migrated as open orders before the plan is restarted, otherwise calls are duplicated
+- Compatibility note: open calls (orders / notifications created by scheduling) must be completed or migrated as open orders before the plan is restarted, otherwise calls are duplicated

@@ -1,38 +1,32 @@
-# SAP ERP â†’ S/4HANA migration models (CDS)
+# ModuPorter SAP migration templates
 
-Packages that help move data from an old SAP ERP (ECC 6.0) system to SAP S/4HANA (new implementation or
-selective data transition). Per business area there is:
+Commercial migration templates for EAM/PM, FI-AA, MM, QM, PS, PP, CO, FI and SD. **Release 1.0.0** contains 170 source extraction structures and 644 source/target CDS objects.
 
-- a **source** product that runs on ECC: classic CDS views in three layers - basic (one table each) â†’ composite
-  (business object) â†’ consumption (`C_*Mig`: migration template, scope applied, values exactly as in ECC).
-  The customer's load program reads the consumption views with any technology and adapts the values,
-- a **mapping model** (every source element â†’ S/4HANA target field with a rule, business keys and numbering,
-  scope filters, load order),
-- a **reconciliation** product on S/4HANA plus `tools/mig_reconcile.py` (counts and record-by-record field
-  comparison after the load).
+Each domain has `<domain>_mig_ecc` for SAP ECC extraction and mappings, and `<domain>_mig_s4` for S/4HANA comparison. Source architecture: SAP table → Basic → Composite → Consumption. Posting uses the customer-selected SAP interface.
 
-The buyer picks the migration objects and gets only those, plus what they depend on, under their own prefix
-and ABAP package. **EAM / Plant Maintenance is the pilot** (`packages/eam_mig_ecc` + `packages/eam_mig_s4`).
+See [customer downloads and bilingual manuals](docs/customer/commercial/README.md) and [product scope](PRODUCT_CHECKLIST.md). Individual module selection automatically includes required dependencies. Functional SAP annotations remain part of the templates.
 
-English and German EAM customer manuals and the complete VDM object map are in
-[`docs/customer/eam`](docs/customer/eam/README.md).
+## Commercial packs
 
-The S/4HANA analytics packages built first (`eam`, `fi_aa`, `mm`, ...; analytical cubes and queries on SAP
-released `I_` views) stay in the repository as an optional **analytics add-on** for after the migration.
+| Pack | Source structures | Source CDS | Target CDS | Download |
+|---|---:|---:|---:|---|
+| EAM | 41 | 158 | 16 | [ModuPorter-EAM-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-EAM-Customer-Pack-1.0.0.zip) |
+| FI-AA | 5 | 18 | 2 | [ModuPorter-FI-AA-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-FI-AA-Customer-Pack-1.0.0.zip) |
+| MM | 26 | 85 | 6 | [ModuPorter-MM-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-MM-Customer-Pack-1.0.0.zip) |
+| QM | 18 | 60 | 4 | [ModuPorter-QM-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-QM-Customer-Pack-1.0.0.zip) |
+| PS | 14 | 49 | 4 | [ModuPorter-PS-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-PS-Customer-Pack-1.0.0.zip) |
+| PP | 17 | 57 | 2 | [ModuPorter-PP-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-PP-Customer-Pack-1.0.0.zip) |
+| CO | 13 | 46 | 6 | [ModuPorter-CO-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-CO-Customer-Pack-1.0.0.zip) |
+| FI | 20 | 67 | 6 | [ModuPorter-FI-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-FI-Customer-Pack-1.0.0.zip) |
+| SD | 16 | 52 | 6 | [ModuPorter-SD-Customer-Pack-1.0.0.zip](docs/customer/commercial/ModuPorter-SD-Customer-Pack-1.0.0.zip) |
 
-> **Status: draft-unverified.** No SAP system has been available. Nothing has been activated or tested.
-> Every uncertain element is marked `TODO-VERIFY` and ranked in the product's `BATCH_REPORT.md`.
 
-## Products
+## Separate analytics add-ons
 
-Each product is a self-contained folder under `packages/`. Which areas qualify and where each one
-stands is tracked in **[`PRODUCT_CHECKLIST.md`](PRODUCT_CHECKLIST.md)**. The first two rows are the
-migration pilot; all other rows are the S/4HANA analytics add-on.
+The analytics products remain separately tracked drafts.
 
 | Product | Folder | Prefix | State |
 |---|---|---|---|
-| **EAM migration - ECC source views + mapping (pilot)** | [`packages/eam_mig_ecc`](packages/eam_mig_ecc/README.md) | `ZEMX_` | release candidate 1.0.0-rc.1: 14 migration modules plus core, 158 classic views, 41 extraction structures |
-| **EAM migration - S/4HANA reconciliation (pilot)** | [`packages/eam_mig_s4`](packages/eam_mig_s4/README.md) | `ZEMT_` | drafted: 8 objects, 16 views |
 | Analytics add-on: Enterprise Asset Management (PM) | [`packages/eam`](packages/eam/README.md) | `ZEAM_` | drafted: 16 modules, 86 views, 5 batches |
 | Asset Accounting (FI-AA) | [`packages/fi_aa`](packages/fi_aa/README.md) | `ZFAA_` | drafted: 3 modules, 14 views |
 | Materials Management (MM) | [`packages/mm`](packages/mm/README.md) | `ZMMV_` | drafted: 7 modules, 24 views + 9 link objects |
@@ -108,11 +102,6 @@ delivered as ZIPs from `build_package.py` (abapGit *offline* import), which puts
 the ZIP root. Linking this repository directly as an abapGit *online* repo is not supported, because
 abapGit expects one `.abapgit.xml` at the repository root.
 
-## Additional domain migration drafts
-
-FI-AA, MM, QM, PS, PP, CO, FI and SD now have separate `<domain>_mig_ecc` and `<domain>_mig_s4` packages. They contain 47 business modules, 129 source structures, 434 source views and 36 target comparison/count candidates. Existing analytics remain separate. Every source structure has a mapping and an explicit target CSV adapter contract. Histories and balances are not assumed to be directly postable.
-
-See [customer guides and all-object VDM map](docs/customer/domains/README.md) and [cross-domain prerequisites](docs/customer/domains/CROSS_DOMAIN_PREREQUISITES.md). All drafts require actual SAP DDIC, activation and business acceptance tests.
 
 ## EWM TM FSCM EHS native drafts
 

@@ -1,6 +1,5 @@
 # Production versions
 
-Status: draft-unverified. Delivery mode: effectivity-reference.
 
 Verify production-version validity, lot-size ranges, lock/check status and the effective BOM/task-list combination. Materials and plants are cross-domain prerequisites. Distinct production versions may intentionally overlap; evaluate availability for a version identity rather than rejecting every material-level overlap. REM planning levels require release-specific interface review.
 

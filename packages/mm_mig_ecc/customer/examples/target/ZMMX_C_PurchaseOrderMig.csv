@@ -1,2 +1,2 @@
-﻿PurchaseOrder,CompanyCode,PurchaseOrderType,Supplier,PurchasingOrganization,PurchasingGroup,DocumentCurrency
+PurchaseOrder,CompanyCode,PurchaseOrderType,Supplier,PurchasingOrganization,PurchasingGroup,DocumentCurrency
 01,sample,sample,sample,sample,sample,sample

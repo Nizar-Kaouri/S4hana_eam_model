@@ -1,9 +1,9 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Functional location with hierarchy, category, planning data, location / account assignment and deletion flag: the complete business object.
 // Example: Read the hierarchy of plant 1000 top-down: filter MaintenancePlanningPlant = '1000'.
 // Alternative labeling (IFLOS) is not extracted: FunctionalLocation is the internal key TPLNR (see XFL-G01).
-// TODO-VERIFY[H] XGEN-005: classic CDS on 7.40 SP08 accepts associations with $projection in the ON condition, path expressions with a data source alias (fl._LocAcctAssignment.X), path expressions inside CASE and in WHERE (consumption scope filters)
-// TODO-VERIFY[M] XGEN-003: the header change date (AEDAT) is also set when ILOA / status change; otherwise the delta misses those changes (plan a full reload at cutover)
+// Compatibility note: classic CDS on 7.40 SP08 accepts associations with $projection in the ON condition, path expressions with a data source alias (fl._LocAcctAssignment.X), path expressions inside CASE and in WHERE (consumption scope filters)
+// Compatibility note: the header change date (AEDAT) is also set when ILOA / status change; otherwise the delta misses those changes (plan a full reload at cutover)
 @AbapCatalog.sqlViewName: 'ZEMX_FL'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

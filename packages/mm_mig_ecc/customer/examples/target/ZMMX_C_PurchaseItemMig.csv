@@ -1,2 +1,2 @@
-﻿PurchaseOrder,PurchaseOrderItem,Material,Plant,OrderQuantity,OrderUnit,DeletionFlag,DeliveryCompleted,FinalInvoice
+PurchaseOrder,PurchaseOrderItem,Material,Plant,OrderQuantity,OrderUnit,DeletionFlag,DeliveryCompleted,FinalInvoice
 01,01,sample,sample,sample,sample,,sample,sample

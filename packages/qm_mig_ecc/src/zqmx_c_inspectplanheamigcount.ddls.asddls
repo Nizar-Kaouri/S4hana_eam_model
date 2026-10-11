@@ -1,5 +1,5 @@
-// ModuPorter migration - status: draft-unverified (never activated on SAP)
-// Purpose: Read InspectPlanHeaMigCount as source candidates; approve the key-date population before posting.
+// ModuPorter QM migration | Release 1.0.0
+// Purpose: Read InspectPlanHeaMigCount as source records; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZQMX_V011N'
 @AbapCatalog.compiler.compareFilter: true

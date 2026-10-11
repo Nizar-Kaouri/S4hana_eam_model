@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: PM notification with maintenance data, reference object, location, main work center (business key) and completion / deletion flags.
 // Example: Read the open notifications: filter IsCompleted = '' and IsMarkedForDeletion = ''.
 @AbapCatalog.sqlViewName: 'ZEMX_NO'

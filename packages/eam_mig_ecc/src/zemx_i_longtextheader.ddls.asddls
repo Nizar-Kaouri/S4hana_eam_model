@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Index of the SAPscript long texts of EAM objects (STXH): which texts exist, in which language, when changed.
 // Example: Count the equipment long texts: filter TextObject = 'EQUI'.
 // The text lines are stored compressed in STXL and cannot be read with CDS; the load program reads them with READ_TEXT (see XLT-G01).
@@ -15,7 +15,7 @@
 define view ZEMX_I_LongTextHeader
   as select from stxh
 {
-      // TODO-VERIFY[H] XLT-001: text objects EQUI, IFLOT, QMEL, AUFK, ROUTING, MPLA, MPOS and the text name format per object
+      // Compatibility note: text objects EQUI, IFLOT, QMEL, AUFK, ROUTING, MPLA, MPOS and the text name format per object
       @EndUserText.label: 'Text Object'
   key stxh.tdobject as TextObject,
       @EndUserText.label: 'Text Name'

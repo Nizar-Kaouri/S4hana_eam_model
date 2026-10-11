@@ -117,6 +117,8 @@ def render():
     data = json.dumps(model, separators=(",", ":")).replace("</", "<\\/")
     example = next((n["name"] for n in model["nodes"] if n["kind"] == "cube"), model["nodes"][0]["name"])
     html = TEMPLATE.read_text(encoding="utf-8")
+    if bp.load_library().get("phase") == "released":
+        html = html.replace("draft-unverified · nothing has been activated on an SAP system", "ModuPorter · Release " + bp.load_library()["version"])
     html = html.replace("__RELEASE__", bp.load_library().get("map_release", "SAP S/4HANA 2025"))
     for key, value in (("__TITLE__", meta["title"]), ("__AREA__", meta["area"]), ("__PREFIX__", meta["prefix"]),
                        ("__EXAMPLE__", example)):

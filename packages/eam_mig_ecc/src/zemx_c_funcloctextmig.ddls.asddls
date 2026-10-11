@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Descriptions of the functional locations in scope per language.
 // Example: Read the texts of FL 1000-PUMP-01: filter FunctionalLocation = '1000-PUMP-01'.
 @AbapCatalog.sqlViewName: 'ZEMX_CFLT'

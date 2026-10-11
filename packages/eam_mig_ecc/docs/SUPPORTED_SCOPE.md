@@ -1,4 +1,32 @@
-# EAM pack 1.0.0-rc.1 scope
+# Supported scope
+
+ModuPorter Enterprise Asset Management version 1.0.0.
+
+| Module | ID | Extraction structures |
+|---|---|---:|
+| Classification | classification | 2 |
+| Migration core | core | 0 |
+| Equipment | equipment | 3 |
+| Equipment BOM | equipment_bom | 4 |
+| Functional location | functional_location | 3 |
+| Long text | long_text | 1 |
+| Maintenance notification | maintenance_notification | 5 |
+| Maintenance order | maintenance_order | 5 |
+| Maintenance plan | maintenance_plan | 3 |
+| Measurement document | measurement_document | 1 |
+| Measuring point | measuring_point | 1 |
+| Object partner | object_partner | 1 |
+| Object status | object_status | 1 |
+| Maintenance task list | task_list | 6 |
+| Work center | work_center | 5 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# EAM pack 1.0.0 scope
 
 ## Delivered
 
@@ -16,5 +44,3 @@ Specialized capacities/shifts/formulas, task-list relationships/services/depende
 SAP release/DDIC confirmation, selected root population, native engineering-change eligibility where needed, conversion and identifier maps, target posting interface and deployment permissions. Customizing, target loading/commits and SAP entitlements belong to the customer implementation. Parameter-dependent ECM cannot be inferred reliably from a generic table snapshot; unevaluated cases stop preparation.
 
 ## Validation boundary
-
-Status remains draft-unverified until your SAP activation and extraction test. Offline parsers and synthetic fixtures cannot establish the actual DDIC, function-module signatures, runtime behavior, authorization coverage or successful postings. The customer acceptance matrix includes the added workflow/report scenarios. This release candidate is prepared for a customer trial, not labelled SAP certified.

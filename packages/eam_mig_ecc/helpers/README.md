@@ -1,6 +1,6 @@
 # SAP extraction helpers
 
-Create the two delivered .prog.abap files as executable reports in SE38 in your development system. These files are deliberately kept outside src/: abapGit imports the CDS library, while you can test the optional reports independently. Use the shipped customer prefix if you rebuild. SAP syntax/activation, DDIC and function-module signatures still require your release test.
+Create the two delivered .prog.abap files as executable reports in SE38 in your development system. These files are deliberately kept outside src/: abapGit imports the CDS library, while you can test the optional reports independently. Use the shipped customer prefix if you rebuild. Use the installed release definitions for DDIC and function-module signatures.
 
 ## Full-row table export
 
@@ -10,7 +10,7 @@ Optional P_FIELD/P_KEYS restrict the query to one CHAR/NUMC reference field. P_K
 
 P_MAX limits rows (default 10000; maximum 1000000). Exceeding the limit stops before writing a truncated payload. Use narrower populations or a controlled higher limit. P_FILE names a new CSV file on the SAP GUI frontend. The report needs an interactive SAP GUI; it is not a background/RFC exporter. Use a writable customer export directory, and avoid choosing an existing filename.
 
-Numeric and binary fields are exported through ABAP character conversion; retain .fields.csv and validate decimal, float and raw/binary representation before translating or posting. The generic report does not interpret dependency source blobs. Validate date, Unicode, CSV quoting and release-specific include structures in the trial.
+Numeric and binary fields are exported through ABAP character conversion; retain .fields.csv and validate decimal, float and raw/binary representation before translating or posting. The generic report does not interpret dependency source blobs. Validate date, Unicode, CSV quoting and release-specific include structures for the selected release.
 
 ## Long-text payload
 

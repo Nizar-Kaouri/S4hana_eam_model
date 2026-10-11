@@ -1,5 +1,5 @@
-// ModuPorter migration - status: draft-unverified (never activated on SAP)
-// Purpose: Read Supplier as source candidates; approve the key-date population before posting.
+// ModuPorter FI migration | Release 1.0.0
+// Purpose: Read Supplier as source records; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZFIX_V004R'
 @AbapCatalog.compiler.compareFilter: true

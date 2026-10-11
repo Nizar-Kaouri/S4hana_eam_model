@@ -1,2 +1,2 @@
-﻿RoutingNumber,OperationInternalID,Activity,Sequence,WorkCenterInternalID,ControlKey,ActivityDescription,WBSElementInternalID
+RoutingNumber,OperationInternalID,Activity,Sequence,WorkCenterInternalID,ControlKey,ActivityDescription,WBSElementInternalID
 01,01,sample,sample,sample,sample,sample,sample

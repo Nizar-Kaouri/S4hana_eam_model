@@ -1,2 +1,2 @@
-﻿CompanyCode,AccountingDocument,FiscalYear,AccountingDocumentItem,GLAccount,AccountType,DebitCreditCode,DocumentAmount,CompanyCodeAmount,ClearingDate,ClearingDocument
+CompanyCode,AccountingDocument,FiscalYear,AccountingDocumentItem,GLAccount,AccountType,DebitCreditCode,DocumentAmount,CompanyCodeAmount,ClearingDate,ClearingDocument
 01,01,01,01,sample,sample,sample,sample,sample,20261001,sample

@@ -1,6 +1,6 @@
 # ZEMX_C_UserStatusMig
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -34,7 +34,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 The load program sets the user statuses after the objects are loaded (filter StatusObjectType per object).
-
-## Open verification items
-
-none

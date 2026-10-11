@@ -1,13 +1,13 @@
 # Migration interface: equipment_bom
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** customer load program; resolve BOM effective states before posting
 - **Load after:** `equipment`
 - **Business key:** `Equipment`, `Plant`, `BOMUsage`, `BOMAlternative` · numbering **new**
 - **Key rule:** Maintain old-to-new BOM identifiers in the customer loader.
 
-> TODO-VERIFY[H] XBM-T01: resolve alternative and engineering-change validity at cutover; raw BOM counters must not be posted as multiple current items.
+> Compatibility note: resolve alternative and engineering-change validity at cutover; raw BOM counters must not be posted as multiple current items.
 
 The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 

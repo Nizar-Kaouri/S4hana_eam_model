@@ -1,2 +1,2 @@
-﻿RoutingNumber,OperationInternalID,WorkQuantity,WorkUnit,Duration,DurationUnit
+RoutingNumber,OperationInternalID,WorkQuantity,WorkUnit,Duration,DurationUnit
 01,01,sample,sample,sample,sample

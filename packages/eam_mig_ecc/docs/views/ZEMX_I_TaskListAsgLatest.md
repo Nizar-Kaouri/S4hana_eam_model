@@ -1,6 +1,6 @@
 # ZEMX_I_TaskListAsgLatest
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -36,7 +36,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Join the counter back to its own table wrapper before applying deletion scope.
-
-## Open verification items
-
-none

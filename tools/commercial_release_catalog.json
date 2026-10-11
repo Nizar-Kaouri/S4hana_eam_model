@@ -1,0 +1,146 @@
+[
+  {
+    "domain": "eam",
+    "product": "eam_mig_ecc",
+    "version": "1.0.0",
+    "modules": 15,
+    "structures": 41,
+    "CDS_objects": 158
+  },
+  {
+    "domain": "eam",
+    "product": "eam_mig_s4",
+    "version": "1.0.0",
+    "modules": 8,
+    "structures": 0,
+    "CDS_objects": 16
+  },
+  {
+    "domain": "fi_aa",
+    "product": "fi_aa_mig_ecc",
+    "version": "1.0.0",
+    "modules": 3,
+    "structures": 5,
+    "CDS_objects": 18
+  },
+  {
+    "domain": "fi_aa",
+    "product": "fi_aa_mig_s4",
+    "version": "1.0.0",
+    "modules": 3,
+    "structures": 0,
+    "CDS_objects": 2
+  },
+  {
+    "domain": "mm",
+    "product": "mm_mig_ecc",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 26,
+    "CDS_objects": 85
+  },
+  {
+    "domain": "mm",
+    "product": "mm_mig_s4",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 0,
+    "CDS_objects": 6
+  },
+  {
+    "domain": "qm",
+    "product": "qm_mig_ecc",
+    "version": "1.0.0",
+    "modules": 6,
+    "structures": 18,
+    "CDS_objects": 60
+  },
+  {
+    "domain": "qm",
+    "product": "qm_mig_s4",
+    "version": "1.0.0",
+    "modules": 6,
+    "structures": 0,
+    "CDS_objects": 4
+  },
+  {
+    "domain": "ps",
+    "product": "ps_mig_ecc",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 14,
+    "CDS_objects": 49
+  },
+  {
+    "domain": "ps",
+    "product": "ps_mig_s4",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 0,
+    "CDS_objects": 4
+  },
+  {
+    "domain": "pp",
+    "product": "pp_mig_ecc",
+    "version": "1.0.0",
+    "modules": 6,
+    "structures": 17,
+    "CDS_objects": 57
+  },
+  {
+    "domain": "pp",
+    "product": "pp_mig_s4",
+    "version": "1.0.0",
+    "modules": 6,
+    "structures": 0,
+    "CDS_objects": 2
+  },
+  {
+    "domain": "co",
+    "product": "co_mig_ecc",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 13,
+    "CDS_objects": 46
+  },
+  {
+    "domain": "co",
+    "product": "co_mig_s4",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 0,
+    "CDS_objects": 6
+  },
+  {
+    "domain": "fi",
+    "product": "fi_mig_ecc",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 20,
+    "CDS_objects": 67
+  },
+  {
+    "domain": "fi",
+    "product": "fi_mig_s4",
+    "version": "1.0.0",
+    "modules": 7,
+    "structures": 0,
+    "CDS_objects": 6
+  },
+  {
+    "domain": "sd",
+    "product": "sd_mig_ecc",
+    "version": "1.0.0",
+    "modules": 4,
+    "structures": 16,
+    "CDS_objects": 52
+  },
+  {
+    "domain": "sd",
+    "product": "sd_mig_s4",
+    "version": "1.0.0",
+    "modules": 4,
+    "structures": 0,
+    "CDS_objects": 6
+  }
+]

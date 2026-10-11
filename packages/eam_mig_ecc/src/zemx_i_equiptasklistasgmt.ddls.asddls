@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Task-list object allocation change states; customer resolves validity at cutover.
 // Example: Find the task lists of equipment 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_EPLA'
@@ -15,7 +15,7 @@
 define view ZEMX_I_EquipTaskListAsgmt
   as select from eapl as src
 {
-      // TODO-VERIFY[H] XTL-A01: Verify EAPL fields and complete keys (including ZKRIZ/ZAEHL) in source DDIC.
+      // Compatibility note: Verify EAPL fields and complete keys (including ZKRIZ/ZAEHL) in source DDIC.
       @EndUserText.label: 'Task list type'
   key src.plnty as TaskListType,
       @EndUserText.label: 'Task list group'

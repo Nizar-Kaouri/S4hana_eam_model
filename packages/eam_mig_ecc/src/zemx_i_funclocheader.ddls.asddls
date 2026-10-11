@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Functional location master records (IFLOT) with category, hierarchy, planning data and general data.
 // Example: Read the superior location of FL 1000-PUMP-01.
 @AbapCatalog.sqlViewName: 'ZEMX_IFLOT'
@@ -21,7 +21,7 @@ define view ZEMX_I_FuncLocHeader
   key iflot.tplnr as FunctionalLocation,
       @EndUserText.label: 'Functional Location Category'
       iflot.fltyp as FunctionalLocationCategory,
-      // TODO-VERIFY[M] XFL-001: structure indicator field is IFLOT-TPLKZ
+      // Compatibility note: structure indicator field is IFLOT-TPLKZ
       @EndUserText.label: 'Func Location Structure'
       iflot.tplkz as FuncLocationStructure,
       @EndUserText.label: 'Superior Functional Location'
@@ -34,12 +34,12 @@ define view ZEMX_I_FuncLocHeader
       iflot.iwerk as MaintenancePlanningPlant,
       @EndUserText.label: 'Maintenance Planner Group'
       iflot.ingrp as MaintenancePlannerGroup,
-      // TODO-VERIFY[M] XFL-002: IFLOT-IEQUI (installation allowed) and IFLOT-EINZL (single installation)
+      // Compatibility note: IFLOT-IEQUI (installation allowed) and IFLOT-EINZL (single installation)
       @EndUserText.label: 'Equip Installation Is Allowed'
       iflot.iequi as EquipInstallationIsAllowed,
       @EndUserText.label: 'Equip Is Single Installation'
       iflot.einzl as EquipIsSingleInstallation,
-      // TODO-VERIFY[M] XFL-003: IFLOT carries the general data fields SUBMT, HERST, BAUJJ, INVNR, INBDT like EQUI
+      // Compatibility note: IFLOT carries the general data fields SUBMT, HERST, BAUJJ, INVNR, INBDT like EQUI
       @EndUserText.label: 'Construction Type'
       iflot.submt as ConstructionType,
       @EndUserText.label: 'Asset Manufacturer Name'

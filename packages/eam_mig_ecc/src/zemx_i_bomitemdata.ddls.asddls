@@ -1,7 +1,7 @@
-// ZEMX EAM migration - status: draft-unverified (no SAP system; never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: BOMItem equipment-category state ledger
 // Example: Export the selected migration scope; validate keys and row counts before loading.
-// TODO-VERIFY[H] XADD-11: Confirm STPO keys, selected fields and engineering-change validity; E is the assumed equipment BOM category.
+// Compatibility note: Confirm STPO keys, selected fields and engineering-change validity; E is the assumed equipment BOM category.
 @AbapCatalog.sqlViewName: 'ZEMX_N11B'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

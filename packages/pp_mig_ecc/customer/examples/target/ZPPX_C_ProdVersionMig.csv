@@ -1,2 +1,2 @@
-﻿Product,Plant,ProductionVersion,ProductionVersionText,ValidityStartDate,ValidityEndDate,MinimumLotSize,MaximumLotSize,BOMAlternative,BOMUsage,TaskListType,TaskListGroup,TaskListGroupCounter,ProductionVersionLock
+Product,Plant,ProductionVersion,ProductionVersionText,ValidityStartDate,ValidityEndDate,MinimumLotSize,MaximumLotSize,BOMAlternative,BOMUsage,TaskListType,TaskListGroup,TaskListGroupCounter,ProductionVersionLock
 01,01,01,sample,20261001,99991231,sample,sample,sample,sample,sample,sample,sample,sample

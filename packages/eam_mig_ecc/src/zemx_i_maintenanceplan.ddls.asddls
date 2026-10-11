@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Maintenance plan with scheduling parameters, deletion flag and the restart point (last call / last completion date).
 // Example: Read the restart point of every strategy plan.
 @AbapCatalog.sqlViewName: 'ZEMX_PL'

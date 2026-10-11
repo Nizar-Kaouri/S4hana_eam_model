@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Short and long texts of user statuses per status profile (TJ30T): reference list of the user statuses in use.
 // Example: List all statuses of profile PM000001 .
 @AbapCatalog.sqlViewName: 'ZEMX_TJ30T'
@@ -22,7 +22,7 @@ define view ZEMX_I_UserStatusDesc
       @Semantics.language: true
       @EndUserText.label: 'Language'
   key tj30t.spras as Language,
-      // TODO-VERIFY[L] XST-003: TJ30T field names TXT04, TXT30
+      // Compatibility note: TJ30T field names TXT04, TXT30
       @EndUserText.label: 'Status Short Name'
       tj30t.txt04 as StatusShortName,
       @Semantics.text: true

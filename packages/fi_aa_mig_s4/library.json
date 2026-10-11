@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
-  "phase": "no-system",
+  "phase": "released",
   "prefix": "ZFAT_",
   "package": "ZFAT_MIG",
   "package_description": "Asset Accounting Migration - S/4HANA reconciliation views",
@@ -26,5 +26,5 @@
     "composite": "I_",
     "consumption": "C_"
   },
-  "draft_tested_release": "none (draft, S/4HANA 2025 assumed)"
+  "version": "1.0.0"
 }

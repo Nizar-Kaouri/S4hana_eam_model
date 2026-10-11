@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Operations of maintenance orders with quantities and the work center as business key.
 // Example: Read the operations of order 4000001.
 @AbapCatalog.sqlViewName: 'ZEMX_ORO'

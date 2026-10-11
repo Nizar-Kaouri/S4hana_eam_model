@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Latest non-cancelled reading by date and time; highest document ID breaks timestamp ties.
 // Example: Read LastMeasurementDocument of measuring point 1234.
 @AbapCatalog.sqlViewName: 'ZEMX_MDL'

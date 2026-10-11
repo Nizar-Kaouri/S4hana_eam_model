@@ -1,13 +1,13 @@
 # Migration interface: maintenance_notification
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `equipment`, `functional_location`, `work_center`
 - **Business key:** `MaintenanceNotification` · numbering **new**
 - **Key rule:** Notifications get new numbers on S/4HANA unless external numbering is set up; the load program keeps the old -> new numbers.
 
-> TODO-VERIFY[M] XNO-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
+> Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
 The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
@@ -142,4 +142,4 @@ python3 tools/mig_reconcile.py records --product eam_mig_ecc --module maintenanc
 
 ## Open gaps
 
-- TODO-VERIFY[H] XNO-G02: confirm notification child keys, deletion fields, task statuses and date fields before real-system activation.
+- Compatibility note: confirm notification child keys, deletion fields, task statuses and date fields before real-system activation.

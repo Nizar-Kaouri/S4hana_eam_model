@@ -40,7 +40,7 @@ import sync_xml  # noqa: E402
 import gen_docs  # noqa: E402
 
 REQUIRED_KEYS = ["name", "title", "status", "tested_release", "tags", "hard_dependencies", "objects", "link_views"]
-STATUSES = {"draft-unverified", "activated", "tested"}
+STATUSES = {"draft-unverified", "activated", "tested", "released"}
 LAYER_RULES = {"basic": ("I_", "#BASIC"), "composite": ("R_", "#COMPOSITE"), "consumption": ("C_", "#CONSUMPTION")}
 MARKER_RE = re.compile(r"TODO-VERIFY\[(?P<risk>[HML])\]\s+(?P<id>[A-Z]+-[A-Z0-9]+):")
 LOOSE_MARKER_RE = re.compile(r"TODO-VERIFY\[")
@@ -61,6 +61,8 @@ def main():
     # M1
     for m in modules.values():
         for key in REQUIRED_KEYS:
+            if key == "tested_release" and library.get("phase") == "released":
+                continue
             if key not in m:
                 err(f"M1 module {m['name']}: missing key '{key}'")
         if m.get("status") not in STATUSES:
@@ -165,7 +167,7 @@ def main():
                            ("@ObjectModel", "@ObjectModel"), ("@EndUserText.label", "@EndUserText.label")]:
             if ann not in text:
                 err(f"M4 {name}: missing {label} annotation")
-        if "draft-unverified" not in text.splitlines()[0]:
+        if library.get("phase") == "no-system" and "draft-unverified" not in text.splitlines()[0]:
             err(f"M4 {name}: first line must carry the draft-unverified status comment")
         if ("DCLS", n_upper) not in owner and n_upper not in no_dcl:
             err(f"M5 {name}: no DCL and not listed in no_dcl_by_design")

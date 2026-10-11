@@ -1,5 +1,5 @@
-// ModuPorter migration - status: draft-unverified (never activated on SAP)
-// Purpose: Read BillingCount as target comparison candidates.
+// ModuPorter SD migration | Release 1.0.0
+// Purpose: Read BillingCount as target comparison records.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataExtraction.enabled: false

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Class assignments of equipment (002) and functional locations (003).
 // Example: The load program assigns the classes after the technical objects are loaded.
 @AbapCatalog.sqlViewName: 'ZEMX_CCLA'

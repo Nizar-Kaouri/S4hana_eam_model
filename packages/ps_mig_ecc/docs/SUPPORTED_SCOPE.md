@@ -1,5 +1,25 @@
 # Supported scope
 
+ModuPorter Project System version 1.0.0.
+
+| Module | ID | Extraction structures |
+|---|---|---:|
+| Project overall and annual budgets | budget | 2 |
+| Project commitments | commitment | 1 |
+| Investment programs and measures | investment_measure | 3 |
+| Project networks and activities | network | 4 |
+| Projects | project | 1 |
+| Project cost history | project_cost | 1 |
+| WBS elements | wbs_element | 2 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# Supported scope
+
 Project System has 7 modules and 14 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
@@ -12,7 +32,7 @@ Project System has 7 modules and 14 extraction structures.
 | WBS elements | wbs_element | 2 | master |
 | Project cost history | project_cost | 1 | reference |
 
-The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented candidate structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/ps; they are not duplicated as migration payloads.
+The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/ps; they are not duplicated as migration payloads.
 
 Retain both external project/WBS identifiers and internal references. Rebuild hierarchy with target key maps; do not copy internal object numbers. Project costs are reference history. Status, networks, settlement rules, budgets, commitments and investment measures require a supported business interface and separate scope agreement.
 

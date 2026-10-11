@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Operations of the open orders with work center, control key, activity type and units.
 // Example: The load program adds the operations to the order created from ZEMX_C_MaintOrderMig.
 @AbapCatalog.sqlViewName: 'ZEMX_CORO'

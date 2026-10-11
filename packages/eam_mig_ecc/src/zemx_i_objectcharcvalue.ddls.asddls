@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Characteristic values of objects (AUSP, object indicator 'O').
 // Example: Read the values of equipment 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_AUSP'
@@ -29,7 +29,7 @@ define view ZEMX_I_ObjectCharcValue
       @EndUserText.label: 'Charc Value'
       ausp.atwrt as CharcValue,
       @EndUserText.label: 'numbers'
-      // TODO-VERIFY[H] XCL-004: numeric values are floating point numbers in the characteristic's base unit; dates / times are also stored as numbers
+      // Compatibility note: numeric values are floating point numbers in the characteristic's base unit; dates / times are also stored as numbers
       ausp.atflv as CharcFromNumericValue,
       @EndUserText.label: 'Charc To Numeric Value'
       ausp.atflb as CharcToNumericValue,

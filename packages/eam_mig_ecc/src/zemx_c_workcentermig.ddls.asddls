@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Work centers to migrate (not flagged for deletion) with plant, category and responsible person.
 // Example: The load program reads all rows and creates one work center per row; WorkCenter / Plant identify the record.
 @AbapCatalog.sqlViewName: 'ZEMX_CWC'

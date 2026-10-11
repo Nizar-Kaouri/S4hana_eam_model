@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Highest version counter per task list group and group counter (helper for the current task list).
 // Example: Read the current version of task list group 4711 / counter 01.
 @AbapCatalog.sqlViewName: 'ZEMX_TLV'

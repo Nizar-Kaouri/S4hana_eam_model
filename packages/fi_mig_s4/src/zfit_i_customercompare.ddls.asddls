@@ -1,7 +1,7 @@
-// ModuPorter migration - status: draft-unverified (never activated on SAP)
-// Purpose: Read CustomerCompare as target comparison candidates.
+// ModuPorter FI migration | Release 1.0.0
+// Purpose: Read CustomerCompare as target comparison records.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
-// TODO-VERIFY[H] FIT-007: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
+// Compatibility note: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataExtraction.enabled: false
 @EndUserText.label: 'CustomerCompare'

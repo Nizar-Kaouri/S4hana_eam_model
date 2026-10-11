@@ -1,10 +1,10 @@
 {
   "module": "maintenance_order",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XOR-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -746,8 +746,8 @@
     }
   },
   "gaps": [
-    "TODO-VERIFY[H] XOR-G01: settlement rules and permit assignments are delivered; verify IHSG identity, permit issue/status fields and settlement-profile requirements. Partners use object_partner.",
-    "TODO-VERIFY[H] XOR-G02: open orders with partial confirmations or goods issues need a cut-off decision (complete in ECC or migrate remaining work only)"
+    "Compatibility note: settlement rules and permit assignments are delivered; verify IHSG identity, permit issue/status fields and settlement-profile requirements. Partners use object_partner.",
+    "Compatibility note: open orders with partial confirmations or goods issues need a cut-off decision (complete in ECC or migrate remaining work only)"
   ],
   "main_structure": "ZEMX_C_MaintOrderMig"
 }

@@ -1,6 +1,5 @@
 # Master inspection characteristics
 
-Status: draft-unverified. Delivery mode: master.
 
 Retain plant, characteristic, version and language. Verify released status, quantitative/qualitative control indicators, limits, units, inspection methods and catalog/selected-set dependencies in full-row export. Short texts are included; long texts need the native text API. Do not infer active version solely from greatest version number.
 

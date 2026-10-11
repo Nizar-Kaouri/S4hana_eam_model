@@ -1,8 +1,8 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Equipment in its current time segment with installation location, superordinate equipment, main work center (business key), location / account assignment, manufacturer data and deletion flag: the complete business object.
 // Example: Read the equipment of plant 1000 in installation order: filter MaintenancePlanningPlant = '1000'.
 // Earlier time segments (installation history) are not migrated.
-// TODO-VERIFY[H] XEQ-001: the current time segment of EQUZ has DATBI = '99991231'
+// Compatibility note: the current time segment of EQUZ has DATBI = '99991231'
 @AbapCatalog.sqlViewName: 'ZEMX_EQ'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

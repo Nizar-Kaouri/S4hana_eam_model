@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Latest valid reading per measuring point: migrated as the initial reading so that counters and performance-based plans continue.
 // Example: Read the last reading of every counter.
 @AbapCatalog.sqlViewName: 'ZEMX_MDR'

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Material components of maintenance orders with the operation number (instead of the internal operation counter).
 // Example: Read the open components of order 4000001.
 @AbapCatalog.sqlViewName: 'ZEMX_ORC'

@@ -1,6 +1,6 @@
 # ZEMX_I_FuncTaskListAsgmt
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -37,7 +37,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Find the task lists of equipment 10000001.
-
-## Open verification items
-
-`XTL-A02` - see `BATCH_REPORT.md`.

@@ -1,2 +1,2 @@
-﻿PurchaseOrder,PurchaseOrderItem,AccountAssignmentNumber,HistoryCategory,FiscalYear,DocumentNumber,DocumentItem,PostingDate,Quantity,DebitCreditCode
+PurchaseOrder,PurchaseOrderItem,AccountAssignmentNumber,HistoryCategory,FiscalYear,DocumentNumber,DocumentItem,PostingDate,Quantity,DebitCreditCode
 01,01,01,01,01,01,01,20261001,sample,sample

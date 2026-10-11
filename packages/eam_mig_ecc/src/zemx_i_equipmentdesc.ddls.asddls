@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Equipment descriptions (EQKT) per language with the long-text indicator.
 // Example: Read the English description of equipment 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_EQKT'

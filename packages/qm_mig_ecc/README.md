@@ -1,5 +1,5 @@
-# ModuPorter Quality Management migration pack
+# ModuPorter Quality Management
 
-Draft templates for ECC extraction, customer preparation and S/4HANA reconciliation. No SAP activation or load testing has been performed.
+Version 1.0.0 — SOURCE extraction templates.
 
-See docs/SUPPORTED_SCOPE.md, docs/CUSTOMER_WORKFLOW.md and docs/CUSTOMER_TEST.md. English and German customer guides are included under docs. Existing analytics remain in packages/qm.
+Start with docs/GETTING_STARTED.md. Select the modules needed for the project; their required dependencies are included. Read docs/SUPPORTED_SCOPE.md, docs/COMPATIBILITY.md and docs/LICENSE.md.

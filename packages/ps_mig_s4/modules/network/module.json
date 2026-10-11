@@ -3,9 +3,8 @@
   "title": "Project networks and activities target comparison",
   "description": "Project networks and activities. AUFK contains other order types too: select network types using verified order-type customizing, then close AFKO/AFVC/AFVV against the selected networks. Map internal routing, WBS and work-center IDs. Relationships, capacities, dates and status need the approved network business interface; this is no status replay.",
   "batch": 1,
-  "version": "0.2.0",
-  "status": "draft-unverified",
-  "tested_release": "none (draft, S/4HANA 2025 assumed)",
+  "version": "1.0.0",
+  "status": "released",
   "tags": [
     "migration",
     "process-reference"

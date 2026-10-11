@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Equipment master records (EQUI): category, object type, manufacturer, acquisition and serial data.
 // Example: Read the manufacturer data of equipment 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_EQUI'
@@ -30,7 +30,7 @@ define view ZEMX_I_EquipmentHeader
       equi.sernr as SerialNumber,
       @EndUserText.label: 'Asset Manufacturer Name'
       equi.herst as AssetManufacturerName,
-      // TODO-VERIFY[M] XEQ-004: EQUI field names HERLD, TYPBZ, MAPAR, SERGE, BAUMM, INBDT, GROES
+      // Compatibility note: EQUI field names HERLD, TYPBZ, MAPAR, SERGE, BAUMM, INBDT, GROES
       @EndUserText.label: 'Manufacturer Country'
       equi.herld as ManufacturerCountry,
       @EndUserText.label: 'Manufacturer Model Number'
@@ -57,7 +57,7 @@ define view ZEMX_I_EquipmentHeader
       equi.gewei as WeightUnit,
       @EndUserText.label: 'Acquisition Date'
       equi.ansdt as AcquisitionDate,
-      // TODO-VERIFY[M] XEQ-005: EQUI-WAERS is the currency key of EQUI-ANSWT
+      // Compatibility note: EQUI-WAERS is the currency key of EQUI-ANSWT
       @Semantics.amount.currencyCode: 'Currency'
       @EndUserText.label: 'Acquisition Value'
       equi.answt as AcquisitionValue,

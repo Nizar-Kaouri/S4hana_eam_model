@@ -1,6 +1,6 @@
 # ZPSX_I_NetworkHeader
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Read NetworkHeader as source candidates; approve the key-date population before posting.
+Read NetworkHeader as source records; approve the key-date population before posting.
 
 ## Keys
 
@@ -32,7 +32,3 @@ No DCL by design: Read-only migration extraction without DCL. Verify the extract
 ## Example use case
 
 Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
-
-## Open verification items
-
-none

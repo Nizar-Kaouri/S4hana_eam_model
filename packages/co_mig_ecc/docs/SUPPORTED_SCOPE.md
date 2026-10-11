@@ -1,5 +1,25 @@
 # Supported scope
 
+ModuPorter Controlling version 1.0.0.
+
+| Module | ID | Extraction structures |
+|---|---|---:|
+| Allocation cycles and segments | allocation_cycle | 2 |
+| Actual cost history | cost_actuals | 1 |
+| Cost centers | cost_center | 2 |
+| Cost element references | cost_element | 2 |
+| Internal orders | internal_order | 2 |
+| CO primary and secondary cost planning | planning | 2 |
+| Profit centers | profit_center | 2 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# Supported scope
+
 Controlling has 7 modules and 13 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
@@ -12,7 +32,7 @@ Controlling has 7 modules and 13 extraction structures.
 | Actual cost history | cost_actuals | 1 | reference |
 | Cost element references | cost_element | 2 | reference |
 
-The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented candidate structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/co; they are not duplicated as migration payloads.
+The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/co; they are not duplicated as migration payloads.
 
 Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope.
 

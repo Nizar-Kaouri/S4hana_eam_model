@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for the customer-replaceable identifiers. Sources in /src and /tests use these literal values; build_package.py rewrites them per customer.",
-  "phase": "no-system",
+  "phase": "released",
   "prefix": "ZQMX_",
   "package": "ZQMX_MIG",
   "package_description": "Quality Management Migration - ECC source extraction views",
@@ -24,7 +24,6 @@
   "map_area": "Quality Management migration source (ECC tables)",
   "map_initial": "ZQMX_I_InspectionLotData",
   "map_external_title": "ECC tables",
-  "draft_tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
   "map_release": "SAP ECC 6.0 (source)",
   "map_external_sub": "tables (read directly, never copied)",
   "layer_prefixes": {
@@ -35,5 +34,6 @@
   "consumption_suffixes": [
     "Mig",
     "MigCount"
-  ]
+  ],
+  "version": "1.0.0"
 }

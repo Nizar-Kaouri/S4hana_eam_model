@@ -1,5 +1,25 @@
 # Supported scope
 
+ModuPorter Materials Management version 1.0.0.
+
+| Module | ID | Objects |
+|---|---|---:|
+| Goods movement history target comparison | goods_movement | 0 |
+| Inventory balances target comparison | material_stock | 0 |
+| Material master target comparison | product | 2 |
+| Purchase orders target comparison | purchase_order | 2 |
+| Purchase requisitions target comparison | purchase_requisition | 2 |
+| Purchasing contracts target comparison | purchasing_contract | 0 |
+| Purchasing info records target comparison | purchasing_info_record | 0 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# Supported scope
+
 Materials Management has 7 modules and 26 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
@@ -12,7 +32,7 @@ Materials Management has 7 modules and 26 extraction structures.
 | Purchase requisitions | purchase_requisition | 2 | open-document |
 | Purchase orders | purchase_order | 5 | open-document |
 
-The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented candidate structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/mm; they are not duplicated as migration payloads.
+The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/mm; they are not duplicated as migration payloads.
 
 Stock is a frozen, reconciled inventory population, including batch and special stock. MARD quantities alone do not establish complete inventory. Physical inventory, valuation, units and currency conversion need business sign-off. Historical goods movements are reference data. Open purchasing scope requires item status, receipts, invoices, deletion, returns and remaining quantities; it is not inferred from the header alone.
 

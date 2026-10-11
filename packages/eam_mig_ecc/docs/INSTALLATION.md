@@ -1,19 +1,15 @@
-# EAM migration template installation
+# ModuPorter Enterprise Asset Management installation
 
-Status: draft-unverified. No system activation or extraction has been performed.
+Version 1.0.0. Delivery: source extraction.
 
-1. Inspect BUILD_MANIFEST.json for selected modules, automatically included dependencies, target prefix and package.
-2. Confirm the source is ECC 6.0 on NetWeaver 7.40 SP08 or higher. This is an assumed baseline, not a certified compatibility statement.
-3. Use a development/sandbox system first. Create the customer package and transport using the customer's change process.
-4. Import the delivered src/ through abapGit. Activate using ACTIVATION_ORDER.txt; association cycles may require group activation.
-5. Resolve every source-table/field TODO against the actual DDIC. Do not guess replacement fields from their names.
-6. Check every consumption view against source tables: keys, duplicates, deletion state, units, date validity and parent scope.
-7. Give the extraction user only the access required by the actual extraction channel. These views intentionally have no DCL. Do not assume S_TABU_NAM alone protects arbitrary custom SQL/RFC readers.
-8. Read mapping/docs and FIELD_CATALOG.csv. Targets are provisional table-field references; they are not supported posting APIs.
-9. The customer supplies transformation, identifier maps, API/BAPI posting, transaction handling and error recovery. No direct target-table updates are supplied.
-10. Perform a cutover rehearsal. Confirm reference/master objects exist; extract with consistent scope, reconcile keys and counts, and preserve old-to-new identifiers.
-11. Record exact ECC/S4 releases, activation logs, authorizations and extraction evidence before changing module status.
+1. Select the required modules. The builder includes their hard dependencies automatically; individual views need every referenced object.
+2. Inspect BUILD_MANIFEST.json, DDIC_REQUIREMENTS.csv where supplied, and docs/COMPATIBILITY.md.
+3. Create a customer ABAP package and transport according to your change process.
+4. In abapGit choose New Offline, assign that package, Import ZIP, then Pull ZIP. Import the SOURCE and TARGET archives separately on the corresponding systems. The entire GitHub repository is not an abapGit import archive.
+5. Activate in ACTIVATION_ORDER.txt order. Association cycles can require activation as a group. Native SAP tables and target standard views must already exist.
+6. Use Eclipse/ADT data preview or your authorized extraction channel to read the views. Keep the same business scope in source and target.
+7. Read the module mappings and FIELD_CATALOG.csv. Preserve leading zeros, units, currencies and source identifiers. Map regenerated identifiers before comparing.
 
-SAP S/4HANA reconciliation views are a separate product, installed in the target system. The Python reconciliation script rejects duplicate record keys with input-error exit code 2.
+Optional reports in helpers are created separately in SE38. Python tools run on your workstation with Python 3.10 or newer and no additional Python dependencies. Selection files are empty until the customer supplies the approved population.
 
-Long texts: the package provides a text index only. The customer's ABAP loader reads text content through READ_TEXT using TextObject, TextName, TextID and language. Compressed text content is not represented as CDS rows.
+The views read data. Target business-object creation, API/BAPI calls, transaction handling and error recovery belong to the customer's migration implementation. Do not write directly to SAP application tables.

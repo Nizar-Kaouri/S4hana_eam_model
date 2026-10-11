@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Measurement documents (IMRG): readings and counter readings with date, time, values, valuation code and cancellation flag.
 // Example: Read the readings of measuring point 1234 in 2025.
 @AbapCatalog.sqlViewName: 'ZEMX_IMRG'
@@ -29,7 +29,7 @@ define view ZEMX_I_MeasurementDocument
       imrg.readg as MeasurementReading,
       @EndUserText.label: 'Measurement Counter Reading'
       imrg.cntrr as MeasurementCounterReading,
-      // TODO-VERIFY[M] XMD-001: IMRG field names CNTRR, CDIFF, RECDV, RECDU, VLCOD, CANCL, READR
+      // Compatibility note: IMRG field names CNTRR, CDIFF, RECDV, RECDU, VLCOD, CANCL, READR
       @EndUserText.label: 'Measurement Counter Difference'
       imrg.cdiff as MeasurementCounterDifference,
       @EndUserText.label: 'Msmt Reading In Entry Unit'

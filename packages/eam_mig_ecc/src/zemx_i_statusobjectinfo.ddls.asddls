@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Status profile per object number (JSTO).
 // Example: Read the status profile of equipment object IE000000000010000001.
 @AbapCatalog.sqlViewName: 'ZEMX_JSTO'
@@ -17,7 +17,7 @@ define view ZEMX_I_StatusObjectInfo
 {
       @EndUserText.label: 'Object Number'
   key jsto.objnr as ObjectNumber,
-      // TODO-VERIFY[M] XST-001: JSTO-STSMA is the status profile of the object
+      // Compatibility note: JSTO-STSMA is the status profile of the object
       @EndUserText.label: 'Status Profile'
       jsto.stsma as StatusProfile
 }

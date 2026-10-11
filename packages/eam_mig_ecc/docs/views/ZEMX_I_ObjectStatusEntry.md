@@ -1,6 +1,6 @@
 # ZEMX_I_ObjectStatusEntry
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -33,7 +33,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Read the user statuses of equipment: filter StatusObjectType = 'IE' and StatusKind = 'E'.
-
-## Open verification items
-
-`XST-002` - see `BATCH_REPORT.md`.

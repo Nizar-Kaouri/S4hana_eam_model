@@ -1,2 +1,2 @@
-﻿SalesDocument,SalesDocumentItem,ScheduleLine,DeliveryDate,OrderQuantity,ConfirmedQuantity
+SalesDocument,SalesDocumentItem,ScheduleLine,DeliveryDate,OrderQuantity,ConfirmedQuantity
 01,01,01,20261001,sample,sample

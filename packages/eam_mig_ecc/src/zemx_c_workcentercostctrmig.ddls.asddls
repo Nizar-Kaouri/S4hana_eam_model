@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Cost center assignments of the work centers in scope with controlling area and cost center.
 // Example: Read the cost center assignments valid today: filter ValidityEndDate >= today.
 @AbapCatalog.sqlViewName: 'ZEMX_CWCK'

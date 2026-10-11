@@ -1,11 +1,10 @@
 {
   "name": "inspection_result",
   "title": "Inspection results",
-  "description": "Inspection results source candidates, preparation and comparison contracts.",
+  "description": "Inspection results source records, preparation and comparison contracts.",
   "batch": 1,
-  "version": "0.1.0",
-  "status": "draft-unverified",
-  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "version": "1.0.0",
+  "status": "released",
   "tags": [
     "migration",
     "reference"

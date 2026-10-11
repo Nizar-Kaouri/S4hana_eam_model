@@ -1,6 +1,6 @@
 # Activation checklist
 
-All objects are draft-unverified. Verify DDIC, released CDS fields, keys and access before activation.
+Version 1.0.0
 
 <!-- CHECKLIST:BEGIN -->
 

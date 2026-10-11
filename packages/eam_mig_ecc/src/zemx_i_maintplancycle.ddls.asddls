@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Cycles of single-cycle and multiple-counter plans and packages of strategy plans (MMPT).
 // Example: Read the performance-based cycles: filter MeasuringPoint <> ''.
 @AbapCatalog.sqlViewName: 'ZEMX_MMPT'
@@ -17,7 +17,7 @@ define view ZEMX_I_MaintPlanCycle
 {
       @EndUserText.label: 'Maintenance Plan'
   key mmpt.warpl    as MaintenancePlan,
-      // TODO-VERIFY[H] XPL-005: MMPT field names (NUMMER, ZYKL1, ZEIEH, PAK_TEXT, POINT); ZYKL1 is stored as floating point in the SI unit
+      // Compatibility note: MMPT field names (NUMMER, ZYKL1, ZEIEH, PAK_TEXT, POINT); ZYKL1 is stored as floating point in the SI unit
       @EndUserText.label: 'Maintenance Plan Cycle'
   key mmpt.nummer   as MaintenancePlanCycle,
       @EndUserText.label: 'Cycle Value'

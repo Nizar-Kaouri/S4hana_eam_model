@@ -1,5 +1,5 @@
 # Changelog
 
-0.1.0: first domain migration draft with classic source layers, explicit field mapping, selective target projections, CSV adapter contracts, full-row exporter, scope preparation and bilingual documentation. No SAP runtime validation.
+## 1.0.0
 
-0.2.0: additive coverage of pricing_condition. Original module source files preserved. Candidate DDIC and target interface verification remain required.
+Commercial template release with modular source extraction, target comparison contracts, field mappings, installation instructions, documentation and local preparation utilities.

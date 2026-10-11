@@ -1,6 +1,5 @@
 # Project overall and annual budgets
 
-Status: draft-unverified. Delivery mode: balance.
 
 Separate original budget, supplements, returns, releases and transfers by verified value type and transaction semantics; do not sum all BPGE/BPJA rows as available budget. Currency, object ownership, fiscal year and availability-control settings must be enriched and approved. Reconcile overall and annual budget separately through a supported budget interface.
 

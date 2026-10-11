@@ -1,10 +1,10 @@
 {
   "module": "equipment_bom",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program; resolve BOM effective states before posting",
-    "todo_verify": [
-      "TODO-VERIFY[H] XBM-T01: resolve alternative and engineering-change validity at cutover; raw BOM counters must not be posted as multiple current items."
+    "compatibility_notes": [
+      "Compatibility note: resolve alternative and engineering-change validity at cutover; raw BOM counters must not be posted as multiple current items."
     ]
   },
   "sequence_after": [

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Work center descriptions per language for the work centers in scope with the business key (work center + plant).
 // Example: Read the texts of work center MECH-01: filter WorkCenter = 'MECH-01'.
 @AbapCatalog.sqlViewName: 'ZEMX_CWCT'

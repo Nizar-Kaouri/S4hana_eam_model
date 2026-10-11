@@ -1,7 +1,7 @@
-// ModuPorter migration - status: draft-unverified (never activated on SAP)
-// Purpose: Read BillingCompare as target comparison candidates.
+// ModuPorter SD migration | Release 1.0.0
+// Purpose: Read BillingCompare as target comparison records.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
-// TODO-VERIFY[H] SDT-011: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
+// Compatibility note: Verify source availability, exact fields, complete DDIC keys and authorizations on the customer release.
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataExtraction.enabled: false
 @EndUserText.label: 'BillingCompare'

@@ -1,5 +1,24 @@
 # Supported scope
 
+ModuPorter Quality Management version 1.0.0.
+
+| Module | ID | Objects |
+|---|---|---:|
+| Inspection lots target comparison | inspection_lot | 2 |
+| Inspection plan reference target comparison | inspection_plan | 0 |
+| Inspection results target comparison | inspection_result | 0 |
+| Master inspection characteristics target comparison | master_inspection_characteristic | 0 |
+| Quality notifications target comparison | quality_notification | 2 |
+| Sampling procedures target comparison | sampling_procedure | 0 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# Supported scope
+
 Quality Management has 6 modules and 18 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
@@ -11,7 +30,7 @@ Quality Management has 6 modules and 18 extraction structures.
 | Quality notifications | quality_notification | 5 | process-reference |
 | Inspection plan reference | inspection_plan | 5 | effectivity-reference |
 
-The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented candidate structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/qm; they are not duplicated as migration payloads.
+The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/qm; they are not duplicated as migration payloads.
 
 Lots, results and usage decisions have process and status prerequisites. Results are reference data until a supported transfer interface is selected. Inspection plans require task-list effectivity, selected operations, characteristics, sampling and material assignments; plain PLKO rows are not an effective plan. Notifications require catalogs, partners and status decisions.
 

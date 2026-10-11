@@ -1,6 +1,6 @@
 # ZEMX_I_FuncLoc
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -32,7 +32,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Read the hierarchy of plant 1000 top-down: filter MaintenancePlanningPlant = '1000'.
-
-## Open verification items
-
-`XFL-G01`, `XGEN-003`, `XGEN-005` - see `BATCH_REPORT.md`.

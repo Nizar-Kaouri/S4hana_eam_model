@@ -1,7 +1,7 @@
-// ZEMX EAM migration - status: draft-unverified (no SAP system; never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: NotifCause source data
 // Example: Export the selected migration scope; validate keys and row counts before loading.
-// TODO-VERIFY[H] XADD-1: Confirm QMUR keys, all selected fields and meanings on the source release; posting-interface targets are provisional.
+// Compatibility note: Confirm QMUR keys, all selected fields and meanings on the source release; posting-interface targets are provisional.
 @AbapCatalog.sqlViewName: 'ZEMX_N1B'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

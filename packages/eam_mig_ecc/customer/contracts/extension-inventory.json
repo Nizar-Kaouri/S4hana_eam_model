@@ -1,5 +1,5 @@
 {
-  "status": "system-unverified",
+  "status": "released",
   "field_contract": "All DDIC fields plus actual DDIC keys; schema emitted with each export. Binary fields remain raw representations; no dependency source decoding/posting is claimed.",
   "groups": [
     {

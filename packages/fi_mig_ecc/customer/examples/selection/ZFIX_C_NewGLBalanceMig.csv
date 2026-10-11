@@ -1,2 +1,2 @@
-﻿Ledger,RecordType,Version,FiscalYear,GLAccount,CompanyCode,CostCenter,ProfitCenter,FunctionalArea,BusinessArea,Segment,PartnerCostCenter,PartnerProfitCenter,PartnerFunctionalArea,PartnerBusinessArea,TradingPartner,PartnerSegment,TransactionCurrency,BaseUnit,DebitCreditCode
+Ledger,RecordType,Version,FiscalYear,GLAccount,CompanyCode,CostCenter,ProfitCenter,FunctionalArea,BusinessArea,Segment,PartnerCostCenter,PartnerProfitCenter,PartnerFunctionalArea,PartnerBusinessArea,TradingPartner,PartnerSegment,TransactionCurrency,BaseUnit,DebitCreditCode
 01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01,01

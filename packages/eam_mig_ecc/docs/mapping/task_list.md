@@ -1,13 +1,13 @@
 # Migration interface: task_list
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `work_center`, `equipment`, `functional_location`
 - **Business key:** `TaskListType`, `TaskListGroup`, `TaskListGroupCounter` · numbering **new**
 - **Key rule:** Task list groups are usually renumbered: the load program keeps the old -> new numbers; maintenance plan items refer to them.
 
-> TODO-VERIFY[M] XTL-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
+> Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
 The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
@@ -167,4 +167,4 @@ python3 tools/mig_reconcile.py records --product eam_mig_ecc --module task_list 
 
 ## Open gaps
 
-- TODO-VERIFY[H] XTL-G02: highest recorded counters are provisional; resolve engineering-change effectivity and operation references at the customer cutover date before loading components, PRTs or packages.
+- Compatibility note: highest recorded counters are provisional; resolve engineering-change effectivity and operation references at the customer cutover date before loading components, PRTs or packages.

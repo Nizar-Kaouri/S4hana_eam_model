@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Cost center assignments of work centers with the business key (work center + plant).
 // Example: Find the work centers without a valid cost center.
 @AbapCatalog.sqlViewName: 'ZEMX_WCK'

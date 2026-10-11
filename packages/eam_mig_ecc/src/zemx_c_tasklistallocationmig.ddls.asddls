@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Equipment / functional location allocation of the task lists in scope.
 // Example: The load program assigns each equipment task list to its equipment.
 @AbapCatalog.sqlViewName: 'ZEMX_CTLA'

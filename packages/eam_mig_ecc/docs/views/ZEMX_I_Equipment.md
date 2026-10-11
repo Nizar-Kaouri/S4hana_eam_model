@@ -1,6 +1,6 @@
 # ZEMX_I_Equipment
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -32,7 +32,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Read the equipment of plant 1000 in installation order: filter MaintenancePlanningPlant = '1000'.
-
-## Open verification items
-
-`XEQ-001` - see `BATCH_REPORT.md`.

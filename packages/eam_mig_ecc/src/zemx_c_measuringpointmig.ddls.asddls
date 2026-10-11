@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Measuring points to migrate with technical object key and characteristic name; range values stay in the SI unit (converted by the load program).
 // Example: The load program creates the measuring point at its technical object.
 @AbapCatalog.sqlViewName: 'ZEMX_CMP'

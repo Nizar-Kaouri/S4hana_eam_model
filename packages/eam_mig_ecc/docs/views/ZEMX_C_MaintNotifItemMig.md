@@ -1,6 +1,6 @@
 # ZEMX_C_MaintNotifItemMig
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -33,7 +33,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 The load program adds the items to the notification created from ZEMX_C_MaintNotificationMig.
-
-## Open verification items
-
-none

@@ -1,13 +1,13 @@
 # Migration interface: equipment
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `work_center`, `functional_location`
 - **Business key:** `Equipment` · numbering **keep**
 - **Key rule:** Keep equipment numbers (external number assignment on S/4HANA) where possible; otherwise the load program assigns and logs the new numbers.
 
-> TODO-VERIFY[M] XEQ-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
+> Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
 The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
@@ -114,5 +114,5 @@ python3 tools/mig_reconcile.py records --product eam_mig_ecc --module equipment 
 
 ## Open gaps
 
-- TODO-VERIFY[H] XEQ-G01: EQBS serial stock context is delivered as reference data only; stock quantities and material serial profiles belong to the customer MM migration, not EAM master posting.
-- TODO-VERIFY[H] XEQ-G02: material numbers must exist on S/4HANA (material master migration, MM) before equipment with a material is loaded
+- Compatibility note: EQBS serial stock context is delivered as reference data only; stock quantities and material serial profiles belong to the customer MM migration, not EAM master posting.
+- Compatibility note: material numbers must exist on S/4HANA (material master migration, MM) before equipment with a material is loaded

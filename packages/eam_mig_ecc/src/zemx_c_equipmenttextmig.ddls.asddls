@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Descriptions of the equipment in scope per language.
 // Example: Read the texts of equipment 10000001: filter Equipment = '000000000010000001'.
 @AbapCatalog.sqlViewName: 'ZEMX_CEQT'

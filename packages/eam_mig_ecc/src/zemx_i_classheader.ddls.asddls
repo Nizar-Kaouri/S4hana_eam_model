@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Classes (KLAH) by internal number.
 // Example: Find the name of class 0000004711.
 @AbapCatalog.sqlViewName: 'ZEMX_KLAH'

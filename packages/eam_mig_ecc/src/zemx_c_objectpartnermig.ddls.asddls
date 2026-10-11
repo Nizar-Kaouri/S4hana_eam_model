@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Partner assignments (not deleted) with object key, partner function and partner.
 // Example: The load program adds the partners to the migrated objects (filter PartnerObjectType per object).
 @AbapCatalog.sqlViewName: 'ZEMX_CPA'

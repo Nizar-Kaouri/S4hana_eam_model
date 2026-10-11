@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Maintenance item with reference object, planning data, main work center (business key), order / notification type, task list and business area.
 // Example: Read the items of the plans of plant 1000.
 @AbapCatalog.sqlViewName: 'ZEMX_PLI'

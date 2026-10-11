@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Open components (not deleted, not finally issued) of the open orders with material, plant and storage location.
 // Example: The load program adds the components to the operations of the migrated order.
 @AbapCatalog.sqlViewName: 'ZEMX_CORC'

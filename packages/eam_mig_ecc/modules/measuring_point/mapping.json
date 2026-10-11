@@ -1,10 +1,10 @@
 {
   "module": "measuring_point",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XMP-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [
@@ -207,7 +207,7 @@
     }
   },
   "gaps": [
-    "TODO-VERIFY[M] XMP-G01: characteristics (CABN) must exist on S/4HANA with the same name and unit before the load"
+    "Compatibility note: characteristics (CABN) must exist on S/4HANA with the same name and unit before the load"
   ],
   "main_structure": "ZEMX_C_MeasuringPointMig"
 }

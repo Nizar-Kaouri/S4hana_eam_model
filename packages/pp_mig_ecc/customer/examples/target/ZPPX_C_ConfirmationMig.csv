@@ -1,2 +1,2 @@
-﻿ConfirmationNumber,ConfirmationCounter,ManufacturingOrder,Operation,PostingDate,FinalConfirmation,ReversalFlag,ReversalCounter,YieldQuantity,ScrapQuantity,ConfirmationUnit
+ConfirmationNumber,ConfirmationCounter,ManufacturingOrder,Operation,PostingDate,FinalConfirmation,ReversalFlag,ReversalCounter,YieldQuantity,ScrapQuantity,ConfirmationUnit
 01,01,sample,sample,20261001,sample,sample,sample,sample,sample,sample

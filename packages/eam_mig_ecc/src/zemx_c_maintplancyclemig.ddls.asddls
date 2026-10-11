@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Cycles / packages of the plans in scope with unit and measuring point; cycle values in the SI unit.
 // Example: The load program adds the cycles to the plan (converting the cycle value to CycleUnit).
 @AbapCatalog.sqlViewName: 'ZEMX_CPLC'

@@ -1,5 +1,9 @@
-# Compatibility
+# Compatibility requirements
 
-All objects are draft-unverified. Source baseline: ECC 6.0 on NetWeaver 7.40 SP08 or later with classic CDS; database/table transparency and customer DDIC may limit it. Target baseline: S/4HANA 2025 on premise or Private Cloud, with candidate released CDS projections. Public Cloud deployment is not assumed. No semantic DDIC or SAP activation test has run. Target CSV adapters must be implemented against customer-supported interfaces.
+Source templates use classic ABAP CDS over the documented ECC tables. The design baseline is NetWeaver 7.40 SP08 or newer. Availability of annotations, fields and helper interfaces depends on the installed stack and components.
 
-Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope.
+Use the documented data definitions and module manifests to check the installed schema. A single source or target release does not establish compatibility with every SAP release. Public Cloud deployment restrictions require a separate interface assessment.
+
+Provide the required ABAP development authorizations and authorized extraction channel. No DCL is supplied; table-display authorization alone does not authorize every CDS access path.
+
+Python tools require Python 3.10 or newer. Native helpers use an interactive SAP GUI. No loading service, posting adapter or SAP certification is included.

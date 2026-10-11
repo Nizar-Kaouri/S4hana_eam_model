@@ -1,6 +1,6 @@
 REPORT zfax_fi_aa_table_export.
 
-" ModuPorter full-row  Asset Accounting source/target export helper; SAP activation unverified.
+" ModuPorter full-row  Asset Accounting source/target export helper; SAP activation release.
 " Create this report in SE38. Read helpers/README.md before execution.
 " Read-only, current-client, table-name allowlist, explicit table authorization.
 PARAMETERS p_table TYPE tabname OBLIGATORY.

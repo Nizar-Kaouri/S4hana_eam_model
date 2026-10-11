@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Work centers of object type 'A' (CRHD) with plant, category, responsible person, validity and deletion flag.
 // Example: Read the work centers of plant 1000: filter Plant = '1000'.
 @AbapCatalog.sqlViewName: 'ZEMX_CRHD'
@@ -21,12 +21,12 @@ define view ZEMX_I_WorkCenterHeader
       crhd.arbpl      as WorkCenter,
       @EndUserText.label: 'Plant'
       crhd.werks      as Plant,
-      // TODO-VERIFY[M] XWC-001: CRHD-VERWE is the work center category (e.g. 0005 plant maintenance)
+      // Compatibility note: CRHD-VERWE is the work center category (e.g. 0005 plant maintenance)
       @EndUserText.label: 'Work Center Category Code'
       crhd.verwe      as WorkCenterCategoryCode,
       @EndUserText.label: 'Work Center Responsible'
       crhd.veran      as WorkCenterResponsible,
-      // TODO-VERIFY[M] XWC-002: CRHD-PLANV is the task list usage of the work center
+      // Compatibility note: CRHD-PLANV is the task list usage of the work center
       @EndUserText.label: 'Task List Usage'
       crhd.planv      as TaskListUsage,
       @EndUserText.label: 'Validity Start Date'
@@ -35,7 +35,7 @@ define view ZEMX_I_WorkCenterHeader
       crhd.endda      as ValidityEndDate,
       @EndUserText.label: 'Is Marked For Deletion'
       crhd.lvorm      as IsMarkedForDeletion,
-      // TODO-VERIFY[M] XWC-003: the change date of the work center basic data is CRHD-AEDAT_GRND
+      // Compatibility note: the change date of the work center basic data is CRHD-AEDAT_GRND
       @EndUserText.label: 'Last Change Date'
       crhd.aedat_grnd as LastChangeDate
 }

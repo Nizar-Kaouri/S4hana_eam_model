@@ -1,6 +1,5 @@
 # CO primary and secondary cost planning
 
-Status: draft-unverified. Delivery mode: planning-reference.
 
 COSP/COSS also contain actuals: approve the plan value types and versions explicitly. Preserve period blocks, periods 01–16, fiscal-year variant, controlling/object/transaction currencies and debit-credit semantics. Resolve cost objects and accounts first. Target ACDOCP planning is not a field-for-field copy of these totals; choose a supported plan import and map period/currency types.
 

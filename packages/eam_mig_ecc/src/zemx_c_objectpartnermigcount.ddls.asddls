@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Record count of the partner assignments delivered by ZEMX_C_ObjectPartnerMig per PartnerObjectType, PartnerFunction; compared with the same count on S/4HANA by tools/mig_reconcile.py.
 // Example: Export this view before the load and the S/4HANA count view after it; the reconcile tool lists every PartnerObjectType / PartnerFunction combination whose counts differ.
 @AbapCatalog.sqlViewName: 'ZEMX_CPAN'

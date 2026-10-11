@@ -1,5 +1,25 @@
 # Supported scope
 
+ModuPorter Controlling version 1.0.0.
+
+| Module | ID | Objects |
+|---|---|---:|
+| Allocation cycles and segments target comparison | allocation_cycle | 0 |
+| Actual cost history target comparison | cost_actuals | 0 |
+| Cost centers target comparison | cost_center | 2 |
+| Cost element references target comparison | cost_element | 0 |
+| Internal orders target comparison | internal_order | 2 |
+| CO primary and secondary cost planning target comparison | planning | 0 |
+| Profit centers target comparison | profit_center | 2 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# Supported scope
+
 Controlling has 7 modules and 13 extraction structures.
 
 | Module | ID | Structures | Delivery mode |
@@ -12,7 +32,7 @@ Controlling has 7 modules and 13 extraction structures.
 | Actual cost history | cost_actuals | 1 | reference |
 | Cost element references | cost_element | 2 | reference |
 
-The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented candidate structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/co; they are not duplicated as migration payloads.
+The Basic layer preserves native table grain; Composite prepares a stable alias contract; Consumption exposes an explicitly documented extraction structure. Separate child structures preserve keys and multiplicity. Candidate data requires customer scope approval before posting. Existing analytical report modules remain in packages/co; they are not duplicated as migration payloads.
 
 Resolve time intervals at cutover and map controlling areas, cost centers, profit centers and order numbers. Cost elements integrate with S/4HANA G/L accounts. COEP is source history, not a target Universal Journal posting template. Plan data, allocations, settlement and commitments require additional interface scope.
 

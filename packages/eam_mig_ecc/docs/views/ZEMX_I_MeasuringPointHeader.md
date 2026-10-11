@@ -1,6 +1,6 @@
 # ZEMX_I_MeasuringPointHeader
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -32,7 +32,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Read the counters: filter MeasuringPointIsCounter = 'X'.
-
-## Open verification items
-
-`XMP-001`, `XMP-003`, `XMP-004` - see `BATCH_REPORT.md`.

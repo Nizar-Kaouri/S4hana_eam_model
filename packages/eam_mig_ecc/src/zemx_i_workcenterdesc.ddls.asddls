@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Work center descriptions (CRTX) per language for object type 'A'.
 // Example: Read the English description of work center object 10000001.
 @AbapCatalog.sqlViewName: 'ZEMX_CRTX'

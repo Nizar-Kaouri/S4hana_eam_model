@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Location and account assignment data (ILOA) shared by functional locations, equipment, notifications, orders and maintenance items.
 // Example: Read the plant section and cost center of location record 0000123456.
 @AbapCatalog.sqlViewName: 'ZEMX_ILOA'
@@ -19,7 +19,7 @@ define view ZEMX_I_LocAcctAssignment
   key iloa.iloan as LocAcctAssignment,
       @EndUserText.label: 'Functional Location'
       iloa.tplnr as FunctionalLocation,
-      // TODO-VERIFY[L] XFL-004: ILOA field names (SWERK, BEBER, STORT, MSGRP, ABCKZ, EQFNR, BUKRS, GSBER, KOKRS, KOSTL, ANLNR, ANLUN, DAUFN)
+      // Compatibility note: ILOA field names (SWERK, BEBER, STORT, MSGRP, ABCKZ, EQFNR, BUKRS, GSBER, KOKRS, KOSTL, ANLNR, ANLUN, DAUFN)
       @EndUserText.label: 'Maintenance Plant'
       iloa.swerk as MaintenancePlant,
       @EndUserText.label: 'Plant Section'

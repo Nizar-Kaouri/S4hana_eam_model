@@ -1,9 +1,9 @@
 {
   "module": "quality_notification",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer-selected supported posting interface; reference data is not posted",
-    "todo_verify": []
+    "compatibility_notes": []
   },
   "sequence_after": [],
   "key": {

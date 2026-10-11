@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Maintenance order with planning data, reference object, account assignment, main work center (business key) and the status flags that decide the migration scope.
 // Example: Read the open orders: filter IsTechnicallyCompleted = '', IsClosed = '' and IsMarkedForDeletion = ''.
 @AbapCatalog.sqlViewName: 'ZEMX_OR'

@@ -1,10 +1,10 @@
 {
   "module": "work_center",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "customer load program (reads the consumption views, posts on S/4HANA)",
-    "todo_verify": [
-      "TODO-VERIFY[M] XWC-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
+    "compatibility_notes": [
+      "Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses"
     ]
   },
   "sequence_after": [],
@@ -363,7 +363,7 @@
     }
   },
   "gaps": [
-    "TODO-VERIFY[H] XWC-G01: CRCA allocation, FORK2 formula and KAKO header are delivered as reference data; available-capacity intervals, shift calendars, additional formulas and defaults require release-specific extension."
+    "Compatibility note: CRCA allocation, FORK2 formula and KAKO header are delivered as reference data; available-capacity intervals, shift calendars, additional formulas and defaults require release-specific extension."
   ],
   "main_structure": "ZEMX_C_WorkCenterMig"
 }

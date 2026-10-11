@@ -1,6 +1,6 @@
 REPORT zmmx_mm_table_export.
 
-" ModuPorter full-row  Materials Management source/target export helper; SAP activation unverified.
+" ModuPorter full-row  Materials Management source/target export helper; SAP activation release.
 " Create this report in SE38. Read helpers/README.md before execution.
 " Read-only, current-client, table-name allowlist, explicit table authorization.
 PARAMETERS p_table TYPE tabname OBLIGATORY.

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: All versions (change-number states) of maintenance task list headers of type A (general), E (equipment) and T (functional location).
 // Example: See every version of task list group 4711: filter TaskListGroup = '00004711'.
 @AbapCatalog.sqlViewName: 'ZEMX_PLKO'
@@ -22,7 +22,7 @@ define view ZEMX_I_TaskListHeader
   key plko.plnnr as TaskListGroup,
       @EndUserText.label: 'Task List Group Counter'
   key plko.plnal as TaskListGroupCounter,
-      // TODO-VERIFY[H] XTL-003: PLKO-ZAEHL counts the change-number states; the highest counter is the current version
+      // Compatibility note: PLKO-ZAEHL counts the change-number states; the highest counter is the current version
       @EndUserText.label: 'Task List Version Counter'
   key plko.zaehl as TaskListVersionCounter,
       @EndUserText.label: 'Validity Start Date'
@@ -35,10 +35,10 @@ define view ZEMX_I_TaskListHeader
       plko.verwe as TaskListUsage,
       @EndUserText.label: 'Task List Status'
       plko.statu as TaskListStatus,
-      // TODO-VERIFY[M] XTL-002: PLKO field names VAGRP, STRAT, ANLZU, ANDAT, ANNAM, LOEKZ, ARBID
+      // Compatibility note: PLKO field names VAGRP, STRAT, ANLZU, ANDAT, ANNAM, LOEKZ, ARBID
       @EndUserText.label: 'Maintenance Planner Group'
       plko.vagrp as MaintenancePlannerGroup,
-      // TODO-VERIFY[H] XTL-001: PLKO-ARBID and PLPO-ARBID hold the CRHD object ID of the work center
+      // Compatibility note: PLKO-ARBID and PLPO-ARBID hold the CRHD object ID of the work center
       @EndUserText.label: 'Main Work Center Internal ID'
       plko.arbid as MainWorkCenterInternalID,
       @EndUserText.label: 'Maintenance Strategy'

@@ -25,6 +25,8 @@ STATUS = ("> Status: **draft-unverified** · tested release: "
           + bp.load_library().get("draft_tested_release", "none (draft, 2025 assumed)") + ". "
           "Nothing below has been activated on a system.")
 MARKER_RE = re.compile(r"TODO-VERIFY\[[HML]\]\s+([A-Z]+-[A-Z0-9]+):")
+if bp.load_library().get("phase") == "released":
+    STATUS = "> Version **" + bp.load_library()["version"] + "**"
 REF_RE = re.compile(r"\b([A-Z]{2,4}-[A-Z]?[0-9]{2,3})\b")
 
 
@@ -135,6 +137,8 @@ def render(name, text, modules):
               "## Example use case", "", header_field(text, "Example") or "_missing_", "",
               "## Open verification items", "",
               (", ".join(f"`{t}`" for t in todo) + " - see `BATCH_REPORT.md`.") if todo else "none", ""]
+    if bp.load_library().get("phase") == "released":
+        lines = lines[:lines.index("## Open verification items")]
     return "\n".join(lines)
 
 

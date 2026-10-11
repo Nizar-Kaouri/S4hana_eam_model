@@ -1,6 +1,6 @@
 # ZEMX_I_ObjectPartner
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -34,7 +34,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Read the partners of equipment: filter PartnerObjectType = 'IE'.
-
-## Open verification items
-
-`XPA-001`, `XPA-002` - see `BATCH_REPORT.md`.

@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Active system and user statuses of all objects (JEST, INACT = space) with the object type and status kind decoded.
 // Example: Read the user statuses of equipment: filter StatusObjectType = 'IE' and StatusKind = 'E'.
 @AbapCatalog.sqlViewName: 'ZEMX_JESTA'
@@ -20,7 +20,7 @@ define view ZEMX_I_ObjectStatusEntry
   key jest.objnr                     as ObjectNumber,
       @EndUserText.label: 'Status Code'
   key jest.stat                      as StatusCode,
-      // TODO-VERIFY[H] XST-002: object number prefixes IE (equipment), IF (functional location), QM (notification), OR (order), OV (operation), maintenance plan prefix to check
+      // Compatibility note: object number prefixes IE (equipment), IF (functional location), QM (notification), OR (order), OV (operation), maintenance plan prefix to check
       @EndUserText.label: 'Status Object Type'
       substring( jest.objnr, 1, 2 )  as StatusObjectType,
       @EndUserText.label: 'Status Object Key'

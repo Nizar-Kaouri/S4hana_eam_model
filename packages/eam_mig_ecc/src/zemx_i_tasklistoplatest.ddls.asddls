@@ -1,4 +1,4 @@
-// ZEMX EAM migration - status: draft-unverified (no SAP system; never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Latest recorded operation state, including deletion states; cutover effectivity still requires verification.
 // Example: Join the counter back to its own table wrapper before applying deletion scope.
 @AbapCatalog.sqlViewName: 'ZEMX_TLOL'

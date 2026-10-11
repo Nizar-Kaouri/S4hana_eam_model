@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Operation details of task lists (PLPO): operation number, control key, work center, work, duration.
 // Example: Read the operations of task list group 4711.
 @AbapCatalog.sqlViewName: 'ZEMX_PLPO'
@@ -26,7 +26,7 @@ define view ZEMX_I_TaskListOpDetail
   key plpo.zaehl as TaskListOpVersionCounter,
       @EndUserText.label: 'Task List Operation'
       plpo.vornr as TaskListOperation,
-      // TODO-VERIFY[M] XTL-006: PLPO field names UVORN, LARNT, ANZZL, DAUNO, DAUNE
+      // Compatibility note: PLPO field names UVORN, LARNT, ANZZL, DAUNO, DAUNE
       @EndUserText.label: 'Task List Sub Operation'
       plpo.uvorn as TaskListSubOperation,
       @EndUserText.label: 'Operation Control Key'

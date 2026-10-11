@@ -1,6 +1,5 @@
 # Purchasing contracts
 
-Status: draft-unverified. Delivery mode: open-document.
 
 Select EKKO document category K and approved contract types; exclude purchase orders and scheduling agreements. Verify validity, value versus quantity contract, remaining target obligation and releases against the contract. Link account assignments and time-dependent conditions; release history is evidence, not a second purchase-order load. Supplier, CO/PS and account mappings require cross-domain approval.
 

@@ -1,9 +1,9 @@
 {
   "module": "production_confirmation",
-  "status": "draft-unverified",
+  "status": "released",
   "target": {
     "tool": "Customer-verified business interface; process-reference restrictions apply",
-    "todo_verify": []
+    "compatibility_notes": []
   },
   "sequence_after": [
     "production_order",

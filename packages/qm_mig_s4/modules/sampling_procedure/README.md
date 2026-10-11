@@ -1,6 +1,5 @@
 # Sampling procedures
 
-Status: draft-unverified. Delivery mode: configuration-reference.
 
 DDIC must verify QDSV keys and the selected sampling/valuation fields. A procedure also depends on sample size rules, sampling schemes, dynamic modification and valuation settings; export those through the native QM configuration interface and verify the complete dependency set. Sampling procedure headers alone are not a complete statistical sampling scheme.
 

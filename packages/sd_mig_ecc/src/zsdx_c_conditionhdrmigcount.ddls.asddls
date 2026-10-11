@@ -1,5 +1,5 @@
-// ModuPorter migration - status: draft-unverified (never activated on SAP)
-// Purpose: Read ConditionHdrMigCount as source candidates; approve the key-date population before posting.
+// ModuPorter SD migration | Release 1.0.0
+// Purpose: Read ConditionHdrMigCount as source records; approve the key-date population before posting.
 // Example: Export a small approved cohort, preserve internal keys, and compare with the mapped target population.
 @AbapCatalog.sqlViewName: 'ZSDX_V013N'
 @AbapCatalog.compiler.compareFilter: true

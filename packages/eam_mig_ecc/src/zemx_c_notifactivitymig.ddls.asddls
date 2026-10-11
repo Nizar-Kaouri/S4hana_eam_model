@@ -1,4 +1,4 @@
-// ZEMX EAM migration - status: draft-unverified (no SAP system; never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: NotifActivity migration extract
 // Example: Export the selected migration scope; validate keys and row counts before loading.
 @AbapCatalog.sqlViewName: 'ZEMX_N3C'

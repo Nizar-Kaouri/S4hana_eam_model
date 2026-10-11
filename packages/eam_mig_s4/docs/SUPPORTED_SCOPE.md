@@ -1,4 +1,25 @@
-# EAM pack 1.0.0-rc.1 scope
+# Supported scope
+
+ModuPorter Enterprise Asset Management version 1.0.0.
+
+| Module | ID | Objects |
+|---|---|---:|
+| Equipment reconciliation | equipment | 2 |
+| Functional location reconciliation | functional_location | 2 |
+| Maintenance notification reconciliation | maintenance_notification | 2 |
+| Maintenance order reconciliation | maintenance_order | 2 |
+| Maintenance plan reconciliation | maintenance_plan | 2 |
+| Measuring point reconciliation | measuring_point | 2 |
+| Maintenance task list reconciliation | task_list | 2 |
+| Work center reconciliation | work_center | 2 |
+
+## Delivery boundaries
+
+Read-only extraction and comparison templates. Histories, balances and process references are not automatically posted as master data. Business eligibility, effectivity, cutover and target posting interfaces are customer configuration decisions.
+
+## Domain details
+
+# EAM pack 1.0.0 scope
 
 ## Delivered
 
@@ -16,5 +37,3 @@ Specialized capacities/shifts/formulas, task-list relationships/services/depende
 SAP release/DDIC confirmation, selected root population, native engineering-change eligibility where needed, conversion and identifier maps, target posting interface and deployment permissions. Customizing, target loading/commits and SAP entitlements belong to the customer implementation. Parameter-dependent ECM cannot be inferred reliably from a generic table snapshot; unevaluated cases stop preparation.
 
 ## Validation boundary
-
-Status remains draft-unverified until your SAP activation and extraction test. Offline parsers and synthetic fixtures cannot establish the actual DDIC, function-module signatures, runtime behavior, authorization coverage or successful postings. The customer acceptance matrix includes the added workflow/report scenarios. This release candidate is prepared for a customer trial, not labelled SAP certified.

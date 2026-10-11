@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Current version of each maintenance task list header with the main work center as business key and the deletion flag.
 // Example: Read the current task lists of plant 1000.
 @AbapCatalog.sqlViewName: 'ZEMX_TLC'

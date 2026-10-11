@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Order header planning data (AFKO): basic dates, routing number and the task list used.
 // Example: Read the basic dates of order 4000001.
 @AbapCatalog.sqlViewName: 'ZEMX_AFKO'

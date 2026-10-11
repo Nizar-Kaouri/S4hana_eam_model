@@ -1,6 +1,6 @@
 # Migration interface: purchasing_info_record
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** Customer-verified business interface; master restrictions apply
 - **Load after:** `product`

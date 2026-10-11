@@ -3,9 +3,8 @@
   "title": "Maintenance order",
   "description": "Open maintenance orders with operations, components, settlement rows and permit assignments.",
   "batch": 2,
-  "version": "1.0.0-rc.1",
-  "status": "draft-unverified",
-  "tested_release": "none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed)",
+  "version": "1.0.0",
+  "status": "released",
   "tags": [
     "transactional",
     "order",

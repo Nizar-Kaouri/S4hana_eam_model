@@ -1,7 +1,7 @@
-// ZEMX EAM migration - status: draft-unverified (no SAP system; never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: CapacityHeader source data
 // Example: Export the selected migration scope; validate keys and row counts before loading.
-// TODO-VERIFY[H] XADD-53: Confirm KAKO keys, all selected fields and meanings on the source release; posting-interface targets are provisional.
+// Compatibility note: Confirm KAKO keys, all selected fields and meanings on the source release; posting-interface targets are provisional.
 @AbapCatalog.sqlViewName: 'ZEMX_N53B'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED

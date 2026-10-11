@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Notification headers (QMEL): type, texts, dates, priority, coding, order reference and object number.
 // Example: Read the notifications created in 2025.
 @AbapCatalog.sqlViewName: 'ZEMX_QMEL'
@@ -38,7 +38,7 @@ define view ZEMX_I_NotificationHeader
       qmel.strmn as RequiredStartDate,
       @EndUserText.label: 'Required End Date'
       qmel.ltrmn as RequiredEndDate,
-      // TODO-VERIFY[M] XNO-001: QMEL field names ARTPR, QMKAT, QMGRP, QMCOD, STRMN, LTRMN, QMNAM, ARBPL
+      // Compatibility note: QMEL field names ARTPR, QMKAT, QMGRP, QMCOD, STRMN, LTRMN, QMNAM, ARBPL
       @EndUserText.label: 'Notification Catalog'
       qmel.qmkat as NotificationCatalog,
       @EndUserText.label: 'Notification Code Group'
@@ -47,7 +47,7 @@ define view ZEMX_I_NotificationHeader
       qmel.qmcod as NotificationCode,
       @EndUserText.label: 'Maintenance Order'
       qmel.aufnr as MaintenanceOrder,
-      // TODO-VERIFY[H] XNO-002: QMEL-ARBPL holds the CRHD object ID of the main work center
+      // Compatibility note: QMEL-ARBPL holds the CRHD object ID of the main work center
       @EndUserText.label: 'Main Work Center Internal ID'
       qmel.arbpl as MainWorkCenterInternalID,
       @EndUserText.label: 'Object Number'

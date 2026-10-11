@@ -1,6 +1,5 @@
 # Purchasing info records
 
-Status: draft-unverified. Delivery mode: master.
 
 Migrate general and purchasing-organization data at their separate grains. Supplier/business-partner mapping and units are prerequisites. EINE current net price does not supply complete time-dependent conditions: export the configured purchasing condition tables, KONH/KONP and scales as a linked set with validity, access key and deletion checks. Do not claim complete condition coverage from EINA/EINE alone.
 

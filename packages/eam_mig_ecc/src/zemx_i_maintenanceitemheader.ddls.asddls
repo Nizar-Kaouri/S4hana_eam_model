@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Maintenance items (MPOS) with reference object, planning data, order / notification type and task list.
 // Example: Read the items of maintenance plan 100.
 @AbapCatalog.sqlViewName: 'ZEMX_MPOS'
@@ -29,10 +29,10 @@ define view ZEMX_I_MaintenanceItemHeader
       mpos.tplnr as FunctionalLocation,
       @EndUserText.label: 'Maintenance Planning Plant'
       mpos.iwerk as MaintenancePlanningPlant,
-      // TODO-VERIFY[M] XPL-003: MPOS field names WPGRP, GEWRK, QMART, ILART, PRIOK, ERSDT, AEDAT
+      // Compatibility note: MPOS field names WPGRP, GEWRK, QMART, ILART, PRIOK, ERSDT, AEDAT
       @EndUserText.label: 'Maintenance Planner Group'
       mpos.wpgrp as MaintenancePlannerGroup,
-      // TODO-VERIFY[H] XPL-004: MPOS-GEWRK holds the CRHD object ID of the main work center
+      // Compatibility note: MPOS-GEWRK holds the CRHD object ID of the main work center
       @EndUserText.label: 'Main Work Center Internal ID'
       mpos.gewrk as MainWorkCenterInternalID,
       @EndUserText.label: 'Maintenance Order Type'

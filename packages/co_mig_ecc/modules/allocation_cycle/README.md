@@ -1,6 +1,5 @@
 # Allocation cycles and segments
 
-Status: draft-unverified. Delivery mode: configuration-reference.
 
 Cycle headers and segments alone are insufficient. Export sender/receiver rules, set membership, tracing factors, accounts, plan/actual context, iterations and company restrictions through the verified native cycle configuration export. T811* table categories and keys vary; use the full-row helper where CDS is unavailable. Do not insert T811* or recreate cycles by posting journal entries; validate and execute a test cycle in the target.
 

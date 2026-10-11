@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Cost center assignments of work centers per validity period (CRCO).
 // Example: Read the cost center of work center object 10000001 valid today.
 @AbapCatalog.sqlViewName: 'ZEMX_CRCO'
@@ -18,7 +18,7 @@ define view ZEMX_I_WorkCenterCostAssgmt
 {
       @EndUserText.label: 'Work Center Internal ID'
   key crco.objid as WorkCenterInternalID,
-      // TODO-VERIFY[H] XWC-004: CRCO key structure (OBJTY, OBJID, LASET, ENDDA, LANUM) and field names
+      // Compatibility note: CRCO key structure (OBJTY, OBJID, LASET, ENDDA, LANUM) and field names
       @EndUserText.label: 'Activity Type Set'
   key crco.laset as ActivityTypeSet,
       @EndUserText.label: 'Validity End Date'

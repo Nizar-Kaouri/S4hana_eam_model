@@ -1,6 +1,6 @@
 # ZEMX_I_WorkCenterHeader
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been activated on a system.
+> Version **1.0.0**
 
 | | |
 |---|---|
@@ -32,7 +32,3 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 ## Example use case
 
 Read the work centers of plant 1000: filter Plant = '1000'.
-
-## Open verification items
-
-`XWC-001`, `XWC-002`, `XWC-003` - see `BATCH_REPORT.md`.

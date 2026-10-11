@@ -1,13 +1,13 @@
 # Migration interface: measurement_document
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** customer load program (reads the consumption views, posts on S/4HANA)
 - **Load after:** `measuring_point`
 - **Business key:** `MeasuringPoint` · numbering **new**
 - **Key rule:** New document numbers on S/4HANA; one initial reading per measuring point.
 
-> TODO-VERIFY[M] XMD-M01: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
+> Compatibility note: target fields are the S/4HANA table fields, assumed unchanged from ECC for Plant Maintenance; confirm them against the posting interface (BAPI / API) the load program uses
 
 The consumption views deliver the values **exactly as stored in ECC**. Changing values (new plants, new numbers, ...) is up to the load program.
 
@@ -46,4 +46,4 @@ python3 tools/mig_reconcile.py counts --product eam_mig_ecc --module measurement
 
 ## Open gaps
 
-- TODO-VERIFY[L] XMD-G01: full reading history is not migrated (stays in the old system / archive); ZEMX_I_MeasurementDocument can feed a history load if required
+- Compatibility note: full reading history is not migrated (stays in the old system / archive); ZEMX_I_MeasurementDocument can feed a history load if required

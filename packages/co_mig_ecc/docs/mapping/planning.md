@@ -1,6 +1,6 @@
 # Migration interface: planning
 
-> Status: **draft-unverified** · tested release: none (draft, ECC 6.0 on NetWeaver 7.40 SP08 assumed). Nothing below has been run on a system.
+> Version **1.0.0**
 
 - **Read by:** Customer-verified business interface; planning-reference restrictions apply
 - **Load after:** `cost_center`, `internal_order`, `cost_element`

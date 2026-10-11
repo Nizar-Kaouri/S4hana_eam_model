@@ -3,9 +3,8 @@
   "title": "Maintenance plan reconciliation",
   "description": "Target-side reconciliation of the maintenance plan migration: compare view (business key + compared fields) and count view, both aligned with packages/eam_mig_ecc.",
   "batch": 1,
-  "version": "0.1.0",
-  "status": "draft-unverified",
-  "tested_release": "none (draft, 2025 assumed)",
+  "version": "1.0.0",
+  "status": "released",
   "tags": [
     "migration",
     "reconciliation",

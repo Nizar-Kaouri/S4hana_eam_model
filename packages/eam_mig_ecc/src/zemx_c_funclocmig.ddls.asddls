@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Functional locations to migrate (not flagged for deletion) with all fields as stored in ECC.
 // Example: The load program creates the locations level by level (SuperiorFunctionalLocation first).
 @AbapCatalog.sqlViewName: 'ZEMX_CFL'

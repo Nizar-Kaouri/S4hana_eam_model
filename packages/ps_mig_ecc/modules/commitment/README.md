@@ -1,6 +1,5 @@
 # Project commitments
 
-Status: draft-unverified. Delivery mode: reference.
 
 COOI grain and fields must be confirmed from DDIC before extraction. Tie commitments to approved PR/PO items and their remaining obligations. Commitments are generally regenerated from migrated purchasing documents: never post both a commitment history and its purchasing source. Enrich object and controlling-area currencies before monetary checks.
 

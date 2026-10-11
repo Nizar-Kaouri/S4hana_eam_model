@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Active user statuses (kind E) with object key and status profile; system statuses are set by S/4HANA and not migrated.
 // Example: The load program sets the user statuses after the objects are loaded (filter StatusObjectType per object).
 @AbapCatalog.sqlViewName: 'ZEMX_CST'

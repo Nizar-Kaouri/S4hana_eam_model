@@ -1,4 +1,4 @@
-// ZEMX EAM migration - ECC source - status: draft-unverified (no SAP system available, never activated)
+// ModuPorter EAM migration | Release 1.0.0
 // Purpose: Maintenance data of orders (AFIH): reference object, planning data, notification, maintenance plan.
 // Example: Read the orders created from maintenance plan 100.
 @AbapCatalog.sqlViewName: 'ZEMX_AFIH'
@@ -25,10 +25,10 @@ define view ZEMX_I_OrderMaintData
       afih.priok as MaintPriority,
       @EndUserText.label: 'Maintenance Planning Plant'
       afih.iwerk as MaintenancePlanningPlant,
-      // TODO-VERIFY[M] XOR-001: AFIH field names INGPR, GEWRK, ILART, ANLZU, WARPL, WAPOS
+      // Compatibility note: AFIH field names INGPR, GEWRK, ILART, ANLZU, WARPL, WAPOS
       @EndUserText.label: 'Maintenance Planner Group'
       afih.ingpr as MaintenancePlannerGroup,
-      // TODO-VERIFY[H] XOR-002: AFIH-GEWRK and AFVC-ARBID hold the CRHD object ID of the work center
+      // Compatibility note: AFIH-GEWRK and AFVC-ARBID hold the CRHD object ID of the work center
       @EndUserText.label: 'Main Work Center Internal ID'
       afih.gewrk as MainWorkCenterInternalID,
       @EndUserText.label: 'Maintenance Notification'
