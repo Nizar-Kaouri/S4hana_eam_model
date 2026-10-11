@@ -2,7 +2,7 @@
 
 ECC and S4HANA migration and customer validation
 
-Version 1.0.0-rc.1 • 10 October 2026 • 
+Version 1.0.0-rc.1 • 10 October 2026
 
 This manual guides SAP consultants and ABAP developers through installation, extraction, cutover preparation and reconciliation of the ModuPorter EAM pack. Start with the included local example, then validate the templates in a SAP development environment. Successful SAP activation or loading has not yet been established for this release candidate.
 

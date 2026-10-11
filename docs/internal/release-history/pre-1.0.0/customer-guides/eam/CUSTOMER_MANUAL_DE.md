@@ -2,7 +2,7 @@
 
 ECC und S4HANA Migration und Kundenprüfung
 
-Version 1.0.0-rc.1 • 10. Oktober 2026 • 
+Version 1.0.0-rc.1 • 10. Oktober 2026
 
 Dieses Handbuch führt SAP Fachberater und ABAP Entwickler durch Installation, Extraktion, Stichtagsaufbereitung und Abgleich des ModuPorter EAM Pakets. Beginnen Sie mit dem mitgelieferten lokalen Beispiel und prüfen Sie anschließend die Vorlagen in einer SAP Entwicklungsumgebung. Eine erfolgreiche SAP Aktivierung oder Beladung ist für diesen Release Candidate noch nicht nachgewiesen.
 
