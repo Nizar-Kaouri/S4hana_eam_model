@@ -1,7 +1,7 @@
 {
   "name": "equipment",
   "title": "Equipment",
-  "description": "Equipment current segment, texts and serial-stock context.",
+  "description": "Current equipment master with standard postal address, multilingual texts, scoped partners, active statuses, user statuses, long-text index and address versions.",
   "batch": 2,
   "version": "1.0.0",
   "status": "released",
@@ -12,15 +12,20 @@
     "migration"
   ],
   "sap_tables": [
+    "ADRC",
     "EQBS",
     "EQKT",
     "EQUI",
-    "EQUZ"
+    "EQUZ",
+    "ILOA"
   ],
   "sap_released_views": [],
   "hard_dependencies": [
     "core",
-    "work_center"
+    "work_center",
+    "object_partner",
+    "object_status",
+    "long_text"
   ],
   "objects": {
     "tables": [],
@@ -28,17 +33,28 @@
       "ZEMX_B_EquipmentHeader",
       "ZEMX_B_EquipmentTimeSegment",
       "ZEMX_B_EquipmentDesc",
-      "ZEMX_B_EquipSerialStockData"
+      "ZEMX_B_EquipSerialStockData",
+      "ZEMX_B_Address"
     ],
     "composite": [
       "ZEMX_I_Equipment",
-      "ZEMX_I_EquipSerialStock"
+      "ZEMX_I_EquipSerialStock",
+      "ZEMX_I_EquipText",
+      "ZEMX_I_EquipPartner",
+      "ZEMX_I_EquipStatus",
+      "ZEMX_I_EquipLongText",
+      "ZEMX_I_EquipAddress"
     ],
     "consumption": [
       "ZEMX_C_EquipmentMig",
       "ZEMX_C_EquipmentTextMig",
       "ZEMX_C_EquipmentMigCount",
-      "ZEMX_C_EquipSerialStockMig"
+      "ZEMX_C_EquipSerialStockMig",
+      "ZEMX_C_EquipPartnerMig",
+      "ZEMX_C_EquipStatusMig",
+      "ZEMX_C_EquipUserStatusMig",
+      "ZEMX_C_EquipLongTextMig",
+      "ZEMX_C_EquipAddressMig"
     ],
     "access_controls": [],
     "metadata_extensions": [],
@@ -54,7 +70,18 @@
     "ZEMX_C_EquipmentMigCount": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_B_EquipSerialStockData": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
     "ZEMX_I_EquipSerialStock": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
-    "ZEMX_C_EquipSerialStockMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
+    "ZEMX_C_EquipSerialStockMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_B_Address": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipText": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipPartner": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipStatus": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipLongText": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_I_EquipAddress": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipPartnerMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipStatusMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipUserStatusMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipLongTextMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer.",
+    "ZEMX_C_EquipAddressMig": "Migration reads intentionally have no DCL. Restrict access through the actual extraction channel and verify its authorization checks with permitted and restricted identities. Do not assume table authorizations protect every SQL/RFC consumer."
   },
   "link_views": []
 }

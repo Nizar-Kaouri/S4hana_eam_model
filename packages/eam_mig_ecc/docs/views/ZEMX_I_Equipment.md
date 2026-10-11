@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Equipment in its current time segment with installation location, superordinate equipment, main work center (business key), location / account assignment, manufacturer data and deletion flag: the complete business object.
+Equipment in its current time segment with installation location, superordinate equipment, main work center (business key), location / account assignment, manufacturer data and deletion flag: the equipment master record; repeating child data is exported separately.
 
 ## Keys
 
@@ -23,7 +23,7 @@ Equipment in its current time segment with installation location, superordinate 
 
 ## Associations defined here
 
-- none
+- `_Address` → `ZEMX_B_Address` [0..1]
 
 ## Access control
 

@@ -6,7 +6,7 @@ Version 1.0.0
 |---|---:|
 | classification | 8 |
 | core | 6 |
-| equipment | 10 |
+| equipment | 21 |
 | equipment_bom | 13 |
 | functional_location | 9 |
 | long_text | 3 |

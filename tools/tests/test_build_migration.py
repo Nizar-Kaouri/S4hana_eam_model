@@ -27,7 +27,7 @@ class BuildMigrationTest(unittest.TestCase):
 
     def test_ecc_build_pulls_core_and_work_center_and_rewrites_everything(self):
         out, manifest = bp.build(["equipment"], prefix="ZACME_", package="ZACME_MIG", out=self.tmp / "e.zip", root=ECC)
-        self.assertEqual(sorted(manifest["resolved_modules"]), ["core", "equipment", "work_center"])
+        self.assertEqual(sorted(manifest["resolved_modules"]), ["core", "equipment", "long_text", "object_partner", "object_status", "work_center"])
         with zipfile.ZipFile(out) as zf:
             names = zf.namelist()
             comp = zf.read("src/zacme_i_equipment.ddls.asddls").decode()
@@ -41,6 +41,9 @@ class BuildMigrationTest(unittest.TestCase):
         for text in (comp, cons, mapping):
             self.assertNotIn("ZEMX_", text.upper())
         self.assertIn("mapping/docs/equipment.md", names)
+        self.assertIn("docs/EQUIPMENT_ARCHITECTURE.md", names)
+        self.assertIn("src/zacme_b_address.ddls.asddls", names)
+        self.assertIn("src/zacme_c_equippartnermig.ddls.asddls", names)
         self.assertIn("mapping/MIGRATION_SEQUENCE.md", names)
         self.assertNotIn("mapping/task_list/mapping.json", names)
         self.assertFalse(any(n.endswith(".tabl.xml") for n in names))
@@ -70,11 +73,11 @@ class BuildMigrationTest(unittest.TestCase):
         import io
         out, manifest = bp.build(["equipment_bom"], prefix="/ACME/", package="/ACME/MIG",
                                  out=self.tmp / "bom.zip", root=ECC)
-        self.assertEqual(set(manifest["resolved_modules"]), {"equipment_bom", "equipment", "core", "work_center"})
+        self.assertEqual(set(manifest["resolved_modules"]), {"equipment_bom", "equipment", "core", "work_center", "long_text", "object_partner", "object_status"})
         with zipfile.ZipFile(out) as zf:
             self.assertIn("docs/INSTALLATION.md", zf.namelist())
             rows = list(csv.DictReader(io.StringIO(zf.read("FIELD_CATALOG.csv").decode())))
-            self.assertEqual({r["module"] for r in rows}, {"equipment_bom", "equipment", "work_center"})
+            self.assertEqual({r["module"] for r in rows}, {"equipment_bom", "equipment", "work_center", "long_text", "object_partner", "object_status"})
             self.assertTrue(all(r["view"].startswith("/ACME/") for r in rows))
             self.assertNotIn("mapping/task_list/mapping.json", zf.namelist())
 

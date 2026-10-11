@@ -1,11 +1,5 @@
 [
   {
-    "pack": "EAM",
-    "version": "1.0.0",
-    "file": "ModuPorter-EAM-Customer-Pack-1.0.0.zip",
-    "sha256": "f3eeb104c99c1ec5a7a629291f1529413c8ecff543f1166524a0bac917f9d376"
-  },
-  {
     "pack": "FI-AA",
     "version": "1.0.0",
     "file": "ModuPorter-FI-AA-Customer-Pack-1.0.0.zip",
@@ -52,5 +46,11 @@
     "version": "1.0.0",
     "file": "ModuPorter-SD-Customer-Pack-1.0.0.zip",
     "sha256": "bf7faddc5c1f117b5e40052ab63159902dd353dd68312175acd6d3cb7a7a206e"
+  },
+  {
+    "pack": "EAM",
+    "version": "1.0.0",
+    "file": "ModuPorter-EAM-Customer-Pack-1.0.0.zip",
+    "sha256": "3f6cfceea85259cbafa444ab4df6be6fe879d2c0e4672cd396ca53d18254eadc"
   }
 ]

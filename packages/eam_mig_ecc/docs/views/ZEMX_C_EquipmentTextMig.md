@@ -10,12 +10,12 @@
 | Layer | consumption (`@VDM.viewType: #CONSUMPTION`) |
 | Kind | view |
 | Data category | - |
-| Data source | `ZEMX_B_EquipmentDesc` |
+| Data source | `ZEMX_I_EquipText` |
 | Source file | `src/zemx_c_equipmenttextmig.ddls.asddls` |
 
 ## Purpose
 
-Descriptions of the equipment in scope per language.
+Equipment descriptions by language in the equipment master scope.
 
 ## Keys
 
@@ -24,7 +24,7 @@ Descriptions of the equipment in scope per language.
 
 ## Associations defined here
 
-- `_Equipment` → `ZEMX_I_Equipment` [0..1]
+- none
 
 ## Access control
 
@@ -32,4 +32,4 @@ No DCL by design: Migration reads intentionally have no DCL. Restrict access thr
 
 ## Example use case
 
-Read the texts of equipment 10000001: filter Equipment = '000000000010000001'.
+Export the selected equipment population and retain Equipment as the parent key.

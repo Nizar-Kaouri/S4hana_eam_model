@@ -1,5 +1,5 @@
 // ModuPorter EAM migration | Release 1.0.0
-// Purpose: Equipment in its current time segment with installation location, superordinate equipment, main work center (business key), location / account assignment, manufacturer data and deletion flag: the complete business object.
+// Purpose: Equipment in its current time segment with installation location, superordinate equipment, main work center (business key), location / account assignment, manufacturer data and deletion flag: the equipment master record; repeating child data is exported separately.
 // Example: Read the equipment of plant 1000 in installation order: filter MaintenancePlanningPlant = '1000'.
 // Earlier time segments (installation history) are not migrated.
 // Compatibility note: the current time segment of EQUZ has DATBI = '99991231'
@@ -17,6 +17,8 @@
 define view ZEMX_I_Equipment
   as select from ZEMX_B_EquipmentHeader as eq
     inner join ZEMX_B_EquipmentTimeSegment as seg on seg.Equipment = eq.Equipment
+  association [0..1] to ZEMX_B_Address as _Address on $projection.AddressNumber = _Address.AddressNumber
+    and _Address.AddressValidFrom = '00010101' and _Address.AddressVersion = ''
 {
       @EndUserText.label: 'Equipment'
   key eq.Equipment                   as Equipment,
@@ -70,6 +72,43 @@ define view ZEMX_I_Equipment
       seg._LocAcctAssignment.FixedAsset as FixedAsset,
       @EndUserText.label: 'Standing Order'
       seg._LocAcctAssignment.StandingOrder as StandingOrder,
+      @EndUserText.label: 'Address Number'
+      seg._LocAcctAssignment.AddressNumber as AddressNumber,
+      @EndUserText.label: 'Address Valid To'
+      _Address.AddressValidTo as AddressValidTo,
+      @EndUserText.label: 'Address Name1'
+      _Address.AddressName1 as AddressName1,
+      @EndUserText.label: 'Address Name2'
+      _Address.AddressName2 as AddressName2,
+      @EndUserText.label: 'Address Name3'
+      _Address.AddressName3 as AddressName3,
+      @EndUserText.label: 'Address Name4'
+      _Address.AddressName4 as AddressName4,
+      @EndUserText.label: 'Address Street'
+      _Address.AddressStreet as AddressStreet,
+      @EndUserText.label: 'Address House Number'
+      _Address.AddressHouseNumber as AddressHouseNumber,
+      @EndUserText.label: 'Address House Number Supplement'
+      _Address.AddressHouseNumberSupplement as AddressHouseNumberSupplement,
+      @EndUserText.label: 'Address City'
+      _Address.AddressCity as AddressCity,
+      @EndUserText.label: 'Address District'
+      _Address.AddressDistrict as AddressDistrict,
+      @EndUserText.label: 'Address Postal Code'
+      _Address.AddressPostalCode as AddressPostalCode,
+      @EndUserText.label: 'Address POBox'
+      _Address.AddressPOBox as AddressPOBox,
+      @EndUserText.label: 'Address POBox Postal Code'
+      _Address.AddressPOBoxPostalCode as AddressPOBoxPostalCode,
+      @EndUserText.label: 'Address Country'
+      _Address.AddressCountry as AddressCountry,
+      @EndUserText.label: 'Address Region'
+      _Address.AddressRegion as AddressRegion,
+      @Semantics.language: true
+      @EndUserText.label: 'Address Language'
+      _Address.AddressLanguage as AddressLanguage,
+      @EndUserText.label: 'Has Standard Address'
+      case when _Address.AddressNumber is not null then 'X' else '' end as HasStandardAddress,
       @EndUserText.label: 'Material'
       eq.Material                    as Material,
       @EndUserText.label: 'Serial Number'

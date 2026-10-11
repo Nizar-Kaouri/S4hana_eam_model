@@ -1,11 +1,10 @@
 // ModuPorter EAM migration | Release 1.0.0
-// Purpose: Equipment to migrate (not flagged for deletion) with all fields as stored in ECC.
+// Purpose: Equipment to migrate (not flagged for deletion) with documented master and standard postal address fields as stored in ECC.
 // Example: The load program creates the equipment (superordinate equipment first) and installs it at FunctionalLocation.
 @AbapCatalog.sqlViewName: 'ZEMX_CEQ'
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @Analytics.dataExtraction.enabled: true
-@Analytics.dataExtraction.delta.byElement.name: 'LastChangeDate'
 @EndUserText.label: 'Equipment (migration)'
 @ObjectModel.usageType.dataClass: #MASTER
 @ObjectModel.usageType.serviceQuality: #D
@@ -66,6 +65,43 @@ define view ZEMX_C_EquipmentMig
       src.FixedAsset                 as FixedAsset,
       @EndUserText.label: 'Standing Order'
       src.StandingOrder              as StandingOrder,
+      @EndUserText.label: 'Address Number'
+      src.AddressNumber as AddressNumber,
+      @EndUserText.label: 'Address Valid To'
+      src.AddressValidTo as AddressValidTo,
+      @EndUserText.label: 'Address Name1'
+      src.AddressName1 as AddressName1,
+      @EndUserText.label: 'Address Name2'
+      src.AddressName2 as AddressName2,
+      @EndUserText.label: 'Address Name3'
+      src.AddressName3 as AddressName3,
+      @EndUserText.label: 'Address Name4'
+      src.AddressName4 as AddressName4,
+      @EndUserText.label: 'Address Street'
+      src.AddressStreet as AddressStreet,
+      @EndUserText.label: 'Address House Number'
+      src.AddressHouseNumber as AddressHouseNumber,
+      @EndUserText.label: 'Address House Number Supplement'
+      src.AddressHouseNumberSupplement as AddressHouseNumberSupplement,
+      @EndUserText.label: 'Address City'
+      src.AddressCity as AddressCity,
+      @EndUserText.label: 'Address District'
+      src.AddressDistrict as AddressDistrict,
+      @EndUserText.label: 'Address Postal Code'
+      src.AddressPostalCode as AddressPostalCode,
+      @EndUserText.label: 'Address POBox'
+      src.AddressPOBox as AddressPOBox,
+      @EndUserText.label: 'Address POBox Postal Code'
+      src.AddressPOBoxPostalCode as AddressPOBoxPostalCode,
+      @EndUserText.label: 'Address Country'
+      src.AddressCountry as AddressCountry,
+      @EndUserText.label: 'Address Region'
+      src.AddressRegion as AddressRegion,
+      @Semantics.language: true
+      @EndUserText.label: 'Address Language'
+      src.AddressLanguage as AddressLanguage,
+      @EndUserText.label: 'Has Standard Address'
+      src.HasStandardAddress as HasStandardAddress,
       @EndUserText.label: 'Material'
       src.Material                   as Material,
       @EndUserText.label: 'Serial Number'

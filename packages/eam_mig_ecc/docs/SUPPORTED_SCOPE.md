@@ -6,7 +6,7 @@ ModuPorter Enterprise Asset Management version 1.0.0.
 |---|---|---:|
 | Classification | classification | 2 |
 | Migration core | core | 0 |
-| Equipment | equipment | 3 |
+| Equipment | equipment | 8 |
 | Equipment BOM | equipment_bom | 4 |
 | Functional location | functional_location | 3 |
 | Long text | long_text | 1 |
@@ -30,7 +30,7 @@ Read-only extraction and comparison templates. Histories, balances and process r
 
 ## Delivered
 
-- All 14 ECC migration modules plus shared core: 158 CDS views, 41 documented extraction structures, 14 count views and field mappings.
+- All 14 ECC migration modules plus shared core: 169 CDS views, 46 documented extraction structures, 14 count views and field mappings.
 - S/4 companion: 16 CDS views for main-object comparisons in eight modules.
 - Preparation tools: date/interval selection, explicit ECM eligibility validation, typed parent cohorts, reference sets, many-to-one joins, alias conversion, nested service-package closure and auditable whole-project execution.
 - Reconciliation: every canonical structure and raw extension table, using exported DDIC keys or explicit business-key contracts; exact ordered text comparison.
@@ -44,3 +44,5 @@ Specialized capacities/shifts/formulas, task-list relationships/services/depende
 SAP release/DDIC confirmation, selected root population, native engineering-change eligibility where needed, conversion and identifier maps, target posting interface and deployment permissions. Customizing, target loading/commits and SAP entitlements belong to the customer implementation. Parameter-dependent ECM cannot be inferred reliably from a generic table snapshot; unevaluated cases stop preparation.
 
 ## Validation boundary
+
+Equipment master now includes its standard postal address; separate equipment child exports preserve partner, status, text and address-version keys. See EQUIPMENT_ARCHITECTURE.md.

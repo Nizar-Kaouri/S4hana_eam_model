@@ -15,7 +15,7 @@
 
 ## Purpose
 
-Equipment to migrate (not flagged for deletion) with all fields as stored in ECC.
+Equipment to migrate (not flagged for deletion) with documented master and standard postal address fields as stored in ECC.
 
 ## Keys
 

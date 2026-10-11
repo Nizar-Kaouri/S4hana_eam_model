@@ -431,5 +431,55 @@
     "parent_keys": [
       "CapacityInternalID"
     ]
+  },
+  "ZEMX_C_EquipPartnerMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipStatusMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipUserStatusMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipLongTextMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ]
+  },
+  "ZEMX_C_EquipAddressMig": {
+    "kind": "child",
+    "parent": "ZEMX_C_EquipmentMig",
+    "child_keys": [
+      "Equipment"
+    ],
+    "parent_keys": [
+      "Equipment"
+    ]
   }
 }

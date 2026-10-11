@@ -17,6 +17,8 @@ define view ZEMX_B_LocAcctAssignment
 {
       @EndUserText.label: 'Loc Acct Assignment'
   key iloa.iloan as LocAcctAssignment,
+      @EndUserText.label: 'Address Number'
+      iloa.adrnr as AddressNumber,
       @EndUserText.label: 'Functional Location'
       iloa.tplnr as FunctionalLocation,
       // Compatibility note: ILOA field names (SWERK, BEBER, STORT, MSGRP, ABCKZ, EQFNR, BUKRS, GSBER, KOKRS, KOSTL, ANLNR, ANLUN, DAUFN)

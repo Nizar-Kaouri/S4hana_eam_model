@@ -110,3 +110,5 @@ abapGit expects one `.abapgit.xml` at the repository root.
 Version 0.3.0 extends the native drafts and replaces the staging drafts. EWM, TM, FSCM and EHS use native SAP table → B_ Basic → I_ Interface (Composite) → C_ Consumption for 27 documented structure drafts, with native target comparison views. The 32-module coverage plan contains 72 structures: 45 unresolved structures are explicitly pending and have no executable fallback. Native drafts also list incomplete payload separately. No custom staging tables or staging write loaders remain in these eight products. Exact native DDIC keys, application releases, SAP activation and business acceptance remain unverified. No business posting adapter is supplied.
 
 See [bilingual customer guides and VDM maps](docs/customer/new-domains/README.md). Industry solutions remain out of scope.
+
+Project development follows [SAP design principles](docs/SAP_DESIGN_PRINCIPLES.md).

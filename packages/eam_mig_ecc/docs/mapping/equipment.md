@@ -63,12 +63,30 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `AcquisitionValue` | EQUI-ANSWT | EQUI-ANSWT | copy |  |
 | `Currency` | EQUI-WAERS | EQUI-WAERS | copy |  |
 | `LastChangeDate` | EQUI-AEDAT | - | information only |  |
+| `AddressNumber` | ILOA-ADRNR | - | information only |  |
+| `AddressValidTo` | ADRC-DATE_TO | - | information only |  |
+| `AddressName1` | ADRC-NAME1 | - | copy |  |
+| `AddressName2` | ADRC-NAME2 | - | copy |  |
+| `AddressName3` | ADRC-NAME3 | - | copy |  |
+| `AddressName4` | ADRC-NAME4 | - | copy |  |
+| `AddressStreet` | ADRC-STREET | - | copy |  |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
+| `AddressCity` | ADRC-CITY1 | - | copy |  |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
+| `AddressRegion` | ADRC-REGION | - | copy |  |
+| `AddressLanguage` | ADRC-LANGU | - | copy |  |
+| `HasStandardAddress` | derived: presence of the standard ADRC record | - | information only |  |
 
 ## `ZEMX_C_EquipmentTextMig`
 
-- Source: `ZEMX_B_EquipmentDesc`
+- Source: `ZEMX_I_EquipText`
 - Keys: `Equipment`, `Language`
-- Scope: `_Equipment.IsMarkedForDeletion = ''`
+- Scope: `all rows`
 
 | Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
 |---|---|---|---|---|
@@ -92,6 +110,100 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `Batch` | EQBS-B_CHARGE | EQBS-B_CHARGE | copy |  |
 | `SpecialStock` | EQBS-SOBKZ | EQBS-SOBKZ | copy |  |
 
+## `ZEMX_C_EquipPartnerMig`
+
+- Source: `ZEMX_I_EquipPartner`
+- Keys: `Equipment`, `PartnerFunction`, `PartnerCounter`
+- Scope: `all rows`
+- Delivery mode: **posting**
+- Before posting: Resolve partner identities and map language-independent partner functions through the selected SAP posting interface; load after the equipment master.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQUI-EQUNR | - | copy |  |
+| `PartnerFunction` | IHPA-PARVW | - | copy |  |
+| `PartnerCounter` | IHPA-COUNTER | - | copy |  |
+| `Partner` | IHPA-PARNR | - | copy |  |
+
+## `ZEMX_C_EquipStatusMig`
+
+- Source: `ZEMX_I_EquipStatus`
+- Keys: `Equipment`, `StatusCode`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Reference data: preserve keys and select the required versions; do not write SAP tables directly. Long text payloads require READ_TEXT; address numbers are regenerated in the target.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQUI-EQUNR | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## `ZEMX_C_EquipUserStatusMig`
+
+- Source: `ZEMX_I_EquipStatus`
+- Keys: `Equipment`, `StatusCode`
+- Scope: `src.StatusKind = 'E'`
+- Delivery mode: **posting**
+- Before posting: Map the user status/profile through a supported SAP interface after master creation; source system statuses are reference only.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQUI-EQUNR | - | copy |  |
+| `StatusCode` | JEST-STAT | - | copy |  |
+| `StatusKind` | derived: first character of JEST-STAT | - | copy |  |
+| `StatusProfile` | JSTO-STSMA | - | copy |  |
+| `StatusChangeNumber` | JEST-CHGNR | - | copy |  |
+
+## `ZEMX_C_EquipLongTextMig`
+
+- Source: `ZEMX_I_EquipLongText`
+- Keys: `Equipment`, `TextObject`, `TextName`, `TextID`, `Language`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Reference data: preserve keys and select the required versions; do not write SAP tables directly. Long text payloads require READ_TEXT; address numbers are regenerated in the target.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQUI-EQUNR | - | copy |  |
+| `TextObject` | STXH-TDOBJECT | - | copy |  |
+| `TextName` | STXH-TDNAME | - | copy |  |
+| `TextID` | STXH-TDID | - | copy |  |
+| `Language` | STXH-TDSPRAS | - | copy |  |
+
+## `ZEMX_C_EquipAddressMig`
+
+- Source: `ZEMX_I_EquipAddress`
+- Keys: `Equipment`, `AddressValidFrom`, `AddressVersion`
+- Scope: `all rows`
+- Delivery mode: **reference**
+- Before posting: Reference data: preserve keys and select the required versions; do not write SAP tables directly. Long text payloads require READ_TEXT; address numbers are regenerated in the target.
+
+| Element | Source (ECC) | Target (S/4HANA) | Rule | Compared |
+|---|---|---|---|---|
+| `Equipment` | EQUI-EQUNR | - | copy |  |
+| `AddressNumber` | ADRC-ADDRNUMBER | - | copy |  |
+| `AddressValidFrom` | ADRC-DATE_FROM | - | copy |  |
+| `AddressVersion` | ADRC-NATION | - | copy |  |
+| `AddressValidTo` | ADRC-DATE_TO | - | copy |  |
+| `AddressName1` | ADRC-NAME1 | - | copy |  |
+| `AddressName2` | ADRC-NAME2 | - | copy |  |
+| `AddressName3` | ADRC-NAME3 | - | copy |  |
+| `AddressName4` | ADRC-NAME4 | - | copy |  |
+| `AddressStreet` | ADRC-STREET | - | copy |  |
+| `AddressHouseNumber` | ADRC-HOUSE_NUM1 | - | copy |  |
+| `AddressHouseNumberSupplement` | ADRC-HOUSE_NUM2 | - | copy |  |
+| `AddressCity` | ADRC-CITY1 | - | copy |  |
+| `AddressDistrict` | ADRC-CITY2 | - | copy |  |
+| `AddressPostalCode` | ADRC-POST_CODE1 | - | copy |  |
+| `AddressPOBox` | ADRC-PO_BOX | - | copy |  |
+| `AddressPOBoxPostalCode` | ADRC-POST_CODE2 | - | copy |  |
+| `AddressCountry` | ADRC-COUNTRY | - | copy |  |
+| `AddressRegion` | ADRC-REGION | - | copy |  |
+| `AddressLanguage` | ADRC-LANGU | - | copy |  |
+
 ## Not delivered
 
 | View | Element | Source | Reason |
@@ -100,7 +212,6 @@ The consumption views deliver the values **exactly as stored in ECC**. Changing 
 | `ZEMX_I_Equipment` | `IsMarkedForDeletion` | derived: case eq._DeletionFlag.StatusCode when 'I0076' then 'X' else '' end from JEST-STAT | scope flag |
 | `ZEMX_I_Equipment` | `CreationDate` | EQUI-ERDAT | information only |
 | `ZEMX_I_Equipment` | `CreatedByUser` | EQUI-ERNAM | information only |
-| `ZEMX_B_EquipmentDesc` | `HasLongText` | EQKT-KZLTX | information only |
 
 ## Reconciliation
 

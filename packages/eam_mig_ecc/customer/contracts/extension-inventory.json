@@ -68,6 +68,13 @@
         "CAWNT"
       ],
       "cohort": "selected task-list/service dependency references"
+    },
+    {
+      "name": "equipment_address",
+      "tables": [
+        "ADRC"
+      ],
+      "cohort": "Selected current EQUZ.ILOAN -> ILOA.ADRNR -> ADRC.ADDRNUMBER; preserve DATE_FROM and NATION keys."
     }
   ]
 }

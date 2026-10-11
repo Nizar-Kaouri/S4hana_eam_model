@@ -50,7 +50,12 @@
     "cohort_ZEMX_C_ObjectPartnerMig": "cohort_ZEMX_C_ObjectPartnerMig.csv",
     "cohort_ZEMX_C_UserStatusMig": "cohort_ZEMX_C_UserStatusMig.csv",
     "selected_work_center_ids": "selected_work_center_ids.csv",
-    "selected_capacity_ids": "selected_capacity_ids.csv"
+    "selected_capacity_ids": "selected_capacity_ids.csv",
+    "ZEMX_C_EquipPartnerMig": "ZEMX_C_EquipPartnerMig.csv",
+    "ZEMX_C_EquipStatusMig": "ZEMX_C_EquipStatusMig.csv",
+    "ZEMX_C_EquipUserStatusMig": "ZEMX_C_EquipUserStatusMig.csv",
+    "ZEMX_C_EquipLongTextMig": "ZEMX_C_EquipLongTextMig.csv",
+    "ZEMX_C_EquipAddressMig": "ZEMX_C_EquipAddressMig.csv"
   },
   "steps": [
     {
@@ -500,6 +505,66 @@
       "parent_keys": [
         "CapacityInternalID"
       ]
+    },
+    {
+      "name": "ZEMX_C_EquipPartnerMig_scoped",
+      "operation": "cohort",
+      "input": "ZEMX_C_EquipPartnerMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipStatusMig_scoped",
+      "operation": "cohort",
+      "input": "ZEMX_C_EquipStatusMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipUserStatusMig_scoped",
+      "operation": "cohort",
+      "input": "ZEMX_C_EquipUserStatusMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipLongTextMig_scoped",
+      "operation": "cohort",
+      "input": "ZEMX_C_EquipLongTextMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ]
+    },
+    {
+      "name": "ZEMX_C_EquipAddressMig_scoped",
+      "operation": "cohort",
+      "input": "ZEMX_C_EquipAddressMig",
+      "parent": "ZEMX_C_EquipmentMig",
+      "child_keys": [
+        "Equipment"
+      ],
+      "parent_keys": [
+        "Equipment"
+      ]
     }
   ],
   "outputs": [
@@ -543,6 +608,11 @@
     "ZEMX_C_WorkCenterTextMig_scoped",
     "ZEMX_C_WorkCenterCostCtrMig_scoped",
     "ZEMX_C_WorkCenterCapacityMig_scoped",
-    "ZEMX_C_CapacityHeaderMig_scoped"
+    "ZEMX_C_CapacityHeaderMig_scoped",
+    "ZEMX_C_EquipPartnerMig_scoped",
+    "ZEMX_C_EquipStatusMig_scoped",
+    "ZEMX_C_EquipUserStatusMig_scoped",
+    "ZEMX_C_EquipLongTextMig_scoped",
+    "ZEMX_C_EquipAddressMig_scoped"
   ]
 }

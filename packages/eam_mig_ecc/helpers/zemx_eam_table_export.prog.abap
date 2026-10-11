@@ -33,7 +33,7 @@ START-OF-SELECTION.
   " Additional structures are exported with all their DDIC fields and real keys.
   CASE p_table.
     WHEN 'EQUI' OR 'EQUZ' OR 'EQKT' OR 'EQBS' OR 'IFLOT' OR 'IFLOTX' OR 'IFLOS'
-      OR 'ILOA' OR 'CRHD' OR 'CRTX' OR 'CRCO' OR 'CRCA' OR 'KAKO' OR 'KAKT'
+      OR 'ILOA' OR 'ADRC' OR 'CRHD' OR 'CRTX' OR 'CRCO' OR 'CRCA' OR 'KAKO' OR 'KAKT'
       OR 'KAZY' OR 'KAPA' OR 'KAPE' OR 'T550A' OR 'T550P' OR 'TC20' OR 'TC20T'
       OR 'TC21' OR 'TC21T' OR 'TC25' OR 'TC25T' OR 'PLKO' OR 'PLPO' OR 'PLAS'
       OR 'PLFL' OR 'PLAB' OR 'PLMZ' OR 'PLFH' OR 'PLWP' OR 'EAPL' OR 'TAPL'
