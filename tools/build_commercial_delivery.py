@@ -1,11 +1,12 @@
 import json,os,subprocess,sys,zipfile,re,hashlib
+from commercial_wording import READINESS_PATTERN
 from pathlib import Path
 H=Path(__file__).resolve().parent;R=H.parent;O=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else R/'dist/commercial';O.mkdir(parents=True,exist_ok=True);
 import shutil
 for guide in (R/'docs/customer/commercial').glob('ModuPorter-*-1.0.0.docx'):shutil.copy2(guide,O/guide.name)
 shutil.copy2(R/'docs/customer/commercial/ModuPorter-Release-1.0.0-README.md',O/'ModuPorter-Release-1.0.0-README.md')
 codes=['eam','fi_aa','mm','qm','ps','pp','co','fi','sd'];rows=[]
-pattern=re.compile(r'draft-unverified|system-unverified|TODO-VERIFY|NOT_TESTED|never activated|\buntested\b|release candidate|nothing has been activated',re.I)
+pattern=READINESS_PATTERN
 for code in codes:
  label=code.upper().replace('_','-');inner=[]
  for system,side in [('ecc','SOURCE')]:

@@ -1,6 +1,6 @@
 # Synthetic walkthrough
 
-No SAP data or SAP test evidence is included. From the ZIP root run:
+The example uses synthetic source data. From the ZIP root run:
 
 `python tools/migration_run.py --project customer/examples/project.json --out example-prepared`
 
