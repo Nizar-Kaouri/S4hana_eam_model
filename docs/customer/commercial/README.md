@@ -1,6 +1,6 @@
 # ModuPorter commercial migration templates
 
-Version **1.0.0** | KAOURI INNOVATECH
+Version **1.0.0**
 
 Choose a domain customer pack below. Each contains a SOURCE import ZIP, English and German manuals, field mappings, licenses and VDM maps. Read START_HERE.md before importing.
 

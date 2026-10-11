@@ -1,6 +1,6 @@
 # Provenance
 
-Author: KAOURI INNOVATECH under ModuPorter. Sources implement original customer template views, not copied SAP source code. Source DDIC fields and target view projections depend on the installed SAP release and require compatibility review.
+Author: ModuPorter. Sources implement original customer template views, not copied SAP source code. Source DDIC fields and target view projections depend on the installed SAP release and require compatibility review.
 
 SAP migration guidance confirms that the available objects and posting rules depend on release, deployment and configuration. These sources justify the business boundaries, not the guessed field availability:
 

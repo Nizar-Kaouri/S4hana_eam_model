@@ -1,6 +1,6 @@
 # ModuPorter SAP Domain Migration Guides EN
 
-Version 0.2.0. KAOURI INNOVATECH. Eight domain drafts. No SAP runtime validation.
+Version 0.2.0. Eight domain drafts. No SAP runtime validation.
 
 
 # Supported scope
